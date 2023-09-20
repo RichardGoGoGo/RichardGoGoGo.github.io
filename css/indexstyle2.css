@@ -15,7 +15,7 @@ body {
 	right:10px;
 	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
 	font-weight: 100;
-    font-size: 1.5em;
+    font-size: 1em;
 	z-index:2;
 	
 }
@@ -68,6 +68,7 @@ top:60px;
 .button:active,
 .button.is-checked {
  /* background-color: white;*/
+
 }
 
 .button.is-checked {
