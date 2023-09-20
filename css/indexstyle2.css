@@ -129,8 +129,8 @@ top:80px;
 .element-item {
   position: relative;
   float: left;
-  width: 610px;
-  height: 610px;
+  width: 460px;
+  height: 460px;
   margin: 2px;
 }
 
@@ -178,4 +178,4 @@ top:80px;
 }
 
 
-.list-img          { width: 600px; height:600px; }
+.list-img          { width: 460px; height:460px; }
