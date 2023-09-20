@@ -6,6 +6,7 @@
 
 
 body {
+  overflow: hidden;
   font-family: sans-serif;
   text-align: left;
 }
@@ -15,18 +16,31 @@ body {
 	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
 	font-weight: 100;
     font-size: 1.5em;
-	z-index:1;
+	z-index:2;
 	
 }
 
 #catalogue{
-	position:absolute;
-	z-index:1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* 白色背景 */
+  z-index: 1; /* 为了确保它位于页面的顶部 */
+  /* 其他样式规则，例如边框、内边距、阴影等 */
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+
+
+  /*text-align: center;
+	position:relative;
+	z-index:1;*/
 	
 }
 
 .grid{
-top:50px;
+top:60px;
 }
 
 .list-link{position:absolute;top:68px;}
@@ -34,8 +48,8 @@ top:50px;
 
 .button {
   display: inline-block;
-  text-align:left;
-  background: white;
+  text-align:center;
+  background: transparent;
   border: none;
 
   color: #222;
@@ -46,14 +60,14 @@ top:50px;
 }
 
 .button:hover {
-  background-color: white;
+  /*background-color: white;*/
   text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
   color: red;
 }
 
 .button:active,
 .button.is-checked {
-  background-color: white;
+ /* background-color: white;*/
 }
 
 .button.is-checked {
@@ -68,7 +82,9 @@ top:50px;
 /* ---- button-group ---- */
 
 .button-group {
-  margin-bottom: 20px;
+  margin: 0 auto;
+  width: 1000px;
+  /*margin-bottom: 20px;*/
 }
 
 .button-group:after {
