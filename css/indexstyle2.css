@@ -15,7 +15,7 @@ body {
 	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
 	font-weight: 100;
     font-size: 1em;
-	z-index:2;
+	z-index:4;
 	
 }
 #title{
@@ -23,7 +23,7 @@ body {
   top:40px;
   height: 100px;
 	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
-	font-weight: 10;
+	font-weight: 1000;
     font-size: 6em;
 
   padding:0px
@@ -35,12 +35,13 @@ body {
   top: 0px;
   left: 0px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5); /* 白色背景 */
+  background-color: rgba(255, 255, 255, 0.8); /* 白色背景 */
   z-index: 3; /* 为了确保它位于页面的顶部 */
   /* 其他样式规则，例如边框、内边距、阴影等 */
   border-bottom: 1px solid #ccc;
-  padding: 20px;
-  text-align: left;
+  padding: 10px;
+  font-weight: 100;
+  /*text-align: left;*/
 
 
   /*text-align: center;
@@ -50,7 +51,7 @@ body {
 }
 
 .grid{
-top:120px;
+top:80px;
 }
 
 .list-link{position:absolute;top:68px;}
@@ -66,6 +67,7 @@ top:120px;
   color: #222;
   font-family: sans-serif;
   font-size: 1em;
+  font-weight: 100;
   text-shadow: 0 1px white;
   cursor: pointer;
 }
@@ -94,8 +96,9 @@ top:120px;
 /* ---- button-group ---- */
 
 .button-group {
-  margin: 0 auto;
-  /*width: 1000px;*/
+  /*margin: 0 auto;*/
+  width: 290px;
+  float:left;
   /*margin-bottom: 20px;*/
 }
 
