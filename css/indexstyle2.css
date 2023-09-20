@@ -6,7 +6,6 @@
 
 
 body {
-  overflow: hidden;
   font-family: sans-serif;
   text-align: left;
 }
@@ -19,18 +18,29 @@ body {
 	z-index:2;
 	
 }
+#title{
+  position: relative;
+  top:40px;
+  height: 100px;
+	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
+	font-weight: 10;
+    font-size: 6em;
+
+  padding:0px
+}
+
 
 #catalogue{
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5); /* 白色背景 */
-  z-index: 1; /* 为了确保它位于页面的顶部 */
+  z-index: 3; /* 为了确保它位于页面的顶部 */
   /* 其他样式规则，例如边框、内边距、阴影等 */
   border-bottom: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
+  padding: 20px;
+  text-align: left;
 
 
   /*text-align: center;
@@ -40,13 +50,14 @@ body {
 }
 
 .grid{
-top:60px;
+top:120px;
 }
 
 .list-link{position:absolute;top:68px;}
 /* ---- button ---- */
 
 .button {
+  position: relative;
   display: inline-block;
   text-align:center;
   background: transparent;
@@ -54,7 +65,7 @@ top:60px;
 
   color: #222;
   font-family: sans-serif;
-  font-size: 30px;
+  font-size: 1em;
   text-shadow: 0 1px white;
   cursor: pointer;
 }
@@ -84,7 +95,7 @@ top:60px;
 
 .button-group {
   margin: 0 auto;
-  width: 1000px;
+  /*width: 1000px;*/
   /*margin-bottom: 20px;*/
 }
 
