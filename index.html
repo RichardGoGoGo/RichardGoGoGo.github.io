@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>p5.js Interactive Circles</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简单网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #35424a;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        main {
+            padding: 20px;
+            background-color: white;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <script>
-      function setup() {
-        createCanvas(640, 360);
-        noStroke();
-        // No need for rectMode(CENTER) as ellipse() uses center coordinates by default
-      }
-      
-      function draw() {
-        background(51);
-        
-        fill(255, 204);
-        ellipse(mouseX, height/2, mouseY/2+10, mouseY/2+10);
-        
-        fill(255, 204);
-        let inverseX = width - mouseX;
-        let inverseY = height - mouseY;
-        ellipse(inverseX, height/2, (inverseY/2)+10, (inverseY/2)+10);
-      }
-    </script>
+    <header>
+        <h1>欢迎来到我的网页</h1>
+    </header>
+    <main>
+        <h2>关于我</h2>
+        <p>这是一个简单的网页示例。您可以在这里添加更多内容。</p>
+    </main>
 </body>
 </html>
