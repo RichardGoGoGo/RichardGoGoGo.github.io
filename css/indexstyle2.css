@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* CSS Document */
+
+* { box-sizing: border-box; }
+
+
+
+body {
+  font-family: sans-serif;
+  text-align: left;
+}
+#header {
+	position:fixed;
+	right:10px;
+	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
+	font-weight: 100;
+    font-size: 1em;
+	z-index:4;
+	
+}
+#title{
+  position: relative;
+  top:40px;
+  height: 100px;
+	font-family: DengXian, Calibri, HelveticaLTStd-Roman, Helvetica, Arial, sans-serif;
+	font-weight: 1000;
+    font-size: 6em;
+
+  padding:0px
+}
+
+
+#catalogue{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* 白色背景 */
+  z-index: 3; /* 为了确保它位于页面的顶部 */
+  /* 其他样式规则，例如边框、内边距、阴影等 */
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  font-weight: 100;
+  /*text-align: left;*/
+  /*text-align: center;
+	position:relative;
+	z-index:1;*/
+	
+}
+
+.grid{
+top:80px;
+}
+
+.list-link{position:absolute;top:68px;}
+/* ---- button ---- */
+
+.button {
+  position: relative;
+  display: inline-block;
+  text-align:center;
+  background: transparent;
+  border: none;
+
+  color: #222;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: 100;
+  text-shadow: 0 1px white;
+  cursor: pointer;
+}
+
+.button:hover {
+  /*background-color: white;*/
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+  color: red;
+}
+
+.button:active,
+.button.is-checked {
+ /* background-color: white;*/
+
+}
+
+.button.is-checked {
+  color: red;
+
+}
+
+.button:active {
+  
+}
+
+/* ---- button-group ---- */
+
+.button-group {
+  /*margin: 0 auto;*/
+  width: 290px;
+  float:left;
+  /*margin-bottom: 20px;*/
+}
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  /*float: left;*/
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 1px;
+}
+
+/* ---- isotope ---- */
+
+
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+.element-item {
+  position: relative;
+  float: left;
+  width: 460px;
+  height: 460px;
+  margin: 2px;
+}
+
+.element-item > * {
+  margin: 0;
+  padding: 0;
+}
+
+.element-item .name {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  z-index:-1;
+  color: red;
+}
+
+.element-item .size {
+  position: relative;
+  text-align: center;
+  top: 55%;
+  font-size: 25px;
+  font-weight: normal;
+  z-index:-1;
+}
+
+.element-item .type {
+  position: relative;
+  text-align: center;
+  top: 60%;
+  font-size: 25px;
+  font-weight: normal;
+  z-index:-1;
+}
+
+
+
+.element-item .time {
+  position: relative;
+  font-size: 25px;
+  text-align: center;
+  top: 65%;
+  z-index:-1;
+}
+
+
+.list-img          { width: 460px; height:460px; }
