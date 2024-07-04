@@ -1,7 +1,7 @@
 const canvas = document.getElementById('inkCanvas');
 const ctx = canvas.getContext('2d');
 let inkDrops = [];
-let images = [];
+let videos = [];
 
 const inkDropPositions = [
     { x: 0.2, y: 0.3 },
@@ -10,11 +10,11 @@ const inkDropPositions = [
     { x: 0.8, y: 0.7 }
 ];
 
-const imageUrls = [
-    'images/1.jpg',
-    'images/2.jpg',
-    'images/3.jpg',
-    'images/4.jpg'
+const videoUrls = [
+    'videos/1.mp4',
+    'videos/2.mp4',
+    'videos/3.mp4',
+    'videos/4.mp4'
 ];
 
 const keyLastTriggerTime = {
@@ -35,52 +35,32 @@ function init() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('keydown', handleKeyPress);
-    loadImages();
+    loadVideos();
     animate();
 }
 
-function loadImages() {
-    imageUrls.forEach((url, index) => {
-        const img = new Image();
-        img.src = url;
-        img.onload = () => {
-            images[index] = createImageWithSoftEdges(img);
-            console.log(`Image ${index + 1} loaded`);
-        };
+function loadVideos() {
+    videoUrls.forEach((url, index) => {
+        const video = document.createElement('video');
+        video.src = url;
+        video.loop = true;
+        video.preload = 'auto';
+        video.addEventListener('loadedmetadata', () => {
+            console.log(`Video ${index + 1} loaded`);
+        });
+        videos[index] = video;
     });
-}
-
-function createImageWithSoftEdges(img) {
-    const tempCanvas = document.createElement('canvas');
-    const tempCtx = tempCanvas.getContext('2d');
-    tempCanvas.width = img.width;
-    tempCanvas.height = img.height;
-
-    tempCtx.drawImage(img, 0, 0);
-
-    const gradient = tempCtx.createRadialGradient(
-        tempCanvas.width / 2, tempCanvas.height / 2, Math.min(tempCanvas.width, tempCanvas.height) * 0.3,
-        tempCanvas.width / 2, tempCanvas.height / 2, Math.min(tempCanvas.width, tempCanvas.height) * 0.5
-    );
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(1, 'rgba(255,255,255,0)');
-
-    tempCtx.globalCompositeOperation = 'destination-in';
-    tempCtx.fillStyle = gradient;
-    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
-
-    return tempCanvas;
 }
 
 class InkLayer {
     constructor(maxSize, isFirstLayer) {
         this.maxSize = maxSize;
-        this.size = isFirstLayer ? 0 : maxSize * 0.6; // Start larger for non-first layers
+        this.size = isFirstLayer ? 0 : maxSize * 0.6;
         this.alpha = 0;
         this.points = this.generatePoints();
         this.state = 'growing';
         this.lifespan = 0;
-        this.growthRate = isFirstLayer ? 0.005 : 0.002; // Faster growth for first layer
+        this.growthRate = isFirstLayer ? 0.005 : 0.002;
     }
 
     generatePoints() {
@@ -125,22 +105,32 @@ class InkLayer {
 }
 
 class InkDrop {
-    constructor(x, y, imageIndex) {
+    constructor(x, y, videoIndex) {
         this.x = x;
         this.y = y;
-        this.imageIndex = imageIndex;
+        this.videoIndex = videoIndex;
         this.reset();
     }
 
     reset() {
         this.layers = [];
-        this.imageAlpha = 0;
+        this.videoAlpha = 0;
+        this.audioVolume = 0;
         this.state = 'active';
         this.fadeStartTime = null;
-        this.imageAppearDelay = 1000;
+        this.videoAppearDelay = 100;
         this.lastLayerAddTime = 0;
         this.hasFadedIn = false;
         this.isFadingOut = false;
+        if (videos[this.videoIndex]) {
+            videos[this.videoIndex].currentTime = 0;
+            videos[this.videoIndex].volume = 0;
+            videos[this.videoIndex].play().then(() => {
+                videos[this.videoIndex].muted = false;
+            }).catch(error => {
+                console.log("Video playback failed:", error);
+            });
+        }
     }
 
     addLayer(isFirstLayer = false) {
@@ -151,17 +141,18 @@ class InkDrop {
     update(currentTime, deltaTime) {
         if (this.state === 'active' && !this.isFadingOut) {
             if (this.layers.length === 0) {
-                this.addLayer(true); // Add first layer
+                this.addLayer(true);
             } else if (currentTime - this.lastLayerAddTime > 500) {
                 this.addLayer();
                 this.lastLayerAddTime = currentTime;
             }
 
-            if (this.imageAppearDelay > 0) {
-                this.imageAppearDelay -= deltaTime;
+            if (this.videoAppearDelay > 0) {
+                this.videoAppearDelay -= deltaTime;
             } else if (!this.hasFadedIn) {
-                this.imageAlpha = Math.min(this.imageAlpha + deltaTime / 2000, 1);
-                if (this.imageAlpha === 1) {
+                this.videoAlpha = Math.min(this.videoAlpha + deltaTime / 2000, 1);
+                this.audioVolume = Math.min(this.audioVolume + deltaTime / 2000, 1);
+                if (this.videoAlpha === 1) {
                     this.hasFadedIn = true;
                 }
             }
@@ -169,26 +160,33 @@ class InkDrop {
             if (this.fadeStartTime === null) {
                 this.fadeStartTime = currentTime;
             }
-            const fadeDuration = 2000; // 2 seconds to fade out
+            const fadeDuration = 2000;
             const fadeProgress = (currentTime - this.fadeStartTime) / fadeDuration;
-            this.imageAlpha = Math.max(1 - fadeProgress, 0);
+            this.videoAlpha = Math.max(1 - fadeProgress, 0);
+            this.audioVolume = Math.max(1 - fadeProgress, 0);
             
-            if (this.imageAlpha === 0) {
+            if (this.videoAlpha === 0) {
                 this.state = 'fading';
-                this.layers.forEach(layer => layer.state = 'fading');
+                if (videos[this.videoIndex]) {
+                    videos[this.videoIndex].pause();
+                }
             }
+        }
+
+        if (videos[this.videoIndex]) {
+            videos[this.videoIndex].volume = this.audioVolume;
         }
 
         this.layers = this.layers.filter(layer => layer.update(deltaTime));
 
-        return this.layers.length > 0 || this.imageAlpha > 0;
+        return this.layers.length > 0 || this.videoAlpha > 0;
     }
 
     draw(time) {
-        // Draw ink layers
         ctx.save();
         ctx.translate(this.x, this.y);
 
+        // Draw ink layers
         this.layers.forEach(layer => {
             ctx.beginPath();
             layer.points.forEach((point, index) => {
@@ -212,31 +210,34 @@ class InkDrop {
             ctx.fill();
         });
 
-        ctx.restore();
-
-        // Draw image on top of ink layers
-        if (images[this.imageIndex] && this.imageAlpha > 0 && (this.state === 'active' || this.hasFadedIn)) {
-            const img = images[this.imageIndex];
+        // Draw video with mask
+        if (videos[this.videoIndex] && this.videoAlpha > 0 && (this.state === 'active' || this.hasFadedIn)) {
+            const video = videos[this.videoIndex];
             
-            // 使用固定的最大尺寸
-            const maxSize = 300; // 设置最大尺寸，例如 300 像素
-            const scale = Math.min(maxSize / img.width, maxSize / img.height);
+            const maxSize = 800;
+            const scale = Math.min(maxSize / video.videoWidth, maxSize / video.videoHeight);
+            const width = video.videoWidth * scale;
+            const height = video.videoHeight * scale;
 
-            // 如果您想使用画布尺寸的百分比，请使用下面的代码替换上面的两行
-            // const maxWidthPercentage = 0.3; // 例如，画布宽度的 30%
-            // const maxHeightPercentage = 0.4; // 例如，画布高度的 40%
-            // const scale = Math.min(
-            //     (canvas.width * maxWidthPercentage) / img.width,
-            //     (canvas.height * maxHeightPercentage) / img.height
-            // );
+            // Create clipping path
+            ctx.beginPath();
+            this.layers[this.layers.length - 1].points.forEach((point, index) => {
+                const x = point.x * this.layers[this.layers.length - 1].size;
+                const y = point.y * this.layers[this.layers.length - 1].size;
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.closePath();
+            ctx.clip();
 
-            const width = img.width * scale;
-            const height = img.height * scale;
-
-            ctx.globalAlpha = this.imageAlpha;
-            ctx.drawImage(img, this.x - width/2, this.y - height/2, width, height);
-            ctx.globalAlpha = 1;
+            ctx.globalAlpha = this.videoAlpha;
+            ctx.drawImage(video, -width/2, -height/2, width, height);
         }
+
+        ctx.restore();
     }
 
     fadeOut() {
@@ -260,19 +261,16 @@ function handleKeyPress(event) {
             keyLastTriggerTime[key] = currentTime;
             const newIndex = parseInt(key) - 1;
             
-            let existingDrop = inkDrops.find(drop => drop.imageIndex === newIndex && drop.state === 'active');
+            let existingDrop = inkDrops.find(drop => drop.videoIndex === newIndex && drop.state === 'active');
             
             if (existingDrop) {
-                // 如果存在相同索引的活跃墨滴，重置它
                 existingDrop.reset();
             } else {
-                // 创建新的墨滴
                 inkDrops.push(createInkDrop(newIndex));
             }
 
-            // 淡出所有其他墨滴
             inkDrops.forEach(drop => {
-                if (drop.imageIndex !== newIndex || drop.state !== 'active') {
+                if (drop.videoIndex !== newIndex || drop.state !== 'active') {
                     drop.fadeOut();
                 }
             });
