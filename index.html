@@ -1,14 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natural Ink Wash Effect</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>浅译万道｜融合AI与艺术设计的教育实验室</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <canvas id="inkCanvas"></canvas>
-    <div id="instructions">Press 1, 2, 3, or 4 to create ink drops</div>
-    <script src="script.js"></script>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">浅译万道</a>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#services">服务内容</a></li>
+                <li><a href="#feedback">用户反馈</a></li>
+                <li><a href="#team">团队介绍</a></li>
+                <li><a href="#partners">合作伙伴</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="header-background">
+            <canvas id="matrix-rain"></canvas>
+        </div>
+        <div class="header-content">
+            <h1 class="animate-text">载道以文，载心以技</h1>
+            <p class="animate-text delay-1">我们是一家关注人工智能与艺术设计的教育实验室，面向高校师生与企业团队，提供前沿技术课程、创意设计训练及研究共创支持，致力于探索融合技术与人文的创意表达。</p>
+            <div class="scroll-indicator">
+                <span>向下滚动</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="services">
+            <h2>服务内容</h2>
+
+            <div class="collapsible-wrapper">
+                <div class="collapsible">AI创作训练 · AI-Driven Creation <span>点击查看实践案例</span></div>
+                <div class="content">
+                    <p>我们专注于最前沿的 AI 视觉生成、多模态表达与创意工具教学，支持教育者、学生与企业设计师掌握新一代创作语言。从课程建设到工作坊实训，从作品集优化到跨模态叙事，我们提供体系化、项目制、可转化的训练路径，让技术真正成为创作的延展。</p>
+                    <div class="card">
+                        <h4>AI + 形态实验课程共建</h4>
+                        <p>联合顶尖高校开展跨学科课程开发，探索AI在设计形态表达中的应用，覆盖课程设计、教学平台搭建与作品输出。</p>
+                        <div class="keywords">#课程共创 #AI设计教学 #跨学科</div>
+                    </div>
+                    <div class="card">
+                        <h4>生成式AI工作坊</h4>
+                        <p>面向设计师的实践工作坊，从提示词工程到图像生成，从风格迁移到创意表达，全方位掌握AI创作技能。</p>
+                        <div class="keywords">#工作坊 #提示词工程 #创意表达</div>
+                    </div>
+                    <div class="card">
+                        <h4>AI辅助设计流程</h4>
+                        <p>为企业设计团队提供AI工具培训与流程改造，提升设计效率与创新能力。</p>
+                        <div class="keywords">#企业内训 #流程优化 #效率提升</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible-wrapper">
+                <div class="collapsible">科研支持 · Research Enablement <span>点击查看实践案例</span></div>
+                <div class="content">
+                    <p>我们协助高校教师与研究者将个人教学经验与研究方法转化为课程体系、论文成果、专利项目与公开资源，同时也参与 AI 教育场景的研究与实验，推动以工具为桥梁的"教学研究共生"实践。</p>
+                    <div class="card">
+                        <h4>教学经验转化科研成果</h4>
+                        <p>协助高校教师将长期教学经验转化为科研论文、专利申请与课程资源建设，形成"教学-研究-成果"三位一体结构。</p>
+                        <div class="keywords">#科研转化 #课程结构化 #专利支持</div>
+                    </div>
+                    <div class="card">
+                        <h4>AI教育研究项目</h4>
+                        <p>开展AI在教育领域的应用研究，探索新技术对教学方式的影响与创新。</p>
+                        <div class="keywords">#教育研究 #技术创新 #教学改革</div>
+                    </div>
+                    <div class="card">
+                        <h4>学术资源共建</h4>
+                        <p>联合高校建立AI教育研究数据库，促进学术资源共享与交流。</p>
+                        <div class="keywords">#资源共建 #学术交流 #数据共享</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible-wrapper">
+                <div class="collapsible">企业协作 · Industry Collaboration <span>点击查看实践案例</span></div>
+                <div class="content">
+                    <p>我们为企业设计团队提供 AI 工具培训与创意流程改造，助力其在视觉生成、内容表达与创新能力上的持续升级。从一次性定制培训到长期共研项目，我们将实验性的设计能力转化为实际生产力。</p>
+                    <div class="card">
+                        <h4>企业设计流程AI升级</h4>
+                        <p>为大型设计集团开展AI生成视觉与视频的创意训练工作坊，形成内部视觉生成流程标准，助力创新流程落地。</p>
+                        <div class="keywords">#企业内训 #AI创作流程 #生成标准化</div>
+                    </div>
+                    <div class="card">
+                        <h4>创新实验室共建</h4>
+                        <p>与企业共建AI创新实验室，探索前沿技术在商业设计中的应用。</p>
+                        <div class="keywords">#实验室共建 #技术创新 #商业应用</div>
+                    </div>
+                    <div class="card">
+                        <h4>定制化培训方案</h4>
+                        <p>根据企业需求定制AI培训方案，提升团队创新能力与技术水平。</p>
+                        <div class="keywords">#定制培训 #能力提升 #技术赋能</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <h2>用户反馈</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-content">
+                        <div class="feedback-grid">
+                            <div class="feedback-page">
+                                <div class="feedback-card">
+                                    <p>"课程设计非常有实验性，但结构也很清晰。学生们不仅学会了AI工具，更重要的是学会了如何用技术去传达自己的想法。"<br><strong>— 某高校副教授 / 课程共创合作教师</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"从工具教学到思维启发，整个训练过程让我对设计教育有了新的理解。'技以载心'不是一句口号，而是他们课程中的每一步。"<br><strong>— 某高校青年教师 / 教研项目支持对象</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"我原以为只是一次AI图像工作坊，结果团队带着我们把从调研、文本生成到图像建模都做了一遍，感觉像经历了一个完整的创作系统。"<br><strong>— 某设计集团创新部门成员 / 企业内训参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"课程内容非常实用，不仅学到了技术，更重要的是学会了如何将AI工具融入设计流程，提升工作效率。"<br><strong>— 某设计公司创意总监 / 企业内训参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"团队的专业度和耐心让我印象深刻，他们不仅教授技术，更注重培养学生的创新思维。"<br><strong>— 某高校学生 / 课程参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"通过这次培训，我们团队的设计流程得到了显著优化，AI工具的应用让创意表达更加高效。"<br><strong>— 某科技公司设计主管 / 企业内训参与者</strong></p>
+                                </div>
+                            </div>
+                            <div class="feedback-page">
+                                <div class="feedback-card">
+                                    <p>"课程中的案例分析和实践环节设计得非常好，让我们能够快速掌握AI创作的核心技能。"<br><strong>— 某设计工作室创始人 / 课程参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"老师们不仅技术过硬，更重要的是他们懂得如何激发学生的创造力，让技术真正服务于创意表达。"<br><strong>— 某艺术学院研究生 / 课程参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"这次培训让我们团队的设计思维得到了很大提升，AI工具的应用让我们的工作效率提高了至少50%。"<br><strong>— 某互联网公司设计总监 / 企业内训参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"课程内容深入浅出，即使是AI零基础的设计师也能快速上手，非常推荐给想要提升设计效率的同行。"<br><strong>— 某广告公司资深设计师 / 课程参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"通过这次学习，我对AI创作有了全新的认识，它不仅是工具，更是创意的延伸和放大。"<br><strong>— 某高校设计系学生 / 课程参与者</strong></p>
+                                </div>
+                                <div class="feedback-card">
+                                    <p>"团队的教学方法很特别，他们不是简单地教工具使用，而是帮助我们建立AI时代的创作思维。"<br><strong>— 某设计教育机构负责人 / 课程参与者</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-arrow prev"></div>
+                <div class="carousel-arrow next"></div>
+            </div>
+        </section>
+
+        <section id="team">
+            <h2>团队介绍</h2>
+            
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-content">
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <img src="assets/images/team/member1-placeholder.jpg" alt="团队成员1">
+                                </div>
+                                <div class="member-info">
+                                    <h3>张明</h3>
+                                    <p class="member-title">教育总监 / 联合创始人</p>
+                                    <p class="member-desc">前某知名高校设计学院副教授，专注设计教育创新研究，主导开发多个AI创意课程体系。</p>
+                                </div>
+                            </div>
+
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <img src="assets/images/team/member2-placeholder.jpg" alt="团队成员2">
+                                </div>
+                                <div class="member-info">
+                                    <h3>李琳</h3>
+                                    <p class="member-title">技术总监 / 联合创始人</p>
+                                    <p class="member-desc">AI领域资深研究者，曾任某科技公司技术主管，专注AI创意工具开发与应用研究。</p>
+                                </div>
+                            </div>
+
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <img src="assets/images/team/member3-placeholder.jpg" alt="团队成员3">
+                                </div>
+                                <div class="member-info">
+                                    <h3>王晓</h3>
+                                    <p class="member-title">创意总监</p>
+                                    <p class="member-desc">资深设计师，多个国际设计奖项获得者，擅长AI辅助创作与跨媒介设计实践。</p>
+                                </div>
+                            </div>
+
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <img src="assets/images/team/member4-placeholder.jpg" alt="团队成员4">
+                                </div>
+                                <div class="member-info">
+                                    <h3>陈华</h3>
+                                    <p class="member-title">研究主管</p>
+                                    <p class="member-desc">教育科技领域研究者，专注AI教育应用研究，推动多个教育创新项目落地。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-arrow prev"></div>
+                <div class="carousel-arrow next"></div>
+            </div>
+        </section>
+
+        <section id="partners">
+            <h2>合作伙伴</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="assets/images/partner1-placeholder.jpg" alt="合作伙伴1">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partner2-placeholder.jpg" alt="合作伙伴2">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partner3-placeholder.jpg" alt="合作伙伴3">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partner4-placeholder.jpg" alt="合作伙伴4">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partner5-placeholder.jpg" alt="合作伙伴5">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partner6-placeholder.jpg" alt="合作伙伴6">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>联系我们</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p><strong>合作方式：</strong><br>
+                    课程共创 / 项目委托 / 教研支持 / 企业内训</p>
+                    <p><strong>联系方式：</strong><br>
+                    邮箱：hello@qianyiyixin.com<br>
+                    微信公众号：浅译万道TransWonder<br>
+                    所在地：北京 / 上海 / 合肥 / 宁波 /支持远程协作</p>
+                </div>
+                <div class="contact-image">
+                    <img src="assets/images/contact-placeholder.jpg" alt="联系我们" class="contact-img">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>我们始终相信，真正的教学，是一次又一次的共同创作。</p>
+        <p>© 2025 宁波浅译万道文化科技有限公司 Transwonder Lab</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/matrix.js"></script>
 </body>
-</html>
+</html> 
