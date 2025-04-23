@@ -482,6 +482,56 @@ footer {
 .carousel-content {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
+}
+
+/* 箭头样式 */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.carousel-arrow.prev {
+    left: 0;
+}
+
+.carousel-arrow.next {
+    right: 0;
+}
+
+.carousel-arrow::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid rgba(255, 215, 0, 0.8);
+    border-right: 2px solid rgba(255, 215, 0, 0.8);
+}
+
+.carousel-arrow.prev::before {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.carousel-arrow.next::before {
+    transform: rotate(45deg);
+    margin-right: 5px;
 }
 
 /* 响应式设计 */
@@ -539,12 +589,20 @@ footer {
     }
 
     .carousel-container {
-        padding: 0 30px;
+        padding: 0 35px;
     }
 
     .carousel-arrow {
         width: 30px;
         height: 30px;
+    }
+
+    .carousel-arrow.prev {
+        left: 0;
+    }
+
+    .carousel-arrow.next {
+        right: 0;
     }
 
     .feedback-page {
@@ -578,6 +636,23 @@ footer {
         padding: 1.2rem;
         margin: 0.8rem 0.4rem;
     }
+
+    .carousel-container {
+        padding: 0 30px;
+    }
+
+    .carousel-arrow {
+        width: 25px;
+        height: 25px;
+    }
+
+    .carousel-arrow.prev {
+        left: 0;
+    }
+
+    .carousel-arrow.next {
+        right: 0;
+    }
 }
 
 /* 团队介绍样式 */
@@ -592,55 +667,6 @@ footer {
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 1rem;
     padding: 1.2rem;
-}
-
-/* 箭头样式 */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-}
-
-.carousel-arrow:hover {
-    background: rgba(0, 0, 0, 0.9);
-    border-color: rgba(255, 215, 0, 0.5);
-}
-
-.carousel-arrow.prev {
-    left: 0;
-}
-
-.carousel-arrow.next {
-    right: 0;
-}
-
-.carousel-arrow::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid rgba(255, 215, 0, 0.8);
-    border-right: 2px solid rgba(255, 215, 0, 0.8);
-}
-
-.carousel-arrow.prev::before {
-    transform: rotate(-135deg);
-    margin-left: 5px;
-}
-
-.carousel-arrow.next::before {
-    transform: rotate(45deg);
-    margin-right: 5px;
 }
 
 /* 图片加载相关样式 */
@@ -757,55 +783,25 @@ footer {
     }
 }
 
-/* 头部样式 */
-header {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: transparent;
-    padding: 2rem;
-}
-
-.header-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    text-shadow: 0 0 10px rgba(0,255,0,0.3);
-}
-
-.header-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    color: #fff;
-}
-
-.header-content p {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    opacity: 0.9;
-    color: #fff;
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 1rem;
-        padding-top: 4rem;
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.4rem 0.8rem;
     }
 
-    .header-content h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .header-content p {
+    .nav-logo {
         font-size: 1rem;
-        line-height: 1.6;
+    }
+
+    .nav-links {
+        gap: 0.6rem;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    section {
+        padding: 1.2rem;
+        margin: 0.8rem 0.4rem;
     }
 } 
