@@ -74,6 +74,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 初始化 LazyLoad
+    const lazyLoadInstance = lozad('.lazy', {
+        rootMargin: '50px 0px',
+        threshold: 0.1,
+        loaded: function(el) {
+            el.classList.add('loaded');
+        }
+    });
+    lazyLoadInstance.observe();
+
+    // 初始化 Quicklink
+    quicklink.listen({
+        timeout: 2000,
+        priority: true,
+        origins: [location.hostname]
+    });
+
+    // 优化图片加载
+    document.querySelectorAll('img').forEach(img => {
+        if (!img.classList.contains('lazy')) {
+            img.classList.add('lazy');
+            img.setAttribute('data-src', img.src);
+            img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+        }
+    });
+
     // 轮播功能
     const carousels = document.querySelectorAll('.carousel-container');
     
@@ -88,14 +114,21 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentPosition = 0;
         let autoPlayTimer = null;
         let isUserInteracting = false;
+        let isAnimating = false;
         
         // 计算单次移动距离和最大距离
         const moveDistance = wrapper.offsetWidth;
         const maxPosition = isFeedback ? -moveDistance : -(items.scrollWidth - wrapper.offsetWidth);
         
-        // 更新轮播位置
+        // 使用 requestAnimationFrame 优化动画性能
         function updateCarousel() {
-            content.style.transform = `translateX(${currentPosition}px)`;
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            requestAnimationFrame(() => {
+                content.style.transform = `translateX(${currentPosition}px)`;
+                isAnimating = false;
+            });
         }
         
         // 更新箭头显示状态
@@ -109,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (autoPlayTimer || !isFeedback) return;
             
             autoPlayTimer = setInterval(() => {
-                if (!isUserInteracting) {
+                if (!isUserInteracting && !isAnimating) {
                     if (currentPosition <= maxPosition) {
                         currentPosition = 0;
                     } else {
@@ -118,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateCarousel();
                     updateArrows();
                 }
-            }, 5000); // 每5秒轮播一次
+            }, 5000);
         }
         
         // 停止自动轮播
@@ -135,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 isUserInteracting = true;
                 stopAutoPlay();
                 
-                // 3秒后恢复自动轮播
                 setTimeout(() => {
                     isUserInteracting = false;
                     startAutoPlay();
@@ -143,33 +175,46 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
+        // 使用防抖优化点击事件
+        const debounce = (fn, delay) => {
+            let timer = null;
+            return function() {
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn.apply(this, arguments);
+                }, delay);
+            };
+        };
+        
         // 上一张
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener('click', debounce(() => {
+            if (isAnimating) return;
             handleUserInteraction();
             currentPosition = Math.min(currentPosition + moveDistance, 0);
             updateCarousel();
             updateArrows();
-        });
+        }, 300));
         
         // 下一张
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', debounce(() => {
+            if (isAnimating) return;
             handleUserInteraction();
             currentPosition = Math.max(currentPosition - moveDistance, maxPosition);
             updateCarousel();
             updateArrows();
-        });
+        }, 300));
         
-        // 监听窗口大小变化
-        window.addEventListener('resize', () => {
-            // 重新计算移动距离和最大距离
+        // 使用 ResizeObserver 优化窗口大小变化监听
+        const resizeObserver = new ResizeObserver(debounce(() => {
             const newMoveDistance = wrapper.offsetWidth;
             const newMaxPosition = isFeedback ? -newMoveDistance : -(items.scrollWidth - wrapper.offsetWidth);
             
-            // 调整当前位置
             currentPosition = Math.max(Math.min(currentPosition, 0), newMaxPosition);
             updateCarousel();
             updateArrows();
-        });
+        }, 300));
+        
+        resizeObserver.observe(wrapper);
         
         // 初始化检查
         updateArrows();

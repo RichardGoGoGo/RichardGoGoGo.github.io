@@ -6,6 +6,10 @@
     <title>浅译万道｜融合AI与艺术设计的教育实验室</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.0/intersection-observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
 </head>
 <body>
     <nav class="top-nav">
@@ -170,7 +174,7 @@
                         <div class="team-grid">
                             <div class="team-member">
                                 <div class="member-avatar">
-                                    <img src="assets/images/team/member1-placeholder.jpg" alt="团队成员1">
+                                    <img class="lazy" data-src="assets/images/team/member1-placeholder.png" alt="团队成员1" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                                 </div>
                                 <div class="member-info">
                                     <h3>张明</h3>
@@ -181,7 +185,7 @@
 
                             <div class="team-member">
                                 <div class="member-avatar">
-                                    <img src="assets/images/team/member2-placeholder.jpg" alt="团队成员2">
+                                    <img class="lazy" data-src="assets/images/team/member2-placeholder.png" alt="团队成员2" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                                 </div>
                                 <div class="member-info">
                                     <h3>李琳</h3>
@@ -192,7 +196,7 @@
 
                             <div class="team-member">
                                 <div class="member-avatar">
-                                    <img src="assets/images/team/member3-placeholder.jpg" alt="团队成员3">
+                                    <img class="lazy" data-src="assets/images/team/member3-placeholder.png" alt="团队成员3" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                                 </div>
                                 <div class="member-info">
                                     <h3>王晓</h3>
@@ -203,7 +207,7 @@
 
                             <div class="team-member">
                                 <div class="member-avatar">
-                                    <img src="assets/images/team/member4-placeholder.jpg" alt="团队成员4">
+                                    <img class="lazy" data-src="assets/images/team/member4-placeholder.png" alt="团队成员4" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                                 </div>
                                 <div class="member-info">
                                     <h3>陈华</h3>
@@ -223,22 +227,28 @@
             <h2>合作伙伴</h2>
             <div class="partners-grid">
                 <div class="partner-logo">
-                    <img src="assets/images/partner1-placeholder.jpg" alt="合作伙伴1">
+                    <img class="lazy" data-src="assets/images/partner1-placeholder.png" alt="合作伙伴1" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                 </div>
                 <div class="partner-logo">
-                    <img src="assets/images/partner2-placeholder.jpg" alt="合作伙伴2">
+                    <img class="lazy" data-src="assets/images/partner2-placeholder.png" alt="合作伙伴2" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                 </div>
                 <div class="partner-logo">
-                    <img src="assets/images/partner3-placeholder.jpg" alt="合作伙伴3">
+                    <img class="lazy" data-src="assets/images/partner3-placeholder.png" alt="合作伙伴3" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                 </div>
                 <div class="partner-logo">
-                    <img src="assets/images/partner4-placeholder.jpg" alt="合作伙伴4">
+                    <img class="lazy" data-src="assets/images/partner4-placeholder.png" alt="合作伙伴4" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                 </div>
                 <div class="partner-logo">
-                    <img src="assets/images/partner5-placeholder.jpg" alt="合作伙伴5">
+                    <img class="lazy" data-src="assets/images/partner5-placeholder.png" alt="合作伙伴5" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                 </div>
                 <div class="partner-logo">
-                    <img src="assets/images/partner6-placeholder.jpg" alt="合作伙伴6">
+                    <img class="lazy" data-src="assets/images/partner6-placeholder.png" alt="合作伙伴6" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </div>
+                <div class="partner-logo">
+                    <img class="lazy" data-src="assets/images/partner7-placeholder.png" alt="合作伙伴7" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </div>
+                <div class="partner-logo">
+                    <img class="lazy" data-src="assets/images/partner8-placeholder.png" alt="合作伙伴8" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
                 </div>
             </div>
         </section>
