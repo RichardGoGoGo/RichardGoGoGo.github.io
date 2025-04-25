@@ -357,22 +357,151 @@ h2 {
 .content.active {
     max-height: none;
     opacity: 1;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1.5rem;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 215, 0, 0.3) rgba(0, 0, 0, 0.2);
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
-.content p {
-    margin: 0;
-    padding: 1.5rem;
-    line-height: 1.8;
-    white-space: pre-wrap;
+.content.active::-webkit-scrollbar {
+    height: 16px;
+}
+
+.content.active::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.content.active::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.content.active::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.5);
 }
 
 .content .card {
-    margin-bottom: 2rem;
+    display: inline-block;
+    width: 400px;
+    height: 600px;
+    margin-right: 2rem;
+    white-space: normal;
+    vertical-align: top;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-content {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 215, 0, 0.3) rgba(0, 0, 0, 0.2);
+}
+
+.card-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 3px;
+}
+
+.card-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.5);
+}
+
+.citation-toggle {
+    color: rgba(255, 215, 0, 0.8);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.citation-toggle:hover {
+    color: rgba(255, 215, 0, 1);
+}
+
+.citation-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.citation-content.active {
+    max-height: 400px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 215, 0, 0.3) rgba(0, 0, 0, 0.2);
+}
+
+.citation-content.active::-webkit-scrollbar {
+    width: 6px;
+}
+
+.citation-content.active::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.citation-content.active::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 3px;
+}
+
+.citation-content.active::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.5);
+}
+
+.citation-content p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.citation-content strong {
+    color: #FFD700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.citation-content em {
+    color: rgba(255, 215, 0, 0.8);
+    font-style: italic;
 }
 
 .content .card:last-child {
-    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.content .card p {
+    margin: 0;
+    line-height: 1.8;
+    white-space: normal;
 }
 
 /* 卡片样式 */
@@ -658,12 +787,10 @@ footer {
     }
 
     .content .card {
-        padding: 0.4rem;
-        margin: 0.4rem;
-    }
-
-    .content .card p {
-        padding: 0.4rem;
+        width: 320px;
+        height: 500px;
+        margin-right: 1.5rem;
+        padding: 1.2rem;
     }
 
     .case-image {
@@ -685,6 +812,10 @@ footer {
 
     .collapsible span {
         font-size: 0.8rem;
+    }
+
+    .content.active {
+        padding: 1rem;
     }
 }
 
@@ -772,12 +903,10 @@ footer {
     }
 
     .content .card {
-        padding: 0.2rem;
-        margin: 0.2rem;
-    }
-
-    .content .card p {
-        padding: 0.2rem;
+        width: 280px;
+        height: 450px;
+        margin-right: 1rem;
+        padding: 1rem;
     }
 
     .case-image {
@@ -800,25 +929,29 @@ footer {
     .collapsible span {
         font-size: 0.75rem;
     }
+
+    .content.active {
+        padding: 0.8rem;
+    }
 }
 
 /* 团队介绍样式 */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: inline-flex;
     gap: 2rem;
     width: 100%;
+    white-space: nowrap;
 }
 
 .team-member {
+    display: inline-block;
+    width: 400px;
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 1rem;
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    white-space: normal;
+    vertical-align: top;
 }
 
 .member-avatar {
@@ -833,6 +966,7 @@ footer {
 
 .member-info {
     width: 100%;
+    text-align: center;
 }
 
 .member-info h3 {
@@ -895,87 +1029,38 @@ footer {
 }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0.5rem 1rem;
-    }
-
-    .nav-logo {
-        font-size: 1.2rem;
-    }
-
-    .nav-links {
-        gap: 1rem;
-    }
-
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-
-    section {
-        padding: 1.5rem;
-        margin: 1rem 0.5rem;
-    }
-
-    .partners-grid {
+@media (max-width: 1024px) {
+    .team-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .feedback-page {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .feedback-card {
-        min-height: 140px;
-        padding: 1rem;
+        gap: 1.5rem;
     }
 
     .team-member {
+        min-width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .team-member {
+        min-width: 200px;
         padding: 1.2rem;
-    }
-
-    .member-avatar {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 1rem;
-    }
-
-    .member-info h3 {
-        font-size: 1.2rem;
-    }
-
-    .member-title {
-        font-size: 0.9rem;
-    }
-
-    .member-desc {
-        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
-    .nav-container {
-        padding: 0.4rem 0.8rem;
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    .nav-logo {
-        font-size: 1rem;
-    }
-
-    .nav-links {
-        gap: 0.6rem;
-    }
-
-    .nav-links a {
-        font-size: 0.8rem;
-    }
-
-    section {
-        padding: 1.2rem;
-        margin: 0.8rem 0.4rem;
+    .team-member {
+        min-width: 280px;
+        padding: 1rem;
     }
 }
 

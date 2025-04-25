@@ -224,4 +224,13 @@ document.addEventListener('DOMContentLoaded', function() {
             startAutoPlay();
         }
     });
+
+    // 引用格式展开/收起功能
+    document.querySelectorAll('.citation-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.classList.toggle('active');
+            this.textContent = content.classList.contains('active') ? '收起引用格式' : '查看引用格式';
+        });
+    });
 }); 
