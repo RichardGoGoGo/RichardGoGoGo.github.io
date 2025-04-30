@@ -233,4 +233,45 @@ document.addEventListener('DOMContentLoaded', function() {
             this.textContent = content.classList.contains('active') ? '收起引用格式' : '查看引用格式';
         });
     });
+
+    // 合作伙伴自动滚动
+    function initPartnersScroll() {
+        const partnersGrid = document.querySelector('.partners-grid');
+        if (!partnersGrid) return;
+
+        let scrollAmount = 0;
+        const scrollStep = 500; // 每次滚动的距离
+        const scrollInterval = 2000; // 每2秒滚动一次
+        let isHovered = false;
+        let scrollTimer;
+
+        function startScrolling() {
+            scrollTimer = setInterval(() => {
+                if (!isHovered) {
+                    scrollAmount += scrollStep;
+                    partnersGrid.scrollLeft = scrollAmount;
+
+                    // 当滚动到末尾时，重置到开始位置
+                    if (scrollAmount >= partnersGrid.scrollWidth - partnersGrid.clientWidth) {
+                        scrollAmount = 0;
+                    }
+                }
+            }, scrollInterval);
+        }
+
+        // 鼠标悬停时暂停滚动
+        partnersGrid.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+
+        partnersGrid.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+
+        // 开始自动滚动
+        startScrolling();
+    }
+
+    // 在页面加载完成后初始化
+    initPartnersScroll();
 }); 
