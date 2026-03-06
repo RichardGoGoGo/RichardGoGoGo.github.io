@@ -1,0 +1,214 @@
+sections:
+  - title: "工作流"
+    id: "workflows"
+    categories:
+      - title: "设计师工作流"
+        id: "design"
+        pages:
+          - title: "建筑设计概念提案创作"
+            url: "/workflows/design/architectural.html"
+          - title: "角色表情包创作"
+            url: "/workflows/design/emoji.html"
+          - title: "平面设计与排版参考"
+            url: "/workflows/design/layout.html"
+
+      - title: "科研人员工作流"
+        id: "research"
+        pages:
+          - title: "研究思路与大纲整理"
+            url: "/workflows/research/outline.html"
+          - title: "文献综述写作"
+            url: "/workflows/research/literature.html"
+          - title: "研究数据分析与可视化"
+            url: "/workflows/research/data.html"
+          - title: "论文翻译与润色"
+            url: "/workflows/research/translation.html"
+
+      - title: "教师工作流"
+        id: "teaching"
+        ai_generated: true
+        pages:
+          - title: "课程大纲设计"
+            url: "/workflows/teaching/syllabus.html"
+          - title: "教学资源制作"
+            url: "/workflows/teaching/resources.html"
+          - title: "作业批改与分析"
+            url: "/workflows/teaching/homework.html"
+          - title: "课程反馈与改进"
+            url: "/workflows/teaching/feedback.html"
+
+      - title: "项目管理工作流"
+        id: "project"
+        ai_generated: true
+        pages:
+          - title: "行业报告与商业机会"
+            url: "/workflows/project/business-report.html"
+          - title: "新业务快速搭建"
+            url: "/workflows/project/business-setup.html"
+          - title: "管理框架与绩效建议"
+            url: "/workflows/project/management-framework.html"
+          - title: "项目复盘与改进"
+            url: "/workflows/project/review.html"
+
+      - title: "逢年过节工作流"
+        id: "festival"
+        ai_generated: true
+        pages:
+          - title: "节日祝福与社交内容创作"
+            url: "/workflows/festival/greetings.html"
+          - title: "访友赠礼评估与推荐"
+            url: "/workflows/festival/gift.html"
+          - title: "节日出游活动策划方案"
+            url: "/workflows/festival/travel.html"
+          - title: "节日美食菜谱推荐"
+            url: "/workflows/festival/food.html"
+
+      - title: "情感咨询工作流"
+        id: "emotional"
+        ai_generated: true
+        pages:
+          - title: "虚拟男友/女友创建"
+            url: "/workflows/emotional/ai-companion.html"
+          - title: "撩汉/撩妹话术"
+            url: "/workflows/emotional/chat.html"
+          - title: "AI情感分析与建议"
+            url: "/workflows/emotional/analysis.html"
+          - title: "分手/复合话术"
+            url: "/workflows/emotional/breakup.html"
+
+      - title: "玄学算命工作流"
+        id: "fortune"
+        ai_generated: true
+        pages:
+          - title: "周易 / 八字推演"
+            url: "/workflows/fortune/yijing.html"
+          - title: "塔罗牌解读辅助"
+            url: "/workflows/fortune/tarot.html"
+          - title: "AI 占星术解析"
+            url: "/workflows/fortune/astrology.html"
+
+      - title: "媒体文案工作流"
+        id: "media"
+        ai_generated: true
+        pages:
+          - title: "锐评文案"
+            url: "/workflows/media/review.html"
+          - title: "种草文案"
+            url: "/workflows/media/marketing.html"
+          - title: "仿古文案"
+            url: "/workflows/media/classical.html"
+          - title: "搞笑文案"
+            url: "/workflows/media/humor.html"
+
+  - title: "单项工具"
+    id: "tools"
+    categories:
+      - title: "文本生成"
+        id: "text"
+        pages:
+          - title: "DeepSeek / ChatGPT / Claude 通用技巧"
+            url: "/tools/text/openai-document.html#working-with-llms"
+          - title: "Prompt 工程与优化"
+            url: "/tools/text/openai-document.html#prompt-engineering"
+          - title: "优秀文档的标准"
+            url: "/tools/text/openai-document.html#good-documentation"
+
+      - title: "图像生成"
+        id: "image"
+        pages:
+          - title: "MidJourney官方指南翻译"
+            url: "/tools/image/midjourney-document.html"
+          - title: "MidJourney命令、参数和工具"
+            url: "/tools/image/midjourney-commands.html"
+          - title: "Adobe 软件中的AI工具"
+            url: "#"
+            wip: true
+          - title: "其他图像生成工具（SD, DALL-E）"
+            url: "#"
+            wip: true
+
+      - title: "视频生成"
+        id: "video"
+        pages:
+          - title: "Runway快速上手指南"
+            url: "/tools/video/runway-quickstart.html"
+          - title: "Gen3 Alpha使用指南"
+            url: "/tools/video/runway-gen3-alpha.html"
+          - title: "Runway生成式工具箱"
+            url: "/tools/video/runway-tools.html"
+          - title: "国产视频工具评测"
+            url: "#"
+            wip: true
+
+      - title: "3D素材生成"
+        id: "3d"
+        wip: true
+        pages:
+          - title: "AI 生成 3D 模型"
+            url: "#"
+            wip: true
+
+      - title: "音频生成"
+        id: "audio"
+        wip: true
+        pages:
+          - title: "AI音频工具"
+            url: "#"
+            wip: true
+
+      - title: "代码辅助"
+        id: "code"
+        wip: true
+        pages:
+          - title: "小游戏案例"
+            url: "/pages/code_assistance/game_example/snake_game.html"
+
+  - title: "参考资源"
+    id: "resources"
+    categories:
+      - title: "官方文档/翻译"
+        id: "docs"
+        pages:
+          - title: "OpenAI ChatGPT 官方文档"
+            url: "/tools/text/openai-document.html"
+          - title: "MidJourney 官方指南"
+            url: "/tools/image/midjourney-document.html"
+
+      - title: "AI学习资源推荐"
+        id: "learning"
+        pages:
+          - title: "论坛社区与学术资源"
+            url: "/resources/additional.html#community"
+          - title: "视频教程推荐"
+            url: "/resources/additional.html#learning"
+
+      - title: "AI平台与工具推荐"
+        id: "platforms"
+        pages:
+          - title: "AI模型平台与公司官网"
+            url: "/resources/additional.html#community"
+
+updates:
+  - date: "2025.3.27"
+    text: "教师工作流初稿"
+    type: "preview"
+  - date: "2025.3.20"
+    text: "Runway官方文档翻译"
+    type: "new"
+  - date: "2025.3.17"
+    text: "科研工作流初稿完成"
+    type: "new"
+
+category_names:
+  design: "设计师工作流"
+  research: "科研人员工作流"
+  teaching: "教师工作流"
+  project: "项目管理工作流"
+  festival: "逢年过节工作流"
+  emotional: "情感咨询工作流"
+  fortune: "玄学算命工作流"
+  media: "媒体文案工作流"
+  text: "文本生成"
+  image: "图像生成"
+  video: "视频生成"
+  resources: "参考资源"

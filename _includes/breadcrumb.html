@@ -1,0 +1,11 @@
+{% if page.category %}
+<nav class="breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #6B7280;">
+  <a href="{{ '/' | relative_url }}" style="color: #7C3AED;">首页</a>
+  <span style="margin: 0 0.5rem;">/</span>
+  {% if site.data.navigation.category_names[page.category] %}
+  <span>{{ site.data.navigation.category_names[page.category] }}</span>
+  <span style="margin: 0 0.5rem;">/</span>
+  {% endif %}
+  <span style="color: #1F2937;">{{ page.title }}</span>
+</nav>
+{% endif %}

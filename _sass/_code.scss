@@ -1,0 +1,85 @@
+// Code blocks
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: $space-5;
+  border-radius: $radius-md;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: $space-4 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+code {
+  background: rgba($primary, 0.08);
+  color: $primary-dark;
+  padding: $space-1 $space-2;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: 0.85em;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+// Case input/output
+.case-input, .case-output {
+  margin: $space-4 0;
+  padding: $space-5;
+  border-radius: $radius-md;
+  border: 1px solid $border;
+
+  h6 {
+    margin: 0 0 $space-3;
+    font-size: $font-size-sm;
+    font-weight: 700;
+  }
+
+  pre {
+    margin: 0;
+    border: none;
+  }
+}
+
+.case-input {
+  background: #f8f9ff;
+  border-left: 4px solid $primary;
+
+  h6 { color: $primary; }
+}
+
+.case-output {
+  background: #f0fdf4;
+  border-left: 4px solid $success;
+
+  h6 { color: $success; }
+}
+
+// Mermaid code blocks
+.mermaid-code {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  margin: $space-4 0;
+  padding: $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  overflow-x: auto;
+
+  code {
+    background: none;
+    padding: 0;
+    display: block;
+    white-space: pre;
+  }
+}

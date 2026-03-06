@@ -1,0 +1,74 @@
+// Reset & Base Styles
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $surface;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  margin: 0 0 $space-4;
+  line-height: $line-height-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-serif;
+  line-height: $line-height-heading;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+h1 { font-size: $font-size-4xl; margin-bottom: $space-6; }
+h2 { font-size: $font-size-2xl; margin: $space-10 0 $space-4; color: $primary-dark; }
+h3 { font-size: $font-size-xl; margin: $space-8 0 $space-3; color: $primary; }
+h4 { font-size: $font-size-lg; margin: $space-6 0 $space-3; color: $primary-dark; font-weight: 600; }
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  padding-left: $space-6;
+}
+
+li {
+  margin-bottom: $space-2;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+}
+
+::selection {
+  background: rgba($primary, 0.15);
+  color: $primary-dark;
+}

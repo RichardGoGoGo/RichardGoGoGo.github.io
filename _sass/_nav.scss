@@ -1,0 +1,214 @@
+// Navigation styles
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-nav;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($border, 0.5);
+  transition: transform $transition-base;
+  height: $nav-height;
+
+  &.hidden {
+    transform: translateY(-100%);
+  }
+
+  .nav-container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $space-6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  // Logo / site name
+  .nav-brand {
+    font-weight: 700;
+    font-size: $font-size-lg;
+    color: $primary;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: none;
+      color: $primary-dark;
+    }
+  }
+
+  // Main nav links
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: $space-1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+    margin: 0;
+
+    > a {
+      display: flex;
+      align-items: center;
+      padding: $space-2 $space-4;
+      color: $text-secondary;
+      font-size: $font-size-sm;
+      font-weight: 500;
+      border-radius: $radius-sm;
+      transition: all $transition-fast;
+      text-decoration: none;
+
+      &:hover, &.active {
+        color: $primary;
+        background: $primary-bg;
+        text-decoration: none;
+      }
+    }
+
+    // Dropdown
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 220px;
+      background: $surface-card;
+      border-radius: $radius-md;
+      box-shadow: $shadow-xl;
+      border: 1px solid $border;
+      padding: $space-2;
+      z-index: $z-dropdown;
+
+      a {
+        display: block;
+        padding: $space-2 $space-4;
+        color: $text-secondary;
+        font-size: $font-size-sm;
+        border-radius: $radius-sm;
+        transition: all $transition-fast;
+        text-decoration: none;
+
+        &:hover {
+          background: $primary-bg;
+          color: $primary;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &:hover .dropdown {
+      display: block;
+    }
+  }
+
+  // Search trigger
+  .nav-search-btn {
+    background: none;
+    border: none;
+    padding: $space-2;
+    cursor: pointer;
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    border-radius: $radius-sm;
+    transition: all $transition-fast;
+
+    &:hover {
+      color: $primary;
+      background: $primary-bg;
+    }
+  }
+
+  // Mobile hamburger
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: $space-2;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: $text-primary;
+      border-radius: 2px;
+      transition: all $transition-base;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+}
+
+// Mobile navigation overlay
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: $nav-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: $z-overlay;
+  padding: $space-6;
+  overflow-y: auto;
+
+  &.active {
+    display: block;
+  }
+
+  .mobile-nav-section {
+    margin-bottom: $space-6;
+
+    h3 {
+      font-size: $font-size-sm;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: $space-3;
+      padding-bottom: $space-2;
+      border-bottom: 1px solid $border-light;
+    }
+
+    a {
+      display: block;
+      padding: $space-3 $space-4;
+      color: $text-primary;
+      font-size: $font-size-base;
+      border-radius: $radius-sm;
+      transition: all $transition-fast;
+      text-decoration: none;
+
+      &:hover {
+        background: $primary-bg;
+        color: $primary;
+      }
+    }
+  }
+}
+
+// Spacer for fixed nav
+.nav-spacer {
+  height: $nav-height;
+}
