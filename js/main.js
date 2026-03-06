@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Fade in ---
+  // --- Fade in with IntersectionObserver ---
   var fades = document.querySelectorAll('.fade-in');
   if (fades.length) {
     var obs = new IntersectionObserver(function(entries) {
@@ -120,4 +120,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1 });
     fades.forEach(function(el) { obs.observe(el); });
   }
+
+  // --- Card hover glow follow mouse ---
+  var cards = document.querySelectorAll('.category-card');
+  cards.forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', x + 'px');
+      card.style.setProperty('--mouse-y', y + 'px');
+    });
+  });
+
+  // --- Parallax on geometric panels ---
+  var panels = document.querySelectorAll('.geo-panel');
+  if (panels.length) {
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY;
+      panels.forEach(function(panel, i) {
+        var speed = 0.02 + (i * 0.01);
+        panel.style.marginTop = -(scrollY * speed) + 'px';
+      });
+    });
+  }
+
+  // --- Staggered fade-in for card grid ---
+  var gridCards = document.querySelectorAll('.card-grid .category-card');
+  gridCards.forEach(function(card, i) {
+    card.style.transitionDelay = (i * 0.08) + 's';
+  });
 });

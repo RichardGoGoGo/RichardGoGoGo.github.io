@@ -1,17 +1,19 @@
 // --- Glass card ---
 .card {
   background: $bg-card;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid $border-subtle;
   border-radius: $radius;
   padding: 2rem 2.5rem;
   position: relative;
   z-index: 1;
-  transition: border-color $transition-base;
+  transition: border-color $transition-base, transform $transition-base, box-shadow $transition-base;
 
   &:hover {
     border-color: $border-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba($purple, 0.08);
   }
 }
 
@@ -22,9 +24,9 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(10, 10, 18, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 10, 18, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid $border-subtle;
   height: $nav-height;
   transition: transform $transition-base;
@@ -44,33 +46,53 @@
   .nav-brand {
     color: $text-primary;
     font-weight: $weight-thin;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
+    font-size: 1.15rem;
+    letter-spacing: 0.1em;
     text-decoration: none;
-    &:hover { color: $purple-light; }
+    background: linear-gradient(135deg, $text-primary, $purple-light);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    &:hover { opacity: 0.85; }
   }
 
   .nav-links {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.15rem;
     list-style: none;
     padding: 0;
     margin: 0;
 
     a {
       display: block;
-      padding: 0.4rem 0.9rem;
+      padding: 0.4rem 0.75rem;
       color: $text-muted;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: $weight-regular;
-      border-radius: $radius;
+      border-radius: $radius-sm;
       transition: all $transition-fast;
       letter-spacing: 0.02em;
       text-decoration: none;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        right: 50%;
+        height: 1.5px;
+        background: linear-gradient(90deg, $purple-light, $cyan-light);
+        transition: all $transition-base;
+        border-radius: 1px;
+      }
 
       &:hover, &.active {
         color: $text-primary;
-        background: rgba(255, 255, 255, 0.04);
+        &::after {
+          left: 20%;
+          right: 20%;
+        }
       }
     }
   }
@@ -80,8 +102,8 @@
     border: 1px solid $border-subtle;
     color: $text-muted;
     padding: 0.35rem 0.75rem;
-    border-radius: $radius;
-    font-size: 0.8rem;
+    border-radius: $radius-sm;
+    font-size: 0.78rem;
     cursor: pointer;
     transition: all $transition-fast;
     font-family: $font-sans;
@@ -138,22 +160,56 @@
     padding: 0.75rem 1rem;
     color: $text-body;
     font-size: 1rem;
-    border-radius: $radius;
+    border-radius: $radius-sm;
     text-decoration: none;
     &:hover { background: rgba(255, 255, 255, 0.04); color: $text-primary; }
   }
 }
 
-// --- Page header ---
+// --- Hero header ---
 .page-header {
-  padding: 4rem 0 3rem;
+  padding: 5rem 0 3.5rem;
   text-align: center;
+  position: relative;
 
   h1 {
-    background: linear-gradient(135deg, $text-primary, $purple-light);
+    background: linear-gradient(135deg, $purple-light, $cyan-light);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-size: 3.2rem;
+    font-weight: $weight-thin;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    animation: hero-fade-in 1s $transition-slow both;
+  }
+
+  .hero-tagline {
+    color: $text-muted;
+    font-weight: $weight-thin;
+    font-size: 1.15rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+    animation: hero-fade-in 1s $transition-slow 0.15s both;
+  }
+
+  .hero-desc {
+    color: $text-muted;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    animation: hero-fade-in 1s $transition-slow 0.3s both;
+  }
+
+  // Decorative gradient line
+  &::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $purple-light, $cyan-light, transparent);
+    margin: 2.5rem auto 0;
+    border-radius: 2px;
+    animation: hero-fade-in 1s $transition-slow 0.45s both;
   }
 
   .page-meta {
@@ -161,6 +217,17 @@
     font-size: 0.85rem;
     margin-top: 0.75rem;
     letter-spacing: 0.03em;
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -238,51 +305,231 @@
   }
 }
 
+// --- Section label with gradient ---
+.section-label {
+  font-size: 0.88rem;
+  font-weight: $weight-light;
+  letter-spacing: 0.12em;
+  margin: 4rem 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .label-text {
+    background: linear-gradient(135deg, $purple-light, $cyan-light);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, $border-subtle, transparent);
+  }
+}
+
 // --- Home: card grid ---
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
 }
 
+// --- Category card with icon ---
 .category-card {
-  @extend .card;
-  padding: 1.5rem 2rem;
+  background: $bg-card;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid $border-subtle;
+  border-radius: $radius;
+  padding: 2rem 1.5rem;
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: all $transition-base;
+  overflow: hidden;
+
+  // Hover glow effect
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: $radius;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba($purple-light, 0.3), rgba($cyan-light, 0.2), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba($purple, 0.12);
+    &::before { opacity: 1; }
+    .card-icon { border-color: rgba($purple-light, 0.4); }
+    h3 { color: $purple-light; }
+  }
+
+  .card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    transition: border-color $transition-base;
+    background: rgba(255, 255, 255, 0.02);
+
+    svg {
+      width: 28px;
+      height: 28px;
+      stroke: $purple-light;
+      stroke-width: 1.5;
+      fill: none;
+    }
+  }
 
   h3 {
     margin: 0 0 0.5rem;
     font-size: 1.05rem;
+    font-weight: $weight-light;
     color: $text-primary;
+    letter-spacing: 0.04em;
+    transition: color $transition-fast;
   }
 
   p {
     color: $text-muted;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     margin: 0;
+    line-height: 1.6;
   }
 
-  &:hover {
-    border-color: $border-hover;
-    h3 { color: $purple-light; }
+  .card-count {
+    margin-top: auto;
+    padding-top: 1rem;
+    font-size: 0.72rem;
+    color: $text-muted;
+    letter-spacing: 0.05em;
   }
 }
 
-// --- Section label ---
-.section-label {
-  font-size: 0.72rem;
-  font-weight: $weight-medium;
-  color: $text-muted;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 3rem 0 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid $border-subtle;
+// --- Timeline (recent updates) ---
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, $purple-light, $border-subtle, transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1rem;
+    display: block;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -2rem;
+      top: 1.15rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: $bg-deep;
+      border: 1.5px solid $purple-light;
+      transition: all $transition-fast;
+    }
+
+    &:hover {
+      &::before {
+        background: $purple-light;
+        box-shadow: 0 0 8px rgba($purple-light, 0.5);
+      }
+      .timeline-title { color: $purple-light; }
+    }
+
+    .timeline-meta {
+      font-size: 0.75rem;
+      color: $text-muted;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.03em;
+    }
+    .timeline-title {
+      font-size: 0.92rem;
+      color: $text-body;
+      transition: color $transition-fast;
+    }
+    .timeline-author {
+      font-size: 0.75rem;
+      color: $text-muted;
+      margin-top: 0.15rem;
+    }
+  }
 }
 
-// --- Article list ---
+// --- About section ---
+.about-section {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin: 2rem 0;
+
+  .about-text {
+    flex: 1;
+    p {
+      font-size: 0.9rem;
+      color: $text-body;
+      line-height: 1.8;
+    }
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 2rem;
+
+    .stat {
+      text-align: center;
+      .stat-num {
+        font-size: 2rem;
+        font-weight: $weight-thin;
+        background: linear-gradient(135deg, $purple-light, $cyan-light);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 0.02em;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+        color: $text-muted;
+        letter-spacing: 0.06em;
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}
+
+// --- Article list (fallback, kept for compatibility) ---
 .article-list {
   list-style: none;
   padding: 0;
@@ -322,9 +569,10 @@
   border-top: 1px solid $border-subtle;
   text-align: center;
   color: $text-muted;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   position: relative;
   z-index: 1;
+  letter-spacing: 0.03em;
 
   a { color: $purple-light; }
 }
@@ -335,7 +583,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   z-index: 200;
   align-items: flex-start;
   justify-content: center;
@@ -387,7 +635,7 @@
       a {
         display: block;
         padding: 0.6rem 1rem;
-        border-radius: $radius;
+        border-radius: $radius-sm;
         text-decoration: none;
         &:hover { background: rgba(255, 255, 255, 0.04); }
 
@@ -416,8 +664,8 @@
 // --- Fade in ---
 .fade-in {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s $transition-slow;
   &.visible { opacity: 1; transform: none; }
 }
 
@@ -428,10 +676,18 @@
   .mobile-toc { display: block; }
   .site-nav .nav-links { display: none; }
   .site-nav .nav-toggle { display: flex; }
-  .card-grid { grid-template-columns: 1fr; }
-  h1 { font-size: 1.8rem; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: 2rem; }
+  .page-header h1 { font-size: 2.4rem; }
+  .about-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 @media (max-width: 600px) {
   .container { padding: 0 1.25rem; }
   .card { padding: 1.25rem 1.5rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .page-header h1 { font-size: 1.8rem; letter-spacing: 0.08em; }
+  .category-card { padding: 1.5rem 1.25rem; }
 }

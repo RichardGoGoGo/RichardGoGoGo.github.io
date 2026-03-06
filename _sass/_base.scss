@@ -21,46 +21,73 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-// --- Organic glow orbs ---
-.glow-orb {
+// --- Geometric background panels ---
+.geo-panel {
   position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
   pointer-events: none;
   z-index: 0;
+  border-radius: 40px;
+  filter: blur(180px);
 }
-.glow-orb--purple {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba($purple, 0.22), transparent 70%);
-  top: -10%;
-  left: -5%;
-  animation: drift-a 25s ease-in-out infinite alternate;
-}
-.glow-orb--cyan {
-  width: 500px;
+.geo-panel--1 {
+  width: 700px;
   height: 500px;
-  background: radial-gradient(circle, rgba($cyan, 0.15), transparent 70%);
-  bottom: -15%;
-  right: -10%;
-  animation: drift-b 30s ease-in-out infinite alternate;
+  background: rgba($purple, 0.12);
+  top: -10%;
+  left: -8%;
+  transform: rotate(-15deg);
+  animation: geo-float-1 30s ease-in-out infinite alternate;
 }
-.glow-orb--small {
+.geo-panel--2 {
+  width: 550px;
+  height: 400px;
+  background: rgba($cyan, 0.08);
+  bottom: -12%;
+  right: -6%;
+  transform: rotate(20deg);
+  animation: geo-float-2 35s ease-in-out infinite alternate;
+}
+.geo-panel--3 {
+  width: 400px;
+  height: 350px;
+  background: rgba($purple-light, 0.06);
+  top: 40%;
+  right: 15%;
+  transform: rotate(-8deg);
+  animation: geo-float-3 25s ease-in-out infinite alternate;
+}
+.geo-panel--4 {
   width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba($purple-light, 0.1), transparent 70%);
-  top: 50%;
-  right: 20%;
-  animation: drift-a 20s ease-in-out infinite alternate-reverse;
+  height: 250px;
+  background: rgba($cyan-light, 0.05);
+  top: 20%;
+  left: 10%;
+  transform: rotate(12deg);
+  animation: geo-float-2 28s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes drift-a {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(40px, 30px) scale(1.08); }
+@keyframes geo-float-1 {
+  0% { transform: rotate(-15deg) translate(0, 0); }
+  100% { transform: rotate(-12deg) translate(30px, 20px); }
 }
-@keyframes drift-b {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-30px, -20px) scale(1.05); }
+@keyframes geo-float-2 {
+  0% { transform: rotate(20deg) translate(0, 0); }
+  100% { transform: rotate(18deg) translate(-20px, -15px); }
+}
+@keyframes geo-float-3 {
+  0% { transform: rotate(-8deg) translate(0, 0) scale(1); }
+  100% { transform: rotate(-5deg) translate(15px, 10px) scale(1.05); }
+}
+
+// Subtle dot grid overlay
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 // --- Typography ---
@@ -70,9 +97,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: $weight-thin;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin-bottom: 1rem;
 }
 h2 {
@@ -110,7 +137,7 @@ li { margin-bottom: 0.4rem; }
 img {
   max-width: 100%;
   height: auto;
-  border-radius: $radius;
+  border-radius: $radius-sm;
 }
 
 ::selection {
@@ -132,7 +159,7 @@ code {
   background: rgba($purple-light, 0.08);
   color: $purple-muted;
   padding: 0.15em 0.4em;
-  border-radius: 2px;
+  border-radius: 4px;
   font-family: $font-mono;
   font-size: 0.88em;
 }
@@ -140,7 +167,7 @@ code {
 pre {
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: $radius;
+  border-radius: $radius-sm;
   padding: 1.5rem;
   overflow-x: auto;
   color: rgba(255, 255, 255, 0.65);
@@ -181,13 +208,13 @@ table {
   }
 }
 
-// --- Blockquote (for 待核查 etc) ---
+// --- Blockquote ---
 blockquote {
   border-left: 2px solid $purple;
   padding: 0.75rem 1.25rem;
   margin: 1.5rem 0;
   color: $text-muted;
   background: rgba($purple, 0.04);
-  border-radius: 0 $radius $radius 0;
+  border-radius: 0 $radius-sm $radius-sm 0;
   font-size: 0.92rem;
 }

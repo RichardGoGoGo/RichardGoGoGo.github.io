@@ -37,25 +37,47 @@ collections:
   resources:
     output: true
     permalink: /resources/:name/
+  cases:
+    output: true
+    permalink: /cases/:name/
+  collaboration:
+    output: true
+    permalink: /collaboration/:name/
 
 defaults:
   - scope:
       path: "content/workflows"
     values:
       layout: page
-      collection: workflows
+      category: workflows
+      permalink: /workflows/:basename/
   - scope:
       path: "content/essays"
     values:
       layout: page
-      collection: essays
+      category: essays
+      permalink: /essays/:basename/
   - scope:
       path: "content/translations"
     values:
       layout: page
-      collection: translations
+      category: translations
+      permalink: /translations/:basename/
   - scope:
       path: "content/resources"
     values:
       layout: page
-      collection: resources
+      category: resources
+      permalink: /resources/:basename/
+  - scope:
+      path: "content/cases"
+    values:
+      layout: page
+      category: cases
+      permalink: /cases/:basename/
+  - scope:
+      path: "content/collaboration"
+    values:
+      layout: page
+      category: collaboration
+      permalink: /collaboration/:basename/
