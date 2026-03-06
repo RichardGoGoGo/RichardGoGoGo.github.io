@@ -2,16 +2,24 @@
 layout: default
 ---
 
-<header class="page-header">
-  <div class="container">
-    <h1>浅译万道</h1>
-    <p class="hero-tagline">方法与文章</p>
-    <p class="hero-desc">学习知识沉淀库 · 方法论与实践</p>
-  </div>
-</header>
-
-<main class="container">
+<main class="container" style="padding-top: 2.5rem;">
   {{ content }}
+
+  {% assign all_pages = site.pages | where_exp: "p", "p.layout == 'page'" | sort: "updated" | reverse %}
+  {% if all_pages.size > 0 %}
+  <div class="section-label fade-in"><span class="label-text">最近更新</span></div>
+  <div class="h-timeline fade-in">
+    {% for p in all_pages limit: 6 %}
+    <a class="h-timeline-item" href="{{ p.url | relative_url }}">
+      <div class="h-timeline-dot"></div>
+      <div class="h-timeline-content">
+        <div class="h-timeline-title">{{ p.title }}</div>
+        <div class="h-timeline-meta">{{ p.updated | default: p.date }}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
 
   <div class="section-label fade-in"><span class="label-text">探索分类</span></div>
   <div class="card-grid">
@@ -70,20 +78,6 @@ layout: default
       <span class="card-count">{{ co_count }} 篇文章</span>
     </a>
   </div>
-
-  {% assign all_pages = site.pages | where_exp: "p", "p.layout == 'page'" | sort: "updated" | reverse %}
-  {% if all_pages.size > 0 %}
-  <div class="section-label fade-in"><span class="label-text">最近更新</span></div>
-  <div class="timeline fade-in">
-    {% for p in all_pages limit: 8 %}
-    <a class="timeline-item" href="{{ p.url | relative_url }}">
-      <div class="timeline-meta">{{ p.updated | default: p.date }} · {{ p.category }}</div>
-      <div class="timeline-title">{{ p.title }}</div>
-      {% if p.author %}<div class="timeline-author">{{ p.author }}</div>{% endif %}
-    </a>
-    {% endfor %}
-  </div>
-  {% endif %}
 
   <div class="section-label fade-in"><span class="label-text">关于本站</span></div>
   <div class="about-section fade-in">
