@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<header class="page-header" style="text-align: center;">
+  <div class="container">
+    <h1>{{ site.title }}</h1>
+    <p class="subtitle">{{ site.description }}</p>
+    <p style="color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-top: 1rem;">编者·{{ site.author }} 清华大学设计学博士在读</p>
+    <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 0.5rem;">网站仍在建设中，标记为AI版的为AI生成的占位内容，待完善</p>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Updates timeline -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;">
+    {% for update in site.data.navigation.updates %}
+    <div style="background: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #f3f4f6;">
+      <strong style="color: #7C3AED;">{{ update.date }}</strong>
+      <span style="color: #6B7280;">{{ update.text }}</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% for section in site.data.navigation.sections %}
+  <div id="{{ section.id }}" class="section-header fade-in">{{ section.title }}</div>
+  <div class="content-outline">
+    {% for category in section.categories %}
+    <div class="outline-item fade-in">
+      <h3>{{ category.title }}{% if category.ai_generated %} <span class="ai-tag">AI版</span>{% endif %}</h3>
+      <ul>
+        {% for page_item in category.pages %}
+        <li>
+          <a href="{{ page_item.url | relative_url }}">
+            {{ page_item.title }}{% if page_item.wip %}（制作中）{% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</main>

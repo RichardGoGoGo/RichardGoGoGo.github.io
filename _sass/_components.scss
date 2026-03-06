@@ -1,0 +1,339 @@
+// Card grid
+.content-outline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-6;
+  margin-bottom: $space-8;
+}
+
+.outline-item {
+  background: $surface-card;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border-light;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary, $primary-light);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($primary, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    margin: 0 0 $space-4;
+    font-size: $font-size-lg;
+    color: $primary-dark;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: $space-2;
+
+      a {
+        display: block;
+        padding: $space-2 $space-3;
+        border-radius: $radius-sm;
+        color: $text-secondary;
+        font-size: $font-size-sm;
+        transition: all $transition-fast;
+
+        &:hover {
+          background: $primary-bg;
+          color: $primary;
+          text-decoration: none;
+          padding-left: $space-4;
+        }
+      }
+    }
+  }
+}
+
+// AI tag
+.ai-tag {
+  display: inline-block;
+  background: rgba($warning, 0.12);
+  color: #b45309;
+  font-size: $font-size-xs;
+  padding: $space-1 $space-2;
+  border-radius: $radius-full;
+  font-weight: 600;
+  margin-left: $space-2;
+  vertical-align: middle;
+}
+
+// Notice / alert
+.notice {
+  background: linear-gradient(135deg, $primary-dark, $primary);
+  color: white;
+  text-align: center;
+  padding: $space-4 $space-6;
+  border-radius: $radius-md;
+  margin-bottom: $space-6;
+  font-style: italic;
+}
+
+// Example / case study blocks
+.example, .case-study {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  padding: $space-5;
+  margin-bottom: $space-6;
+}
+
+.prompt {
+  background: $surface-card;
+  border-left: 4px solid $primary;
+  padding: $space-4;
+  margin: $space-4 0;
+  border-radius: 0 $radius-sm $radius-sm 0;
+}
+
+// Collapsible details
+details {
+  background: $surface-card;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  margin-bottom: $space-4;
+  overflow: hidden;
+
+  summary {
+    padding: $space-4;
+    cursor: pointer;
+    font-weight: 600;
+    color: $text-primary;
+    transition: all $transition-fast;
+    user-select: none;
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::before {
+      content: '▶';
+      display: inline-block;
+      margin-right: $space-2;
+      font-size: $font-size-sm;
+      transition: transform $transition-fast;
+      color: $primary;
+    }
+
+    &:hover {
+      background: $surface;
+    }
+  }
+
+  &[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .content {
+    padding: $space-4;
+    border-top: 1px solid $border-light;
+  }
+}
+
+// Workflow steps
+.workflow-steps {
+  list-style: none;
+  counter-reset: workflow-counter;
+  padding-left: 0;
+
+  > li {
+    counter-increment: workflow-counter;
+    margin-bottom: $space-6;
+    padding: $space-6;
+    background: $surface-card;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    border: 1px solid $border-light;
+    transition: box-shadow $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-md;
+    }
+
+    h4 {
+      position: relative;
+      padding-left: $space-10;
+      margin-top: 0;
+
+      &::before {
+        content: counter(workflow-counter);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2rem;
+        height: 2rem;
+        background: linear-gradient(135deg, $primary, $primary-light);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $font-size-sm;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// Grid layouts
+.grid, .gridsmall {
+  display: grid;
+  gap: $space-6;
+  margin: $space-6 0;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.gridsmall {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid > div, .gridsmall > div {
+  background: $surface-card;
+  border-radius: $radius-md;
+  padding: $space-5;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-light;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// Tables
+.case-table {
+  overflow-x: auto;
+  margin: $space-4 0;
+  border-radius: $radius-md;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $surface-card;
+  }
+
+  th, td {
+    padding: $space-3 $space-4;
+    text-align: left;
+    border: 1px solid $border;
+    font-size: $font-size-sm;
+  }
+
+  th {
+    background: $primary;
+    color: white;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background: $surface;
+  }
+
+  tr:hover {
+    background: $surface-hover;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $space-4 0;
+  background: $surface-card;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  th, td {
+    padding: $space-3 $space-4;
+    text-align: left;
+    border: 1px solid $border;
+    font-size: $font-size-sm;
+  }
+
+  th {
+    background: $primary;
+    color: white;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background: $surface;
+  }
+}
+
+// Image with overlay
+.example-image {
+  position: relative;
+  margin-bottom: $space-6;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform $transition-slow;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+
+  .img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    transform: translateY(100%);
+    transition: transform $transition-base;
+  }
+
+  &:hover .img-overlay {
+    transform: translateY(0);
+  }
+}
+
+// Fade-in animation
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

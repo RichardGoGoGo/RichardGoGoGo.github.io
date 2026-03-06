@@ -1,0 +1,38 @@
+title: "AI大模型工具使用技巧整理"
+description: "面向设计师、科研人员、教师等专业人士的 AI 工具使用指南"
+author: "李策"
+email: "marchlice@outlook.com"
+url: "https://richardgogogo.github.io"
+lang: zh-CN
+
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - script.js
+  - scripts/
+  - README.md
+
+defaults:
+  - scope:
+      path: "workflows"
+    values:
+      layout: page
+  - scope:
+      path: "tools"
+    values:
+      layout: page
+  - scope:
+      path: "resources"
+    values:
+      layout: page
