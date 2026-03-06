@@ -5,27 +5,39 @@ layout: default
 <header class="page-header">
   <div class="container">
     <h1>{{ page.title }}</h1>
-    {% if page.subtitle %}
-    <p class="subtitle">{{ page.subtitle }}</p>
+    {% if page.summary %}<p class="page-meta">{{ page.summary }}</p>{% endif %}
+    {% if page.author or page.updated %}
+    <p class="page-meta">
+      {% if page.author %}{{ page.author }}{% endif %}
+      {% if page.author and page.updated %} · {% endif %}
+      {% if page.updated %}{{ page.updated }}{% endif %}
+    </p>
     {% endif %}
   </div>
 </header>
 
 <main class="container">
-  {% include breadcrumb.html %}
+  <nav style="margin-bottom: 1.5rem; font-size: 0.82rem;">
+    <a href="{{ '/' | relative_url }}" style="color: rgba(255,255,255,0.4);">首页</a>
+    {% if page.category %}
+    <span style="color: rgba(255,255,255,0.2); margin: 0 0.4rem;">/</span>
+    <span style="color: rgba(255,255,255,0.5);">{{ page.category }}</span>
+    {% endif %}
+  </nav>
 
   <details class="mobile-toc">
     <summary>页面目录</summary>
-    <ul class="toc-list" id="mobile-toc-list">
-      <!-- Populated by JavaScript -->
-    </ul>
+    <ul class="toc-list" id="mobile-toc-list"></ul>
   </details>
 
   <div class="content-wrapper">
-    <div class="main-content">
+    <article class="main-content card">
       {{ content }}
-    </div>
+    </article>
 
-    {% include sidebar.html %}
+    <aside class="page-sidebar">
+      <div class="toc-title">目录</div>
+      <ul class="toc-list" id="toc-list"></ul>
+    </aside>
   </div>
 </main>

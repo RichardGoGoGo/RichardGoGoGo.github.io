@@ -1,43 +1,27 @@
 <nav class="site-nav" id="site-nav">
-  <div class="nav-container">
-    <a href="{{ '/' | relative_url }}" class="nav-brand">AI工具指南</a>
+  <div class="nav-inner">
+    <a href="{{ '/' | relative_url }}" class="nav-brand">浅译万道</a>
 
     <ul class="nav-links">
-      {% for section in site.data.navigation.sections %}
-      <li class="nav-item">
-        <a href="#{{ section.id }}">{{ section.title }}</a>
-        <div class="dropdown">
-          {% for category in section.categories %}
-          <a href="{% if category.pages.first.url != '#' %}{{ category.pages.first.url | relative_url }}{% else %}#{% endif %}">
-            {{ category.title }}{% if category.ai_generated %} <span class="ai-tag">AI版</span>{% endif %}
-          </a>
-          {% endfor %}
-        </div>
-      </li>
-      {% endfor %}
+      <li><a href="{{ '/' | relative_url }}#workflows">工作流</a></li>
+      <li><a href="{{ '/' | relative_url }}#essays">研究笔记</a></li>
+      <li><a href="{{ '/' | relative_url }}#translations">翻译</a></li>
+      <li><a href="{{ '/' | relative_url }}#resources">资源</a></li>
     </ul>
 
-    <button class="nav-search-btn" id="search-btn" aria-label="搜索">&#x1F50D;</button>
+    <button class="nav-search" id="search-btn">搜索 ⌘K</button>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="菜单">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
 <div class="mobile-nav" id="mobile-nav">
-  {% for section in site.data.navigation.sections %}
-  <div class="mobile-nav-section">
-    <h3>{{ section.title }}</h3>
-    {% for category in section.categories %}
-    <a href="{% if category.pages.first.url != '#' %}{{ category.pages.first.url | relative_url }}{% else %}#{% endif %}">
-      {{ category.title }}{% if category.ai_generated %} <span class="ai-tag">AI版</span>{% endif %}
-    </a>
-    {% endfor %}
-  </div>
-  {% endfor %}
+  <a href="{{ '/' | relative_url }}#workflows">工作流</a>
+  <a href="{{ '/' | relative_url }}#essays">研究笔记</a>
+  <a href="{{ '/' | relative_url }}#translations">翻译</a>
+  <a href="{{ '/' | relative_url }}#resources">资源</a>
 </div>
 
 <div class="nav-spacer"></div>
