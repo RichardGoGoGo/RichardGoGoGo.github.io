@@ -1,4 +1,3 @@
-// Reset & Base Styles
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -7,68 +6,188 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  background: $bg-deep;
+  color: $text-body;
   font-family: $font-sans;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $text-primary;
-  background-color: $surface;
+  font-weight: $weight-regular;
+  font-size: 1rem;
+  line-height: 1.9;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-  margin: 0 0 $space-4;
-  line-height: $line-height-base;
+// --- Organic glow orbs ---
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-orb--purple {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba($purple, 0.22), transparent 70%);
+  top: -10%;
+  left: -5%;
+  animation: drift-a 25s ease-in-out infinite alternate;
+}
+.glow-orb--cyan {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba($cyan, 0.15), transparent 70%);
+  bottom: -15%;
+  right: -10%;
+  animation: drift-b 30s ease-in-out infinite alternate;
+}
+.glow-orb--small {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba($purple-light, 0.1), transparent 70%);
+  top: 50%;
+  right: 20%;
+  animation: drift-a 20s ease-in-out infinite alternate-reverse;
 }
 
+@keyframes drift-a {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, 30px) scale(1.08); }
+}
+@keyframes drift-b {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-30px, -20px) scale(1.05); }
+}
+
+// --- Typography ---
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-serif;
-  line-height: $line-height-heading;
-  font-weight: 700;
   color: $text-primary;
+  letter-spacing: 0.04em;
 }
 
-h1 { font-size: $font-size-4xl; margin-bottom: $space-6; }
-h2 { font-size: $font-size-2xl; margin: $space-10 0 $space-4; color: $primary-dark; }
-h3 { font-size: $font-size-xl; margin: $space-8 0 $space-3; color: $primary; }
-h4 { font-size: $font-size-lg; margin: $space-6 0 $space-3; color: $primary-dark; font-weight: 600; }
+h1 {
+  font-size: 2.4rem;
+  font-weight: $weight-thin;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: $weight-thin;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $border-subtle;
+}
+h3 {
+  font-size: 1.15rem;
+  font-weight: $weight-light;
+  margin: 2rem 0 0.75rem;
+  color: $purple-light;
+}
+h4 {
+  font-size: 1rem;
+  font-weight: $weight-medium;
+  margin: 1.5rem 0 0.5rem;
+  color: $text-body;
+}
+
+p { margin: 0 0 1rem; }
 
 a {
-  color: $primary;
+  color: $purple-light;
   text-decoration: none;
   transition: color $transition-fast;
-
-  &:hover {
-    color: $primary-dark;
-    text-decoration: underline;
-  }
+  &:hover { color: $cyan-light; }
 }
+
+ul, ol { padding-left: 1.5rem; }
+li { margin-bottom: 0.4rem; }
 
 img {
   max-width: 100%;
   height: auto;
-  display: block;
-}
-
-ul, ol {
-  padding-left: $space-6;
-}
-
-li {
-  margin-bottom: $space-2;
-}
-
-.container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 $space-6;
+  border-radius: $radius;
 }
 
 ::selection {
-  background: rgba($primary, 0.15);
-  color: $primary-dark;
+  background: rgba($purple, 0.3);
+  color: white;
+}
+
+// --- Container ---
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+// --- Code ---
+code {
+  background: rgba($purple-light, 0.08);
+  color: $purple-muted;
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+  font-family: $font-mono;
+  font-size: 0.88em;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: $radius;
+  padding: 1.5rem;
+  overflow-x: auto;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: $font-mono;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 1rem 0;
+
+  code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+// --- Tables ---
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid $border-subtle;
+  }
+  th {
+    color: $text-primary;
+    font-weight: $weight-medium;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.015);
+  }
+}
+
+// --- Blockquote (for 待核查 etc) ---
+blockquote {
+  border-left: 2px solid $purple;
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  color: $text-muted;
+  background: rgba($purple, 0.04);
+  border-radius: 0 $radius $radius 0;
+  font-size: 0.92rem;
 }

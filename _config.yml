@@ -1,7 +1,6 @@
-title: "AI大模型工具使用技巧整理"
-description: "面向设计师、科研人员、教师等专业人士的 AI 工具使用指南"
-author: "李策"
-email: "marchlice@outlook.com"
+title: "浅译万道"
+tagline: "方法与文章"
+description: "学习知识沉淀库 — 方法论、工具教程、研究笔记与翻译文档"
 url: "https://richardgogogo.github.io"
 lang: zh-CN
 
@@ -15,24 +14,48 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - drafts
+  - templates
+  - prompts
+  - STYLE-GUIDE.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor
-  - script.js
-  - scripts/
   - README.md
+  - .claude
+
+collections:
+  workflows:
+    output: true
+    permalink: /workflows/:name/
+  essays:
+    output: true
+    permalink: /essays/:name/
+  translations:
+    output: true
+    permalink: /translations/:name/
+  resources:
+    output: true
+    permalink: /resources/:name/
 
 defaults:
   - scope:
-      path: "workflows"
+      path: "content/workflows"
     values:
       layout: page
+      collection: workflows
   - scope:
-      path: "tools"
+      path: "content/essays"
     values:
       layout: page
+      collection: essays
   - scope:
-      path: "resources"
+      path: "content/translations"
     values:
       layout: page
+      collection: translations
+  - scope:
+      path: "content/resources"
+    values:
+      layout: page
+      collection: resources

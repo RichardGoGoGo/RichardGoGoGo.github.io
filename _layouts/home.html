@@ -2,43 +2,48 @@
 layout: default
 ---
 
-<header class="page-header" style="text-align: center;">
+<header class="page-header">
   <div class="container">
-    <h1>{{ site.title }}</h1>
-    <p class="subtitle">{{ site.description }}</p>
-    <p style="color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-top: 1rem;">编者·{{ site.author }} 清华大学设计学博士在读</p>
-    <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 0.5rem;">网站仍在建设中，标记为AI版的为AI生成的占位内容，待完善</p>
+    <h1>浅译万道</h1>
+    <p style="color: rgba(255,255,255,0.4); font-weight: 200; font-size: 1.1rem; letter-spacing: 0.1em; margin-top: 0.5rem;">方法与文章</p>
   </div>
 </header>
 
 <main class="container">
-  <!-- Updates timeline -->
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;">
-    {% for update in site.data.navigation.updates %}
-    <div style="background: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #f3f4f6;">
-      <strong style="color: #7C3AED;">{{ update.date }}</strong>
-      <span style="color: #6B7280;">{{ update.text }}</span>
-    </div>
-    {% endfor %}
+  {{ content }}
+
+  <div class="section-label fade-in">分类</div>
+  <div class="card-grid">
+    <a class="category-card fade-in" href="#workflows">
+      <h3>工作流</h3>
+      <p>步骤型教程、工具链与案例拆解</p>
+    </a>
+    <a class="category-card fade-in" href="#essays">
+      <h3>研究笔记</h3>
+      <p>方法论、综述与长文分析</p>
+    </a>
+    <a class="category-card fade-in" href="#translations">
+      <h3>翻译文档</h3>
+      <p>官方文档与技术资料翻译</p>
+    </a>
+    <a class="category-card fade-in" href="#resources">
+      <h3>资源导航</h3>
+      <p>工具推荐、学习资源与社区</p>
+    </a>
   </div>
 
-  {% for section in site.data.navigation.sections %}
-  <div id="{{ section.id }}" class="section-header fade-in">{{ section.title }}</div>
-  <div class="content-outline">
-    {% for category in section.categories %}
-    <div class="outline-item fade-in">
-      <h3>{{ category.title }}{% if category.ai_generated %} <span class="ai-tag">AI版</span>{% endif %}</h3>
-      <ul>
-        {% for page_item in category.pages %}
-        <li>
-          <a href="{{ page_item.url | relative_url }}">
-            {{ page_item.title }}{% if page_item.wip %}（制作中）{% endif %}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
+  {% assign all_pages = site.pages | where_exp: "p", "p.layout == 'page'" | sort: "updated" | reverse %}
+  {% if all_pages.size > 0 %}
+  <div class="section-label fade-in">最近更新</div>
+  <ul class="article-list fade-in">
+    {% for p in all_pages limit: 10 %}
+    <li>
+      <a href="{{ p.url | relative_url }}">
+        <span class="article-title">{{ p.title }}</span>
+        <span class="article-date">{{ p.updated | default: p.date }}</span>
+      </a>
+    </li>
     {% endfor %}
-  </div>
-  {% endfor %}
+  </ul>
+  {% endif %}
 </main>
