@@ -5,45 +5,101 @@ layout: default
 <header class="page-header">
   <div class="container">
     <h1>浅译万道</h1>
-    <p style="color: rgba(255,255,255,0.4); font-weight: 200; font-size: 1.1rem; letter-spacing: 0.1em; margin-top: 0.5rem;">方法与文章</p>
+    <p class="hero-tagline">方法与文章</p>
+    <p class="hero-desc">学习知识沉淀库 · 方法论与实践</p>
   </div>
 </header>
 
 <main class="container">
   {{ content }}
 
-  <div class="section-label fade-in">分类</div>
+  <div class="section-label fade-in"><span class="label-text">探索分类</span></div>
   <div class="card-grid">
-    <a class="category-card fade-in" href="#workflows">
+    <a class="category-card fade-in" href="/workflows/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
       <h3>工作流</h3>
       <p>步骤型教程、工具链与案例拆解</p>
+      {% assign wf_count = site.pages | where_exp: "p", "p.category == 'workflows'" | size %}
+      <span class="card-count">{{ wf_count }} 篇文章</span>
     </a>
-    <a class="category-card fade-in" href="#essays">
+    <a class="category-card fade-in" href="/essays/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
       <h3>研究笔记</h3>
       <p>方法论、综述与长文分析</p>
+      {% assign es_count = site.pages | where_exp: "p", "p.category == 'essays'" | size %}
+      <span class="card-count">{{ es_count }} 篇文章</span>
     </a>
-    <a class="category-card fade-in" href="#translations">
+    <a class="category-card fade-in" href="/translations/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m6.088 9h7M12.5 18l3.5-7 3.5 7M14 16h4"/></svg>
+      </div>
       <h3>翻译文档</h3>
       <p>官方文档与技术资料翻译</p>
+      {% assign tr_count = site.pages | where_exp: "p", "p.category == 'translations'" | size %}
+      <span class="card-count">{{ tr_count }} 篇文章</span>
     </a>
-    <a class="category-card fade-in" href="#resources">
+    <a class="category-card fade-in" href="/resources/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+      </div>
       <h3>资源导航</h3>
       <p>工具推荐、学习资源与社区</p>
+      {% assign rs_count = site.pages | where_exp: "p", "p.category == 'resources'" | size %}
+      <span class="card-count">{{ rs_count }} 篇文章</span>
+    </a>
+    <a class="category-card fade-in" href="/cases/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 12 18.469a3.374 3.374 0 0 0-1.988-.832l-.548-.547z"/></svg>
+      </div>
+      <h3>实践案例</h3>
+      <p>真实项目复盘与实操记录</p>
+      {% assign cs_count = site.pages | where_exp: "p", "p.category == 'cases'" | size %}
+      <span class="card-count">{{ cs_count }} 篇文章</span>
+    </a>
+    <a class="category-card fade-in" href="/collaboration/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>合作交流</h3>
+      <p>协作项目与社区互动</p>
+      {% assign co_count = site.pages | where_exp: "p", "p.category == 'collaboration'" | size %}
+      <span class="card-count">{{ co_count }} 篇文章</span>
     </a>
   </div>
 
   {% assign all_pages = site.pages | where_exp: "p", "p.layout == 'page'" | sort: "updated" | reverse %}
   {% if all_pages.size > 0 %}
-  <div class="section-label fade-in">最近更新</div>
-  <ul class="article-list fade-in">
-    {% for p in all_pages limit: 10 %}
-    <li>
-      <a href="{{ p.url | relative_url }}">
-        <span class="article-title">{{ p.title }}</span>
-        <span class="article-date">{{ p.updated | default: p.date }}</span>
-      </a>
-    </li>
+  <div class="section-label fade-in"><span class="label-text">最近更新</span></div>
+  <div class="timeline fade-in">
+    {% for p in all_pages limit: 8 %}
+    <a class="timeline-item" href="{{ p.url | relative_url }}">
+      <div class="timeline-meta">{{ p.updated | default: p.date }} · {{ p.category }}</div>
+      <div class="timeline-title">{{ p.title }}</div>
+      {% if p.author %}<div class="timeline-author">{{ p.author }}</div>{% endif %}
+    </a>
     {% endfor %}
-  </ul>
+  </div>
   {% endif %}
+
+  <div class="section-label fade-in"><span class="label-text">关于本站</span></div>
+  <div class="about-section fade-in">
+    <div class="about-text">
+      <p>「浅译万道」是一个开放的学习知识沉淀库，汇集方法论、工具教程、研究笔记与翻译文档。我们相信知识应当被系统化地整理、自由地分享。</p>
+    </div>
+    <div class="about-stats">
+      {% assign total = site.pages | where_exp: "p", "p.layout == 'page'" | size %}
+      <div class="stat">
+        <div class="stat-num">{{ total }}</div>
+        <div class="stat-label">篇文章</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">个分类</div>
+      </div>
+    </div>
+  </div>
 </main>

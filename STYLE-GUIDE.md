@@ -5,7 +5,7 @@
 
 ## 一、定位
 
-本站是学习知识沉淀库，收录方法论、工具教程、研究笔记和翻译文档。站名「浅译万道 · 方法与文章」，支持多作者。
+本站是学习知识沉淀库，收录方法论、工具教程、研究笔记、翻译文档、实践案例与协作项目。站名「浅译万道 · 方法与文章」，支持多作者。
 
 ## 二、基本原则
 
@@ -28,7 +28,7 @@ title: "文章标题"
 slug: article-slug
 summary: "一句话摘要（50字以内）"
 author: "作者名"
-category: workflows | essays | translations | resources
+category: workflows | essays | translations | resources | cases | collaboration
 tags: [标签1, 标签2, 标签3]
 updated: 2026-03-06
 ---
@@ -62,6 +62,8 @@ updated: 2026-03-06
 | essay | templates/essay.md | 研究综述、方法论、长文分析 |
 | translation | templates/translation.md | 官方文档翻译 |
 | resource | templates/resource.md | 资源清单、链接导航 |
+| case | templates/case.md | 实践案例、项目复盘 |
+| collaboration | templates/collaboration.md | 协作项目、社区互动 |
 
 ## 五、语言风格
 
