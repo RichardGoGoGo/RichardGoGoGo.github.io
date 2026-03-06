@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="hero-tagline">{{ page.description }}</p>{% endif %}
+  </div>
+</header>
+
+<main class="container">
+  <nav style="margin-bottom: 1.5rem; font-size: 0.82rem;">
+    <a href="{{ '/' | relative_url }}" style="color: rgba(255,255,255,0.4);">首页</a>
+    <span style="color: rgba(255,255,255,0.2); margin: 0 0.4rem;">/</span>
+    <span style="color: rgba(255,255,255,0.5);">{{ page.title }}</span>
+  </nav>
+
+  {% assign cat_pages = site.pages | where_exp: "p", "p.category == page.cat_id" | sort: "updated" | reverse %}
+  {% if cat_pages.size > 0 %}
+  <ul class="article-list fade-in">
+    {% for p in cat_pages %}
+    <li>
+      <a href="{{ p.url | relative_url }}">
+        <span class="article-title">{{ p.title }}</span>
+        <span class="article-date">{{ p.updated | default: p.date }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <div class="card fade-in" style="text-align: center; padding: 3rem;">
+    <p style="color: rgba(255,255,255,0.4);">暂无文章</p>
+  </div>
+  {% endif %}
+</main>

@@ -310,7 +310,11 @@
   font-size: 0.88rem;
   font-weight: $weight-light;
   letter-spacing: 0.12em;
-  margin: 4rem 0 2rem;
+  margin: 3rem 0 2rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -426,64 +430,74 @@
   }
 }
 
-// --- Timeline (recent updates) ---
-.timeline {
+// --- Horizontal timeline (recent updates) ---
+.h-timeline {
   position: relative;
-  padding-left: 2rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding: 1.5rem 0 1rem;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 
+  // Horizontal line
   &::before {
     content: "";
     position: absolute;
-    left: 7px;
     top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(180deg, $purple-light, $border-subtle, transparent);
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, $purple-light, $border-subtle, transparent);
   }
 
-  .timeline-item {
-    position: relative;
-    padding: 0.75rem 0 0.75rem 1rem;
-    display: block;
+  .h-timeline-item {
+    flex: 1 0 0;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
+    padding: 0 0.75rem;
+    position: relative;
     transition: all $transition-fast;
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: -2rem;
-      top: 1.15rem;
-      width: 7px;
-      height: 7px;
+    .h-timeline-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: $bg-deep;
       border: 1.5px solid $purple-light;
+      margin-top: -4.5px;
+      margin-bottom: 1rem;
       transition: all $transition-fast;
+      flex-shrink: 0;
+    }
+
+    .h-timeline-content {
+      text-align: center;
+    }
+
+    .h-timeline-title {
+      font-size: 0.85rem;
+      color: $text-body;
+      transition: color $transition-fast;
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+
+    .h-timeline-meta {
+      font-size: 0.72rem;
+      color: $text-muted;
+      letter-spacing: 0.03em;
     }
 
     &:hover {
-      &::before {
+      .h-timeline-dot {
         background: $purple-light;
-        box-shadow: 0 0 8px rgba($purple-light, 0.5);
+        box-shadow: 0 0 10px rgba($purple-light, 0.6);
       }
-      .timeline-title { color: $purple-light; }
-    }
-
-    .timeline-meta {
-      font-size: 0.75rem;
-      color: $text-muted;
-      margin-bottom: 0.2rem;
-      letter-spacing: 0.03em;
-    }
-    .timeline-title {
-      font-size: 0.92rem;
-      color: $text-body;
-      transition: color $transition-fast;
-    }
-    .timeline-author {
-      font-size: 0.75rem;
-      color: $text-muted;
-      margin-top: 0.15rem;
+      .h-timeline-title { color: $purple-light; }
     }
   }
 }
@@ -679,6 +693,7 @@
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   h1 { font-size: 2rem; }
   .page-header h1 { font-size: 2.4rem; }
+  .h-timeline .h-timeline-item { min-width: 140px; }
   .about-section {
     flex-direction: column;
     gap: 1.5rem;
