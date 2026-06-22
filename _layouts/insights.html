@@ -1,0 +1,126 @@
+---
+layout: default
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="hero-tagline">{{ page.description }}</p>{% endif %}
+  </div>
+</header>
+
+<main class="container">
+  <nav style="margin-bottom: 1.5rem; font-size: 0.82rem;">
+    <a href="{{ '/' | relative_url }}" style="color: rgba(255,255,255,0.4);">首页</a>
+    <span style="color: rgba(255,255,255,0.2); margin: 0 0.4rem;">/</span>
+    <span style="color: rgba(255,255,255,0.5);">{{ page.title }}</span>
+  </nav>
+
+  {% assign cat_pages = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
+  {% assign today = site.time | date: "%Y-%m-%d" %}
+
+  {%- comment -%} 汇总全部标签 {%- endcomment -%}
+  {% assign tagstr = "" %}
+  {% for p in cat_pages %}{% for t in p.tags %}{% assign tagstr = tagstr | append: t | append: "," %}{% endfor %}{% endfor %}
+  {% assign all_tags = tagstr | split: "," | uniq | sort %}
+
+  {%- comment -%} 置顶（加更，未过期） {%- endcomment -%}
+  {% assign pinned_pages = cat_pages | where_exp: "p", "p.pinned" %}
+  {% if pinned_pages.size > 0 %}
+  <div class="section-label fade-in"><span class="label-text">🔝 置顶 · 重大加更</span></div>
+  <div class="insight-grid fade-in" style="margin-bottom: 2rem;">
+    {% for p in pinned_pages %}
+    {% if p.pin_until == nil or p.pin_until >= today %}
+    <article class="card insight-card">
+      <div class="insight-meta">
+        <span class="insight-badge badge-pin">加更</span>
+        {% if p.icat %}<span class="insight-badge">{{ p.icat }}</span>{% endif %}
+        <span class="insight-date">{{ p.date | date: "%Y-%m-%d" }}</span>
+      </div>
+      <h3 class="insight-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      {% if p.summary %}<p class="insight-summary">{{ p.summary }}</p>{% endif %}
+      {% if p.tags %}<div class="insight-tags">{% for t in p.tags %}<span class="tag-chip-mini">{{ t }}</span>{% endfor %}</div>{% endif %}
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {%- comment -%} 标签筛选 {%- endcomment -%}
+  {% if all_tags.size > 0 %}
+  <div class="tag-filter fade-in" id="tag-filter">
+    <button class="tag-chip active" data-filter="__all__">全部</button>
+    {% for t in all_tags %}{% unless t == "" %}<button class="tag-chip" data-filter="{{ t }}">{{ t }}</button>{% endunless %}{% endfor %}
+  </div>
+  {% endif %}
+
+  {%- comment -%} 全部洞察 {%- endcomment -%}
+  {% if cat_pages.size > 0 %}
+  <div class="insight-grid fade-in" id="insight-list">
+    {% for p in cat_pages %}
+    {% assign tagdata = p.tags | join: " " %}
+    <article class="card insight-card" data-tags="{{ tagdata }}">
+      <div class="insight-meta">
+        {% if p.icat %}<span class="insight-badge">{{ p.icat }}</span>{% endif %}
+        <span class="insight-date">{{ p.date | date: "%Y-%m-%d" }}</span>
+        {% if p.source %}<span class="insight-source">{{ p.source }}</span>{% endif %}
+      </div>
+      <h3 class="insight-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      {% if p.summary %}<p class="insight-summary">{{ p.summary }}</p>{% endif %}
+      {% if p.tags %}<div class="insight-tags">{% for t in p.tags %}<span class="tag-chip-mini">{{ t }}</span>{% endfor %}</div>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  <p id="insight-empty" style="display:none; text-align:center; color:rgba(255,255,255,0.4); padding:2rem;">该标签下暂无洞察</p>
+  {% else %}
+  <div class="card fade-in" style="text-align: center; padding: 3rem;">
+    <p style="color: rgba(255,255,255,0.4);">暂无洞察</p>
+  </div>
+  {% endif %}
+</main>
+
+<style>
+  .insight-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+  @media (min-width: 720px) { .insight-grid { grid-template-columns: 1fr 1fr; } }
+  .insight-card { padding: 1.1rem 1.2rem; }
+  .insight-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.74rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .insight-badge { background: rgba(167,139,250,0.14); color: #c4b5fd; padding: 0.1rem 0.5rem; border-radius: 6px; font-size: 0.7rem; }
+  .badge-pin { background: rgba(6,182,212,0.16); color: #22d3ee; }
+  .insight-date { color: rgba(255,255,255,0.35); }
+  .insight-source { margin-left: auto; color: rgba(255,255,255,0.3); }
+  .insight-title { font-size: 1rem; font-weight: 400; margin: 0 0 0.45rem; line-height: 1.4; }
+  .insight-title a { color: rgba(255,255,255,0.92); }
+  .insight-title a:hover { color: #a78bfa; }
+  .insight-summary { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0 0 0.6rem; }
+  .insight-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .tag-chip-mini { font-size: 0.68rem; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 0.05rem 0.45rem; border-radius: 6px; }
+  .tag-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
+  .tag-chip { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: all 150ms ease; }
+  .tag-chip:hover { border-color: rgba(167,139,250,0.4); color: #c4b5fd; }
+  .tag-chip.active { background: rgba(167,139,250,0.18); border-color: rgba(167,139,250,0.4); color: #c4b5fd; }
+</style>
+
+<script>
+  (function () {
+    var filter = document.getElementById('tag-filter');
+    if (!filter) return;
+    var list = document.getElementById('insight-list');
+    var empty = document.getElementById('insight-empty');
+    filter.addEventListener('click', function (e) {
+      var btn = e.target.closest('.tag-chip');
+      if (!btn) return;
+      filter.querySelectorAll('.tag-chip').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      var cards = list.querySelectorAll('.insight-card');
+      var shown = 0;
+      cards.forEach(function (c) {
+        var tags = (c.getAttribute('data-tags') || '').split(' ');
+        var show = (f === '__all__') || tags.indexOf(f) !== -1;
+        c.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (empty) empty.style.display = shown === 0 ? 'block' : 'none';
+    });
+  })();
+</script>

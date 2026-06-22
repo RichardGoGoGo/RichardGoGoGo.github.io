@@ -1,7 +1,7 @@
-title: "浅译万道"
-tagline: "方法与文章"
-description: "学习知识沉淀库 — 方法论、工具教程、研究笔记与翻译文档"
-url: "https://richardgogogo.github.io"
+title: "浅译快报"
+tagline: "AI艺术设计前沿"
+description: "浅译万道实验室出品 — AI×艺术设计的洞察、征稿、SKILL评测与主题知识库"
+url: "https://www.transwonder.top"
 lang: zh-CN
 
 markdown: kramdown
@@ -24,27 +24,34 @@ exclude:
   - README.md
   - .claude
 
-collections:
-  workflows:
-    output: true
-    permalink: /workflows/:name/
-  essays:
-    output: true
-    permalink: /essays/:name/
-  translations:
-    output: true
-    permalink: /translations/:name/
-  resources:
-    output: true
-    permalink: /resources/:name/
-  cases:
-    output: true
-    permalink: /cases/:name/
-  collaboration:
-    output: true
-    permalink: /collaboration/:name/
-
 defaults:
+  # 资讯层
+  - scope:
+      path: "content/insights"
+    values:
+      layout: page
+      category: insights
+      permalink: /insights/:basename/
+  - scope:
+      path: "content/calls"
+    values:
+      layout: page
+      category: calls
+      permalink: /calls/:basename/
+  - scope:
+      path: "content/skills"
+    values:
+      layout: page
+      category: skills
+      permalink: /skills/:basename/
+  # 知识层
+  - scope:
+      path: "content/knowledge"
+    values:
+      layout: page
+      category: knowledge
+      permalink: /knowledge/:basename/
+  # 沉淀层
   - scope:
       path: "content/workflows"
     values:
@@ -63,21 +70,3 @@ defaults:
       layout: page
       category: translations
       permalink: /translations/:basename/
-  - scope:
-      path: "content/resources"
-    values:
-      layout: page
-      category: resources
-      permalink: /resources/:basename/
-  - scope:
-      path: "content/cases"
-    values:
-      layout: page
-      category: cases
-      permalink: /cases/:basename/
-  - scope:
-      path: "content/collaboration"
-    values:
-      layout: page
-      category: collaboration
-      permalink: /collaboration/:basename/

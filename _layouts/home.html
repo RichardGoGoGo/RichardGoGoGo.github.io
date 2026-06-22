@@ -5,23 +5,77 @@ layout: default
 <main class="container" style="padding-top: 2.5rem;">
   {{ content }}
 
-  {% assign all_pages = site.pages | where_exp: "p", "p.layout == 'page'" | sort: "updated" | reverse %}
-  {% if all_pages.size > 0 %}
-  <div class="section-label fade-in"><span class="label-text">最近更新</span></div>
+  <!-- Hero -->
+  <div class="home-hero fade-in" style="text-align:center; padding: 1.5rem 0 2.5rem;">
+    <h1 style="font-weight:200; font-size: clamp(1.8rem, 5vw, 2.8rem); margin:0;">浅译快报</h1>
+    <p style="color: rgba(255,255,255,0.5); font-weight:300; margin-top:0.5rem; letter-spacing:0.06em;">AI 艺术设计前沿 · 洞察 / 征稿 / SKILL评测 / 知识库</p>
+  </div>
+
+  <!-- 最新洞察 -->
+  {% assign latest_insights = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
+  {% if latest_insights.size > 0 %}
+  <div class="section-label fade-in"><span class="label-text">最新洞察</span></div>
   <div class="h-timeline fade-in">
-    {% for p in all_pages limit: 6 %}
+    {% for p in latest_insights limit: 6 %}
     <a class="h-timeline-item" href="{{ p.url | relative_url }}">
       <div class="h-timeline-dot"></div>
       <div class="h-timeline-content">
         <div class="h-timeline-title">{{ p.title }}</div>
-        <div class="h-timeline-meta">{{ p.updated | default: p.date }}</div>
+        <div class="h-timeline-meta">{{ p.date }}</div>
       </div>
     </a>
     {% endfor %}
   </div>
   {% endif %}
 
-  <div class="section-label fade-in"><span class="label-text">探索分类</span></div>
+  <!-- 资讯层 -->
+  <div class="section-label fade-in"><span class="label-text">资讯</span></div>
+  <div class="card-grid">
+    <a class="category-card fade-in" href="/insights/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg>
+      </div>
+      <h3>洞察</h3>
+      <p>AI×艺术设计的前沿动态，发生了什么、为什么重要（日更）</p>
+      {% assign in_count = site.pages | where_exp: "p", "p.category == 'insights'" | size %}
+      <span class="card-count">{{ in_count }} 条</span>
+    </a>
+    <a class="category-card fade-in" href="/calls/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+      </div>
+      <h3>征稿</h3>
+      <p>赛事征集与学术论坛/会议征稿，截止前可投可报的机会</p>
+      {% assign ca_count = site.pages | where_exp: "p", "p.category == 'calls'" | size %}
+      <span class="card-count">{{ ca_count }} 条</span>
+    </a>
+    <a class="category-card fade-in" href="/skills/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6L12 2z"/></svg>
+      </div>
+      <h3>SKILL评测</h3>
+      <p>高星 AI skill 的要点 + 客观安全审查事实</p>
+      {% assign sk_count = site.pages | where_exp: "p", "p.category == 'skills'" | size %}
+      <span class="card-count">{{ sk_count }} 篇</span>
+    </a>
+  </div>
+
+  <!-- 知识层 -->
+  <div class="section-label fade-in"><span class="label-text">知识</span></div>
+  <div class="card-grid">
+    <a class="category-card fade-in" href="/knowledge/">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+      </div>
+      <h3>主题知识库</h3>
+      <p>AI 辅助 设计教学 / 学术写作 / 日常办公 / 内容生产——持续迭代的方法库</p>
+      {% assign kn_count = site.pages | where_exp: "p", "p.category == 'knowledge'" | size %}
+      <span class="card-count">{{ kn_count }} 篇</span>
+    </a>
+  </div>
+
+  <!-- 沉淀层 -->
+  <div class="section-label fade-in"><span class="label-text">沉淀</span></div>
   <div class="card-grid">
     <a class="category-card fade-in" href="/workflows/">
       <div class="card-icon">
@@ -30,7 +84,7 @@ layout: default
       <h3>工作流</h3>
       <p>步骤型教程、工具链与案例拆解</p>
       {% assign wf_count = site.pages | where_exp: "p", "p.category == 'workflows'" | size %}
-      <span class="card-count">{{ wf_count }} 篇文章</span>
+      <span class="card-count">{{ wf_count }} 篇</span>
     </a>
     <a class="category-card fade-in" href="/essays/">
       <div class="card-icon">
@@ -39,7 +93,7 @@ layout: default
       <h3>研究笔记</h3>
       <p>方法论、综述与长文分析</p>
       {% assign es_count = site.pages | where_exp: "p", "p.category == 'essays'" | size %}
-      <span class="card-count">{{ es_count }} 篇文章</span>
+      <span class="card-count">{{ es_count }} 篇</span>
     </a>
     <a class="category-card fade-in" href="/translations/">
       <div class="card-icon">
@@ -48,51 +102,26 @@ layout: default
       <h3>翻译文档</h3>
       <p>官方文档与技术资料翻译</p>
       {% assign tr_count = site.pages | where_exp: "p", "p.category == 'translations'" | size %}
-      <span class="card-count">{{ tr_count }} 篇文章</span>
-    </a>
-    <a class="category-card fade-in" href="/resources/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
-      </div>
-      <h3>资源导航</h3>
-      <p>工具推荐、学习资源与社区</p>
-      {% assign rs_count = site.pages | where_exp: "p", "p.category == 'resources'" | size %}
-      <span class="card-count">{{ rs_count }} 篇文章</span>
-    </a>
-    <a class="category-card fade-in" href="/cases/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 12 18.469a3.374 3.374 0 0 0-1.988-.832l-.548-.547z"/></svg>
-      </div>
-      <h3>实践案例</h3>
-      <p>真实项目复盘与实操记录</p>
-      {% assign cs_count = site.pages | where_exp: "p", "p.category == 'cases'" | size %}
-      <span class="card-count">{{ cs_count }} 篇文章</span>
-    </a>
-    <a class="category-card fade-in" href="/collaboration/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <h3>合作交流</h3>
-      <p>协作项目与社区互动</p>
-      {% assign co_count = site.pages | where_exp: "p", "p.category == 'collaboration'" | size %}
-      <span class="card-count">{{ co_count }} 篇文章</span>
+      <span class="card-count">{{ tr_count }} 篇</span>
     </a>
   </div>
 
+  <!-- 关于 -->
   <div class="section-label fade-in"><span class="label-text">关于本站</span></div>
   <div class="about-section fade-in">
     <div class="about-text">
-      <p>「浅译万道」是一个开放的学习知识沉淀库，汇集方法论、工具教程、研究笔记与翻译文档。我们相信知识应当被系统化地整理、自由地分享。</p>
+      <p>「浅译快报」是浅译万道实验室的对外资讯与知识站，聚焦 AI × 艺术设计：客观汇集前沿洞察、赛事与学术征稿、AI skill 评测，并沉淀可复用的主题方法库。我们相信前沿信息应当被客观地整理、自由地分享。</p>
+      <p style="margin-top:0.8rem; color: rgba(255,255,255,0.45); font-size:0.9rem;">实验室官网（面向高校教师与院系）：<a href="https://www.transwonder-lab.com" style="color:#a78bfa;">transwonder-lab.com</a></p>
     </div>
     <div class="about-stats">
       {% assign total = site.pages | where_exp: "p", "p.layout == 'page'" | size %}
       <div class="stat">
         <div class="stat-num">{{ total }}</div>
-        <div class="stat-label">篇文章</div>
+        <div class="stat-label">篇内容</div>
       </div>
       <div class="stat">
-        <div class="stat-num">6</div>
-        <div class="stat-label">个分类</div>
+        <div class="stat-num">7</div>
+        <div class="stat-label">个栏目</div>
       </div>
     </div>
   </div>
