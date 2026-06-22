@@ -195,6 +195,23 @@ img { max-width: 100%; height: auto; }
 .site-footer .container { font-size: 0.8rem; color: var(--ink-mute); }
 .site-footer a { color: var(--accent); }
 
+/* ---------- 点标题展开详情 ---------- */
+.post-title, .feat-title { cursor: pointer; }
+.post-title .caret, .feat-title .caret { display: inline-block; color: var(--ink-mute); margin-right: 0.4rem; transition: transform 0.2s ease; }
+.post-item.open .caret, .feat.open .caret { transform: rotate(90deg); }
+.post-detail { display: none; margin-top: 0.7rem; padding-top: 0.8rem; border-top: 1px dashed var(--rule); }
+.post-item.open .post-detail, .feat.open .post-detail { display: block; }
+.post-detail p { margin: 0 0 0.9rem; color: var(--ink-soft); line-height: 1.75; }
+.post-detail h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; margin: 1.2rem 0 0.6rem; }
+.post-detail h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; margin: 1rem 0 0.5rem; }
+.post-detail a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.post-detail ul, .post-detail ol { padding-left: 1.3rem; margin: 0 0 0.9rem; }
+.post-detail li { margin: 0.25rem 0; }
+.post-detail blockquote { border-left: 2px solid var(--accent); margin: 0.9rem 0; padding: 0.1rem 0 0.1rem 0.9rem; color: var(--ink-mute); font-style: italic; }
+.post-detail code { font-family: "JetBrains Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.88em; }
+.post-detail strong { font-weight: 500; }
+.detail-src { font-size: 0.82rem; }
+
 /* ---------- 动效 ---------- */
 .fade-in { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-in.visible { opacity: 1; transform: none; }

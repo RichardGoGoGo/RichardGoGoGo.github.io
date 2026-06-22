@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // --- Expand detail in place (点标题原地展开，不跳页) ---
+  document.addEventListener('click', function(e) {
+    var h = e.target.closest('.post-title, .feat-title');
+    if (!h) return;
+    var item = h.closest('.post-item, .feat');
+    if (!item || !item.querySelector('.post-detail')) return;
+    var open = item.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
   // --- Nav scroll hide ---
   var nav = document.getElementById('site-nav');
   var lastY = window.scrollY;

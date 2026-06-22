@@ -21,7 +21,7 @@ layout: default
   <ul class="post-list fade-in">
     {% for p in cat_pages %}
     <li class="post-item">
-      <h3 class="post-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
       <div class="post-meta">
         {% if p.ctype %}<span class="post-badge">{{ p.ctype }}</span>{% endif %}
         <span>{{ p.date | default: p.updated | date: "%Y-%m-%d" }}</span>
@@ -29,6 +29,10 @@ layout: default
       </div>
       {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
       {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
+      <div class="post-detail">
+        {{ p.content }}
+        {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
+      </div>
     </li>
     {% endfor %}
   </ul>

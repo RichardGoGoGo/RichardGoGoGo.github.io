@@ -35,9 +35,13 @@ layout: default
     <div class="feat-kicker">
       {% if featured.pinned %}加更 · {% endif %}{{ featured.icat }} · {{ featured.date | date: "%m.%d" }}
     </div>
-    <h2 class="feat-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+    <h2 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ featured.title }}</h2>
     {% if featured.summary %}<p class="feat-lead">{{ featured.summary }}</p>{% endif %}
     {% if featured.source %}<div class="feat-by">— 来源 {{ featured.source }}</div>{% endif %}
+    <div class="post-detail">
+      {{ featured.content }}
+      {% if featured.url and featured.url != "" %}<p class="detail-src"><a href="{{ featured.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
+    </div>
   </article>
   {% endif %}
 
@@ -48,11 +52,16 @@ layout: default
       {% unless featured and p.url == featured.url %}
         {% if shown < 5 %}
         <li class="post-item">
-          <h3 class="post-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+          <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
           <div class="post-meta">
             {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
             <span>{{ p.date | date: "%Y-%m-%d" }}</span>
             {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
+          </div>
+          {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
+          <div class="post-detail">
+            {{ p.content }}
+            {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
           </div>
         </li>
         {% assign shown = shown | plus: 1 %}
