@@ -33,7 +33,6 @@ layout: default
     <div class="feat-kicker">加更 · {{ p.icat }} · {{ p.date | date: "%m.%d" }}{% if p.source %} · {{ p.source }}{% endif %}</div>
     <h2 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h2>
     {% if p.summary %}<p class="feat-lead">{{ p.summary }}</p>{% endif %}
-    {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
     <div class="post-detail insight-body">
       {{ p.content }}
       {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
@@ -44,12 +43,6 @@ layout: default
   {% endif %}
 
   <div class="sec-label">全部洞察</div>
-  {% if all_tags.size > 0 %}
-  <div class="tag-filter" id="tag-filter">
-    <button class="tag-chip active" data-filter="__all__">全部</button>
-    {% for t in all_tags %}{% unless t == "" %}<button class="tag-chip" data-filter="{{ t }}">{{ t }}</button>{% endunless %}{% endfor %}
-  </div>
-  {% endif %}
 
   {% if cat_pages.size > 0 %}
   <ul class="post-list fade-in" id="insight-list">
@@ -63,8 +56,7 @@ layout: default
         {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
       </div>
       {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
-      {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
-      <div class="post-detail insight-body">
+        <div class="post-detail insight-body">
         {{ p.content }}
         {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
       </div>

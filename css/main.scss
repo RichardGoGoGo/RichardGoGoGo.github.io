@@ -73,7 +73,7 @@ img { max-width: 100%; height: auto; }
 .nav-links a:hover { color: var(--accent); }
 .nav-cta { margin-left: auto; background: var(--accent); color: var(--paper); font-size: 0.78rem; padding: 0.32rem 0.8rem; border-radius: 6px; white-space: nowrap; transition: opacity 0.15s; }
 .nav-cta:hover { opacity: 0.88; }
-.nav-search { background: none; border: 1px solid var(--rule); color: var(--ink-mute); font-size: 0.74rem; padding: 0.3rem 0.55rem; border-radius: 6px; cursor: pointer; font-family: var(--sans); }
+.nav-search { display: inline-flex; align-items: center; background: none; border: 1px solid var(--rule); color: var(--ink-soft); font-size: 0.85rem; padding: 0.4rem 0.9rem; border-radius: 6px; cursor: pointer; font-family: var(--sans); }
 .nav-search:hover { border-color: var(--accent); color: var(--accent); }
 .theme-toggle { background: none; border: 1px solid var(--rule); color: var(--ink-soft); width: 32px; height: 30px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
