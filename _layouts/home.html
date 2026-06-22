@@ -2,127 +2,103 @@
 layout: default
 ---
 
-<main class="container" style="padding-top: 2.5rem;">
-  {{ content }}
+{% assign insights = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign featured = nil %}
+{% for p in insights %}
+  {% if p.pinned and featured == nil %}
+    {% assign pu = p.pin_until | date: "%Y-%m-%d" %}
+    {% if pu == "" or pu >= today %}{% assign featured = p %}{% endif %}
+  {% endif %}
+{% endfor %}
+{% if featured == nil and insights.size > 0 %}{% assign featured = insights[0] %}{% endif %}
 
-  <!-- Hero -->
-  <div class="home-hero fade-in" style="text-align:center; padding: 1.5rem 0 2.5rem;">
-    <h1 style="font-weight:200; font-size: clamp(1.8rem, 5vw, 2.8rem); margin:0;">浅译快报</h1>
-    <p style="color: rgba(255,255,255,0.5); font-weight:300; margin-top:0.5rem; letter-spacing:0.06em;">AI 艺术设计前沿 · 洞察 / 征稿 / SKILL评测 / 知识库</p>
-  </div>
+<main class="container">
 
-  <!-- 最新洞察 -->
-  {% assign latest_insights = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
-  {% if latest_insights.size > 0 %}
-  <div class="section-label fade-in"><span class="label-text">最新洞察</span></div>
-  <div class="h-timeline fade-in">
-    {% for p in latest_insights limit: 6 %}
-    <a class="h-timeline-item" href="{{ p.url | relative_url }}">
-      <div class="h-timeline-dot"></div>
-      <div class="h-timeline-content">
-        <div class="h-timeline-title">{{ p.title }}</div>
-        <div class="h-timeline-meta">{{ p.date }}</div>
-      </div>
-    </a>
-    {% endfor %}
+  <div class="mast-rule" style="margin-top:1.2rem;"></div>
+  <div class="masthead">
+    <div class="mast-name">浅译快报</div>
+    <div class="mast-tagline">AI Art &amp; Design Frontier</div>
   </div>
+  <div class="mast-rule"></div>
+  <nav class="ed-nav">
+    <a href="/insights/">洞察</a>
+    <a href="/calls/">征稿</a>
+    <a href="/skills/">SKILL评测</a>
+    <a href="/knowledge/">知识库</a>
+    <a href="/workflows/">工作流</a>
+  </nav>
+  <div class="mast-rule" style="margin-bottom:1.6rem;"></div>
+
+  {% if featured %}
+  <article class="feat fade-in">
+    <div class="feat-kicker">
+      {% if featured.pinned %}加更 · {% endif %}{{ featured.icat }} · {{ featured.date | date: "%m.%d" }}
+    </div>
+    <h2 class="feat-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+    {% if featured.summary %}<p class="feat-lead">{{ featured.summary }}</p>{% endif %}
+    {% if featured.source %}<div class="feat-by">— 来源 {{ featured.source }}</div>{% endif %}
+  </article>
   {% endif %}
 
-  <!-- 资讯层 -->
-  <div class="section-label fade-in"><span class="label-text">资讯</span></div>
-  <div class="card-grid">
-    <a class="category-card fade-in" href="/insights/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg>
-      </div>
-      <h3>洞察</h3>
-      <p>AI×艺术设计的前沿动态，发生了什么、为什么重要（日更）</p>
-      {% assign in_count = site.pages | where_exp: "p", "p.category == 'insights'" | size %}
-      <span class="card-count">{{ in_count }} 条</span>
-    </a>
-    <a class="category-card fade-in" href="/calls/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-      </div>
-      <h3>征稿</h3>
-      <p>赛事征集与学术论坛/会议征稿，截止前可投可报的机会</p>
-      {% assign ca_count = site.pages | where_exp: "p", "p.category == 'calls'" | size %}
-      <span class="card-count">{{ ca_count }} 条</span>
-    </a>
-    <a class="category-card fade-in" href="/skills/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6L12 2z"/></svg>
-      </div>
-      <h3>SKILL评测</h3>
-      <p>高星 AI skill 的要点 + 客观安全审查事实</p>
-      {% assign sk_count = site.pages | where_exp: "p", "p.category == 'skills'" | size %}
-      <span class="card-count">{{ sk_count }} 篇</span>
-    </a>
+  <div class="sec-label">最新洞察</div>
+  <ul class="post-list fade-in">
+    {% assign shown = 0 %}
+    {% for p in insights %}
+      {% unless featured and p.url == featured.url %}
+        {% if shown < 5 %}
+        <li class="post-item">
+          <h3 class="post-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+          <div class="post-meta">
+            {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
+            <span>{{ p.date | date: "%Y-%m-%d" }}</span>
+            {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
+          </div>
+        </li>
+        {% assign shown = shown | plus: 1 %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+  </ul>
+  <p style="margin-top:0.9rem;"><a href="/insights/" style="color:var(--accent); font-size:0.85rem;">查看全部洞察（日更）→</a></p>
+
+  {% assign calls = site.pages | where_exp: "p", "p.category == 'calls'" | sort: "date" | reverse %}
+  {% assign skills = site.pages | where_exp: "p", "p.category == 'skills'" | sort: "date" | reverse %}
+  {% assign knowledge = site.pages | where_exp: "p", "p.category == 'knowledge'" | sort: "date" | reverse %}
+
+  <div class="sec-label">征稿 · 评测 · 知识</div>
+  <div class="rail-grid fade-in">
+    <div>
+      <div class="rail-label">征稿</div>
+      {% for p in calls limit: 3 %}
+      <div class="rail-item"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></div>
+      {% endfor %}
+      <div class="rail-item" style="margin-top:0.4rem;"><a href="/calls/" style="color:var(--accent);">全部征稿 →</a></div>
+    </div>
+    <div>
+      <div class="rail-label">SKILL评测</div>
+      {% for p in skills limit: 3 %}
+      <div class="rail-item"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></div>
+      {% endfor %}
+      <div class="rail-item" style="margin-top:0.4rem;"><a href="/skills/" style="color:var(--accent);">全部评测 →</a></div>
+    </div>
+    <div>
+      <div class="rail-label">知识库</div>
+      <div class="rail-item">设计教学 / 学术写作 / 日常办公 / 内容生产</div>
+      <div class="rail-item" style="margin-top:0.4rem;"><a href="/knowledge/" style="color:var(--accent);">进入知识库 →</a></div>
+    </div>
   </div>
 
-  <!-- 知识层 -->
-  <div class="section-label fade-in"><span class="label-text">知识</span></div>
-  <div class="card-grid">
-    <a class="category-card fade-in" href="/knowledge/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
-      </div>
-      <h3>主题知识库</h3>
-      <p>AI 辅助 设计教学 / 学术写作 / 日常办公 / 内容生产——持续迭代的方法库</p>
-      {% assign kn_count = site.pages | where_exp: "p", "p.category == 'knowledge'" | size %}
-      <span class="card-count">{{ kn_count }} 篇</span>
-    </a>
-  </div>
-
-  <!-- 沉淀层 -->
-  <div class="section-label fade-in"><span class="label-text">沉淀</span></div>
-  <div class="card-grid">
-    <a class="category-card fade-in" href="/workflows/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
-      </div>
-      <h3>工作流</h3>
-      <p>步骤型教程、工具链与案例拆解</p>
-      {% assign wf_count = site.pages | where_exp: "p", "p.category == 'workflows'" | size %}
-      <span class="card-count">{{ wf_count }} 篇</span>
-    </a>
-    <a class="category-card fade-in" href="/essays/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-      </div>
-      <h3>研究笔记</h3>
-      <p>方法论、综述与长文分析</p>
-      {% assign es_count = site.pages | where_exp: "p", "p.category == 'essays'" | size %}
-      <span class="card-count">{{ es_count }} 篇</span>
-    </a>
-    <a class="category-card fade-in" href="/translations/">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m6.088 9h7M12.5 18l3.5-7 3.5 7M14 16h4"/></svg>
-      </div>
-      <h3>翻译文档</h3>
-      <p>官方文档与技术资料翻译</p>
-      {% assign tr_count = site.pages | where_exp: "p", "p.category == 'translations'" | size %}
-      <span class="card-count">{{ tr_count }} 篇</span>
-    </a>
-  </div>
-
-  <!-- 关于 -->
-  <div class="section-label fade-in"><span class="label-text">关于本站</span></div>
-  <div class="about-section fade-in">
+  <div class="sec-label">关于本站</div>
+  <div class="about fade-in">
     <div class="about-text">
-      <p>「浅译快报」是浅译万道实验室的对外资讯与知识站，聚焦 AI × 艺术设计：客观汇集前沿洞察、赛事与学术征稿、AI skill 评测，并沉淀可复用的主题方法库。我们相信前沿信息应当被客观地整理、自由地分享。</p>
-      <p style="margin-top:0.8rem; color: rgba(255,255,255,0.45); font-size:0.9rem;">实验室官网（面向高校教师与院系）：<a href="https://www.transwonder-lab.com" style="color:#a78bfa;">transwonder-lab.com</a></p>
+      「浅译快报」是浅译万道实验室的对外资讯与知识站，聚焦 AI × 艺术设计：客观汇集前沿洞察、赛事与学术征稿、AI skill 评测，并沉淀可复用的主题方法库。我们相信前沿信息应当被客观地整理、自由地分享。
     </div>
     <div class="about-stats">
       {% assign total = site.pages | where_exp: "p", "p.layout == 'page'" | size %}
-      <div class="stat">
-        <div class="stat-num">{{ total }}</div>
-        <div class="stat-label">篇内容</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">7</div>
-        <div class="stat-label">个栏目</div>
-      </div>
+      <div><div class="stat-num">{{ total }}</div><div class="stat-label">篇内容</div></div>
+      <div><div class="stat-num">7</div><div class="stat-label">个栏目</div></div>
     </div>
   </div>
+
 </main>

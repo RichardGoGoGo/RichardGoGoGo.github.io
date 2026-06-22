@@ -6,22 +6,22 @@ layout: default
   <div class="container">
     <h1>{{ page.title }}</h1>
     {% if page.summary %}<p class="page-meta">{{ page.summary }}</p>{% endif %}
-    {% if page.author or page.updated %}
+    {% if page.source or page.host or page.date or page.updated %}
     <p class="page-meta">
-      {% if page.author %}{{ page.author }}{% endif %}
-      {% if page.author and page.updated %} · {% endif %}
-      {% if page.updated %}{{ page.updated }}{% endif %}
+      {% if page.source %}{{ page.source }}{% elsif page.host %}{{ page.host }}{% endif %}
+      {% if page.source or page.host %}{% if page.date or page.updated %} · {% endif %}{% endif %}
+      {% if page.date %}{{ page.date | date: "%Y-%m-%d" }}{% elsif page.updated %}{{ page.updated }}{% endif %}
     </p>
     {% endif %}
   </div>
 </header>
 
 <main class="container">
-  <nav style="margin-bottom: 1.5rem; font-size: 0.82rem;">
-    <a href="{{ '/' | relative_url }}" style="color: rgba(255,255,255,0.4);">首页</a>
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a>
     {% if page.category %}
-    <span style="color: rgba(255,255,255,0.2); margin: 0 0.4rem;">/</span>
-    <span style="color: rgba(255,255,255,0.5);">{{ page.category }}</span>
+    <span class="sep">/</span>
+    <span class="cur">{{ page.category }}</span>
     {% endif %}
   </nav>
 
@@ -31,8 +31,9 @@ layout: default
   </details>
 
   <div class="content-wrapper">
-    <article class="main-content card">
+    <article class="main-content">
       {{ content }}
+      {% if page.url %}{% if page.tags %}<div class="post-tags" style="margin-top:1.5rem;">{% for t in page.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}{% endif %}
     </article>
 
     <aside class="page-sidebar">

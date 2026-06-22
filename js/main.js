@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // --- Theme toggle (夜间模式) ---
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', cur);
+      try { localStorage.setItem('theme', cur); } catch (e) {}
+    });
+  }
+
   // --- Nav scroll hide ---
   var nav = document.getElementById('site-nav');
   var lastY = window.scrollY;

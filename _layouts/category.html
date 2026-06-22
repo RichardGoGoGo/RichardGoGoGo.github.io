@@ -10,27 +10,31 @@ layout: default
 </header>
 
 <main class="container">
-  <nav style="margin-bottom: 1.5rem; font-size: 0.82rem;">
-    <a href="{{ '/' | relative_url }}" style="color: rgba(255,255,255,0.4);">首页</a>
-    <span style="color: rgba(255,255,255,0.2); margin: 0 0.4rem;">/</span>
-    <span style="color: rgba(255,255,255,0.5);">{{ page.title }}</span>
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a>
+    <span class="sep">/</span>
+    <span class="cur">{{ page.title }}</span>
   </nav>
 
-  {% assign cat_pages = site.pages | where_exp: "p", "p.category == page.cat_id" | sort: "updated" | reverse %}
+  {% assign cat_pages = site.pages | where_exp: "p", "p.category == page.cat_id" | sort: "date" | reverse %}
   {% if cat_pages.size > 0 %}
-  <ul class="article-list fade-in">
+  <ul class="post-list fade-in">
     {% for p in cat_pages %}
-    <li>
-      <a href="{{ p.url | relative_url }}">
-        <span class="article-title">{{ p.title }}</span>
-        <span class="article-date">{{ p.updated | default: p.date }}</span>
-      </a>
+    <li class="post-item">
+      <h3 class="post-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      <div class="post-meta">
+        {% if p.ctype %}<span class="post-badge">{{ p.ctype }}</span>{% endif %}
+        <span>{{ p.date | default: p.updated | date: "%Y-%m-%d" }}</span>
+        {% if p.host %}<span>· {{ p.host }}</span>{% endif %}
+      </div>
+      {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
+      {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
     </li>
     {% endfor %}
   </ul>
   {% else %}
   <div class="card fade-in" style="text-align: center; padding: 3rem;">
-    <p style="color: rgba(255,255,255,0.4);">暂无文章</p>
+    <p style="color: var(--ink-mute);">暂无内容</p>
   </div>
   {% endif %}
 </main>

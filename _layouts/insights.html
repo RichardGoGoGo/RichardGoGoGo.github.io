@@ -10,95 +10,66 @@ layout: default
 </header>
 
 <main class="container">
-  <nav style="margin-bottom: 1.5rem; font-size: 0.82rem;">
-    <a href="{{ '/' | relative_url }}" style="color: rgba(255,255,255,0.4);">首页</a>
-    <span style="color: rgba(255,255,255,0.2); margin: 0 0.4rem;">/</span>
-    <span style="color: rgba(255,255,255,0.5);">{{ page.title }}</span>
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a>
+    <span class="sep">/</span>
+    <span class="cur">{{ page.title }}</span>
   </nav>
 
   {% assign cat_pages = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
   {% assign today = site.time | date: "%Y-%m-%d" %}
 
-  {%- comment -%} 汇总全部标签 {%- endcomment -%}
   {% assign tagstr = "" %}
   {% for p in cat_pages %}{% for t in p.tags %}{% assign tagstr = tagstr | append: t | append: "," %}{% endfor %}{% endfor %}
   {% assign all_tags = tagstr | split: "," | uniq | sort %}
 
-  {%- comment -%} 置顶（加更，未过期） {%- endcomment -%}
   {% assign pinned_pages = cat_pages | where_exp: "p", "p.pinned" %}
   {% if pinned_pages.size > 0 %}
-  <div class="section-label fade-in"><span class="label-text">🔝 置顶 · 重大加更</span></div>
-  <div class="insight-grid fade-in" style="margin-bottom: 2rem;">
-    {% for p in pinned_pages %}
-    {% if p.pin_until == nil or p.pin_until >= today %}
-    <article class="card insight-card">
-      <div class="insight-meta">
-        <span class="insight-badge badge-pin">加更</span>
-        {% if p.icat %}<span class="insight-badge">{{ p.icat }}</span>{% endif %}
-        <span class="insight-date">{{ p.date | date: "%Y-%m-%d" }}</span>
-      </div>
-      <h3 class="insight-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-      {% if p.summary %}<p class="insight-summary">{{ p.summary }}</p>{% endif %}
-      {% if p.tags %}<div class="insight-tags">{% for t in p.tags %}<span class="tag-chip-mini">{{ t }}</span>{% endfor %}</div>{% endif %}
-    </article>
-    {% endif %}
-    {% endfor %}
-  </div>
+  <div class="sec-label">置顶 · 重大加更</div>
+  {% for p in pinned_pages %}
+  {% assign pu = p.pin_until | date: "%Y-%m-%d" %}
+  {% if pu == "" or pu >= today %}
+  <article class="feat fade-in" style="margin-bottom:1.4rem;">
+    <div class="feat-kicker">加更 · {{ p.icat }} · {{ p.date | date: "%m.%d" }}{% if p.source %} · {{ p.source }}{% endif %}</div>
+    <h2 class="feat-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h2>
+    {% if p.summary %}<p class="feat-lead">{{ p.summary }}</p>{% endif %}
+    {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
+  </article>
+  {% endif %}
+  {% endfor %}
   {% endif %}
 
-  {%- comment -%} 标签筛选 {%- endcomment -%}
+  <div class="sec-label">全部洞察</div>
   {% if all_tags.size > 0 %}
-  <div class="tag-filter fade-in" id="tag-filter">
+  <div class="tag-filter" id="tag-filter">
     <button class="tag-chip active" data-filter="__all__">全部</button>
     {% for t in all_tags %}{% unless t == "" %}<button class="tag-chip" data-filter="{{ t }}">{{ t }}</button>{% endunless %}{% endfor %}
   </div>
   {% endif %}
 
-  {%- comment -%} 全部洞察 {%- endcomment -%}
   {% if cat_pages.size > 0 %}
-  <div class="insight-grid fade-in" id="insight-list">
+  <ul class="post-list fade-in" id="insight-list">
     {% for p in cat_pages %}
     {% assign tagdata = p.tags | join: " " %}
-    <article class="card insight-card" data-tags="{{ tagdata }}">
-      <div class="insight-meta">
-        {% if p.icat %}<span class="insight-badge">{{ p.icat }}</span>{% endif %}
-        <span class="insight-date">{{ p.date | date: "%Y-%m-%d" }}</span>
-        {% if p.source %}<span class="insight-source">{{ p.source }}</span>{% endif %}
+    <li class="post-item insight-item" data-tags="{{ tagdata }}">
+      <h3 class="post-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      <div class="post-meta">
+        {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
+        <span>{{ p.date | date: "%Y-%m-%d" }}</span>
+        {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
       </div>
-      <h3 class="insight-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-      {% if p.summary %}<p class="insight-summary">{{ p.summary }}</p>{% endif %}
-      {% if p.tags %}<div class="insight-tags">{% for t in p.tags %}<span class="tag-chip-mini">{{ t }}</span>{% endfor %}</div>{% endif %}
-    </article>
+      {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
+      {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
+    </li>
     {% endfor %}
-  </div>
-  <p id="insight-empty" style="display:none; text-align:center; color:rgba(255,255,255,0.4); padding:2rem;">该标签下暂无洞察</p>
+  </ul>
+  <p id="insight-empty" style="display:none; text-align:center; color:var(--ink-mute); padding:2rem;">该标签下暂无洞察</p>
   {% else %}
   <div class="card fade-in" style="text-align: center; padding: 3rem;">
-    <p style="color: rgba(255,255,255,0.4);">暂无洞察</p>
+    <p style="color: var(--ink-mute);">暂无洞察</p>
   </div>
   {% endif %}
 </main>
-
-<style>
-  .insight-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
-  @media (min-width: 720px) { .insight-grid { grid-template-columns: 1fr 1fr; } }
-  .insight-card { padding: 1.1rem 1.2rem; }
-  .insight-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.74rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; flex-wrap: wrap; }
-  .insight-badge { background: rgba(167,139,250,0.14); color: #c4b5fd; padding: 0.1rem 0.5rem; border-radius: 6px; font-size: 0.7rem; }
-  .badge-pin { background: rgba(6,182,212,0.16); color: #22d3ee; }
-  .insight-date { color: rgba(255,255,255,0.35); }
-  .insight-source { margin-left: auto; color: rgba(255,255,255,0.3); }
-  .insight-title { font-size: 1rem; font-weight: 400; margin: 0 0 0.45rem; line-height: 1.4; }
-  .insight-title a { color: rgba(255,255,255,0.92); }
-  .insight-title a:hover { color: #a78bfa; }
-  .insight-summary { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0 0 0.6rem; }
-  .insight-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .tag-chip-mini { font-size: 0.68rem; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 0.05rem 0.45rem; border-radius: 6px; }
-  .tag-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
-  .tag-chip { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: all 150ms ease; }
-  .tag-chip:hover { border-color: rgba(167,139,250,0.4); color: #c4b5fd; }
-  .tag-chip.active { background: rgba(167,139,250,0.18); border-color: rgba(167,139,250,0.4); color: #c4b5fd; }
-</style>
 
 <script>
   (function () {
@@ -112,7 +83,7 @@ layout: default
       filter.querySelectorAll('.tag-chip').forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       var f = btn.getAttribute('data-filter');
-      var cards = list.querySelectorAll('.insight-card');
+      var cards = list.querySelectorAll('.insight-item');
       var shown = 0;
       cards.forEach(function (c) {
         var tags = (c.getAttribute('data-tags') || '').split(' ');
