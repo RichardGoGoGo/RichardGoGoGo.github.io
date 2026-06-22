@@ -22,8 +22,8 @@ layout: default
   </div>
   <div class="mast-rule"></div>
   <nav class="ed-nav">
-    <a href="/insights/">洞察</a>
-    <a href="/calls/">征稿</a>
+    <a href="/insights/">AI×艺术设计资讯</a>
+    <a href="/calls/">赛展信息</a>
     <a href="/skills/">SKILL评测</a>
     <a href="/knowledge/">知识库</a>
     <a href="/workflows/">工作流</a>
@@ -45,7 +45,7 @@ layout: default
   </article>
   {% endif %}
 
-  <div class="sec-label">最新洞察</div>
+  <div class="sec-label">最新资讯</div>
   <ul class="post-list fade-in">
     {% assign shown = 0 %}
     {% for p in insights %}
@@ -69,20 +69,20 @@ layout: default
       {% endunless %}
     {% endfor %}
   </ul>
-  <p style="margin-top:0.9rem;"><a href="/insights/" style="color:var(--accent); font-size:0.85rem;">查看全部洞察（日更）→</a></p>
+  <p style="margin-top:0.9rem;"><a href="/insights/" style="color:var(--accent); font-size:0.85rem;">查看全部资讯（日更）→</a></p>
 
   {% assign calls = site.pages | where_exp: "p", "p.category == 'calls'" | sort: "date" | reverse %}
   {% assign skills = site.pages | where_exp: "p", "p.category == 'skills'" | sort: "date" | reverse %}
   {% assign knowledge = site.pages | where_exp: "p", "p.category == 'knowledge'" | sort: "date" | reverse %}
 
-  <div class="sec-label">征稿 · 评测 · 知识</div>
+  <div class="sec-label">赛展 · 评测 · 知识</div>
   <div class="rail-grid fade-in">
     <div>
-      <div class="rail-label">征稿</div>
+      <div class="rail-label">赛展信息</div>
       {% for p in calls limit: 3 %}
       <div class="rail-item"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></div>
       {% endfor %}
-      <div class="rail-item" style="margin-top:0.4rem;"><a href="/calls/" style="color:var(--accent);">全部征稿 →</a></div>
+      <div class="rail-item" style="margin-top:0.4rem;"><a href="/calls/" style="color:var(--accent);">全部赛展 →</a></div>
     </div>
     <div>
       <div class="rail-label">SKILL评测</div>
