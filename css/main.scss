@@ -214,6 +214,10 @@ img { max-width: 100%; height: auto; }
 .post-detail strong { font-weight: 500; }
 .detail-src { font-size: 0.82rem; }
 
+/* 深度分析链接（加更长版独立页入口） */
+.deep-link { display: inline-block; margin: 0.3rem 0 0.2rem; font-size: 0.8rem; color: var(--accent); border: 1px solid var(--accent); border-radius: 20px; padding: 0.15rem 0.75rem; text-decoration: none; transition: background 0.15s; }
+.deep-link:hover { background: var(--accent-soft); }
+
 /* 推荐理由提示框（仿官网，正文用引用块表达「为什么值得关注」） */
 .insight-body > p:first-child { color: var(--ink); }
 .insight-body blockquote { border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; margin: 1rem 0 0; padding: 0.75rem 1rem; font-style: normal; color: var(--ink-soft); }

@@ -44,6 +44,13 @@ defaults:
       layout: page
       category: skills
       permalink: /skills/:basename/
+  # 深度文章页（加更长版；独立页，不进资讯 feed——category 不是 insights）
+  - scope:
+      path: "content/deep"
+    values:
+      layout: page
+      category: deep
+      permalink: /deep/:basename/
   # 知识层
   - scope:
       path: "content/knowledge"
