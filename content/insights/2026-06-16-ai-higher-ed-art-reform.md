@@ -3,7 +3,7 @@ title: "《艺术教育》：AI 赋能高校艺术设计学科重构与革新"
 date: 2026-06-16
 icat: 观点与技巧
 source: "艺术教育杂志"
-url: "https://www.yjys.cn/"
+src: "https://www.yjys.cn/"
 tags: [艺术设计教育, AI, 学科重构, 高校]
 summary: "《艺术教育》刊文梳理 AI 技术介入高校艺术设计学科的路径，探讨课程体系、教学方法与评价标准的重构方向。"
 ---

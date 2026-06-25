@@ -2,7 +2,7 @@
 title: "hv-analysis：横纵分析法深度长文 skill"
 date: 2026-06-22
 source: "KKKKhazix"
-url: "https://github.com/KKKKhazix/khazix-skills"
+src: "https://github.com/KKKKhazix/khazix-skills"
 tags: [写作, Skill, 深度长文]
 summary: "横纵分析法，本地生成 1–3 万字 PDF 深度报告。"
 ---

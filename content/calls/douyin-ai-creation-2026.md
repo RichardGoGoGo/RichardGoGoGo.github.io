@@ -3,7 +3,7 @@ title: "抖音 AI 创作大赛（首届）"
 date: 2026-06-10
 ctype: AI视频赛事
 host: "抖音（字节跳动）"
-url: "https://aiia.douyin.com/"
+src: "https://aiia.douyin.com/"
 tags: [AI视频, 赛事, 字节跳动]
 summary: "抖音首届 AI 创作大赛，总奖池 400 万元现金，2026-08-20 截止，全网可投。"
 ---

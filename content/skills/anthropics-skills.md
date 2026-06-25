@@ -2,7 +2,7 @@
 title: "anthropics/skills：Anthropic 官方 skill 合集"
 date: 2026-06-24
 source: "Anthropic（官方）"
-url: "https://github.com/anthropics/skills"
+src: "https://github.com/anthropics/skills"
 tags: [开发, Skill, 官方]
 summary: "Anthropic 官方 17 个核心 skill，涵盖 PPTX/DOCX/PDF/XLSX 文档处理、前端设计、算法艺术、MCP Builder、Web App 测试、Claude API 集成等。"
 ---

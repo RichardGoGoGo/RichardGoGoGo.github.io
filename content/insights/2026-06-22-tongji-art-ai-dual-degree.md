@@ -3,7 +3,7 @@ title: "同济大学新增艺术设计学—人工智能双学位复合型人才
 date: 2026-06-22
 icat: 观点与技巧
 source: "康石石"
-url: "https://www.kangshishi.com/"
+src: "https://www.kangshishi.com/"
 tags: [同济大学, 双学位, AI艺术设计, 教育政策]
 summary: "同济大学正式新增艺术设计学与人工智能双学位复合型人才培养项目，是国内顶尖工科高校在 AI 与艺术设计交叉培养方向的明确战略信号。"
 ---

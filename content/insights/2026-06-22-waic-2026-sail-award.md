@@ -3,7 +3,7 @@ title: "WAIC 2026 SAIL 奖 TOP30 及青年优秀论文 TOP20 发布"
 date: 2026-06-22
 icat: 研究与论文
 source: "机器之心 / 新浪 / WAIC 官网"
-url: "https://lewz.cn/pjss2026sjrgzndhsail.html"
+src: "https://lewz.cn/pjss2026sjrgzndhsail.html"
 tags: [WAIC, SAIL奖, AI研究, 学术会议]
 summary: "WAIC 2026（7 月 17–20 日，上海）发布 SAIL 奖 TOP30 及青年优秀论文 TOP20，计算机视觉、具身智能、AI 创作方向均有入围，首次自举办顶级学术分会 WAIC Academic。"
 ---

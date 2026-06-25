@@ -2,7 +2,7 @@
 title: "baoyu-design：本地版「Claude Design」"
 date: 2026-06-22
 source: "JimLiu（宝玉）"
-url: "https://github.com/JimLiu/baoyu-design"
+src: "https://github.com/JimLiu/baoyu-design"
 tags: [设计视觉, Skill, 原型]
 summary: "本地产 UI mockup / 原型 / 幻灯片 / 线框图，输出全本地、无上传。"
 ---

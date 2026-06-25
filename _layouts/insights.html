@@ -36,7 +36,7 @@ layout: default
     {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
     <div class="post-detail insight-body">
       {{ p.content }}
-      {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
+      {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
     </div>
   </article>
   {% endif %}
@@ -60,7 +60,7 @@ layout: default
       {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
         <div class="post-detail insight-body">
         {{ p.content }}
-        {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
+        {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
       </div>
     </li>
     {% endfor %}

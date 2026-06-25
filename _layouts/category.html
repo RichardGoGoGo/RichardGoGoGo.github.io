@@ -35,7 +35,7 @@ layout: default
       {% if p.tags %}<div class="post-tags">{% for t in p.tags %}<span class="post-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
       <div class="post-detail">
         {{ p.content }}
-        {% if p.url and p.url != "" %}<p class="detail-src"><a href="{{ p.url }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
+        {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
       </div>
     </li>
     {% endfor %}

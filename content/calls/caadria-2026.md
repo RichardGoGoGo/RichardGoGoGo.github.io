@@ -3,7 +3,7 @@ title: "CAADRIA 2026 国际会议征稿（学术会议）"
 date: 2026-06-20
 ctype: 学术会议
 host: "亚洲计算机辅助建筑设计研究学会（CAADRIA）"
-url: "https://caadria.org/"
+src: "https://caadria.org/"
 tags: [学术会议, 计算性设计, 建筑]
 summary: "亚洲地区计算性设计领域的代表性国际会议，面向数字设计、生成式方法、AI 辅助设计研究征稿。"
 ---

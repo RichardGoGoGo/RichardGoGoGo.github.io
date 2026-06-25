@@ -3,7 +3,7 @@ title: "第13届 INNODESIGN PRIZE · INNO AIGC 设计奖"
 date: 2026-06-02
 ctype: 设计赛事
 host: "INNODESIGN PRIZE（北京环艺国际展览）"
-url: "https://www.innodesignglobal.com/"
+src: "https://www.innodesignglobal.com/"
 tags: [AIGC, 设计赛事, 国际]
 summary: "全球创新设计大赛旗下 INNO AIGC 设计奖，2026-09-15 截止。"
 ---

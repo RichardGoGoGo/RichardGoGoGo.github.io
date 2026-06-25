@@ -3,7 +3,7 @@ title: "Adobe Photoshop 生成填充引入 FLUX Kontext 与 Google Gemini 作为
 date: 2026-06-23
 icat: 模型与工具
 source: "RedSharkNews / PRONEWS / CreativeBloq"
-url: "https://www.redsharknews.com/adobe-creative-cloud-june-2026-update"
+src: "https://www.redsharknews.com/adobe-creative-cloud-june-2026-update"
 tags: [Adobe, Photoshop, FLUX, 生成填充]
 summary: "Adobe CC 6 月 23 日周次更新：Photoshop 生成填充新增 FLUX Kontext 和 Google Gemini 作为可选伴侣模型，Generative Upscale 新增 Topaz Gigapixel 选项，After Effects AI 转描工具同步重构。"
 ---

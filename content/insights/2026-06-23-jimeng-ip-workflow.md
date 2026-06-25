@@ -3,7 +3,7 @@ title: "即梦 AI + Photoshop 完整 9 步 IP 全链路设计教程"
 date: 2026-06-23
 icat: 案例与作品
 source: "优设"
-url: "https://www.uisdc.com/group/674408.html"
+src: "https://www.uisdc.com/group/674408.html"
 tags: [即梦AI, Photoshop, IP设计, 设计教程]
 summary: "优设发布即梦 AI 与 Photoshop 联合的完整 9 步 IP 全链路设计教程，从主形象生成到品牌 Logo、周边设计、全景陈列，覆盖商业 IP 设计全流程。"
 ---

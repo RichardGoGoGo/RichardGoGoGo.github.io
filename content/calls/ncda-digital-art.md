@@ -4,7 +4,7 @@ expired: true
 date: 2026-06-18
 ctype: 设计赛事
 host: "未来设计师·全国高校数字艺术设计大赛组委会"
-url: "http://www.ncda.org.cn/"
+src: "http://www.ncda.org.cn/"
 tags: [设计赛事, 数字艺术, 高校]
 summary: "面向高校师生的数字艺术设计赛事，涵盖视觉、动画、交互、产品等方向，部分赛道接受 AI 辅助创作。"
 ---

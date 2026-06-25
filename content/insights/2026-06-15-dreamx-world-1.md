@@ -3,7 +3,7 @@ title: "高德 AI 团队开源 DreamX-World 1.0 通用交互式世界模型"
 date: 2026-06-15
 icat: 研究与论文
 source: "arXiv / 机器之心 / chooseAI"
-url: "https://arxiv.org/abs/2606.16993"
+src: "https://arxiv.org/abs/2606.16993"
 tags: [世界模型, 开源, 视频生成, arXiv]
 summary: "高德 AI 团队在 arXiv 发布 DreamX-World 1.0，可生成 1 分钟长视频，支持 6 自由度相机控制与「世界记忆」机制，采用 MIT+Apache-2.0 双协议开源。"
 ---

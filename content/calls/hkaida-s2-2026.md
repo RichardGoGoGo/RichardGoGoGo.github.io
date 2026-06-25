@@ -3,7 +3,7 @@ title: "HKAIDA 香港 AI 艺术创作大赛 · 第二赛季"
 date: 2026-07-01
 ctype: AI艺术赛事
 host: "香港国际 AI 艺术节（HKAIDA）"
-url: "https://www.ai-art.hk"
+src: "https://www.ai-art.hk"
 tags: [AI艺术, 赛事, 香港]
 summary: "香港国际 AI 艺术节主办，第二赛季 2026-07-01 起征集、10-30 截止，全球开放。"
 ---

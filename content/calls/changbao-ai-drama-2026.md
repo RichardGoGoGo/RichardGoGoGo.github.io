@@ -3,7 +3,7 @@ title: "2026 常宝 AI 短剧季"
 date: 2026-05-20
 ctype: AI视频赛事
 host: "常州市新闻传媒中心"
-url: "https://www.cz001.com.cn"
+src: "https://www.cz001.com.cn"
 tags: [AI短剧, 赛事, 视频]
 summary: "常州市新闻传媒中心主办的全球 AI 短剧征集，总奖金超 20 万元，2026-09-30 截止。"
 ---

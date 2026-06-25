@@ -2,7 +2,7 @@
 title: "guizang-social-card：小红书图文 + 公众号封面出图 skill"
 date: 2026-06-22
 source: "op7418（归藏）"
-url: "https://github.com/op7418/guizang-social-card-skill"
+src: "https://github.com/op7418/guizang-social-card-skill"
 tags: [设计视觉, Skill, 配图]
 summary: "小红书图文(1080×1440)+公众号封面对，Editorial/Swiss 两套视觉，HTML→PNG 直接出图。"
 ---

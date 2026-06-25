@@ -2,7 +2,7 @@
 title: "humanize-ppt：AST 化 PPT 提纲编排 skill"
 date: 2026-06-24
 source: "LearnPrompt"
-url: "https://github.com/LearnPrompt/humanize-ppt"
+src: "https://github.com/LearnPrompt/humanize-ppt"
 tags: [设计视觉, Skill, PPT]
 summary: "研究 50+ TED 演讲提炼叙事结构的 PPT 提纲编排 skill，仅产渲染 Brief、不直接出 HTML，依赖下游出图 skill。"
 ---

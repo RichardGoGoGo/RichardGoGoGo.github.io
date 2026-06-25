@@ -3,7 +3,7 @@ title: "Ideogram 4.0 发布首个开放权重文生图模型，ComfyUI 首日支
 date: 2026-06-03
 icat: 模型与工具
 source: "Ideogram 官方"
-url: "https://ideogram.ai/news/ideogram-4.0/"
+src: "https://ideogram.ai/news/ideogram-4.0/"
 tags: [Ideogram, 开源模型, ComfyUI, 文生图]
 summary: "Ideogram 发布 4.0 开放权重文生图模型（9.3B DiT），支持 JSON 精控色彩与文字布局，ComfyUI 首日支持，可本地免费部署。"
 ---

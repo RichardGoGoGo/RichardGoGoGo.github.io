@@ -2,7 +2,7 @@
 title: "trailofbits/skills：安全分析 skill 合集"
 date: 2026-06-24
 source: "Trail of Bits"
-url: "https://github.com/trailofbits/skills"
+src: "https://github.com/trailofbits/skills"
 tags: [安全, Skill, 代码审计]
 summary: "顶尖安全研究机构 Trail of Bits 出品的 40+ 安全分析插件，含供应链审查、内存安全、静态分析、智能合约审计等。"
 ---

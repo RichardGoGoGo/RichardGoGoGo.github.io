@@ -3,7 +3,7 @@ title: "AI Prompt 工程实用教程：五方法减少设计返工 80%"
 date: 2026-06-23
 icat: 观点与技巧
 source: "优设"
-url: "https://www.uisdc.com/group/674426.html"
+src: "https://www.uisdc.com/group/674426.html"
 tags: [Prompt工程, AI设计, 工作流, 设计师]
 summary: "优设发布面向设计师的 Prompt 工程实用指南，梳理结构化描述、负向提示词精炼、参考图锚定、分步迭代、模板复用五种方法，有效减少 AI 出图返工。"
 ---

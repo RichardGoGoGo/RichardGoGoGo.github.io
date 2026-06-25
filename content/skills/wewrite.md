@@ -2,7 +2,7 @@
 title: "wewrite：公众号文章全流程 skill"
 date: 2026-06-22
 source: "oaker-io"
-url: "https://github.com/oaker-io/wewrite"
+src: "https://github.com/oaker-io/wewrite"
 tags: [写作, Skill, 全流程]
 summary: "公众号文章全流程：热点抓取→选题→写作→SEO→配图→排版→草稿箱。"
 ---

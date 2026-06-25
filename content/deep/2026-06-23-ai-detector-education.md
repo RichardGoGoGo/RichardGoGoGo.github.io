@@ -3,7 +3,7 @@ title: "AI 检测误判席卷 2026 毕业季：原作被判 AI、跨平台结果
 date: 2026-06-23
 icat: 行业观察
 source: "优设 / arXiv:2603.20254 / 21 世纪经济报道"
-url: "https://www.uisdc.com/trapped-by-ai-detector"
+src: "https://www.uisdc.com/trapped-by-ai-detector"
 tags: [AI检测, 设计教育, 学术评价, 原创性, AIGC]
 summary: "2026 毕业季，高校普遍引入 AIGC 检测，大量手写与原创作品被误判为 AI 生成、跨平台结果差异巨大，学生被迫降重与自证；arXiv 研究指出此类误判是结构性约束，揭示 AI 时代原创性认定体系的裂缝。"
 ---

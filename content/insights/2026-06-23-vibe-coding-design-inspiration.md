@@ -3,7 +3,7 @@ title: "针对 Vibe Coding 界面同质化问题推荐 9 个设计灵感网站"
 date: 2026-06-23
 icat: 观点与技巧
 source: "优设"
-url: "https://www.uisdc.com/group/674456.html"
+src: "https://www.uisdc.com/group/674456.html"
 tags: [Vibe Coding, UI设计, 设计灵感, 工具推荐]
 summary: "优设针对 AI 辅助编程（Vibe Coding）产出界面同质化问题，推荐 9 个涵盖配色、排版、动效、组件的设计灵感网站，帮助 AI 生成界面注入设计感。"
 ---

@@ -3,7 +3,7 @@ title: "AI 诗人 Sasha Stiles 在 Art Basel 2026 发布 NFC 版画新作《WORD
 date: 2026-06-18
 icat: 案例与作品
 source: "Art Basel"
-url: "https://www.artbasel.com/stories/sasha-stiles-how-technology-renews-relationship-with-storytelling"
+src: "https://www.artbasel.com/stories/sasha-stiles-how-technology-renews-relationship-with-storytelling"
 tags: [AI诗歌, Art Basel, 生成艺术, NFC艺术]
 summary: "AI 诗人 Sasha Stiles 与定制 AI 分身 Technelegy 共创的限量版画《WORDS BEYOND WORDS》在 Art Basel Basel 2026 发布，作品内嵌 NFC 芯片，提供可验证出处与独家数字内容。"
 ---

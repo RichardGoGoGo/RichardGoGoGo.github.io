@@ -2,7 +2,7 @@
 title: "levnikolaevich/claude-code-skills：全生命周期开发 skill 套件"
 date: 2026-06-24
 source: "levnikolaevich"
-url: "https://github.com/levnikolaevich/claude-code-skills"
+src: "https://github.com/levnikolaevich/claude-code-skills"
 tags: [开发, Skill, MCP]
 summary: "137 个开发 skill + 4 个 MCP Server（哈希验证编辑、代码知识图谱、远程 SSH 编辑、本地研究索引），覆盖规划到优化全链路。"
 ---

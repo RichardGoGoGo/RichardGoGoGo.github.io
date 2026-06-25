@@ -3,7 +3,7 @@ title: "宝玉迭代 baoyu-design Skill：支持 AI 配图并导出 PPTX"
 date: 2026-06-20
 icat: 观点与技巧
 source: "宝玉（@dotey）"
-url: "https://x.com/dotey"
+src: "https://x.com/dotey"
 tags: [Skill, AI配图, PPT]
 summary: "宝玉迭代 baoyu-design：支持 AI 配图并导出 PPTX。"
 ---

@@ -3,7 +3,7 @@ title: "美图奇想大模型 V6 发布，同步推出 Picchi / Artflo / MVLAND 
 date: 2026-06-17
 icat: 模型与工具
 source: "美图 / 新浪科技"
-url: "https://finance.sina.com.cn/tech/roll/2026-06-17/doc-inicttap5914460.shtml"
+src: "https://finance.sina.com.cn/tech/roll/2026-06-17/doc-inicttap5914460.shtml"
 tags: [美图, 奇想大模型, AI设计工具, 图像生成]
 summary: "美图奇想大模型 V6 正式发布，同步推出 Picchi、Artflo、MVLAND、MeituHub 四款 AI 新品及站酷 AI 工具箱，覆盖图像生成至多媒体创作全流程。"
 ---

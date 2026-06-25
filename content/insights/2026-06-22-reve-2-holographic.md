@@ -3,7 +3,7 @@ title: "Reve 2.0 升级：新增图层分离输出与全息薄膜显影动效"
 date: 2026-06-22
 icat: 模型与工具
 source: "优设"
-url: "https://www.uisdc.com/hunter/0221674266.html"
+src: "https://www.uisdc.com/hunter/0221674266.html"
 tags: [Reve, 图像生成, 图层, 设计工作流]
 summary: "Reve 2.0 新增图层分离输出功能和全息薄膜显影动效，生成过程以彩虹色全息线条预勾勒轮廓，替代传统模糊渐清的随机感。"
 ---

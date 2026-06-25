@@ -3,7 +3,7 @@ title: "2026 届毕设展 AI 含量攀升：央美、清华、中传、国美深
 date: 2026-06-18
 icat: 案例与作品
 source: "每日经济新闻"
-url: "https://www.mrjjxw.com/articles/2026-06-18/4431297.html"
+src: "https://www.mrjjxw.com/articles/2026-06-18/4431297.html"
 tags: [毕业设计, AI艺术, 高校, 艺术设计教育]
 summary: "每日经济新闻对央美、清华、中传、国美四校 2026 届毕设展的深度调研显示，AI 辅助创作比例明显攀升，呈现方式与评价标准随之分化。"
 ---

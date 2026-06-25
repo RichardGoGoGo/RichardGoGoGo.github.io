@@ -3,7 +3,7 @@ title: "2026 大学生 AI 艺术季 · AI 影像创作单元（AAIA）"
 date: 2026-06-24
 ctype: AI视频赛事
 host: "北京师范大学艺术与传媒学院（联合主办）等"
-url: "https://aaia.1zp.top"
+src: "https://aaia.1zp.top"
 tags: [AI影像, AI艺术, 全国, 学生]
 summary: "北师大艺传学院等联合发起的全国性 AI 艺术赛事，设 AI 影像、AI 歌曲、AI 交互三大赛道，投稿截止约 2026-09-01。"
 ---

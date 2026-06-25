@@ -3,7 +3,7 @@ title: "Midjourney V7 深度评测：人物一致性 88%，图内文字可读"
 date: 2026-06-08
 icat: 观点与技巧
 source: "AIHotTool / 多源"
-url: "https://www.aihottool.com/midjourney-v7-2026-review/"
+src: "https://www.aihottool.com/midjourney-v7-2026-review/"
 tags: [Midjourney, V7, 人物一致性, 文字渲染]
 summary: "多方深度评测显示 Midjourney V7 人物一致性达 88%，图内文字实现可读渲染，较 V6 在角色连贯性和排版精度上有显著提升。"
 ---

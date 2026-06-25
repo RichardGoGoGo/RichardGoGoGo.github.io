@@ -2,7 +2,7 @@
 title: "chubbyskills：中文多平台内容采集 skill 套件"
 date: 2026-06-24
 source: "chubbyguan"
-url: "https://github.com/chubbyguan/chubbyskills"
+src: "https://github.com/chubbyguan/chubbyskills"
 tags: [取料, Skill, 知识库]
 summary: "把抖音/B站/小红书/公众号/X/播客等中文多平台内容采集进个人知识库的 13 个 skill，含视频转写、字幕优先、知识库 MCP server。"
 ---

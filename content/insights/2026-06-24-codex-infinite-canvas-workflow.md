@@ -3,7 +3,7 @@ title: "Codex + 无限画布构建多模态生图工作流：Excalidraw / tldraw
 date: 2026-06-24
 icat: 观点与技巧
 source: "优设"
-url: "https://www.uisdc.com/design-source-material-42"
+src: "https://www.uisdc.com/design-source-material-42"
 tags: [Codex, 无限画布, Excalidraw, AI生图, 工作流]
 summary: "优设介绍一种以 Codex 配合无限画布（Excalidraw / tldraw）搭建的多模态生图工作流，将画布升级为「看图理解 + 生成」双模可控的 AI 生图前端，设计师无需编程基础即可低门槛部署。"
 ---
