@@ -2,12 +2,13 @@
   <div class="nav-inner">
     <a href="{{ '/' | relative_url }}" class="nav-brand">浅译快报</a>
 
+    {% assign u = page.url %}
     <ul class="nav-links">
-      <li><a href="/insights/">AI×艺术设计资讯</a></li>
-      <li><a href="/calls/">赛展信息</a></li>
-      <li><a href="/skills/">SKILL评测</a></li>
-      <li><a href="/knowledge/">知识库</a></li>
-      <li><a href="/workflows/">工作流</a></li>
+      <li><a href="/insights/"{% if u contains '/insights' %} class="active" aria-current="page"{% endif %}>AI×艺术设计资讯</a></li>
+      <li><a href="/calls/"{% if u contains '/calls' %} class="active" aria-current="page"{% endif %}>赛展信息</a></li>
+      <li><a href="/skills/"{% if u contains '/skills' %} class="active" aria-current="page"{% endif %}>SKILL评测</a></li>
+      <li><a href="/knowledge/"{% if u contains '/knowledge' %} class="active" aria-current="page"{% endif %}>知识库</a></li>
+      <li><a href="/workflows/"{% if u contains '/workflows' %} class="active" aria-current="page"{% endif %}>工作流</a></li>
     </ul>
 
     <a href="https://www.transwonder-lab.com" class="nav-cta" target="_blank" rel="noopener">商务合作</a>
@@ -31,8 +32,6 @@
   <a href="/skills/">SKILL评测</a>
   <a href="/knowledge/">知识库</a>
   <a href="/workflows/">工作流</a>
-  <a href="/essays/">研究笔记</a>
-  <a href="/translations/">翻译文档</a>
   <a href="https://www.transwonder-lab.com" target="_blank" rel="noopener">商务合作 ↗</a>
 </div>
 

@@ -19,17 +19,20 @@ layout: default
   {% assign cat_pages = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
   {% assign today = site.time | date: "%Y-%m-%d" %}
 
-  {% assign tagstr = "" %}
-  {% for p in cat_pages %}{% for t in p.tags %}{% assign tagstr = tagstr | append: t | append: "," %}{% endfor %}{% endfor %}
-  {% assign all_tags = tagstr | split: "," | uniq | sort %}
+  {%- comment -%} 置顶区：最多 3 张有效加更，第 1 张大、第 2-3 张轻量；记录已展示 url 以便下方列表去重 {%- endcomment -%}
+  {% assign pinned_all = cat_pages | where: "pinned", true %}
+  {% assign feat_count = 0 %}
+  {% assign feat_urls = "" %}
 
-  {% assign pinned_pages = cat_pages | where_exp: "p", "p.pinned" %}
-  {% if pinned_pages.size > 0 %}
+  {% if pinned_all.size > 0 %}
   <div class="sec-label">置顶 · 重大加更</div>
-  {% for p in pinned_pages %}
-  {% assign pu = p.pin_until | date: "%Y-%m-%d" %}
-  {% if pu == "" or pu >= today %}
-  <article class="feat fade-in" style="margin-bottom:1.4rem;">
+  {% for p in pinned_all %}
+    {% assign pu = p.pin_until | date: "%Y-%m-%d" %}
+    {% if pu == "" or pu >= today %}
+      {% if feat_count < 3 %}
+        {% assign feat_urls = feat_urls | append: p.url | append: "|" %}
+        {% if feat_count == 0 %}
+  <article class="feat fade-in" style="margin-bottom:1.2rem;">
     <div class="feat-kicker">加更 · {{ p.icat }} · {{ p.date | date: "%m.%d" }}{% if p.source %} · {{ p.source }}{% endif %}</div>
     <h2 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h2>
     {% if p.summary %}<p class="feat-lead">{{ p.summary }}</p>{% endif %}
@@ -39,33 +42,56 @@ layout: default
       {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
     </div>
   </article>
-  {% endif %}
+        {% else %}
+  <article class="feat feat-sm fade-in">
+    <div class="feat-kicker">加更 · {{ p.icat }} · {{ p.date | date: "%m.%d" }}</div>
+    <h3 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}{% if p.deep %} <a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}</h3>
+    <div class="post-detail insight-body">
+      {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
+      {{ p.content }}
+      {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
+    </div>
+  </article>
+        {% endif %}
+        {% assign feat_count = feat_count | plus: 1 %}
+      {% endif %}
+    {% endif %}
   {% endfor %}
   {% endif %}
 
   <div class="sec-label">全部洞察</div>
 
+  {%- comment -%} icat 小分类快筛 {%- endcomment -%}
+  {% assign icatstr = "" %}
+  {% for p in cat_pages %}{% if p.icat %}{% assign icatstr = icatstr | append: p.icat | append: "," %}{% endif %}{% endfor %}
+  {% assign all_icats = icatstr | split: "," | uniq %}
+  <div class="tag-filter" id="icat-filter">
+    <button class="tag-chip active" data-filter="__all__">全部</button>
+    {% for c in all_icats %}<button class="tag-chip" data-filter="{{ c }}">{{ c }}</button>{% endfor %}
+  </div>
+
   {% if cat_pages.size > 0 %}
   <ul class="post-list fade-in" id="insight-list">
     {% for p in cat_pages %}
-    {% assign tagdata = p.tags | join: " " %}
-    <li class="post-item insight-item" data-tags="{{ tagdata }}">
+    {% unless feat_urls contains p.url %}
+    <li class="post-item insight-item" data-icat="{{ p.icat }}">
       <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
       <div class="post-meta">
         {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
         <span>{{ p.date | date: "%Y-%m-%d" }}</span>
         {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
+        {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
       </div>
       {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
-      {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
-        <div class="post-detail insight-body">
+      <div class="post-detail insight-body">
         {{ p.content }}
         {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
       </div>
     </li>
+    {% endunless %}
     {% endfor %}
   </ul>
-  <p id="insight-empty" style="display:none; text-align:center; color:var(--ink-mute); padding:2rem;">该标签下暂无洞察</p>
+  <p id="insight-empty" style="display:none; text-align:center; color:var(--ink-mute); padding:2rem;">该分类下暂无洞察</p>
   {% else %}
   <div class="card fade-in" style="text-align: center; padding: 3rem;">
     <p style="color: var(--ink-mute);">暂无洞察</p>
@@ -75,7 +101,7 @@ layout: default
 
 <script>
   (function () {
-    var filter = document.getElementById('tag-filter');
+    var filter = document.getElementById('icat-filter');
     if (!filter) return;
     var list = document.getElementById('insight-list');
     var empty = document.getElementById('insight-empty');
@@ -88,8 +114,7 @@ layout: default
       var cards = list.querySelectorAll('.insight-item');
       var shown = 0;
       cards.forEach(function (c) {
-        var tags = (c.getAttribute('data-tags') || '').split(' ');
-        var show = (f === '__all__') || tags.indexOf(f) !== -1;
+        var show = (f === '__all__') || (c.getAttribute('data-icat') === f);
         c.style.display = show ? '' : 'none';
         if (show) shown++;
       });
