@@ -2,16 +2,33 @@
 layout: null
 ---
 [
-  {% assign all = site.pages | where_exp: "p", "p.layout == 'page'" %}
-  {% for p in all %}
-  {
-    "title": {{ p.title | jsonify }},
-    "url": "{{ p.url | relative_url }}",
-    "category": {{ p.category | jsonify }},
-    "icat": {{ p.icat | jsonify }},
-    "summary": {{ p.summary | jsonify }},
-    "tags": {{ p.tags | join: " " | jsonify }},
-    "date": "{{ p.date | date: '%Y-%m-%d' }}"
-  }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
+  {% assign first = true -%}
+  {% assign colls = "insights,calls,skills" | split: "," -%}
+  {% for c in colls -%}
+    {% for p in site[c] -%}
+      {%- unless first %},{% endunless %}{% assign first = false -%}
+      {
+        "title": {{ p.title | jsonify }},
+        "url": "/{{ c }}/#{{ p.path | split: '/' | last | remove: '.md' }}",
+        "category": {{ c | jsonify }},
+        "icat": {{ p.icat | jsonify }},
+        "summary": {{ p.summary | jsonify }},
+        "tags": {{ p.tags | join: " " | jsonify }},
+        "date": "{{ p.date | date: '%Y-%m-%d' }}"
+      }
+    {%- endfor -%}
+  {% endfor -%}
+  {% assign pages = site.pages | where_exp: "p", "p.layout == 'page'" -%}
+  {% for p in pages -%}
+    {%- unless first %},{% endunless %}{% assign first = false -%}
+    {
+      "title": {{ p.title | jsonify }},
+      "url": "{{ p.url | relative_url }}",
+      "category": {{ p.category | jsonify }},
+      "icat": {{ p.icat | jsonify }},
+      "summary": {{ p.summary | jsonify }},
+      "tags": {{ p.tags | join: " " | jsonify }},
+      "date": "{{ p.date | date: '%Y-%m-%d' }}"
+    }
+  {%- endfor %}
 ]

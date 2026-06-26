@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign insights = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
+{% assign insights = site.insights | sort: "date" | reverse %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% assign featured = nil %}
 {% for p in insights %}
@@ -12,6 +12,7 @@ layout: default
   {% endif %}
 {% endfor %}
 {% if featured == nil and insights.size > 0 %}{% assign featured = insights[0] %}{% endif %}
+{% if featured %}{% assign featured_slug = featured.path | split: '/' | last | remove: '.md' %}{% endif %}
 
 <main class="container">
 
@@ -31,7 +32,7 @@ layout: default
   <div class="mast-rule" style="margin-bottom:1.6rem;"></div>
 
   {% if featured %}
-  <article class="feat fade-in">
+  <article class="feat fade-in" id="{{ featured_slug }}">
     <div class="feat-kicker">
       {% if featured.pinned %}加更 · {% endif %}{{ featured.icat }} · {{ featured.date | date: "%m.%d" }}
     </div>
@@ -50,17 +51,18 @@ layout: default
   <ul class="post-list fade-in">
     {% assign shown = 0 %}
     {% for p in insights %}
-      {% unless featured and p.url == featured.url %}
+      {% assign p_slug = p.path | split: '/' | last | remove: '.md' %}
+      {% unless featured and p_slug == featured_slug %}
         {% if shown < 5 %}
-        <li class="post-item">
+        <li class="post-item" id="{{ p_slug }}">
           <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
           <div class="post-meta">
             {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
             <span>{{ p.date | date: "%Y-%m-%d" }}</span>
             {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
+            {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
           </div>
           {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
-          {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
           <div class="post-detail insight-body">
             {{ p.content }}
             {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
@@ -73,23 +75,22 @@ layout: default
   </ul>
   <p style="margin-top:0.9rem;"><a href="/insights/" style="color:var(--accent); font-size:0.85rem;">查看全部资讯（日更）→</a></p>
 
-  {% assign calls = site.pages | where_exp: "p", "p.category == 'calls'" | sort: "date" | reverse %}
-  {% assign skills = site.pages | where_exp: "p", "p.category == 'skills'" | sort: "date" | reverse %}
-  {% assign knowledge = site.pages | where_exp: "p", "p.category == 'knowledge'" | sort: "date" | reverse %}
+  {% assign calls = site.calls | sort: "date" | reverse %}
+  {% assign skills = site.skills | sort: "date" | reverse %}
 
   <div class="sec-label">赛展 · 评测 · 知识</div>
   <div class="rail-grid fade-in">
     <div>
       <div class="rail-label">赛展信息</div>
       {% for p in calls limit: 3 %}
-      <div class="rail-item"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></div>
+      <div class="rail-item"><a href="/calls/#{{ p.path | split: '/' | last | remove: '.md' }}">{{ p.title }}</a></div>
       {% endfor %}
       <div class="rail-item" style="margin-top:0.4rem;"><a href="/calls/" style="color:var(--accent);">全部赛展 →</a></div>
     </div>
     <div>
       <div class="rail-label">SKILL评测</div>
       {% for p in skills limit: 3 %}
-      <div class="rail-item"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></div>
+      <div class="rail-item"><a href="/skills/#{{ p.path | split: '/' | last | remove: '.md' }}">{{ p.title }}</a></div>
       {% endfor %}
       <div class="rail-item" style="margin-top:0.4rem;"><a href="/skills/" style="color:var(--accent);">全部评测 →</a></div>
     </div>
@@ -106,7 +107,8 @@ layout: default
       「浅译快报」是浅译万道实验室的对外资讯与知识站，聚焦 AI × 艺术设计：客观汇集前沿洞察、赛事与学术征稿、AI skill 评测，并沉淀可复用的主题方法库。我们相信前沿信息应当被客观地整理、自由地分享。
     </div>
     <div class="about-stats">
-      {% assign total = site.pages | where_exp: "p", "p.layout == 'page'" | size %}
+      {% assign pages_total = site.pages | where_exp: "p", "p.layout == 'page'" | size %}
+      {% assign total = site.insights.size | plus: site.calls.size | plus: site.skills.size | plus: pages_total %}
       <div><div class="stat-num">{{ total }}</div><div class="stat-label">篇内容</div></div>
       <div><div class="stat-num">7</div><div class="stat-label">个栏目</div></div>
     </div>

@@ -16,7 +16,7 @@ layout: default
     <span class="cur">{{ page.title }}</span>
   </nav>
 
-  {% assign cat_pages = site.pages | where_exp: "p", "p.category == 'insights'" | sort: "date" | reverse %}
+  {% assign cat_pages = site.insights | sort: "date" | reverse %}
   {% assign today = site.time | date: "%Y-%m-%d" %}
 
   {%- comment -%} 置顶区：最多 3 张有效加更，第 1 张大、第 2-3 张轻量；记录已展示 url 以便下方列表去重 {%- endcomment -%}
@@ -32,7 +32,7 @@ layout: default
       {% if feat_count < 3 %}
         {% assign feat_urls = feat_urls | append: p.url | append: "|" %}
         {% if feat_count == 0 %}
-  <article class="feat fade-in" style="margin-bottom:1.2rem;">
+  <article class="feat fade-in" id="{{ p.path | split: '/' | last | remove: '.md' }}" style="margin-bottom:1.2rem;">
     <div class="feat-kicker">加更 · {{ p.icat }} · {{ p.date | date: "%m.%d" }}{% if p.source %} · {{ p.source }}{% endif %}</div>
     <h2 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h2>
     {% if p.summary %}<p class="feat-lead">{{ p.summary }}</p>{% endif %}
@@ -43,7 +43,7 @@ layout: default
     </div>
   </article>
         {% else %}
-  <article class="feat feat-sm fade-in">
+  <article class="feat feat-sm fade-in" id="{{ p.path | split: '/' | last | remove: '.md' }}">
     <div class="feat-kicker">加更 · {{ p.icat }} · {{ p.date | date: "%m.%d" }}</div>
     <h3 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}{% if p.deep %} <a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}</h3>
     <div class="post-detail insight-body">
@@ -74,7 +74,7 @@ layout: default
   <ul class="post-list fade-in" id="insight-list">
     {% for p in cat_pages %}
     {% unless feat_urls contains p.url %}
-    <li class="post-item insight-item" data-icat="{{ p.icat }}">
+    <li class="post-item insight-item" id="{{ p.path | split: '/' | last | remove: '.md' }}" data-icat="{{ p.icat }}">
       <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
       <div class="post-meta">
         {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}

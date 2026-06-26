@@ -16,14 +16,17 @@ layout: default
     <span class="cur">{{ page.title }}</span>
   </nav>
 
-  {% assign cat_pages = site.pages | where_exp: "p", "p.category == page.cat_id" | sort: "date" | reverse %}
+  {%- comment -%} calls/skills 是 collection（site.<id>），knowledge/workflows 仍是 pages，取不到 collection 时回退 {%- endcomment -%}
+  {% assign coll = site[page.cat_id] %}
+  {% if coll and coll.size > 0 %}{% assign src = coll %}{% else %}{% assign src = site.pages | where_exp: "p", "p.category == page.cat_id" %}{% endif %}
+  {% assign cat_pages = src | sort: "date" | reverse %}
   {% assign active_pages = cat_pages | where_exp: "p", "p.expired != true" %}
   {% assign expired_pages = cat_pages | where_exp: "p", "p.expired == true" %}
   {% assign ordered_pages = active_pages | concat: expired_pages %}
   {% if ordered_pages.size > 0 %}
   <ul class="post-list fade-in">
     {% for p in ordered_pages %}
-    <li class="post-item{% if p.expired %} is-expired{% endif %}">
+    <li class="post-item{% if p.expired %} is-expired{% endif %}" id="{{ p.path | split: '/' | last | remove: '.md' }}">
       <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
       <div class="post-meta">
         {% if p.expired %}<span class="post-badge expired">已过期</span>{% endif %}

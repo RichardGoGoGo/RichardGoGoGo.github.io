@@ -177,4 +177,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0, rootMargin: '0px 0px 80px 0px' });
     fades.forEach(function (el) { obs.observe(el); });
   }
+
+  // --- Auto-expand card from URL hash (搜索/外链跳 feed 锚点) ---
+  function openFromHash() {
+    var id = decodeURIComponent((location.hash || '').replace(/^#/, ''));
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el || !(el.classList.contains('post-item') || el.classList.contains('feat'))) return;
+    if (overlay && overlay.classList.contains('active')) { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    var anc = el.closest('.fade-in'); if (anc) anc.classList.add('visible');
+    el.classList.add('open', 'visible');
+    var h = el.querySelector('.post-title, .feat-title');
+    if (h) h.setAttribute('aria-expanded', 'true');
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  window.addEventListener('hashchange', openFromHash);
+  setTimeout(openFromHash, 60);
 });
