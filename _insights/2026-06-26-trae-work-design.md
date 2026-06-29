@@ -6,6 +6,7 @@ source: "量子位"
 src: "https://www.qbitai.com/2026/06/438750.html"
 tags: [字节, TRAE, 设计到代码, AI工作流]
 summary: "字节 TRAE 推出 Work Design 模式，可精准识别设计系统组件库，输入需求后自动生成 UI 设计稿并同步转代码，覆盖从设计到开发的完整工作流。"
+deep: /deep/2026-06-29-bytedance-trae-work-design/
 ---
 
 字节跳动 TRAE 推出 Work Design 模式，量子位对此进行实测。该模式的核心能力是识别用户已有的设计系统组件库，在接收到需求描述后自动生成对应的 UI 设计稿，并同步输出可用代码，打通从界面设计到前端开发的链路。实测报告显示，组件识别精度与 UI 一致性是该模式的主要亮点。
