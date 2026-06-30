@@ -6,6 +6,7 @@ source: "OpenAI 官方 / VentureBeat / Axios / 量子位"
 src: "https://openai.com/index/previewing-gpt-5-6-sol/"
 tags: [OpenAI, GPT-5.6, 多模态, 大模型生态]
 summary: "OpenAI 推出 GPT-5.6 三款模型的有限预览：Sol（旗舰）、Terra（均衡）、Luna（轻量），约 20 个组织受邀，Sol 已登顶 LMSYS 排行，预计数周内全量开放。"
+deep: /deep/2026-06-30-gpt-5-6/
 ---
 
 OpenAI 有限预览 GPT-5.6，含三档定位：Sol（旗舰，$5/$30 每百万输入/输出 token）、Terra（均衡，$2.5/$15）、Luna（轻量，$1/$6）。约 20 个受邀组织可提前访问，Sol 已登顶 LMSYS 竞技场排行。发布时间受美国政府 6 月 2 日 AI 安全合规行政令协调，全量开放时间预计在数周内。
