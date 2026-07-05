@@ -30,7 +30,12 @@ title: "都市折叠 · Digital Futures 2026 工作营"
     <div class="dw-blurb" id="dw-blurb"></div>
     <div class="dw-bio" id="dw-bio"></div>
     <div class="dw-meta" id="dw-meta"></div>
-    <a class="dw-story" id="dw-story" target="_blank" rel="noopener" style="display:none">跳转故事 →</a>
+    <div class="dw-storyblock" id="dw-storyblock" style="display:none">
+      <div class="dw-story-label">互动故事 · Interactive Story</div>
+      <div class="dw-story-title" id="dw-story-title"></div>
+      <div class="dw-story-desc" id="dw-story-desc"></div>
+      <a class="dw-story" id="dw-story" target="_blank" rel="noopener"></a>
+    </div>
   </aside>
 </div>
 
@@ -110,8 +115,12 @@ title: "都市折叠 · Digital Futures 2026 工作营"
 .dfbs .dw-bio{margin-top:22px;font-size:12.5px;line-height:1.8;color:#8f8a7e;padding-left:14px;border-left:2px solid #34342c}
 .dfbs .dw-meta{margin-top:30px;display:flex;gap:26px;font-size:11px;color:#75716e;font-family:"Inter",monospace;letter-spacing:.05em}
 .dfbs .dw-meta b{display:block;color:#c9c0af;font-size:13px;margin-top:3px;font-family:inherit}
-.dfbs .dw-story{display:inline-block;margin-top:28px;font-family:"Inter",sans-serif;font-size:13px;letter-spacing:.06em;
-  color:#0b0c0f;background:#C9A24B;border-radius:8px;padding:.6rem 1.2rem;text-decoration:none;transition:.25s var(--ease)}
+.dfbs .dw-storyblock{margin-top:30px;padding:18px 18px 20px;border:1px solid #2c2d33;border-radius:10px;background:rgba(201,162,75,.055)}
+.dfbs .dw-story-label{font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#C9A24B;margin-bottom:10px}
+.dfbs .dw-story-title{font-family:"Noto Serif SC",serif;font-size:19px;font-weight:600;color:#EFE7D4;line-height:1.4}
+.dfbs .dw-story-desc{margin-top:10px;font-size:13px;line-height:1.9;color:#b3ac9d;text-align:justify}
+.dfbs .dw-story{display:inline-block;margin-top:16px;font-family:"Inter","Noto Serif SC",sans-serif;font-size:13px;letter-spacing:.04em;
+  color:#0b0c0f;background:#C9A24B;border-radius:8px;padding:.6rem 1.15rem;text-decoration:none;transition:.25s var(--ease);line-height:1.4}
 .dfbs .dw-story:hover{background:#e0b85e;transform:translateX(3px)}
 @media (prefers-reduced-motion:reduce){.dfbs .book{animation:none}}
 @media (max-width:640px){.dfbs-shelf{bottom:26%}}
@@ -120,10 +129,22 @@ title: "都市折叠 · Digital Futures 2026 工作营"
 <script src="{{ '/assets/df2026/books-data.js' | relative_url }}"></script>
 <script>
 (function(){
-  // 各同学网站链接（按编号 no 填；留空则不显示「跳转故事」）——待补
-  var DF_URLS = {};
+  // 各同学「互动故事」：按书目编号 no 填 {work 作品名, url 网站, story 简介}。未填的书不显示互动故事块。
+  var DF_STORIES = {
+    11: {work:"光复路21号", url:"https://zippy-kangaroo-451d65.netlify.app/",
+      story:"一场无法获胜的战争，一段无法遗忘的往事，一封无法抵达的家书。"},
+    12: {work:"“孺子牛”的左联十年 · A willing servant's fight in Qiejieting", url:"https://scarlettthewind.github.io/particle-effect/",
+      story:"本页面展现了 1933 至 1936 年，鲁迅居于上海大陆新村，于小楼三层分设会客、写作、居家空间，兼顾左翼文艺接引、文字战斗与家庭温情。走出弄堂，鲁迅依托内山书店、左联阵地开展革命文艺工作，在白色恐怖下以笔抗争、联络进步力量直至 1936 年辞世，其精神风骨永留上海这片弄堂。"},
+    21: {work:"褶皱里的人间", url:"https://wxa0322-d7gs63jls23fb1173-1450509572.tcloudbaseapp.com",
+      story:"当城市不断向上生长，那些藏在褶皱里的人间从未消失。滚动小球、点亮空间，在九个微缩场景中触摸普通人的日常。"},
+    29: {work:"同址 异时", url:"https://csy-particle-viewer.jet-brazil.workers.dev/",
+      story:"上海杨浦区。同一个地点，不同的时间。"},
+    31: {work:"环中追逐的影子", url:"https://nalqlan.github.io/metro-shadow/",
+      story:"无限循环的地下列车穿过楼栋，在车窗中闪过少年少女陌生的映像。追逐的从来不是眼前人，而是视网膜上的影子。"},
+    32: {work:"剧场与目光", url:"https://1822ade07ab345a4997edfc8a3c580c6.app.codebuddy.work/",
+      story:"粒子构筑的微缩剧场中，看与被看不断交换。阿珍与阿强在亚洲大厦的一天，揭示我们始终在审视别人，而自己也在被凝视。"}
+  };
   var BOOKS=(window.ICON_BOOKS||[]).slice().sort((a,b)=>a.no-b.no);
-  BOOKS.forEach(b=>{ b.url = DF_URLS[b.no] || ''; });
   var shelf=document.getElementById('dfbs-shelf');
   var wrap=document.querySelector('.dfbs'); if(!shelf||!wrap) return;
   var g=id=>document.getElementById(id);
@@ -167,8 +188,13 @@ title: "都市折叠 · Digital Futures 2026 工作营"
     g('dw-bio').textContent= b.bio?('作者｜'+b.author+'　'+b.bio):'';
     g('dw-meta').innerHTML=`<div>编号<b>No.${String(b.no).padStart(3,'0')}</b></div>`+
       `<div>开本<b>${b.cw}×${b.ch}mm</b></div><div>书脊<b>${b.sp}mm</b></div>`;
-    var st=g('dw-story');
-    if(b.url){ st.href=b.url; st.style.display='inline-block'; } else { st.style.display='none'; }
+    var s=DF_STORIES[b.no];
+    if(s){
+      g('dw-story-title').textContent='《'+s.work+'》';
+      g('dw-story-desc').textContent=s.story||'';
+      var st=g('dw-story'); st.href=s.url; st.textContent='跳转互动故事《'+s.work+'》 →';
+      g('dw-storyblock').style.display='block';
+    } else { g('dw-storyblock').style.display='none'; }
     wrap.classList.add('hasSel');
   }
   function deselect(){
