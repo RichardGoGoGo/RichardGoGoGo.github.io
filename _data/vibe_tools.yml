@@ -9,3 +9,9 @@ tools:
     desc: "常见网页动画技法的名词 + 实时迷你演示，看到名词就看到它长什么样；含入场、循环、鼠标交互三类共 17 项。"
     type: internal
     href: /vibe/motion-techniques/
+
+  - name: "科研绘图生成器 · Figure Studio"
+    en: "Figure Studio"
+    desc: "小巧的科研配图 / 学术示意图生成器，快速产出规范的图表与示意图（架于 Lovable）。"
+    type: external
+    href: https://figure-studio.lovable.app
