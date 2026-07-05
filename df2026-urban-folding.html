@@ -45,6 +45,7 @@ title: "都市折叠 · Digital Futures 2026 工作营"
 .dfbs{--ease:cubic-bezier(.22,1,.36,1);--pop:cubic-bezier(.32,1.35,.5,1);
   font-family:"Noto Serif SC","Songti SC",serif;}
 .dfbs-stage{position:relative;overflow:hidden;height:calc(100vh - 56px);min-height:540px;
+  display:flex;flex-direction:column;
   background:#0b0c0f;color:#ECE6DA;-webkit-font-smoothing:antialiased;
   background-image:
     radial-gradient(1300px 640px at 72% -14%, rgba(96,84,132,.15), transparent 60%),
@@ -57,7 +58,7 @@ title: "都市折叠 · Digital Futures 2026 工作营"
 .dfbs-top .en{font-family:"Inter","Noto Serif SC",sans-serif;font-size:11.5px;letter-spacing:.16em;color:#8f8a7e;margin-top:8px}
 .dfbs-back{font-family:"Inter",sans-serif;font-size:12px;color:#8f8a7e;text-decoration:none;letter-spacing:.06em}
 .dfbs-back:hover{color:#C9A24B}
-.dfbs-shelfwrap{position:absolute;inset:0}
+.dfbs-shelfwrap{position:relative;flex:1;min-height:0}
 .dfbs-shelves{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   display:flex;flex-direction:column;align-items:center;gap:clamp(24px,6vh,52px);width:100%}
 .dfbs-shelf{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:3px;
@@ -172,7 +173,8 @@ title: "都市折叠 · Digital Futures 2026 工作营"
       if(rows.length<R-1 && curSum>=target){ rows.push(cur); cur=[]; curSum=0; } });
     if(cur.length) rows.push(cur);
     var gap=3, sidePad=Math.max(24,W*0.04)*2, LIFT=mobile?16:66;
-    var stageH=(g('dfbs-stage').clientHeight)||600, avail=W-sidePad;
+    var area=document.querySelector('.dfbs-shelfwrap');
+    var stageH=(area&&area.clientHeight)||g('dfbs-stage').clientHeight||600, avail=W-sidePad;
     var maxCh=Math.max.apply(null,BOOKS.map(b=>b.ch));
     var wScale=Math.min.apply(null,rows.map(r=>(avail-gap*(r.length-1))/r.reduce((s,b)=>s+b.sp,0)));
     var vgap=Math.max(18,stageH*0.04);
