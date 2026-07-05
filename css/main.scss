@@ -242,6 +242,18 @@ img { max-width: 100%; height: auto; }
 .gx-desc { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.65; margin: 0.3rem 0 0.7rem; }
 .gx-story { display: inline-block; font-size: 0.82rem; color: var(--accent); border: 1px solid var(--accent); border-radius: 20px; padding: 0.2rem 0.85rem; text-decoration: none; transition: background 0.15s; }
 .gx-story:hover { background: var(--accent-soft); }
+
+/* ---------- VIBE工具箱 卡片网格 ---------- */
+.vt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.1rem; margin-top: 0.4rem; }
+.vt-card { display: block; border: 1px solid var(--rule); border-radius: 10px; padding: 1rem 1.1rem 1.15rem; background: var(--paper); text-decoration: none; transition: box-shadow 0.18s ease, border-color 0.18s ease; }
+.vt-card:hover { box-shadow: 0 6px 22px rgba(0,0,0,0.07); border-color: var(--accent); }
+.vt-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; }
+.vt-en { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+.vt-badge { font-size: 0.66rem; padding: 0.08rem 0.5rem; border-radius: 5px; white-space: nowrap; }
+.vt-badge.vt-internal { background: var(--accent-soft); color: var(--accent); }
+.vt-badge.vt-external { background: var(--rule-soft); color: var(--ink-mute); }
+.vt-name { font-family: var(--serif); font-size: 1.08rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.vt-desc { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.65; margin-top: 0.4rem; }
 /* 展开＝大卡：占满整行；宽屏图文并排 */
 .gx-card.open { grid-column: 1 / -1; }
 @media (min-width: 640px) {

@@ -1,0 +1,39 @@
+---
+layout: default
+permalink: /vibe/
+title: "VIBE工具箱"
+---
+
+{% assign d = site.data.vibe_tools %}
+
+<header class="page-header">
+  <div class="container">
+    <h1>{{ d.title }}</h1>
+    {% if d.intro %}<p class="hero-tagline">{{ d.intro }}</p>{% endif %}
+  </div>
+</header>
+
+<main class="container">
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a>
+    <span class="sep">/</span>
+    <span class="cur">VIBE工具箱</span>
+  </nav>
+
+  {% if d.tools and d.tools.size > 0 %}
+  <div class="vt-grid fade-in">
+    {% for t in d.tools %}
+    <a class="vt-card" href="{% if t.type == 'external' %}{{ t.href }}{% else %}{{ t.href | relative_url }}{% endif %}"{% if t.type == 'external' %} target="_blank" rel="noopener"{% endif %}>
+      <div class="vt-head">
+        {% if t.en %}<span class="vt-en">{{ t.en }}</span>{% endif %}
+        <span class="vt-badge vt-{{ t.type }}">{% if t.type == 'external' %}外链 ↗{% else %}站内{% endif %}</span>
+      </div>
+      <div class="vt-name">{{ t.name }}</div>
+      {% if t.desc %}<div class="vt-desc">{{ t.desc }}</div>{% endif %}
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="card fade-in" style="text-align:center;padding:3rem;"><p style="color:var(--ink-mute);">工具整理中</p></div>
+  {% endif %}
+</main>

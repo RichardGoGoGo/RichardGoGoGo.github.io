@@ -1,0 +1,11 @@
+# VIBE工具箱 · 工具清单（加/改工具只动这里）
+# type: internal（站内页，href 为本站路径）| external（外链，href 为完整 URL，新窗口打开）
+title: "VIBE工具箱"
+intro: "一组 AI × 前端的小工具与交互演示——部分站内直接运行，部分为外部 Web 应用。"
+
+tools:
+  - name: "网页动效命名技法 · 交互图鉴"
+    en: "Web Motion Techniques"
+    desc: "常见网页动画技法的名词 + 实时迷你演示，看到名词就看到它长什么样；含入场、循环、鼠标交互三类共 17 项。"
+    type: internal
+    href: /vibe/motion-techniques/

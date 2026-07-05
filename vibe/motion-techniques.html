@@ -1,0 +1,295 @@
+---
+layout: default
+permalink: /vibe/motion-techniques/
+title: "网页动效命名技法 · 交互图鉴"
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1>网页动效命名技法 · 交互图鉴</h1>
+    <p class="hero-tagline">常见网页动画技法的名词 + 实时迷你演示，看到名词就看到它长什么样。</p>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a><span class="sep">/</span>
+    <a href="{{ '/vibe/' | relative_url }}">VIBE工具箱</a><span class="sep">/</span>
+    <span class="cur">动效技法图鉴</span>
+  </nav>
+
+  <p class="mt-sronly">这是一个网页动画技法的交互参考图鉴，每张卡片展示一种有专有名词的动效及其实时演示；分入场、循环、鼠标交互三类。</p>
+
+  <div class="mt">
+    <div class="mt-bar"><button class="mt-replay" id="mt-replay">全部重播</button></div>
+    <div class="mt-grid" id="mt-grid">
+
+      <!-- ===== 入场类 ===== -->
+      <div class="mt-card c-stagger" data-g="in">
+        <div class="mt-stage"><div class="st-row">
+          <i class="st-dot"></i><i class="st-dot"></i><i class="st-dot"></i><i class="st-dot"></i><i class="st-dot"></i>
+        </div></div>
+        <div class="mt-txt"><div class="mt-zh">交错</div><div class="mt-en">Stagger</div><div class="mt-desc">多个元素按固定间隔依次入场。</div></div>
+      </div>
+
+      <div class="mt-card c-overshoot" data-g="in">
+        <div class="mt-stage"><i class="ov-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">弹性回弹</div><div class="mt-en">Overshoot (Spring)</div><div class="mt-desc">冲过目标值再回落，模拟弹性。</div></div>
+      </div>
+
+      <div class="mt-card c-anticipation" data-g="in">
+        <div class="mt-stage"><i class="an-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">预备动作</div><div class="mt-en">Anticipation</div><div class="mt-desc">发力前先反向蓄势。</div></div>
+      </div>
+
+      <div class="mt-card c-follow" data-g="in">
+        <div class="mt-stage"><i class="fl-main"></i><i class="fl-tail"></i></div>
+        <div class="mt-txt"><div class="mt-zh">跟随与重叠</div><div class="mt-en">Follow-through</div><div class="mt-desc">尾随元素延迟跟上并回稳。</div></div>
+      </div>
+
+      <div class="mt-card c-draw" data-g="in">
+        <div class="mt-stage"><svg class="dr-svg" viewBox="0 0 48 34"><path class="dr-path" d="M6 18 L19 29 L42 6"/></svg></div>
+        <div class="mt-txt"><div class="mt-zh">描边生长</div><div class="mt-en">Line-drawing</div><div class="mt-desc">路径沿描边逐渐画出。</div></div>
+      </div>
+
+      <div class="mt-card c-wipe" data-g="in">
+        <div class="mt-stage"><span class="wp-txt">Reveal</span></div>
+        <div class="mt-txt"><div class="mt-zh">遮罩擦除</div><div class="mt-en">Wipe (mask reveal)</div><div class="mt-desc">从一侧扫过显形。</div></div>
+      </div>
+
+      <div class="mt-card c-type" data-g="in">
+        <div class="mt-stage"><span class="tp-txt">Hello_</span></div>
+        <div class="mt-txt"><div class="mt-zh">打字机</div><div class="mt-en">Typewriter</div><div class="mt-desc">逐字敲出，带闪烁光标。</div></div>
+      </div>
+
+      <div class="mt-card c-blur" data-g="in">
+        <div class="mt-stage"><span class="bl-txt">Focus</span></div>
+        <div class="mt-txt"><div class="mt-zh">虚化聚焦</div><div class="mt-en">Blur-in</div><div class="mt-desc">由模糊过渡到清晰。</div></div>
+      </div>
+
+      <div class="mt-card c-curtain" data-g="in">
+        <div class="mt-stage"><span class="cu-txt">Open</span><i class="cu-l"></i><i class="cu-r"></i></div>
+        <div class="mt-txt"><div class="mt-zh">幕帘开合</div><div class="mt-en">Curtain (clip split)</div><div class="mt-desc">两片面板向两侧分开露出内容。</div></div>
+      </div>
+
+      <!-- ===== 循环类 ===== -->
+      <div class="mt-card c-squash" data-g="loop">
+        <div class="mt-stage"><i class="sq-ball"></i></div>
+        <div class="mt-txt"><div class="mt-zh">挤压拉伸</div><div class="mt-en">Squash &amp; stretch</div><div class="mt-desc">触底压扁再回弹。</div></div>
+      </div>
+
+      <div class="mt-card c-breathe" data-g="loop">
+        <div class="mt-stage"><i class="br-dot"></i></div>
+        <div class="mt-txt"><div class="mt-zh">呼吸脉动</div><div class="mt-en">Breathing (Pulse)</div><div class="mt-desc">缓慢缩放与透明度往复。</div></div>
+      </div>
+
+      <div class="mt-card c-float" data-g="loop">
+        <div class="mt-stage"><i class="fo-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">悬浮循环</div><div class="mt-en">Idle floating</div><div class="mt-desc">轻微上下漂浮。</div></div>
+      </div>
+
+      <div class="mt-card c-marquee" data-g="loop">
+        <div class="mt-stage"><div class="mq-track"><span>URBAN&nbsp;FOLDING&nbsp;·&nbsp;</span><span>URBAN&nbsp;FOLDING&nbsp;·&nbsp;</span></div></div>
+        <div class="mt-txt"><div class="mt-zh">跑马灯</div><div class="mt-en">Marquee</div><div class="mt-desc">内容无缝横向滚动。</div></div>
+      </div>
+
+      <div class="mt-card c-ken" data-g="loop">
+        <div class="mt-stage"><i class="kb-img"></i></div>
+        <div class="mt-txt"><div class="mt-zh">慢推</div><div class="mt-en">Ken Burns</div><div class="mt-desc">缓慢缩放加平移，往复。</div></div>
+      </div>
+
+      <div class="mt-card c-shimmer" data-g="loop">
+        <div class="mt-stage"><i class="sh-block"></i></div>
+        <div class="mt-txt"><div class="mt-zh">骨架微光</div><div class="mt-en">Shimmer (Skeleton)</div><div class="mt-desc">高光条横向扫过占位块。</div></div>
+      </div>
+
+      <!-- ===== 鼠标交互类 ===== -->
+      <div class="mt-card c-magnetic" data-g="mouse">
+        <div class="mt-stage"><i class="mg-dot" aria-label="磁吸演示：元素跟随光标偏移，鼠标离开回弹复位" role="img"></i></div>
+        <div class="mt-txt"><div class="mt-zh">磁吸</div><div class="mt-en">Magnetic</div><div class="mt-desc">按光标偏移平移，离开回弹。</div></div>
+      </div>
+
+      <div class="mt-card c-parallax" data-g="mouse">
+        <div class="mt-stage" aria-label="视差演示：远中近三层图形按光标以不同倍率反向平移" role="img"><i class="px far"></i><i class="px mid"></i><i class="px near"></i></div>
+        <div class="mt-txt"><div class="mt-zh">视差</div><div class="mt-en">Parallax</div><div class="mt-desc">远中近层按光标以不同倍率移动。</div></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<style>
+.mt{--tx:var(--ink);--sec:var(--ink-soft);--mut:var(--ink-mute);--acc:var(--accent);--stg:var(--rule-soft);--rl:var(--rule);
+  --e:cubic-bezier(.22,1,.36,1);--spring:cubic-bezier(.34,1.6,.5,1);margin-top:.4rem}
+.mt-sronly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.mt-bar{display:flex;justify-content:flex-end;margin:0 0 12px}
+.mt-replay{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--acc);background:none;border:1px solid var(--acc);
+  border-radius:20px;padding:6px 15px;cursor:pointer;transition:background .15s}
+.mt-replay:hover{background:var(--accent-soft)}
+.mt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.mt-card{border:1px solid var(--rl);border-radius:10px;overflow:hidden;background:var(--paper)}
+.mt-stage{height:66px;overflow:hidden;background:var(--stg);position:relative;display:flex;align-items:center;justify-content:center}
+.mt-txt{padding:8px 11px 11px}
+.mt-zh{font-size:14px;font-weight:500;color:var(--tx);line-height:1.3}
+.mt-en{font-size:12px;color:var(--mut);margin-top:1px}
+.mt-desc{font-size:12px;color:var(--sec);line-height:1.5;margin-top:3px}
+
+/* 通用 demo 元件 */
+.mt .st-dot,.mt .br-dot,.mt .mg-dot{width:10px;height:10px;border-radius:50%;background:var(--tx);display:inline-block}
+.mt .ov-box,.mt .an-box,.mt .fo-box,.mt .fl-main,.mt .kb-img,.mt .cu-txt,.mt .sh-block{background:var(--tx)}
+
+/* 1 交错 */
+.c-stagger .st-row{display:flex;gap:7px}
+.c-stagger .st-dot{opacity:0;transform:translateY(14px)}
+.c-stagger.run .st-dot{animation:mt-rise .5s var(--e) both}
+.c-stagger.run .st-dot:nth-child(2){animation-delay:.08s}
+.c-stagger.run .st-dot:nth-child(3){animation-delay:.16s}
+.c-stagger.run .st-dot:nth-child(4){animation-delay:.24s}
+.c-stagger.run .st-dot:nth-child(5){animation-delay:.32s}
+@keyframes mt-rise{to{opacity:1;transform:translateY(0)}}
+
+/* 2 弹性回弹 */
+.c-overshoot .ov-box{width:28px;height:28px;border-radius:6px;transform:scale(0)}
+.c-overshoot.run .ov-box{animation:mt-over .7s var(--e) both}
+@keyframes mt-over{0%{transform:scale(0)}60%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+/* 3 预备动作 */
+.c-anticipation .an-box{width:26px;height:26px;border-radius:6px;transform:translateX(0)}
+.c-anticipation.run .an-box{animation:mt-anti .8s var(--e) both}
+@keyframes mt-anti{0%{transform:translateX(0)}22%{transform:translateX(-14px)}100%{transform:translateX(40px);opacity:0}}
+
+/* 4 跟随与重叠 */
+.c-follow .fl-main{width:22px;height:22px;border-radius:6px;position:absolute;left:-30%;transform:translateX(0)}
+.c-follow .fl-tail{width:22px;height:22px;border-radius:6px;position:absolute;left:-30%;background:var(--acc);opacity:.9}
+.c-follow.run .fl-main{animation:mt-slide .6s var(--e) both}
+.c-follow.run .fl-tail{animation:mt-slide .6s var(--e) both;animation-delay:.1s}
+@keyframes mt-slide{0%{left:-30%}70%{left:58%}85%{left:48%}100%{left:52%}}
+
+/* 5 描边生长 */
+.c-draw .dr-svg{width:52px;height:38px}
+.c-draw .dr-path{fill:none;stroke:var(--acc);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:64;stroke-dashoffset:64}
+.c-draw.run .dr-path{animation:mt-draw .7s var(--e) forwards}
+@keyframes mt-draw{to{stroke-dashoffset:0}}
+
+/* 6 遮罩擦除 */
+.c-wipe .wp-txt{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--tx);clip-path:inset(0 100% 0 0)}
+.c-wipe.run .wp-txt{animation:mt-wipe .7s var(--e) forwards}
+@keyframes mt-wipe{to{clip-path:inset(0 0 0 0)}}
+
+/* 7 打字机 */
+.c-type .tp-txt{font-family:Consolas,var(--sans),monospace;font-size:18px;color:var(--tx);white-space:nowrap;overflow:hidden;
+  border-right:2px solid var(--acc);width:0}
+.c-type.run .tp-txt{animation:mt-type 1.1s steps(6) forwards,mt-caret .7s step-end infinite}
+@keyframes mt-type{to{width:5.4ch}}
+@keyframes mt-caret{50%{border-color:transparent}}
+
+/* 8 虚化聚焦 */
+.c-blur .bl-txt{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--tx);filter:blur(9px);opacity:0}
+.c-blur.run .bl-txt{animation:mt-blur .7s var(--e) forwards}
+@keyframes mt-blur{to{filter:blur(0);opacity:1}}
+
+/* 9 幕帘开合 */
+.c-curtain .cu-txt{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--tx);-webkit-text-fill-color:var(--tx);background:none}
+.c-curtain .cu-l,.c-curtain .cu-r{position:absolute;top:0;bottom:0;width:50%;background:var(--acc)}
+.c-curtain .cu-l{left:0}.c-curtain .cu-r{right:0}
+.c-curtain.run .cu-l{animation:mt-curl .7s var(--e) forwards}
+.c-curtain.run .cu-r{animation:mt-curr .7s var(--e) forwards}
+@keyframes mt-curl{to{transform:translateX(-100%)}}
+@keyframes mt-curr{to{transform:translateX(100%)}}
+
+/* 10 挤压拉伸（循环） */
+.c-squash .sq-ball{width:22px;height:22px;border-radius:50%;background:var(--tx);position:absolute;top:8px;
+  animation:mt-squash 1.3s cubic-bezier(.5,0,.5,1) infinite;transform-origin:center bottom}
+@keyframes mt-squash{0%{transform:translateY(0) scale(1,1)}45%{transform:translateY(26px) scale(1,1)}
+  55%{transform:translateY(26px) scale(1.35,.6)}70%{transform:translateY(0) scale(.92,1.1)}100%{transform:translateY(0) scale(1,1)}}
+
+/* 11 呼吸脉动（循环） */
+.c-breathe .br-dot{width:22px;height:22px;animation:mt-breathe 2.2s ease-in-out infinite}
+@keyframes mt-breathe{0%,100%{transform:scale(.82);opacity:.55}50%{transform:scale(1.1);opacity:1}}
+
+/* 12 悬浮循环 */
+.c-float .fo-box{width:24px;height:24px;border-radius:6px;animation:mt-float 2.6s ease-in-out infinite}
+@keyframes mt-float{0%,100%{transform:translateY(-5px)}50%{transform:translateY(5px)}}
+
+/* 13 跑马灯 */
+.c-marquee .mt-stage{justify-content:flex-start}
+.c-marquee .mq-track{display:flex;white-space:nowrap;font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.1em;
+  color:var(--tx);animation:mt-marq 6s linear infinite}
+@keyframes mt-marq{to{transform:translateX(-50%)}}
+
+/* 14 慢推 Ken Burns */
+.c-ken .kb-img{width:70%;height:100%;background:linear-gradient(135deg,var(--tx),var(--acc));opacity:.85;
+  animation:mt-ken 5s ease-in-out infinite alternate}
+@keyframes mt-ken{0%{transform:scale(1) translateX(-6%)}100%{transform:scale(1.3) translateX(6%)}}
+
+/* 15 骨架微光 */
+.c-shimmer .sh-block{width:66%;height:26px;border-radius:5px;background:var(--rl);position:relative;overflow:hidden;opacity:.9}
+.c-shimmer .sh-block::after{content:"";position:absolute;inset:0;transform:translateX(-100%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:mt-shim 1.6s ease-in-out infinite}
+@keyframes mt-shim{to{transform:translateX(100%)}}
+
+/* 16 磁吸 */
+.c-magnetic .mg-dot{width:26px;height:26px;border-radius:8px;background:var(--tx);transition:transform .4s var(--spring)}
+.c-magnetic .mt-stage{cursor:pointer}
+
+/* 17 视差 */
+.c-parallax .mt-stage{cursor:pointer}
+.c-parallax .px{position:absolute;border-radius:5px;transition:transform .4s var(--e)}
+.c-parallax .far{width:34px;height:34px;background:var(--tx);opacity:.28}
+.c-parallax .mid{width:22px;height:22px;background:var(--tx);opacity:.6}
+.c-parallax .near{width:13px;height:13px;background:var(--acc)}
+
+@media (prefers-reduced-motion:reduce){
+  .mt .mt-stage *{animation:none!important}
+  .c-type .tp-txt{width:5.4ch;border-color:transparent}
+  .c-stagger .st-dot,.c-blur .bl-txt{opacity:1;transform:none;filter:none}
+  .c-wipe .wp-txt{clip-path:inset(0)}
+  .c-draw .dr-path{stroke-dashoffset:0}
+  .c-curtain .cu-l,.c-curtain .cu-r{display:none}
+}
+</style>
+
+<script>
+(function(){
+  var grid=document.getElementById('mt-grid'); if(!grid) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var ins=[].slice.call(grid.querySelectorAll('.mt-card[data-g="in"]'));
+
+  function playCard(c){ c.classList.remove('run'); void c.offsetWidth; c.classList.add('run'); }
+  function cascade(){ if(reduce){ ins.forEach(c=>c.classList.add('run')); return; }
+    ins.forEach((c,i)=>setTimeout(()=>playCard(c), i*80)); }
+
+  // 入场：划过重播
+  ins.forEach(c=>c.addEventListener('mouseenter',()=>{ if(!reduce) playCard(c); }));
+  // 全部重播
+  var rb=document.getElementById('mt-replay'); if(rb) rb.addEventListener('click',cascade);
+
+  // 16 磁吸
+  var mg=grid.querySelector('.c-magnetic'); if(mg){
+    var stage=mg.querySelector('.mt-stage'), dot=mg.querySelector('.mg-dot');
+    if(!reduce){
+      stage.addEventListener('mousemove',e=>{var r=stage.getBoundingClientRect();
+        var dx=(e.clientX-(r.left+r.width/2))*.35, dy=(e.clientY-(r.top+r.height/2))*.35;
+        dot.style.transition='transform .08s linear'; dot.style.transform='translate('+dx+'px,'+dy+'px)';});
+      stage.addEventListener('mouseleave',()=>{dot.style.transition='transform .4s cubic-bezier(.34,1.6,.5,1)';dot.style.transform='translate(0,0)';});
+    }
+  }
+  // 17 视差
+  var px=grid.querySelector('.c-parallax'); if(px){
+    var st=px.querySelector('.mt-stage'), layers=[[px.querySelector('.far'),8],[px.querySelector('.mid'),20],[px.querySelector('.near'),38]];
+    if(!reduce){
+      st.addEventListener('mousemove',e=>{var r=st.getBoundingClientRect();
+        var nx=(e.clientX-(r.left+r.width/2))/(r.width/2), ny=(e.clientY-(r.top+r.height/2))/(r.height/2);
+        layers.forEach(l=>{l[0].style.transition='transform .08s linear';l[0].style.transform='translate('+(-nx*l[1])+'px,'+(-ny*l[1])+'px)';});});
+      st.addEventListener('mouseleave',()=>{layers.forEach(l=>{l[0].style.transition='transform .4s cubic-bezier(.22,1,.36,1)';l[0].style.transform='translate(0,0)';});});
+    }
+  }
+
+  // 加载级联入场
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(x=>{if(x.isIntersecting){cascade();io.disconnect();}});},{threshold:.15});
+    io.observe(grid);
+  } else cascade();
+})();
+</script>
