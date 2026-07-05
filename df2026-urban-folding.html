@@ -15,9 +15,9 @@ title: "都市折叠 · Digital Futures 2026 工作营"
       <a class="dfbs-back" href="{{ '/' | relative_url }}">← 返回首页</a>
     </div>
     <div class="dfbs-shelfwrap">
-      <div class="dfbs-shelf" id="dfbs-shelf"></div>
+      <div class="dfbs-shelves" id="dfbs-shelves"></div>
     </div>
-    <div class="dfbs-hint" id="dfbs-hint">悬停向上抽出 &nbsp;·&nbsp; 单击翻开看详情 &nbsp;·&nbsp; 书脊高矮厚薄 = 真实开本</div>
+    <div class="dfbs-hint" id="dfbs-hint">点击书本翻开看详情 &nbsp;·&nbsp; 书脊高矮厚薄 = 真实开本</div>
   </div>
 
   <div class="dfbs-backdrop" id="dfbs-backdrop"></div>
@@ -58,9 +58,11 @@ title: "都市折叠 · Digital Futures 2026 工作营"
 .dfbs-back{font-family:"Inter",sans-serif;font-size:12px;color:#8f8a7e;text-decoration:none;letter-spacing:.06em}
 .dfbs-back:hover{color:#C9A24B}
 .dfbs-shelfwrap{position:absolute;inset:0}
-.dfbs-shelf{position:absolute;left:50%;bottom:30%;transform:translateX(-50%);
-  display:flex;align-items:flex-end;gap:3px;perspective:2600px;perspective-origin:50% 46%}
-.dfbs-shelf::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-14px;height:20px;
+.dfbs-shelves{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;gap:clamp(24px,6vh,52px);width:100%}
+.dfbs-shelf{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:3px;
+  perspective:2600px;perspective-origin:50% 46%}
+.dfbs-shelf::after{content:"";position:absolute;left:-4%;right:-4%;bottom:-12px;height:18px;
   background:radial-gradient(ellipse at center,rgba(0,0,0,.5),transparent 72%);filter:blur(6px)}
 .dfbs .slot{position:relative;flex:0 0 auto}
 .dfbs .slot:hover{z-index:20}
@@ -124,7 +126,6 @@ title: "都市折叠 · Digital Futures 2026 工作营"
   color:#0b0c0f;background:#C9A24B;border-radius:8px;padding:.6rem 1.15rem;text-decoration:none;transition:.25s var(--ease);line-height:1.4}
 .dfbs .dw-story:hover{background:#e0b85e;transform:translateX(3px)}
 @media (prefers-reduced-motion:reduce){.dfbs .book{animation:none}}
-@media (max-width:640px){.dfbs-shelf{bottom:26%}}
 </style>
 
 <script src="{{ '/assets/df2026/books-data.js' | relative_url }}"></script>
@@ -150,32 +151,47 @@ title: "都市折叠 · Digital Futures 2026 工作营"
       story:"在未来的上海，随着技术与资本发展，高效观念深入生活，每个人的生活被量化成数字，越来越追求数据上的成就与纸面荣誉。主角顾言进入一家公司面试，个人终端上能看见他人的成就值，随之陷入效率追逐的竞赛……"}
   };
   var BOOKS=(window.ICON_BOOKS||[]).slice().sort((a,b)=>a.no-b.no);
-  var shelf=document.getElementById('dfbs-shelf');
-  var wrap=document.querySelector('.dfbs'); if(!shelf||!wrap) return;
+  var shelves=document.getElementById('dfbs-shelves');
+  var wrap=document.querySelector('.dfbs'); if(!shelves||!wrap) return;
   var g=id=>document.getElementById(id);
+  var isMobile=()=>window.innerWidth<640;
+  var img=p=>isMobile()?p.replace('/covers/','/covers/mobile/').replace('/spines/','/spines/mobile/'):p;
+  var rowsForWidth=w=>w>=980?1:w>=640?2:w>=430?3:4;
 
   function build(){
-    var gap=3, sidePad=Math.max(40,window.innerWidth*0.045)*2, LIFT=72;
-    var sumT=BOOKS.reduce((s,b)=>s+b.sp,0);
-    var avail=window.innerWidth - sidePad - gap*(BOOKS.length-1);
-    var stageH=document.getElementById('dfbs-stage').clientHeight||600;
-    var scale=avail/sumT;
-    scale=Math.min(scale,(stageH*0.46)/Math.max.apply(null,BOOKS.map(b=>b.ch)));
-    scale=Math.min(scale,2.2);
-    [].forEach.call(shelf.querySelectorAll('.slot'),n=>n.remove());
-    BOOKS.forEach((b,i)=>{
-      var X=Math.max(9,b.sp*scale), Y=b.ch*scale, Z=b.cw*scale;
-      var slot=document.createElement('div'); slot.className='slot';
-      slot.style.width=X+'px'; slot.style.height=(Y+LIFT)+'px';
-      var book=document.createElement('div'); book.className='book';
-      book.style.cssText=`--X:${X}px;--Y:${Y}px;--Z:${Z}px;animation-delay:${i*54}ms`;
-      book.innerHTML=
-        `<div class="face spine" style="background-color:${b.g};background-image:url('${encodeURI(b.spine)}')"></div>`+
-        `<div class="face cover" style="background-color:${b.g};background-image:url('${encodeURI(b.cover)}')"></div>`+
-        `<div class="face pback"></div><div class="face foreedge"></div><div class="face toppg"></div>`;
-      book.addEventListener('animationend',()=>book.classList.add('settled'),{once:true});
-      book.addEventListener('click',e=>{e.stopPropagation();select(b,book);});
-      slot.appendChild(book); shelf.appendChild(slot);
+    shelves.innerHTML='';
+    var W=window.innerWidth, mobile=W<640, R=rowsForWidth(W);
+    // 按书脊厚度均衡拆成 R 行（连续分组）
+    var totalSp=BOOKS.reduce((s,b)=>s+b.sp,0), target=totalSp/R;
+    var rows=[], cur=[], curSum=0;
+    BOOKS.forEach(b=>{ cur.push(b); curSum+=b.sp;
+      if(rows.length<R-1 && curSum>=target){ rows.push(cur); cur=[]; curSum=0; } });
+    if(cur.length) rows.push(cur);
+    var gap=3, sidePad=Math.max(24,W*0.04)*2, LIFT=mobile?16:66;
+    var stageH=(g('dfbs-stage').clientHeight)||600, avail=W-sidePad;
+    var maxCh=Math.max.apply(null,BOOKS.map(b=>b.ch));
+    var wScale=Math.min.apply(null,rows.map(r=>(avail-gap*(r.length-1))/r.reduce((s,b)=>s+b.sp,0)));
+    var vgap=Math.max(24,stageH*0.055);
+    var hScale=(stageH*0.84 - vgap*(R-1) - LIFT)/(R*maxCh);
+    var scale=Math.min(wScale,hScale,2.2), idx=0;
+    rows.forEach(function(rb){
+      var shelf=document.createElement('div'); shelf.className='dfbs-shelf';
+      rb.forEach(function(b){
+        var X=Math.max(11,b.sp*scale), Y=b.ch*scale, Z=b.cw*scale;
+        var cov=img(b.cover), spn=img(b.spine);
+        var slot=document.createElement('div'); slot.className='slot';
+        slot.style.width=X+'px'; slot.style.height=(Y+LIFT)+'px';
+        var book=document.createElement('div'); book.className='book';
+        book.style.cssText='--X:'+X+'px;--Y:'+Y+'px;--Z:'+Z+'px;animation-delay:'+(idx*46)+'ms';
+        book.innerHTML=
+          '<div class="face spine" style="background-color:'+b.g+';background-image:url(\''+encodeURI(spn)+'\')"></div>'+
+          '<div class="face cover" style="background-color:'+b.g+';background-image:url(\''+encodeURI(cov)+'\')"></div>'+
+          '<div class="face pback"></div><div class="face foreedge"></div><div class="face toppg"></div>';
+        book.addEventListener('animationend',function(){book.classList.add('settled');},{once:true});
+        book.addEventListener('click',function(e){e.stopPropagation();select(b,book);});
+        slot.appendChild(book); shelf.appendChild(slot); idx++;
+      });
+      shelves.appendChild(shelf);
     });
   }
 
@@ -184,7 +200,7 @@ title: "都市折叠 · Digital Futures 2026 工作营"
     if(selEl===el){ deselect(); return; }
     wrap.querySelectorAll('.book').forEach(x=>{x.classList.remove('sel');x.classList.add('dim');});
     el.classList.remove('dim'); el.classList.add('sel'); selEl=el;
-    var dc=g('dw-cover'); dc.style.backgroundImage=`url('${encodeURI(b.cover)}')`; dc.style.height=(148*b.ch/b.cw)+'px';
+    var dc=g('dw-cover'); dc.style.backgroundImage=`url('${encodeURI(img(b.cover))}')`; dc.style.height=(148*b.ch/b.cw)+'px';
     g('dw-era').textContent='上海 · '+b.era+'卷';
     g('dw-title').textContent=b.title;
     g('dw-author').textContent=b.author;
