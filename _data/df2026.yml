@@ -1,0 +1,12 @@
+# Digital Futures 2026 · 第 25 组 成果合集（临时特别栏目）
+# 加/改组只动这里，不碰模板。cover 可为 SVG/图片路径或外链，留空则用纯文字卡。
+title: "Digital Futures 2026 · 第 25 组"
+subtitle: "都市折叠：空间形态叙事的游戏化演绎"
+intro: "（工作营简介待补——文案稍后替换）"
+
+projects:
+  - author: "测试样例"
+    name: "浅译万道"
+    url: "https://www.transwonder-lab.com"
+    desc: "测试网站"
+    cover: "/assets/df2026/test-sample.svg"

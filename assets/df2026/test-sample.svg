@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" role="img" aria-label="测试样例封面">
+  <rect width="400" height="250" fill="#efe9dd"/>
+  <g fill="none" stroke="#534ab7" stroke-width="2" stroke-linejoin="round" opacity="0.55">
+    <path d="M30 210 L110 165 L110 95 L30 135 Z"/>
+    <path d="M110 165 L110 95 L190 60 L190 130 Z"/>
+    <path d="M190 130 L190 60 L280 95 L280 165 Z"/>
+    <path d="M280 165 L280 95 L360 135 L360 205 Z"/>
+    <path d="M30 135 L110 95 L190 60 L280 95 L360 135"/>
+  </g>
+  <g fill="#534ab7" opacity="0.12">
+    <polygon points="110,165 190,130 190,60 110,95"/>
+    <polygon points="280,165 360,205 360,135 280,95"/>
+  </g>
+  <text x="200" y="128" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="26" font-weight="600" fill="#2b2820">浅译万道</text>
+  <text x="200" y="152" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="12" letter-spacing="2" fill="#8a8170">测试样例 · 都市折叠</text>
+</svg>

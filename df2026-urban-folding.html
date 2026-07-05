@@ -1,0 +1,43 @@
+---
+layout: default
+permalink: /df2026-urban-folding/
+title: "Digital Futures 2026 · 第 25 组"
+---
+
+{% assign d = site.data.df2026 %}
+
+<header class="page-header">
+  <div class="container">
+    <h1>{{ d.title }}</h1>
+    {% if d.subtitle %}<p class="hero-tagline">{{ d.subtitle }}</p>{% endif %}
+  </div>
+</header>
+
+<main class="container">
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a>
+    <span class="sep">/</span>
+    <span class="cur">工作营 · 都市折叠</span>
+  </nav>
+
+  {% if d.intro %}<p class="gx-intro">{{ d.intro }}</p>{% endif %}
+
+  {% if d.projects and d.projects.size > 0 %}
+  <div class="gx-grid fade-in">
+    {% for p in d.projects %}
+    <div class="gx-card post-item">
+      <div class="post-title gx-head" aria-expanded="false">
+        {% if p.cover and p.cover != "" %}<div class="gx-cover"><img src="{{ p.cover | relative_url }}" alt="{{ p.name }} 封面" loading="lazy"></div>{% endif %}
+        <div class="gx-titlebar"><span class="caret">›</span><span class="gx-name">{{ p.name }}</span>{% if p.author %}<span class="gx-author">{{ p.author }}</span>{% endif %}</div>
+      </div>
+      <div class="post-detail gx-detail">
+        {% if p.desc %}<p class="gx-desc">{{ p.desc }}</p>{% endif %}
+        {% if p.url and p.url != "" %}<a class="gx-story" href="{{ p.url }}" target="_blank" rel="noopener">跳转故事 →</a>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="card fade-in" style="text-align:center; padding:3rem;"><p style="color:var(--ink-mute);">成果合集整理中</p></div>
+  {% endif %}
+</main>
