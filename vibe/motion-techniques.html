@@ -1,12 +1,12 @@
 ---
 layout: default
 permalink: /vibe/motion-techniques/
-title: "网页动效命名技法 · 交互图鉴"
+title: "常用 WEB 交互动效图鉴"
 ---
 
 <header class="page-header">
   <div class="container">
-    <h1>网页动效命名技法 · 交互图鉴</h1>
+    <h1>常用 WEB 交互动效图鉴</h1>
     <p class="hero-tagline">常见网页动画技法的名词 + 实时迷你演示，看到名词就看到它长什么样。</p>
   </div>
 </header>
@@ -15,16 +15,16 @@ title: "网页动效命名技法 · 交互图鉴"
   <nav class="crumb">
     <a href="{{ '/' | relative_url }}">首页</a><span class="sep">/</span>
     <a href="{{ '/vibe/' | relative_url }}">VIBE工具箱</a><span class="sep">/</span>
-    <span class="cur">动效技法图鉴</span>
+    <span class="cur">常用 WEB 交互动效图鉴</span>
   </nav>
 
   <p class="mt-sronly">这是一个网页动画技法的交互参考图鉴，每张卡片展示一种有专有名词的动效及其实时演示；分入场、循环、鼠标交互三类。</p>
 
   <div class="mt">
     <div class="mt-bar"><button class="mt-replay" id="mt-replay">全部重播</button></div>
-    <div class="mt-grid" id="mt-grid">
+    <div class="sec-label">入场 · 加载时播放 / 划过重播</div>
+    <div class="mt-grid">
 
-      <!-- ===== 入场类 ===== -->
       <div class="mt-card c-stagger" data-g="in">
         <div class="mt-stage"><div class="st-row">
           <i class="st-dot"></i><i class="st-dot"></i><i class="st-dot"></i><i class="st-dot"></i><i class="st-dot"></i>
@@ -72,7 +72,11 @@ title: "网页动效命名技法 · 交互图鉴"
         <div class="mt-txt"><div class="mt-zh">幕帘开合</div><div class="mt-en">Curtain (clip split)</div><div class="mt-desc">两片面板向两侧分开露出内容。</div></div>
       </div>
 
-      <!-- ===== 循环类 ===== -->
+    </div>
+
+    <div class="sec-label">循环 · 持续播放</div>
+    <div class="mt-grid">
+
       <div class="mt-card c-squash" data-g="loop">
         <div class="mt-stage"><i class="sq-ball"></i></div>
         <div class="mt-txt"><div class="mt-zh">挤压拉伸</div><div class="mt-en">Squash &amp; stretch</div><div class="mt-desc">触底压扁再回弹。</div></div>
@@ -103,7 +107,11 @@ title: "网页动效命名技法 · 交互图鉴"
         <div class="mt-txt"><div class="mt-zh">骨架微光</div><div class="mt-en">Shimmer (Skeleton)</div><div class="mt-desc">高光条横向扫过占位块。</div></div>
       </div>
 
-      <!-- ===== 鼠标交互类 ===== -->
+    </div>
+
+    <div class="sec-label">鼠标交互 · 跟随光标 / 离开复位</div>
+    <div class="mt-grid">
+
       <div class="mt-card c-magnetic" data-g="mouse">
         <div class="mt-stage"><i class="mg-dot" aria-label="磁吸演示：元素跟随光标偏移，鼠标离开回弹复位" role="img"></i></div>
         <div class="mt-txt"><div class="mt-zh">磁吸</div><div class="mt-en">Magnetic</div><div class="mt-desc">按光标偏移平移，离开回弹。</div></div>
@@ -252,9 +260,9 @@ title: "网页动效命名技法 · 交互图鉴"
 
 <script>
 (function(){
-  var grid=document.getElementById('mt-grid'); if(!grid) return;
+  var root=document.querySelector('.mt'); if(!root) return;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var ins=[].slice.call(grid.querySelectorAll('.mt-card[data-g="in"]'));
+  var ins=[].slice.call(root.querySelectorAll('.mt-card[data-g="in"]'));
 
   function playCard(c){ c.classList.remove('run'); void c.offsetWidth; c.classList.add('run'); }
   function cascade(){ if(reduce){ ins.forEach(c=>c.classList.add('run')); return; }
@@ -266,7 +274,7 @@ title: "网页动效命名技法 · 交互图鉴"
   var rb=document.getElementById('mt-replay'); if(rb) rb.addEventListener('click',cascade);
 
   // 16 磁吸
-  var mg=grid.querySelector('.c-magnetic'); if(mg){
+  var mg=root.querySelector('.c-magnetic'); if(mg){
     var stage=mg.querySelector('.mt-stage'), dot=mg.querySelector('.mg-dot');
     if(!reduce){
       stage.addEventListener('mousemove',e=>{var r=stage.getBoundingClientRect();
@@ -276,7 +284,7 @@ title: "网页动效命名技法 · 交互图鉴"
     }
   }
   // 17 视差
-  var px=grid.querySelector('.c-parallax'); if(px){
+  var px=root.querySelector('.c-parallax'); if(px){
     var st=px.querySelector('.mt-stage'), layers=[[px.querySelector('.far'),8],[px.querySelector('.mid'),20],[px.querySelector('.near'),38]];
     if(!reduce){
       st.addEventListener('mousemove',e=>{var r=st.getBoundingClientRect();
@@ -289,7 +297,7 @@ title: "网页动效命名技法 · 交互图鉴"
   // 加载级联入场
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(x=>{if(x.isIntersecting){cascade();io.disconnect();}});},{threshold:.15});
-    io.observe(grid);
+    io.observe(root);
   } else cascade();
 })();
 </script>
