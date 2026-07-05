@@ -156,7 +156,7 @@ title: "都市折叠 · Digital Futures 2026 工作营"
   var g=id=>document.getElementById(id);
   var isMobile=()=>window.innerWidth<640;
   var img=p=>isMobile()?p.replace('/covers/','/covers/mobile/').replace('/spines/','/spines/mobile/'):p;
-  var rowsForWidth=w=>w>=980?1:w>=640?2:w>=430?3:4;
+  var rowsForWidth=w=>w>=980?1:w>=560?2:3;
 
   function build(){
     shelves.innerHTML='';
@@ -171,13 +171,13 @@ title: "都市折叠 · Digital Futures 2026 工作营"
     var stageH=(g('dfbs-stage').clientHeight)||600, avail=W-sidePad;
     var maxCh=Math.max.apply(null,BOOKS.map(b=>b.ch));
     var wScale=Math.min.apply(null,rows.map(r=>(avail-gap*(r.length-1))/r.reduce((s,b)=>s+b.sp,0)));
-    var vgap=Math.max(24,stageH*0.055);
-    var hScale=(stageH*0.84 - vgap*(R-1) - LIFT)/(R*maxCh);
-    var scale=Math.min(wScale,hScale,2.2), idx=0;
+    var vgap=Math.max(18,stageH*0.04);
+    var hScale=(stageH*0.9 - vgap*(R-1) - LIFT)/(R*maxCh);
+    var scale=Math.min(wScale,hScale,2.4), idx=0;
     rows.forEach(function(rb){
       var shelf=document.createElement('div'); shelf.className='dfbs-shelf';
       rb.forEach(function(b){
-        var X=Math.max(11,b.sp*scale), Y=b.ch*scale, Z=b.cw*scale;
+        var X=Math.max(13,b.sp*scale), Y=b.ch*scale, Z=b.cw*scale;
         var cov=img(b.cover), spn=img(b.spine);
         var slot=document.createElement('div'); slot.className='slot';
         slot.style.width=X+'px'; slot.style.height=(Y+LIFT)+'px';
