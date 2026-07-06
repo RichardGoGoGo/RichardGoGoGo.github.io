@@ -18,11 +18,21 @@ title: "常用 WEB 交互动效图鉴"
     <span class="cur">常用 WEB 交互动效图鉴</span>
   </nav>
 
-  <p class="mt-sronly">这是一个网页动画技法的交互参考图鉴，每张卡片展示一种有专有名词的动效及其实时演示；分入场、循环、鼠标交互三类。</p>
+  <p class="mt-sronly">这是一个网页动画技法的交互参考图鉴，每张卡片展示一种有专有名词的动效及其实时演示；分入场、循环、鼠标交互、文字、背景五类。</p>
 
   <div class="mt">
-    <div class="mt-bar"><button class="mt-replay" id="mt-replay">全部重播</button></div>
-    <div class="sec-label">入场 · 加载时播放 / 划过重播</div>
+    <div class="mt-bar">
+      <div class="mt-filter" role="group" aria-label="按分类筛选">
+        <button class="mt-chip on" data-cat="all" aria-pressed="true">全部</button>
+        <button class="mt-chip" data-cat="in" aria-pressed="false">入场</button>
+        <button class="mt-chip" data-cat="loop" aria-pressed="false">循环</button>
+        <button class="mt-chip" data-cat="mouse" aria-pressed="false">鼠标交互</button>
+        <button class="mt-chip" data-cat="text" aria-pressed="false">文字</button>
+        <button class="mt-chip" data-cat="bg" aria-pressed="false">背景</button>
+      </div>
+      <button class="mt-replay" id="mt-replay">全部重播</button>
+    </div>
+    <div class="sec-label" data-cat="in">入场 · 加载时播放 / 划过重播</div>
     <div class="mt-grid">
 
       <div class="mt-card c-stagger" data-g="in">
@@ -74,7 +84,7 @@ title: "常用 WEB 交互动效图鉴"
 
     </div>
 
-    <div class="sec-label">循环 · 持续播放</div>
+    <div class="sec-label" data-cat="loop">循环 · 持续播放</div>
     <div class="mt-grid">
 
       <div class="mt-card c-squash" data-g="loop">
@@ -109,7 +119,7 @@ title: "常用 WEB 交互动效图鉴"
 
     </div>
 
-    <div class="sec-label">鼠标交互 · 跟随光标 / 离开复位</div>
+    <div class="sec-label" data-cat="mouse">鼠标交互 · 跟随光标 / 离开复位</div>
     <div class="mt-grid">
 
       <div class="mt-card c-magnetic" data-g="mouse">
@@ -123,27 +133,76 @@ title: "常用 WEB 交互动效图鉴"
       </div>
 
     </div>
+
+    <div class="sec-label" data-cat="text">文字动效 · 持续播放（借鉴 React Bits）</div>
+    <div class="mt-grid">
+
+      <div class="mt-card c-gradtext" data-g="text">
+        <div class="mt-stage"><span class="gt-txt">Gradient</span></div>
+        <div class="mt-txt"><div class="mt-zh">渐变流光</div><div class="mt-en">Gradient Text</div><div class="mt-desc">渐变色在文字内横向流动。</div></div>
+      </div>
+
+      <div class="mt-card c-shiny" data-g="text">
+        <div class="mt-stage"><span class="sn-txt">Shiny</span></div>
+        <div class="mt-txt"><div class="mt-zh">微光扫字</div><div class="mt-en">Shiny Text</div><div class="mt-desc">一道高光在文字上反复扫过。</div></div>
+      </div>
+
+      <div class="mt-card c-splittext" data-g="text">
+        <div class="mt-stage"><span class="sp"><span class="sp-ch">S</span><span class="sp-ch">p</span><span class="sp-ch">l</span><span class="sp-ch">i</span><span class="sp-ch">t</span></span></div>
+        <div class="mt-txt"><div class="mt-zh">逐字浮现</div><div class="mt-en">Split Text</div><div class="mt-desc">拆成单字按序淡入。</div></div>
+      </div>
+
+      <div class="mt-card c-rotate" data-g="text">
+        <div class="mt-stage"><span class="rt-mask"><span class="rt-list"><span>Design</span><span>Motion</span><span>Vibe</span><span>Design</span></span></span></div>
+        <div class="mt-txt"><div class="mt-zh">词语轮播</div><div class="mt-en">Rotating Text</div><div class="mt-desc">一组词垂直滚动切换。</div></div>
+      </div>
+
+      <div class="mt-card c-scramble" data-g="text">
+        <div class="mt-stage"><span class="sc-txt" data-text="DECODE">DECODE</span></div>
+        <div class="mt-txt"><div class="mt-zh">字符解码</div><div class="mt-en">Scramble / Decrypt</div><div class="mt-desc">乱码逐位收敛成目标词。</div></div>
+      </div>
+
+    </div>
+
+    <div class="sec-label" data-cat="bg">背景动效 · 持续播放（借鉴 React Bits）</div>
+    <div class="mt-grid">
+
+      <div class="mt-card c-aurora" data-g="bg">
+        <div class="mt-stage"><i class="au a1"></i><i class="au a2"></i></div>
+        <div class="mt-txt"><div class="mt-zh">极光</div><div class="mt-en">Aurora</div><div class="mt-desc">柔光色块缓慢漂移交融。</div></div>
+      </div>
+
+      <div class="mt-card c-dotgrid" data-g="bg">
+        <div class="mt-stage"><i class="dg-glow"></i><i class="dg"></i></div>
+        <div class="mt-txt"><div class="mt-zh">圆点阵</div><div class="mt-en">Dot Grid</div><div class="mt-desc">点阵上一团光晕游走点亮。</div></div>
+      </div>
+
+      <div class="mt-card c-gridmotion" data-g="bg">
+        <div class="mt-stage"><i class="gm"></i></div>
+        <div class="mt-txt"><div class="mt-zh">网格流动</div><div class="mt-en">Grid Motion</div><div class="mt-desc">等距网格持续平移。</div></div>
+      </div>
+
+      <div class="mt-card c-particles" data-g="bg">
+        <div class="mt-stage"><i class="pt"></i><i class="pt"></i><i class="pt"></i><i class="pt"></i><i class="pt"></i><i class="pt"></i></div>
+        <div class="mt-txt"><div class="mt-zh">浮尘粒子</div><div class="mt-en">Particles</div><div class="mt-desc">细小粒子漂浮游动。</div></div>
+      </div>
+
+    </div>
   </div>
 </main>
 
-<div class="mtx-backdrop" id="mtx-backdrop"></div>
-<aside class="mtx-modal" id="mtx-modal" role="dialog" aria-modal="true" aria-label="动效详解">
-  <button class="mtx-close" id="mtx-close" aria-label="关闭">✕</button>
-  <div class="mtx-stage" id="mtx-stage"></div>
-  <div class="mtx-info">
-    <div class="mtx-en" id="mtx-en"></div>
-    <div class="mtx-zh" id="mtx-zh"></div>
-    <div class="mtx-desc" id="mtx-desc"></div>
-    <div class="mtx-note" id="mtx-note"></div>
-    <button class="mtx-replay" id="mtx-replay">重播 / 交互</button>
-  </div>
-</aside>
 
 <style>
 .mt{--tx:var(--ink);--sec:var(--ink-soft);--mut:var(--ink-mute);--acc:var(--accent);--stg:var(--rule-soft);--rl:var(--rule);
   --e:cubic-bezier(.22,1,.36,1);--spring:cubic-bezier(.34,1.6,.5,1);margin-top:.4rem}
 .mt-sronly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-.mt-bar{display:flex;justify-content:flex-end;margin:0 0 12px}
+.mt-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.mt-filter{display:flex;flex-wrap:wrap;gap:7px}
+.mt-chip{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--mut);background:none;border:1px solid var(--rl);
+  border-radius:20px;padding:5px 13px;cursor:pointer;transition:color .15s,background .15s,border-color .15s}
+.mt-chip:hover{color:var(--tx);border-color:var(--mut)}
+.mt-chip.on{color:var(--paper);background:var(--acc);border-color:var(--acc)}
+.mt-hide{display:none!important}
 .mt-replay{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--acc);background:none;border:1px solid var(--acc);
   border-radius:20px;padding:6px 15px;cursor:pointer;transition:background .15s}
 .mt-replay:hover{background:var(--accent-soft)}
@@ -261,50 +320,76 @@ title: "常用 WEB 交互动效图鉴"
 .c-parallax .mid{width:22px;height:22px;background:var(--tx);opacity:.6}
 .c-parallax .near{width:13px;height:13px;background:var(--acc)}
 
+/* ===== 文字动效（借鉴 React Bits）===== */
+/* 18 渐变流光 */
+.c-gradtext .gt-txt{font-family:var(--serif);font-size:22px;font-weight:600;background:linear-gradient(90deg,var(--tx),var(--acc),var(--tx));
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:mt-gradpan 3s linear infinite}
+@keyframes mt-gradpan{to{background-position:-200% 0}}
+
+/* 19 微光扫字 */
+.c-shiny .sn-txt{font-family:var(--serif);font-size:22px;font-weight:600;background:linear-gradient(110deg,var(--mut) 40%,var(--tx) 50%,var(--mut) 60%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:mt-shine 2.8s ease-in-out infinite}
+@keyframes mt-shine{0%{background-position:130% 0}100%{background-position:-60% 0}}
+
+/* 20 逐字浮现 */
+.c-splittext .sp{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--tx);display:inline-flex}
+.c-splittext .sp-ch{display:inline-block;white-space:pre;opacity:0;transform:translateY(10px);animation:mt-splitin 3.4s var(--e) infinite}
+.c-splittext .sp-ch:nth-child(2){animation-delay:.12s}
+.c-splittext .sp-ch:nth-child(3){animation-delay:.24s}
+.c-splittext .sp-ch:nth-child(4){animation-delay:.36s}
+.c-splittext .sp-ch:nth-child(5){animation-delay:.48s}
+@keyframes mt-splitin{0%{opacity:0;transform:translateY(10px)}16%,80%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-10px)}}
+
+/* 21 词语轮播 */
+.c-rotate .rt-mask{display:inline-block;height:26px;line-height:26px;overflow:hidden;font-family:var(--serif);font-size:20px;font-weight:500;color:var(--tx)}
+.c-rotate .rt-list{display:flex;flex-direction:column;animation:mt-roll 5s cubic-bezier(.76,0,.24,1) infinite}
+.c-rotate .rt-list span{height:26px}
+@keyframes mt-roll{0%,22%{transform:translateY(0)}33%,55%{transform:translateY(-26px)}66%,88%{transform:translateY(-52px)}100%{transform:translateY(-78px)}}
+
+/* 22 字符解码 */
+.c-scramble .sc-txt{font-family:Consolas,var(--sans),monospace;font-size:19px;font-weight:500;letter-spacing:.06em;color:var(--tx)}
+
+/* ===== 背景动效（借鉴 React Bits）===== */
+/* 23 极光 */
+.c-aurora .au{position:absolute;border-radius:50%;filter:blur(15px)}
+.c-aurora .a1{width:66px;height:66px;background:var(--acc);left:18%;top:8%;opacity:.7;animation:mt-au1 6s ease-in-out infinite alternate}
+.c-aurora .a2{width:78px;height:78px;background:var(--tx);right:14%;bottom:2%;opacity:.35;animation:mt-au2 7.5s ease-in-out infinite alternate}
+@keyframes mt-au1{to{transform:translate(28px,12px) scale(1.25)}}
+@keyframes mt-au2{to{transform:translate(-24px,-10px) scale(1.18)}}
+
+/* 24 圆点阵 */
+.c-dotgrid .dg{position:absolute;inset:0;background-image:radial-gradient(var(--tx) 1.2px,transparent 1.6px);background-size:13px 13px;opacity:.4}
+.c-dotgrid .dg-glow{position:absolute;width:54px;height:54px;border-radius:50%;background:var(--acc);filter:blur(15px);opacity:.55;left:10%;top:14%;
+  animation:mt-dgmove 5s ease-in-out infinite alternate}
+@keyframes mt-dgmove{to{transform:translate(120px,10px)}}
+
+/* 25 网格流动 */
+.c-gridmotion .gm{position:absolute;inset:-24%;background-image:linear-gradient(var(--rl) 1px,transparent 1px),linear-gradient(90deg,var(--rl) 1px,transparent 1px);
+  background-size:17px 17px;opacity:.85;animation:mt-gmpan 3.6s linear infinite}
+@keyframes mt-gmpan{to{transform:translate(-17px,-17px)}}
+
+/* 26 浮尘粒子 */
+.c-particles .pt{position:absolute;border-radius:50%;background:var(--acc);animation:mt-drift 4s ease-in-out infinite}
+.c-particles .pt:nth-child(1){width:6px;height:6px;left:16%;top:30%;opacity:.7;animation-delay:0s}
+.c-particles .pt:nth-child(2){width:4px;height:4px;left:34%;top:60%;opacity:.5;background:var(--tx);animation-delay:.5s}
+.c-particles .pt:nth-child(3){width:7px;height:7px;left:52%;top:22%;opacity:.6;animation-delay:1s}
+.c-particles .pt:nth-child(4){width:5px;height:5px;left:68%;top:54%;opacity:.55;background:var(--tx);animation-delay:1.5s}
+.c-particles .pt:nth-child(5){width:6px;height:6px;left:82%;top:32%;opacity:.65;animation-delay:.8s}
+.c-particles .pt:nth-child(6){width:4px;height:4px;left:26%;top:46%;opacity:.45;background:var(--tx);animation-delay:1.9s}
+@keyframes mt-drift{0%,100%{transform:translateY(7px)}50%{transform:translateY(-9px)}}
+
 @media (prefers-reduced-motion:reduce){
   .mt .mt-stage *{animation:none!important}
   .c-type .tp-txt{width:5.4ch;border-color:transparent}
+  .c-splittext .sp-ch{opacity:1;transform:none}
   .c-stagger .st-dot,.c-blur .bl-txt{opacity:1;transform:none;filter:none}
   .c-wipe .wp-txt{clip-path:inset(0)}
   .c-draw .dr-path{stroke-dashoffset:0}
   .c-curtain .cu-l,.c-curtain .cu-r{display:none}
 }
 
-/* ===== 点开详解弹窗（waaark 式 2D 插画 / 轴测·视差伪三维）===== */
-.mt-card{cursor:pointer}
-.mtx-backdrop{position:fixed;inset:0;background:rgba(10,11,15,.5);opacity:0;pointer-events:none;transition:.4s ease;z-index:80}
-.mtx-backdrop.on{opacity:1;pointer-events:auto}
-.mtx-modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;
-  width:min(760px,92vw);max-height:88vh;overflow:auto;z-index:81;border-radius:16px;border:1px solid var(--rule);
-  background:var(--paper);transition:.42s cubic-bezier(.22,1,.36,1)}
-.mtx-modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
-.mtx-close{position:absolute;top:14px;right:16px;z-index:3;width:34px;height:34px;border-radius:50%;border:1px solid var(--rule);
-  background:var(--paper);color:var(--ink-mute);cursor:pointer;font-size:15px}
-.mtx-close:hover{color:var(--ink);border-color:var(--ink-mute)}
-.mtx-stage{position:relative;height:min(46vh,340px);overflow:hidden;border-radius:15px 15px 0 0;background:var(--rule-soft)}
-.mtx-tag{position:absolute;top:12px;left:14px;z-index:2;font-family:var(--sans);font-size:11px;color:var(--ink-mute);
-  background:var(--paper);border:1px solid var(--rule);border-radius:20px;padding:3px 10px}
-.mtx-info{padding:20px clamp(20px,3vw,34px) 26px}
-.mtx-en{font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
-.mtx-zh{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--ink);margin-top:4px}
-.mtx-desc{font-size:.92rem;line-height:1.75;color:var(--ink-soft);margin-top:10px}
-.mtx-note{font-size:.82rem;line-height:1.7;color:var(--ink-mute);margin-top:12px;padding-left:12px;border-left:2px solid var(--rule)}
-.mtx-replay{margin-top:18px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);
-  background:none;border:1px solid var(--accent);border-radius:20px;padding:7px 16px;cursor:pointer}
-.mtx-replay:hover{background:var(--accent-soft)}
-.mtx-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.mtx-fallback > *{transform:scale(2.2)}
-/* 富演示：扁平场景 */
-.rx{position:absolute;inset:0;overflow:hidden}
-.rx .pl{position:absolute;transition:transform .18s ease-out;will-change:transform}
-.rx .blk{position:absolute;opacity:0}
-.rx.run .blk{animation:rx-rise .6s cubic-bezier(.22,1,.36,1) both}
-@keyframes rx-rise{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
-.rx .ball{position:absolute;border-radius:50%;background:var(--accent);animation:rx-bounce 1.5s cubic-bezier(.5,0,.5,1) infinite;transform-origin:center bottom}
-.rx .shadow{position:absolute;border-radius:50%;background:rgba(0,0,0,.18);filter:blur(2px);animation:rx-shadow 1.5s cubic-bezier(.5,0,.5,1) infinite}
-@keyframes rx-bounce{0%{transform:translateY(0) scale(1,1)}45%{transform:translateY(150px) scale(1,1)}
-  55%{transform:translateY(150px) scale(1.3,.62)}70%{transform:translateY(0) scale(.94,1.08)}100%{transform:translateY(0) scale(1,1)}}
-@keyframes rx-shadow{0%,100%{transform:scale(.5);opacity:.3}50%{transform:scale(1.1);opacity:.7}}
 </style>
 
 <script>
@@ -321,6 +406,26 @@ title: "常用 WEB 交互动效图鉴"
   ins.forEach(c=>c.addEventListener('mouseenter',()=>{ if(!reduce) playCard(c); }));
   // 全部重播
   var rb=document.getElementById('mt-replay'); if(rb) rb.addEventListener('click',cascade);
+
+  // 顶部分类筛选
+  var chips=[].slice.call(root.querySelectorAll('.mt-chip'));
+  var labels=[].slice.call(root.querySelectorAll('.sec-label'));
+  function applyFilter(cat){
+    labels.forEach(function(l){
+      var show = cat==='all' || l.getAttribute('data-cat')===cat;
+      l.classList.toggle('mt-hide',!show);
+      var grid=l.nextElementSibling;
+      if(grid && grid.classList.contains('mt-grid')) grid.classList.toggle('mt-hide',!show);
+    });
+  }
+  chips.forEach(function(ch){ ch.addEventListener('click',function(){
+    chips.forEach(function(c){ c.classList.remove('on'); c.setAttribute('aria-pressed','false'); });
+    ch.classList.add('on'); ch.setAttribute('aria-pressed','true');
+    var cat=ch.getAttribute('data-cat');
+    applyFilter(cat);
+    // 选「入场」时重播一次入场，让效果立刻可见
+    if((cat==='in'||cat==='all') && !reduce) cascade();
+  }); });
 
   // 16 磁吸
   var mg=root.querySelector('.c-magnetic'); if(mg){
@@ -343,99 +448,29 @@ title: "常用 WEB 交互动效图鉴"
     }
   }
 
+  // 22 字符解码（乱码逐位收敛）
+  if(!reduce){
+    var glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ$#%&/<>'.split('');
+    [].forEach.call(root.querySelectorAll('.c-scramble .sc-txt'), function(el){
+      var target=el.getAttribute('data-text')||el.textContent;
+      (function run(){
+        var reveal=0, t=setInterval(function(){
+          el.textContent=target.split('').map(function(ch,i){
+            if(ch===' ') return ' ';
+            return i<reveal ? target[i] : glyphs[Math.floor(Math.random()*glyphs.length)];
+          }).join('');
+          reveal+=1/3;
+          if(reveal>=target.length){ clearInterval(t); el.textContent=target; setTimeout(run,1500); }
+        },55);
+      })();
+    });
+  }
+
   // 加载级联入场
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(x=>{if(x.isIntersecting){cascade();io.disconnect();}});},{threshold:.15});
     io.observe(root);
   } else cascade();
 
-  // ===== 点开详解弹窗（更复杂 2D 演示：轴测 / 视差伪三维）=====
-  var mBd=document.getElementById('mtx-backdrop'), mModal=document.getElementById('mtx-modal'), mStage=document.getElementById('mtx-stage');
-  var mEn=document.getElementById('mtx-en'), mZh=document.getElementById('mtx-zh'), mDesc=document.getElementById('mtx-desc'),
-      mNote=document.getElementById('mtx-note'), mReplay=document.getElementById('mtx-replay'), mClose=document.getElementById('mtx-close');
-  var curPlay=null;
-
-  // 共享：一只扁平色块猫（头 + 双耳三角 + 两眼 + 鼻，纯色块无描边）
-  function cat(cx,cy,r,col){
-    var C='var('+col+')';
-    return '<polygon fill="'+C+'" points="'+(cx-r*.72)+','+(cy-r*.4)+' '+(cx-r*.12)+','+(cy-r*1.18)+' '+(cx+r*.16)+','+(cy-r*.46)+'"/>'
-      + '<polygon fill="'+C+'" points="'+(cx+r*.72)+','+(cy-r*.4)+' '+(cx+r*.12)+','+(cy-r*1.18)+' '+(cx-r*.16)+','+(cy-r*.46)+'"/>'
-      + '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+C+'"/>'
-      + '<circle cx="'+(cx-r*.36)+'" cy="'+(cy-r*.04)+'" r="'+(r*.14)+'" fill="var(--paper)"/>'
-      + '<circle cx="'+(cx+r*.36)+'" cy="'+(cy-r*.04)+'" r="'+(r*.14)+'" fill="var(--paper)"/>'
-      + '<circle cx="'+cx+'" cy="'+(cy+r*.24)+'" r="'+(r*.09)+'" fill="var(--paper)"/>';
-  }
-  function svgWrap(vb,inner){ return '<svg viewBox="'+vb+'" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;overflow:visible">'+inner+'</svg>'; }
-
-  function buildParallax(st){
-    var wrap=document.createElement('div'); wrap.className='rx';
-    var defs=[
-      {d:4, html:'<div style="position:absolute;right:13%;top:12%;width:76px;height:76px;border-radius:50%;background:var(--accent-soft)"></div>'},
-      {d:10,html:'<div style="position:absolute;left:7%;bottom:26%;width:130px;height:56px;background:var(--ink);opacity:.13;border-radius:7px"></div><div style="position:absolute;right:9%;bottom:26%;width:160px;height:78px;background:var(--ink);opacity:.13;border-radius:7px"></div>'},
-      {d:22,html:'<div style="position:absolute;left:16%;bottom:18%;width:78px;height:44px;background:var(--ink);opacity:.32;border-radius:44px 44px 0 0"></div><div style="position:absolute;right:18%;bottom:18%;width:104px;height:58px;background:var(--ink);opacity:.32;border-radius:58px 58px 0 0"></div>'},
-      {d:44,html:'<div style="position:absolute;left:50%;bottom:8%;margin-left:-78px;width:70px;height:82px">'+svgWrap('0 0 70 82',cat(35,46,25,'--ink'))+'</div><div style="position:absolute;left:50%;bottom:11%;margin-left:30px;width:40px;height:40px;border-radius:50%;background:var(--accent)"></div>'}
-    ];
-    defs.forEach(function(o){ var pl=document.createElement('div'); pl.className='pl'; pl.setAttribute('data-d',o.d); pl.style.cssText='position:absolute;inset:0'; pl.innerHTML=o.html; wrap.appendChild(pl); });
-    st.appendChild(wrap);
-    var layers=[].slice.call(wrap.querySelectorAll('.pl'));
-    function move(e){var r=st.getBoundingClientRect(),nx=(e.clientX-(r.left+r.width/2))/(r.width/2),ny=(e.clientY-(r.top+r.height/2))/(r.height/2);
-      layers.forEach(function(l){var d=+l.getAttribute('data-d');l.style.transform='translate('+(-nx*d)+'px,'+(-ny*d)+'px)';});}
-    function leave(){layers.forEach(function(l){l.style.transform='';});}
-    st.addEventListener('mousemove',move); st.addEventListener('mouseleave',leave);
-    return {replay:function(){}, cleanup:function(){st.removeEventListener('mousemove',move);st.removeEventListener('mouseleave',leave);}};
-  }
-  function buildStagger(st){
-    var wrap=document.createElement('div'); wrap.className='rx';
-    // 一窝小猫按间隔依次冒头（后排先出、前排压上）
-    var cats=[[70,196,24,'--ink'],[132,208,28,'--accent'],[196,198,24,'--ink'],[260,208,28,'--accent'],[322,196,24,'--ink'],
-              [104,146,20,'--accent'],[172,138,24,'--ink'],[240,146,20,'--accent'],[196,92,20,'--accent']];
-    cats.sort(function(a,b){return a[1]-b[1];});   // cy 小的（后排）先画
-    var ground='<ellipse cx="196" cy="232" rx="184" ry="20" fill="var(--ink)" opacity=".06"/>';
-    var body=cats.map(function(c,i){return '<g class="blk" style="animation-delay:'+(i*80)+'ms">'+cat(c[0],c[1],c[2],c[3])+'</g>';}).join('');
-    wrap.innerHTML=svgWrap('0 0 392 260',ground+body);
-    st.appendChild(wrap);
-    function run(){wrap.classList.remove('run');void wrap.offsetWidth;wrap.classList.add('run');} run();
-    return {replay:run, cleanup:function(){}};
-  }
-  function buildSquash(st){
-    var wrap=document.createElement('div'); wrap.className='rx';
-    wrap.innerHTML='<div class="ball" style="left:50%;top:22px;margin-left:-32px;width:64px;height:64px;background:none;border-radius:0;overflow:visible">'+
-        svgWrap('0 0 64 64',cat(32,40,23,'--accent'))+'</div>'+
-      '<div class="shadow" style="left:50%;bottom:34px;margin-left:-36px;width:72px;height:15px"></div>';
-    st.appendChild(wrap);
-    return {replay:function(){}, cleanup:function(){}};
-  }
-  var RICH={
-    'c-parallax':{note:'远(月/远景) → 中(草丛) → 近(猫 + 毛线球) 多层随光标反向平移、倍率不同 → 伪三维纵深（视差）。移动鼠标试试。', build:buildParallax},
-    'c-stagger': {note:'一窝小猫按固定间隔依次冒头（后排先出、前排压上）→ 交错入场（Stagger）。', build:buildStagger},
-    'c-squash':  {note:'猫咪下落触底压扁再回弹，影子随高度缩放明暗 → 挤压拉伸（Squash & stretch）。', build:buildSquash}
-  };
-  function clearStage(){ if(curPlay&&curPlay.cleanup) curPlay.cleanup(); curPlay=null; mStage.innerHTML=''; }
-  function openModal(card){
-    var key=[].slice.call(card.classList).filter(function(c){return c.indexOf('c-')===0;})[0];
-    clearStage();
-    mEn.textContent=(card.querySelector('.mt-en')||{}).textContent||'';
-    mZh.textContent=(card.querySelector('.mt-zh')||{}).textContent||'';
-    mDesc.textContent=(card.querySelector('.mt-desc')||{}).textContent||'';
-    var rich=RICH[key];
-    if(rich && !reduce){ mNote.textContent=rich.note; curPlay=rich.build(mStage); mReplay.style.display=''; }
-    else {
-      var tag=document.createElement('div'); tag.className='mtx-tag'; tag.textContent='更复杂版制作中 · 先看放大版';
-      var clone=card.cloneNode(true); var t=clone.querySelector('.mt-txt'); if(t) t.remove();
-      clone.style.width='220px'; clone.style.border='none'; clone.style.background='transparent'; clone.classList.add('run');
-      var fb=document.createElement('div'); fb.className='mtx-fallback'; fb.appendChild(clone);
-      mStage.appendChild(tag); mStage.appendChild(fb);
-      mNote.textContent = reduce ? '已按系统「减少动态效果」停用动画。' : '这项的更复杂 2D 演示制作中，先放大展示基础版。';
-      curPlay={replay:function(){clone.classList.remove('run');void clone.offsetWidth;clone.classList.add('run');}, cleanup:function(){}};
-      mReplay.style.display = reduce ? 'none' : '';
-    }
-    mBd.classList.add('on'); mModal.classList.add('on');
-  }
-  function closeModal(){ mBd.classList.remove('on'); mModal.classList.remove('on'); setTimeout(clearStage,320); }
-  [].forEach.call(root.querySelectorAll('.mt-card'), function(c){ c.addEventListener('click', function(){ openModal(c); }); });
-  mClose.addEventListener('click', closeModal);
-  mBd.addEventListener('click', closeModal);
-  mReplay.addEventListener('click', function(){ if(curPlay&&curPlay.replay) curPlay.replay(); });
-  window.addEventListener('keydown', function(e){ if(e.key==='Escape' && mModal.classList.contains('on')) closeModal(); });
 })();
 </script>
