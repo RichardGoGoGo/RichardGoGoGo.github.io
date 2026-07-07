@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北境修仙录</title>
+  <script type="module" crossorigin src="./assets/index-FUzMzeCI.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DFDhsIDk.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- LEFT PANEL: Character info, always visible during game -->
+        <div id="panel-left" class="side-panel" style="display:none">
+            <div class="char-portrait-wrap">
+                <div class="char-portrait" id="char-portrait">剑</div>
+                <div class="char-name" id="char-name-display">无名修士</div>
+                <div class="char-realm" id="char-realm-display">炼气初期</div>
+            </div>
+
+            <div class="char-bars">
+                <div class="bar-row">
+                    <span class="bar-label">气血</span>
+                    <div class="mini-bar-container hp">
+                        <div class="mini-bar" id="char-hp-bar"></div>
+                        <span class="mini-bar-text" id="char-hp-text">100/100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="char-stats-grid" id="char-stats-grid"></div>
+
+            <div class="section-title">装备</div>
+            <div class="equip-slots" id="equip-slots">
+                <div class="equip-slot" data-slot="weapon_main" title="主手"><span class="equip-slot-label">主</span></div>
+                <div class="equip-slot" data-slot="weapon_off" title="副手"><span class="equip-slot-label">副</span></div>
+                <div class="equip-slot" data-slot="head" title="头部"><span class="equip-slot-label">头</span></div>
+                <div class="equip-slot" data-slot="body" title="身体"><span class="equip-slot-label">身</span></div>
+                <div class="equip-slot" data-slot="feet" title="足部"><span class="equip-slot-label">足</span></div>
+            </div>
+            <div id="affix-info" class="affix-info" style="display:none"></div>
+
+            <div class="section-title">心法 <span id="cult-slot-info">(0/1)</span></div>
+            <div class="cult-slots" id="cult-slots"></div>
+
+            <div class="section-title">背包 <span id="inv-count">(0/20)</span></div>
+            <div class="inventory-grid" id="inventory-grid"></div>
+        </div>
+
+        <!-- CENTER PANEL: Main content -->
+        <div id="panel-center">
+            <!-- Main Menu -->
+            <div id="screen-main-menu" class="screen active">
+                <div class="title-art">
+                    <h1 class="game-title">北境修仙录</h1>
+                    <p class="game-subtitle">Roguelike 文字修仙</p>
+                </div>
+                <div class="menu-buttons">
+                    <button class="btn btn-primary" id="btn-new-game">开始修仙</button>
+                    <button class="btn" id="btn-continue" disabled>继续修炼</button>
+                    <button class="btn" id="btn-meta">悟道碑</button>
+                </div>
+            </div>
+
+            <!-- Origin Selection Screen -->
+            <div id="screen-origin" class="screen">
+                <div class="loot-overlay">
+                    <h2 class="loot-title">择道而行</h2>
+                    <p class="loot-subtitle">选择你的出身，踏上修仙之路</p>
+                    <div class="loot-cards" id="origin-cards"></div>
+                </div>
+            </div>
+
+            <!-- Stronghold Screen -->
+            <div id="screen-stronghold" class="screen">
+                <div class="panel">
+                    <h2 id="stronghold-name"></h2>
+                    <p id="stronghold-desc"></p>
+                    <div id="realm-info" class="realm-info"></div>
+                    <div id="stronghold-progress"></div>
+                    <div class="stronghold-actions">
+                        <button class="btn btn-primary" id="btn-next-stage">进入下一关</button>
+                        <button class="btn btn-breakthrough" id="btn-breakthrough" style="display:none">突破境界</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-Battle Screen (shows enemy squad, lets player adjust gear) -->
+            <div id="screen-prebattle" class="screen">
+                <div class="panel prebattle-panel">
+                    <h2 style="color:var(--accent-gold);margin-bottom:0.8rem">迎战准备</h2>
+                    <div id="prebattle-squad" class="prebattle-squad"></div>
+                    <p style="color:var(--text-secondary);font-size:0.8rem;margin:0.8rem 0">可在左侧调整装备和心法后再开始战斗</p>
+                    <div class="prebattle-actions">
+                        <button class="btn btn-primary" id="btn-start-fight">开始战斗</button>
+                        <button class="btn" id="btn-prebattle-back">返回</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Battle Screen (1vN: click an enemy card to attack it) -->
+            <div id="screen-battle" class="screen">
+                <div class="battle-header">
+                    <div class="combatant player-side">
+                        <span class="combatant-name" id="player-name"></span>
+                        <div class="hp-bar-container">
+                            <div class="hp-bar" id="player-hp-bar"></div>
+                            <span class="hp-text" id="player-hp-text"></span>
+                        </div>
+                    </div>
+                    <span class="vs-text">VS</span>
+                    <div class="battle-enemies" id="battle-enemies"></div>
+                </div>
+                <p class="battle-hint" id="battle-hint">点击敌人，选择本回合攻击目标</p>
+                <div class="battle-log" id="battle-log"></div>
+                <div class="battle-controls">
+                    <button class="btn" id="btn-auto-battle">自动: 关</button>
+                    <button class="btn" id="btn-skip-battle">跳过战斗</button>
+                    <button class="btn" id="btn-battle-speed">速度: 1x</button>
+                </div>
+            </div>
+
+            <!-- Loot Selection Overlay -->
+            <div id="screen-loot" class="screen">
+                <div class="loot-overlay">
+                    <h2 class="loot-title" id="loot-title">战利品</h2>
+                    <p class="loot-subtitle">选择一件带走</p>
+                    <div class="loot-cards" id="loot-cards"></div>
+                    <button class="btn" id="btn-loot-skip">跳过</button>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="screen-result" class="screen">
+                <div class="panel result-panel">
+                    <h2 id="result-title"></h2>
+                    <div id="result-details"></div>
+                    <div class="result-actions">
+                        <button class="btn btn-primary" id="btn-result-continue">继续</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Screen -->
+            <div id="screen-event" class="screen">
+                <div class="panel event-panel">
+                    <h2 id="event-title" style="color:var(--accent-gold)"></h2>
+                    <p id="event-desc" style="margin:1rem 0;line-height:1.8"></p>
+                    <p id="event-result" style="color:var(--rarity-green);margin:0.5rem 0"></p>
+                    <div id="event-loot"></div>
+                    <div class="event-actions">
+                        <button class="btn btn-primary" id="btn-event-action">行动</button>
+                        <button class="btn" id="btn-event-skip">离开</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta Screen -->
+            <div id="screen-meta" class="screen">
+                <div class="panel meta-panel">
+                    <h2 style="color:var(--accent-gold);margin-bottom:1rem">悟道碑</h2>
+                    <div id="meta-content"></div>
+                    <button class="btn" id="btn-back-meta" style="margin-top:1rem">返回</button>
+                </div>
+            </div>
+
+            <!-- Game Over / Ascension Screen -->
+            <div id="screen-game-over" class="screen">
+                <div class="panel">
+                    <h2 class="game-over-title" id="game-over-title">道陨</h2>
+                    <p class="game-over-text" id="game-over-text">你的修仙之路在此终结...</p>
+                    <div id="game-over-rewards"></div>
+                    <button class="btn btn-primary" id="btn-restart">重新修炼</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: Enemy info, visible during combat -->
+        <div id="panel-right" class="side-panel" style="display:none">
+            <div class="enemy-portrait-wrap">
+                <div class="enemy-portrait" id="enemy-portrait">?</div>
+                <div class="enemy-name-display" id="enemy-name-display">未知</div>
+                <div class="enemy-type-display" id="enemy-type-display"></div>
+            </div>
+            <div class="enemy-bars">
+                <div class="bar-row">
+                    <span class="bar-label">气血</span>
+                    <div class="mini-bar-container hp">
+                        <div class="mini-bar" id="enemy-hp-bar-right"></div>
+                        <span class="mini-bar-text" id="enemy-hp-text-right">0/0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="enemy-stats-grid" id="enemy-stats-grid"></div>
+        </div>
+
+        <!-- Item Tooltip (global) -->
+        <div id="item-tooltip" class="item-tooltip" style="display:none"></div>
+    </div>
+
+</body>
+</html>

@@ -15,3 +15,9 @@ tools:
     desc: "小巧的科研配图 / 学术示意图生成器，快速产出规范的图表与示意图（架于 Lovable）。"
     type: external
     href: https://figure-studio.lovable.app
+
+  - name: "北境修仙录"
+    en: "Roguelike Cultivation"
+    desc: "原生 JS 的 Roguelike 文字修仙小游戏：闯关十据点、自动战斗、收集心法装备、突破境界，死亡后永久升级循环变强（纯前端，本地存档）。"
+    type: internal
+    href: /vibe/xiuxian/
