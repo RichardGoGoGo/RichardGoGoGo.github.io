@@ -32,6 +32,25 @@
     }
   }
 
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --violet: #9B4DCA; --teal: #128a8a;
+    --bg: #F1EFF5; --panel: #FFFFFF; --panel2: #FAF8FC;
+    --line: #E3DEEC; --line-strong: #D2CADF;
+    --ink: #221D2C; --muted: #5C5470; --faint: #8A8299;
+    --good: #2E9E6B; --warn: #B67B08; --crit: #D0454B;
+    --shadow: 0 1px 2px rgba(30,20,45,.04), 0 8px 24px -14px rgba(30,20,45,.16);
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --violet: #C79BE6; --teal: #7FDCDC;
+    --bg: #100D16; --panel: #1B1725; --panel2: #211C2D;
+    --line: #2E2740; --line-strong: #3B3350;
+    --ink: #ECE8F2; --muted: #B4ACC4; --faint: #857C99;
+    --good: #4FC28C; --warn: #E0A23C; --crit: #F0686E;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -18px rgba(0,0,0,.6);
+  }
+
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
@@ -48,6 +67,9 @@
 
   .eyebrow { font-size: 11.5px; letter-spacing: .3em; text-transform: uppercase; color: var(--faint); font-weight: 650; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
   .eyebrow::before { content:""; width: 26px; height: 1.5px; background: var(--violet); }
+  .thbtn { position: fixed; top: 16px; right: 16px; z-index: 50; font: 650 12px var(--font-sans); border: 1px solid var(--line-strong); background: color-mix(in srgb, var(--panel) 88%, transparent); color: var(--ink); padding: 7px 13px; border-radius: 999px; cursor: pointer; box-shadow: var(--shadow); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .thbtn:hover { border-color: var(--violet); }
+  .thbtn:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
   .stamp { display: inline-block; font-weight: 800; font-size: 15px; letter-spacing: .22em; color: var(--crit); border: 2.5px solid var(--crit); border-radius: 8px; padding: 5px 13px 5px 16px; transform: rotate(-4deg); margin: 0 0 18px 2px; opacity: .88; }
   h1 { margin: 0 0 14px; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.22; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
   h1 em { font-style: normal; background: linear-gradient(100deg, var(--violet), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -177,6 +199,18 @@
   .mocklb { font-size: 13px; font-weight: 750; margin: 0 0 7px; display: flex; align-items: baseline; gap: 8px; }
   .mocklb::before { content:""; width: 8px; height: 8px; border-radius: 3px; background: var(--violet); align-self: center; }
   .mocklb small { font-weight: 400; font-size: 11px; color: var(--faint); }
+  .lvlm { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: var(--panel2); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+  .mredline { font-size: 10px; color: var(--muted); margin-top: 7px; line-height: 1.5; border-top: 1px dashed var(--line); padding-top: 6px; }
+  .mredline b { color: var(--crit); }
+  .mskill { font-size: 10px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .mskill b { color: var(--teal); }
+  .mstat { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-left: auto; white-space: nowrap; }
+  .mstat.rec { background: color-mix(in srgb, var(--good) 15%, var(--panel)); color: var(--good); }
+  .skmini { display: flex; flex-direction: column; gap: 3px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+  .skmini:last-child { border-bottom: none; }
+  .skmini .skx { display: flex; align-items: baseline; gap: 6px; font-size: 11px; font-weight: 700; }
+  .skmini .skx .sd2 { font-weight: 400; color: var(--muted); font-size: 10px; margin-left: auto; }
+  .skmini .sky { font-size: 10px; color: var(--faint); line-height: 1.4; }
 
   @media (prefers-reduced-motion: reduce) {
     .um-wrap, .drop, .paper, .spin, .lt1, .lt2, .lt3, .sprout, .rf { animation: none !important; }
@@ -192,6 +226,7 @@
 </style>
 </head>
 <body>
+<button class="thbtn" id="thbtn" aria-label="切换日间/夜间模式">🌓 自动</button>
 <div class="page">
 
   <header class="hero">
@@ -321,6 +356,24 @@
           <div class="mpb"><span>读 agents/branch-merger.md，执行一遍分支合并并汇报……</span><span class="mbtn">复制开场白</span></div>
         </div>
       </div>
+      <div>
+        <div class="mocklb">角色卡 <small>每个「AI 员工」的职责、红线与技能</small></div>
+        <div class="mock">
+          <div class="mh"><span>情报哨兵</span><span class="lvlm">海外 Agent · 云端 · 每日</span></div>
+          <div class="msub">每日自动采集行业动态，去重判级后整理入库，重大事件生成简报。</div>
+          <div class="mskill">装备技能：<b>写作方法库</b> · <b>情报判级标尺</b></div>
+          <div class="mredline"><b>红线</b>：只采集不发布 · 事实多源核实 · 不编造数据与链接</div>
+        </div>
+      </div>
+      <div>
+        <div class="mocklb">技能卡 <small>可复用的方法与工具，装备给角色</small></div>
+        <div class="mock">
+          <div class="mh"><span>技能库</span><span class="mstat rec">已审 · 择优装备</span></div>
+          <div class="skmini"><div class="skx"><span>🟢 写作方法库</span><span class="sd2">在用</span></div><div class="sky">装备给：情报写作 · 投稿写作</div></div>
+          <div class="skmini"><div class="skx"><span>🟢 出图工具</span><span class="sd2">本地渲染</span></div><div class="sky">一句话生成配图卡片，无需手动跑模型</div></div>
+          <div class="skmini"><div class="skx"><span>🟡 采集工具</span><span class="sd2">隔离环境</span></div><div class="sky">通过安全审查后限定环境使用</div></div>
+        </div>
+      </div>
     </div>
     <p class="minicap">以上均为界面示意，与产品实际布局一致。</p>
   </section>
@@ -401,5 +454,27 @@
   </footer>
 
 </div>
+<script>
+(function(){
+  var btn = document.getElementById('thbtn');
+  var MODES = [{k:'auto',t:'🌓 自动'},{k:'light',t:'☀️ 日间'},{k:'dark',t:'🌙 夜间'}];
+  function load(){ try { return localStorage.getItem('cap-theme') || 'auto'; } catch(e){ return 'auto'; } }
+  function save(m){ try { localStorage.setItem('cap-theme', m); } catch(e){} }
+  function apply(m){
+    var root = document.documentElement;
+    if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m);
+    else root.removeAttribute('data-theme');
+    var def = MODES.filter(function(x){ return x.k === m; })[0] || MODES[0];
+    btn.textContent = def.t;
+  }
+  var cur = load();
+  apply(cur);
+  btn.addEventListener('click', function(){
+    var i = MODES.map(function(x){ return x.k; }).indexOf(cur);
+    cur = MODES[(i + 1) % MODES.length].k;
+    save(cur); apply(cur);
+  });
+})();
+</script>
 </body>
 </html>
