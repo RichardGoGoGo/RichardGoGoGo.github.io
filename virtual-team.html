@@ -11,11 +11,11 @@
 <style>
   :root {
     color-scheme: light dark;
-    --violet: #9B4DCA; --teal: #128a8a;
-    --bg: #F1EFF5; --panel: #FFFFFF; --panel2: #FAF8FC;
-    --line: #E3DEEC; --line-strong: #D2CADF;
-    --ink: #221D2C; --muted: #5C5470; --faint: #8A8299;
-    --good: #2E9E6B; --warn: #B67B08; --crit: #D0454B;
+    --violet: #E0604F; --teal: #3C79AE;
+    --bg: #EDF1F6; --panel: #FFFFFF; --panel2: #E7EEF5;
+    --line: #DBE3EC; --line-strong: #BFCEDB;
+    --ink: #28315C; --muted: #5B6488; --faint: #8E97B4;
+    --good: #2FA98B; --warn: #D99F2A; --crit: #CE4B44;
     --r: 14px;
     --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", Roboto, sans-serif;
     --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
@@ -23,31 +23,31 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --violet: #C79BE6; --teal: #7FDCDC;
-      --bg: #100D16; --panel: #1B1725; --panel2: #211C2D;
-      --line: #2E2740; --line-strong: #3B3350;
-      --ink: #ECE8F2; --muted: #B4ACC4; --faint: #857C99;
-      --good: #4FC28C; --warn: #E0A23C; --crit: #F0686E;
+      --violet: #F0796A; --teal: #7FB0DC;
+      --bg: #202A4A; --panel: #2A355C; --panel2: #313D68;
+      --line: #3C4874; --line-strong: #4E5B8C;
+      --ink: #EAEEF7; --muted: #B4BCD8; --faint: #808BAE;
+      --good: #48C9A6; --warn: #F0B845; --crit: #F0796A;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -18px rgba(0,0,0,.6);
     }
   }
 
   :root[data-theme="light"] {
     color-scheme: light;
-    --violet: #9B4DCA; --teal: #128a8a;
-    --bg: #F1EFF5; --panel: #FFFFFF; --panel2: #FAF8FC;
-    --line: #E3DEEC; --line-strong: #D2CADF;
-    --ink: #221D2C; --muted: #5C5470; --faint: #8A8299;
-    --good: #2E9E6B; --warn: #B67B08; --crit: #D0454B;
+    --violet: #E0604F; --teal: #3C79AE;
+    --bg: #EDF1F6; --panel: #FFFFFF; --panel2: #E7EEF5;
+    --line: #DBE3EC; --line-strong: #BFCEDB;
+    --ink: #28315C; --muted: #5B6488; --faint: #8E97B4;
+    --good: #2FA98B; --warn: #D99F2A; --crit: #CE4B44;
     --shadow: 0 1px 2px rgba(30,20,45,.04), 0 8px 24px -14px rgba(30,20,45,.16);
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --violet: #C79BE6; --teal: #7FDCDC;
-    --bg: #100D16; --panel: #1B1725; --panel2: #211C2D;
-    --line: #2E2740; --line-strong: #3B3350;
-    --ink: #ECE8F2; --muted: #B4ACC4; --faint: #857C99;
-    --good: #4FC28C; --warn: #E0A23C; --crit: #F0686E;
+    --violet: #F0796A; --teal: #7FB0DC;
+    --bg: #202A4A; --panel: #2A355C; --panel2: #313D68;
+    --line: #3C4874; --line-strong: #4E5B8C;
+    --ink: #EAEEF7; --muted: #B4BCD8; --faint: #808BAE;
+    --good: #48C9A6; --warn: #F0B845; --crit: #F0796A;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -18px rgba(0,0,0,.6);
   }
 
@@ -56,8 +56,8 @@
   body {
     font-family: var(--font-sans); color: var(--ink);
     background:
-      radial-gradient(1000px 460px at 85% -6%, color-mix(in srgb, var(--violet) 15%, transparent), transparent 60%),
-      radial-gradient(800px 400px at 0% 10%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 58%),
+      radial-gradient(1000px 460px at 85% -6%, color-mix(in srgb, var(--violet) 18%, transparent), transparent 60%),
+      radial-gradient(800px 400px at 0% 10%, color-mix(in srgb, var(--teal) 15%, transparent), transparent 58%),
       var(--bg);
     min-height: 100vh; padding: clamp(20px, 4vw, 56px) clamp(18px, 4vw, 48px);
     line-height: 1.65; -webkit-font-smoothing: antialiased;
@@ -86,13 +86,16 @@
   .pillar p { margin: 0; font-size: 12.5px; color: var(--muted); }
 
   .gets { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .get { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 16px 18px; position: relative; overflow: hidden; }
+  .get { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px 20px; position: relative; overflow: hidden; display: flex; align-items: center; gap: 16px; }
   .get::before { content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gc, var(--violet)); }
   .get:nth-child(2) { --gc: var(--teal); }
   .get:nth-child(3) { --gc: var(--warn); }
   .get:nth-child(4) { --gc: var(--good); }
-  .get .gn { font-family: var(--font-mono); font-size: 10.5px; color: var(--faint); }
-  .get h3 { margin: 2px 0 6px; font-size: 15px; font-weight: 750; }
+  .get .g-ic { width: 84px; height: 84px; flex: none; display: inline-flex; border-radius: 19px; background: var(--panel2); padding: 6px; }
+  .get .g-ic svg { width: 100%; height: 100%; overflow: visible; }
+  .promise .p-ic .mi { stroke-width: 1.85; }
+  .get .gbody { min-width: 0; }
+  .get h3 { margin: 0 0 5px; font-size: 16.5px; font-weight: 800; letter-spacing: -.01em; }
   .get p { margin: 0; font-size: 12.5px; color: var(--muted); }
 
   .proof { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 22px 24px; }
@@ -120,10 +123,12 @@
   .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1px; }
   .case-tag { font-size: 10.5px; font-weight: 650; padding: 3px 9px; border-radius: 999px; background: color-mix(in srgb, var(--line) 40%, transparent); border: 1px solid var(--line); color: var(--muted); }
   .cc-foot { font-size: 11px; color: var(--faint); border-top: 1px dashed var(--line); padding-top: 8px; margin-top: auto; line-height: 1.55; }
-  .cc-quote { background: color-mix(in srgb, var(--violet) 6%, var(--panel)); border: 1px solid color-mix(in srgb, var(--violet) 22%, var(--line)); border-radius: var(--r); box-shadow: var(--shadow); padding: 20px 22px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
-  .cc-quote .qm { font-family: Georgia, "Times New Roman", serif; font-size: 40px; line-height: .6; color: color-mix(in srgb, var(--violet) 55%, var(--faint)); height: 20px; }
-  .cc-quote p { margin: 0; font-size: 14px; color: var(--ink); line-height: 1.7; font-weight: 500; }
-  .cc-by { font-size: 11.5px; color: var(--muted); font-weight: 650; }
+  .cc-quote { background: none; border: none; box-shadow: none; padding: 8px 10px 8px 22px; display: flex; flex-direction: column; justify-content: center; gap: 14px; position: relative; }
+  .cc-quote .qm { position: absolute; left: -4px; top: -6px; font-family: Georgia, "Times New Roman", serif; font-size: 64px; line-height: 1; color: color-mix(in srgb, var(--violet) 30%, transparent); pointer-events: none; }
+  .cc-quote p { margin: 0; font-family: var(--font-sans); font-size: clamp(15px, 2.05vw, 18.5px); color: var(--ink); line-height: 1.9; font-weight: 500; min-height: 3.8em; }
+  .cc-quote .tw-caret { display: inline-block; color: var(--violet); font-weight: 400; margin-left: 1px; animation: twblink 1s steps(1) infinite; }
+  @keyframes twblink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  .cc-by { font-family: var(--font-sans); font-size: 13px; color: var(--muted); font-weight: 650; align-self: flex-end; }
   .cc-by::before { content: "— "; color: var(--faint); }
   .cc-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
   .cc-arrow { appearance: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--panel); color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow); }
@@ -134,14 +139,28 @@
   .cc-dot.on { width: 20px; border-radius: 999px; background: linear-gradient(90deg, var(--violet), var(--teal)); }
   .cc-dot:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
 
-  .steps { display: flex; flex-direction: column; counter-reset: step; }
-  .step { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; padding: 15px 4px; border-bottom: 1px dashed var(--line); align-items: baseline; }
-  .step:last-child { border-bottom: none; }
-  .step .sn { counter-increment: step; font-family: var(--font-mono); font-weight: 800; font-size: 15px; color: var(--violet); }
-  .step .sn::before { content: "0" counter(step); }
-  .step h3 { margin: 0 0 3px; font-size: 14.5px; font-weight: 750; }
-  .step p { margin: 0; font-size: 12.5px; color: var(--muted); max-width: 44em; }
-  .step .sd { font-family: var(--font-mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
+  /* 怎么合作：纵向时间轴（大拟物图标作节点，非卡片） */
+  .timeline { position: relative; counter-reset: step; }
+  .tl { position: relative; display: grid; grid-template-columns: 76px 1fr; gap: 18px; padding-bottom: 32px; }
+  .tl:last-child { padding-bottom: 0; }
+  /* 轨道：连接相邻图标中心（图标中心≈距条目顶 38px） */
+  .tl:not(:last-child)::before { content:""; position: absolute; left: 37px; top: 44px; width: 2px; height: 100%; background: linear-gradient(var(--line-strong), var(--line)); z-index: 0; }
+  .tl-ic { position: relative; z-index: 1; grid-column: 1; width: 76px; height: 76px; border-radius: 19px; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 5px; }
+  .tl-ic svg { width: 100%; height: 100%; overflow: visible; }
+  .tl-num { counter-increment: step; position: absolute; top: -7px; left: -7px; z-index: 2; width: 21px; height: 21px; border-radius: 50%; background: var(--violet); color: #fff; font-family: var(--font-mono); font-weight: 800; font-size: 10.5px; display: grid; place-items: center; box-shadow: var(--shadow); }
+  .tl-num::before { content: "0" counter(step); }
+  .tl-body { grid-column: 2; min-width: 0; padding-top: 2px; }
+  .tl-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+  .tl-head h3 { margin: 0; font-size: 15.5px; font-weight: 800; letter-spacing: -.01em; }
+  .tl-dur { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--teal); background: color-mix(in srgb, var(--teal) 12%, var(--panel)); border: 1px solid color-mix(in srgb, var(--teal) 32%, var(--line)); padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
+  .tl-body > p { margin: 0; font-size: 12.5px; color: var(--muted); max-width: 46em; line-height: 1.68; }
+  .tl .tl-out { margin-top: 8px; font-size: 11.5px; color: var(--faint); line-height: 1.55; }
+  .tl .tl-out b { color: var(--teal); font-weight: 700; }
+  /* 沿轨道巡游的小球（首图标中心→末图标中心，不越过末端） */
+  .tl-runner { position: absolute; left: 32px; top: var(--tl-start, 44px); z-index: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px color-mix(in srgb, var(--teal) 70%, transparent); pointer-events: none; animation: tlrun 5s cubic-bezier(.55,0,.45,1) infinite; }
+  .tl-runner::after { content:""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--teal); animation: tlripple 1.6s ease-out infinite; }
+  @keyframes tlrun { 0% { top: var(--tl-start,40px); opacity: 0; } 8% { opacity: 1; } 88% { opacity: 1; } 100% { top: var(--tl-end, calc(100% - 34px)); opacity: 0; } }
+  @keyframes tlripple { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(2.6); opacity: 0; } }
 
   .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .fitcard { border-radius: var(--r); padding: 16px 18px; border: 1px solid var(--line); background: var(--panel); box-shadow: var(--shadow); }
@@ -152,9 +171,13 @@
   .fitcard.no li::before { content:"✕"; position: absolute; left: 0; color: var(--crit); font-weight: 800; }
 
   .promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .promise { border: 1px solid color-mix(in srgb, var(--violet) 30%, var(--line)); background: color-mix(in srgb, var(--violet) 5%, var(--panel)); border-radius: var(--r); padding: 15px 17px; }
-  .promise h3 { margin: 0 0 5px; font-size: 13.5px; font-weight: 750; color: var(--violet); }
-  .promise p { margin: 0; font-size: 12px; color: var(--muted); }
+  .promise { border: 1px solid color-mix(in srgb, var(--violet) 30%, var(--line)); background: color-mix(in srgb, var(--violet) 5%, var(--panel)); border-radius: var(--r); padding: 16px 17px; display: flex; align-items: center; gap: 13px; }
+  .promise { align-items: center; }
+  .promise .p-ic { width: 70px; height: 70px; flex: none; display: inline-flex; border-radius: 17px; background: color-mix(in srgb, var(--panel) 80%, var(--bg)); padding: 4px; }
+  .promise .p-ic svg { width: 100%; height: 100%; overflow: visible; }
+  .promise .pbody { min-width: 0; }
+  .promise h3 { margin: 0 0 4px; font-size: 13.5px; font-weight: 750; color: var(--violet); }
+  .promise p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
 
   details.faq { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); box-shadow: var(--shadow); }
   details.faq + details.faq { margin-top: 10px; }
@@ -173,16 +196,24 @@
   footer.foot a { color: var(--muted); }
 
   /* ===== 动态图标（waaark 式线稿动效） ===== */
-  header.hero { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
-  .hero-icon { flex: none; padding-top: 30px; }
+  header.hero { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .hero > div:not(.hero-icon) { max-width: 40em; }
+  .hero-icon { flex: none; }
   .li { stroke: var(--violet); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .li.te { stroke: var(--teal); }
-  .um-wrap { animation: floaty 3.8s ease-in-out infinite; }
-  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-  .drop { stroke: var(--teal); stroke-width: 2; stroke-linecap: round; opacity: 0; animation: drop 1.8s linear infinite; }
-  .drop.d2 { animation-delay: .6s; } .drop.d3 { animation-delay: 1.2s; }
-  @keyframes drop { 0% { transform: translateY(-4px); opacity: 0; } 15% { opacity: .85; } 55% { opacity: .85; } 72% { transform: translateY(22px); opacity: 0; } 100% { opacity: 0; } }
-  .pillar .pic { height: 42px; margin-bottom: 10px; display: flex; align-items: flex-end; }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  /* Hero 图标：运转中的组织（看板 + 员工节点 + 流动连线 + 常转外环） */
+  .hf { stroke: var(--violet); stroke-width: 1.9; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .hf.te { stroke: var(--teal); }
+  .hero-float { animation: floaty 4s ease-in-out infinite; }
+  .hero-ring { animation: spin 26s linear infinite; transform-origin: 65px 65px; transform-box: view-box; }
+  .hero-orbit { animation: spin 11s linear infinite; transform-origin: 65px 65px; transform-box: view-box; }
+  .hero-flow { stroke-dasharray: 3.5 4.5; animation: heroflow 1.4s linear infinite; }
+  .hero-live { fill: var(--teal); stroke: none; animation: heropulse 2.2s ease-in-out infinite; transform-origin: 79px 57px; transform-box: view-box; }
+  @keyframes heroflow { to { stroke-dashoffset: -16; } }
+  @keyframes heropulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.7); opacity: .45; } }
+  .pillar .pic { height: 88px; margin-bottom: 8px; display: flex; align-items: center; }
+  .pillar .pic svg { width: 88px; height: 88px; overflow: visible; }
   .paper { animation: peek 3s ease-in-out infinite; }
   @keyframes peek { 0%,100% { transform: translateY(7px); } 50% { transform: translateY(0); } }
   .spin { animation: spin 10s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
@@ -203,14 +234,26 @@
   .mi-bob { animation: micbob 3s ease-in-out infinite; }
   .mi-dash { stroke-dasharray: 3 4; animation: micdash 1.6s linear infinite; }
   .mi-blink1 { animation: miblink 3s infinite; } .mi-blink2 { animation: miblink 3s infinite 1s; } .mi-blink3 { animation: miblink 3s infinite 2s; }
-  .mi-swing { animation: miswing 3.2s ease-in-out infinite; transform-origin: 50% 20%; transform-box: fill-box; }
+  .mi-swing { animation: miswing 2.6s ease-in-out infinite; transform-origin: 50% 15%; transform-box: fill-box; }
+  .mi-draw { stroke-dasharray: 13; animation: midraw 2.6s ease-in-out infinite; }
+  @keyframes midraw { 0%,8% { stroke-dashoffset: 13; } 45%,62% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -13; } }
   @keyframes micspin { to { transform: rotate(360deg); } }
   @keyframes micpulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.15); opacity: .65; } }
   @keyframes micbob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
   @keyframes micdash { to { stroke-dashoffset: -14; } }
   @keyframes miblink { 0%,20% { opacity: 1; } 45%,100% { opacity: .2; } }
   @keyframes miswing { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
-  @media (prefers-reduced-motion: reduce) { .mi-spin,.mi-pulse,.mi-bob,.mi-dash,.mi-blink1,.mi-blink2,.mi-blink3,.mi-swing { animation: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .mi-spin,.mi-pulse,.mi-bob,.mi-dash,.mi-blink1,.mi-blink2,.mi-blink3,.mi-swing,.mi-draw { animation: none !important; } .mi-draw { stroke-dasharray: none; } }
+
+  /* ===== 拟物等距图标（waaark 风：色块 + 轻投影 + 悬浮） ===== */
+  .iso { display: block; width: 100%; height: 100%; overflow: visible; }
+  .iso-float { animation: isofloat 3.6s ease-in-out infinite; transform-box: view-box; transform-origin: 50% 50%; }
+  @keyframes isofloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.6px); } }
+  .iso-shadow { animation: isoshadow 3.6s ease-in-out infinite; transform-box: view-box; transform-origin: 50% 50%; }
+  @keyframes isoshadow { 0%,100% { transform: scaleX(1); opacity: .16; } 50% { transform: scaleX(.82); opacity: .09; } }
+  .iso-hands { animation: spin 9s linear infinite; transform-box: view-box; }
+  .iso-live { animation: heropulse 2.4s ease-in-out infinite; transform-box: view-box; }
+  @media (prefers-reduced-motion: reduce) { .iso-float, .iso-shadow, .iso-hands, .iso-live { animation: none !important; } }
 
   /* ===== 管理台界面示意（内嵌矢量"截图"） ===== */
   .shot { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; margin: 0; }
@@ -260,15 +303,14 @@
   .skmini .sky { font-size: 10px; color: var(--faint); line-height: 1.4; }
 
   @media (prefers-reduced-motion: reduce) {
-    .um-wrap, .drop, .paper, .spin, .lt1, .lt2, .lt3, .sprout, .rf { animation: none !important; }
+    .hero-float, .hero-ring, .hero-orbit, .hero-flow, .hero-live, .paper, .spin, .lt1, .lt2, .lt3, .sprout, .rf, .tl-runner { animation: none !important; }
+    .tl-runner { display: none; }
   }
   @media (max-width: 720px) {
     .pillars, .promises { grid-template-columns: 1fr; }
     .cc-slide { grid-template-columns: 1fr; }
     .gets, .fit, .minis { grid-template-columns: 1fr; }
     .nums { grid-template-columns: 1fr 1fr; }
-    .step { grid-template-columns: 36px 1fr; }
-    .step .sd { grid-column: 2; }
     .hero-icon { display: none; }
   }
 </style>
@@ -285,15 +327,27 @@
       <p class="lede">我们帮你把重复又离不开人的活儿，交给一支<b>数字员工</b>团队——不请假、不跳槽、随时能换更强的 AI。它们干活的本事和积累的经验都<b>归你所有</b>：哪天换了 AI、换了工具，业务照样接得上，<b>不掉线、不清零</b>。</p>
     </div>
     <div class="hero-icon" aria-hidden="true">
-      <svg width="110" height="118" viewBox="0 0 120 128">
-        <line class="drop" x1="28" y1="10" x2="28" y2="18"/>
-        <line class="drop d2" x1="60" y1="4" x2="60" y2="12"/>
-        <line class="drop d3" x1="92" y1="10" x2="92" y2="18"/>
-        <g class="um-wrap">
-          <path class="li" d="M14,70 Q60,22 106,70"/>
-          <path class="li" d="M14,70 q15,-9 30,0 q16,-9 32,0 q15,-9 30,0"/>
-          <path class="li" d="M60,34 V70"/>
-          <path class="li te" d="M60,70 V108 q0,10 -9,10 q-8,0 -8,-8"/>
+      <svg class="iso" width="204" height="204" viewBox="0 0 120 104">
+        <!-- 落地投影 -->
+        <ellipse class="iso-shadow" cx="60" cy="93" rx="36" ry="7" fill="#28315C"/>
+        <g class="iso-float">
+          <!-- 连线（数据流动） -->
+          <line class="hero-flow" x1="30" y1="36" x2="48" y2="49" stroke="#28315C" stroke-width="1.6" opacity=".45"/>
+          <line class="hero-flow" x1="94" y1="45" x2="72" y2="51" stroke="#28315C" stroke-width="1.6" opacity=".45"/>
+          <!-- 平台底座 -->
+          <polygon points="16,60 60,38 104,60 60,82" fill="#3A4675"/>
+          <polygon points="16,60 60,82 60,90 16,68" fill="#28315C"/>
+          <polygon points="60,82 104,60 104,68 60,90" fill="#222A4E"/>
+          <!-- 看板屏幕 -->
+          <polygon points="34,52 60,39 86,52 60,65" fill="#FFFFFF"/>
+          <polygon points="50,46 60,41 70,46 60,51" fill="#E8695E"/>
+          <polygon points="47,53 55,49 63,53 55,57" fill="#7FA9CE"/>
+          <polygon points="54,57 60,54 66,57 60,60" fill="#C9D6E5"/>
+          <polygon points="63,52 67,50 71,52 67,54" fill="#F0C24A"/>
+          <circle class="iso-live" cx="72" cy="45" r="2" fill="#E8695E" style="transform-origin:72px 45px"/>
+          <!-- 员工头像节点 -->
+          <g><circle cx="26" cy="32" r="8" fill="#FFFFFF" stroke="#28315C" stroke-width="2"/><circle cx="26" cy="30" r="2.4" fill="#E8695E"/><path d="M22 35.5 a4 4 0 0 1 8 0" fill="none" stroke="#28315C" stroke-width="2"/></g>
+          <g><circle cx="98" cy="40" r="7" fill="#FFFFFF" stroke="#28315C" stroke-width="2"/><circle cx="98" cy="38.3" r="2.1" fill="#7FA9CE"/><path d="M94.6 43 a3.4 3.4 0 0 1 6.8 0" fill="none" stroke="#28315C" stroke-width="2"/></g>
         </g>
       </svg>
     </div>
@@ -303,20 +357,9 @@
     <h2>凭什么能"永远在岗"？</h2>
     <p class="sec-sub">秘诀是把每个数字员工都写成文件——三个设计，解决 AI 落地最常踩的三个坑</p>
     <div class="pillars">
-      <div class="pillar"><div class="pic" aria-hidden="true"><svg width="52" height="42" viewBox="0 0 52 42">
-        <g class="paper"><rect class="li te" x="17" y="3" width="18" height="17" rx="2"/><path class="li te" d="M21,9 h10 M21,13 h7"/></g>
-        <path class="li" d="M5,15 h13 l4,4 h25 v20 h-42 z" style="fill:var(--panel)"/>
-      </svg></div><h3>组织即文件，资产归你</h3><p>每个"AI 员工"的岗位职责、每条工作流程、每天的工作状态，都是一份人话写的文档，存在你自己的代码仓库里。不装进任何平台，明天想带走，打包就走。</p></div>
-      <div class="pillar"><div class="pic" aria-hidden="true"><svg width="46" height="42" viewBox="0 0 46 42">
-        <g class="spin"><path class="li" d="M37,15 A15 15 0 0 0 11 12"/><path class="li" d="M11,12 l0,-7 M11,12 l7,-1"/><path class="li te" d="M9,27 A15 15 0 0 0 35 30"/><path class="li te" d="M35,30 l0,7 M35,30 l-7,1"/></g>
-      </svg></div><h3>AI 引擎随租随换</h3><p>今天用 Claude，明天换国产模型——"员工"的职责书和工作记录不变，新引擎读完文件就能接班。<b>不被任何一家 AI 厂商绑定</b>，这是平台型产品做不到的承诺。</p></div>
-      <div class="pillar"><div class="pic" aria-hidden="true"><svg width="40" height="42" viewBox="0 0 40 42">
-        <rect class="li" x="13" y="2" width="14" height="30" rx="5"/>
-        <path class="li" d="M20,32 V40"/>
-        <circle class="lt lt1" cx="20" cy="9" r="3" fill="var(--crit)"/>
-        <circle class="lt lt2" cx="20" cy="17" r="3" fill="var(--warn)"/>
-        <circle class="lt lt3" cx="20" cy="25" r="3" fill="var(--good)"/>
-      </svg></div><h3>人永远把最后一道关</h3><p>AI 负责采集、起草、整理、打包；但每一次对外发布、提交、投稿，都停在"闸门"等你点头。<b>系统绝不代替你按发送键</b>——放心交活，不担心失控。</p></div>
+      <div class="pillar"><div class="pic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="39" rx="14" ry="3.4" fill="#28315C"/><g class="iso-float"><polygon points="16,15 24,10.5 32,15 24,19.5" fill="#FFFFFF"/><polygon points="16,15 24,19.5 24,21.5 16,17" fill="#E7EEF5"/><polygon points="19,14 24,11 29,14 24,17" fill="#7FA9CE"/><polygon points="9,27 24,19.5 39,27 24,34.5" fill="#E8695E"/><polygon points="9,27 24,34.5 24,40 9,32.5" fill="#C94F42"/><polygon points="24,34.5 39,27 39,32.5 24,40" fill="#B0483E"/><polygon points="12,24.5 18,21.5 23,24 17,27" fill="#F0857A"/></g></svg></div><h3>组织即文件，资产归你</h3><p>每个"AI 员工"的岗位职责、每条工作流程、每天的工作状态，都是一份人话写的文档，存在你自己的代码仓库里。不装进任何平台，明天想带走，打包就走。</p></div>
+      <div class="pillar"><div class="pic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="12" ry="3" fill="#28315C"/><g class="iso-float"><polygon points="13,26 24,20.5 35,26 24,31.5" fill="#7FA9CE"/><polygon points="13,26 24,31.5 24,37 13,31.5" fill="#5B87B0"/><polygon points="24,31.5 35,26 35,31.5 24,37" fill="#28315C"/><polygon points="20,25 24,23 28,25 24,27" fill="#E8695E"/><g class="iso-hands" style="transform-origin:24px 26px"><path d="M11 22 A 15 9 0 0 1 34 15" fill="none" stroke="#E0604F" stroke-width="2" stroke-linecap="round"/><path d="M34 15 l-3.6 -0.6 l1.4 3.4" fill="none" stroke="#E0604F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 30 A 15 9 0 0 1 14 37" fill="none" stroke="#E0604F" stroke-width="2" stroke-linecap="round"/><path d="M14 37 l3.6 0.6 l-1.4 -3.4" fill="none" stroke="#E0604F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></g></svg></div><h3>AI 引擎随租随换</h3><p>今天用 Claude，明天换国产模型——"员工"的职责书和工作记录不变，新引擎读完文件就能接班。<b>不被任何一家 AI 厂商绑定</b>，这是平台型产品做不到的承诺。</p></div>
+      <div class="pillar"><div class="pic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="40" rx="8" ry="2.4" fill="#28315C"/><g class="iso-float"><ellipse cx="24" cy="37.5" rx="6" ry="2" fill="#28315C"/><rect x="22.5" y="29" width="3" height="9" fill="#3A4675"/><rect x="25" y="29" width="1" height="9" fill="#28315C"/><rect x="17" y="7" width="14" height="24" rx="5" fill="#3A4675"/><rect x="29.5" y="8" width="2" height="22" rx="1" fill="#28315C"/><ellipse cx="24" cy="7.5" rx="6.5" ry="1.8" fill="#4A5688"/><circle cx="24" cy="13" r="2.7" fill="#EF4B63" opacity=".45"/><circle cx="24" cy="19" r="2.7" fill="#F0C24A" opacity=".45"/><circle class="iso-live" cx="24" cy="25" r="2.7" fill="#48C9A6" style="transform-origin:24px 25px"/></g></svg></div><h3>人永远把最后一道关</h3><p>AI 负责采集、起草、整理、打包；但每一次对外发布、提交、投稿，都停在"闸门"等你点头。<b>系统绝不代替你按发送键</b>——放心交活，不担心失控。</p></div>
     </div>
   </section>
 
@@ -324,10 +367,10 @@
     <h2>你会得到什么</h2>
     <p class="sec-sub">一次交付，四件东西</p>
     <div class="gets">
-      <div class="get"><span class="gn">01 · 组织资产库</span><h3>你专属的虚拟团队定义</h3><p>按你的业务共建：哪些环节值得 AI 化（我们有评分方法）、设几个"工位"、每个工位派什么"角色"、配什么"技能"。全部落成你仓库里的文档体系。</p></div>
-      <div class="get"><span class="gn">02 · 看板 + 管理台</span><h3>一眼看清整个团队</h3><p>可视化界面：各工位的待办与最新动态、员工册（每个角色的职责与红线）、工作流地图（谁在哪一段干什么、哪里等你审批）、待办派单（附一句话开工指令）。</p></div>
-      <div class="get"><span class="gn">03 · 例行任务</span><h3>日常自动运转</h3><p>定好节奏的工作自动跑：每日情报采集、定期内容产出、周期性台账更新——你只在关键节点收到待审提醒。</p></div>
-      <div class="get"><span class="gn">04 · 内化培训</span><h3>教会你的人自己运营</h3><p>我们的本业是教育。交付的最后一步是把你团队里的一个人培训成系统的"运营者"——之后加人手、改流程、换引擎，你们自己就能做。</p></div>
+      <div class="get"><span class="g-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="13" ry="3.2" fill="#28315C"/><g class="iso-float"><polygon points="9,26 24,18.5 39,26 24,33.5" fill="#C9D6E5"/><polygon points="9,22 24,14.5 39,22 24,29.5" fill="#E7EEF5"/><polygon points="9,18 24,10.5 39,18 24,25.5" fill="#FFFFFF"/><polygon points="17,14.5 24,11 31,14.5 24,18" fill="#E8695E"/><polygon points="19,21 24,18.5 29,21 24,23.5" fill="#7FA9CE"/></g></svg></span><div class="gbody"><h3>你专属的虚拟团队定义</h3><p>按你的业务共建：哪些环节值得 AI 化（我们有评分方法）、设几个"工位"、每个工位派什么"角色"、配什么"技能"。全部落成你仓库里的文档体系。</p></div></div>
+      <div class="get"><span class="g-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="14" ry="3.4" fill="#28315C"/><g class="iso-float"><polygon points="8,24 24,16 40,24 24,32" fill="#3A4675"/><polygon points="8,24 24,32 24,36 8,28" fill="#28315C"/><polygon points="24,32 40,24 40,28 24,36" fill="#222A4E"/><polygon points="13,21 19,18 25,21 19,24" fill="#E8695E"/><polygon points="15,24 22,20.5 29,24 22,27.5" fill="#F0C24A"/><polygon points="20,26.5 25,24 30,26.5 25,29" fill="#7FA9CE"/></g></svg></span><div class="gbody"><h3>一眼看清整个团队</h3><p>可视化界面：各工位的待办与最新动态、员工册（每个角色的职责与红线）、工作流地图（谁在哪一段干什么、哪里等你审批）、待办派单（附一句话开工指令）。</p></div></div>
+      <div class="get"><span class="g-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="11" ry="3" fill="#28315C"/><g class="iso-float"><ellipse cx="24" cy="31" rx="5" ry="1.8" fill="#28315C"/><ellipse cx="24" cy="20" rx="13" ry="11" fill="#3A4675"/><ellipse cx="24" cy="19.2" rx="10.2" ry="8.6" fill="#FFFFFF"/><circle cx="24" cy="12" r="0.9" fill="#BFCEDB"/><circle cx="24" cy="26.4" r="0.9" fill="#BFCEDB"/><circle cx="15.5" cy="19.2" r="0.9" fill="#BFCEDB"/><circle cx="32.5" cy="19.2" r="0.9" fill="#BFCEDB"/><g class="iso-hands" style="transform-origin:24px 19.2px"><line x1="24" y1="19.2" x2="24" y2="13.5" stroke="#E8695E" stroke-width="1.8" stroke-linecap="round"/><line x1="24" y1="19.2" x2="29.5" y2="19.2" stroke="#28315C" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="24" cy="19.2" r="1.6" fill="#28315C"/></g></svg></span><div class="gbody"><h3>日常自动运转</h3><p>定好节奏的工作自动跑：每日情报采集、定期内容产出、周期性台账更新——你只在关键节点收到待审提醒。</p></div></div>
+      <div class="get"><span class="g-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="13" ry="3.2" fill="#28315C"/><g class="iso-float"><polygon points="10,29 24,22 38,29 24,36" fill="#F0C24A"/><polygon points="10,29 24,36 24,39 10,32" fill="#E0AE33"/><polygon points="24,36 38,29 38,32 24,39" fill="#D19E28"/><polygon points="20,20 28,20 27,25 21,25" fill="#3A4675"/><polygon points="9,18 24,10.5 39,18 24,25.5" fill="#28315C"/><circle cx="24" cy="18" r="1.8" fill="#E8695E"/><path d="M24 18 L33 21 L33 26" fill="none" stroke="#E8695E" stroke-width="1.6"/><circle cx="33" cy="26.5" r="1.7" fill="#F0C24A"/></g></svg></span><div class="gbody"><h3>教会你的人自己运营</h3><p>我们的本业是教育。交付的最后一步是把你团队里的一个人培训成系统的"运营者"——之后加人手、改流程、换引擎，你们自己就能做。</p></div></div>
     </div>
   </section>
 
@@ -430,14 +473,14 @@
     <div class="ph"><h2>它不是概念——我们自己的公司就跑在这套系统上</h2><span class="live">实时运转中</span></div>
     <p>浅译万道实验室（面向高校的 AI 视觉生成与多模态教育机构）的日常运营，从行业情报、内容发布、赛事与学术征稿跟踪、投稿材料起草到官网维护，已由这套虚拟团队承担数月。以下是它此刻的真实规模：</p>
     <div class="nums">
-      <div class="num"><div class="nv">10</div><div class="nl">个工位（情报/官网/赛事雷达/技能选品/知识库…）</div></div>
-      <div class="num"><div class="nv">14</div><div class="nl">个 AI 角色在册，各有职责书与行为红线</div></div>
+      <div class="num"><div class="nv" data-count="10">10</div><div class="nl">个工位（情报/官网/赛事雷达/技能选品/知识库…）</div></div>
+      <div class="num"><div class="nv" data-count="14">14</div><div class="nl">个 AI 角色在册，各有职责书与行为红线</div></div>
       <div class="num"><div class="nv">每日</div><div class="nl">自动情报采集 + 社区站日更（单日最多 30 篇卡片）</div></div>
       <div class="num"><div class="nv">每周<small>×2</small></div><div class="nl">行业洞察出刊（已出 6 期，22 篇深度长文上官网）</div></div>
-      <div class="num"><div class="nv">20+</div><div class="nl">赛事与学术会议被雷达持续跟踪整理，供决策参考</div></div>
-      <div class="num"><div class="nv">14</div><div class="nl">个外部 AI 技能完成安全审查分级，择优装备</div></div>
-      <div class="num"><div class="nv">4</div><div class="nl">条内容管线，每条至少一道人工闸门</div></div>
-      <div class="num"><div class="nv">100%</div><div class="nl">组织资产存于自有 git 仓库，零平台锁定</div></div>
+      <div class="num"><div class="nv" data-count="20" data-suffix="+">20+</div><div class="nl">赛事与学术会议被雷达持续跟踪整理，供决策参考</div></div>
+      <div class="num"><div class="nv" data-count="14">14</div><div class="nl">个外部 AI 技能完成安全审查分级，择优装备</div></div>
+      <div class="num"><div class="nv" data-count="4">4</div><div class="nl">条内容管线，每条至少一道人工闸门</div></div>
+      <div class="num"><div class="nv" data-count="100" data-suffix="%">100%</div><div class="nl">组织资产存于自有 git 仓库，零平台锁定</div></div>
     </div>
   </section>
 
@@ -493,12 +536,41 @@
 
   <section>
     <h2>怎么合作</h2>
-    <p class="sec-sub">四步交付，每步有明确产出</p>
-    <div class="steps">
-      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle class="mi" cx="10" cy="10" r="6"/><line class="mi" x1="14.5" y1="14.5" x2="20" y2="20"/><circle class="mi te mi-pulse" cx="10" cy="10" r="2.6"/></svg></span>诊断工作坊</h3><p>到你团队里坐一天：盘点现有工作流程，用评分标尺判断哪些环节值得 AI 化、预期省多少人时——先想清楚，再动手。</p></div><span class="sd">1–2 天</span></div>
-      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle class="mi" cx="5" cy="12" r="2.2"/><circle class="mi te" cx="18" cy="6" r="2.2"/><circle class="mi te" cx="18" cy="18" r="2.2"/><path class="mi mi-dash" d="M7 11 L16 7 M7 13 L16 17"/></svg></span>梳理与定义</h3><p>和你的运营者一起，把选中的流程写成你们自己的"工位+角色+工作流"文档体系——从第一天起就建在你们的仓库里。</p></div><span class="sd">2–4 天</span></div>
-      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="mi-spin"><circle class="mi" cx="12" cy="12" r="3.2"/><path class="mi" d="M12 3.5 V6 M12 18 V20.5 M3.5 12 H6 M18 12 H20.5 M6 6 L7.8 7.8 M16.2 16.2 L18 18 M18 6 L16.2 7.8 M7.8 16.2 L6 18"/></g></svg></span>落地部署</h3><p>接上你们自己的 AI 账号，部署管理台，例行任务跑起来。我们陪跑试运行，把 AI 的产出质量调到你点头为止。</p></div><span class="sd">2–4 天</span></div>
-      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mi mi-bob" d="M3 9 L12 5.5 L21 9 L12 12.5 Z"/><path class="mi" d="M7 11 V15 C7 16.6 17 16.6 17 15 V11"/><line class="mi te" x1="21" y1="9" x2="21" y2="13.5"/></svg></span>内化与交接</h3><p>培训你的运营者独立掌盘：审批、调整、扩展。之后可选按月轻量陪跑，或完全自主运营。</p></div><span class="sd">1–2 周</span></div>
+    <p class="sec-sub">四步交付，一条时间轴走完——每步都有能验收的产出</p>
+    <div class="timeline">
+      <span class="tl-runner" aria-hidden="true"></span>
+      <div class="tl">
+        <span class="tl-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="13" ry="3.2" fill="#28315C"/><g class="iso-float"><polygon points="9,24 22,17.5 35,24 22,30.5" fill="#FFFFFF"/><polygon points="19,18 22,16.5 25,18 22,19.5" fill="#28315C"/><polygon points="14,23 20,20 26,23 20,26" fill="#7FA9CE"/><polygon points="16,26 21,23.5 26,26 21,28.5" fill="#E8695E"/><circle cx="31" cy="20" r="6" fill="#7FA9CE" fill-opacity=".45" stroke="#28315C" stroke-width="2"/><line x1="35" y1="24" x2="40" y2="29" stroke="#28315C" stroke-width="2.6" stroke-linecap="round"/></g></svg><span class="tl-num"></span></span>
+        <div class="tl-body">
+          <div class="tl-head"><h3>诊断工作坊</h3><span class="tl-dur">1–2 天</span></div>
+          <p>我们到你团队里坐一天，跟着真实业务走一遍：盘点现有流程、找出「重复又离不开人」的环节，用一套评分标尺逐项判断哪些值得交给 AI、预期每周能省多少人时。先把账算清楚，再决定动不动手——不合适我们会直说。</p>
+          <div class="tl-out"><b>产出</b> · 一份《AI 化机会评估》：哪些环节先做、预期收益与风险，一次说清。</div>
+        </div>
+      </div>
+      <div class="tl">
+        <span class="tl-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="13" ry="3.2" fill="#28315C"/><g class="iso-float"><line x1="24" y1="17" x2="13" y2="29" stroke="#28315C" stroke-width="1.6"/><line x1="24" y1="17" x2="35" y2="29" stroke="#28315C" stroke-width="1.6"/><polygon points="18,13 24,10 30,13 24,16" fill="#E8695E"/><polygon points="18,13 24,16 24,20 18,17" fill="#D4574C"/><polygon points="24,16 30,13 30,17 24,20" fill="#B0483E"/><polygon points="8,28 13,25.5 18,28 13,30.5" fill="#7FA9CE"/><polygon points="8,28 13,30.5 13,34 8,31.5" fill="#5B87B0"/><polygon points="13,30.5 18,28 18,31.5 13,34" fill="#28315C"/><polygon points="30,28 35,25.5 40,28 35,30.5" fill="#7FA9CE"/><polygon points="30,28 35,30.5 35,34 30,31.5" fill="#5B87B0"/><polygon points="35,30.5 40,28 40,31.5 35,34" fill="#28315C"/></g></svg><span class="tl-num"></span></span>
+        <div class="tl-body">
+          <div class="tl-head"><h3>梳理与定义</h3><span class="tl-dur">2–4 天</span></div>
+          <p>和你指定的「运营者」一起，把选中的流程拆成「工位 + 角色 + 工作流」：每个数字员工负责哪段、红线是什么、产出交给谁审。全部写成人话文档，从第一天起就建在你们自己的仓库里，不经过我们的服务器。</p>
+          <div class="tl-out"><b>产出</b> · 你仓库里的组织文档体系 + 一张可视化的工作流地图。</div>
+        </div>
+      </div>
+      <div class="tl">
+        <span class="tl-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="13" ry="3.2" fill="#28315C"/><g class="iso-float"><polygon points="11,30 24,23.5 37,30 24,36.5" fill="#3A4675"/><polygon points="11,30 24,36.5 24,40 11,33.5" fill="#28315C"/><polygon points="24,36.5 37,30 37,33.5 24,40" fill="#222A4E"/><circle cx="16" cy="35" r="1" fill="#48C9A6"/><circle cx="19" cy="36.5" r="1" fill="#F0C24A"/><polygon points="11,24 24,17.5 37,24 24,30.5" fill="#3A4675"/><polygon points="11,24 24,30.5 24,34 11,27.5" fill="#28315C"/><polygon points="24,30.5 37,24 37,27.5 24,34" fill="#222A4E"/><circle cx="16" cy="29" r="1" fill="#48C9A6"/><circle cx="19" cy="30.5" r="1" fill="#7FA9CE"/><g class="iso-hands" style="transform-origin:24px 15px"><g fill="#E8695E"><rect x="23" y="8.5" width="2" height="13" rx="1"/><rect x="17.5" y="14" width="13" height="2" rx="1"/><rect x="19" y="10.5" width="10" height="2" rx="1" transform="rotate(45 24 15)"/><rect x="19" y="10.5" width="10" height="2" rx="1" transform="rotate(-45 24 15)"/></g><circle cx="24" cy="15" r="4.2" fill="#E8695E"/><circle cx="24" cy="15" r="2" fill="#FFFFFF"/></g></g></svg><span class="tl-num"></span></span>
+        <div class="tl-body">
+          <div class="tl-head"><h3>落地部署</h3><span class="tl-dur">2–4 天</span></div>
+          <p>接上你们自己的 AI 账号，部署看板与管理台，把例行任务（每日情报、定期产出、台账更新）挂上定时器跑起来。我们全程陪跑试运行，一轮轮打磨提示词与产出质量，直到 AI 的活儿调到你点头为止。</p>
+          <div class="tl-out"><b>产出</b> · 可用的看板 + 已跑起来的例行任务，产出质量达标验收。</div>
+        </div>
+      </div>
+      <div class="tl">
+        <span class="tl-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="14" ry="3.2" fill="#28315C"/><g class="iso-float"><circle cx="12" cy="24" r="5.5" fill="none" stroke="#E8695E" stroke-width="3"/><circle cx="12" cy="24" r="1.5" fill="#EDF1F6"/><rect x="16" y="22.4" width="15" height="3.2" rx="1.4" fill="#E8695E"/><rect x="26" y="25.4" width="2.4" height="3" rx="0.8" fill="#E8695E"/><rect x="29.6" y="25.4" width="2.4" height="3.8" rx="0.8" fill="#E8695E"/><circle cx="40" cy="22" r="6.5" fill="#FFFFFF" stroke="#28315C" stroke-width="2"/><circle cx="40" cy="20.3" r="2.1" fill="#7FA9CE"/><path d="M36.6 25 a3.4 3.4 0 0 1 6.8 0" fill="none" stroke="#28315C" stroke-width="2"/></g></svg><span class="tl-num"></span></span>
+        <div class="tl-body">
+          <div class="tl-head"><h3>内化与交接</h3><span class="tl-dur">1–2 周</span></div>
+          <p>把你的运营者培训到能独立掌盘：怎么审批、怎么用对话改文档、怎么加新工位扩展团队。交接后你们完全可以自主运营；也可以选按月轻量陪跑，遇到新场景我们搭把手。</p>
+          <div class="tl-out"><b>产出</b> · 一位学会独立运营的自己人 + 一份运营手册；此后加人、改流程、换引擎都能自己来。</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -525,9 +597,9 @@
     <h2>三条写进合同的承诺</h2>
     <p class="sec-sub">也是这套系统区别于所有平台型产品的地方</p>
     <div class="promises">
-      <div class="promise"><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect class="mi" x="4" y="5" width="16" height="14" rx="2"/><circle class="mi te mi-spin" cx="12" cy="12" r="3.4"/><line class="mi te" x1="12" y1="12" x2="12" y2="8.9"/></svg></span>资产归你</h3><p>全部组织文档存于你自有仓库，交付即拥有；解约不失能力，随时带走。</p></div>
-      <div class="promise"><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect class="mi" x="5" y="11" width="14" height="9" rx="2"/><path class="mi mi-swing" d="M8 11 V8 a4 4 0 0 1 7 -2.6"/><circle class="mi te mi-pulse" cx="12" cy="15.5" r="1.5"/></svg></span>引擎不锁定</h3><p>用你自己的 AI 账号；文档体系兼容开放标准，换供应商时我们提供迁移方案。</p></div>
-      <div class="promise"><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mi" d="M12 3 L20 6 V12 C20 16.5 16.5 19.5 12 21 C7.5 19.5 4 16.5 4 12 V6 Z"/><path class="mi te mi-pulse" d="M8.5 12 l2.3 2.3 L15.2 9.8"/></svg></span>人始终把关</h3><p>系统的任何对外动作（发布/提交/投稿）必经人工确认，绝不代按发送键。</p></div>
+      <div class="promise"><span class="p-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="38" rx="12" ry="3" fill="#28315C"/><g class="iso-float"><polygon points="12,20 24,14 36,20 24,26" fill="#3A4675"/><polygon points="12,20 24,26 24,37 12,31" fill="#28315C"/><polygon points="24,26 36,20 36,31 24,37" fill="#222A4E"/><g class="iso-hands" style="transform-origin:18px 29.5px"><circle cx="18" cy="29.5" r="3.2" fill="#E8695E"/><line x1="18" y1="29.5" x2="18" y2="26.8" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/><line x1="18" y1="29.5" x2="20.3" y2="30.7" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/></g></g></svg></span><div class="pbody"><h3>资产归你</h3><p>全部组织文档存于你自有仓库，交付即拥有；解约不失能力，随时带走。</p></div></div>
+      <div class="promise"><span class="p-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="39" rx="10" ry="2.8" fill="#28315C"/><g class="iso-float"><path d="M29 27 V20 a5 5 0 0 0 -9.6 -1.8" fill="none" stroke="#5B87B0" stroke-width="2.8" stroke-linecap="round"/><polygon points="16,27 24,23 32,27 24,31" fill="#F0C24A"/><polygon points="16,27 24,31 24,37.5 16,33.5" fill="#E0AE33"/><polygon points="24,31 32,27 32,33.5 24,37.5" fill="#C99A22"/><circle cx="20" cy="32" r="1.5" fill="#28315C"/><rect x="19.4" y="32" width="1.2" height="2.4" fill="#28315C"/></g></svg></span><div class="pbody"><h3>引擎不锁定</h3><p>用你自己的 AI 账号；文档体系兼容开放标准，换供应商时我们提供迁移方案。</p></div></div>
+      <div class="promise"><span class="p-ic" aria-hidden="true"><svg class="iso" viewBox="0 0 48 44"><ellipse class="iso-shadow" cx="24" cy="39" rx="10" ry="2.8" fill="#28315C"/><g class="iso-float"><path d="M24 11 L35 15 V25 C35 31 30 35 24 37 C18 35 13 31 13 25 V15 Z" fill="#3A4675"/><path d="M24 11 L24 37 C18 35 13 31 13 25 V15 Z" fill="#28315C"/><path d="M18.5 24 l4 4 l8 -8" fill="none" stroke="#E8695E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></g></svg></span><div class="pbody"><h3>人始终把关</h3><p>系统的任何对外动作（发布/提交/投稿）必经人工确认，绝不代按发送键。</p></div></div>
     </div>
   </section>
 
@@ -556,7 +628,7 @@
 (function(){
   var btn = document.getElementById('thbtn');
   var MODES = [{k:'auto',t:'🌓 自动'},{k:'light',t:'☀️ 日间'},{k:'dark',t:'🌙 夜间'}];
-  function load(){ try { return localStorage.getItem('cap-theme') || 'auto'; } catch(e){ return 'auto'; } }
+  function load(){ try { return localStorage.getItem('cap-theme') || 'light'; } catch(e){ return 'light'; } }
   function save(m){ try { localStorage.setItem('cap-theme', m); } catch(e){} }
   function apply(m){
     var root = document.documentElement;
@@ -573,6 +645,26 @@
     save(cur); apply(cur);
   });
 
+  // "我们自己就跑在这套上"：大数字递增（滚入视图触发一次）
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el){
+    var target = +el.dataset.count, suffix = el.dataset.suffix || '', dur = 1100, t0 = null;
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    function step(ts){ if(!t0) t0 = ts; var p = Math.min(1, (ts - t0) / dur); var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(e * target) + suffix; if (p < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var proof = document.querySelector('.proof');
+  if (proof && 'IntersectionObserver' in window) {
+    var pio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){
+        proof.querySelectorAll('.nv[data-count]').forEach(countUp);
+        pio.disconnect();
+      }});
+    }, { threshold: 0.35 });
+    pio.observe(proof);
+  }
+
   // 落地案例：分页轮播（左右箭头 + 圆点；无自动滚动）
   var cc = document.getElementById('caseCarousel');
   if (cc) {
@@ -588,11 +680,38 @@
       dotsWrap.appendChild(dot);
     }
     var dots = dotsWrap.querySelectorAll('.cc-dot');
+    // 客户留言：打字机逐字显示（切页即重打；reduced-motion 直接全显）
+    var twTimer = null;
+    function typeQuote(slide) {
+      if (!slide) return;
+      var p = slide.querySelector('.cc-quote p'); if (!p) return;
+      var full = p.getAttribute('data-tw') || p.textContent;
+      p.setAttribute('data-tw', full);
+      if (twTimer) { clearTimeout(twTimer); twTimer = null; }
+      if (reduceMotion) { p.textContent = full; return; }
+      p.textContent = '';
+      var body = document.createElement('span'); p.appendChild(body);
+      var car = document.createElement('span'); car.className = 'tw-caret'; car.textContent = '▍'; p.appendChild(car);
+      var i = 0;
+      (function tick() {
+        body.textContent = full.slice(0, i);
+        if (i++ < full.length) twTimer = setTimeout(tick, 42);
+      })();
+    }
     function go(i) {
       idx = (i + n) % n;
       track.style.transform = 'translateX(' + (-idx * 100) + '%)';
       for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('on', d === idx);
+      typeQuote(slides[idx]);
     }
+    // 首次进入视图才开打
+    if ('IntersectionObserver' in window) {
+      var started = false;
+      var cio = new IntersectionObserver(function(es){ es.forEach(function(e){
+        if (e.isIntersecting && !started) { started = true; typeQuote(slides[idx]); cio.disconnect(); }
+      }); }, { threshold: 0.3 });
+      cio.observe(cc);
+    } else { typeQuote(slides[idx]); }
     cc.querySelector('[data-cc="prev"]').addEventListener('click', function(){ go(idx - 1); });
     cc.querySelector('[data-cc="next"]').addEventListener('click', function(){ go(idx + 1); });
     dotsWrap.addEventListener('click', function(e){ var b = e.target.closest('.cc-dot'); if (b) go(+b.dataset.i); });
@@ -600,6 +719,22 @@
     var x0 = null;
     cc.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
     cc.addEventListener('touchend', function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1)); x0 = null; });
+  }
+
+  // 时间轴小球：把巡游范围限定在「首图标中心 → 末图标中心」，不越过末端
+  var tl = document.querySelector('.timeline');
+  if (tl) {
+    var setTlBounds = function(){
+      var ics = tl.querySelectorAll('.tl-ic');
+      if (ics.length < 1) return;
+      var tr = tl.getBoundingClientRect();
+      var f = ics[0].getBoundingClientRect();
+      var l = ics[ics.length - 1].getBoundingClientRect();
+      tl.style.setProperty('--tl-start', ((f.top - tr.top) + f.height / 2 - 6) + 'px');
+      tl.style.setProperty('--tl-end', ((l.top - tr.top) + l.height / 2 - 6) + 'px');
+    };
+    setTlBounds();
+    var tlt; window.addEventListener('resize', function(){ clearTimeout(tlt); tlt = setTimeout(setTlBounds, 150); });
   }
 })();
 </script>
