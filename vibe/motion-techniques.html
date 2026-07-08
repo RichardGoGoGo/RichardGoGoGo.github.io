@@ -18,7 +18,7 @@ title: "常用 WEB 交互动效图鉴"
     <span class="cur">常用 WEB 交互动效图鉴</span>
   </nav>
 
-  <p class="mt-sronly">这是一个网页动画技法的交互参考图鉴，每张卡片展示一种有专有名词的动效及其实时演示；分入场、循环、鼠标交互、文字、背景五类。</p>
+  <p class="mt-sronly">这是一个网页动画技法的交互参考图鉴，每张卡片展示一种有专有名词的动效及其实时演示；分入场、循环、鼠标交互、文字、背景、进阶编排六类。</p>
 
   <div class="mt">
     <div class="mt-bar">
@@ -29,6 +29,7 @@ title: "常用 WEB 交互动效图鉴"
         <button class="mt-chip" data-cat="mouse" aria-pressed="false">鼠标交互</button>
         <button class="mt-chip" data-cat="text" aria-pressed="false">文字</button>
         <button class="mt-chip" data-cat="bg" aria-pressed="false">背景</button>
+        <button class="mt-chip" data-cat="motion" aria-pressed="false">Motion</button>
       </div>
       <button class="mt-replay" id="mt-replay">全部重播</button>
     </div>
@@ -117,6 +118,11 @@ title: "常用 WEB 交互动效图鉴"
         <div class="mt-txt"><div class="mt-zh">骨架微光</div><div class="mt-en">Shimmer (Skeleton)</div><div class="mt-desc">高光条横向扫过占位块。</div></div>
       </div>
 
+      <div class="mt-card c-borderglow" data-g="loop">
+        <div class="mt-stage"><i class="bg-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">流光边框</div><div class="mt-en">Border Glow</div><div class="mt-desc">高光沿边框循环流转。</div></div>
+      </div>
+
     </div>
 
     <div class="sec-label" data-cat="mouse">鼠标交互 · 跟随光标 / 离开复位</div>
@@ -130,6 +136,16 @@ title: "常用 WEB 交互动效图鉴"
       <div class="mt-card c-parallax" data-g="mouse">
         <div class="mt-stage" aria-label="视差演示：远中近三层图形按光标以不同倍率反向平移" role="img"><i class="px far"></i><i class="px mid"></i><i class="px near"></i></div>
         <div class="mt-txt"><div class="mt-zh">视差</div><div class="mt-en">Parallax</div><div class="mt-desc">远中近层按光标以不同倍率移动。</div></div>
+      </div>
+
+      <div class="mt-card c-clickspark" data-g="mouse">
+        <div class="mt-stage" aria-label="点击迸发演示：点击后向四周迸发火花" role="img"><i class="cs-core"></i></div>
+        <div class="mt-txt"><div class="mt-zh">点击迸发</div><div class="mt-en">Click Spark</div><div class="mt-desc">点击后向四周迸发火花。点一下试试。</div></div>
+      </div>
+
+      <div class="mt-card c-spotlight" data-g="mouse">
+        <div class="mt-stage" aria-label="聚光跟随演示：光斑跟随光标照亮局部" role="img"><i class="sp2-panel"></i><i class="sp2-glow"></i></div>
+        <div class="mt-txt"><div class="mt-zh">聚光跟随</div><div class="mt-en">Spotlight</div><div class="mt-desc">光斑跟随光标照亮局部。</div></div>
       </div>
 
     </div>
@@ -162,6 +178,16 @@ title: "常用 WEB 交互动效图鉴"
         <div class="mt-txt"><div class="mt-zh">字符解码</div><div class="mt-en">Scramble / Decrypt</div><div class="mt-desc">乱码逐位收敛成目标词。</div></div>
       </div>
 
+      <div class="mt-card c-glitch" data-g="text">
+        <div class="mt-stage"><span class="gl-txt" data-text="Glitch">Glitch</span></div>
+        <div class="mt-txt"><div class="mt-zh">故障文字</div><div class="mt-en">Glitch Text</div><div class="mt-desc">RGB 错位抖动的故障质感。</div></div>
+      </div>
+
+      <div class="mt-card c-countup" data-g="text">
+        <div class="mt-stage"><span class="cu-num" data-to="128">128</span></div>
+        <div class="mt-txt"><div class="mt-zh">数字递增</div><div class="mt-en">Count Up</div><div class="mt-desc">数字从 0 缓动递增到目标值。</div></div>
+      </div>
+
     </div>
 
     <div class="sec-label" data-cat="bg">背景动效 · 持续播放（借鉴 React Bits）</div>
@@ -187,6 +213,84 @@ title: "常用 WEB 交互动效图鉴"
         <div class="mt-txt"><div class="mt-zh">浮尘粒子</div><div class="mt-en">Particles</div><div class="mt-desc">细小粒子漂浮游动。</div></div>
       </div>
 
+      <div class="mt-card c-waves" data-g="bg">
+        <div class="mt-stage">
+          <div class="wv-lay wv-a"><svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0,52 Q12.5,40 25,52 T50,52 T75,52 T100,52 T125,52 T150,52 T175,52 T200,52 V80 H0 Z" fill="var(--ink)" opacity=".16"/></svg><svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0,52 Q12.5,40 25,52 T50,52 T75,52 T100,52 T125,52 T150,52 T175,52 T200,52 V80 H0 Z" fill="var(--ink)" opacity=".16"/></svg></div>
+          <div class="wv-lay wv-b"><svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0,58 Q12.5,47 25,58 T50,58 T75,58 T100,58 T125,58 T150,58 T175,58 T200,58 V80 H0 Z" fill="var(--accent)" opacity=".3"/></svg><svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0,58 Q12.5,47 25,58 T50,58 T75,58 T100,58 T125,58 T150,58 T175,58 T200,58 V80 H0 Z" fill="var(--accent)" opacity=".3"/></svg></div>
+        </div>
+        <div class="mt-txt"><div class="mt-zh">波浪</div><div class="mt-en">Waves</div><div class="mt-desc">多层波形横向错速流动。</div></div>
+      </div>
+
+      <div class="mt-card c-ripple" data-g="bg">
+        <div class="mt-stage"><i class="rp rp1"></i><i class="rp rp2"></i><i class="rp rp3"></i></div>
+        <div class="mt-txt"><div class="mt-zh">涟漪</div><div class="mt-en">Ripple</div><div class="mt-desc">同心圆环由中心扩散淡出。</div></div>
+      </div>
+
+      <div class="mt-card c-beams" data-g="bg">
+        <div class="mt-stage"><i class="bm bm1"></i><i class="bm bm2"></i><i class="bm bm3"></i></div>
+        <div class="mt-txt"><div class="mt-zh">光束</div><div class="mt-en">Beams</div><div class="mt-desc">斜向光束依次扫过。</div></div>
+      </div>
+
+    </div>
+
+    <div class="sec-label" data-cat="motion">进阶编排 · 借鉴 Motion.dev</div>
+    <div class="mt-grid">
+
+      <div class="mt-card c-independent" data-g="motion">
+        <div class="mt-stage"><i class="id-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">独立变换</div><div class="mt-en">Independent Transforms</div><div class="mt-desc">同一元素上 x/y/旋转/缩放各自独立合成。</div></div>
+      </div>
+
+      <div class="mt-card c-scrolllink" data-g="motion">
+        <div class="mt-stage"><svg class="sl-svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="var(--rl)" stroke-width="4"/><circle class="sl-prog" cx="24" cy="24" r="18" fill="none" stroke="var(--acc)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 24 24)"/></svg></div>
+        <div class="mt-txt"><div class="mt-zh">滚动联动</div><div class="mt-en">Scroll-linked</div><div class="mt-desc">进度随滚动值实时联动填充。</div></div>
+      </div>
+
+      <div class="mt-card c-gesture" data-g="motion">
+        <div class="mt-stage"><i class="gs-box" aria-label="手势演示：悬停放大、按下回缩" role="img"></i></div>
+        <div class="mt-txt"><div class="mt-zh">原生手势</div><div class="mt-en">Gestures (hover / press)</div><div class="mt-desc">悬停放大、按下回缩，接近原生手感。</div></div>
+      </div>
+
+      <div class="mt-card c-layout" data-g="motion">
+        <div class="mt-stage"><div class="ly"><i class="lb lb1"></i><i class="lb lb2"></i><i class="lb lb3"></i><i class="lb lb4"></i></div></div>
+        <div class="mt-txt"><div class="mt-zh">布局动画</div><div class="mt-en">Layout Animation</div><div class="mt-desc">在两种排布间平滑迁移位置。</div></div>
+      </div>
+
+      <div class="mt-card c-spring" data-g="motion">
+        <div class="mt-stage"><i class="sp-target"></i><i class="sp-ball"></i></div>
+        <div class="mt-txt"><div class="mt-zh">弹簧物理</div><div class="mt-en">Spring Physics</div><div class="mt-desc">按弹簧阻尼冲过目标再收敛。</div></div>
+      </div>
+
+      <div class="mt-card c-exit" data-g="motion">
+        <div class="mt-stage"><i class="ex-item"></i></div>
+        <div class="mt-txt"><div class="mt-zh">退场动画</div><div class="mt-en">Exit (AnimatePresence)</div><div class="mt-desc">元素移除时先播离场再消失。</div></div>
+      </div>
+
+      <div class="mt-card c-motionvalue" data-g="motion">
+        <div class="mt-stage"><i class="mv-track"><i class="mv-thumb"></i></i><i class="mv-out"></i></div>
+        <div class="mt-txt"><div class="mt-zh">动值派生</div><div class="mt-en">Motion Values</div><div class="mt-desc">一个驱动值派生出旋转 / 透明等多路输出。</div></div>
+      </div>
+
+      <div class="mt-card c-drag" data-g="motion">
+        <div class="mt-stage" aria-label="拖拽演示：可拖动、限制在框内、松手弹回" role="img"><i class="dg-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">拖拽</div><div class="mt-en">Drag</div><div class="mt-desc">可拖动 + 边界约束，松手弹性回位。拖一下试试。</div></div>
+      </div>
+
+      <div class="mt-card c-keyframes" data-g="motion">
+        <div class="mt-stage"><i class="kf-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">关键帧</div><div class="mt-en">Keyframes</div><div class="mt-desc">一个属性给一串值依次经停过渡。</div></div>
+      </div>
+
+      <div class="mt-card c-inertia" data-g="motion">
+        <div class="mt-stage"><i class="in-box"></i></div>
+        <div class="mt-txt"><div class="mt-zh">惯性滑行</div><div class="mt-en">Inertia</div><div class="mt-desc">抛出后按速度衰减滑行到停。</div></div>
+      </div>
+
+      <div class="mt-card c-sharedlayout" data-g="motion">
+        <div class="mt-stage"><div class="sl2-row"><i class="sl2-hi"></i><i class="sl2-slot"></i><i class="sl2-slot"></i><i class="sl2-slot"></i></div></div>
+        <div class="mt-txt"><div class="mt-zh">共享布局</div><div class="mt-en">Shared Layout</div><div class="mt-desc">高亮块在选项间平滑迁移（layoutId）。</div></div>
+      </div>
+
     </div>
   </div>
 </main>
@@ -206,7 +310,7 @@ title: "常用 WEB 交互动效图鉴"
 .mt-replay{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--acc);background:none;border:1px solid var(--acc);
   border-radius:20px;padding:6px 15px;cursor:pointer;transition:background .15s}
 .mt-replay:hover{background:var(--accent-soft)}
-.mt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.mt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
 .mt-card{border:1px solid var(--rl);border-radius:10px;overflow:hidden;background:var(--paper)}
 .mt-stage{height:66px;overflow:hidden;background:var(--stg);position:relative;display:flex;align-items:center;justify-content:center}
 .mt-txt{padding:8px 11px 11px}
@@ -380,10 +484,127 @@ title: "常用 WEB 交互动效图鉴"
 .c-particles .pt:nth-child(6){width:4px;height:4px;left:26%;top:46%;opacity:.45;background:var(--tx);animation-delay:1.9s}
 @keyframes mt-drift{0%,100%{transform:translateY(7px)}50%{transform:translateY(-9px)}}
 
+/* ===== 进阶编排（借鉴 Motion.dev）===== */
+/* 27 独立变换 */
+.c-independent .id-box{width:26px;height:26px;border-radius:6px;background:var(--acc);animation:mt-indep 3.6s ease-in-out infinite}
+@keyframes mt-indep{0%{transform:translate(-14px,-7px) rotate(0deg) scale(1)}33%{transform:translate(14px,-6px) rotate(120deg) scale(1.2)}
+  66%{transform:translate(10px,8px) rotate(240deg) scale(.82)}100%{transform:translate(-14px,-7px) rotate(360deg) scale(1)}}
+
+/* 28 滚动联动 */
+.c-scrolllink .sl-svg{width:48px;height:48px}
+.c-scrolllink .sl-prog{stroke-dasharray:113;stroke-dashoffset:113;animation:mt-scrollp 2.8s cubic-bezier(.5,0,.5,1) infinite}
+@keyframes mt-scrollp{0%{stroke-dashoffset:113}55%,72%{stroke-dashoffset:6}100%{stroke-dashoffset:113}}
+
+/* 29 原生手势 */
+.c-gesture .mt-stage{cursor:pointer}
+.c-gesture .gs-box{width:34px;height:34px;border-radius:9px;background:var(--tx);transition:transform .25s var(--spring),background-color .2s}
+
+/* 30 布局动画 */
+.c-layout .ly{position:relative;width:64px;height:44px}
+.c-layout .lb{position:absolute;top:14px;width:16px;height:16px;border-radius:4px;background:var(--acc)}
+.c-layout .lb1{left:0;animation:mt-ly1 3.8s cubic-bezier(.7,0,.3,1) infinite}
+.c-layout .lb2{left:16px;animation:mt-ly2 3.8s cubic-bezier(.7,0,.3,1) infinite}
+.c-layout .lb3{left:32px;animation:mt-ly3 3.8s cubic-bezier(.7,0,.3,1) infinite}
+.c-layout .lb4{left:48px;animation:mt-ly4 3.8s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes mt-ly1{0%,32%{transform:none}50%,86%{transform:translate(12px,-13px)}100%{transform:none}}
+@keyframes mt-ly2{0%,32%{transform:none}50%,86%{transform:translate(14px,-13px)}100%{transform:none}}
+@keyframes mt-ly3{0%,32%{transform:none}50%,86%{transform:translate(-20px,11px)}100%{transform:none}}
+@keyframes mt-ly4{0%,32%{transform:none}50%,86%{transform:translate(-18px,11px)}100%{transform:none}}
+
+/* 31 弹簧物理 */
+.c-spring .sp-target{position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--rl)}
+.c-spring .sp-ball{position:relative;width:20px;height:20px;border-radius:50%;background:var(--acc);animation:mt-springx 2.6s infinite}
+@keyframes mt-springx{0%{transform:translateX(-32px)}25%{transform:translateX(8px)}38%{transform:translateX(-4px)}48%{transform:translateX(2px)}
+  56%,82%{transform:translateX(0)}100%{transform:translateX(-32px)}}
+
+/* 32 退场动画 */
+.c-exit .ex-item{width:46px;height:22px;border-radius:6px;background:var(--acc);animation:mt-exit 3s ease-in-out infinite}
+@keyframes mt-exit{0%{opacity:0;transform:translateX(-22px) scale(.9)}18%,52%{opacity:1;transform:none}80%,100%{opacity:0;transform:translateX(22px) scale(.9)}}
+
+/* 33 动值派生 */
+.c-motionvalue .mv-track{position:absolute;top:16px;left:50%;width:58px;height:4px;margin-left:-29px;border-radius:2px;background:var(--rl)}
+.c-motionvalue .mv-thumb{position:absolute;top:-4px;left:0;width:12px;height:12px;border-radius:50%;background:var(--acc);animation:mt-mvdrive 3s ease-in-out infinite}
+.c-motionvalue .mv-out{position:absolute;bottom:12px;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:5px;background:var(--tx);animation:mt-mvderive 3s ease-in-out infinite}
+@keyframes mt-mvdrive{0%,100%{transform:translateX(0)}50%{transform:translateX(46px)}}
+@keyframes mt-mvderive{0%,100%{transform:rotate(0deg) scale(.9);opacity:.5}50%{transform:rotate(180deg) scale(1.15);opacity:1}}
+
+/* ===== 再补一批（Motion.dev 真空白 + React Bits）===== */
+/* 34 拖拽 Drag */
+.c-drag .mt-stage{cursor:grab}
+.c-drag .mt-stage.grabbing{cursor:grabbing}
+.c-drag .dg-box{width:30px;height:30px;border-radius:8px;background:var(--acc);transition:transform .5s var(--spring);touch-action:none}
+
+/* 35 关键帧 Keyframes */
+.c-keyframes .kf-box{width:20px;height:20px;border-radius:5px;background:var(--acc);animation:mt-kf 3.4s ease-in-out infinite}
+@keyframes mt-kf{0%,10%{transform:translateX(-30px)}22%,37%{transform:translateX(-10px)}49%,64%{transform:translateX(12px)}76%,90%{transform:translateX(32px)}100%{transform:translateX(-30px)}}
+
+/* 36 惯性滑行 Inertia */
+.c-inertia .in-box{width:22px;height:22px;border-radius:50%;background:var(--acc);animation:mt-inertia 3.4s infinite}
+@keyframes mt-inertia{0%{transform:translateX(-42px);opacity:0}6%{opacity:1}45%{transform:translateX(24px)}70%,90%{transform:translateX(32px)}96%,100%{transform:translateX(-42px);opacity:0}}
+
+/* 37 共享布局 Shared Layout */
+.c-sharedlayout .sl2-row{position:relative;display:flex;gap:6px}
+.c-sharedlayout .sl2-slot{width:34px;height:22px;border-radius:6px;background:var(--rl)}
+.c-sharedlayout .sl2-hi{position:absolute;top:0;left:0;width:34px;height:22px;border-radius:6px;background:var(--acc);animation:mt-shared 3.6s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes mt-shared{0%,20%{transform:translateX(0)}33%,53%{transform:translateX(40px)}66%,86%{transform:translateX(80px)}100%{transform:translateX(0)}}
+
+/* 38 故障文字 Glitch */
+.c-glitch .gl-txt{position:relative;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--tx)}
+.c-glitch .gl-txt::before,.c-glitch .gl-txt::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden}
+.c-glitch .gl-txt::before{color:var(--acc);animation:mt-gl1 2.6s steps(2,end) infinite}
+.c-glitch .gl-txt::after{color:var(--mut);animation:mt-gl2 3.1s steps(2,end) infinite}
+@keyframes mt-gl1{0%,78%,100%{clip-path:inset(0 0 100% 0);transform:none}80%{clip-path:inset(10% 0 55% 0);transform:translate(-2px,-1px)}86%{clip-path:inset(60% 0 12% 0);transform:translate(2px,1px)}92%{clip-path:inset(30% 0 40% 0);transform:translate(-1px,1px)}}
+@keyframes mt-gl2{0%,82%,100%{clip-path:inset(0 0 100% 0);transform:none}84%{clip-path:inset(45% 0 25% 0);transform:translate(2px,1px)}90%{clip-path:inset(15% 0 60% 0);transform:translate(-2px,-1px)}}
+
+/* 39 数字递增 Count Up */
+.c-countup .cu-num{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--tx);font-variant-numeric:tabular-nums}
+
+/* 40 波浪 Waves */
+.c-waves .wv-lay{position:absolute;inset:0;width:200%;display:flex}
+.c-waves .wv-lay svg{width:50%;height:100%}
+.c-waves .wv-a{animation:mt-wave 3.4s linear infinite}
+.c-waves .wv-b{animation:mt-wave 2.4s linear infinite}
+@keyframes mt-wave{to{transform:translateX(-50%)}}
+
+/* 41 涟漪 Ripple */
+.c-ripple .rp{position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:2px solid var(--acc);opacity:0;animation:mt-ripple 2.4s ease-out infinite}
+.c-ripple .rp2{animation-delay:.8s}
+.c-ripple .rp3{animation-delay:1.6s}
+@keyframes mt-ripple{0%{transform:scale(.4);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+
+/* 42 光束 Beams */
+.c-beams .bm{position:absolute;top:-40%;bottom:-40%;width:22px;background:linear-gradient(var(--accent),transparent);opacity:.4;transform:skewX(-22deg)}
+.c-beams .bm1{animation:mt-beam 3.6s ease-in-out infinite}
+.c-beams .bm2{animation:mt-beam 3.6s ease-in-out infinite;animation-delay:-1.2s}
+.c-beams .bm3{animation:mt-beam 3.6s ease-in-out infinite;animation-delay:-2.4s}
+@keyframes mt-beam{0%{transform:skewX(-22deg) translateX(-50px)}100%{transform:skewX(-22deg) translateX(210px)}}
+
+/* 43 点击迸发 Click Spark */
+.c-clickspark .mt-stage{cursor:pointer}
+.c-clickspark .cs-core{width:14px;height:14px;border-radius:50%;background:var(--acc);animation:mt-cspulse 1.8s ease-in-out infinite}
+.c-clickspark .spark{position:absolute;width:5px;height:5px;border-radius:2px;background:var(--acc);pointer-events:none}
+@keyframes mt-cspulse{0%,100%{transform:scale(.85);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+
+/* 44 聚光跟随 Spotlight */
+.c-spotlight .mt-stage{cursor:pointer}
+.c-spotlight .sp2-panel{position:absolute;inset:0;background:var(--ink);opacity:.06}
+.c-spotlight .sp2-glow{position:absolute;left:50%;top:50%;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 68%);opacity:.5;transform:translate(-50%,-50%);pointer-events:none;transition:opacity .3s}
+
+/* 45 流光边框 Border Glow */
+.c-borderglow .bg-box{position:relative;width:86px;height:42px;border-radius:10px;overflow:hidden}
+.c-borderglow .bg-box::before{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent 0 68%,var(--acc) 84%,transparent 100%);animation:mt-bglow 2.6s linear infinite}
+.c-borderglow .bg-box::after{content:"";position:absolute;inset:2px;border-radius:8px;background:var(--stg)}
+@keyframes mt-bglow{to{transform:rotate(360deg)}}
+
 @media (prefers-reduced-motion:reduce){
   .mt .mt-stage *{animation:none!important}
   .c-type .tp-txt{width:5.4ch;border-color:transparent}
   .c-splittext .sp-ch{opacity:1;transform:none}
+  .c-exit .ex-item{opacity:1;transform:none}
+  .c-spring .sp-ball{transform:none}
+  .c-scrolllink .sl-prog{stroke-dashoffset:45}
+  .c-ripple .rp{opacity:.35;transform:scale(1.6)}
+  .c-glitch .gl-txt::before,.c-glitch .gl-txt::after{display:none}
   .c-stagger .st-dot,.c-blur .bl-txt{opacity:1;transform:none;filter:none}
   .c-wipe .wp-txt{clip-path:inset(0)}
   .c-draw .dr-path{stroke-dashoffset:0}
@@ -462,6 +683,51 @@ title: "常用 WEB 交互动效图鉴"
           reveal+=1/3;
           if(reveal>=target.length){ clearInterval(t); el.textContent=target; setTimeout(run,1500); }
         },55);
+      })();
+    });
+  }
+
+  // 29 原生手势（悬停放大 / 按下回缩）
+  var gs=root.querySelector('.c-gesture'); if(gs && !reduce){
+    var gStage=gs.querySelector('.mt-stage'), gBox=gs.querySelector('.gs-box'), pressing=false;
+    gStage.addEventListener('mouseenter',function(){ if(!pressing){ gBox.style.transform='scale(1.16)'; gBox.style.background='var(--accent)'; } });
+    gStage.addEventListener('mouseleave',function(){ pressing=false; gBox.style.transform=''; gBox.style.background=''; });
+    gStage.addEventListener('mousedown',function(){ pressing=true; gBox.style.transform='scale(.9)'; gBox.style.background='var(--accent)'; });
+    window.addEventListener('mouseup',function(){ if(pressing){ pressing=false; gBox.style.transform='scale(1.16)'; } });
+  }
+
+  // 34 拖拽 Drag（可拖 + 边界约束 + 松手弹回）
+  var drag=root.querySelector('.c-drag'); if(drag && !reduce){
+    var dStage=drag.querySelector('.mt-stage'), dBox=drag.querySelector('.dg-box'), dActive=false, dsx=0, dsy=0;
+    dBox.addEventListener('pointerdown',function(e){ dActive=true; dStage.classList.add('grabbing'); dBox.style.transition='none'; dsx=e.clientX; dsy=e.clientY; if(dBox.setPointerCapture)dBox.setPointerCapture(e.pointerId); e.preventDefault(); });
+    dBox.addEventListener('pointermove',function(e){ if(!dActive)return; var r=dStage.getBoundingClientRect(), mx=r.width/2-24, my=r.height/2-20;
+      var x=Math.max(-mx,Math.min(mx,e.clientX-dsx)), y=Math.max(-my,Math.min(my,e.clientY-dsy)); dBox.style.transform='translate('+x+'px,'+y+'px)'; });
+    dBox.addEventListener('pointerup',function(){ if(!dActive)return; dActive=false; dStage.classList.remove('grabbing'); dBox.style.transition=''; dBox.style.transform=''; });
+  }
+
+  // 43 点击迸发 Click Spark
+  var cspk=root.querySelector('.c-clickspark'); if(cspk && !reduce){
+    var csStage=cspk.querySelector('.mt-stage');
+    csStage.addEventListener('click',function(e){ var r=csStage.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+      for(var i=0;i<10;i++){ (function(ang){ var sp=document.createElement('i'); sp.className='spark'; sp.style.left=x+'px'; sp.style.top=y+'px'; csStage.appendChild(sp);
+        var d=20+(i%3)*6; sp.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:'translate(calc(-50% + '+(Math.cos(ang)*d)+'px),calc(-50% + '+(Math.sin(ang)*d)+'px)) scale(.3)',opacity:0}],{duration:480,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=function(){sp.remove();}; })(i/10*Math.PI*2); }
+    });
+  }
+
+  // 44 聚光跟随 Spotlight
+  var spot=root.querySelector('.c-spotlight'); if(spot && !reduce){
+    var spStage=spot.querySelector('.mt-stage'), glow=spot.querySelector('.sp2-glow');
+    spStage.addEventListener('mousemove',function(e){ var r=spStage.getBoundingClientRect(); glow.style.left=(e.clientX-r.left)+'px'; glow.style.top=(e.clientY-r.top)+'px'; glow.style.opacity='.62'; });
+    spStage.addEventListener('mouseleave',function(){ glow.style.left='50%'; glow.style.top='50%'; glow.style.opacity='.5'; });
+  }
+
+  // 39 数字递增 Count Up
+  if(!reduce){
+    [].forEach.call(root.querySelectorAll('.c-countup .cu-num'),function(el){
+      var to=+(el.getAttribute('data-to')||el.textContent)||100;
+      (function run(){ var i=0, steps=48; el.textContent='0';
+        var t=setInterval(function(){ i++; var p=i/steps; el.textContent=Math.round(to*(1-Math.pow(1-p,3)));
+          if(i>=steps){ clearInterval(t); el.textContent=String(to); setTimeout(run,1400); } },30);
       })();
     });
   }
