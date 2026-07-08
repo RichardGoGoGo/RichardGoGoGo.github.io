@@ -106,8 +106,12 @@
   .num .nv small { font-size: 12px; font-weight: 650; color: var(--muted); margin-left: 2px; }
   .num .nl { font-size: 11px; color: var(--faint); line-height: 1.45; }
 
-  /* 落地案例（可复用：加案例=复制一个 .case-card；紧凑概览，点击展开） */
-  .cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
+  /* 落地案例（横向单行 + 自动滚动；加案例=复制一个 .case-card） */
+  .cases { display: flex; gap: 14px; align-items: start; overflow-x: auto; padding: 2px 2px 10px; scroll-snap-type: x proximity; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+  .cases::-webkit-scrollbar { height: 7px; }
+  .cases::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; }
+  .cases::-webkit-scrollbar-track { background: transparent; }
+  .cases > details.case-card, .cases > .case-soon { flex: 0 0 clamp(270px, 80vw, 330px); scroll-snap-align: start; }
   details.case-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); position: relative; overflow: hidden; }
   details.case-card::before { content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--violet), var(--teal)); z-index: 1; }
   details.case-card > summary { list-style: none; cursor: pointer; padding: 15px 18px; display: flex; flex-direction: column; gap: 6px; }
@@ -239,7 +243,7 @@
     .um-wrap, .drop, .paper, .spin, .lt1, .lt2, .lt3, .sprout, .rf { animation: none !important; }
   }
   @media (max-width: 720px) {
-    .pillars, .promises, .cases { grid-template-columns: 1fr; }
+    .pillars, .promises { grid-template-columns: 1fr; }
     .gets, .fit, .minis { grid-template-columns: 1fr; }
     .nums { grid-template-columns: 1fr 1fr; }
     .step { grid-template-columns: 36px 1fr; }
@@ -567,6 +571,31 @@
     cur = MODES[(i + 1) % MODES.length].k;
     save(cur); apply(cur);
   });
+
+  // 落地案例：横向缓慢来回自动滚动（悬停/展开/触摸/键盘时暂停；prefers-reduced-motion 关闭）
+  var row = document.querySelector('.cases');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (row && !reduce) {
+    var pos = 0, dir = 1, hold = false, SPEED = 0.5;
+    function maxScroll(){ return row.scrollWidth - row.clientWidth; }
+    function paused(){ return hold || row.querySelector('details.case-card[open]') || maxScroll() <= 2; }
+    function tick(){
+      if (paused()) {
+        pos = row.scrollLeft;               // 暂停时同步累加器，尊重用户手动滚动位置
+      } else {
+        var m = maxScroll();
+        pos += dir * SPEED;                 // 用浮点累加器驱动，避免 scrollLeft 亚像素取整卡死
+        if (pos >= m) { pos = m; dir = -1; }
+        else if (pos <= 0) { pos = 0; dir = 1; }
+        row.scrollLeft = pos;
+      }
+      requestAnimationFrame(tick);
+    }
+    ['mouseenter','focusin','pointerdown','touchstart'].forEach(function(ev){ row.addEventListener(ev, function(){ hold = true; }, {passive:true}); });
+    ['mouseleave','focusout'].forEach(function(ev){ row.addEventListener(ev, function(){ hold = false; }); });
+    var resume; row.addEventListener('touchend', function(){ clearTimeout(resume); resume = setTimeout(function(){ hold = false; }, 1800); });
+    requestAnimationFrame(tick);
+  }
 })();
 </script>
 </body>
