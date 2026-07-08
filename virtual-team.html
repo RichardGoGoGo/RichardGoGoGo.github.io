@@ -106,6 +106,29 @@
   .num .nv small { font-size: 12px; font-weight: 650; color: var(--muted); margin-left: 2px; }
   .num .nl { font-size: 11px; color: var(--faint); line-height: 1.45; }
 
+  /* 落地案例（可复用：加案例=复制一个 .case-card；紧凑概览，点击展开） */
+  .cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
+  details.case-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  details.case-card::before { content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--violet), var(--teal)); z-index: 1; }
+  details.case-card > summary { list-style: none; cursor: pointer; padding: 15px 18px; display: flex; flex-direction: column; gap: 6px; }
+  details.case-card > summary::-webkit-details-marker { display: none; }
+  details.case-card > summary:focus-visible { outline: 2px solid var(--violet); outline-offset: -2px; }
+  .case-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--teal); }
+  .case-card h3 { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -.01em; line-height: 1.35; text-wrap: balance; }
+  .case-oneline { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .case-more { font-size: 10.5px; color: var(--faint); font-weight: 650; margin-top: 1px; }
+  details.case-card[open] .case-more .cm-o { display: none; }
+  details.case-card:not([open]) .case-more .cm-c { display: none; }
+  .case-body { padding: 0 18px 16px; display: flex; flex-direction: column; gap: 10px; border-top: 1px dashed var(--line); }
+  .case-body > :first-child { margin-top: 12px; }
+  .case-need, .case-did { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin: 0; }
+  .case-need b, .case-did b { color: var(--ink); font-weight: 700; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .case-tag { font-size: 10.5px; font-weight: 650; padding: 3px 9px; border-radius: 999px; background: color-mix(in srgb, var(--line) 40%, transparent); border: 1px solid var(--line); color: var(--muted); }
+  .case-foot { font-size: 11px; color: var(--faint); border-top: 1px dashed var(--line); padding-top: 8px; line-height: 1.55; }
+  .case-soon { border: 1px dashed var(--line-strong); border-radius: var(--r); background: var(--panel); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--faint); padding: 20px; min-height: 92px; }
+  .case-soon .cs-plus { font-size: 22px; margin-bottom: 4px; }
+
   .steps { display: flex; flex-direction: column; counter-reset: step; }
   .step { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; padding: 15px 4px; border-bottom: 1px dashed var(--line); align-items: baseline; }
   .step:last-child { border-bottom: none; }
@@ -216,7 +239,7 @@
     .um-wrap, .drop, .paper, .spin, .lt1, .lt2, .lt3, .sprout, .rf { animation: none !important; }
   }
   @media (max-width: 720px) {
-    .pillars, .promises { grid-template-columns: 1fr; }
+    .pillars, .promises, .cases { grid-template-columns: 1fr; }
     .gets, .fit, .minis { grid-template-columns: 1fr; }
     .nums { grid-template-columns: 1fr 1fr; }
     .step { grid-template-columns: 36px 1fr; }
@@ -394,6 +417,35 @@
   </section>
 
   <section>
+    <h2>落地案例</h2>
+    <p class="sec-sub">除了自己用，我们也在为客户搭他们专属的数字团队</p>
+    <div class="cases">
+      <details class="case-card">
+        <summary>
+          <span class="case-eyebrow">AI 绘画创作 · 锐颂科技「绘世」</span>
+          <h3>给追前沿的团队，配一支"论文雷达 + 复现"数字班组</h3>
+          <span class="case-oneline">每周自动追 AI 绘画前沿论文、按产品方向评级、出复现看板，他们只管拍板。</span>
+          <span class="case-more"><span class="cm-c">▸ 展开详情</span><span class="cm-o">▾ 收起</span></span>
+        </summary>
+        <div class="case-body">
+          <p class="case-need"><b>痛点</b>：产品要追 AI 绘画前沿，得有人不停盯最新论文、判断哪些能用、再把可用的做复现——高度依赖某个人，且判断与落地之间总断层。</p>
+          <p class="case-did"><b>我们做的</b>：用「赛博工头」框架搭了一支数字研发团队——论文哨兵每周自动扫 arXiv、按他们的产品方向筛选评级、生成一块复现看板；他们只在看板上拍板"哪篇值得复现"，复现工程师随即开工。</p>
+          <div class="case-tags">
+            <span class="case-tag">论文哨兵</span>
+            <span class="case-tag">复现看板</span>
+            <span class="case-tag">复现工程师</span>
+            <span class="case-tag">档案管理员</span>
+          </div>
+          <p class="case-foot">交付：一个归客户所有的 git 仓库 + 网页看板；接他们自己的 AI 引擎每周自动产出、人审合并。资产与记忆全在他们手里，随时可迁移。</p>
+        </div>
+      </details>
+      <div class="case-soon">
+        <div class="cs-plus">＋</div>更多案例陆续加入
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2>怎么合作</h2>
     <p class="sec-sub">四步交付，每步有明确产出</p>
     <div class="steps">
@@ -443,7 +495,7 @@
 
   <section class="cta">
     <h2>目前阶段</h2>
-    <p>系统在我们自己的公司验证运行中。现开放<b>种子共建合作</b>：以优惠条件参与，换取你的真实场景反馈与案例授权。</p>
+    <p>系统在小范围合作公司验证运行中。现开放<b>种子共建合作</b>：以优惠条件参与，换取你的真实场景反馈与案例授权。</p>
     <span class="seed"><span class="sprout">🌱</span> 种子共建 · 开放中</span>
   </section>
 
