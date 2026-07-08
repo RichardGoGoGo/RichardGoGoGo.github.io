@@ -106,32 +106,33 @@
   .num .nv small { font-size: 12px; font-weight: 650; color: var(--muted); margin-left: 2px; }
   .num .nl { font-size: 11px; color: var(--faint); line-height: 1.45; }
 
-  /* 落地案例（横向单行 + 自动滚动；加案例=复制一个 .case-card） */
-  .cases { display: flex; gap: 14px; align-items: start; overflow-x: auto; padding: 2px 2px 10px; scroll-snap-type: x proximity; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
-  .cases::-webkit-scrollbar { height: 7px; }
-  .cases::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; }
-  .cases::-webkit-scrollbar-track { background: transparent; }
-  .cases > details.case-card, .cases > .case-soon { flex: 0 0 clamp(270px, 80vw, 330px); scroll-snap-align: start; }
-  details.case-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); position: relative; overflow: hidden; }
-  details.case-card::before { content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--violet), var(--teal)); z-index: 1; }
-  details.case-card > summary { list-style: none; cursor: pointer; padding: 15px 18px; display: flex; flex-direction: column; gap: 6px; }
-  details.case-card > summary::-webkit-details-marker { display: none; }
-  details.case-card > summary:focus-visible { outline: 2px solid var(--violet); outline-offset: -2px; }
+  /* 落地案例（分页轮播：左卡片 右评价；加案例=复制一个 .cc-slide 并 dots +1） */
+  .carousel { position: relative; }
+  .cc-viewport { overflow: hidden; border-radius: var(--r); }
+  .cc-track { display: flex; transition: transform .42s cubic-bezier(.4,0,.2,1); }
+  .cc-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: 1.05fr .95fr; gap: 14px; }
+  .cc-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px 20px; display: flex; flex-direction: column; gap: 9px; position: relative; overflow: hidden; }
+  .cc-card::before { content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--violet), var(--teal)); }
   .case-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--teal); }
-  .case-card h3 { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -.01em; line-height: 1.35; text-wrap: balance; }
-  .case-oneline { font-size: 12px; color: var(--muted); line-height: 1.5; }
-  .case-more { font-size: 10.5px; color: var(--faint); font-weight: 650; margin-top: 1px; }
-  details.case-card[open] .case-more .cm-o { display: none; }
-  details.case-card:not([open]) .case-more .cm-c { display: none; }
-  .case-body { padding: 0 18px 16px; display: flex; flex-direction: column; gap: 10px; border-top: 1px dashed var(--line); }
-  .case-body > :first-child { margin-top: 12px; }
-  .case-need, .case-did { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin: 0; }
-  .case-need b, .case-did b { color: var(--ink); font-weight: 700; }
-  .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cc-card h3 { margin: 0; font-size: 15.5px; font-weight: 800; letter-spacing: -.01em; line-height: 1.35; text-wrap: balance; }
+  .cc-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin: 0; }
+  .cc-desc b { color: var(--ink); font-weight: 700; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1px; }
   .case-tag { font-size: 10.5px; font-weight: 650; padding: 3px 9px; border-radius: 999px; background: color-mix(in srgb, var(--line) 40%, transparent); border: 1px solid var(--line); color: var(--muted); }
-  .case-foot { font-size: 11px; color: var(--faint); border-top: 1px dashed var(--line); padding-top: 8px; line-height: 1.55; }
-  .case-soon { border: 1px dashed var(--line-strong); border-radius: var(--r); background: var(--panel); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--faint); padding: 20px; min-height: 92px; }
-  .case-soon .cs-plus { font-size: 22px; margin-bottom: 4px; }
+  .cc-foot { font-size: 11px; color: var(--faint); border-top: 1px dashed var(--line); padding-top: 8px; margin-top: auto; line-height: 1.55; }
+  .cc-quote { background: color-mix(in srgb, var(--violet) 6%, var(--panel)); border: 1px solid color-mix(in srgb, var(--violet) 22%, var(--line)); border-radius: var(--r); box-shadow: var(--shadow); padding: 20px 22px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+  .cc-quote .qm { font-family: Georgia, "Times New Roman", serif; font-size: 40px; line-height: .6; color: color-mix(in srgb, var(--violet) 55%, var(--faint)); height: 20px; }
+  .cc-quote p { margin: 0; font-size: 14px; color: var(--ink); line-height: 1.7; font-weight: 500; }
+  .cc-by { font-size: 11.5px; color: var(--muted); font-weight: 650; }
+  .cc-by::before { content: "— "; color: var(--faint); }
+  .cc-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
+  .cc-arrow { appearance: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--panel); color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow); }
+  .cc-arrow:hover { border-color: var(--violet); color: var(--violet); }
+  .cc-arrow:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+  .cc-dots { display: flex; gap: 8px; align-items: center; }
+  .cc-dot { appearance: none; width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; background: var(--line-strong); cursor: pointer; transition: width .2s, background .2s; }
+  .cc-dot.on { width: 20px; border-radius: 999px; background: linear-gradient(90deg, var(--violet), var(--teal)); }
+  .cc-dot:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
 
   .steps { display: flex; flex-direction: column; counter-reset: step; }
   .step { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; padding: 15px 4px; border-bottom: 1px dashed var(--line); align-items: baseline; }
@@ -192,6 +193,25 @@
   .sprout { display: inline-block; animation: sway 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
   @keyframes sway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
 
+  /* 步骤 / 承诺 的动态小图标 */
+  .mini-ic { display: inline-flex; width: 20px; height: 20px; flex: none; margin-right: 7px; vertical-align: -3px; }
+  .mini-ic svg { width: 100%; height: 100%; overflow: visible; }
+  .mi { fill: none; stroke: var(--violet); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .mi.te { stroke: var(--teal); }
+  .mi-spin { animation: micspin 7s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
+  .mi-pulse { animation: micpulse 2.6s ease-in-out infinite; transform-origin: 50% 50%; transform-box: fill-box; }
+  .mi-bob { animation: micbob 3s ease-in-out infinite; }
+  .mi-dash { stroke-dasharray: 3 4; animation: micdash 1.6s linear infinite; }
+  .mi-blink1 { animation: miblink 3s infinite; } .mi-blink2 { animation: miblink 3s infinite 1s; } .mi-blink3 { animation: miblink 3s infinite 2s; }
+  .mi-swing { animation: miswing 3.2s ease-in-out infinite; transform-origin: 50% 20%; transform-box: fill-box; }
+  @keyframes micspin { to { transform: rotate(360deg); } }
+  @keyframes micpulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.15); opacity: .65; } }
+  @keyframes micbob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes micdash { to { stroke-dashoffset: -14; } }
+  @keyframes miblink { 0%,20% { opacity: 1; } 45%,100% { opacity: .2; } }
+  @keyframes miswing { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+  @media (prefers-reduced-motion: reduce) { .mi-spin,.mi-pulse,.mi-bob,.mi-dash,.mi-blink1,.mi-blink2,.mi-blink3,.mi-swing { animation: none !important; } }
+
   /* ===== 管理台界面示意（内嵌矢量"截图"） ===== */
   .shot { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; margin: 0; }
   .shot .bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--panel2); }
@@ -244,6 +264,7 @@
   }
   @media (max-width: 720px) {
     .pillars, .promises { grid-template-columns: 1fr; }
+    .cc-slide { grid-template-columns: 1fr; }
     .gets, .fit, .minis { grid-template-columns: 1fr; }
     .nums { grid-template-columns: 1fr 1fr; }
     .step { grid-template-columns: 36px 1fr; }
@@ -423,69 +444,49 @@
   <section>
     <h2>落地案例</h2>
     <p class="sec-sub">除了自己用，我们也在为客户搭他们专属的数字团队</p>
-    <div class="cases">
-      <details class="case-card">
-        <summary>
-          <span class="case-eyebrow">AI 绘画创作 · 锐颂科技「绘世」</span>
-          <h3>给追前沿的团队，配一支"论文雷达 + 复现"数字班组</h3>
-          <span class="case-oneline">每周自动追 AI 绘画前沿论文、按产品方向评级、出复现看板，他们只管拍板。</span>
-          <span class="case-more"><span class="cm-c">▸ 展开详情</span><span class="cm-o">▾ 收起</span></span>
-        </summary>
-        <div class="case-body">
-          <p class="case-need"><b>痛点</b>：产品要追 AI 绘画前沿，得有人不停盯最新论文、判断哪些能用、再把可用的做复现——高度依赖某个人，且判断与落地之间总断层。</p>
-          <p class="case-did"><b>我们做的</b>：用「赛博工头」框架搭了一支数字研发团队——论文哨兵每周自动扫 arXiv、按他们的产品方向筛选评级、生成一块复现看板；他们只在看板上拍板"哪篇值得复现"，复现工程师随即开工。</p>
-          <div class="case-tags">
-            <span class="case-tag">论文哨兵</span>
-            <span class="case-tag">复现看板</span>
-            <span class="case-tag">复现工程师</span>
-            <span class="case-tag">档案管理员</span>
-          </div>
-          <p class="case-foot">交付：一个归客户所有的 git 仓库 + 网页看板；接他们自己的 AI 引擎每周自动产出、人审合并。资产与记忆全在他们手里，随时可迁移。</p>
-        </div>
-      </details>
+    <div class="carousel" id="caseCarousel">
+      <div class="cc-viewport">
+        <div class="cc-track">
 
-      <details class="case-card">
-        <summary>
-          <span class="case-eyebrow">建筑设计 · 不论建筑</span>
-          <h3>把"找投标 → 出草案"这段，交给一支数字投标班组</h3>
-          <span class="case-oneline">自动抓招投标/竞赛机会、评估匹配度，命中即出方案草案与文本，设计师审定后投递。</span>
-          <span class="case-more"><span class="cm-c">▸ 展开详情</span><span class="cm-o">▾ 收起</span></span>
-        </summary>
-        <div class="case-body">
-          <p class="case-need"><b>痛点</b>：投标与设计竞赛机会散落在各处、靠人天天盯，错过就少一单；从发现机会到出一版能投的草案与文本，又慢又费人。</p>
-          <p class="case-did"><b>我们做的</b>：搭了一支"机会雷达 + 草案起草"数字班组——机会哨兵自动抓取招投标/竞赛信息、按公司资质与方向评估匹配度、生成机会看板；命中的项目直接起草方案框架与文本，<b>设计师审定修改后投递</b>。</p>
-          <div class="case-tags">
-            <span class="case-tag">招投标雷达</span>
-            <span class="case-tag">机会评估</span>
-            <span class="case-tag">草案起草</span>
-            <span class="case-tag">设计师审定</span>
+          <div class="cc-slide">
+            <div class="cc-card">
+              <span class="case-eyebrow">AI 绘画创作 · 锐颂科技「绘世」</span>
+              <h3>给追前沿的团队，配一支"论文雷达 + 复现"数字班组</h3>
+              <p class="cc-desc"><b>痛点</b>：追 AI 绘画前沿高度依赖某个人不停盯论文、判断、复现，判断与落地之间总断层。<br><b>我们做的</b>：论文哨兵每周自动扫 arXiv、按产品方向筛选评级、出复现看板；他们只在看板上拍板，复现工程师随即开工。</p>
+              <div class="case-tags"><span class="case-tag">论文哨兵</span><span class="case-tag">复现看板</span><span class="case-tag">复现工程师</span><span class="case-tag">档案管理员</span></div>
+              <p class="cc-foot">交付：归客户所有的 git 仓库 + 网页看板；接他们自己的 AI 每周自动产出、人审合并，资产随时可迁移。</p>
+            </div>
+            <blockquote class="cc-quote"><span class="qm">“</span><p>以前追前沿全靠一个人硬扛，现在每周打开看板就知道该看什么、值得复现什么——团队从"盯论文"里解放出来了。</p><span class="cc-by">锐颂科技「绘世」团队</span></blockquote>
           </div>
-          <p class="case-foot">交付：归客户所有的机会台账 + 草案库；"发现机会 → 可投草案"由数字班组跑通，人只做评估拍板与审定把关。</p>
-        </div>
-      </details>
 
-      <details class="case-card">
-        <summary>
-          <span class="case-eyebrow">文化科技 · 科敏思信息科技</span>
-          <h3>文化展演项目雷达，接需求即按类型出方案</h3>
-          <span class="case-oneline">持续追踪文化展演类项目机会，按项目要求类型快速产出对口方案框架与文本。</span>
-          <span class="case-more"><span class="cm-c">▸ 展开详情</span><span class="cm-o">▾ 收起</span></span>
-        </summary>
-        <div class="case-body">
-          <p class="case-need"><b>痛点</b>：文化展演类项目机会分散、类型多样（展览/演出/文旅…）；接到需求后要快速出对口的方案与文本，靠人逐次整理既慢又难标准化。</p>
-          <p class="case-did"><b>我们做的</b>：落地了一个"项目雷达 + 方案生成"工作流——项目哨兵追踪文化展演类项目机会，<b>按项目要求类型匹配</b>；命中后结合类型快速产出方案框架与文本，人审定后交付。</p>
-          <div class="case-tags">
-            <span class="case-tag">项目雷达</span>
-            <span class="case-tag">类型匹配</span>
-            <span class="case-tag">方案生成</span>
-            <span class="case-tag">人工审定</span>
+          <div class="cc-slide">
+            <div class="cc-card">
+              <span class="case-eyebrow">建筑设计 · 不论建筑</span>
+              <h3>把"找投标 → 出草案"这段，交给一支数字投标班组</h3>
+              <p class="cc-desc"><b>痛点</b>：投标/竞赛机会散落各处、靠人天天盯，错过就少一单；从发现到出可投草案又慢又费人。<br><b>我们做的</b>：机会哨兵自动抓招投标/竞赛信息、按资质与方向评估匹配、出机会看板；命中项目直接起草方案与文本，设计师审定修改后投递。</p>
+              <div class="case-tags"><span class="case-tag">招投标雷达</span><span class="case-tag">机会评估</span><span class="case-tag">草案起草</span><span class="case-tag">设计师审定</span></div>
+              <p class="cc-foot">交付：归客户所有的机会台账 + 草案库；"发现机会 → 可投草案"跑通，人只做评估拍板与审定把关。</p>
+            </div>
+            <blockquote class="cc-quote"><span class="qm">“</span><p>投标机会不用再靠人天天扒，命中的直接有草案打底，设计师改改就能投，接项目的节奏明显快了。</p><span class="cc-by">不论建筑</span></blockquote>
           </div>
-          <p class="case-foot">交付：归客户所有的项目台账 + 按类型的方案模板库；从"抓到机会"到"对口方案初稿"数字班组跑通，人审定把关。</p>
-        </div>
-      </details>
 
-      <div class="case-soon">
-        <div class="cs-plus">＋</div>更多案例陆续加入
+          <div class="cc-slide">
+            <div class="cc-card">
+              <span class="case-eyebrow">文化科技 · 科敏思信息科技</span>
+              <h3>文化展演项目雷达，接需求即按类型出方案</h3>
+              <p class="cc-desc"><b>痛点</b>：文化展演项目机会分散、类型多样（展览/演出/文旅…），接到需求要快速出对口方案，靠人整理慢且难标准化。<br><b>我们做的</b>：项目哨兵追踪机会、按项目要求类型匹配；命中后结合类型快速产出方案框架与文本，人审定后交付。</p>
+              <div class="case-tags"><span class="case-tag">项目雷达</span><span class="case-tag">类型匹配</span><span class="case-tag">方案生成</span><span class="case-tag">人工审定</span></div>
+              <p class="cc-foot">交付：归客户所有的项目台账 + 按类型的方案模板库；"抓到机会 → 对口方案初稿"跑通，人审定把关。</p>
+            </div>
+            <blockquote class="cc-quote"><span class="qm">“</span><p>接到需求很快就能出一版对口的方案初稿，我们把精力放回到打磨创意本身。</p><span class="cc-by">科敏思信息科技</span></blockquote>
+          </div>
+
+        </div>
+      </div>
+      <div class="cc-nav">
+        <button class="cc-arrow" data-cc="prev" aria-label="上一个案例">‹</button>
+        <div class="cc-dots" role="tablist"></div>
+        <button class="cc-arrow" data-cc="next" aria-label="下一个案例">›</button>
       </div>
     </div>
   </section>
@@ -494,10 +495,10 @@
     <h2>怎么合作</h2>
     <p class="sec-sub">四步交付，每步有明确产出</p>
     <div class="steps">
-      <div class="step"><span class="sn"></span><div><h3>诊断工作坊</h3><p>到你团队里坐一天：盘点现有工作流程，用评分标尺判断哪些环节值得 AI 化、预期省多少人时——先想清楚，再动手。</p></div><span class="sd">1–2 天</span></div>
-      <div class="step"><span class="sn"></span><div><h3>梳理与定义</h3><p>和你的运营者一起，把选中的流程写成你们自己的"工位+角色+工作流"文档体系——从第一天起就建在你们的仓库里。</p></div><span class="sd">2–4 天</span></div>
-      <div class="step"><span class="sn"></span><div><h3>落地部署</h3><p>接上你们自己的 AI 账号，部署管理台，例行任务跑起来。我们陪跑试运行，把 AI 的产出质量调到你点头为止。</p></div><span class="sd">2–4 天</span></div>
-      <div class="step"><span class="sn"></span><div><h3>内化与交接</h3><p>培训你的运营者独立掌盘：审批、调整、扩展。之后可选按月轻量陪跑，或完全自主运营。</p></div><span class="sd">1–2 周</span></div>
+      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle class="mi" cx="10" cy="10" r="6"/><line class="mi" x1="14.5" y1="14.5" x2="20" y2="20"/><circle class="mi te mi-pulse" cx="10" cy="10" r="2.6"/></svg></span>诊断工作坊</h3><p>到你团队里坐一天：盘点现有工作流程，用评分标尺判断哪些环节值得 AI 化、预期省多少人时——先想清楚，再动手。</p></div><span class="sd">1–2 天</span></div>
+      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle class="mi" cx="5" cy="12" r="2.2"/><circle class="mi te" cx="18" cy="6" r="2.2"/><circle class="mi te" cx="18" cy="18" r="2.2"/><path class="mi mi-dash" d="M7 11 L16 7 M7 13 L16 17"/></svg></span>梳理与定义</h3><p>和你的运营者一起，把选中的流程写成你们自己的"工位+角色+工作流"文档体系——从第一天起就建在你们的仓库里。</p></div><span class="sd">2–4 天</span></div>
+      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="mi-spin"><circle class="mi" cx="12" cy="12" r="3.2"/><path class="mi" d="M12 3.5 V6 M12 18 V20.5 M3.5 12 H6 M18 12 H20.5 M6 6 L7.8 7.8 M16.2 16.2 L18 18 M18 6 L16.2 7.8 M7.8 16.2 L6 18"/></g></svg></span>落地部署</h3><p>接上你们自己的 AI 账号，部署管理台，例行任务跑起来。我们陪跑试运行，把 AI 的产出质量调到你点头为止。</p></div><span class="sd">2–4 天</span></div>
+      <div class="step"><span class="sn"></span><div><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mi mi-bob" d="M3 9 L12 5.5 L21 9 L12 12.5 Z"/><path class="mi" d="M7 11 V15 C7 16.6 17 16.6 17 15 V11"/><line class="mi te" x1="21" y1="9" x2="21" y2="13.5"/></svg></span>内化与交接</h3><p>培训你的运营者独立掌盘：审批、调整、扩展。之后可选按月轻量陪跑，或完全自主运营。</p></div><span class="sd">1–2 周</span></div>
     </div>
   </section>
 
@@ -524,9 +525,9 @@
     <h2>三条写进合同的承诺</h2>
     <p class="sec-sub">也是这套系统区别于所有平台型产品的地方</p>
     <div class="promises">
-      <div class="promise"><h3>资产归你</h3><p>全部组织文档存于你自有仓库，交付即拥有；解约不失能力，随时带走。</p></div>
-      <div class="promise"><h3>引擎不锁定</h3><p>用你自己的 AI 账号；文档体系兼容开放标准，换供应商时我们提供迁移方案。</p></div>
-      <div class="promise"><h3>人始终把关</h3><p>系统的任何对外动作（发布/提交/投稿）必经人工确认，绝不代按发送键。</p></div>
+      <div class="promise"><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect class="mi" x="4" y="5" width="16" height="14" rx="2"/><circle class="mi te mi-spin" cx="12" cy="12" r="3.4"/><line class="mi te" x1="12" y1="12" x2="12" y2="8.9"/></svg></span>资产归你</h3><p>全部组织文档存于你自有仓库，交付即拥有；解约不失能力，随时带走。</p></div>
+      <div class="promise"><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect class="mi" x="5" y="11" width="14" height="9" rx="2"/><path class="mi mi-swing" d="M8 11 V8 a4 4 0 0 1 7 -2.6"/><circle class="mi te mi-pulse" cx="12" cy="15.5" r="1.5"/></svg></span>引擎不锁定</h3><p>用你自己的 AI 账号；文档体系兼容开放标准，换供应商时我们提供迁移方案。</p></div>
+      <div class="promise"><h3><span class="mini-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mi" d="M12 3 L20 6 V12 C20 16.5 16.5 19.5 12 21 C7.5 19.5 4 16.5 4 12 V6 Z"/><path class="mi te mi-pulse" d="M8.5 12 l2.3 2.3 L15.2 9.8"/></svg></span>人始终把关</h3><p>系统的任何对外动作（发布/提交/投稿）必经人工确认，绝不代按发送键。</p></div>
     </div>
   </section>
 
@@ -572,29 +573,33 @@
     save(cur); apply(cur);
   });
 
-  // 落地案例：横向缓慢来回自动滚动（悬停/展开/触摸/键盘时暂停；prefers-reduced-motion 关闭）
-  var row = document.querySelector('.cases');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (row && !reduce) {
-    var pos = 0, dir = 1, hold = false, SPEED = 0.5;
-    function maxScroll(){ return row.scrollWidth - row.clientWidth; }
-    function paused(){ return hold || row.querySelector('details.case-card[open]') || maxScroll() <= 2; }
-    function tick(){
-      if (paused()) {
-        pos = row.scrollLeft;               // 暂停时同步累加器，尊重用户手动滚动位置
-      } else {
-        var m = maxScroll();
-        pos += dir * SPEED;                 // 用浮点累加器驱动，避免 scrollLeft 亚像素取整卡死
-        if (pos >= m) { pos = m; dir = -1; }
-        else if (pos <= 0) { pos = 0; dir = 1; }
-        row.scrollLeft = pos;
-      }
-      requestAnimationFrame(tick);
+  // 落地案例：分页轮播（左右箭头 + 圆点；无自动滚动）
+  var cc = document.getElementById('caseCarousel');
+  if (cc) {
+    var track = cc.querySelector('.cc-track');
+    var slides = cc.querySelectorAll('.cc-slide');
+    var dotsWrap = cc.querySelector('.cc-dots');
+    var n = slides.length, idx = 0;
+    for (var s = 0; s < n; s++) {
+      var dot = document.createElement('button');
+      dot.className = 'cc-dot' + (s === 0 ? ' on' : '');
+      dot.setAttribute('aria-label', '第 ' + (s + 1) + ' 个案例');
+      dot.dataset.i = s;
+      dotsWrap.appendChild(dot);
     }
-    ['mouseenter','focusin','pointerdown','touchstart'].forEach(function(ev){ row.addEventListener(ev, function(){ hold = true; }, {passive:true}); });
-    ['mouseleave','focusout'].forEach(function(ev){ row.addEventListener(ev, function(){ hold = false; }); });
-    var resume; row.addEventListener('touchend', function(){ clearTimeout(resume); resume = setTimeout(function(){ hold = false; }, 1800); });
-    requestAnimationFrame(tick);
+    var dots = dotsWrap.querySelectorAll('.cc-dot');
+    function go(i) {
+      idx = (i + n) % n;
+      track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('on', d === idx);
+    }
+    cc.querySelector('[data-cc="prev"]').addEventListener('click', function(){ go(idx - 1); });
+    cc.querySelector('[data-cc="next"]').addEventListener('click', function(){ go(idx + 1); });
+    dotsWrap.addEventListener('click', function(e){ var b = e.target.closest('.cc-dot'); if (b) go(+b.dataset.i); });
+    // 触摸滑动
+    var x0 = null;
+    cc.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    cc.addEventListener('touchend', function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1)); x0 = null; });
   }
 })();
 </script>
