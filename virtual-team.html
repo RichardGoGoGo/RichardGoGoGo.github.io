@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>赛博资本家 · 给你的公司配一支写在文件里的 AI 团队 — 浅译万道实验室</title>
+<meta name="description" content="浅译万道实验室「赛博资本家」：帮小团队与科研课题组把重复性内容、运营与学术支撑工作交给一套可视、可控、随时能换 AI 供应商的虚拟团队系统。组织即文件，资产归你。">
+<meta property="og:title" content="赛博资本家 — 给你的公司，配一支写在文件里的 AI 团队">
+<meta property="og:description" content="组织即文件 · 引擎随租随换 · 人把最后一道关——浅译万道「赛博资本家」产品说明">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    color-scheme: light dark;
+    --violet: #9B4DCA; --teal: #128a8a;
+    --bg: #F1EFF5; --panel: #FFFFFF; --panel2: #FAF8FC;
+    --line: #E3DEEC; --line-strong: #D2CADF;
+    --ink: #221D2C; --muted: #5C5470; --faint: #8A8299;
+    --good: #2E9E6B; --warn: #B67B08; --crit: #D0454B;
+    --r: 14px;
+    --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --shadow: 0 1px 2px rgba(30,20,45,.04), 0 8px 24px -14px rgba(30,20,45,.16);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --violet: #C79BE6; --teal: #7FDCDC;
+      --bg: #100D16; --panel: #1B1725; --panel2: #211C2D;
+      --line: #2E2740; --line-strong: #3B3350;
+      --ink: #ECE8F2; --muted: #B4ACC4; --faint: #857C99;
+      --good: #4FC28C; --warn: #E0A23C; --crit: #F0686E;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -18px rgba(0,0,0,.6);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans); color: var(--ink);
+    background:
+      radial-gradient(1000px 460px at 85% -6%, color-mix(in srgb, var(--violet) 15%, transparent), transparent 60%),
+      radial-gradient(800px 400px at 0% 10%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 58%),
+      var(--bg);
+    min-height: 100vh; padding: clamp(20px, 4vw, 56px) clamp(18px, 4vw, 48px);
+    line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+  code { font-family: var(--font-mono); font-size: .88em; background: color-mix(in srgb, var(--line) 55%, transparent); padding: 1px 5px; border-radius: 4px; }
+
+  .eyebrow { font-size: 11.5px; letter-spacing: .3em; text-transform: uppercase; color: var(--faint); font-weight: 650; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content:""; width: 26px; height: 1.5px; background: var(--violet); }
+  .stamp { display: inline-block; font-weight: 800; font-size: 15px; letter-spacing: .22em; color: var(--crit); border: 2.5px solid var(--crit); border-radius: 8px; padding: 5px 13px 5px 16px; transform: rotate(-4deg); margin: 0 0 18px 2px; opacity: .88; }
+  h1 { margin: 0 0 14px; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.22; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
+  h1 em { font-style: normal; background: linear-gradient(100deg, var(--violet), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: clamp(14.5px, 1.8vw, 16.5px); color: var(--muted); max-width: 40em; margin: 0; }
+  .lede b { color: var(--ink); }
+
+  h2 { font-size: 19px; font-weight: 800; letter-spacing: -.01em; margin: 0 0 4px; text-wrap: balance; }
+  .sec-sub { font-size: 12.5px; color: var(--faint); margin: 0 0 16px; }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .pillar { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px 18px 20px; }
+  .pillar .pi { font-size: 20px; margin-bottom: 8px; }
+  .pillar h3 { margin: 0 0 6px; font-size: 15px; font-weight: 750; }
+  .pillar p { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+  .gets { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .get { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 16px 18px; position: relative; overflow: hidden; }
+  .get::before { content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gc, var(--violet)); }
+  .get:nth-child(2) { --gc: var(--teal); }
+  .get:nth-child(3) { --gc: var(--warn); }
+  .get:nth-child(4) { --gc: var(--good); }
+  .get .gn { font-family: var(--font-mono); font-size: 10.5px; color: var(--faint); }
+  .get h3 { margin: 2px 0 6px; font-size: 15px; font-weight: 750; }
+  .get p { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+  .proof { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 22px 24px; }
+  .proof .ph { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .proof h2 { margin: 0; }
+  .proof .live { font-size: 11px; font-weight: 700; color: var(--good); }
+  .proof .live::before { content:"●"; margin-right: 5px; font-size: 8px; vertical-align: 1px; }
+  .proof > p { margin: 6px 0 16px; font-size: 13px; color: var(--muted); max-width: 44em; }
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 18px; }
+  .num .nv { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .num .nv small { font-size: 12px; font-weight: 650; color: var(--muted); margin-left: 2px; }
+  .num .nl { font-size: 11px; color: var(--faint); line-height: 1.45; }
+
+  .steps { display: flex; flex-direction: column; counter-reset: step; }
+  .step { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; padding: 15px 4px; border-bottom: 1px dashed var(--line); align-items: baseline; }
+  .step:last-child { border-bottom: none; }
+  .step .sn { counter-increment: step; font-family: var(--font-mono); font-weight: 800; font-size: 15px; color: var(--violet); }
+  .step .sn::before { content: "0" counter(step); }
+  .step h3 { margin: 0 0 3px; font-size: 14.5px; font-weight: 750; }
+  .step p { margin: 0; font-size: 12.5px; color: var(--muted); max-width: 44em; }
+  .step .sd { font-family: var(--font-mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
+
+  .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fitcard { border-radius: var(--r); padding: 16px 18px; border: 1px solid var(--line); background: var(--panel); box-shadow: var(--shadow); }
+  .fitcard h3 { margin: 0 0 10px; font-size: 14px; font-weight: 750; }
+  .fitcard ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .fitcard li { font-size: 12.5px; color: var(--muted); padding-left: 22px; position: relative; line-height: 1.5; }
+  .fitcard.yes li::before { content:"✓"; position: absolute; left: 0; color: var(--good); font-weight: 800; }
+  .fitcard.no li::before { content:"✕"; position: absolute; left: 0; color: var(--crit); font-weight: 800; }
+
+  .promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .promise { border: 1px solid color-mix(in srgb, var(--violet) 30%, var(--line)); background: color-mix(in srgb, var(--violet) 5%, var(--panel)); border-radius: var(--r); padding: 15px 17px; }
+  .promise h3 { margin: 0 0 5px; font-size: 13.5px; font-weight: 750; color: var(--violet); }
+  .promise p { margin: 0; font-size: 12px; color: var(--muted); }
+
+  details.faq { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); box-shadow: var(--shadow); }
+  details.faq + details.faq { margin-top: 10px; }
+  details.faq > summary { list-style: none; cursor: pointer; padding: 13px 17px; font-size: 13.5px; font-weight: 700; display: flex; justify-content: space-between; gap: 10px; }
+  details.faq > summary::-webkit-details-marker { display: none; }
+  details.faq > summary::after { content:"+"; color: var(--faint); font-weight: 400; }
+  details.faq[open] > summary::after { content:"−"; }
+  details.faq .fa { padding: 0 17px 14px; font-size: 12.5px; color: var(--muted); max-width: 46em; }
+
+  .cta { text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 28px 24px; }
+  .cta h2 { margin-bottom: 8px; }
+  .cta p { margin: 0 auto; font-size: 13px; color: var(--muted); max-width: 36em; }
+  .cta .seed { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 700; color: var(--teal); border: 1px solid color-mix(in srgb, var(--teal) 40%, var(--line)); padding: 6px 16px; border-radius: 999px; }
+
+  footer.foot { text-align: center; font-size: 11.5px; color: var(--faint); line-height: 1.8; }
+  footer.foot a { color: var(--muted); }
+
+  /* ===== 动态图标（waaark 式线稿动效） ===== */
+  header.hero { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .hero-icon { flex: none; padding-top: 30px; }
+  .li { stroke: var(--violet); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .li.te { stroke: var(--teal); }
+  .um-wrap { animation: floaty 3.8s ease-in-out infinite; }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  .drop { stroke: var(--teal); stroke-width: 2; stroke-linecap: round; opacity: 0; animation: drop 1.8s linear infinite; }
+  .drop.d2 { animation-delay: .6s; } .drop.d3 { animation-delay: 1.2s; }
+  @keyframes drop { 0% { transform: translateY(-4px); opacity: 0; } 15% { opacity: .85; } 55% { opacity: .85; } 72% { transform: translateY(22px); opacity: 0; } 100% { opacity: 0; } }
+  .pillar .pic { height: 42px; margin-bottom: 10px; display: flex; align-items: flex-end; }
+  .paper { animation: peek 3s ease-in-out infinite; }
+  @keyframes peek { 0%,100% { transform: translateY(7px); } 50% { transform: translateY(0); } }
+  .spin { animation: spin 10s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .lt { opacity: .15; }
+  .lt1 { animation: lt 3.6s infinite; } .lt2 { animation: lt 3.6s infinite 1.2s; } .lt3 { animation: lt 3.6s infinite 2.4s; }
+  @keyframes lt { 0%, 28% { opacity: 1; } 38%, 100% { opacity: .15; } }
+  .sprout { display: inline-block; animation: sway 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes sway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
+
+  /* ===== 管理台界面示意（内嵌矢量"截图"） ===== */
+  .shot { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; margin: 0; }
+  .shot .bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--panel2); }
+  .shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+  .shot .bar .t { margin-left: 8px; font-size: 10.5px; color: var(--faint); font-family: var(--font-mono); }
+  .shot svg { display: block; width: 100%; height: auto; }
+  .shot .shotcap { font-size: 11.5px; color: var(--faint); padding: 10px 14px; border-top: 1px dashed var(--line); line-height: 1.6; }
+  .shot .shotcap b { color: var(--crit); font-weight: 700; }
+  .sn rect { fill: var(--panel2); stroke: var(--line-strong); }
+  .sn text { font: 700 11px var(--font-sans); fill: var(--ink); }
+  .sn .ss { font: 400 8.5px var(--font-sans); fill: var(--muted); }
+  .sg rect { stroke: var(--crit); stroke-dasharray: 4 3; }
+  .rb { fill: none; opacity: .28; }
+  .rf { fill: none; stroke-dasharray: 3 13; animation: flowdash 1.5s linear infinite; opacity: .9; }
+  @keyframes flowdash { to { stroke-dashoffset: -16; } }
+  .rv { stroke: var(--violet); } .rt { stroke: var(--teal); } .rw { stroke: var(--warn); } .rg { stroke: var(--faint); }
+  .exl { font: 700 8.5px var(--font-sans); fill: var(--muted); }
+  .minis { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .mock { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); padding: 12px 14px; }
+  .mock .mh { display: flex; gap: 8px; align-items: center; font-weight: 750; font-size: 12.5px; }
+  .mpill { font-size: 9.5px; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--warn) 15%, var(--panel)); color: var(--warn); margin-left: auto; }
+  .assignm { font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--violet) 15%, var(--panel)); color: var(--violet); margin-left: auto; white-space: nowrap; }
+  .mock .mcols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .mock .mt { font-size: 9px; letter-spacing: .06em; font-weight: 800; color: var(--faint); text-transform: uppercase; border-bottom: 1px dashed var(--line); padding-bottom: 3px; margin-bottom: 5px; }
+  .mock ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .mock li { font-size: 10.5px; color: var(--muted); line-height: 1.5; padding-left: 10px; position: relative; }
+  .mock li::before { content:""; position: absolute; left: 0; top: 6px; width: 4px; height: 4px; border-radius: 50%; background: var(--warn); }
+  .mock .msub { font-size: 10.5px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .mpb { display: flex; gap: 8px; align-items: center; background: color-mix(in srgb, var(--line) 45%, transparent); border-radius: 8px; padding: 6px 9px; margin-top: 8px; font: 9.5px/1.5 var(--font-mono); color: var(--muted); }
+  .mbtn { font: 650 9.5px var(--font-sans); border: 1px solid var(--line-strong); border-radius: 6px; padding: 3px 8px; color: var(--violet); white-space: nowrap; background: var(--panel); }
+  .minicap { font-size: 11px; color: var(--faint); margin: 8px 2px 0; }
+  .mocklb { font-size: 13px; font-weight: 750; margin: 0 0 7px; display: flex; align-items: baseline; gap: 8px; }
+  .mocklb::before { content:""; width: 8px; height: 8px; border-radius: 3px; background: var(--violet); align-self: center; }
+  .mocklb small { font-weight: 400; font-size: 11px; color: var(--faint); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .um-wrap, .drop, .paper, .spin, .lt1, .lt2, .lt3, .sprout, .rf { animation: none !important; }
+  }
+  @media (max-width: 720px) {
+    .pillars, .promises { grid-template-columns: 1fr; }
+    .gets, .fit, .minis { grid-template-columns: 1fr; }
+    .nums { grid-template-columns: 1fr 1fr; }
+    .step { grid-template-columns: 36px 1fr; }
+    .step .sd { grid-column: 2; }
+    .hero-icon { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">浅译万道实验室 · TransWonder Lab</p>
+      <div class="stamp">赛博资本家</div>
+      <h1>给你的公司，配一支<br><em>写在文件里的 AI 团队</em></h1>
+      <p class="lede">AI 工具月月换代：今天好用的，明天可能降智、涨价、甚至停服——而你的业务需要一直跑。更容易被忽视的是，你和 AI 磨合出的流程与上下文是<b>宝贵的数据资产</b>，却往往锁在某个工具里，换一次工具就归零一次。我们的做法：把团队怎么分工、每件事怎么做、积累下的经验，全部写成<b>你自己仓库里的文本文件</b>——AI 是租来的员工，随时可换；<b>公司和它的记忆，永远是你的</b>。</p>
+    </div>
+    <div class="hero-icon" aria-hidden="true">
+      <svg width="110" height="118" viewBox="0 0 120 128">
+        <line class="drop" x1="28" y1="10" x2="28" y2="18"/>
+        <line class="drop d2" x1="60" y1="4" x2="60" y2="12"/>
+        <line class="drop d3" x1="92" y1="10" x2="92" y2="18"/>
+        <g class="um-wrap">
+          <path class="li" d="M14,70 Q60,22 106,70"/>
+          <path class="li" d="M14,70 q15,-9 30,0 q16,-9 32,0 q15,-9 30,0"/>
+          <path class="li" d="M60,34 V70"/>
+          <path class="li te" d="M60,70 V108 q0,10 -9,10 q-8,0 -8,-8"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <section>
+    <h2>为什么是"文件"？</h2>
+    <p class="sec-sub">三个反常识的设计，恰好解决 AI 落地最常见的三个坑</p>
+    <div class="pillars">
+      <div class="pillar"><div class="pic" aria-hidden="true"><svg width="52" height="42" viewBox="0 0 52 42">
+        <g class="paper"><rect class="li te" x="17" y="3" width="18" height="17" rx="2"/><path class="li te" d="M21,9 h10 M21,13 h7"/></g>
+        <path class="li" d="M5,15 h13 l4,4 h25 v20 h-42 z" style="fill:var(--panel)"/>
+      </svg></div><h3>组织即文件，资产归你</h3><p>每个"AI 员工"的岗位职责、每条工作流程、每天的工作状态，都是一份人话写的文档，存在你自己的代码仓库里。不装进任何平台，明天想带走，打包就走。</p></div>
+      <div class="pillar"><div class="pic" aria-hidden="true"><svg width="46" height="42" viewBox="0 0 46 42">
+        <g class="spin"><path class="li" d="M37,15 A15 15 0 0 0 11 12"/><path class="li" d="M11,12 l0,-7 M11,12 l7,-1"/><path class="li te" d="M9,27 A15 15 0 0 0 35 30"/><path class="li te" d="M35,30 l0,7 M35,30 l-7,1"/></g>
+      </svg></div><h3>AI 引擎随租随换</h3><p>今天用 Claude，明天换国产模型——"员工"的职责书和工作记录不变，新引擎读完文件就能接班。<b>不被任何一家 AI 厂商绑定</b>，这是平台型产品做不到的承诺。</p></div>
+      <div class="pillar"><div class="pic" aria-hidden="true"><svg width="40" height="42" viewBox="0 0 40 42">
+        <rect class="li" x="13" y="2" width="14" height="30" rx="5"/>
+        <path class="li" d="M20,32 V40"/>
+        <circle class="lt lt1" cx="20" cy="9" r="3" fill="var(--crit)"/>
+        <circle class="lt lt2" cx="20" cy="17" r="3" fill="var(--warn)"/>
+        <circle class="lt lt3" cx="20" cy="25" r="3" fill="var(--good)"/>
+      </svg></div><h3>人永远把最后一道关</h3><p>AI 负责采集、起草、整理、打包；但每一次对外发布、提交、投稿，都停在"闸门"等你点头。<b>系统绝不代替你按发送键</b>——放心交活，不担心失控。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>你会得到什么</h2>
+    <p class="sec-sub">一次交付，四件东西</p>
+    <div class="gets">
+      <div class="get"><span class="gn">01 · 组织资产库</span><h3>你专属的虚拟团队定义</h3><p>按你的业务共建：哪些环节值得 AI 化（我们有评分方法）、设几个"工位"、每个工位派什么"角色"、配什么"技能"。全部落成你仓库里的文档体系。</p></div>
+      <div class="get"><span class="gn">02 · 看板 + 管理台</span><h3>一眼看清整个团队</h3><p>可视化界面：各工位的待办与最新动态、员工册（每个角色的职责与红线）、工作流地图（谁在哪一段干什么、哪里等你审批）、待办派单（附一句话开工指令）。</p></div>
+      <div class="get"><span class="gn">03 · 例行任务</span><h3>日常自动运转</h3><p>定好节奏的工作自动跑：每日情报采集、定期内容产出、周期性台账更新——你只在关键节点收到待审提醒。</p></div>
+      <div class="get"><span class="gn">04 · 内化培训</span><h3>教会你的人自己运营</h3><p>我们的本业是教育。交付的最后一步是把你团队里的一个人培训成系统的"运营者"——之后加人手、改流程、换引擎，你们自己就能做。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>看一眼管理台</h2>
+    <p class="sec-sub">界面示意，与实际产品同构——你每天打交道的就是这几样</p>
+    <figure class="shot">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="t">看板 + 管理台 · 工作流视图</span></div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="工作流视图示意：内容在工位之间流转，红色虚线框为人工闸门">
+        <!-- 流带（底） -->
+        <path class="rb rw" stroke-width="10" d="M118,45 C158,45 155,58 196,58"/>
+        <path class="rb rw" stroke-width="8"  d="M118,105 C158,105 152,78 196,78"/>
+        <path class="rb rw" stroke-width="11" d="M316,62 C368,62 366,58 420,58"/>
+        <path class="rb rw" stroke-width="10" d="M540,62 C588,62 585,62 628,62"/>
+        <path class="rb rt" stroke-width="8"  d="M316,84 C450,84 480,123 628,123"/>
+        <path class="rb rv" stroke-width="9"  d="M118,188 C158,188 156,188 196,188"/>
+        <path class="rb rv" stroke-width="10" d="M316,188 C368,188 366,188 420,188"/>
+        <path class="rb rv" stroke-width="9"  d="M540,188 C588,188 585,186 628,186"/>
+        <path class="rb rg" stroke-width="8"  d="M316,258 C368,258 366,259 420,259"/>
+        <path class="rb rg" stroke-width="8"  d="M540,259 C588,259 585,259 628,259"/>
+        <!-- 流带（动效层：流动虚线，方向=数据流向） -->
+        <path class="rf rw" stroke-width="10" d="M118,45 C158,45 155,58 196,58"/>
+        <path class="rf rw" stroke-width="11" d="M316,62 C368,62 366,58 420,58"/>
+        <path class="rf rw" stroke-width="10" d="M540,62 C588,62 585,62 628,62"/>
+        <path class="rf rt" stroke-width="8"  d="M316,84 C450,84 480,123 628,123"/>
+        <path class="rf rv" stroke-width="9"  d="M118,188 C158,188 156,188 196,188"/>
+        <path class="rf rv" stroke-width="10" d="M316,188 C368,188 366,188 420,188"/>
+        <path class="rf rv" stroke-width="9"  d="M540,188 C588,188 585,186 628,186"/>
+        <path class="rf rg" stroke-width="8"  d="M316,258 C368,258 366,259 420,259"/>
+        <path class="rf rg" stroke-width="8"  d="M540,259 C588,259 585,259 628,259"/>
+        <!-- 执行者标签 -->
+        <text class="exl" x="136" y="34">国内 Agent</text>
+        <text class="exl" x="336" y="49">海外 Agent·云端</text>
+        <text class="exl" x="548" y="52">海外 Agent·本地</text>
+        <text class="exl" x="458" y="100">你 → 国内 Agent</text>
+        <text class="exl" x="124" y="176">海外 Agent·云端</text>
+        <text class="exl" x="336" y="178">你 · 确认要投</text>
+        <text class="exl" x="566" y="176">你</text>
+        <text class="exl" x="336" y="248">海外 Agent·云端</text>
+        <text class="exl" x="548" y="249">海外 Agent·本地</text>
+        <!-- 节点 -->
+        <g class="sn"><rect x="14" y="28" width="104" height="34" rx="8"/><text x="66" y="43" text-anchor="middle">在线文档</text><text x="66" y="55" text-anchor="middle" class="ss">中文资讯料</text></g>
+        <g class="sn"><rect x="14" y="88" width="104" height="34" rx="8"/><text x="66" y="103" text-anchor="middle">官方信源</text><text x="66" y="115" text-anchor="middle" class="ss">英文直扫</text></g>
+        <g class="sn"><rect x="14" y="168" width="104" height="40" rx="8"/><text x="66" y="184" text-anchor="middle">征稿与前沿</text><text x="66" y="197" text-anchor="middle" class="ss">会议 · 期刊 · 热点</text></g>
+        <g class="sn"><rect x="196" y="44" width="120" height="52" rx="8"/><text x="256" y="64" text-anchor="middle">情报工位</text><text x="256" y="78" text-anchor="middle" class="ss">采集 → 筛选 → 日更</text></g>
+        <g class="sn"><rect x="196" y="168" width="120" height="40" rx="8"/><text x="256" y="184" text-anchor="middle">学术雷达</text><text x="256" y="197" text-anchor="middle" class="ss">跟踪 · 匹配你的成果</text></g>
+        <g class="sn"><rect x="196" y="240" width="120" height="36" rx="8"/><text x="256" y="255" text-anchor="middle">赛事雷达</text><text x="256" y="268" text-anchor="middle" class="ss">跟踪与整理</text></g>
+        <g class="sn"><rect x="420" y="40" width="120" height="44" rx="8"/><text x="480" y="57" text-anchor="middle">社区站维护</text><text x="480" y="71" text-anchor="middle" class="ss">甄别 + 脱敏守门</text></g>
+        <g class="sn"><rect x="420" y="166" width="120" height="44" rx="8"/><text x="480" y="183" text-anchor="middle">投稿写作</text><text x="480" y="197" text-anchor="middle" class="ss">从真实成果起草</text></g>
+        <g class="sn"><rect x="420" y="242" width="120" height="34" rx="8"/><text x="480" y="257" text-anchor="middle">看板</text><text x="480" y="269" text-anchor="middle" class="ss">状态汇总</text></g>
+        <g class="sn"><rect x="628" y="44" width="118" height="36" rx="8"/><text x="687" y="59" text-anchor="middle">社区站上线</text><text x="687" y="72" text-anchor="middle" class="ss">已守门内容</text></g>
+        <g class="sn sg"><rect x="628" y="104" width="118" height="38" rx="8"/><text x="687" y="120" text-anchor="middle">平台草稿箱</text><text x="687" y="133" text-anchor="middle" class="ss">人 · 终审后发</text></g>
+        <g class="sn sg"><rect x="628" y="166" width="118" height="40" rx="8"/><text x="687" y="182" text-anchor="middle">你 · 定稿投稿</text><text x="687" y="195" text-anchor="middle" class="ss">人手提交 · 可披露</text></g>
+        <g class="sn sg"><rect x="628" y="240" width="118" height="38" rx="8"/><text x="687" y="256" text-anchor="middle">你 · 拍板</text><text x="687" y="269" text-anchor="middle" class="ss">参赛 / 跟进决策</text></g>
+      </svg>
+      <figcaption class="shotcap">工作流视图：几条管线一图看清——上为<b style="color:var(--ink)">资讯线</b>（采集→守门→上站/社媒），中为<b style="color:var(--ink)">学术线</b>（征稿雷达→匹配成果→起草→<b>人手定稿投稿</b>），下为<b style="color:var(--ink)">赛事线</b>。流带标签是执行者（海外 / 国内 AI Agent · 云端/本地，以及你本人），<b>红色虚线框 = 人工闸门</b>，流动方向即数据流向。实际产品中点击任一管线可进入聚焦视图，逐段查看执行者与最近动态。</figcaption>
+    </figure>
+    <div class="minis">
+      <div>
+        <div class="mocklb">工位卡 <small>每个工作模块的待办与最新动态，一眼扫清</small></div>
+        <div class="mock">
+          <div class="mh"><span>01 官网</span><span class="mpill">待发布</span></div>
+          <div class="mcols">
+            <div><div class="mt">待办</div><ul><li>待你确认发布上线</li><li>19 条运维记录待同步</li></ul></div>
+            <div><div class="mt">最新活动</div><ul><li>07-07 第 6 期周报入库</li><li>07-08 案例页改版收尾</li></ul></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mocklb">派单卡 <small>该谁干、说什么——复制指令就能开工</small></div>
+        <div class="mock">
+          <div class="mh"><span>① 合并雷达产出</span><span class="assignm">分支合并运维</span></div>
+          <div class="msub">雷达最新一次更新待合并入主库，拍板前先处理</div>
+          <div class="mpb"><span>读 agents/branch-merger.md，执行一遍分支合并并汇报……</span><span class="mbtn">复制开场白</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="minicap">以上均为界面示意，与产品实际布局一致。</p>
+  </section>
+
+  <section class="proof">
+    <div class="ph"><h2>它不是概念——我们自己的公司就跑在这套系统上</h2><span class="live">实时运转中</span></div>
+    <p>浅译万道实验室（面向高校的 AI 视觉生成与多模态教育机构）的日常运营，从行业情报、内容发布、赛事与学术征稿跟踪、投稿材料起草到官网维护，已由这套虚拟团队承担数月。以下是它此刻的真实规模：</p>
+    <div class="nums">
+      <div class="num"><div class="nv">10</div><div class="nl">个工位（情报/官网/赛事雷达/技能选品/知识库…）</div></div>
+      <div class="num"><div class="nv">14</div><div class="nl">个 AI 角色在册，各有职责书与行为红线</div></div>
+      <div class="num"><div class="nv">每日</div><div class="nl">自动情报采集 + 社区站日更（单日最多 30 篇卡片）</div></div>
+      <div class="num"><div class="nv">每周<small>×2</small></div><div class="nl">行业洞察出刊（已出 6 期，22 篇深度长文上官网）</div></div>
+      <div class="num"><div class="nv">20+</div><div class="nl">赛事与学术会议被雷达持续跟踪整理，供决策参考</div></div>
+      <div class="num"><div class="nv">14</div><div class="nl">个外部 AI 技能完成安全审查分级，择优装备</div></div>
+      <div class="num"><div class="nv">4</div><div class="nl">条内容管线，每条至少一道人工闸门</div></div>
+      <div class="num"><div class="nv">100%</div><div class="nl">组织资产存于自有 git 仓库，零平台锁定</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>怎么合作</h2>
+    <p class="sec-sub">四步交付，每步有明确产出</p>
+    <div class="steps">
+      <div class="step"><span class="sn"></span><div><h3>诊断工作坊</h3><p>到你团队里坐一天：盘点现有工作流程，用评分标尺判断哪些环节值得 AI 化、预期省多少人时——先想清楚，再动手。</p></div><span class="sd">1–2 天</span></div>
+      <div class="step"><span class="sn"></span><div><h3>梳理与定义</h3><p>和你的运营者一起，把选中的流程写成你们自己的"工位+角色+工作流"文档体系——从第一天起就建在你们的仓库里。</p></div><span class="sd">2–4 天</span></div>
+      <div class="step"><span class="sn"></span><div><h3>落地部署</h3><p>接上你们自己的 AI 账号，部署管理台，例行任务跑起来。我们陪跑试运行，把 AI 的产出质量调到你点头为止。</p></div><span class="sd">2–4 天</span></div>
+      <div class="step"><span class="sn"></span><div><h3>内化与交接</h3><p>培训你的运营者独立掌盘：审批、调整、扩展。之后可选按月轻量陪跑，或完全自主运营。</p></div><span class="sd">1–2 周</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>适合谁</h2>
+    <p class="sec-sub">我们希望双方都不浪费时间，所以把"不适合"也写清楚</p>
+    <div class="fit">
+      <div class="fitcard yes"><h3>很可能适合你，如果——</h3><ul>
+        <li>高校课题组与科研人员：文献与征稿跟踪、投稿与申报材料起草、成果归档——AI 辅助可披露，表述以真实工作为准</li>
+        <li>创意 / 设计 / 内容 / 教育领域的小团队（3–30 人）</li>
+        <li>有明显重复性的内容运营工作：情报跟踪、社媒发布、素材整理、申报材料……</li>
+        <li>试过各种 AI 工具但"用不起来"或"离了某个人就停"</li>
+        <li>在意数据私有与供应商锁定，希望能力沉淀在自己手里</li>
+      </ul></div>
+      <div class="fitcard no"><h3>暂时不适合，如果——</h3><ul>
+        <li>期望"全自动无人值守"——本系统刻意保留人工闸门，追求全自动的请绕行</li>
+        <li>业务里几乎没有重复性的信息与内容工作</li>
+        <li>只想买个软件装完就走，不打算安排一个人学会运营它</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>三条写进合同的承诺</h2>
+    <p class="sec-sub">也是这套系统区别于所有平台型产品的地方</p>
+    <div class="promises">
+      <div class="promise"><h3>资产归你</h3><p>全部组织文档存于你自有仓库，交付即拥有；解约不失能力，随时带走。</p></div>
+      <div class="promise"><h3>引擎不锁定</h3><p>用你自己的 AI 账号；文档体系兼容开放标准，换供应商时我们提供迁移方案。</p></div>
+      <div class="promise"><h3>人始终把关</h3><p>系统的任何对外动作（发布/提交/投稿）必经人工确认，绝不代按发送键。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>常见问题</h2>
+    <details class="faq"><summary>我们没有技术人员，能用吗？</summary><div class="fa">能。日常运营者做的事是"看板上看状态 → 审内容 → 点头或打回"，不写代码。搭建期的技术工作由我们完成，之后的调整通过"和 AI 对话改文档"完成——这正是内化培训教的内容。</div></details>
+    <details class="faq"><summary>数据和账号安全怎么保证？</summary><div class="fa">你的业务数据从第一天起只存在于你自己的仓库和你自己的 AI 账号里，不经过我们的服务器。我们引入的每个外部 AI 技能都先过安全审查（这套审查流程本身也是系统的一部分）。</div></details>
+    <details class="faq"><summary>成本怎么构成？</summary><div class="fa">两部分：你自己的 AI 订阅费（付给 AI 厂商，通常每月几百元起，很多团队现有订阅的闲置额度就够跑日常）+ 我们的服务费（按上面四步分阶段报价，诊断工作坊单独可购）。</div></details>
+    <details class="faq"><summary>和直接用 ChatGPT / 扣子 / 钉钉 AI 有什么区别？</summary><div class="fa">那些是"工具"或"平台"：能力强，但流程和积累都长在别人家里。我们交付的是"组织"：分工、流程、经验全部文档化归你所有，工具只是可替换的执行者。简单说——他们卖铲子或租地，我们帮你把自己的田种起来。</div></details>
+  </section>
+
+  <section class="cta">
+    <h2>目前阶段</h2>
+    <p>系统在我们自己的公司验证运行中，管理台处于快照版（本地实时版开发中）。现开放<b>种子共建合作</b>：以优惠条件参与，换取你的真实场景反馈与案例授权。</p>
+    <span class="seed"><span class="sprout">🌱</span> 种子共建 · 开放中</span>
+  </section>
+
+  <footer class="foot">
+    浅译万道实验室 TransWonder Lab · 面向高校教师/院系的 AI 视觉生成与多模态教育<br>
+    官网：<a href="https://transwonder-lab.com">transwonder-lab.com</a> ｜ 社区站：<a href="https://www.transwonder.top">www.transwonder.top</a> ｜ 联系：marchlice@outlook.com<br>
+    「赛博资本家」产品说明 v1 · 2026-07
+  </footer>
+
+</div>
+</body>
+</html>
