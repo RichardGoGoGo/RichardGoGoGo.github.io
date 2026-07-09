@@ -18,6 +18,7 @@ layout: default
 
   {% assign cat_pages = site.insights | sort: "date" | reverse %}
   {% assign today = site.time | date: "%Y-%m-%d" %}
+  {% assign editor_picks = cat_pages | where: "editor_pick", true %}
 
   {%- comment -%} 置顶区：最多 3 张有效加更，第 1 张大、第 2-3 张轻量；记录已展示 url 以便下方列表去重 {%- endcomment -%}
   {% assign pinned_all = cat_pages | where: "pinned", true %}
@@ -67,6 +68,7 @@ layout: default
   {% assign all_icats = icatstr | split: "," | uniq %}
   <div class="tag-filter" id="icat-filter">
     <button class="tag-chip active" data-filter="__all__">全部</button>
+    {% if editor_picks.size > 0 %}<button class="tag-chip chip-editor" data-filter="__editor__">★ 编辑精选</button>{% endif %}
     {% for c in all_icats %}<button class="tag-chip" data-filter="{{ c }}">{{ c }}</button>{% endfor %}
   </div>
 
@@ -74,9 +76,10 @@ layout: default
   <ul class="post-list fade-in" id="insight-list">
     {% for p in cat_pages %}
     {% unless feat_urls contains p.url %}
-    <li class="post-item insight-item" id="{{ p.path | split: '/' | last | remove: '.md' }}" data-icat="{{ p.icat }}">
+    <li class="post-item insight-item" id="{{ p.path | split: '/' | last | remove: '.md' }}" data-icat="{{ p.icat }}"{% if p.editor_pick %} data-editor-pick="true"{% endif %}>
       <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
       <div class="post-meta">
+        {% if p.editor_pick %}<span class="post-badge editor">★ 编辑推荐</span>{% endif %}
         {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
         <span>{{ p.date | date: "%Y-%m-%d" }}</span>
         {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
@@ -114,7 +117,10 @@ layout: default
       var cards = list.querySelectorAll('.insight-item');
       var shown = 0;
       cards.forEach(function (c) {
-        var show = (f === '__all__') || (c.getAttribute('data-icat') === f);
+        var show;
+        if (f === '__all__') { show = true; }
+        else if (f === '__editor__') { show = c.getAttribute('data-editor-pick') === 'true'; }
+        else { show = c.getAttribute('data-icat') === f; }
         c.style.display = show ? '' : 'none';
         if (show) shown++;
       });

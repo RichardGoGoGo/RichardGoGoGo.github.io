@@ -1,6 +1,7 @@
 ---
 title: "ICML 2026 杰出论文揭晓：清华扩散语言模型与 MIT/耶鲁采样算法同获大奖"
 date: 2026-07-05
+editor_pick: true
 icat: 研究与论文
 source: "ICML 官方 / 机器之心 / 量子位"
 src: "https://blog.icml.cc/2026/07/05/announcing-the-icml-2026-awards/"

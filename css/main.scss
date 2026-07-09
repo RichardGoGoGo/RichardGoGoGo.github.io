@@ -121,6 +121,7 @@ img { max-width: 100%; height: auto; }
 .post-badge { background: var(--accent-soft); color: var(--accent); padding: 0.05rem 0.5rem; border-radius: 5px; font-size: 0.7rem; }
 .post-badge.pin { background: var(--accent); color: var(--paper); }
 .post-badge.expired { background: var(--rule); color: var(--ink-mute); }
+.post-badge.editor { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); font-weight: 500; }
 .post-item.is-expired { opacity: 0.55; }
 .post-item.is-expired .post-title { color: var(--ink-mute); }
 .post-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
@@ -131,6 +132,8 @@ img { max-width: 100%; height: auto; }
 .tag-chip { background: none; border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.28rem 0.85rem; border-radius: 20px; font-size: 0.78rem; cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
 .tag-chip:hover { border-color: var(--accent); color: var(--accent); }
 .tag-chip.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.tag-chip.chip-editor { color: var(--accent); border-color: var(--accent); }
+.tag-chip.chip-editor.active { background: var(--accent); border-color: var(--accent); color: var(--paper); }
 
 /* ---------- 次级三栏 ---------- */
 .rail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 0.5rem; }
