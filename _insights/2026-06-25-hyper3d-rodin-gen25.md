@@ -1,6 +1,7 @@
 ---
 title: "影眸 Hyper3D Rodin Gen-2.5 发布：首个「先思考再生成」机制的原生 3D 大模型"
 date: 2026-06-25
+editor_pick: true
 icat: 模型与工具
 source: "新智元"
 src: "https://hyper3d.ai/"

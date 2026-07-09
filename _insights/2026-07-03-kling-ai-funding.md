@@ -1,6 +1,7 @@
 ---
 title: "可灵 AI 独立融资近 30 亿美元：腾讯/阿里/百度联合领投，全球 AI 视频最大单笔融资纪录"
 date: 2026-07-03
+editor_pick: true
 icat: 模型与工具
 source: "新浪财经 / TechNode / CNBC / 量子位"
 src: "https://technode.com/2026/07/03/kuaishous-kling-ai-raises-nearly-3-billion-in-funding/"

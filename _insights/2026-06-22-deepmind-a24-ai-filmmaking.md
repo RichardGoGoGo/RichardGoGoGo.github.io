@@ -1,6 +1,7 @@
 ---
 title: "Google DeepMind 与 A24 建立 AI 研究合作并投资约 7500 万美元，Google 首次持股电影公司"
 date: 2026-06-22
+editor_pick: true
 icat: 案例与作品
 source: "Google DeepMind Blog / Variety / IndieWire / 多源"
 src: "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/"

@@ -1,6 +1,7 @@
 ---
 title: "从弹窗提醒到全权接管：AI 产品「自动化程度」五级介入梯度设计模型"
 date: 2026-06-28
+editor_pick: true
 icat: 观点与技巧
 source: "优设"
 src: "https://www.uisdc.com/right-touch"

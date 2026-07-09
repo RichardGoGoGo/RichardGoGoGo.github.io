@@ -1,6 +1,7 @@
 ---
 title: "GenEvolve：自进化图像生成 Agent 开源，工具编排轨迹替代单步提示词"
 date: 2026-07-01
+editor_pick: true
 icat: 研究与论文
 source: "机器之心 / 腾讯新闻 / arXiv:2605.21605 / GitHub（MeiGen-AI）"
 src: "https://arxiv.org/abs/2605.21605"

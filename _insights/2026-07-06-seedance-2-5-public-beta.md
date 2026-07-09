@@ -1,6 +1,7 @@
 ---
 title: "即梦 Seedance 2.5 公布：多镜头叙事一致性 + 运镜控制，公测尚未正式开放"
 date: 2026-07-06
+editor_pick: true
 icat: 模型与工具
 source: "IT之家 / 量子位 / 36氪 / 雷锋网 / 新浪科技"
 src: "https://www.ithome.com/0/972/458.htm"

@@ -1,6 +1,7 @@
 ---
 title: "Vibe Motion：以代码驱动 AI 视频动效生成的新范式"
 date: 2026-06-30
+editor_pick: true
 icat: 观点与技巧
 source: "优设"
 src: "https://www.uisdc.com/vibe-motion"

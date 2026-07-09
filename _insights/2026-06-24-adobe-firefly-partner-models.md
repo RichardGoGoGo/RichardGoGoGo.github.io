@@ -1,6 +1,7 @@
 ---
 title: "Adobe Firefly Partner Models 全面开放：CC 全系内置 30+ 第三方行业模型"
 date: 2026-06-24
+editor_pick: true
 icat: 模型与工具
 source: "Adobe 官方 / Creative Bloq / AWN"
 src: "https://www.adobe.com/products/firefly/partner-models.html"

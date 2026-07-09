@@ -1,6 +1,7 @@
 ---
 title: "Adobe 宣布收购 AI 图像与视频增强公司 Topaz Labs"
 date: 2026-06-25
+editor_pick: true
 icat: 模型与工具
 source: "Adobe 官方 / TechCrunch / Variety / PetaPixel"
 src: "https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs"

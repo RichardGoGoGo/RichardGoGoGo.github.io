@@ -1,6 +1,7 @@
 ---
 title: "Anthropic 发布 Claude Sonnet 5：Agentic 场景最强 Sonnet，成为 Free/Pro 默认模型"
 date: 2026-06-30
+editor_pick: true
 icat: 模型与工具
 source: "Anthropic 官方 / TechCrunch / VentureBeat"
 src: "https://www.anthropic.com/news/claude-sonnet-5"

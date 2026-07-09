@@ -1,6 +1,7 @@
 ---
 title: "全球首部工业级全 AI 中国经典 IP 动画剧集：华策×Utopai《西游记：失落的五百年》"
 date: 2026-06-22
+editor_pick: true
 icat: 案例与作品
 source: "Variety / Deadline / Business Wire / IT之家"
 src: "https://variety.com/2026/tv/news/fully-ai-generated-journey-to-the-west-utopai-studios-huace-1236787171/"

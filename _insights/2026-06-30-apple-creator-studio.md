@@ -1,6 +1,7 @@
 ---
 title: "Apple Creator Studio 重大更新：Final Cut Pro 端侧 AI 自动遮罩与字幕，Pixelmator Pro 跨应用打通"
 date: 2026-06-30
+editor_pick: true
 icat: 模型与工具
 source: "Apple Newsroom / PetaPixel / IT之家 / iClarified"
 src: "https://www.apple.com/newsroom/2026/06/apple-creator-studio-gets-smarter-faster-and-more-connected/"

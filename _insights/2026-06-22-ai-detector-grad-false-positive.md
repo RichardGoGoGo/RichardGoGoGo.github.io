@@ -1,6 +1,7 @@
 ---
 title: "设计 / 艺术类毕业生原创作品被 AI 检测工具误判，被迫反复检测与自证原创"
 date: 2026-06-22
+editor_pick: true
 icat: 观点与技巧
 source: "优设"
 src: "https://www.uisdc.com/trapped-by-ai-detector"

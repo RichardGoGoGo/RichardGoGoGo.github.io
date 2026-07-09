@@ -1,6 +1,7 @@
 ---
 title: "Agnes AI 发布 Pavo 创作平台：一句话拆剧本到成片，全模态自研模型 API 永久免费"
 date: 2026-06-30
+editor_pick: true
 icat: 模型与工具
 source: "量子位 / 新智元 / 甲子光年"
 src: "https://www.qbitai.com/2026/06/439750.html"

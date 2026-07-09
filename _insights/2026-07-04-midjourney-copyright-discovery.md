@@ -1,6 +1,7 @@
 ---
 title: "Midjourney 申请强制迪士尼等披露 AI 使用，AI 版权诉讼「发现权」博弈推上台面"
 date: 2026-07-04
+editor_pick: true
 icat: 观点与技巧
 source: "TechCrunch / Engadget / Variety / ArtNet News"
 src: "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/"

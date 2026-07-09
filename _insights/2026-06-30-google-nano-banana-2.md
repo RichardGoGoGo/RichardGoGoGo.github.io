@@ -1,6 +1,7 @@
 ---
 title: "Google Nano Banana 2 Lite + Gemini Omni Flash：4 秒出图、质量反超 Pro 档，静态图一键带运镜"
 date: 2026-06-30
+editor_pick: true
 icat: 模型与工具
 source: "Google DeepMind / IT之家 / 新浪财经 / ITBear / Winbuzzer"
 src: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/"

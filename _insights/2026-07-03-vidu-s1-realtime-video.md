@@ -1,6 +1,7 @@
 ---
 title: "Vidu S1：一张照片 + 实时语音生成可持续互动的 AI 数字角色，AI 视频进入实时对话范式"
 date: 2026-07-03
+editor_pick: true
 icat: 模型与工具
 source: "PR Newswire / 雷锋网 / IT之家 / 量子位"
 src: "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s1-bringing-real-time-interactive-generation-to-ai-video-302817626.html"
