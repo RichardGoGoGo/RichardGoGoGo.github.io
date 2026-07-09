@@ -64,6 +64,28 @@ defaults:
       layout: page
       category: knowledge
       permalink: /knowledge/:basename/
+  # 知识层·业务线子目录（hub 用 category:knowledge 上落地页；线内文章/综述用 knowledge-line 不上落地页，各自独立 URL）
+  - scope:
+      path: "content/knowledge/design-teaching"
+    values:
+      layout: page
+      category: knowledge-line
+      line: design-teaching
+      permalink: /knowledge/design-teaching/:basename/
+  - scope:
+      path: "content/knowledge/digital-team"
+    values:
+      layout: page
+      category: knowledge-line
+      line: digital-team
+      permalink: /knowledge/digital-team/:basename/
+  - scope:
+      path: "content/knowledge/creative-web"
+    values:
+      layout: page
+      category: knowledge-line
+      line: creative-web
+      permalink: /knowledge/creative-web/:basename/
   # 沉淀层
   - scope:
       path: "content/workflows"
