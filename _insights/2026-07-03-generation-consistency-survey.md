@@ -1,7 +1,6 @@
 ---
 title: "中科大等联合综述 500+ 篇文献：扩散模型的「生成一致性危机」三类框架与开源评测"
 date: 2026-07-03
-editor_pick: true
 icat: 研究与论文
 source: "新智元"
 src: "https://aiera.com.cn/2026/07/03/other/admin/102188/"

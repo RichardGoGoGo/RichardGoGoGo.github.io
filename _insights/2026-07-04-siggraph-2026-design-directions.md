@@ -1,7 +1,6 @@
 ---
 title: "SIGGRAPH 2026 技术论文 5 大设计方向：3D 感知/身体交互/AI 产品化/虚实融合/设计工具"
 date: 2026-07-04
-editor_pick: true
 icat: 研究与论文
 source: "搜狐 / 一只梨 / SIGGRAPH 2026 官方"
 src: "https://www.sohu.com/a/1045842105_121124300"

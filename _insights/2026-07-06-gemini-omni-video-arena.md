@@ -1,7 +1,6 @@
 ---
 title: "Gemini Omni Flash 以 1404 Elo 登顶 Video Arena 盲测榜，Google 占前十中 5 席"
 date: 2026-07-06
-editor_pick: true
 icat: 模型与工具
 source: "优设情报 / IT之家"
 src: "https://www.ithome.com/0/972/253.htm"
