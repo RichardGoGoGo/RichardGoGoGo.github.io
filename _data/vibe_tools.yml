@@ -16,6 +16,12 @@ tools:
     type: internal
     href: /vibe/motion-techniques/
 
+  - name: "动态图标图鉴"
+    en: "Motion Icons"
+    desc: "按风格分区的动态图标参考库：每枚图标实时演示动效，点开即得可复制的 SVG + CSS 源码；风格系列陆续上架。"
+    type: internal
+    href: /vibe/motion-icons/
+
   - name: "科研绘图生成器 · Figure Studio"
     en: "Figure Studio"
     desc: "小巧的科研配图 / 学术示意图生成器，快速产出规范的图表与示意图（架于 Lovable）。"

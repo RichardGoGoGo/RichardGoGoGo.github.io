@@ -1,0 +1,286 @@
+---
+layout: default
+permalink: /vibe/motion-icons/
+title: "动态图标图鉴"
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1>动态图标图鉴</h1>
+    <p class="hero-tagline">按风格分区的动态图标参考库：每个图标都能看到实时动效，点开即得可复制的 SVG + CSS 源码。风格系列陆续上架。</p>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a><span class="sep">/</span>
+    <a href="{{ '/vibe/' | relative_url }}">VIBE工具箱</a><span class="sep">/</span>
+    <span class="cur">动态图标图鉴</span>
+  </nav>
+
+  <p class="mi-sronly">这是一个动态图标的交互参考图鉴，按视觉风格分区；每张卡片展示一枚图标的实时动效，点开卡片可查看设计要点与可复制的 SVG 和 CSS 源码。</p>
+
+  <div class="mi">
+    <div class="mi-bar">
+      <div class="mi-filter" role="group" aria-label="按风格筛选" id="mi-filter"></div>
+    </div>
+    <div id="mi-sections"></div>
+  </div>
+
+  <!-- 详解 / 代码弹窗 -->
+  <div class="mi-overlay" id="mi-overlay" hidden>
+    <div class="mi-modal" role="dialog" aria-modal="true" aria-labelledby="mi-m-zh">
+      <button class="mi-close" id="mi-close" aria-label="关闭">×</button>
+      <div class="mi-m-stage" id="mi-m-stage" aria-hidden="true"></div>
+      <div class="mi-m-head">
+        <span class="mi-m-zh" id="mi-m-zh"></span>
+        <span class="mi-m-en" id="mi-m-en"></span>
+        <span class="mi-m-style" id="mi-m-style"></span>
+      </div>
+      <p class="mi-m-desc" id="mi-m-desc"></p>
+      <ul class="mi-m-notes" id="mi-m-notes"></ul>
+      <div class="mi-code-block">
+        <div class="mi-code-head"><span>SVG</span><button class="mi-copy" data-target="mi-code-svg">复制</button></div>
+        <pre><code id="mi-code-svg"></code></pre>
+      </div>
+      <div class="mi-code-block">
+        <div class="mi-code-head"><span>CSS</span><button class="mi-copy" data-target="mi-code-css">复制</button></div>
+        <pre><code id="mi-code-css"></code></pre>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
+.mi{--tx:var(--ink);--sec:var(--ink-soft);--mut:var(--ink-mute);--acc:var(--accent);--stg:var(--rule-soft);--rl:var(--rule);margin-top:.4rem}
+.mi-sronly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* 筛选条（与动效图鉴同款 chips） */
+.mi-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.mi-filter{display:flex;flex-wrap:wrap;gap:7px}
+.mi-chip{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink-mute);background:none;border:1px solid var(--rule);
+  border-radius:20px;padding:5px 13px;cursor:pointer;transition:color .15s,background .15s,border-color .15s}
+.mi-chip:hover{color:var(--ink);border-color:var(--ink-mute)}
+.mi-chip.on{color:var(--paper);background:var(--accent);border-color:var(--accent)}
+.mi-hide{display:none!important}
+
+/* 风格分区 */
+.mi-sec-intro{font-size:13px;color:var(--ink-soft);line-height:1.7;margin:-4px 0 12px}
+.mi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:6px}
+.mi-empty{border:1px dashed var(--rule);border-radius:10px;padding:2rem 1rem;text-align:center;font-size:13px;color:var(--ink-mute);margin-bottom:6px}
+
+/* 图标卡 */
+.mi-card{border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--paper);cursor:pointer;text-align:left;
+  padding:0;display:block;width:100%;font-family:inherit;transition:border-color .15s,transform .2s cubic-bezier(.22,1,.36,1)}
+.mi-card:hover{border-color:var(--ink-mute);transform:translateY(-2px)}
+.mi-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mi-stage{height:104px;overflow:hidden;background:var(--rule-soft);position:relative;display:flex;align-items:center;justify-content:center}
+.mi-stage svg{width:84px;height:84px;display:block}
+.mi-hint{position:absolute;right:7px;bottom:6px;font-size:10px;color:var(--ink-mute);opacity:0;transition:opacity .15s;pointer-events:none}
+.mi-card:hover .mi-hint{opacity:1}
+.mi-txt{padding:8px 11px 11px}
+.mi-zh{font-size:14px;font-weight:500;color:var(--ink);line-height:1.3}
+.mi-en{font-size:12px;color:var(--ink-mute);margin-top:1px}
+.mi-desc{font-size:12px;color:var(--ink-soft);line-height:1.5;margin-top:3px}
+
+/* 弹窗 */
+.mi-overlay{position:fixed;inset:0;z-index:200;background:rgba(20,24,40,.45);display:flex;align-items:flex-start;justify-content:center;
+  padding:4vh 16px;overflow-y:auto}
+.mi-modal{position:relative;background:var(--paper);border:1px solid var(--rule);border-radius:14px;max-width:640px;width:100%;
+  padding:20px 22px 22px;margin-bottom:4vh}
+.mi-close{position:absolute;top:10px;right:12px;width:32px;height:32px;border:none;background:none;font-size:22px;line-height:1;
+  color:var(--ink-mute);cursor:pointer;border-radius:8px}
+.mi-close:hover{color:var(--ink);background:var(--rule-soft)}
+.mi-m-stage{height:150px;border-radius:10px;background:var(--rule-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.mi-m-stage svg{width:120px;height:120px;display:block}
+.mi-m-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.mi-m-zh{font-size:18px;font-weight:600;color:var(--ink)}
+.mi-m-en{font-size:13px;color:var(--ink-mute)}
+.mi-m-style{font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:1px 9px}
+.mi-m-desc{font-size:13px;color:var(--ink-soft);line-height:1.7;margin:8px 0 0}
+.mi-m-notes{margin:8px 0 0;padding-left:1.2em;font-size:13px;color:var(--ink-soft);line-height:1.8}
+.mi-m-notes:empty{display:none}
+.mi-code-block{margin-top:14px;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.mi-code-head{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:var(--rule-soft);
+  font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink-soft)}
+.mi-copy{font-family:var(--sans);font-size:12px;color:var(--accent);background:none;border:1px solid var(--accent);
+  border-radius:20px;padding:3px 12px;cursor:pointer;transition:background .15s}
+.mi-copy:hover{background:var(--accent-soft)}
+.mi-copy.ok{color:var(--paper);background:var(--accent)}
+.mi-code-block pre{margin:0;padding:12px 14px;overflow-x:auto;max-height:260px;background:var(--paper)}
+.mi-code-block code{font-family:Consolas,Menlo,monospace;font-size:12px;line-height:1.6;color:var(--ink);white-space:pre}
+
+@media (prefers-reduced-motion:reduce){
+  .mi svg *,.mi-m-stage svg *{animation:none!important}
+  .mi-card,.mi-card:hover{transform:none}
+}
+</style>
+
+<script>
+(function(){
+/* ============================================================
+   动态图标图鉴 · 数据区
+   —— 新增风格：往 STYLES 加一项 {key, zh, en, intro}
+   —— 新增图标：往 ICONS 加一项：
+      {
+        id:    '唯一slug（动画选择器用 .mi-i-<id> 作用域，勿重复）',
+        style: '所属风格 key',
+        zh/en: '中英文名',
+        desc:  '一句话说明（卡片与弹窗共用）',
+        notes: ['设计要点…'],            // 可选，弹窗详解列表
+        svg:   '<svg class="mi-i-<id>" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">…</svg>',
+        css:   '.mi-i-<id> …{…} @keyframes <id前缀>-xx{…}'
+      }
+   演示与弹窗里展示的代码是同一份字符串——所见即所得。
+   约定：keyframes 名带图标前缀防撞；css 末尾自带
+   @media (prefers-reduced-motion:reduce) 静止规则，方便整段复制即用。
+   ============================================================ */
+
+var STYLES=[
+  { key:'sample', zh:'框架示例', en:'Sample',
+    intro:'占位示例，用于验证图鉴框架（实时演示 / 弹窗详解 / 代码复制）。正式风格系列上架后移除。' }
+];
+
+var ICONS=[
+  {
+    id:'demo-float', style:'sample',
+    zh:'悬浮占位块', en:'Floating Placeholder',
+    desc:'一块圆角体上下悬浮，底部椭圆软投影同步呼吸。',
+    notes:[
+      '主体与投影用同一时长的动画驱动，浮起时投影缩小变淡，形成"离地"错觉。',
+      '幅度控制在 2–3px、周期 3.6s，作为页面常驻元素不抢注意力。',
+      '代码末尾自带 prefers-reduced-motion 静止规则，可整段复制即用。'
+    ],
+    svg:'<svg class="mi-i-demo-float" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="悬浮占位块">\n  <ellipse class="if-shadow" cx="48" cy="79" rx="21" ry="5.5" fill="#28315C" opacity=".16"/>\n  <g class="if-body">\n    <rect x="28" y="26" width="40" height="40" rx="10" fill="#7FA9CE"/>\n    <circle cx="48" cy="46" r="9" fill="#FFFFFF"/>\n  </g>\n</svg>',
+    css:'.mi-i-demo-float .if-body{animation:if-float 3.6s ease-in-out infinite}\n.mi-i-demo-float .if-shadow{transform-origin:48px 79px;animation:if-shade 3.6s ease-in-out infinite}\n@keyframes if-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}\n@keyframes if-shade{0%,100%{transform:scale(1);opacity:.16}50%{transform:scale(.9);opacity:.1}}\n@media (prefers-reduced-motion:reduce){.mi-i-demo-float *{animation:none!important}}'
+  }
+];
+
+/* ============================================================
+   框架区（渲染 / 筛选 / 弹窗 / 复制）——加内容不用动这里
+   ============================================================ */
+
+var root=document.querySelector('.mi'); if(!root) return;
+
+/* 汇总注入所有图标的动画 CSS（页面演示与代码块共用同一份源码） */
+var styleEl=document.createElement('style');
+styleEl.textContent=ICONS.map(function(i){return i.css;}).join('\n');
+document.head.appendChild(styleEl);
+
+/* 渲染分区与卡片 */
+var secWrap=document.getElementById('mi-sections');
+STYLES.forEach(function(s){
+  var label=document.createElement('div');
+  label.className='sec-label'; label.setAttribute('data-cat',s.key);
+  label.textContent=s.zh+' · '+s.en;
+  secWrap.appendChild(label);
+
+  if(s.intro){
+    var intro=document.createElement('p');
+    intro.className='mi-sec-intro'; intro.setAttribute('data-cat',s.key);
+    intro.textContent=s.intro;
+    secWrap.appendChild(intro);
+  }
+
+  var items=ICONS.filter(function(i){return i.style===s.key;});
+  if(!items.length){
+    var empty=document.createElement('div');
+    empty.className='mi-empty'; empty.setAttribute('data-cat',s.key);
+    empty.textContent='该系列筹备中';
+    secWrap.appendChild(empty);
+    return;
+  }
+  var grid=document.createElement('div');
+  grid.className='mi-grid'; grid.setAttribute('data-cat',s.key);
+  items.forEach(function(icon){
+    var card=document.createElement('button');
+    card.type='button'; card.className='mi-card'; card.setAttribute('data-id',icon.id);
+    card.innerHTML='<span class="mi-stage">'+icon.svg+'<span class="mi-hint">点开看代码</span></span>'
+      +'<span class="mi-txt" style="display:block"><span class="mi-zh" style="display:block"></span>'
+      +'<span class="mi-en" style="display:block"></span><span class="mi-desc" style="display:block"></span></span>';
+    card.querySelector('.mi-zh').textContent=icon.zh;
+    card.querySelector('.mi-en').textContent=icon.en;
+    card.querySelector('.mi-desc').textContent=icon.desc;
+    card.addEventListener('click',function(){openModal(icon);});
+    grid.appendChild(card);
+  });
+  secWrap.appendChild(grid);
+});
+
+/* 筛选 chips */
+var filterWrap=document.getElementById('mi-filter');
+var cats=[{key:'all',zh:'全部'}].concat(STYLES);
+cats.forEach(function(c,idx){
+  var b=document.createElement('button');
+  b.type='button'; b.className='mi-chip'+(idx===0?' on':''); b.setAttribute('data-cat',c.key);
+  b.setAttribute('aria-pressed',idx===0?'true':'false');
+  b.textContent=c.zh;
+  b.addEventListener('click',function(){
+    [].forEach.call(filterWrap.children,function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+    b.classList.add('on'); b.setAttribute('aria-pressed','true');
+    var cat=c.key;
+    [].forEach.call(secWrap.children,function(el){
+      var show=cat==='all'||el.getAttribute('data-cat')===cat;
+      el.classList.toggle('mi-hide',!show);
+    });
+  });
+  filterWrap.appendChild(b);
+});
+
+/* 弹窗 */
+var overlay=document.getElementById('mi-overlay'),
+    mStage=document.getElementById('mi-m-stage'),
+    mZh=document.getElementById('mi-m-zh'), mEn=document.getElementById('mi-m-en'),
+    mStyle=document.getElementById('mi-m-style'), mDesc=document.getElementById('mi-m-desc'),
+    mNotes=document.getElementById('mi-m-notes'),
+    codeSvg=document.getElementById('mi-code-svg'), codeCss=document.getElementById('mi-code-css'),
+    closeBtn=document.getElementById('mi-close'), lastFocus=null;
+
+function openModal(icon){
+  var st=STYLES.filter(function(s){return s.key===icon.style;})[0];
+  mStage.innerHTML=icon.svg;
+  mZh.textContent=icon.zh; mEn.textContent=icon.en;
+  mStyle.textContent=st?st.zh:icon.style;
+  mDesc.textContent=icon.desc;
+  mNotes.innerHTML='';
+  (icon.notes||[]).forEach(function(n){
+    var li=document.createElement('li'); li.textContent=n; mNotes.appendChild(li);
+  });
+  codeSvg.textContent=icon.svg;
+  codeCss.textContent=icon.css;
+  lastFocus=document.activeElement;
+  overlay.hidden=false;
+  document.body.style.overflow='hidden';
+  closeBtn.focus();
+}
+function closeModal(){
+  overlay.hidden=true;
+  document.body.style.overflow='';
+  if(lastFocus&&lastFocus.focus) lastFocus.focus();
+}
+closeBtn.addEventListener('click',closeModal);
+overlay.addEventListener('click',function(e){ if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!overlay.hidden) closeModal(); });
+
+/* 复制按钮 */
+[].forEach.call(document.querySelectorAll('.mi-copy'),function(btn){
+  btn.addEventListener('click',function(){
+    var txt=document.getElementById(btn.getAttribute('data-target')).textContent;
+    function done(){
+      btn.classList.add('ok'); btn.textContent='已复制';
+      setTimeout(function(){btn.classList.remove('ok');btn.textContent='复制';},1400);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done,function(){fallback();});
+    } else fallback();
+    function fallback(){
+      var ta=document.createElement('textarea'); ta.value=txt;
+      ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{document.execCommand('copy');done();}catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+});
+})();
+</script>
