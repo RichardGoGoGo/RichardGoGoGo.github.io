@@ -1,6 +1,7 @@
 ---
 title: "Figma 推出并行 AI 改图：设计师可同时多方向变体探索"
 date: 2026-07-08
+editor_pick: true
 icat: 模型与工具
 source: "优设情报"
 src: "https://www.uisdc.com/news"

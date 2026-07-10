@@ -1,6 +1,7 @@
 ---
 title: "TryOnCrafter：首个自由视角视频虚拟试衣 DiT 框架（ECCV 2026）"
 date: 2026-07-07
+editor_pick: true
 icat: 研究与论文
 source: "机器之心 / arXiv"
 src: "https://www.jiqizhixin.com/articles/2026-07-07-tryoncrafter"

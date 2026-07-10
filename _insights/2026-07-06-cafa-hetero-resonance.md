@@ -1,6 +1,7 @@
 ---
 title: "央美「异质共振」展：AI石狮与陶瓷、数字光影共探传统工艺与AI共生"
 date: 2026-07-06
+editor_pick: true
 icat: 展览与赛事
 source: "央美EAST"
 src: "https://so.html5.qq.com/page/real/search_news?docid=70000021_2156a4cd84216652"

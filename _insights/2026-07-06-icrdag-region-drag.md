@@ -1,6 +1,7 @@
 ---
 title: "ICRDrag：上海交大提出首个上下文区域拖拽图像编辑模型，精准变形代替点选"
 date: 2026-07-06
+editor_pick: true
 icat: 研究与论文
 source: "机器之心 / 新浪科技 / arXiv:2606.25907"
 src: "https://arxiv.org/pdf/2606.25907"

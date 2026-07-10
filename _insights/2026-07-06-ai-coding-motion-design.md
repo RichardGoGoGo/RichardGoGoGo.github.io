@@ -1,6 +1,7 @@
 ---
 title: "用 AI Coding 做动效：代码驱动动画替代时间轴拖拽，Motion 设计进入提示词工作流"
 date: 2026-07-06
+editor_pick: true
 icat: 观点与技巧
 source: "优设"
 src: "https://www.uisdc.com/ai-motion-design"

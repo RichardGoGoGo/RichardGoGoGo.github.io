@@ -1,6 +1,7 @@
 ---
 title: "字节Seedance正在占领好莱坞：独立电影人以AI视频$9/分钟成本替代专业摄制"
 date: 2026-07-06
+editor_pick: true
 icat: 案例与作品
 source: "量子位 / TechTimes / AI Weekly / Variety"
 src: "https://www.qbitai.com/2026/07/443665.html"

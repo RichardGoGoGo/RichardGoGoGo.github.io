@@ -1,6 +1,7 @@
 ---
 title: "Meta Muse Image 正式发布：Superintelligence Labs 首个自研图像模型，Agent 式架构上线 Instagram/WhatsApp"
 date: 2026-07-07
+editor_pick: true
 icat: 模型与工具
 source: "Meta 官方 / TechCrunch / CNBC / Bloomberg / Axios"
 src: "https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/"
