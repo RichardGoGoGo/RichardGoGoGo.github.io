@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>联系我们 — 墨川 MoChuan AI</title>
+<style>
+html,body{margin:0;padding:0;background:#FDFBF7;color:#1E2333;font-family:'Noto Sans SC',-apple-system,'PingFang SC',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#3D7BFF;text-decoration:none}a:hover{color:#6B9AFF}
+::selection{background:rgba(61,123,255,.2)}
+@keyframes gradFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes blobMorph{0%,100%{border-radius:58% 42% 55% 45%/50% 55% 45% 50%}50%{border-radius:45% 55% 42% 58%/55% 45% 55% 45%}}
+@keyframes twk{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(3deg)}}
+@keyframes march{to{stroke-dashoffset:-12}}
+@keyframes pulseR{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.8);opacity:0}}
+</style>
+<style id="mochuan-mobile">
+@media (max-width:768px){
+  html,body{overflow-x:hidden!important}
+  img,video,svg{max-width:100%!important;height:auto}
+  header,section{max-width:100%!important;padding-left:18px!important;padding-right:18px!important}
+  header{padding-top:60px!important;padding-bottom:44px!important}
+  section{padding-top:40px!important;padding-bottom:40px!important}
+  nav{flex-wrap:wrap!important;gap:8px 14px!important;padding:12px 16px!important}
+  footer{flex-direction:column!important;gap:14px!important;text-align:center;padding:28px 18px!important}
+  h1{font-size:42px!important;line-height:1.15!important}
+  h2{font-size:26px!important;line-height:1.25!important}
+  [style*="repeat("]{grid-template-columns:1fr!important;gap:16px!important}
+  [style*="gap: 64px"],[style*="gap:64px"]{gap:26px!important}
+  [style*="gap: 36px"],[style*="gap:36px"]{gap:14px!important;flex-wrap:wrap!important}
+  [style*="padding: 64px 48px"],[style*="padding:64px 48px"]{padding:34px 20px!important}
+  [style*="padding: 36px 40px"],[style*="padding:36px 40px"]{padding:22px 18px!important}
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh;overflow-x:hidden;position:relative;display:flex;flex-direction:column" data-screen-label="联系页(亮色)">
+
+  <div style="position:fixed;top:0;left:0;right:0;height:3px;z-index:70;pointer-events:none">
+    <div id="scroll-progress" style="height:100%;background:linear-gradient(90deg,#3D7BFF,#7C5CF6,#17B8CE);transform:scaleX(0);transform-origin:left"></div>
+  </div>
+  <div id="cursor-ring" style="position:fixed;left:0;top:0;width:32px;height:32px;border:1.5px solid rgba(61,123,255,.65);border-radius:50%;pointer-events:none;z-index:69;transition:width .25s ease,height .25s ease,background .25s ease"></div>
+
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:rgba(253,251,247,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(30,35,51,.07)">
+    <a href="index-light.dc.html" style="display:flex;align-items:center;gap:12px;color:#1E2333">
+      <span style="width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#3D7BFF,#7C5CF6 55%,#17B8CE);display:block;animation:blobMorph 7s ease-in-out infinite"></span>
+      <span style="display:flex;flex-direction:column;line-height:1.15">
+        <strong style="font-size:16px;letter-spacing:.02em">墨川</strong>
+        <span style="font-family:'Space Grotesk';font-size:11px;color:#8A90A3;letter-spacing:.14em">MOCHUAN</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:36px;font-size:15px">
+      <a href="index-light.dc.html" style="color:#5C6478">首页</a>
+      <a href="product-light.dc.html" style="color:#5C6478">产品</a>
+      <a href="team-light.dc.html" style="color:#5C6478">团队</a>
+      <a href="contact-light.dc.html" style="color:#1E2333;font-weight:700">联系</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header style="position:relative;max-width:1120px;margin:0 auto;padding:96px 32px 40px;width:100%;box-sizing:border-box">
+    <div data-parallax-depth="-18" style="position:absolute;top:80px;right:6%;pointer-events:none"><div style="width:150px;height:150px;background:linear-gradient(135deg,#FFE3C9,#FFF0E0);animation:blobMorph 9s ease-in-out infinite, floatY 7s ease-in-out infinite"></div></div>
+    <div data-reveal="up" style="font-family:'Space Grotesk';font-size:13px;letter-spacing:.22em;color:#3D7BFF">CONTACT</div>
+    <h1 data-reveal="up" data-reveal-delay=".08" style="margin:18px 0 0;font-size:60px;font-weight:900;line-height:1.15;position:relative">联系<span style="background:linear-gradient(90deg,#3D7BFF,#7C5CF6,#17B8CE,#3D7BFF);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradFlow 6s ease infinite">我们</span></h1>
+    <p data-reveal="up" data-reveal-delay=".16" style="margin:22px 0 0;max-width:620px;font-size:18px;color:#5C6478;line-height:1.8;position:relative">无论是产品试用、流程共创还是加入团队，都欢迎与我们取得联系。</p>
+  </header>
+
+  <section style="position:relative;max-width:1120px;margin:0 auto;padding:24px 32px 110px;width:100%;box-sizing:border-box;flex:1" data-screen-label="联系方式">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div data-reveal="up" data-reveal-delay="0" data-tilt="" style="padding:38px 30px;border-radius:24px;background:#F2F6FF;border:1px solid rgba(61,123,255,.12)">
+        <svg width="84" height="62" viewBox="0 0 100 74" style="fill:none;stroke:#3D7BFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;display:block">
+          <rect x="8" y="16" width="60" height="44" rx="7"></rect>
+          <path d="M8 22 L38 44 L68 22"></path>
+          <g style="animation:bob 2.8s ease-in-out infinite">
+            <path d="M66 44 L94 34 L84 58 L78 50 Z" style="stroke:#FF7A59"></path>
+          </g>
+          <path d="M60 66 h20" stroke-dasharray="6 6" style="stroke:#FFC24B;stroke-width:2.4;animation:march 1s linear infinite"></path>
+        </svg>
+        <div style="font-size:14px;font-weight:700;color:#3D7BFF;letter-spacing:.04em;margin-top:16px">产品共创 · PILOT</div>
+        <p style="margin:16px 0 0;font-size:18px;font-weight:700;color:#8A90A3">联系邮箱待配置</p>
+        <p style="margin:10px 0 0;font-size:14px;color:#5C6478;line-height:1.8">产品试用、创作流程验证、素材交付测试</p>
+      </div>
+      <div data-reveal="up" data-reveal-delay=".12" data-tilt="" style="padding:38px 30px;border-radius:24px;background:#F6F1FF;border:1px solid rgba(124,92,246,.12)">
+        <svg width="84" height="62" viewBox="0 0 100 74" style="fill:none;stroke:#7C5CF6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;display:block">
+          <g style="animation:bob 3s ease-in-out infinite">
+            <circle cx="34" cy="26" r="12"></circle>
+            <path d="M14 62 a20 22 0 0 1 40 0"></path>
+          </g>
+          <path d="M66 30 h20 M76 20 v20" style="stroke:#FF7A59;animation:twk 1.8s ease-in-out infinite"></path>
+          <path d="M60 54 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z" style="fill:#FFC24B;stroke:none;animation:twk 2.2s ease-in-out infinite .5s"></path>
+        </svg>
+        <div style="font-size:14px;font-weight:700;color:#7C5CF6;letter-spacing:.04em;margin-top:16px">加入我们 · CAREERS</div>
+        <p style="margin:16px 0 0;font-size:18px;font-weight:700;color:#8A90A3">联系邮箱待配置</p>
+        <p style="margin:10px 0 0;font-size:14px;color:#5C6478;line-height:1.8">多模态算法、图形学、产品、美术方向</p>
+      </div>
+      <div data-reveal="up" data-reveal-delay=".24" data-tilt="" style="padding:38px 30px;border-radius:24px;background:#EDF9FB;border:1px solid rgba(23,184,206,.14)">
+        <svg width="84" height="62" viewBox="0 0 100 74" style="fill:none;stroke:#17B8CE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;display:block">
+          <ellipse cx="42" cy="62" rx="20" ry="6" style="stroke:rgba(23,184,206,.4);animation:pulseR 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center"></ellipse>
+          <g style="animation:bob 2.8s ease-in-out infinite">
+            <path d="M42 8 c11 0 19 8 19 18 c0 13 -19 34 -19 34 s-19 -21 -19 -34 c0 -10 8 -18 19 -18 Z"></path>
+            <circle cx="42" cy="26" r="6" style="fill:rgba(23,184,206,.25)"></circle>
+          </g>
+          <path d="M72 16 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z" style="fill:#FFC24B;stroke:none;animation:twk 2s ease-in-out infinite .4s"></path>
+        </svg>
+        <div style="font-size:14px;font-weight:700;color:#17B8CE;letter-spacing:.04em;margin-top:16px">协作方式 · REMOTE</div>
+        <p style="margin:16px 0 0;font-size:18px;font-weight:700;color:#8A90A3">远程协作优先</p>
+        <p style="margin:10px 0 0;font-size:14px;color:#5C6478;line-height:1.8">具体沟通方式按项目配置</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid rgba(30,35,51,.08);padding:36px 56px;display:flex;align-items:center;justify-content:space-between;color:#8A90A3;font-size:13px">
+    <div>© 2026 墨川 MoChuan AI · 演示用途：本站为前端设计作品展示，非真实产品 / 公司</div>
+    <div style="display:flex;gap:28px">
+      <a href="index-light.dc.html" style="color:#5C6478">首页</a>
+      <a href="product-light.dc.html" style="color:#5C6478">产品</a>
+      <a href="team-light.dc.html" style="color:#5C6478">团队</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    import('./motion.js').then(m => { this._cleanupMotion = m.initMotion(); });
+  }
+  componentWillUnmount() {
+    if (this._cleanupMotion) this._cleanupMotion();
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
