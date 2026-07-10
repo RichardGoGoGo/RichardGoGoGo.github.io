@@ -22,6 +22,12 @@ tools:
     type: internal
     href: /vibe/motion-icons/
 
+  - name: "创意网站设计"
+    en: "Creative Web Design"
+    desc: "一组高完成度的创意网站 / 落地页演示：动效、视觉、交互的实战参考，点开即看在线 Demo；作品陆续上架。"
+    type: internal
+    href: /vibe/web-design/
+
   - name: "科研绘图生成器 · Figure Studio"
     en: "Figure Studio"
     desc: "小巧的科研配图 / 学术示意图生成器，快速产出规范的图表与示意图（架于 Lovable）。"
