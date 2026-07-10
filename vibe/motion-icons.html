@@ -7,7 +7,7 @@ title: "动态图标图鉴"
 <header class="page-header">
   <div class="container">
     <h1>动态图标图鉴</h1>
-    <p class="hero-tagline">按风格分区的动态图标参考库：每个图标都能看到实时动效，点开即得可复制的 SVG + CSS 源码。风格系列陆续上架。</p>
+    <p class="hero-tagline">按风格分区的动态图标参考库：每个图标都能看到实时动效，点开可查看配色色表与使用场景。风格系列陆续上架。</p>
   </div>
 </header>
 
@@ -18,7 +18,7 @@ title: "动态图标图鉴"
     <span class="cur">动态图标图鉴</span>
   </nav>
 
-  <p class="mi-sronly">这是一个动态图标的交互参考图鉴，按视觉风格分区；每张卡片展示一枚图标的实时动效，点开卡片可查看设计要点与可复制的 SVG 和 CSS 源码。</p>
+  <p class="mi-sronly">这是一个动态图标的交互参考图鉴，按视觉风格分区；每张卡片展示一枚图标的实时动效（划过卡片可重播进场编排），点开卡片可查看配色色表与使用场景。</p>
 
   <div class="mi">
     <div class="mi-bar">
@@ -37,16 +37,10 @@ title: "动态图标图鉴"
         <span class="mi-m-en" id="mi-m-en"></span>
         <span class="mi-m-style" id="mi-m-style"></span>
       </div>
-      <p class="mi-m-desc" id="mi-m-desc"></p>
-      <ul class="mi-m-notes" id="mi-m-notes"></ul>
-      <div class="mi-code-block">
-        <div class="mi-code-head"><span>SVG</span><button class="mi-copy" data-target="mi-code-svg">复制</button></div>
-        <pre><code id="mi-code-svg"></code></pre>
-      </div>
-      <div class="mi-code-block">
-        <div class="mi-code-head"><span>CSS</span><button class="mi-copy" data-target="mi-code-css">复制</button></div>
-        <pre><code id="mi-code-css"></code></pre>
-      </div>
+      <div class="mi-m-sec">配色</div>
+      <div class="mi-swatches" id="mi-m-colors"></div>
+      <div class="mi-m-sec">使用场景</div>
+      <ul class="mi-m-scenes" id="mi-m-scenes"></ul>
     </div>
   </div>
 </main>
@@ -66,19 +60,21 @@ title: "动态图标图鉴"
 
 /* 风格分区 */
 .mi-sec-intro{font-size:13px;color:var(--ink-soft);line-height:1.7;margin:-4px 0 12px}
-.mi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:6px}
+.mi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:6px}
 .mi-empty{border:1px dashed var(--rule);border-radius:10px;padding:2rem 1rem;text-align:center;font-size:13px;color:var(--ink-mute);margin-bottom:6px}
 
 /* 图标卡 */
 .mi-card{border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--paper);cursor:pointer;text-align:left;
-  padding:0;display:block;width:100%;font-family:inherit;transition:border-color .15s,transform .2s cubic-bezier(.22,1,.36,1)}
+  padding:0;display:flex;flex-direction:column;width:100%;font-family:inherit;transition:border-color .15s,transform .2s cubic-bezier(.22,1,.36,1)}
 .mi-card:hover{border-color:var(--ink-mute);transform:translateY(-2px)}
 .mi-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.mi-stage{height:104px;overflow:hidden;background:var(--rule-soft);position:relative;display:flex;align-items:center;justify-content:center}
-.mi-stage svg{width:84px;height:84px;display:block}
-.mi-hint{position:absolute;right:7px;bottom:6px;font-size:10px;color:var(--ink-mute);opacity:0;transition:opacity .15s;pointer-events:none}
+.mi-stage{height:168px;overflow:hidden;background:var(--rule-soft);position:relative;display:flex;align-items:center;justify-content:center}
+.mi-stage svg{width:150px;height:150px;display:block}
+.mi-hint{position:absolute;right:8px;bottom:7px;font-size:10px;color:var(--ink-mute);opacity:0;transition:opacity .15s;pointer-events:none}
+.mi-tinted .mi-hint{color:rgba(255,255,255,.92)}
 .mi-card:hover .mi-hint{opacity:1}
-.mi-txt{padding:8px 11px 11px}
+.mi-txt{padding:8px 11px 11px;background:var(--paper);flex:1}
+.mi-stage{flex:none}
 .mi-zh{font-size:14px;font-weight:500;color:var(--ink);line-height:1.3}
 .mi-en{font-size:12px;color:var(--ink-mute);margin-top:1px}
 .mi-desc{font-size:12px;color:var(--ink-soft);line-height:1.5;margin-top:3px}
@@ -86,20 +82,25 @@ title: "动态图标图鉴"
 /* 弹窗 */
 .mi-overlay{position:fixed;inset:0;z-index:200;background:rgba(20,24,40,.45);display:flex;align-items:flex-start;justify-content:center;
   padding:4vh 16px;overflow-y:auto}
+.mi-overlay[hidden]{display:none}
 .mi-modal{position:relative;background:var(--paper);border:1px solid var(--rule);border-radius:14px;max-width:640px;width:100%;
   padding:20px 22px 22px;margin-bottom:4vh}
 .mi-close{position:absolute;top:10px;right:12px;width:32px;height:32px;border:none;background:none;font-size:22px;line-height:1;
-  color:var(--ink-mute);cursor:pointer;border-radius:8px}
+  color:var(--ink-mute);cursor:pointer;border-radius:8px;z-index:1}
 .mi-close:hover{color:var(--ink);background:var(--rule-soft)}
-.mi-m-stage{height:150px;border-radius:10px;background:var(--rule-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.mi-m-stage svg{width:120px;height:120px;display:block}
+.mi-m-stage{height:250px;border-radius:10px;background:var(--rule-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.mi-m-stage svg{width:230px;height:230px;display:block}
 .mi-m-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
 .mi-m-zh{font-size:18px;font-weight:600;color:var(--ink)}
 .mi-m-en{font-size:13px;color:var(--ink-mute)}
 .mi-m-style{font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:1px 9px}
-.mi-m-desc{font-size:13px;color:var(--ink-soft);line-height:1.7;margin:8px 0 0}
-.mi-m-notes{margin:8px 0 0;padding-left:1.2em;font-size:13px;color:var(--ink-soft);line-height:1.8}
-.mi-m-notes:empty{display:none}
+.mi-m-sec{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--ink-mute);margin:16px 0 8px}
+.mi-swatches{display:flex;flex-wrap:wrap;gap:7px}
+.mi-swatch{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);border-radius:8px;padding:4px 9px;
+  font-size:11.5px;color:var(--ink-soft)}
+.mi-swatch i{width:14px;height:14px;border-radius:4px;display:block;border:1px solid rgba(40,49,92,.12)}
+.mi-swatch code{font-family:Consolas,Menlo,monospace;font-size:10.5px;color:var(--ink-mute)}
+.mi-m-scenes{margin:0;padding-left:1.2em;font-size:13px;color:var(--ink-soft);line-height:1.9}
 .mi-code-block{margin-top:14px;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
 .mi-code-head{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:var(--rule-soft);
   font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink-soft)}
@@ -127,45 +128,311 @@ title: "动态图标图鉴"
         style: '所属风格 key',
         zh/en: '中英文名',
         desc:  '一句话说明（卡片与弹窗共用）',
+        bg:    '#XXXXXX',                // 可选，卡片/弹窗舞台底色
         notes: ['设计要点…'],            // 可选，弹窗详解列表
-        svg:   '<svg class="mi-i-<id>" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">…</svg>',
+        svg:   '<svg class="mi-i-<id>" viewBox="…" xmlns="http://www.w3.org/2000/svg">…</svg>',
         css:   '.mi-i-<id> …{…} @keyframes <id前缀>-xx{…}'
       }
    演示与弹窗里展示的代码是同一份字符串——所见即所得。
    约定：keyframes 名带图标前缀防撞；css 末尾自带
-   @media (prefers-reduced-motion:reduce) 静止规则，方便整段复制即用。
+   @media (prefers-reduced-motion:reduce) 静止规则（进场类需回填可见态）。
+
+   ── 本系列（等距拟物）编排章法，源自 pixel2motion 方法论 ──
+   人格令牌：enter=cubic-bezier(.22,1,.36,1) 软着陆；pop=cubic-bezier(.34,1.56,.64,1)
+   仅点缀件；循环 ease-in-out。
+   三段式：① Reveal——按拖拽层级「投影/底座→主体→细节→点缀」交错进场，
+   总长≤1.4s；② 操作循环(6s)——单焦点接力，先操作后结果，尾部悄悄复位；
+   ③ Idle——整体 3.6s/±3px 悬浮，投影反相呼吸。
+   属性分工：位移只给操作，颜色走 fill/stroke 补间；同元素两段动画共存时，
+   进场终态必须是恒等变换，循环写在 animation 列表后位。
+   轴测方向：竖立主体沿「左下→右上」(1,-.5) 铺展，配件（放大镜/键盘/
+   标注线）落右前方——别左右镜像参考图的视角。升右立面＝立方体的右向面，
+   板体厚度朝后左延伸，可见回边在「左端(中灰#D6E2EC)+顶边(浅灰#EDF2F8)」，
+   往左上偏移 (-d,-d/2)；右侧不出现回边。落地斜面（底座/纸面/键盘）仍按
+   S 角规则：S-W 左侧面中灰、E-S 右侧面最暗。
+   注意 (-1,.5) 与 (1,-.5) 共线，地面两条轴只有 (1,.5) 和 (1,-.5)。
+   落地纸面/板面的长轴也沿 (1,-.5)（左下↔右上），与竖立主体同向。
+   升右立面上的圆 → 斜椭圆：rx=1.28r / ry=0.78r / rotate(-52°)
+   （主轴取 MMᵀ 特征向量，朝右上；引出线沿立面法线 (1,.5) 向右下伸）。
+   立面上的胶囊/气泡用竖直端头的圆角平行四边形（fill+同色stroke
+   linejoin:round），别用圆帽粗线——那读作旋转而非透视。
+   配色（自家糖果系）：舞台底 薰衣草#A091E4/蜜杏#ECA57E/豆沙绿#A6C097/
+   雾蓝#8299BD/奶油黄#E2B963/玫瑰粉#DE8B9B；特征色 紫#8A7BE8/玫粉#EF7D8E/
+   阳光黄#F5C05A/薄荷#58C2A9；结构深色 藏蓝#28315C 系。
    ============================================================ */
 
 var STYLES=[
-  { key:'sample', zh:'框架示例', en:'Sample',
-    intro:'占位示例，用于验证图鉴框架（实时演示 / 弹窗详解 / 代码复制）。正式风格系列上架后移除。' }
+  { key:'iso', zh:'等距拟物 · 组装编排', en:'Isometric Assembly' }
 ];
 
 var ICONS=[
   {
-    id:'demo-float', style:'sample',
-    zh:'悬浮占位块', en:'Floating Placeholder',
-    desc:'一块圆角体上下悬浮，底部椭圆软投影同步呼吸。',
+    id:'iso-analysis', style:'iso',
+    zh:'分析台', en:'Analysis',
+    desc:'放大镜下逐张巡览卡片墙，命中项高亮。',
+    bg:'#A091E4',
+    colors:[['#A091E4','舞台'],['#F1F6FA','卡片墙'],['#FFFFFF','放大镜'],['#222A4E','操作台'],['#F5C05A','扫描高亮']],
+    scenes:['数据分析 / 调研报告类板块','搜索、筛选、审计功能的空态或引导位','后台"资源盘点"入口图标'],
     notes:[
-      '主体与投影用同一时长的动画驱动，浮起时投影缩小变淡，形成"离地"错觉。',
-      '幅度控制在 2–3px、周期 3.6s，作为页面常驻元素不抢注意力。',
-      '代码末尾自带 prefers-reduced-motion 静止规则，可整段复制即用。'
+      '进场按拖拽层级：投影/底座(root) → 卡片墙(primary，每张错位 55ms) → 放大镜/操作台(点缀，带轻微 overshoot 弹入)。',
+      '操作循环 6s 单焦点接力：卡片墙移动 → 镜下卡片高亮 → 指示灯应答，同一时刻只有一件事发生（Staging）。',
+      '巡览动的是卡片墙而不是放大镜——镜头固定、素材流过，读作"逐张检视"。',
+      '收束态：整体 3.6s/±3px 悬浮，椭圆投影反相呼吸（浮起时影缩小变淡）。'
     ],
-    svg:'<svg class="mi-i-demo-float" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="悬浮占位块">\n  <ellipse class="if-shadow" cx="48" cy="79" rx="21" ry="5.5" fill="#28315C" opacity=".16"/>\n  <g class="if-body">\n    <rect x="28" y="26" width="40" height="40" rx="10" fill="#7FA9CE"/>\n    <circle cx="48" cy="46" r="9" fill="#FFFFFF"/>\n  </g>\n</svg>',
-    css:'.mi-i-demo-float .if-body{animation:if-float 3.6s ease-in-out infinite}\n.mi-i-demo-float .if-shadow{transform-origin:48px 79px;animation:if-shade 3.6s ease-in-out infinite}\n@keyframes if-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}\n@keyframes if-shade{0%,100%{transform:scale(1);opacity:.16}50%{transform:scale(.9);opacity:.1}}\n@media (prefers-reduced-motion:reduce){.mi-i-demo-float *{animation:none!important}}'
+    svg:'<svg class="mi-i-iso-analysis" viewBox="8.5 12 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分析台：放大镜下卡片墙巡览与高亮">\n  <g class="a-float">\n    <g class="e"><ellipse class="a-shadow" cx="64" cy="102" rx="29" ry="5" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="68,77 90,88 68,99 46,88" fill="#EFF4F9"/>\n      <polygon points="68,99 46,88 46,92 68,103" fill="#DAE4EF"/>\n      <polygon points="90,88 68,99 68,103 90,92" fill="#C2D0E0"/>\n    </g>\n    <g class="a-wall">\n      <g class="e" style="animation-delay:.16s"><polygon points="24,76 38,69 38,59 24,66" fill="#F1F6FA"/><path d="M27 67.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M27 70.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.215s"><polygon points="40,68 54,61 54,51 40,58" fill="#F1F6FA"/><path d="M43 59.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M43 62.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.27s"><polygon class="a-hl2" points="56,60 70,53 70,43 56,50" fill="#F1F6FA" stroke="rgba(245,192,90,0)" stroke-width=".9"/><path d="M59 51.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M59 54.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.325s"><polygon points="24,63 38,56 38,46 24,53" fill="#F1F6FA"/><path d="M27 54.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M27 57.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.38s"><polygon points="40,55 54,48 54,38 40,45" fill="#F1F6FA"/><path d="M43 46.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M43 49.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.435s"><polygon class="a-hl1" points="56,47 70,40 70,30 56,37" fill="#F1F6FA" stroke="rgba(245,192,90,0)" stroke-width=".9"/><path d="M59 38.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M59 41.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.49s"><polygon points="24,50 38,43 38,33 24,40" fill="#F1F6FA"/><path d="M27 41.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M27 44.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.545s"><polygon points="40,42 54,35 54,25 40,32" fill="#F1F6FA"/><path d="M43 33.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M43 36.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n      <g class="e" style="animation-delay:.6s"><polygon points="56,34 70,27 70,17 56,24" fill="#F1F6FA"/><path d="M59 25.5 l6 -3" stroke="#A9BCD3" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M59 28.5 l8 -4" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    </g>\n    <g class="e-pop" style="animation-delay:.72s">\n      <rect x="66.4" y="52" width="3.2" height="36" rx="1.6" fill="#FFFFFF"/>\n      <ellipse cx="68" cy="45" rx="16.6" ry="10.2" transform="rotate(-52 68 45)" fill="#FFFFFF" opacity=".22"/>\n      <g class="a-hint"><polygon points="61,51 74,44.5 74,34.5 61,41" fill="#FFFFFF"/><path d="M64 43.5 l6.5 -3.25" stroke="#A9BCD3" stroke-width="1.3" stroke-linecap="round" fill="none"/><path d="M64 46.5 l5 -2.5" stroke="#C9D6E5" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>\n      <ellipse cx="68" cy="45" rx="16.6" ry="10.2" transform="rotate(-52 68 45)" fill="none" stroke="#FFFFFF" stroke-width="3"/>\n    </g>\n    <g class="e-pop" style="animation-delay:.88s">\n      <polygon points="80,88 90,93 80,98 70,93" fill="#222A4E"/>\n      <polygon points="80,98 70,93 70,96 80,101" fill="#1D2547"/>\n      <polygon points="90,93 80,98 80,101 90,96" fill="#141B36"/>\n      <path class="a-b1" d="M73.5 92.5 l5 2.5" stroke="#EF7D8E" stroke-width="1.7" stroke-linecap="round" opacity=".45" fill="none"/>\n      <path class="a-b2" d="M76 91 l5 2.5" stroke="#F5C05A" stroke-width="1.7" stroke-linecap="round" opacity=".45" fill="none"/>\n      <path d="M78.5 89.5 l5 2.5" stroke="#58C2A9" stroke-width="1.7" stroke-linecap="round" opacity=".9" fill="none"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 人格令牌：enter=软着陆 / pop=轻overshoot(仅点缀件) / 循环 ease-in-out */\n.mi-i-iso-analysis .e{opacity:0;animation:a1-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-analysis .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:a1-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-analysis .a-float{animation:a1-float 3.6s ease-in-out infinite}\n.mi-i-iso-analysis .a-shadow{transform-box:fill-box;transform-origin:center;animation:a1-breath 3.6s ease-in-out infinite}\n.mi-i-iso-analysis .a-wall{animation:a1-scan 6s ease-in-out 1.8s infinite}\n.mi-i-iso-analysis .a-hl1{animation:a1-hl1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-analysis .a-hl2{animation:a1-hl2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-analysis .a-hint{opacity:0;animation:a1-hint 6s ease-in-out 1.8s infinite}\n.mi-i-iso-analysis .a-b1{animation:a1-b1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-analysis .a-b2{animation:a1-b2 6s ease-in-out 1.8s infinite}\n@keyframes a1-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes a1-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes a1-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes a1-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes a1-scan{0%{transform:none}14%,30%{transform:translate(-7px,3.5px)}48%,64%{transform:translate(7px,-3.5px)}82%,100%{transform:none}}\n@keyframes a1-hl1{0%,12%,34%,100%{fill:#F1F6FA;stroke:rgba(245,192,90,0)}17%,28%{fill:#FFFFFF;stroke:#F5C05A}}\n@keyframes a1-hl2{0%,46%,68%,100%{fill:#F1F6FA;stroke:rgba(245,192,90,0)}51%,62%{fill:#FFFFFF;stroke:#F5C05A}}\n@keyframes a1-hint{0%,13%,33%,47%,67%,100%{opacity:0}17%,28%{opacity:.95}51%,62%{opacity:.95}}\n@keyframes a1-b1{0%,20%,40%,100%{opacity:.45}26%,32%{opacity:1}}\n@keyframes a1-b2{0%,54%,74%,100%{opacity:.45}60%,66%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-analysis *{animation:none!important}.mi-i-iso-analysis .e,.mi-i-iso-analysis .e-pop{opacity:1}}'
+  },
+  {
+    id:'iso-concept', style:'iso',
+    zh:'概念台', en:'Concept',
+    desc:'灯泡涌起火花，纸上脑图长出新分支。',
+    bg:'#B18CC6',
+    colors:[['#B18CC6','舞台'],['#FFFFFF','灯泡 / 草图纸'],['#F5C05A','光晕 / 新节点'],['#8A7BE8','脑图节点 / 新分支'],['#EF7D8E','火花']],
+    scenes:['头脑风暴、灵感收集功能','产品方法论页的"概念"步骤','空白画板 / 新建项目引导'],
+    notes:[
+      '因果主循环：灯泡光晕涌起 → 火花迸出 → 脑图长出一条新分支（连线描边生长 + 琥珀节点弹出）。',
+      '火花只在光晕最亮的瞬间出现（时间上的因果绑定）；第二次涌起弱一档，节奏有主次。',
+      '灯泡、笔记本是静态体积；循环期间动的只有光晕/火花/新行三件套，单焦点接力。',
+      '新行在循环尾部淡出复位＝"翻页再想"，给无限循环一个叙事理由。'
+    ],
+    svg:'<svg class="mi-i-iso-concept" viewBox="18.5 25 87 87" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="概念台：灯泡涌起火花，脑图长出新分支">\n  <g class="c-float">\n    <g class="e"><ellipse class="c-shadow" cx="62" cy="102" rx="27" ry="4.5" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="38,90 68,75 88,85 58,100" fill="#FFFFFF"/>\n      <polygon points="58,100 38,90 38,94 58,104" fill="#DAE4EF"/>\n      <polygon points="88,85 58,100 58,104 88,89" fill="#C2D0E0"/>\n    </g>\n    <g class="e" style="animation-delay:.3s"><circle cx="61" cy="88.5" r="2.2" fill="#8A7BE8"/></g>\n    <g class="e" style="animation-delay:.42s"><path d="M61 88.5 L50 90.2" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="49" cy="90.4" r="1.4" fill="#C9D6E5"/></g>\n    <g class="e" style="animation-delay:.54s"><path d="M61 88.5 L65.2 80.7" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="66" cy="80" r="1.4" fill="#C9D6E5"/></g>\n    <path class="c-idea" d="M61 88.5 L76.5 85.3" stroke="#8A7BE8" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="16" stroke-dashoffset="16" fill="none"/>\n    <circle class="c-inode" cx="78" cy="85" r="1.7" fill="#F5C05A"/>\n    <g class="e-pop" style="animation-delay:.65s">\n      <circle class="c-glow" cx="60" cy="46" r="15" fill="#F5C05A" opacity=".22"/>\n      <circle cx="60" cy="46" r="10" fill="#FFFFFF"/>\n      <path d="M56.5 48 q1.8 -3 3.5 0 q1.8 3 3.5 0" stroke="#F5C05A" stroke-width="1.3" stroke-linecap="round" fill="none"/>\n      <rect x="56.8" y="55.4" width="6.4" height="6" rx="1.5" fill="#C9D6E5"/>\n      <path d="M57.2 57.5 h5.6" stroke="#A9BCD3" stroke-width=".8" fill="none"/><path d="M57.2 59.5 h5.6" stroke="#A9BCD3" stroke-width=".8" fill="none"/>\n    </g>\n    <g transform="translate(42,34)"><path class="c-sp1" d="M0,-3 L.9,-.9 L3,0 L.9,.9 L0,3 L-.9,.9 L-3,0 L-.9,-.9 Z" fill="#EF7D8E"/></g>\n    <g transform="translate(78,32)"><path class="c-sp2" d="M0,-3 L.9,-.9 L3,0 L.9,.9 L0,3 L-.9,.9 L-3,0 L-.9,-.9 Z" fill="#58C2A9"/></g>\n  </g>\n</svg>',
+    css:'/* 因果：光晕涌起→火花迸出→纸上长出新行；第二次涌起弱一档 */\n.mi-i-iso-concept .e{opacity:0;animation:c7-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-concept .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:c7-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-concept .c-float{animation:c7-float 3.6s ease-in-out infinite}\n.mi-i-iso-concept .c-shadow{transform-box:fill-box;transform-origin:center;animation:c7-breath 3.6s ease-in-out infinite}\n.mi-i-iso-concept .c-glow{transform-box:fill-box;transform-origin:center;animation:c7-glow 6s ease-in-out 1.8s infinite}\n.mi-i-iso-concept .c-sp1{opacity:0;transform-box:fill-box;transform-origin:center;animation:c7-sp1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-concept .c-sp2{opacity:0;transform-box:fill-box;transform-origin:center;animation:c7-sp2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-concept .c-idea{animation:c7-idea 6s ease-in-out 1.8s infinite}\n.mi-i-iso-concept .c-inode{opacity:0;transform-box:fill-box;transform-origin:center;animation:c7-inode 6s ease-in-out 1.8s infinite}\n@keyframes c7-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes c7-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes c7-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes c7-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes c7-glow{0%,6%,30%,52%,72%,100%{transform:scale(1);opacity:.22}12%,18%{transform:scale(1.25);opacity:.42}58%,64%{transform:scale(1.12);opacity:.32}}\n@keyframes c7-sp1{0%,8%,26%,100%{opacity:0;transform:scale(.3)}13%,20%{opacity:1;transform:scale(1)}}\n@keyframes c7-sp2{0%,54%,74%,100%{opacity:0;transform:scale(.3)}59%,66%{opacity:1;transform:scale(1)}}\n@keyframes c7-idea{0%,20%{stroke-dashoffset:16;opacity:1}44%,82%{stroke-dashoffset:0;opacity:1}88%{stroke-dashoffset:0;opacity:0}89%,94%{stroke-dashoffset:16;opacity:0}100%{stroke-dashoffset:16;opacity:1}}\n@keyframes c7-inode{0%,42%{opacity:0;transform:scale(.3)}48%{opacity:1;transform:scale(1.15)}52%,82%{opacity:1;transform:scale(1)}88%,100%{opacity:0;transform:scale(.3)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-concept *{animation:none!important}.mi-i-iso-concept .e,.mi-i-iso-concept .e-pop{opacity:1}.mi-i-iso-concept .c-idea{stroke-dashoffset:0}.mi-i-iso-concept .c-inode{opacity:1;transform:none}}'
+  },
+  {
+    id:'iso-wire', style:'iso',
+    zh:'线框台', en:'Wireframe',
+    desc:'线框块逐块拼装，批注牌挂上页面。',
+    bg:'#A6C097',
+    colors:[['#A6C097','舞台'],['#FFFFFF','线框页 / 批注牌'],['#E7EEF5','线框块'],['#EF7D8E','把手点 / 红绿灯'],['#8A7BE8','批注记录']],
+    scenes:['原型 / 低保真设计流程页','产品迭代"规划中"状态位','设计协作工具的评审模块'],
+    notes:[
+      '线框块按阅读顺序（页头 → 导航 → 主图 → 三栏）70ms 交错拼装，还原"搭页面"的过程感。',
+      '三组「引线＋批注牌」左一右二、分挂页头、主图、右栏（引线描边生长、牌弹入，错拍 150ms）——评审批注挂满页面的样子。',
+      '循环因果链：把手点脉冲 → 主图块提亮 → 只有主图那张批注牌记一笔（批注线闪紫）——三张牌里一次只动一张（Staging）。',
+      '所有动效只动 transform / opacity / 描边属性；reduced-motion 下呈静止完成态。'
+    ],
+    svg:'<svg class="mi-i-iso-wire" viewBox="10 23 86 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="线框台：区块拼装与标注线生长">\n  <g class="w-float">\n    <g class="e"><ellipse class="w-shadow" cx="53" cy="100" rx="21" ry="4.2" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="38,46 38,92 35.5,90.75 35.5,44.75" fill="#D6E2EC"/>\n      <polygon points="38,46 64,33 61.5,31.75 35.5,44.75" fill="#EDF2F8"/>\n      <polygon points="38,92 64,79 64,33 38,46" fill="#FFFFFF"/>\n    </g>\n    <g class="e" style="animation-delay:.24s">\n      <polygon points="38,46 64,33 64,39 38,52" fill="#EFF3F8"/>\n      <circle cx="42" cy="47" r="1.15" fill="#EF7D8E"/><circle cx="45.4" cy="45.3" r="1.15" fill="#F5C05A"/><circle cx="48.8" cy="43.6" r="1.15" fill="#58C2A9"/>\n    </g>\n    <g class="e" style="animation-delay:.42s"><polygon points="41,55 48,51.5 48,48 41,51.5" fill="#DCE6EF"/></g>\n    <g class="e" style="animation-delay:.5s"><path d="M52.5 46.7 l7.5 -3.75" stroke="#C9D6E5" stroke-width="1.2" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.58s">\n      <polygon class="w-hero" points="41,67.5 61,57.5 61,49.5 41,59.5" fill="#E7EEF5"/>\n      <path d="M44 60 l10 -5" stroke="#FBFDFF" stroke-width="1.6" stroke-linecap="round" fill="none"/>\n      <path d="M44 63 l7 -3.5" stroke="#FBFDFF" stroke-width="1.6" stroke-linecap="round" fill="none"/>\n      <circle class="w-handle" cx="61.5" cy="53.5" r="1.7" fill="#EF7D8E"/>\n    </g>\n    <g class="e" style="animation-delay:.66s"><polygon points="41,81.5 47,78.5 47,71.5 41,74.5" fill="#E7EEF5"/></g>\n    <g class="e" style="animation-delay:.74s"><polygon points="49,77.5 55,74.5 55,67.5 49,70.5" fill="#E7EEF5"/></g>\n    <g class="e" style="animation-delay:.82s"><polygon points="57,73.5 63,70.5 63,63.5 57,66.5" fill="#E7EEF5"/></g>\n    <path class="w-draw" d="M39.5 51.5 L31 45.5" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" fill="none"/>\n    <g class="w-tag" style="transform-origin:100% 50%"><path d="M18 48.5 L30 42.5 L30 36.5 L18 42.5 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path d="M20.5 45.3 l7 -3.5" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/></g>\n    <path class="w-draw" style="animation-delay:1.1s" d="M63 52.5 L75 46" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" fill="none"/>\n    <g class="w-tag" style="animation-delay:1.3s"><path d="M75 46.5 L87 40.5 L87 34.5 L75 40.5 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path class="w-tagline" d="M77.5 43.3 l7 -3.5" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/></g>\n    <path class="w-draw" style="animation-delay:1.25s" d="M64.5 65.5 L73 60" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" fill="none"/>\n    <g class="w-tag" style="animation-delay:1.45s"><path d="M73 63.5 L85 57.5 L85 51.5 L73 57.5 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/><path d="M75.5 60.3 l7 -3.5" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/></g>\n  </g>\n</svg>',
+    css:'/* 阅读顺序拼装 + 描边生长；虚线回流=仍在标注中 */\n.mi-i-iso-wire .e{opacity:0;animation:w3-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-wire .f{opacity:0;animation:w3-fade .6s ease-out both}\n.mi-i-iso-wire .w-float{animation:w3-float 3.6s ease-in-out infinite}\n.mi-i-iso-wire .w-shadow{transform-box:fill-box;transform-origin:center;animation:w3-breath 3.6s ease-in-out infinite}\n.mi-i-iso-wire .w-draw{stroke-dasharray:14;stroke-dashoffset:14;animation:w3-draw .6s cubic-bezier(.22,1,.36,1) .95s forwards}\n.mi-i-iso-wire .w-tag{opacity:0;transform-box:fill-box;transform-origin:0% 50%;animation:w3-tag .5s cubic-bezier(.34,1.56,.64,1) 1.15s both}\n.mi-i-iso-wire .w-tagline{animation:w3-tagline 6s ease-in-out 1.8s infinite}\n.mi-i-iso-wire .w-handle{transform-box:fill-box;transform-origin:center;animation:w3-handle 6s ease-in-out 1.8s infinite}\n.mi-i-iso-wire .w-hero{animation:w3-hero 6s ease-in-out 1.8s infinite}\n@keyframes w3-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes w3-fade{from{opacity:0}to{opacity:1}}\n@keyframes w3-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes w3-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes w3-draw{to{stroke-dashoffset:0}}\n@keyframes w3-tag{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes w3-tagline{0%,28%,40%,78%,90%,100%{stroke:#C9D6E5}32%,36%{stroke:#8A7BE8}82%,86%{stroke:#8A7BE8}}\n@keyframes w3-handle{0%,20%,34%,70%,84%,100%{transform:scale(1)}25%,29%{transform:scale(1.45)}75%,79%{transform:scale(1.45)}}\n@keyframes w3-hero{0%,22%,40%,72%,90%,100%{fill:#E7EEF5}27%,33%{fill:#F8FBFE}77%,83%{fill:#F8FBFE}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-wire *{animation:none!important}.mi-i-iso-wire .e,.mi-i-iso-wire .f{opacity:1}.mi-i-iso-wire .w-draw{stroke-dashoffset:0}.mi-i-iso-wire .w-tag{opacity:1;transform:none}}'
+  },
+  {
+    id:'iso-design', style:'iso',
+    zh:'设计台', en:'Design',
+    desc:'三枚工具芯片轮流按下，页面实时换装。',
+    bg:'#ECA57E',
+    colors:[['#ECA57E','舞台'],['#FFFFFF','纸面'],['#8A7BE8','画布 / Aa 芯片'],['#58C2A9','画布换装'],['#F5C05A','按钮'],['#EF7D8E','标题换色']],
+    scenes:['主题 / 皮肤切换功能','品牌定制、样式配置向导','设计服务介绍页的步骤图'],
+    notes:[
+      '芯片按下（位移 2.5px）与页面变化同刻发生——先有操作、后有结果，动效讲因果。',
+      '三个操作在 6s 内错开接力（0s / 2s / 4s 各一个焦点），并在循环尾部悄悄复位，避免循环重启跳变。',
+      '颜色变化全部走 fill/stroke 补间，位移只给"按下"用——属性分工让同一元素的多段动画互不打架。',
+      '拟物细节（眼镜、纸面厚度、三面体积）是静态的"体积证词"，不参与动效，保证循环期间只有一个焦点。'
+    ],
+    svg:'<svg class="mi-i-iso-design" viewBox="14 6.5 95 95" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="设计台：工具芯片实时给页面换装">\n  <g class="d-float">\n    <g class="e"><ellipse class="d-shadow" cx="62" cy="85" rx="32" ry="5.5" fill="#28315C" opacity=".16"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="30,68 70,48 95,60.5 55,80.5" fill="#FFFFFF"/>\n      <polygon points="55,80.5 30,68 30,73 55,85.5" fill="#DAE4EF"/>\n      <polygon points="95,60.5 55,80.5 55,85.5 95,65.5" fill="#C2D0E0"/>\n    </g>\n    <g class="e" style="animation-delay:.26s"><polygon class="d-panel" points="34,68 48,61 69,71.5 55,78.5" fill="#8A7BE8"/></g>\n    <g class="e" style="animation-delay:.46s">\n      <ellipse cx="46" cy="70" rx="4.4" ry="2.2" fill="rgba(255,255,255,.18)" stroke="#FFFFFF" stroke-width="1.4"/>\n      <ellipse cx="54" cy="66" rx="4.4" ry="2.2" fill="rgba(255,255,255,.18)" stroke="#FFFFFF" stroke-width="1.4"/>\n      <path d="M50.2 69.5 Q51.8 68.2 50.3 66.5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>\n    </g>\n    <g class="e" style="animation-delay:.56s"><path class="d-title" d="M60 59 L72 53" stroke="#28315C" stroke-width="3.4" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.64s"><path d="M63.5 60.7 l9.5 -4.75" stroke="#9FB4CE" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.72s"><path d="M66.5 62.2 l8 -4" stroke="#B9C9DD" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.8s"><path class="d-btn" d="M71 63 L78 59.5" stroke="#F5C05A" stroke-width="3.2" stroke-linecap="round" fill="none"/></g>\n    <g transform="translate(33,36)"><g class="e-pop" style="animation-delay:.96s"><g class="d-dip1">\n      <rect x="-5.5" y="-5.5" width="11" height="11" rx="3" fill="#FFFFFF"/>\n      <circle cx="-2" cy="-2" r="1.4" fill="#8A7BE8"/><circle cx="2" cy="-2" r="1.4" fill="#F5C05A"/>\n      <circle cx="-2" cy="2" r="1.4" fill="#58C2A9"/><circle cx="2" cy="2" r="1.4" fill="#EF7D8E"/>\n    </g></g></g>\n    <g transform="translate(46,29.5)"><g class="e-pop" style="animation-delay:1.06s"><g class="d-dip2">\n      <rect x="-5.5" y="-5.5" width="11" height="11" rx="3" fill="#8A7BE8"/>\n      <text x="0" y="2.3" font-size="6.2" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="sans-serif">Aa</text>\n    </g></g></g>\n    <g transform="translate(59,23)"><g class="e-pop" style="animation-delay:1.16s"><g class="d-dip3">\n      <rect x="-5.5" y="-5.5" width="11" height="11" rx="3" fill="#FFFFFF"/>\n      <path d="M0,-3.6 L1.06,-1.16 3.42,-1.11 1.71,.44 2.12,2.91 0,1.5 -2.12,2.91 -1.71,.44 -3.42,-1.11 -1.06,-1.16 Z" fill="#C9D6E5"/>\n    </g></g></g>\n  </g>\n</svg>',
+    css:'/* 因果编排：芯片按下(位移) → 页面属性换装(fill/stroke 补间)，属性分工互不打架 */\n.mi-i-iso-design .e{opacity:0;animation:d2-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-design .e-pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:d2-pop .5s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-design .d-float{animation:d2-float 3.6s ease-in-out infinite}\n.mi-i-iso-design .d-shadow{transform-box:fill-box;transform-origin:center;animation:d2-breath 3.6s ease-in-out infinite}\n.mi-i-iso-design .d-dip1{animation:d2-dip1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-design .d-dip2{animation:d2-dip2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-design .d-dip3{animation:d2-dip3 6s ease-in-out 1.8s infinite}\n.mi-i-iso-design .d-panel{animation:d2-panel 6s ease-in-out 1.8s infinite}\n.mi-i-iso-design .d-title{animation:d2-title 6s ease-in-out 1.8s infinite}\n.mi-i-iso-design .d-btn{animation:d2-btn 6s ease-in-out 1.8s infinite}\n@keyframes d2-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes d2-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes d2-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes d2-breath{0%,100%{transform:scale(1);opacity:.16}50%{transform:scale(.9);opacity:.11}}\n@keyframes d2-dip1{0%,8%,100%{transform:none}4%{transform:translateY(2.5px)}}\n@keyframes d2-dip2{0%,33%,41%,100%{transform:none}37%{transform:translateY(2.5px)}}\n@keyframes d2-dip3{0%,66%,74%,100%{transform:none}70%{transform:translateY(2.5px)}}\n@keyframes d2-panel{0%,5%{fill:#8A7BE8}12%,80%{fill:#58C2A9}88%,100%{fill:#8A7BE8}}\n@keyframes d2-title{0%,37%{stroke:#28315C}43%,80%{stroke:#EF7D8E}88%,100%{stroke:#28315C}}\n@keyframes d2-btn{0%,70%{stroke:#F5C05A}76%,86%{stroke:#EF7D8E}93%,100%{stroke:#F5C05A}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-design *{animation:none!important}.mi-i-iso-design .e,.mi-i-iso-design .e-pop{opacity:1}}'
+  },
+  {
+    id:'iso-dev', style:'iso',
+    zh:'构建台', en:'Develop',
+    desc:'代码逐行敲出，写完状态灯转绿。',
+    bg:'#8299BD',
+    colors:[['#8299BD','舞台'],['#262E55','屏幕'],['#9D8FF0','代码行'],['#58C2A9','敲入中的行'],['#F5C05A','状态灯']],
+    scenes:['开发中 / 构建中状态页','技术能力介绍、API 文档入口','CI 构建面板空态'],
+    notes:[
+      '代码行是描边线段，用 stroke-dashoffset 当"打字进度"——一条属性同时表达了长度与时间。',
+      '因果：行敲完 → 状态灯黄转绿；清行 → 灯回黄。指示灯永远比动作晚半拍，读作"响应"。',
+      '光标用 steps() 硬切闪烁——终端光标不该有缓动，机器感恰恰来自不缓动（Slow In/Out 的例外条款）。',
+      '键盘/屏幕是静态体积，循环期间唯一动的是那一行代码与那盏灯。'
+    ],
+    svg:'<svg class="mi-i-iso-dev" viewBox="13 23 88 88" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="构建台：代码逐行敲出与状态灯应答">\n  <g class="v-float">\n    <g class="e"><ellipse class="v-shadow" cx="57" cy="101" rx="29" ry="5" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.22s">\n      <polygon points="38,44 38,86 35.5,84.75 35.5,42.75" fill="#D6E2EC"/>\n      <polygon points="38,44 70,28 67.5,26.75 35.5,42.75" fill="#EDF2F8"/>\n      <polygon points="38,86 70,70 70,28 38,44" fill="#FFFFFF"/>\n      <polygon points="40.5,83.5 67.5,70 67.5,31.5 40.5,45" fill="#262E55"/>\n    </g>\n    <g class="e" style="animation-delay:.5s"><path d="M44 48.2 l9 -4.5" stroke="#9D8FF0" stroke-width="1.7" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.58s"><path d="M44 53.7 l14 -7" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" opacity=".85" fill="none"/></g>\n    <g class="e" style="animation-delay:.66s"><path d="M44 59.2 l7 -3.5" stroke="#F5C05A" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 54.7 l6 -3" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" opacity=".5" fill="none"/></g>\n    <g class="e" style="animation-delay:.74s"><path class="v-type" d="M44 64.7 l12 -6" stroke="#58C2A9" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="13.5" fill="none"/><path class="v-cursor" d="M57.5 58 l2.2 -1.1" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.9s"><circle class="v-status" cx="64" cy="69" r="1.8" fill="#F5C05A"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="40,86.5 68,72.5 81,79 53,93" fill="#EFF4F9"/>\n      <polygon points="53,93 81,79 81,82.5 53,96.5" fill="#C2D0E0"/>\n      <polygon points="40,86.5 53,93 53,96.5 40,90" fill="#DAE4EF"/>\n      <path d="M45.5 87.2 l18 -9" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M49 89 l18 -9" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M56.5 88.7 l10 -5" stroke="#B9C9DD" stroke-width="1.8" stroke-linecap="round" fill="none"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 打字=描边进度；灯比动作晚半拍=响应；光标 steps() 硬切 */\n.mi-i-iso-dev .e{opacity:0;animation:v4-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-dev .v-float{animation:v4-float 3.6s ease-in-out infinite}\n.mi-i-iso-dev .v-shadow{transform-box:fill-box;transform-origin:center;animation:v4-breath 3.6s ease-in-out infinite}\n.mi-i-iso-dev .v-type{animation:v4-rise .55s cubic-bezier(.22,1,.36,1) .74s both,v4-type 6s ease-in-out 1.8s infinite}\n.mi-i-iso-dev .v-cursor{animation:v4-blink 1.1s steps(2,jump-none) 1.8s infinite}\n.mi-i-iso-dev .v-status{animation:v4-status 6s ease-in-out 1.8s infinite}\n@keyframes v4-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes v4-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes v4-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes v4-type{0%,6%{stroke-dashoffset:13.5;opacity:1}40%,80%{stroke-dashoffset:0;opacity:1}86%{stroke-dashoffset:0;opacity:0}87%,93%{stroke-dashoffset:13.5;opacity:0}98%,100%{stroke-dashoffset:13.5;opacity:1}}\n@keyframes v4-blink{0%,49%{opacity:1}50%,100%{opacity:.15}}\n@keyframes v4-status{0%,42%{fill:#F5C05A}48%,80%{fill:#58C2A9}88%,100%{fill:#F5C05A}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-dev *{animation:none!important}.mi-i-iso-dev .e{opacity:1}.mi-i-iso-dev .v-type{stroke-dashoffset:0;opacity:1}}'
+  },
+  {
+    id:'iso-qa', style:'iso',
+    zh:'品控台', en:'Quality Check',
+    desc:'逐项勾选，三项全过后盖章。',
+    bg:'#E2B963',
+    colors:[['#E2B963','舞台'],['#FFFFFF','检查板'],['#58C2A9','勾选'],['#8A7BE8','徽章'],['#28315C','板夹']],
+    scenes:['审核 / 验收流程节点','任务清单的完成反馈','质量报告、测试通过页'],
+    notes:[
+      '勾选用 stroke-dashoffset 画出——手写感来自描边生长，而不是淡入。',
+      '节奏 6s 四拍：勾 → 勾 → 勾 → 盖章，盖章带 overshoot（1.15 过冲回落），是全循环唯一的弹性时刻。',
+      '循环尾部整批淡出复位＝"翻到下一页"，给无限循环一个叙事理由。',
+      '徽章只在循环里出现（进场不出现）——它是"结果"，不是"部件"。'
+    ],
+    svg:'<svg class="mi-i-iso-qa" viewBox="9 18 90 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="品控台：逐项勾选与盖章">\n  <g class="q-float">\n    <g class="e"><ellipse class="q-shadow" cx="54" cy="99" rx="22" ry="4.5" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="40,36 40,90 37.5,88.75 37.5,34.75" fill="#D6E2EC"/>\n      <polygon points="40,36 66,23 63.5,21.75 37.5,34.75" fill="#EDF2F8"/>\n      <polygon points="40,90 66,77 66,23 40,36" fill="#FFFFFF"/>\n    </g>\n    <g class="e-pop" style="animation-delay:.24s">\n      <polygon points="48,34 58,29 58,25 48,30" fill="#28315C"/>\n      <circle cx="53" cy="28.2" r="1.2" fill="#E2B963"/>\n    </g>\n    <g class="e" style="animation-delay:.4s"><polygon points="44,54 48,52 48,48 44,50" fill="#EFF3F8" stroke="#C9D6E5" stroke-width=".8"/><path d="M50.5 49.2 l9 -4.5" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.49s"><polygon points="44,67 48,65 48,61 44,63" fill="#EFF3F8" stroke="#C9D6E5" stroke-width=".8"/><path d="M50.5 62.2 l9 -4.5" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    <g class="e" style="animation-delay:.58s"><polygon points="44,80 48,78 48,74 44,76" fill="#EFF3F8" stroke="#C9D6E5" stroke-width=".8"/><path d="M50.5 75.2 l9 -4.5" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    <path class="q-ck q-ck1" d="M44.8 51.4 l1.4 1.9 l2.4 -3.4" stroke="#58C2A9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7" fill="none"/>\n    <path class="q-ck q-ck2" d="M44.8 64.4 l1.4 1.9 l2.4 -3.4" stroke="#58C2A9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7" fill="none"/>\n    <path class="q-ck q-ck3" d="M44.8 77.4 l1.4 1.9 l2.4 -3.4" stroke="#58C2A9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7" fill="none"/>\n    <g class="q-badge"><circle cx="63" cy="76" r="6" fill="#8A7BE8"/><path d="M60.5 76 l1.8 2 l3.2 -4" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>\n  </g>\n</svg>',
+    css:'/* 四拍循环：勾勾勾→盖章(唯一弹性时刻)→翻页复位 */\n.mi-i-iso-qa .e{opacity:0;animation:q5-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-qa .e-pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:q5-pop .5s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-qa .q-float{animation:q5-float 3.6s ease-in-out infinite}\n.mi-i-iso-qa .q-shadow{transform-box:fill-box;transform-origin:center;animation:q5-breath 3.6s ease-in-out infinite}\n.mi-i-iso-qa .q-ck{stroke-dashoffset:7;opacity:0}\n.mi-i-iso-qa .q-ck1{animation:q5-ck1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-qa .q-ck2{animation:q5-ck2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-qa .q-ck3{animation:q5-ck3 6s ease-in-out 1.8s infinite}\n.mi-i-iso-qa .q-badge{opacity:0;transform-box:fill-box;transform-origin:center;animation:q5-badge 6s ease-in-out 1.8s infinite}\n@keyframes q5-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes q5-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes q5-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes q5-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes q5-ck1{0%,5%{stroke-dashoffset:7;opacity:1}15%,88%{stroke-dashoffset:0;opacity:1}93%,100%{stroke-dashoffset:7;opacity:0}}\n@keyframes q5-ck2{0%,28%{stroke-dashoffset:7;opacity:1}38%,88%{stroke-dashoffset:0;opacity:1}93%,100%{stroke-dashoffset:7;opacity:0}}\n@keyframes q5-ck3{0%,51%{stroke-dashoffset:7;opacity:1}61%,88%{stroke-dashoffset:0;opacity:1}93%,100%{stroke-dashoffset:7;opacity:0}}\n@keyframes q5-badge{0%,70%{opacity:0;transform:scale(.4)}74%{opacity:1;transform:scale(1.15)}78%,88%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.4)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-qa *{animation:none!important}.mi-i-iso-qa .e,.mi-i-iso-qa .e-pop{opacity:1}.mi-i-iso-qa .q-ck{stroke-dashoffset:0;opacity:1}.mi-i-iso-qa .q-badge{opacity:1;transform:none}}'
+  },
+  {
+    id:'iso-launch', style:'iso',
+    zh:'发布台', en:'Launch',
+    desc:'火焰呼吸、蒸汽交替，火箭蓄势待发。',
+    bg:'#DE8B9B',
+    colors:[['#DE8B9B','舞台'],['#FFFFFF','箭身'],['#8A7BE8','鼻锥 / 尾翼'],['#F5C05A','火焰'],['#EFF4F9','发射台']],
+    scenes:['上线 / 发布成功页','新功能预告、倒计时页','onboarding 完成的庆祝位'],
+    notes:[
+      '两个时间尺度叠加：火焰 0.9s 快频闪动（机器的频率）套在 6s 蓄势循环（叙事的频率）里。',
+      '蓄势=Anticipation：箭身只上抬 2px 又落回，永远"将发未发"，把期待感留在循环里。',
+      '蒸汽左右交替喷出，与箭身上抬同拍——一个动作、两处响应，但仍是同一个焦点。',
+      '火焰 scaleY 收缩的 transform-origin 钉在喷口（顶端），火苗往回缩而不是整体缩放。'
+    ],
+    svg:'<svg class="mi-i-iso-launch" viewBox="24 47 72 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="发布台：火箭蓄势与火焰呼吸">\n  <g class="l-float">\n    <g class="e"><ellipse class="l-shadow" cx="60" cy="110" rx="24" ry="4" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="60,86 80,96 60,106 40,96" fill="#EFF4F9"/>\n      <polygon points="60,106 40,96 40,100 60,110" fill="#DAE4EF"/>\n      <polygon points="80,96 60,106 60,110 80,100" fill="#C2D0E0"/>\n    </g>\n    <g class="l-strain">\n      <g class="e-pop" style="animation-delay:.25s">\n        <rect x="54" y="52" width="12" height="30" rx="6" fill="#FFFFFF"/>\n        <path d="M54 58 Q54 52 60 52 Q66 52 66 58 Z" fill="#8A7BE8"/>\n        <rect x="57" y="82" width="6" height="3" rx="1" fill="#C9D6E5"/>\n      </g>\n      <g class="e" style="animation-delay:.5s">\n        <path d="M54 72 L48 82 L54 80 Z" fill="#8A7BE8"/>\n        <path d="M66 72 L72 82 L66 80 Z" fill="#8A7BE8"/>\n        <circle cx="60" cy="64" r="3.2" fill="#DCE6F1" stroke="#8A7BE8" stroke-width="1.4"/>\n      </g>\n      <g class="e-pop l-ignite" style="animation-delay:.8s">\n        <path class="l-flame" d="M60 85 Q64 89 60 96 Q56 89 60 85 Z" fill="#F5C05A"/>\n        <path class="l-flame2" d="M60 85 Q62 88 60 92.5 Q58 88 60 85 Z" fill="#FFF3D6"/>\n      </g>\n    </g>\n    <circle class="l-puff l-puff1" cx="48" cy="90" r="2.5" fill="#FFFFFF"/>\n    <circle class="l-puff l-puff2" cx="72" cy="90" r="2.5" fill="#FFFFFF"/>\n  </g>\n</svg>',
+    css:'/* 双时间尺度：0.9s 火焰快频 × 6s 蓄势叙事；蓄势=Anticipation */\n.mi-i-iso-launch .e{opacity:0;animation:l6-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-launch .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:l6-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-launch .l-ignite{transform-origin:50% 0}\n.mi-i-iso-launch .l-float{animation:l6-float 3.6s ease-in-out infinite}\n.mi-i-iso-launch .l-shadow{transform-box:fill-box;transform-origin:center;animation:l6-breath 3.6s ease-in-out infinite}\n.mi-i-iso-launch .l-strain{animation:l6-strain 6s ease-in-out 1.8s infinite}\n.mi-i-iso-launch .l-flame{transform-box:view-box;transform-origin:60px 85px;animation:l6-flick .9s ease-in-out 1.8s infinite}\n.mi-i-iso-launch .l-flame2{transform-box:view-box;transform-origin:60px 85px;animation:l6-flick .9s ease-in-out 2.25s infinite}\n.mi-i-iso-launch .l-puff{opacity:0;transform-box:fill-box;transform-origin:center}\n.mi-i-iso-launch .l-puff1{animation:l6-puff1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-launch .l-puff2{animation:l6-puff2 6s ease-in-out 1.8s infinite}\n@keyframes l6-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes l6-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes l6-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes l6-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes l6-strain{0%,24%,58%,100%{transform:none}34%,46%{transform:translateY(-2px)}}\n@keyframes l6-flick{0%,100%{transform:scaleY(1) scaleX(1)}50%{transform:scaleY(.72) scaleX(.88)}}\n@keyframes l6-puff1{0%,30%{opacity:0;transform:scale(.5)}36%{opacity:.7;transform:scale(1)}48%,100%{opacity:0;transform:scale(1.8)}}\n@keyframes l6-puff2{0%,36%{opacity:0;transform:scale(.5)}42%{opacity:.7;transform:scale(1)}54%,100%{opacity:0;transform:scale(1.8)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-launch *{animation:none!important}.mi-i-iso-launch .e,.mi-i-iso-launch .e-pop{opacity:1}.mi-i-iso-launch .l-puff{opacity:0}}'
+  },
+  {
+    id:'iso-dash', style:'iso',
+    zh:'数据台', en:'Dashboard',
+    desc:'数据柱逐根刷新，环形进度补格。',
+    bg:'#7FAECB',
+    colors:[['#7FAECB','舞台'],['#262E55','大屏'],['#8A7BE8','数据柱'],['#58C2A9','数据柱'],['#F5C05A','数据柱'],['#EF7D8E','环形进度']],
+    scenes:['数据看板 / 报表模块入口','拉取数据时的等待动画','运营周报、统计页头图'],
+    notes:[
+      '柱体是纵向描边，进场 scaleY 从 0 长出（origin 钉在柱底）；循环里逐根刷新，一次只动一根（Staging）。',
+      '环形进度用 stroke-dashoffset 表示占比：进场先画到 60%，每轮循环补一格再悄悄回落。',
+      '柱子的进场与循环动画同用 transform，靠"进场终态＝恒等变换"无缝衔接（写进 animation 列表后位）。',
+      '屏架、底座是静态体积；数据元素（柱、环）才是叙事主角。'
+    ],
+    svg:'<svg class="mi-i-iso-dash" viewBox="12.5 25 87 87" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="数据台：数据柱逐根刷新与环形进度">\n  <g class="b-float">\n    <g class="e"><ellipse class="b-shadow" cx="56" cy="103" rx="26" ry="4.5" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <rect x="54.4" y="72" width="3.2" height="18" rx="1.6" fill="#FFFFFF"/>\n      <polygon points="56,85 70,92 56,99 42,92" fill="#EFF4F9"/>\n      <polygon points="56,99 42,92 42,96 56,103" fill="#DAE4EF"/>\n      <polygon points="70,92 56,99 56,103 70,96" fill="#C2D0E0"/>\n    </g>\n    <g class="e" style="animation-delay:.2s">\n      <polygon points="40,46 40,80 37.5,78.75 37.5,44.75" fill="#D6E2EC"/>\n      <polygon points="40,46 72,30 69.5,28.75 37.5,44.75" fill="#EDF2F8"/>\n      <polygon points="40,80 72,64 72,30 40,46" fill="#FFFFFF"/>\n      <polygon points="42.5,78 69.5,64.5 69.5,32.5 42.5,46" fill="#262E55"/>\n    </g>\n    <g class="e" style="animation-delay:.95s"><path d="M44.5 48 l8 -4" stroke="#94A6BE" stroke-width="1.5" stroke-linecap="round" fill="none"/></g>\n    <path class="b-b1" d="M47 73.5 l0 -9" stroke="#8A7BE8" stroke-width="3" stroke-linecap="round" fill="none"/>\n    <path class="b-b2" d="M52 71 l0 -14" stroke="#58C2A9" stroke-width="3" stroke-linecap="round" fill="none"/>\n    <path class="b-b3" d="M57 68.5 l0 -6.5" stroke="#F5C05A" stroke-width="3" stroke-linecap="round" fill="none"/>\n    <g class="e" style="animation-delay:.85s"><ellipse cx="62" cy="44" rx="6.4" ry="3.9" transform="rotate(-52 62 44)" fill="none" stroke="#3A4675" stroke-width="2.6"/><ellipse class="b-dial" cx="62" cy="44" rx="6.4" ry="3.9" transform="rotate(-52 62 44)" fill="none" stroke="#EF7D8E" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="32.8" stroke-dashoffset="13.1"/></g>\n  </g>\n</svg>',
+    css:'/* 数据刷新：柱子逐根 scaleY 变高矮、环形补格，一次只动一处 */\n.mi-i-iso-dash .e{opacity:0;animation:b8-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-dash .b-float{animation:b8-float 3.6s ease-in-out infinite}\n.mi-i-iso-dash .b-shadow{transform-box:fill-box;transform-origin:center;animation:b8-breath 3.6s ease-in-out infinite}\n.mi-i-iso-dash .b-b1{transform-box:fill-box;transform-origin:50% 100%;animation:b8-grow .5s cubic-bezier(.22,1,.36,1) .5s both,b8-b1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-dash .b-b2{transform-box:fill-box;transform-origin:50% 100%;animation:b8-grow .5s cubic-bezier(.22,1,.36,1) .6s both,b8-b2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-dash .b-b3{transform-box:fill-box;transform-origin:50% 100%;animation:b8-grow .5s cubic-bezier(.22,1,.36,1) .7s both,b8-b3 6s ease-in-out 1.8s infinite}\n.mi-i-iso-dash .b-dial{animation:b8-dialin .6s cubic-bezier(.22,1,.36,1) .85s both,b8-dial 6s ease-in-out 1.8s infinite}\n@keyframes b8-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes b8-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes b8-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes b8-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}\n@keyframes b8-b1{0%,6%{transform:scaleY(1)}14%,78%{transform:scaleY(1.38)}88%,100%{transform:scaleY(1)}}\n@keyframes b8-b2{0%,26%{transform:scaleY(1)}34%,78%{transform:scaleY(.72)}88%,100%{transform:scaleY(1)}}\n@keyframes b8-b3{0%,46%{transform:scaleY(1)}54%,78%{transform:scaleY(1.55)}88%,100%{transform:scaleY(1)}}\n@keyframes b8-dialin{from{stroke-dashoffset:32.8}to{stroke-dashoffset:13.1}}\n@keyframes b8-dial{0%,58%{stroke-dashoffset:13.1}66%,82%{stroke-dashoffset:7.2}92%,100%{stroke-dashoffset:13.1}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-dash *{animation:none!important}.mi-i-iso-dash .e{opacity:1}}'
+  },
+  {
+    id:'iso-msg', style:'iso',
+    zh:'消息台', en:'Messages',
+    desc:'气泡一来一回，小对话循环上演。',
+    bg:'#8FAF94',
+    colors:[['#8FAF94','舞台'],['#FFFFFF','手机 / 来信气泡'],['#DCE6EF','屏幕'],['#8A7BE8','回复气泡'],['#EF7D8E','角标']],
+    scenes:['消息中心 / 客服会话入口','无新消息空态','通知权限引导页'],
+    notes:[
+      '对话四拍：来信弹入 → 输入中（三点错拍闪烁）→ 回复弹出 → 角标亮起，严格先后、单焦点接力。',
+      '气泡＝带圆帽的粗描边线段，一条路径就是一个胶囊气泡；弹入的 transform-origin 钉在气泡"尾巴"一侧。',
+      '"输入中"三点是最小的节奏元素：错拍依次点亮、扫两遍后让位给回复——回复是输入的"结果"。',
+      '循环尾部整组淡出复位＝"下一段对话"。'
+    ],
+    svg:'<svg class="mi-i-iso-msg" viewBox="14 28 84 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="消息台：对话气泡一来一回">\n  <g class="m-float">\n    <g class="e"><ellipse class="m-shadow" cx="56" cy="103" rx="25" ry="4" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="40,90 66,77 76,82 50,95" fill="#EFF4F9"/>\n      <polygon points="50,95 76,82 76,85.5 50,98.5" fill="#C2D0E0"/>\n      <polygon points="40,90 50,95 50,98.5 40,93.5" fill="#DAE4EF"/>\n    </g>\n    <g class="e" style="animation-delay:.2s">\n      <polygon points="44,46 44,88 42,87 42,45" fill="#D6E2EC"/>\n      <polygon points="44,46 66,35 64,34 42,45" fill="#EDF2F8"/>\n      <polygon points="44,88 66,77 66,35 44,46" fill="#FFFFFF"/>\n      <polygon points="46,85.5 64,76.5 64,38.5 46,47.5" fill="#DCE6EF"/>\n    </g>\n    <g class="e" style="animation-delay:.4s"><circle cx="50" cy="47.3" r=".9" fill="#A9BCD3"/></g>\n    <path class="m-b1" d="M49 56.5 L56 53 L56 49.8 L49 53.3 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"/>\n    <g class="m-typ">\n      <path d="M49 65.5 L56 62 L56 58.8 L49 62.3 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"/>\n      <circle class="m-d1" cx="50.6" cy="63.1" r="1" fill="#94A6BE"/><circle class="m-d2" cx="52.1" cy="62.3" r="1" fill="#94A6BE"/><circle class="m-d3" cx="53.6" cy="61.6" r="1" fill="#94A6BE"/>\n    </g>\n    <path class="m-b3" d="M56 68.8 L62 65.8 L62 62.6 L56 65.6 Z" fill="#8A7BE8" stroke="#8A7BE8" stroke-width="2.2" stroke-linejoin="round"/>\n    <g class="m-badge"><circle cx="66" cy="35.5" r="3" fill="#EF7D8E"/><circle cx="66" cy="35.5" r="1.1" fill="#FFFFFF"/></g>\n  </g>\n</svg>',
+    css:'/* 对话四拍：来信→输入中→回复→角标；气泡=圆帽粗描边线段 */\n.mi-i-iso-msg .e{opacity:0;animation:m9-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-msg .m-float{animation:m9-float 3.6s ease-in-out infinite}\n.mi-i-iso-msg .m-shadow{transform-box:fill-box;transform-origin:center;animation:m9-breath 3.6s ease-in-out infinite}\n.mi-i-iso-msg .m-b1{opacity:0;transform-box:fill-box;transform-origin:0% 100%;animation:m9-b1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-msg .m-typ{opacity:0;animation:m9-typ 6s ease-in-out 1.8s infinite}\n.mi-i-iso-msg .m-d1{animation:m9-d1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-msg .m-d2{animation:m9-d2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-msg .m-d3{animation:m9-d3 6s ease-in-out 1.8s infinite}\n.mi-i-iso-msg .m-b3{opacity:0;transform-box:fill-box;transform-origin:100% 100%;animation:m9-b3 6s ease-in-out 1.8s infinite}\n.mi-i-iso-msg .m-badge{opacity:0;transform-box:fill-box;transform-origin:center;animation:m9-badge 6s ease-in-out 1.8s infinite}\n@keyframes m9-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes m9-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes m9-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes m9-b1{0%,3%{opacity:0;transform:scale(.3)}8%{opacity:1;transform:scale(1.08)}11%,86%{opacity:1;transform:scale(1)}92%,100%{opacity:0;transform:scale(.3)}}\n@keyframes m9-typ{0%,14%{opacity:0}18%,42%{opacity:1}46%,100%{opacity:0}}\n@keyframes m9-d1{0%,19%,27%,31%,39%,100%{opacity:.35}22%,34%{opacity:1}}\n@keyframes m9-d2{0%,22%,30%,34%,42%,100%{opacity:.35}25%,37%{opacity:1}}\n@keyframes m9-d3{0%,25%,33%,37%,43%,100%{opacity:.35}28%,40%{opacity:1}}\n@keyframes m9-b3{0%,47%{opacity:0;transform:scale(.3)}52%{opacity:1;transform:scale(1.08)}55%,88%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.3)}}\n@keyframes m9-badge{0%,56%{opacity:0;transform:scale(.4)}60%{opacity:1;transform:scale(1.15)}63%,88%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.4)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-msg *{animation:none!important}.mi-i-iso-msg .e{opacity:1}.mi-i-iso-msg .m-b1,.mi-i-iso-msg .m-b3,.mi-i-iso-msg .m-badge{opacity:1;transform:none}}'
+  },
+  {
+    id:'iso-cal', style:'iso',
+    zh:'日程台', en:'Calendar',
+    desc:'圈选在日历格间跳格，选中格提亮。',
+    bg:'#D98A70',
+    colors:[['#D98A70','舞台'],['#FFFFFF','日历板'],['#8A7BE8','页头'],['#E7EEF5','日期格'],['#EF7D8E','圈选 / 选中']],
+    scenes:['日程 / 预约功能入口','空日程占位插画','活动日历、排期页头图'],
+    notes:[
+      '圈选环是立面上的圆——按斜椭圆规则 rx=1.28r / ry=0.78r / rotate(-52°)，贴着日历面跳格。',
+      '圈选沿地轴 (1,.5) 整格跳位（一格＝7,3.5），落格与格子提亮同刻发生——先操作后结果。',
+      '跳三格后原路返回＝"翻回周初"，给循环一个叙事理由。',
+      '格子矩阵是静态体积，循环期间只有圈选环和被选格在动（单焦点）。'
+    ],
+    svg:'<svg class="mi-i-iso-cal" viewBox="22 24 62 74" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="日程台：圈选在日历格间跳格">\n  <g class="k-float">\n    <g class="e"><ellipse class="k-shadow" cx="53" cy="90" rx="22" ry="4.2" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="40,44 40,82 37.5,80.75 37.5,42.75" fill="#D6E2EC"/>\n      <polygon points="40,44 70,29 67.5,27.75 37.5,42.75" fill="#EDF2F8"/>\n      <polygon points="40,82 70,67 70,29 40,44" fill="#FFFFFF"/>\n    </g>\n    <g class="e" style="animation-delay:.24s">\n      <polygon points="42.5,44.5 67.5,32 67.5,37.5 42.5,50" fill="#8A7BE8"/>\n      <circle cx="48" cy="42.5" r="1.2" fill="#FFFFFF" opacity=".9"/><circle cx="60" cy="36.5" r="1.2" fill="#FFFFFF" opacity=".9"/>\n    </g>\n    <g class="e" style="animation-delay:.42s"><polygon class="k-h1" points="45,55 49,53 49,49.5 45,51.5" fill="#E7EEF5"/><polygon points="52,51.5 56,49.5 56,46 52,48" fill="#E7EEF5"/><polygon points="59,48 63,46 63,42.5 59,44.5" fill="#E7EEF5"/></g>\n    <g class="e" style="animation-delay:.5s"><polygon points="45,62 49,60 49,56.5 45,58.5" fill="#E7EEF5"/><polygon class="k-h2" points="52,58.5 56,56.5 56,53 52,55" fill="#E7EEF5"/><polygon points="59,55 63,53 63,49.5 59,51.5" fill="#E7EEF5"/></g>\n    <g class="e" style="animation-delay:.58s"><polygon points="45,69 49,67 49,63.5 45,65.5" fill="#E7EEF5"/><polygon points="52,65.5 56,63.5 56,60 52,62" fill="#E7EEF5"/><polygon class="k-h3" points="59,62 63,60 63,56.5 59,58.5" fill="#E7EEF5"/></g>\n    <g class="k-ring"><ellipse cx="47" cy="52.4" rx="3.8" ry="2.3" transform="rotate(-52 47 52.4)" fill="none" stroke="#EF7D8E" stroke-width="1.6"/></g>\n  </g>\n</svg>',
+    css:'/* 圈选环沿 (1,.5) 跳格，落格即提亮；斜椭圆 rotate(-52°) */\n.mi-i-iso-cal .e{opacity:0;animation:k1-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-cal .k-float{animation:k1-float 3.6s ease-in-out infinite}\n.mi-i-iso-cal .k-shadow{transform-box:fill-box;transform-origin:center;animation:k1-breath 3.6s ease-in-out infinite}\n.mi-i-iso-cal .k-ring{transform-box:fill-box;transform-origin:center;animation:k1-pop .5s cubic-bezier(.34,1.56,.64,1) .95s both,k1-hop 6s ease-in-out 1.8s infinite}\n.mi-i-iso-cal .k-h1{animation:k1-h1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-cal .k-h2{animation:k1-h2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-cal .k-h3{animation:k1-h3 6s ease-in-out 1.8s infinite}\n@keyframes k1-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes k1-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes k1-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes k1-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes k1-hop{0%,26%{transform:none}33%,59%{transform:translate(7px,3.5px)}66%,92%{transform:translate(14px,7px)}100%{transform:none}}\n@keyframes k1-h1{0%,24%{fill:#EF7D8E}30%,100%{fill:#E7EEF5}}\n@keyframes k1-h2{0%,31%{fill:#E7EEF5}37%,57%{fill:#EF7D8E}63%,100%{fill:#E7EEF5}}\n@keyframes k1-h3{0%,64%{fill:#E7EEF5}70%,90%{fill:#EF7D8E}96%,100%{fill:#E7EEF5}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-cal *{animation:none!important}.mi-i-iso-cal .e{opacity:1}.mi-i-iso-cal .k-ring{opacity:1}}'
+  },
+  {
+    id:'iso-mail', style:'iso',
+    zh:'邮件台', en:'Mail',
+    desc:'来信沉入收件盒，角标应声亮起。',
+    bg:'#7FB3AE',
+    colors:[['#7FB3AE','舞台'],['#FFFFFF','信封'],['#DCE6EF','盒内底'],['#C2D0E0','盒前壁'],['#EF7D8E','未读角标']],
+    scenes:['收件箱 / 订阅确认页','邮件订阅成功反馈','新邮件通知空态'],
+    notes:[
+      '信封是落地薄板：长轴沿 (1,-.5)，三面平涂 + 竖直薄边，封盖 V 线点出"信"的身份。',
+      '四拍叙事：悬停 → 沉入收件盒（前壁遮住信身下半，z 序即"装进去"）→ 角标亮起 → 取走换新。',
+      '角标永远比落盘晚半拍，读作"响应"而非机械联动。',
+      '信封的进场与循环共用 transform：进场终态＝循环 0% 状态，无缝衔接。'
+    ],
+    svg:'<svg class="mi-i-iso-mail" viewBox="30.5 64.5 55 55" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="邮件台：来信落进收件盒">\n  <g class="m2-float">\n    <g class="e"><ellipse class="m2-shadow" cx="58" cy="110" rx="24" ry="3.5" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="58,91 76,100 58,109 40,100" fill="#DCE6EF"/>\n      <polygon points="40,93 58,84 58,91 40,100" fill="#C9D6E5"/>\n      <polygon points="58,84 76,93 76,100 58,91" fill="#B9C9DD"/>\n    </g>\n    <g class="e2-env">\n      <polygon points="46,79 62,71 70,75 54,83" fill="#FFFFFF"/>\n      <polygon points="54,83 46,79 46,82 54,86" fill="#DAE4EF"/>\n      <polygon points="70,75 54,83 54,86 70,78" fill="#C2D0E0"/>\n      <path d="M46 79 L57 76.8" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M62 71 L57 76.8" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e" style="animation-delay:.12s">\n      <polygon points="40,93 58,102 58,109 40,100" fill="#DAE4EF"/>\n      <polygon points="58,102 76,93 76,100 58,109" fill="#C2D0E0"/>\n      <path d="M40 93 L58 102 L76 93" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e2-badge"><circle cx="72" cy="97" r="3" fill="#EF7D8E"/><circle cx="72" cy="97" r="1.1" fill="#FFFFFF"/></g>\n  </g>\n</svg>',
+    css:'/* 悬停→落盘→角标→取走换新；角标晚半拍=响应 */\n.mi-i-iso-mail .e{opacity:0;animation:e2-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-mail .m2-float{animation:e2-float 3.6s ease-in-out infinite}\n.mi-i-iso-mail .m2-shadow{transform-box:fill-box;transform-origin:center;animation:e2-breath 3.6s ease-in-out infinite}\n.mi-i-iso-mail .e2-env{animation:e2-rise .55s cubic-bezier(.22,1,.36,1) .3s both,e2-drop 6s ease-in-out 1.8s infinite}\n.mi-i-iso-mail .e2-badge{opacity:0;transform-box:fill-box;transform-origin:center;animation:e2-badge 6s ease-in-out 1.8s infinite}\n@keyframes e2-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes e2-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes e2-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes e2-drop{0%{transform:none;opacity:1}12%,46%{transform:translateY(16px);opacity:1}52%{transform:translateY(16px);opacity:0}56%{transform:translateY(-6px);opacity:0}64%{transform:translateY(-6px);opacity:1}74%,100%{transform:none;opacity:1}}\n@keyframes e2-badge{0%,13%{opacity:0;transform:scale(.4)}18%{opacity:1;transform:scale(1.15)}21%,84%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(.4)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-mail *{animation:none!important}.mi-i-iso-mail .e,.mi-i-iso-mail .e2-env,.mi-i-iso-mail .e2-badge{opacity:1;transform:none}}'
+  },
+  {
+    id:'iso-rec', style:'iso',
+    zh:'录音台', en:'Record',
+    desc:'声波一圈圈荡开，录音点安静呼吸。',
+    bg:'#C393B8',
+    colors:[['#C393B8','舞台'],['#FFFFFF','话筒头 / 声波'],['#28315C','话筒杆'],['#EF7D8E','录音点'],['#EFF4F9','底座']],
+    scenes:['语音输入 / 播客模块','录音中状态指示','音频内容频道头图'],
+    notes:[
+      '声波用内外两层弧线错拍荡开（scale + opacity，origin 钉在话筒头），每循环呼出两轮。',
+      '录音点慢频呼吸是"状态灯"，不与声波抢焦点——次要动作只做衬托。',
+      '话筒是正面对称件（同火箭先例），允许不做轴测变形。',
+      '声波只在循环里出现：它是"正在工作"的证据，不是部件。'
+    ],
+    svg:'<svg class="mi-i-iso-rec" viewBox="23 40 74 74" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="录音台：声波荡开与录音点呼吸">\n  <g class="r-float">\n    <g class="e"><ellipse class="r-shadow" cx="60" cy="106" rx="23" ry="4.2" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s">\n      <polygon points="60,88 76,96 60,104 44,96" fill="#EFF4F9"/>\n      <polygon points="60,104 44,96 44,100 60,108" fill="#DAE4EF"/>\n      <polygon points="76,96 60,104 60,108 76,100" fill="#C2D0E0"/>\n    </g>\n    <g class="e" style="animation-delay:.25s">\n      <rect x="58.6" y="64" width="2.8" height="26" rx="1.4" fill="#28315C"/>\n      <rect x="55.5" y="74.5" width="9" height="3.5" rx="1.75" fill="#3A4675"/>\n    </g>\n    <g class="e-pop" style="animation-delay:.45s">\n      <rect x="54" y="44" width="12" height="20" rx="6" fill="#FFFFFF"/>\n    </g>\n    <g class="e" style="animation-delay:.68s">\n      <path d="M56.5 50 h7" stroke="#C9D6E5" stroke-width="1.2" stroke-linecap="round" fill="none"/>\n      <path d="M56.5 54 h7" stroke="#C9D6E5" stroke-width="1.2" stroke-linecap="round" fill="none"/>\n      <path d="M56.5 58 h7" stroke="#C9D6E5" stroke-width="1.2" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e" style="animation-delay:.8s"><circle class="r-dot" cx="60" cy="69" r="1.8" fill="#EF7D8E"/></g>\n    <path class="r-w1" d="M49.5 48 Q45 57 49.5 66" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" fill="none"/>\n    <path class="r-w1" d="M70.5 48 Q75 57 70.5 66" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" fill="none"/>\n    <path class="r-w2" d="M44.5 45 Q38.5 57 44.5 69" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" fill="none"/>\n    <path class="r-w2" d="M75.5 45 Q81.5 57 75.5 69" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" fill="none"/>\n  </g>\n</svg>',
+    css:'/* 内外两层声波错拍荡开；录音点=状态灯，慢频呼吸 */\n.mi-i-iso-rec .e{opacity:0;animation:r3-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-rec .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:r3-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-rec .r-float{animation:r3-float 3.6s ease-in-out infinite}\n.mi-i-iso-rec .r-shadow{transform-box:fill-box;transform-origin:center;animation:r3-breath 3.6s ease-in-out infinite}\n.mi-i-iso-rec .r-w1{opacity:0;transform-box:view-box;transform-origin:60px 57px;animation:r3-w1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-rec .r-w2{opacity:0;transform-box:view-box;transform-origin:60px 57px;animation:r3-w2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-rec .r-dot{animation:r3-dot 6s ease-in-out 1.8s infinite}\n@keyframes r3-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes r3-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes r3-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes r3-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes r3-w1{0%{opacity:0;transform:scale(.92)}10%{opacity:.9;transform:scale(1)}35%{opacity:0;transform:scale(1.12)}45%,50%{opacity:0;transform:scale(.92)}60%{opacity:.9;transform:scale(1)}85%{opacity:0;transform:scale(1.12)}95%,100%{opacity:0;transform:scale(.92)}}\n@keyframes r3-w2{0%,12%{opacity:0;transform:scale(.92)}22%{opacity:.8;transform:scale(1)}47%{opacity:0;transform:scale(1.12)}55%,62%{opacity:0;transform:scale(.92)}72%{opacity:.8;transform:scale(1)}97%,100%{opacity:0;transform:scale(1.12)}}\n@keyframes r3-dot{0%,100%{opacity:.55}50%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-rec *{animation:none!important}.mi-i-iso-rec .e,.mi-i-iso-rec .e-pop{opacity:1}.mi-i-iso-rec .r-w1,.mi-i-iso-rec .r-w2{opacity:0}}'
+  },
+  {
+    id:'iso-sec', style:'iso',
+    zh:'安全台', en:'Security',
+    desc:'扫描线掠过盾面，安全徽章亮起。',
+    bg:'#8A8FC8',
+    colors:[['#8A8FC8','舞台'],['#FFFFFF','盾面'],['#B9C9DD','盾厚度'],['#8A7BE8','锁孔'],['#58C2A9','扫描 / 徽章']],
+    scenes:['安全设置 / 隐私中心','扫描检测中状态','支付安全、实名认证引导'],
+    notes:[
+      '扫描线自上而下掠过盾面（透明进、透明出），是全循环唯一的位移。',
+      '因果链：扫描完成 → 盾缘薄荷描边亮起 → 徽章弹出——结果件只在循环出现。',
+      '独立厚盾：正面白盾 + 左后错位的暗色厚度层，不配底座——能自己"站住"的拟物不用台子。',
+      '尾部徽章与描边一同熄灭复位＝"下一轮巡检"。'
+    ],
+    svg:'<svg class="mi-i-iso-sec" viewBox="33.5 40.5 51 51" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="安全台：扫描过盾与徽章亮起">\n  <g class="s-float">\n    <g class="e"><ellipse class="s-shadow" cx="59" cy="87.5" rx="19" ry="3.4" fill="#28315C" opacity=".18"/></g>\n    <g class="e-pop" style="animation-delay:.1s">\n      <path d="M60 45 C53 47.5 49 49 49 55 C49 68 54.5 76 60 80 C65.5 76 71 68 71 55 C71 49 67 47.5 60 45 Z" transform="translate(-3.5,2)" fill="#B9C9DD"/>\n      <path class="s-shield" d="M60 45 C53 47.5 49 49 49 55 C49 68 54.5 76 60 80 C65.5 76 71 68 71 55 C71 49 67 47.5 60 45 Z" fill="#FFFFFF" stroke="rgba(88,194,169,0)" stroke-width="2"/>\n      <path d="M60 48 C55 50 52 51.2 52 55.5 C52 66 56.5 72.5 60 75.5 C63.5 72.5 68 66 68 55.5 C68 51.2 65 50 60 48 Z" fill="none" stroke="#EFF3F8" stroke-width="1.3"/>\n    </g>\n    <g class="e" style="animation-delay:.4s">\n      <circle cx="60" cy="59" r="3" fill="#8A7BE8"/>\n      <rect x="58.9" y="60.5" width="2.2" height="6.5" rx="1.1" fill="#8A7BE8"/>\n    </g>\n    <path class="s-scan" d="M54 52 h12" stroke="#58C2A9" stroke-width="1.8" stroke-linecap="round" fill="none"/>\n    <g class="s-badge"><circle cx="73" cy="76" r="4" fill="#58C2A9"/><path d="M71 76 l1.5 1.7 l3 -3.5" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>\n  </g>\n</svg>',
+    css:'/* 扫描→盾缘亮→徽章弹出；结果件只在循环出现 */\n.mi-i-iso-sec .e{opacity:0;animation:s4-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-sec .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:s4-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-sec .s-float{animation:s4-float 3.6s ease-in-out infinite}\n.mi-i-iso-sec .s-shadow{transform-box:fill-box;transform-origin:center;animation:s4-breath 3.6s ease-in-out infinite}\n.mi-i-iso-sec .s-scan{opacity:0;animation:s4-scan 6s ease-in-out 1.8s infinite}\n.mi-i-iso-sec .s-shield{animation:s4-glow 6s ease-in-out 1.8s infinite}\n.mi-i-iso-sec .s-badge{opacity:0;transform-box:fill-box;transform-origin:center;animation:s4-badge 6s ease-in-out 1.8s infinite}\n@keyframes s4-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes s4-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes s4-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes s4-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes s4-scan{0%,4%{opacity:0;transform:translateY(0)}8%{opacity:.9;transform:translateY(2px)}36%{opacity:.9;transform:translateY(18px)}40%{opacity:0;transform:translateY(20px)}44%,100%{opacity:0;transform:translateY(0)}}\n@keyframes s4-glow{0%,42%,60%,100%{stroke:rgba(88,194,169,0)}46%,54%{stroke:#58C2A9}}\n@keyframes s4-badge{0%,46%{opacity:0;transform:scale(.4)}52%{opacity:1;transform:scale(1.15)}56%,88%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.4)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-sec *{animation:none!important}.mi-i-iso-sec .e,.mi-i-iso-sec .e-pop,.mi-i-iso-sec .s-shield,.mi-i-iso-sec .s-badge{opacity:1;transform:none}.mi-i-iso-sec .s-scan{opacity:0}}'
+  },
+  {
+    id:'iso-print', style:'iso',
+    zh:'打印台', en:'Print',
+    desc:'纸张缓缓吐出，内容逐行打印落纸。',
+    bg:'#A9B072',
+    colors:[['#A9B072','舞台'],['#EFF4F9','机身'],['#FFFFFF','纸张'],['#C9D6E5','打印行'],['#58C2A9','完成灯']],
+    scenes:['导出 / 打印报告功能','文档生成中的等待动画','发票、凭证下载页'],
+    notes:[
+      '纸张从顶面开槽中升出：顶面沿槽线拆成前后两片，纸夹在中间层（z 序遮挡代替裁剪），每打印一行上升一格。',
+      '打印行＝描边生长：stroke-dashoffset 就是"打印进度条"。',
+      '三行打完 → 状态灯黄转绿（晚半拍，读作"完成响应"）→ 纸被取走、下一张就位。',
+      '机身是静态体积；循环里动的只有纸、行、灯。'
+    ],
+    svg:'<svg class="mi-i-iso-print" viewBox="27.5 54 61 61" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="打印台：纸从顶面开槽中逐行打印升出">\n  <g class="p-float">\n    <g class="e"><ellipse class="p-shadow" cx="58" cy="107" rx="26" ry="4.2" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.06s"><polygon points="38,84 58,74 66,78 46,88" fill="#EFF4F9"/></g>\n    <g class="e" style="animation-delay:.35s"><g class="p-sheet">\n      <polygon points="49,86.5 63,79.5 63,57.5 49,64.5" fill="#FFFFFF"/>\n      <path class="p-l1" d="M51.5 68 l9.5 -4.75" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="11" fill="none"/>\n      <path class="p-l2" d="M51.5 72 l9.5 -4.75" stroke="#C9D6E5" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="11" fill="none"/>\n      <path class="p-l3" d="M51.5 76 l7 -3.5" stroke="#A9BCD3" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="8.5" fill="none"/>\n    </g></g>\n    <g class="e" style="animation-delay:.12s">\n      <polygon points="46,88 66,78 78,84 58,94" fill="#EFF4F9"/>\n      <path d="M46 88 L66 78" stroke="#28315C" stroke-width="1" opacity=".25" fill="none"/>\n      <polygon points="58,94 38,84 38,94 58,104" fill="#DAE4EF"/>\n      <polygon points="78,84 58,94 58,104 78,94" fill="#C2D0E0"/>\n    </g>\n    <g class="e" style="animation-delay:.6s"><circle class="p-light" cx="68" cy="92" r="1.5" fill="#F5C05A"/></g>\n  </g>\n</svg>',
+    css:'/* 逐行打印=描边生长，纸随行上升；灯晚半拍转绿 */\n.mi-i-iso-print .e{opacity:0;animation:p5-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-print .p-float{animation:p5-float 3.6s ease-in-out infinite}\n.mi-i-iso-print .p-shadow{transform-box:fill-box;transform-origin:center;animation:p5-breath 3.6s ease-in-out infinite}\n.mi-i-iso-print .p-sheet{transform:translateY(12px);animation:p5-emerge 6s ease-in-out 1.8s infinite}\n.mi-i-iso-print .p-l1{stroke-dashoffset:11;animation:p5-l1 6s ease-in-out 1.8s infinite}\n.mi-i-iso-print .p-l2{stroke-dashoffset:11;animation:p5-l2 6s ease-in-out 1.8s infinite}\n.mi-i-iso-print .p-l3{stroke-dashoffset:8.5;animation:p5-l3 6s ease-in-out 1.8s infinite}\n.mi-i-iso-print .p-light{animation:p5-light 6s ease-in-out 1.8s infinite}\n@keyframes p5-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes p5-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes p5-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes p5-emerge{0%,4%{transform:translateY(12px);opacity:1}22%{transform:translateY(8px)}42%{transform:translateY(4px)}60%,84%{transform:translateY(0);opacity:1}90%{transform:translateY(0);opacity:0}91%,96%{transform:translateY(12px);opacity:0}100%{transform:translateY(12px);opacity:1}}\n@keyframes p5-l1{0%,6%{stroke-dashoffset:11;opacity:1}20%,84%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:0}91%,96%{stroke-dashoffset:11;opacity:0}100%{stroke-dashoffset:11;opacity:1}}\n@keyframes p5-l2{0%,26%{stroke-dashoffset:11;opacity:1}40%,84%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:0}91%,96%{stroke-dashoffset:11;opacity:0}100%{stroke-dashoffset:11;opacity:1}}\n@keyframes p5-l3{0%,46%{stroke-dashoffset:8.5;opacity:1}58%,84%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:0}91%,96%{stroke-dashoffset:8.5;opacity:0}100%{stroke-dashoffset:8.5;opacity:1}}\n@keyframes p5-light{0%,58%{fill:#F5C05A}64%,82%{fill:#58C2A9}90%,100%{fill:#F5C05A}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-print *{animation:none!important}.mi-i-iso-print .e{opacity:1}.mi-i-iso-print .p-sheet{transform:none}.mi-i-iso-print .p-l1,.mi-i-iso-print .p-l2{stroke-dashoffset:0}.mi-i-iso-print .p-l3{stroke-dashoffset:0}}'
+  },
+  {
+    id:'iso-timer', style:'iso',
+    zh:'计时台', en:'Timer',
+    desc:'指针一格格走满，整点铃铛轻颤。',
+    bg:'#C9A86A',
+    colors:[['#C9A86A','舞台'],['#FFFFFF','表盘'],['#8A7BE8','铃铛'],['#28315C','指针'],['#EF7D8E','顶钮 / 中轴']],
+    scenes:['提醒 / 定时任务功能','倒计时、限时活动页','番茄钟、专注模式图标'],
+    notes:[
+      '分针用 steps(12) 硬切走格——机器感来自不缓动（缓动原则的例外条款）。',
+      '因果：指针走满一圈（循环 0%）→ 铃铛衰减式轻颤（4°→3°→2°→1°），预备动作式的"整点报时"。',
+      '独立闹钟拟物：铃铛+顶钮+双腿直接落地，不配底座；表盘只画 12/3/6/9 四点刻度，留白即拟物。',
+      '时针静止、分针匀速——两个时间尺度并存，但只有一个在动。'
+    ],
+    svg:'<svg class="mi-i-iso-timer" viewBox="33 38 54 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="计时台：走针与整点铃颤">\n  <g class="t-float">\n    <g class="e"><ellipse class="t-shadow" cx="60" cy="86" rx="16" ry="3" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.75s">\n      <path d="M52.5 76.5 L49.5 84" stroke="#C9D6E5" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n      <path d="M67.5 76.5 L70.5 84" stroke="#C9D6E5" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e-pop t-bells" style="animation-delay:.3s">\n      <rect x="58.9" y="43.5" width="2.2" height="3.5" rx="1" fill="#C9D6E5"/>\n      <circle cx="60" cy="42.8" r="1.6" fill="#EF7D8E"/>\n      <circle cx="50" cy="49.5" r="4" fill="#8A7BE8"/>\n      <circle cx="70" cy="49.5" r="4" fill="#8A7BE8"/>\n    </g>\n    <g class="e-pop" style="animation-delay:.1s"><circle cx="60" cy="63" r="15" fill="#FFFFFF"/></g>\n    <g class="e" style="animation-delay:.5s">\n      <path d="M60 51.5 v3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M71.5 63 h-3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M60 74.5 v-3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M48.5 63 h3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e" style="animation-delay:.9s">\n      <path d="M60 63 L66.5 59.5" stroke="#28315C" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n      <path class="t-min" d="M60 63 L60 53" stroke="#28315C" stroke-width="2" stroke-linecap="round" fill="none"/>\n      <circle cx="60" cy="63" r="1.7" fill="#EF7D8E"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 分针 steps(12) 走格；整点铃铛衰减式轻颤 */\n.mi-i-iso-timer .e{opacity:0;animation:t6-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-timer .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:t6-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-timer .t-float{animation:t6-float 3.6s ease-in-out infinite}\n.mi-i-iso-timer .t-shadow{transform-box:fill-box;transform-origin:center;animation:t6-breath 3.6s ease-in-out infinite}\n.mi-i-iso-timer .t-min{transform-box:view-box;transform-origin:60px 63px;animation:t6-tick 6s steps(12) 1.8s infinite}\n.mi-i-iso-timer .t-bells{animation:t6-pop .55s cubic-bezier(.34,1.56,.64,1) .4s both,t6-shake 6s ease-in-out 1.8s infinite}\n.mi-i-iso-timer .t-bells{transform-box:view-box;transform-origin:60px 52px}\n@keyframes t6-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes t6-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes t6-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes t6-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes t6-tick{to{transform:rotate(360deg)}}\n@keyframes t6-shake{0%{transform:rotate(0)}1.5%{transform:rotate(-4deg)}3%{transform:rotate(3deg)}4.5%{transform:rotate(-2deg)}6%{transform:rotate(1deg)}8%,100%{transform:rotate(0)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-timer *{animation:none!important}.mi-i-iso-timer .e,.mi-i-iso-timer .e-pop,.mi-i-iso-timer .t-bells{opacity:1;transform:none}}'
   }
 ];
 
 /* ============================================================
-   框架区（渲染 / 筛选 / 弹窗 / 复制）——加内容不用动这里
+   框架区（渲染 / 筛选 / 弹窗 / 复制 / 悬停重播）——加内容不用动这里
    ============================================================ */
 
 var root=document.querySelector('.mi'); if(!root) return;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
 /* 汇总注入所有图标的动画 CSS（页面演示与代码块共用同一份源码） */
 var styleEl=document.createElement('style');
 styleEl.textContent=ICONS.map(function(i){return i.css;}).join('\n');
 document.head.appendChild(styleEl);
+
+/* 悬停重播：整体替换 svg 节点，重跑进场编排 */
+function bindReplay(stageEl,icon){
+  stageEl.addEventListener('mouseenter',function(){
+    if(reduce) return;
+    var now=Date.now();
+    if(stageEl._t&&now-stageEl._t<2500) return;
+    stageEl._t=now;
+    var old=stageEl.querySelector('svg');
+    if(!old) return;
+    var tmp=document.createElement('div'); tmp.innerHTML=icon.svg;
+    stageEl.replaceChild(tmp.firstElementChild,old);
+  });
+}
 
 /* 渲染分区与卡片 */
 var secWrap=document.getElementById('mi-sections');
@@ -195,12 +462,15 @@ STYLES.forEach(function(s){
   items.forEach(function(icon){
     var card=document.createElement('button');
     card.type='button'; card.className='mi-card'; card.setAttribute('data-id',icon.id);
-    card.innerHTML='<span class="mi-stage">'+icon.svg+'<span class="mi-hint">点开看代码</span></span>'
+    card.innerHTML='<span class="mi-stage">'+icon.svg+'<span class="mi-hint">点开看配色与场景</span></span>'
       +'<span class="mi-txt" style="display:block"><span class="mi-zh" style="display:block"></span>'
       +'<span class="mi-en" style="display:block"></span><span class="mi-desc" style="display:block"></span></span>';
     card.querySelector('.mi-zh').textContent=icon.zh;
     card.querySelector('.mi-en').textContent=icon.en;
     card.querySelector('.mi-desc').textContent=icon.desc;
+    var st=card.querySelector('.mi-stage');
+    if(icon.bg){st.style.background=icon.bg;st.classList.add('mi-tinted');card.style.background=icon.bg;}
+    bindReplay(st,icon);
     card.addEventListener('click',function(){openModal(icon);});
     grid.appendChild(card);
   });
@@ -231,23 +501,30 @@ cats.forEach(function(c,idx){
 var overlay=document.getElementById('mi-overlay'),
     mStage=document.getElementById('mi-m-stage'),
     mZh=document.getElementById('mi-m-zh'), mEn=document.getElementById('mi-m-en'),
-    mStyle=document.getElementById('mi-m-style'), mDesc=document.getElementById('mi-m-desc'),
-    mNotes=document.getElementById('mi-m-notes'),
-    codeSvg=document.getElementById('mi-code-svg'), codeCss=document.getElementById('mi-code-css'),
+    mStyle=document.getElementById('mi-m-style'),
+    mColors=document.getElementById('mi-m-colors'), mScenes=document.getElementById('mi-m-scenes'),
     closeBtn=document.getElementById('mi-close'), lastFocus=null;
 
 function openModal(icon){
   var st=STYLES.filter(function(s){return s.key===icon.style;})[0];
   mStage.innerHTML=icon.svg;
+  mStage.style.background=icon.bg||'';
+  mStage.classList.toggle('mi-tinted',!!icon.bg);
   mZh.textContent=icon.zh; mEn.textContent=icon.en;
   mStyle.textContent=st?st.zh:icon.style;
-  mDesc.textContent=icon.desc;
-  mNotes.innerHTML='';
-  (icon.notes||[]).forEach(function(n){
-    var li=document.createElement('li'); li.textContent=n; mNotes.appendChild(li);
+  mColors.innerHTML='';
+  (icon.colors||[]).forEach(function(c){
+    var chip=document.createElement('span'); chip.className='mi-swatch';
+    var sq=document.createElement('i'); sq.style.background=c[0];
+    var t=document.createElement('span'); t.textContent=c[1]+' ';
+    var hx=document.createElement('code'); hx.textContent=c[0].toUpperCase();
+    chip.appendChild(sq); chip.appendChild(t); chip.appendChild(hx);
+    mColors.appendChild(chip);
   });
-  codeSvg.textContent=icon.svg;
-  codeCss.textContent=icon.css;
+  mScenes.innerHTML='';
+  (icon.scenes||[]).forEach(function(s){
+    var li=document.createElement('li'); li.textContent=s; mScenes.appendChild(li);
+  });
   lastFocus=document.activeElement;
   overlay.hidden=false;
   document.body.style.overflow='hidden';
@@ -262,25 +539,5 @@ closeBtn.addEventListener('click',closeModal);
 overlay.addEventListener('click',function(e){ if(e.target===overlay) closeModal(); });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!overlay.hidden) closeModal(); });
 
-/* 复制按钮 */
-[].forEach.call(document.querySelectorAll('.mi-copy'),function(btn){
-  btn.addEventListener('click',function(){
-    var txt=document.getElementById(btn.getAttribute('data-target')).textContent;
-    function done(){
-      btn.classList.add('ok'); btn.textContent='已复制';
-      setTimeout(function(){btn.classList.remove('ok');btn.textContent='复制';},1400);
-    }
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(done,function(){fallback();});
-    } else fallback();
-    function fallback(){
-      var ta=document.createElement('textarea'); ta.value=txt;
-      ta.style.position='fixed'; ta.style.opacity='0';
-      document.body.appendChild(ta); ta.select();
-      try{document.execCommand('copy');done();}catch(e){}
-      document.body.removeChild(ta);
-    }
-  });
-});
 })();
 </script>
