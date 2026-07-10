@@ -163,7 +163,8 @@ title: "动态图标图鉴"
 
 var STYLES=[
   { key:'iso', zh:'等距拟物 · 组装编排', en:'Isometric Assembly' },
-  { key:'line', zh:'线稿描边 · 业务流程', en:'Process Scenes' }
+  { key:'line', zh:'线稿描边 · 业务流程', en:'Process Scenes' },
+  { key:'pixel', zh:'像素点阵 · 游戏元件', en:'Pixel Sprites' }
 ];
 
 var ICONS=[
@@ -526,6 +527,126 @@ var ICONS=[
     scenes:['签约 / 立项确认环节图','合同签署功能页','合作达成反馈插画'],
     svg:'<svg class="mi-i-proc-contract" viewBox="25.5 25.5 89 89" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="签约：合同上手写签名">\n  <g class="n-root">\n    <rect x="40" y="30" width="60" height="80" rx="5" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n    <path d="M50 44 h32 M50 54 h26 M50 64 h30" stroke="#2B3A55" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>\n    <path d="M50 96 H90" stroke="#2B3A55" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".6"/>\n    <path class="h-sign" d="M50 91 C55 82 59 96 64 88 C68 82 72 94 77 87 C81 82 86 90 90 85" stroke="#A04E4E" stroke-width="3.5" stroke-linecap="round" fill="none"/>\n  </g>\n</svg>',
     css:'/* 主=酒红签名反复手写在签名线上；合同静默 */\n.mi-i-proc-contract .n-root{animation:h12-in .5s ease-out both}\n.mi-i-proc-contract .h-sign{stroke-dasharray:66;stroke-dashoffset:66;animation:h12-sign 6s ease-in-out infinite}\n@keyframes h12-in{from{opacity:0}to{opacity:1}}\n@keyframes h12-sign{0%,8%{stroke-dashoffset:66;opacity:1}45%,80%{stroke-dashoffset:0;opacity:1}88%{stroke-dashoffset:0;opacity:0}89%,94%{stroke-dashoffset:66;opacity:0}100%{stroke-dashoffset:66;opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-contract *{animation:none!important}.mi-i-proc-contract .h-sign{stroke-dashoffset:0}}'
+  },
+  {
+    id:'px-heart', style:'pixel',
+    zh:'红心', en:'HP Heart',
+    desc:'一颗大红心：掉血、见底、回满。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#EF7D8E','红心'],['#4A5070','空槽']],
+    scenes:['游戏 HP / 生命值展示','收藏、点赞的游戏化表达','连胜 / 体力系统插画'],
+    svg:'<svg class="mi-i-px-heart" viewBox="15.5 15.5 109 109" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="红心：满、半、空、回满四相">\n  <g class="n-root">\n    <g transform="translate(21,28)">\n      <path d="M14 0h28v14h-28z M56 0h28v14h-28z M0 14h98v28h-98z M14 42h70v14h-70z M28 56h42v14h-42z M42 70h14v14h-14z" fill="#4A5070"/>\n      <path class="x-full" d="M14 0h28v14h-28z M56 0h28v14h-28z M0 14h98v28h-98z M14 42h70v14h-70z M28 56h42v14h-42z M42 70h14v14h-14z" fill="#EF7D8E"/>\n      <path class="x-half" d="M14 0h28v14h-28z M0 14h56v28h-56z M14 42h42v14h-42z M28 56h28v14h-28z M42 70h14v14h-14z" fill="#EF7D8E"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 帧切换四相：满(0-30) 半(30-55) 空(55-75) 回满(75-100)；无缓动 */\n.mi-i-px-heart .n-root{animation:x1-in .25s steps(1,end) both}\n.mi-i-px-heart .x-full{animation:x1-full 4.8s linear infinite}\n.mi-i-px-heart .x-half{opacity:0;animation:x1-half 4.8s linear infinite}\n@keyframes x1-in{from{opacity:0}to{opacity:1}}\n@keyframes x1-full{0%,29.9%{opacity:1}30%,74.9%{opacity:0}75%,100%{opacity:1}}\n@keyframes x1-half{0%,29.9%{opacity:0}30%,54.9%{opacity:1}55%,100%{opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-heart *{animation:none!important}.mi-i-px-heart .x-full{opacity:1}.mi-i-px-heart .x-half{opacity:0}}'
+  },
+  {
+    id:'px-coin', style:'pixel',
+    zh:'金币', en:'Coin',
+    desc:'四帧翻转，金币转不停。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#F5C05A','币面'],['#C29A55','币缘']],
+    scenes:['积分 / 金币奖励动效','签到、任务奖励页','虚拟货币模块'],
+    svg:'<svg class="mi-i-px-coin" viewBox="36.5 30.5 67 67" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="金币：四帧翻转">\n  <g class="n-root">\n    <g class="x-fa" transform="translate(46,34)">\n      <path d="M12 0h24v6h-24z M6 6h36v6h-36z M0 12h48v36h-48z M6 48h36v6h-36z M12 54h24v6h-24z" fill="#F5C05A"/>\n      <path d="M36 12h12v36h-12z" fill="#C29A55"/>\n      <path d="M18 12h12v36h-12z" fill="#262A40"/>\n    </g>\n    <g class="x-fb" transform="translate(58,34)">\n      <path d="M6 0h12v6h-12z M0 6h24v42h-24z M6 48h12v12h-12z" fill="#F5C05A"/>\n      <path d="M12 12h12v36h-12z" fill="#C29A55"/>\n    </g>\n    <g class="x-fc" transform="translate(64,34)">\n      <path d="M0 6h12v48h-12z" fill="#C29A55"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 四帧循环：宽(0-25) 中(25-50) 侧(50-75) 中(75-100)；linear 平台切换 */\n.mi-i-px-coin .n-root{animation:x2-in .25s steps(1,end) both}\n.mi-i-px-coin .x-fa{animation:x2-fa 1.2s linear infinite}\n.mi-i-px-coin .x-fb{opacity:0;animation:x2-fb 1.2s linear infinite}\n.mi-i-px-coin .x-fc{opacity:0;animation:x2-fc 1.2s linear infinite}\n@keyframes x2-in{from{opacity:0}to{opacity:1}}\n@keyframes x2-fa{0%,24.9%{opacity:1}25%,100%{opacity:0}}\n@keyframes x2-fb{0%,24.9%{opacity:0}25%,49.9%{opacity:1}50%,74.9%{opacity:0}75%,100%{opacity:1}}\n@keyframes x2-fc{0%,49.9%{opacity:0}50%,74.9%{opacity:1}75%,100%{opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-coin *{animation:none!important}.mi-i-px-coin .x-fa{opacity:1}.mi-i-px-coin .x-fb,.mi-i-px-coin .x-fc{opacity:0}}'
+  },
+  {
+    id:'px-energy', style:'pixel',
+    zh:'能量', en:'Energy',
+    desc:'能量从底往上逐格点亮，满格闪两下。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#F2F3F5','外壳'],['#58C2A9','能量格']],
+    scenes:['加载 / 充电进度','体力值、能量条 UI','进度反馈游戏化'],
+    svg:'<svg class="mi-i-px-energy" viewBox="13.5 18.5 113 113" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="能量：竖条逐格充能">\n  <g class="n-root">\n    <path d="M64 24h12v6h-12z" fill="#F2F3F5"/>\n    <path d="M52 30h36v96h-36z" fill="#F2F3F5"/>\n    <path d="M58 36h24v84h-24z" fill="#262A40"/>\n    <rect class="x-c1" x="58" y="108" width="24" height="12" fill="#58C2A9"/>\n    <rect class="x-c2" x="58" y="90" width="24" height="12" fill="#58C2A9"/>\n    <rect class="x-c3" x="58" y="72" width="24" height="12" fill="#58C2A9"/>\n    <rect class="x-c4" x="58" y="54" width="24" height="12" fill="#58C2A9"/>\n    <rect class="x-c5" x="58" y="36" width="24" height="12" fill="#58C2A9"/>\n  </g>\n</svg>',
+    css:'/* 逐格点亮(0/14/28/42/56%)→满格闪两下(70-88%)→清空重来 */\n.mi-i-px-energy .n-root{animation:x3-in .25s steps(1,end) both}\n.mi-i-px-energy .x-c1{opacity:0;animation:x3-c1 5.4s linear infinite}\n.mi-i-px-energy .x-c2{opacity:0;animation:x3-c2 5.4s linear infinite}\n.mi-i-px-energy .x-c3{opacity:0;animation:x3-c3 5.4s linear infinite}\n.mi-i-px-energy .x-c4{opacity:0;animation:x3-c4 5.4s linear infinite}\n.mi-i-px-energy .x-c5{opacity:0;animation:x3-c5 5.4s linear infinite}\n@keyframes x3-in{from{opacity:0}to{opacity:1}}\n@keyframes x3-c1{0%,0.1%{opacity:0}0.2%,69.9%{opacity:1}70%,73.9%{opacity:0}74%,79.9%{opacity:1}80%,83.9%{opacity:0}84%,89.9%{opacity:1}90%,100%{opacity:0}}\n@keyframes x3-c2{0%,13.9%{opacity:0}14%,69.9%{opacity:1}70%,73.9%{opacity:0}74%,79.9%{opacity:1}80%,83.9%{opacity:0}84%,89.9%{opacity:1}90%,100%{opacity:0}}\n@keyframes x3-c3{0%,27.9%{opacity:0}28%,69.9%{opacity:1}70%,73.9%{opacity:0}74%,79.9%{opacity:1}80%,83.9%{opacity:0}84%,89.9%{opacity:1}90%,100%{opacity:0}}\n@keyframes x3-c4{0%,41.9%{opacity:0}42%,69.9%{opacity:1}70%,73.9%{opacity:0}74%,79.9%{opacity:1}80%,83.9%{opacity:0}84%,89.9%{opacity:1}90%,100%{opacity:0}}\n@keyframes x3-c5{0%,55.9%{opacity:0}56%,69.9%{opacity:1}70%,73.9%{opacity:0}74%,79.9%{opacity:1}80%,83.9%{opacity:0}84%,89.9%{opacity:1}90%,100%{opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-energy *{animation:none!important}.mi-i-px-energy .x-c1,.mi-i-px-energy .x-c2,.mi-i-px-energy .x-c3,.mi-i-px-energy .x-c4,.mi-i-px-energy .x-c5{opacity:1}}'
+  },
+  {
+    id:'px-hourglass', style:'pixel',
+    zh:'沙漏', en:'Hourglass',
+    desc:'沙落三帧，翻面再来。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#F2F3F5','框架'],['#F5C05A','流沙']],
+    scenes:['等待 / 倒计时','限时活动提示','回合冷却指示'],
+    svg:'<svg class="mi-i-px-hourglass" viewBox="39 36 62 62" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="沙漏：三帧沙落后整只翻面">\n  <g class="n-root">\n    <g class="x-flip">\n      <path d="M0 0h42v6h-42z M0 48h42v6h-42z M6 6h6v12h-6z M30 6h6v12h-6z M12 18h6v12h-6z M24 18h6v12h-6z M6 30h6v18h-6z M30 30h6v18h-6z" fill="#F2F3F5" transform="translate(49,40)"/>\n      <g transform="translate(49,40)">\n        <path class="x-s1" d="M12 6h18v6h-18z M12 12h18v6h-18z M18 18h6v6h-6z M18 42h6v6h-6z" fill="#F5C05A"/>\n        <path class="x-s2" d="M12 12h18v6h-18z M18 18h6v6h-6z M18 36h6v6h-6z M12 42h18v6h-18z" fill="#F5C05A"/>\n        <path class="x-s3" d="M18 30h6v6h-6z M12 36h18v6h-18z M12 42h18v6h-18z" fill="#F5C05A"/>\n        <rect class="x-grain" x="18" y="24" width="6" height="6" fill="#F5C05A"/>\n      </g>\n    </g>\n  </g>\n</svg>',
+    css:'/* 三帧沙落(各25%)→整只硬切翻面(75%)续为第四相；沙粒两帧闪落 */\n.mi-i-px-hourglass .n-root{animation:x4-in .25s steps(1,end) both}\n.mi-i-px-hourglass .x-flip{transform-box:view-box;transform-origin:70px 67px;animation:x4-flip 6s linear infinite}\n.mi-i-px-hourglass .x-s1{animation:x4-s1 6s linear infinite}\n.mi-i-px-hourglass .x-s2{opacity:0;animation:x4-s2 6s linear infinite}\n.mi-i-px-hourglass .x-s3{opacity:0;animation:x4-s3 6s linear infinite}\n.mi-i-px-hourglass .x-grain{animation:x4-grain .6s steps(2,jump-none) infinite,x4-grainwin 6s linear infinite}\n@keyframes x4-in{from{opacity:0}to{opacity:1}}\n@keyframes x4-flip{0%,74.9%{transform:rotate(0)}75%,100%{transform:rotate(180deg)}}\n@keyframes x4-s1{0%,24.9%{opacity:1}25%,100%{opacity:0}}\n@keyframes x4-s2{0%,24.9%{opacity:0}25%,49.9%{opacity:1}50%,100%{opacity:0}}\n@keyframes x4-s3{0%,49.9%{opacity:0}50%,100%{opacity:1}}\n@keyframes x4-grain{0%{transform:translateY(0)}100%{transform:translateY(6px)}}\n@keyframes x4-grainwin{0%,69.9%{opacity:1}70%,100%{opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-hourglass *{animation:none!important}.mi-i-px-hourglass .x-s1{opacity:1}.mi-i-px-hourglass .x-s2,.mi-i-px-hourglass .x-s3,.mi-i-px-hourglass .x-grain{opacity:0}}'
+  },
+  {
+    id:'px-chest', style:'pixel',
+    zh:'宝箱', en:'Chest',
+    desc:'箱盖弹开，金光闪两下。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#C29A55','箱盖'],['#F5C05A','箱体 / 金光'],['#F2F3F5','锁扣']],
+    scenes:['奖励开箱 / 战利品动效','签到宝箱、盲盒页','成就解锁反馈'],
+    svg:'<svg class="mi-i-px-chest" viewBox="24.5 21.5 91 91" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="宝箱：箱盖弹开金光闪">\n  <g class="n-root">\n    <g transform="translate(30,60)">\n      <rect x="0" y="16" width="80" height="32" fill="#F5C05A"/>\n      <rect x="32" y="16" width="16" height="16" fill="#F2F3F5"/>\n      <rect x="36" y="24" width="8" height="8" fill="#262A40"/>\n      <g class="x-cl"><path d="M8 0h64v8h-64z M0 8h80v8h-80z" fill="#C29A55"/></g>\n      <g class="x-ol"><path d="M8 -16h64v8h-64z M0 -8h80v8h-80z" fill="#C29A55"/><rect x="0" y="16" width="80" height="8" fill="#4A5070"/></g>\n      <g class="x-gl"><rect x="16" y="-28" width="8" height="8" fill="#F5C05A"/><rect x="56" y="-34" width="8" height="8" fill="#F5C05A"/></g>\n    </g>\n  </g>\n</svg>',
+    css:'/* 两帧箱盖：合(0-40) 开(40-90) 合(90-100)；金光在开窗内闪两下 */\n.mi-i-px-chest .n-root{animation:x5-in .25s steps(1,end) both}\n.mi-i-px-chest .x-cl{animation:x5-cl 4.8s linear infinite}\n.mi-i-px-chest .x-ol{opacity:0;animation:x5-ol 4.8s linear infinite}\n.mi-i-px-chest .x-gl{opacity:0;animation:x5-gl 4.8s linear infinite}\n@keyframes x5-in{from{opacity:0}to{opacity:1}}\n@keyframes x5-cl{0%,39.9%{opacity:1}40%,89.9%{opacity:0}90%,100%{opacity:1}}\n@keyframes x5-ol{0%,39.9%{opacity:0}40%,89.9%{opacity:1}90%,100%{opacity:0}}\n@keyframes x5-gl{0%,44.9%{opacity:0}45%,52.9%{opacity:1}53%,60.9%{opacity:0}61%,68.9%{opacity:1}69%,100%{opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-chest *{animation:none!important}.mi-i-px-chest .x-cl{opacity:1}.mi-i-px-chest .x-ol,.mi-i-px-chest .x-gl{opacity:0}}'
+  },
+  {
+    id:'px-sword', style:'pixel',
+    zh:'剑', en:'Sword',
+    desc:'锋光两格，顺刃而下。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#F2F3F5','剑刃'],['#F5C05A','护手 / 剑首'],['#C29A55','剑柄'],['#58C2A9','锋光']],
+    scenes:['战斗 / 攻击力展示','装备、武器库图标','对战功能入口'],
+    svg:'<svg class="mi-i-px-sword" viewBox="26.5 23.5 87 87" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="剑：锋光顺刃而下">\n  <g class="n-root">\n    <g transform="translate(58,28)">\n      <rect x="6" y="0" width="6" height="6" fill="#F2F3F5"/>\n      <rect x="6" y="6" width="12" height="48" fill="#F2F3F5"/>\n      <rect class="x-shine" x="6" y="6" width="6" height="12" fill="#58C2A9"/>\n      <rect x="-6" y="54" width="36" height="6" fill="#F5C05A"/>\n      <rect x="6" y="60" width="12" height="12" fill="#C29A55"/>\n      <rect x="6" y="72" width="12" height="6" fill="#F5C05A"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 锋光两格沿刃整格下滑：steps(4,jump-none) 四停 */\n.mi-i-px-sword .n-root{animation:x6-in .25s steps(1,end) both}\n.mi-i-px-sword .x-shine{animation:x6-shine 1.6s steps(4,jump-none) infinite}\n@keyframes x6-in{from{opacity:0}to{opacity:1}}\n@keyframes x6-shine{from{transform:translateY(0)}to{transform:translateY(36px)}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-sword *{animation:none!important}}'
+  },
+  {
+    id:'px-lock', style:'pixel',
+    zh:'挂锁', en:'Lock',
+    desc:'锁扣弹开，锁体闪薄荷。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#F5C05A','锁体'],['#F2F3F5','锁扣'],['#58C2A9','解锁闪色']],
+    scenes:['解锁成就 / 权限开通','会员解锁、关卡开放','隐私开关状态'],
+    svg:'<svg class="mi-i-px-lock" viewBox="39.5 27 62 62" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="挂锁：锁扣弹开闪薄荷">\n  <g class="n-root">\n    <g transform="translate(46,58)">\n      <rect x="0" y="0" width="49" height="28" fill="#F5C05A"/>\n      <rect class="x-bk" x="0" y="0" width="49" height="28" fill="#58C2A9"/>\n      <rect x="21" y="7" width="7" height="7" fill="#262A40"/>\n      <rect x="21" y="14" width="7" height="7" fill="#262A40"/>\n      <g class="x-sc"><path d="M7 -21h35v7h-35z M7 -14h7v14h-7z M35 -14h7v14h-7z" fill="#F2F3F5"/></g>\n      <g class="x-so"><path d="M7 -28h35v7h-35z M7 -21h7v21h-7z" fill="#F2F3F5"/></g>\n    </g>\n  </g>\n</svg>',
+    css:'/* 两帧锁扣：闭(0-45) 开(45-90) 闭(90-100)；开锁后锁体闪薄荷两下 */\n.mi-i-px-lock .n-root{animation:x7-in .25s steps(1,end) both}\n.mi-i-px-lock .x-sc{animation:x7-sc 4.8s linear infinite}\n.mi-i-px-lock .x-so{opacity:0;animation:x7-so 4.8s linear infinite}\n.mi-i-px-lock .x-bk{opacity:0;animation:x7-bk 4.8s linear infinite}\n@keyframes x7-in{from{opacity:0}to{opacity:1}}\n@keyframes x7-sc{0%,44.9%{opacity:1}45%,89.9%{opacity:0}90%,100%{opacity:1}}\n@keyframes x7-so{0%,44.9%{opacity:0}45%,89.9%{opacity:1}90%,100%{opacity:0}}\n@keyframes x7-bk{0%,49.9%{opacity:0}50%,55.9%{opacity:1}56%,59.9%{opacity:0}60%,65.9%{opacity:1}66%,100%{opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-lock *{animation:none!important}.mi-i-px-lock .x-sc{opacity:1}.mi-i-px-lock .x-so,.mi-i-px-lock .x-bk{opacity:0}}'
+  },
+  {
+    id:'px-potion', style:'pixel',
+    zh:'药水', en:'Potion',
+    desc:'瓶里气泡，一格格上浮。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台 / 气泡'],['#F2F3F5','瓶身'],['#EF7D8E','药液'],['#C29A55','瓶塞']],
+    scenes:['恢复 / 增益道具','会员权益、加成说明','生命回复反馈'],
+    svg:'<svg class="mi-i-px-potion" viewBox="36.5 34.5 67 67" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="药水：气泡整格上浮">\n  <g class="n-root">\n    <g transform="translate(52,38)">\n      <rect x="12" y="0" width="12" height="6" fill="#C29A55"/>\n      <rect x="12" y="6" width="12" height="12" fill="#F2F3F5"/>\n      <rect x="6" y="18" width="24" height="6" fill="#F2F3F5"/>\n      <rect x="0" y="24" width="36" height="36" fill="#F2F3F5"/>\n      <rect x="0" y="36" width="36" height="24" fill="#EF7D8E"/>\n      <rect class="x-b1" x="12" y="48" width="6" height="6" fill="#262A40"/>\n      <rect class="x-b2" x="24" y="48" width="6" height="6" fill="#262A40"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 气泡整格三停上浮后消失；两颗错拍 1.2s */\n.mi-i-px-potion .n-root{animation:x8-in .25s steps(1,end) both}\n.mi-i-px-potion .x-b1{animation:x8-b 2.4s linear infinite}\n.mi-i-px-potion .x-b2{animation:x8-b 2.4s linear infinite;animation-delay:1.2s}\n@keyframes x8-in{from{opacity:0}to{opacity:1}}\n@keyframes x8-b{0%,14.9%{transform:translateY(0);opacity:1}15%,29.9%{transform:translateY(-6px);opacity:1}30%,44.9%{transform:translateY(-12px);opacity:1}45%,100%{transform:translateY(-12px);opacity:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-potion *{animation:none!important}.mi-i-px-potion .x-b1,.mi-i-px-potion .x-b2{opacity:0}}'
+  },
+  {
+    id:'px-flag', style:'pixel',
+    zh:'旗帜', en:'Flag',
+    desc:'两帧交替，像素旗飘动。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#EF7D8E','旗面'],['#4A5070','旗杆'],['#F5C05A','杆顶']],
+    scenes:['关卡起点 / 占领标记','里程碑达成','存档点提示'],
+    svg:'<svg class="mi-i-px-flag" viewBox="33 32 80 80" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="旗帜：两帧飘动">\n  <g class="n-root">\n    <g transform="translate(52,36)">\n      <rect x="0" y="0" width="6" height="6" fill="#F5C05A"/>\n      <rect x="0" y="6" width="6" height="66" fill="#4A5070"/>\n      <g class="x-fa"><path d="M6 6h30v6h-30z M6 12h36v6h-36z M6 18h30v6h-30z" fill="#EF7D8E"/></g>\n      <g class="x-fb"><path d="M6 6h36v6h-36z M6 12h30v6h-30z M6 18h36v6h-36z" fill="#EF7D8E"/></g>\n    </g>\n  </g>\n</svg>',
+    css:'/* 两帧旗面 0.9s 交替 */\n.mi-i-px-flag .n-root{animation:x9-in .25s steps(1,end) both}\n.mi-i-px-flag .x-fa{animation:x9-fa .9s linear infinite}\n.mi-i-px-flag .x-fb{opacity:0;animation:x9-fb .9s linear infinite}\n@keyframes x9-in{from{opacity:0}to{opacity:1}}\n@keyframes x9-fa{0%,49.9%{opacity:1}50%,100%{opacity:0}}\n@keyframes x9-fb{0%,49.9%{opacity:0}50%,100%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-flag *{animation:none!important}.mi-i-px-flag .x-fa{opacity:1}.mi-i-px-flag .x-fb{opacity:0}}'
+  },
+  {
+    id:'px-loading', style:'pixel',
+    zh:'加载', en:'Loading',
+    desc:'三块依次起跳，各占一拍。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#58C2A9','方块'],['#F5C05A','方块'],['#EF7D8E','方块']],
+    scenes:['游戏化加载动画','等待场景占位','处理中状态'],
+    svg:'<svg class="mi-i-px-loading" viewBox="38 34 80 80" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="加载：三块依次跳格">\n  <g class="n-root">\n    <rect class="x-j1" x="42" y="74" width="16" height="16" fill="#58C2A9"/>\n    <rect class="x-j2" x="70" y="74" width="16" height="16" fill="#F5C05A"/>\n    <rect class="x-j3" x="98" y="74" width="16" height="16" fill="#EF7D8E"/>\n  </g>\n</svg>',
+    css:'/* 依次整格起跳：硬切上/下两态，各占一拍 */\n.mi-i-px-loading .n-root{animation:x10-in .25s steps(1,end) both}\n.mi-i-px-loading .x-j1{animation:x10-j1 1.8s linear infinite}\n.mi-i-px-loading .x-j2{animation:x10-j2 1.8s linear infinite}\n.mi-i-px-loading .x-j3{animation:x10-j3 1.8s linear infinite}\n@keyframes x10-in{from{opacity:0}to{opacity:1}}\n@keyframes x10-j1{0%,4.9%{transform:translateY(0)}5%,19.9%{transform:translateY(-16px)}20%,100%{transform:translateY(0)}}\n@keyframes x10-j2{0%,29.9%{transform:translateY(0)}30%,44.9%{transform:translateY(-16px)}45%,100%{transform:translateY(0)}}\n@keyframes x10-j3{0%,54.9%{transform:translateY(0)}55%,69.9%{transform:translateY(-16px)}70%,100%{transform:translateY(0)}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-loading *{animation:none!important}}'
+  },
+  {
+    id:'px-star', style:'pixel',
+    zh:'星星', en:'Star',
+    desc:'光芒两帧轮转，收集后再刷新。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台'],['#F5C05A','星体'],['#F2F3F5','光芒']],
+    scenes:['评分 / 收集要素','成就星级','收藏夹图标'],
+    svg:'<svg class="mi-i-px-star" viewBox="35.5 35.5 70 70" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="星星：光芒轮转与收集刷新">\n  <g class="n-root">\n    <g class="x-pop" transform="translate(53,53)">\n      <path d="M14 0h7v7h-7z M7 7h21v7h-21z M0 14h35v7h-35z M7 21h21v7h-21z M14 28h7v7h-7z" fill="#F5C05A"/>\n      <g class="x-ra"><path d="M14 -14h7v7h-7z M14 42h7v7h-7z M-14 14h7v7h-7z M42 14h7v7h-7z" fill="#F2F3F5"/></g>\n      <g class="x-rb"><path d="M-7 -7h7v7h-7z M35 -7h7v7h-7z M-7 35h7v7h-7z M35 35h7v7h-7z" fill="#F2F3F5"/></g>\n    </g>\n  </g>\n</svg>',
+    css:'/* 十字/对角光芒两帧轮转；82-94% 整颗消失＝被收集，随即刷新 */\n.mi-i-px-star .n-root{animation:x11-in .25s steps(1,end) both}\n.mi-i-px-star .x-pop{animation:x11-pop 4.8s linear infinite}\n.mi-i-px-star .x-ra{animation:x11-ra .8s linear infinite}\n.mi-i-px-star .x-rb{opacity:0;animation:x11-rb .8s linear infinite}\n@keyframes x11-in{from{opacity:0}to{opacity:1}}\n@keyframes x11-pop{0%,81.9%{opacity:1}82%,93.9%{opacity:0}94%,100%{opacity:1}}\n@keyframes x11-ra{0%,49.9%{opacity:1}50%,100%{opacity:0}}\n@keyframes x11-rb{0%,49.9%{opacity:0}50%,100%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-star *{animation:none!important}.mi-i-px-star .x-ra{opacity:1}.mi-i-px-star .x-rb{opacity:0}}'
+  },
+  {
+    id:'px-slime', style:'pixel',
+    zh:'史莱姆', en:'Slime',
+    desc:'两帧蠕动，压扁又弹起。',
+    bg:'#262A40',
+    colors:[['#262A40','舞台 / 眼睛'],['#58C2A9','身体'],['#F2F3F5','高光']],
+    scenes:['吉祥物 / 空态角色','404、空列表陪伴','新手引导小角色'],
+    svg:'<svg class="mi-i-px-slime" viewBox="34.5 44.5 71 71" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="史莱姆：两帧蠕动">\n  <g class="n-root">\n    <g transform="translate(46,68)">\n      <g class="x-sa">\n        <path d="M8 0h32v8h-32z M0 8h48v16h-48z" fill="#58C2A9"/>\n        <rect x="8" y="0" width="8" height="8" fill="#F2F3F5"/>\n        <rect x="8" y="8" width="8" height="8" fill="#262A40"/>\n        <rect x="32" y="8" width="8" height="8" fill="#262A40"/>\n      </g>\n      <g class="x-sb">\n        <path d="M-8 8h64v16h-64z" fill="#58C2A9"/>\n        <rect x="-8" y="8" width="8" height="8" fill="#F2F3F5"/>\n        <rect x="4" y="12" width="8" height="8" fill="#262A40"/>\n        <rect x="36" y="12" width="8" height="8" fill="#262A40"/>\n      </g>\n    </g>\n  </g>\n</svg>',
+    css:'/* 两帧蠕动 0.8s：立起 / 压扁（底边不动） */\n.mi-i-px-slime .n-root{animation:x12-in .25s steps(1,end) both}\n.mi-i-px-slime .x-sa{animation:x12-sa .8s linear infinite}\n.mi-i-px-slime .x-sb{opacity:0;animation:x12-sb .8s linear infinite}\n@keyframes x12-in{from{opacity:0}to{opacity:1}}\n@keyframes x12-sa{0%,49.9%{opacity:1}50%,100%{opacity:0}}\n@keyframes x12-sb{0%,49.9%{opacity:0}50%,100%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-px-slime *{animation:none!important}.mi-i-px-slime .x-sa{opacity:1}.mi-i-px-slime .x-sb{opacity:0}}'
   }
 ];
 
