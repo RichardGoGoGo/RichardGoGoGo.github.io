@@ -162,7 +162,8 @@ title: "动态图标图鉴"
    ============================================================ */
 
 var STYLES=[
-  { key:'iso', zh:'等距拟物 · 组装编排', en:'Isometric Assembly' }
+  { key:'iso', zh:'等距拟物 · 组装编排', en:'Isometric Assembly' },
+  { key:'line', zh:'线稿描边 · 业务流程', en:'Process Scenes' }
 ];
 
 var ICONS=[
@@ -405,6 +406,126 @@ var ICONS=[
     ],
     svg:'<svg class="mi-i-iso-timer" viewBox="33 38 54 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="计时：走针与整点铃颤">\n  <g class="t-float">\n    <g class="e"><ellipse class="t-shadow" cx="60" cy="86" rx="16" ry="3" fill="#28315C" opacity=".18"/></g>\n    <g class="e" style="animation-delay:.75s">\n      <path d="M52.5 76.5 L49.5 84" stroke="#C9D6E5" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n      <path d="M67.5 76.5 L70.5 84" stroke="#C9D6E5" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e-pop t-bells" style="animation-delay:.3s">\n      <rect x="58.9" y="43.5" width="2.2" height="3.5" rx="1" fill="#C9D6E5"/>\n      <circle cx="60" cy="42.8" r="1.6" fill="#EF7D8E"/>\n      <circle cx="50" cy="49.5" r="4" fill="#8A7BE8"/>\n      <circle cx="70" cy="49.5" r="4" fill="#8A7BE8"/>\n    </g>\n    <g class="e-pop" style="animation-delay:.1s"><circle cx="60" cy="63" r="15" fill="#FFFFFF"/></g>\n    <g class="e" style="animation-delay:.5s">\n      <path d="M60 51.5 v3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M71.5 63 h-3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M60 74.5 v-3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n      <path d="M48.5 63 h3" stroke="#C9D6E5" stroke-width="1.4" stroke-linecap="round" fill="none"/>\n    </g>\n    <g class="e" style="animation-delay:.9s">\n      <path d="M60 63 L66.5 59.5" stroke="#28315C" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n      <path class="t-min" d="M60 63 L60 53" stroke="#28315C" stroke-width="2" stroke-linecap="round" fill="none"/>\n      <circle cx="60" cy="63" r="1.7" fill="#EF7D8E"/>\n    </g>\n  </g>\n</svg>',
     css:'/* 分针 steps(12) 走格；整点铃铛衰减式轻颤 */\n.mi-i-iso-timer .e{opacity:0;animation:t6-rise .55s cubic-bezier(.22,1,.36,1) both}\n.mi-i-iso-timer .e-pop{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:t6-pop .55s cubic-bezier(.34,1.56,.64,1) both}\n.mi-i-iso-timer .t-float{animation:t6-float 3.6s ease-in-out infinite}\n.mi-i-iso-timer .t-shadow{transform-box:fill-box;transform-origin:center;animation:t6-breath 3.6s ease-in-out infinite}\n.mi-i-iso-timer .t-min{transform-box:view-box;transform-origin:60px 63px;animation:t6-tick 6s steps(12) 1.8s infinite}\n.mi-i-iso-timer .t-bells{animation:t6-pop .55s cubic-bezier(.34,1.56,.64,1) .4s both,t6-shake 6s ease-in-out 1.8s infinite}\n.mi-i-iso-timer .t-bells{transform-box:view-box;transform-origin:60px 52px}\n@keyframes t6-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\n@keyframes t6-pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}\n@keyframes t6-float{0%,100%{transform:none}50%{transform:translateY(-3px)}}\n@keyframes t6-breath{0%,100%{transform:scale(1);opacity:.18}50%{transform:scale(.9);opacity:.12}}\n@keyframes t6-tick{to{transform:rotate(360deg)}}\n@keyframes t6-shake{0%{transform:rotate(0)}1.5%{transform:rotate(-4deg)}3%{transform:rotate(3deg)}4.5%{transform:rotate(-2deg)}6%{transform:rotate(1deg)}8%,100%{transform:rotate(0)}}\n@media (prefers-reduced-motion:reduce){.mi-i-iso-timer *{animation:none!important}.mi-i-iso-timer .e,.mi-i-iso-timer .e-pop,.mi-i-iso-timer .t-bells{opacity:1;transform:none}}'
+  },
+  {
+    id:'proc-kickoff', style:'line',
+    zh:'启动', en:'Kickoff',
+    desc:'按下电源钮，整枚亮起墨绿。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','电源钮 · 待机'],['#4E7A68','电源钮 · 启动']],
+    scenes:['项目启动 / Kickoff 会环节图','功能开通、服务激活页','方案流程图的第一步'],
+    svg:'<svg class="mi-i-proc-kickoff" viewBox="23 23 94 94" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="启动：电源钮按下点亮">\n  <g class="n-root">\n    <circle class="h-ping" cx="70" cy="70" r="32" stroke="#4E7A68" stroke-width="2" fill="none"/>\n    <g class="h-press">\n      <circle class="h-on" cx="70" cy="70" r="32" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n      <path class="h-on" d="M61 58.5 A17 17 0 1 0 79 58.5" stroke="#2B3A55" stroke-width="5" stroke-linecap="round" fill="none"/>\n      <path class="h-on" d="M70 52 V70" stroke="#2B3A55" stroke-width="5" stroke-linecap="round" fill="none"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 单物件：电源钮按下(下陷) → 整枚外圈+符号转亮墨绿 + 点火涟漪荡出 */\n.mi-i-proc-kickoff .n-root{animation:h1-in .5s ease-out both}\n.mi-i-proc-kickoff .h-press{transform-box:fill-box;transform-origin:center;animation:h1-press 6s ease-in-out infinite}\n.mi-i-proc-kickoff .h-on{animation:h1-on 6s ease-in-out infinite}\n.mi-i-proc-kickoff .h-ping{opacity:0;transform-box:fill-box;transform-origin:center;animation:h1-ping 6s ease-out infinite}\n@keyframes h1-in{from{opacity:0}to{opacity:1}}\n@keyframes h1-press{0%,6%{transform:scale(1)}10%,13%{transform:scale(.94)}18%,100%{transform:scale(1)}}\n@keyframes h1-on{0%,14%{stroke:#2B3A55}20%,82%{stroke:#4E7A68}90%,100%{stroke:#2B3A55}}\n@keyframes h1-ping{0%,16%{opacity:0;transform:scale(1)}22%{opacity:.55;transform:scale(1.12)}42%{opacity:0;transform:scale(1.38)}48%,100%{opacity:0;transform:scale(1)}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-kickoff *{animation:none!important}.mi-i-proc-kickoff .h-on{stroke:#4E7A68}.mi-i-proc-kickoff .h-ping{opacity:0}}'
+  },
+  {
+    id:'proc-research', style:'line',
+    zh:'调研', en:'Research',
+    desc:'放大镜停在最高的那根柱上。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','图表 / 放大镜'],['#C29A55','强调柱'],['#A04E4E','发现点']],
+    scenes:['用户调研 / 市场分析环节图','数据洞察报告封面','问卷、访谈功能说明'],
+    svg:'<svg class="mi-i-proc-research" viewBox="26.5 27 87 87" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="调研：放大镜聚焦最高柱">\n  <g class="n-root">\n    <path d="M34 108 H106" stroke="#2B3A55" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".8"/>\n    <path d="M46 108 V88" stroke="#2B3A55" stroke-width="7" stroke-linecap="round" fill="none" opacity=".5"/>\n    <path d="M62 108 V78" stroke="#2B3A55" stroke-width="7" stroke-linecap="round" fill="none" opacity=".5"/>\n    <path d="M78 108 V62" stroke="#C29A55" stroke-width="7" stroke-linecap="round" fill="none"/>\n    <path d="M94 108 V92" stroke="#2B3A55" stroke-width="7" stroke-linecap="round" fill="none" opacity=".5"/>\n    <g class="h-float">\n      <circle cx="78" cy="54" r="19" stroke="#2B3A55" stroke-width="3" fill="none"/>\n      <path d="M92 68 L106 82" stroke="#2B3A55" stroke-width="5" stroke-linecap="round" fill="none"/>\n      <circle class="h-twk" cx="78" cy="61" r="3.5" fill="#A04E4E"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 联动：镜心正对强调柱顶，发现点=柱顶本身 */\n.mi-i-proc-research .n-root{animation:h2-in .5s ease-out both}\n.mi-i-proc-research .h-float{transform-box:fill-box;transform-origin:center;animation:h2-float 3.6s ease-in-out infinite}\n.mi-i-proc-research .h-twk{animation:h2-twk 2s ease-in-out infinite}\n@keyframes h2-in{from{opacity:0}to{opacity:1}}\n@keyframes h2-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}\n@keyframes h2-twk{0%,100%{opacity:.3}50%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-research *{animation:none!important}}'
+  },
+  {
+    id:'proc-ideation', style:'line',
+    zh:'脑暴', en:'Ideation',
+    desc:'灯泡亮起，光线一根根迸出。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','灯泡'],['#C29A55','灯丝 / 光线']],
+    scenes:['头脑风暴 / 共创工作坊环节图','灵感、创意功能入口','创意方法论文章配图'],
+    svg:'<svg class="mi-i-proc-ideation" viewBox="32 27 76 76" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="脑暴：灯泡与迸出的光线">\n  <g class="n-root">\n    <circle cx="70" cy="66" r="20" stroke="#2B3A55" stroke-width="3.6" fill="none"/>\n    <path d="M62 70 q4 -7 8 0 q4 7 8 0" stroke="#C29A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n    <rect x="63.5" y="86" width="13" height="9" rx="2" stroke="#2B3A55" stroke-width="2.2" fill="none"/>\n    <path d="M66.5 98.5 h7" stroke="#2B3A55" stroke-width="2.2" stroke-linecap="round" fill="none"/>\n    <path class="h-ray" d="M70 40 V31" stroke="#C29A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n    <path class="h-ray" style="animation-delay:.35s" d="M83 43.5 L87.5 35.7" stroke="#C29A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n    <path class="h-ray" style="animation-delay:.7s" d="M57 43.5 L52.5 35.7" stroke="#C29A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n    <path class="h-ray" style="animation-delay:1.05s" d="M92.5 53 L100.3 48.5" stroke="#C29A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n    <path class="h-ray" style="animation-delay:1.4s" d="M47.5 53 L39.7 48.5" stroke="#C29A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n  </g>\n</svg>',
+    css:'/* 单物件：光线从灯泡自身迸出，依次点亮 */\n.mi-i-proc-ideation .n-root{animation:h3-in .5s ease-out both}\n.mi-i-proc-ideation .h-ray{stroke-width:3.2;animation:h3-ray 2.4s ease-in-out infinite}\n@keyframes h3-in{from{opacity:0}to{opacity:1}}\n@keyframes h3-ray{0%,100%{opacity:.15}35%{opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-ideation *{animation:none!important}.mi-i-proc-ideation .h-ray{opacity:1}}'
+  },
+  {
+    id:'proc-review', style:'line',
+    zh:'评审', en:'Review',
+    desc:'评审打分，三颗星依次点亮。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','评审卡'],['#C29A55','星级']],
+    scenes:['方案评审 / 验收打分环节图','评价、反馈功能页','服务满意度模块'],
+    svg:'<svg class="mi-i-proc-review" viewBox="30.5 30.5 79 79" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="评审：评分卡三星依次点亮">\n  <g class="n-root">\n    <rect x="38" y="36" width="64" height="68" rx="6" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n    <path d="M48 50 h36" stroke="#2B3A55" stroke-width="4.5" stroke-linecap="round" fill="none" opacity=".75"/>\n    <path class="h-s1" d="M52,60 l1.8,4.1 4.2,0 -3.4,2.8 1.3,4.1 -3.9,-2.6 -3.9,2.6 1.3,-4.1 -3.4,-2.8 4.2,0 Z" fill="rgba(43,58,85,.16)"/>\n    <path class="h-s2" d="M70,60 l1.8,4.1 4.2,0 -3.4,2.8 1.3,4.1 -3.9,-2.6 -3.9,2.6 1.3,-4.1 -3.4,-2.8 4.2,0 Z" fill="rgba(43,58,85,.16)"/>\n    <path class="h-s3" d="M88,60 l1.8,4.1 4.2,0 -3.4,2.8 1.3,4.1 -3.9,-2.6 -3.9,2.6 1.3,-4.1 -3.4,-2.8 4.2,0 Z" fill="rgba(43,58,85,.16)"/>\n    <path d="M48 86 h30 M48 94 h24" stroke="#2B3A55" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>\n  </g>\n</svg>',
+    css:'/* 单物件：星长在评分卡上，依次填色、尾部复位 */\n.mi-i-proc-review .n-root{animation:h4-in .5s ease-out both}\n.mi-i-proc-review .h-s1{animation:h4-s1 6s ease-in-out infinite}\n.mi-i-proc-review .h-s2{animation:h4-s2 6s ease-in-out infinite}\n.mi-i-proc-review .h-s3{animation:h4-s3 6s ease-in-out infinite}\n@keyframes h4-in{from{opacity:0}to{opacity:1}}\n@keyframes h4-s1{0%,6%{fill:rgba(43,58,85,.16)}12%,80%{fill:#C29A55}90%,100%{fill:rgba(43,58,85,.16)}}\n@keyframes h4-s2{0%,26%{fill:rgba(43,58,85,.16)}32%,80%{fill:#C29A55}90%,100%{fill:rgba(43,58,85,.16)}}\n@keyframes h4-s3{0%,46%{fill:rgba(43,58,85,.16)}52%,80%{fill:#C29A55}90%,100%{fill:rgba(43,58,85,.16)}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-review *{animation:none!important}.mi-i-proc-review .h-s1,.mi-i-proc-review .h-s2,.mi-i-proc-review .h-s3{fill:#C29A55}}'
+  },
+  {
+    id:'proc-design', style:'line',
+    zh:'深化', en:'Design',
+    desc:'钢笔曲线在画板上反复走型。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','画板 / 锚点'],['#C29A55','钢笔路径'],['#A04E4E','画板色卡'],['#4E7A68','画板色卡']],
+    scenes:['设计深化 / 制作执行环节图','设计工具功能介绍','品牌服务流程页'],
+    svg:'<svg class="mi-i-proc-design" viewBox="23.5 21.5 93 93" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="深化：画板上的钢笔曲线">\n  <g class="n-root">\n    <rect x="30" y="32" width="80" height="72" rx="6" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n    <rect x="38.5" y="80.5" width="7" height="7" rx="1.5" fill="#2B3A55"/>\n    <rect x="96.5" y="46.5" width="7" height="7" rx="1.5" fill="#2B3A55"/>\n    <circle cx="70" cy="68" r="2.6" fill="#2B3A55" opacity=".6"/>\n    <path class="h-draw" d="M42 84 C58 44 84 94 100 50" stroke="#C29A55" stroke-width="4.2" stroke-linecap="round" fill="none"/>\n    <rect x="38" y="92" width="8" height="8" rx="2" fill="#A04E4E" opacity=".75"/>\n    <rect x="49" y="92" width="8" height="8" rx="2" fill="#C29A55" opacity=".75"/>\n    <rect x="60" y="92" width="8" height="8" rx="2" fill="#4E7A68" opacity=".75"/>\n  </g>\n</svg>',
+    css:'/* 单场景：曲线、锚点、色卡都长在画板内 */\n.mi-i-proc-design .n-root{animation:h5-in .5s ease-out both}\n.mi-i-proc-design .h-draw{stroke-dasharray:100;stroke-dashoffset:100;animation:h5-draw 3.4s ease-in-out infinite}\n@keyframes h5-in{from{opacity:0}to{opacity:1}}\n@keyframes h5-draw{0%{stroke-dashoffset:100}45%,100%{stroke-dashoffset:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-design *{animation:none!important}.mi-i-proc-design .h-draw{stroke-dashoffset:0}}'
+  },
+  {
+    id:'proc-approval', style:'line',
+    zh:'审批', en:'Approval',
+    desc:'印章落下，红章成勾。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','文件 / 印章'],['#A04E4E','章印']],
+    scenes:['审批 / 签核流程环节图','合同签署、盖章确认页','OA 审批功能说明'],
+    svg:'<svg class="mi-i-proc-approval" viewBox="10 -2.5 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="审批：印章落在文件上成红勾">\n  <g class="n-root">\n    <rect x="44" y="48" width="52" height="62" rx="5" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n    <path d="M52 80 h32 M52 90 h26 M52 100 h30" stroke="#2B3A55" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".5"/>\n    <g class="h-stamp">\n      <rect x="58" y="18" width="24" height="11" rx="3" stroke="#2B3A55" stroke-width="3.6" fill="none"/>\n      <path d="M70 18 v-7" stroke="#2B3A55" stroke-width="3.6" stroke-linecap="round" fill="none"/>\n      <circle cx="70" cy="8" r="3.5" stroke="#2B3A55" stroke-width="3" fill="none"/>\n    </g>\n    <g class="h-mark">\n      <circle cx="70" cy="64" r="10" stroke="#A04E4E" stroke-width="3.2" fill="none"/>\n      <path d="M64.5 64 l3.4 4 l7.4 -8.5" stroke="#A04E4E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 单因果：章下压 → 文件上弹出红章勾 */\n.mi-i-proc-approval .n-root{animation:h6-in .5s ease-out both}\n.mi-i-proc-approval .h-stamp{animation:h6-stamp 6s ease-in-out infinite}\n.mi-i-proc-approval .h-mark{opacity:0;transform-box:fill-box;transform-origin:center;animation:h6-mark 6s ease-in-out infinite}\n@keyframes h6-in{from{opacity:0}to{opacity:1}}\n@keyframes h6-stamp{0%,8%{transform:translateY(0)}14%,19%{transform:translateY(26px)}28%,100%{transform:translateY(0)}}\n@keyframes h6-mark{0%,13%{opacity:0;transform:scale(.5)}18%{opacity:1;transform:scale(1.15)}22%,82%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(.5)}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-approval *{animation:none!important}.mi-i-proc-approval .h-mark{opacity:1;transform:none}}'
+  },
+  {
+    id:'proc-delivery', style:'line',
+    zh:'交付', en:'Delivery',
+    desc:'纸飞机沿航迹一次次起飞。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','纸飞机 / 航迹']],
+    scenes:['交付 / 上线发布环节图','项目移交、验收页','发送成功反馈插画'],
+    svg:'<svg class="mi-i-proc-delivery" viewBox="13.5 1.5 132 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="交付：纸飞机沿航迹起飞">\n  <g class="n-root">\n    <path class="h-march" d="M20 102 Q58 94 96 60" stroke="#2B3A55" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 7" fill="none" opacity=".45"/>\n    <g class="h-fly">\n      <path d="M44 80 L112 46 L88 88 L70 77 Z" stroke="#2B3A55" stroke-width="3" stroke-linejoin="round" fill="rgba(43,58,85,.06)"/>\n      <path d="M70 77 L88 88 L80 104 Z" fill="#2B3A55" opacity=".45"/>\n    </g>\n  </g>\n</svg>',
+    css:'/* 单场景：飞机与它的航迹 */\n.mi-i-proc-delivery .n-root{animation:h7-in .5s ease-out both}\n.mi-i-proc-delivery .h-fly{animation:h7-fly 4.2s ease-in-out infinite}\n.mi-i-proc-delivery .h-march{animation:h7-march 1.1s linear infinite}\n@keyframes h7-in{from{opacity:0}to{opacity:1}}\n@keyframes h7-fly{0%{transform:translate(-8px,6px);opacity:0}12%{opacity:1}70%{transform:translate(20px,-16px);opacity:1}88%{transform:translate(28px,-22px);opacity:0}100%{transform:translate(-8px,6px);opacity:0}}\n@keyframes h7-march{to{stroke-dashoffset:-13}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-delivery *{animation:none!important}.mi-i-proc-delivery .h-fly{opacity:1;transform:none}}'
+  },
+  {
+    id:'proc-retro', style:'line',
+    zh:'复盘', en:'Retro',
+    desc:'循环箭环里，复盘曲线反复重画。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','循环箭环'],['#C29A55','复盘曲线'],['#A04E4E','终点']],
+    scenes:['复盘 / 迭代总结环节图','增长报告、季度回顾页','敏捷回顾会议插画'],
+    svg:'<svg class="mi-i-proc-retro" viewBox="23 21 94 94" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="复盘：循环箭环绕的曲线图">\n  <g class="n-root">\n    <g class="h-spin" opacity=".85">\n      <path d="M70 34 A34 34 0 0 1 104 68" stroke="#2B3A55" stroke-width="3" stroke-linecap="round" fill="none"/>\n      <path d="M99 65.5 h10.5 l-5.25 12 Z" fill="#2B3A55"/>\n      <path d="M70 102 A34 34 0 0 1 36 68" stroke="#2B3A55" stroke-width="3" stroke-linecap="round" fill="none"/>\n      <path d="M30.5 70.5 h10.5 l-5.25 -12 Z" fill="#2B3A55"/>\n    </g>\n    <path d="M52 82 H90" stroke="#2B3A55" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".6"/>\n    <path class="h-draw" d="M54 78 L64 66 L74 72 L86 54" stroke="#C29A55" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>\n    <circle cx="86" cy="54" r="3" fill="#A04E4E"/>\n  </g>\n</svg>',
+    css:'/* 联动：循环箭环绕着被回看的曲线；环慢转、线重画 */\n.mi-i-proc-retro .n-root{animation:h8-in .5s ease-out both}\n.mi-i-proc-retro .h-spin{transform-box:fill-box;transform-origin:center;animation:h8-spin 8s linear infinite}\n.mi-i-proc-retro .h-draw{stroke-dasharray:60;stroke-dashoffset:60;animation:h8-draw 3.4s ease-in-out infinite}\n@keyframes h8-in{from{opacity:0}to{opacity:1}}\n@keyframes h8-spin{to{transform:rotate(360deg)}}\n@keyframes h8-draw{0%{stroke-dashoffset:60}45%,100%{stroke-dashoffset:0}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-retro *{animation:none!important}.mi-i-proc-retro .h-draw{stroke-dashoffset:0}}'
+  },
+  {
+    id:'proc-schedule', style:'line',
+    zh:'排期', en:'Schedule',
+    desc:'手绘一笔，圈住那个日子。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','日历'],['rgba(43,58,85,.16)','日期格'],['#A04E4E','圈选']],
+    scenes:['项目排期 / 里程碑计划环节图','预约、日程功能页','截止日提醒插画'],
+    svg:'<svg class="mi-i-proc-schedule" viewBox="25.5 24 89 89" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="排期：手绘圈选日历格">\n  <g class="n-root">\n    <rect x="36" y="34" width="68" height="72" rx="6" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n    <path d="M36 52 H104" stroke="#2B3A55" stroke-width="2.2" fill="none" opacity=".6"/>\n    <path d="M52 34 V26 M88 34 V26" stroke="#2B3A55" stroke-width="3" stroke-linecap="round" fill="none"/>\n    <rect x="46" y="60" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/><rect x="64" y="60" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/><rect x="82" y="60" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/>\n    <rect x="46" y="76" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/><rect x="64" y="76" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/><rect x="82" y="76" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/>\n    <rect x="46" y="92" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/><rect x="64" y="92" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/><rect x="82" y="92" width="8" height="8" rx="1.5" fill="rgba(43,58,85,.16)"/>\n    <circle class="h-ring" cx="68" cy="80" r="9.5" stroke="#A04E4E" stroke-width="3.5" fill="none"/>\n  </g>\n</svg>',
+    css:'/* 主=酒红手绘圈反复圈住中格；日历与日期格静默 */\n.mi-i-proc-schedule .n-root{animation:h9-in .5s ease-out both}\n.mi-i-proc-schedule .h-ring{stroke-dasharray:62;stroke-dashoffset:62;animation:h9-ring 6s ease-in-out infinite}\n@keyframes h9-in{from{opacity:0}to{opacity:1}}\n@keyframes h9-ring{0%,6%{stroke-dashoffset:62;opacity:1}30%,80%{stroke-dashoffset:0;opacity:1}88%{stroke-dashoffset:0;opacity:0}89%,94%{stroke-dashoffset:62;opacity:0}100%{stroke-dashoffset:62;opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-schedule *{animation:none!important}.mi-i-proc-schedule .h-ring{stroke-dashoffset:0}}'
+  },
+  {
+    id:'proc-team', style:'line',
+    zh:'组队', en:'Team',
+    desc:'新成员滑进队列，站定。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['rgba(43,58,85,.35)','既有成员'],['#2B3A55','新成员']],
+    scenes:['组队 / 角色分工环节图','团队介绍、招聘页','协作成员管理功能'],
+    svg:'<svg class="mi-i-proc-team" viewBox="35 27 70 70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="组队：新成员滑入队列">\n  <g class="n-root">\n    <g transform="translate(50,70)" opacity=".3"><circle cx="0" cy="-14" r="7" fill="#2B3A55"/><path d="M-11 12 a11 12 0 0 1 22 0 Z" fill="#2B3A55"/></g>\n    <g transform="translate(68,66)" opacity=".5"><circle cx="0" cy="-16" r="8" fill="#2B3A55"/><path d="M-12 12 a12 13 0 0 1 24 0 Z" fill="#2B3A55"/></g>\n    <g transform="translate(90,70)"><g class="h-join"><circle cx="0" cy="-14" r="7" fill="#2B3A55"/><path d="M-11 12 a11 12 0 0 1 22 0 Z" fill="#2B3A55"/></g></g>\n  </g>\n</svg>',
+    css:'/* 纯填色剪影；唯一动效=新成员滑入队列站定，尾部复位 */\n.mi-i-proc-team .n-root{animation:h10-in .5s ease-out both}\n.mi-i-proc-team .h-join{animation:h10-join 6s ease-in-out infinite}\n@keyframes h10-in{from{opacity:0}to{opacity:1}}\n@keyframes h10-join{0%,8%{opacity:0;transform:translateX(14px)}16%{opacity:1;transform:translateX(-2px)}22%,84%{opacity:1;transform:translateX(0)}92%,100%{opacity:0;transform:translateX(14px)}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-team *{animation:none!important}.mi-i-proc-team .h-join{opacity:1;transform:none}}'
+  },
+  {
+    id:'proc-budget', style:'line',
+    zh:'预算', en:'Budget',
+    desc:'两端来回权衡，慢慢归于平衡。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','天平'],['#C29A55','成本'],['#4E7A68','价值']],
+    scenes:['预算 / 评估权衡环节图','报价、成本核算页','方案对比决策插画'],
+    svg:'<svg class="mi-i-proc-budget" viewBox="25.5 23 89 89" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="预算：天平权衡归于平衡">\n  <g class="n-root">\n    <path d="M70 38 V96" stroke="#2B3A55" stroke-width="3.6" stroke-linecap="round" fill="none"/>\n    <path d="M70 96 L58 102 M70 96 L82 102" stroke="#2B3A55" stroke-width="2.4" stroke-linecap="round" fill="none"/>\n    <path d="M54 102 H86" stroke="#2B3A55" stroke-width="3.6" stroke-linecap="round" fill="none"/>\n    <g class="h-tilt">\n      <path d="M38 44 H102" stroke="#2B3A55" stroke-width="3.2" stroke-linecap="round" fill="none"/>\n      <path d="M42 44 V58 M98 44 V58" stroke="#2B3A55" stroke-width="2" fill="none"/>\n      <path d="M32 58 a10 5.5 0 0 0 20 0" stroke="#2B3A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n      <path d="M88 58 a10 5.5 0 0 0 20 0" stroke="#2B3A55" stroke-width="2.6" stroke-linecap="round" fill="none"/>\n      <circle cx="42" cy="54" r="4" fill="#C29A55"/>\n      <rect x="94.5" y="50" width="7" height="7" rx="1.5" fill="#4E7A68"/>\n    </g>\n    <circle cx="70" cy="38" r="3.2" fill="#2B3A55"/>\n  </g>\n</svg>',
+    css:'/* 主=横梁带盘衰减摆动、归于水平；立柱底座静默 */\n.mi-i-proc-budget .n-root{animation:h11-in .5s ease-out both}\n.mi-i-proc-budget .h-tilt{transform-box:view-box;transform-origin:70px 38px;animation:h11-tilt 6s ease-in-out infinite}\n@keyframes h11-in{from{opacity:0}to{opacity:1}}\n@keyframes h11-tilt{0%{transform:rotate(0)}10%{transform:rotate(-3.5deg)}30%{transform:rotate(3deg)}50%{transform:rotate(-2deg)}68%{transform:rotate(1deg)}82%,100%{transform:rotate(0)}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-budget *{animation:none!important}}'
+  },
+  {
+    id:'proc-contract', style:'line',
+    zh:'签约', en:'Contract',
+    desc:'落笔签名，一气呵成。',
+    bg:'#FFFFFF',
+    colors:[['#FFFFFF','底'],['#2B3A55','合同'],['#A04E4E','签名']],
+    scenes:['签约 / 立项确认环节图','合同签署功能页','合作达成反馈插画'],
+    svg:'<svg class="mi-i-proc-contract" viewBox="25.5 25.5 89 89" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="签约：合同上手写签名">\n  <g class="n-root">\n    <rect x="40" y="30" width="60" height="80" rx="5" stroke="#2B3A55" stroke-width="2.6" fill="none"/>\n    <path d="M50 44 h32 M50 54 h26 M50 64 h30" stroke="#2B3A55" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>\n    <path d="M50 96 H90" stroke="#2B3A55" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".6"/>\n    <path class="h-sign" d="M50 91 C55 82 59 96 64 88 C68 82 72 94 77 87 C81 82 86 90 90 85" stroke="#A04E4E" stroke-width="3.5" stroke-linecap="round" fill="none"/>\n  </g>\n</svg>',
+    css:'/* 主=酒红签名反复手写在签名线上；合同静默 */\n.mi-i-proc-contract .n-root{animation:h12-in .5s ease-out both}\n.mi-i-proc-contract .h-sign{stroke-dasharray:66;stroke-dashoffset:66;animation:h12-sign 6s ease-in-out infinite}\n@keyframes h12-in{from{opacity:0}to{opacity:1}}\n@keyframes h12-sign{0%,8%{stroke-dashoffset:66;opacity:1}45%,80%{stroke-dashoffset:0;opacity:1}88%{stroke-dashoffset:0;opacity:0}89%,94%{stroke-dashoffset:66;opacity:0}100%{stroke-dashoffset:66;opacity:1}}\n@media (prefers-reduced-motion:reduce){.mi-i-proc-contract *{animation:none!important}.mi-i-proc-contract .h-sign{stroke-dashoffset:0}}'
   }
 ];
 
@@ -414,6 +535,13 @@ var ICONS=[
 
 var root=document.querySelector('.mi'); if(!root) return;
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* 舞台底色亮度：暗底才用白色提示字/白角标（mi-tinted） */
+function isDark(hex){
+  var h=hex.replace('#','');
+  var r=parseInt(h.substr(0,2),16),g=parseInt(h.substr(2,2),16),b=parseInt(h.substr(4,2),16);
+  return (.299*r+.587*g+.114*b)<150;
+}
 
 /* 汇总注入所有图标的动画 CSS（页面演示与代码块共用同一份源码） */
 var styleEl=document.createElement('style');
@@ -469,7 +597,7 @@ STYLES.forEach(function(s){
     card.querySelector('.mi-en').textContent=icon.en;
     card.querySelector('.mi-desc').textContent=icon.desc;
     var st=card.querySelector('.mi-stage');
-    if(icon.bg){st.style.background=icon.bg;st.classList.add('mi-tinted');card.style.background=icon.bg;}
+    if(icon.bg){st.style.background=icon.bg;st.classList.toggle('mi-tinted',isDark(icon.bg));card.style.background=icon.bg;}
     bindReplay(st,icon);
     card.addEventListener('click',function(){openModal(icon);});
     grid.appendChild(card);
@@ -509,7 +637,7 @@ function openModal(icon){
   var st=STYLES.filter(function(s){return s.key===icon.style;})[0];
   mStage.innerHTML=icon.svg;
   mStage.style.background=icon.bg||'';
-  mStage.classList.toggle('mi-tinted',!!icon.bg);
+  mStage.classList.toggle('mi-tinted',!!icon.bg&&isDark(icon.bg));
   mZh.textContent=icon.zh; mEn.textContent=icon.en;
   mStyle.textContent=st?st.zh:icon.style;
   mColors.innerHTML='';
