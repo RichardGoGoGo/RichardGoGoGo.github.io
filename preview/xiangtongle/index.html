@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创域认知 — 帮人把想不通的事，想通</title>
+<meta name="description" content="北京创域认知科技：把心理学里验证过的方法，变成 AI 每天都能陪你走的过程。主打产品「想通了」——年轻人的思维认知教练。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<canvas id="threads"></canvas>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#hero"><i></i>创域认知</a>
+  <ul class="nav-links">
+    <li><a href="#system">怎么做</a></li>
+    <li><a href="#product">想通了</a></li>
+    <li><a href="#scenes">更多场景</a></li>
+    <li><a href="#team">团队</a></li>
+    <li><a href="#contact">合作</a></li>
+  </ul>
+</header>
+
+<main>
+  <!-- 01 Hero：想不通？ → 想通了！ -->
+  <section id="hero">
+    <div class="hero-copy">
+      <h1 aria-label="想不通？想通了！"><span class="c">想</span><span class="c c-bu" id="heroBu">不</span><span class="c c-tong">通</span><span class="c" id="heroQ">？</span></h1>
+      <p class="sub">每个人心里都有几件缠住的事。创域认知用 AI 和心理学，陪你把它们一件件解开——看清自己是怎么想的、卡在哪儿、下一步可以怎么走。</p>
+      <div class="scroll-hint"><span class="line"></span><span>滚动，往里走</span><span class="arr">↓</span></div>
+    </div>
+  </section>
+
+  <!-- 02 怎么做 -->
+  <section id="system">
+    <div class="content-col">
+      <h2>把「想通」这件事，<br>拆成看得见的六步。</h2>
+      <p class="sub">看清想法怎么打的结、怎么解、怎么不再缠回去——我们把心理学里验证过的方法，变成一套 AI 每天都能陪你走的过程：</p>
+      <div class="thread-landing" aria-hidden="true"></div>
+      <ul class="chain">
+        <li>
+          <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 10a5 5 0 0 0-10 0c0 2 1 3.2 2.1 4.6 1 1.2 1.4 2.2 1.4 3.4a2.5 2.5 0 0 0 5 0"/><path d="M13.8 10.2a2.2 2.2 0 0 0-3.6 0"/></svg></span>
+          <div class="cbody">
+            <p class="cline">先<em class="key">听懂</em>——你怎么解释发生的事，在哪儿反复卡住。</p>
+            <span class="cdetail">例：「导师说我论文逻辑不清」——你听到的是批评，我们还听到你把它解释成了"我不适合读研"。这两件事，值得分开看。</span>
+          </div>
+        </li>
+        <li>
+          <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v16l-5-4.5L7 20z"/></svg></span>
+          <div class="cbody">
+            <p class="cline">再<em class="key">记住</em>——你思考的习惯：何时容易自责，何时需要先缓一缓。</p>
+            <span class="cdetail">例：三次不同的事，同一种反应——"别人没回应＝我做错了"。记住这个模式，比记住三件事更有用。</span>
+          </div>
+        </li>
+        <li>
+          <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 9l10 6 10-6z"/><path d="M2 15l10 6 10-6"/></svg></span>
+          <div class="cbody">
+            <p class="cline">然后<em class="key">拆开</em>——事实、感受、解释、假设，一层一层分开看。</p>
+            <span class="cdetail">例：事实是"他没回消息"，感受是"心慌"，解释是"他生气了"，假设是"关系出问题一定是我的错"。拆开之后，每一层都有别的可能。</span>
+          </div>
+        </li>
+        <li>
+          <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-5h5v-5h5V5h3"/></svg></span>
+          <div class="cbody">
+            <p class="cline">接着<em class="key">迈步</em>——一个不费劲的小行动，试试新想法站不站得住。</p>
+            <span class="cdetail">例：新的理解是"我需要的是确认感"。那今天先不追问，写下你真正想确认的是什么——就这一步，随时可以反悔。</span>
+          </div>
+        </li>
+        <li>
+          <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5v6h-6"/><path d="M21 11a9 9 0 1 1-2.64-6.36L21 7"/></svg></span>
+          <div class="cbody">
+            <p class="cline">过几天<em class="key">回看</em>——情绪松了没有，同样的坎是不是过得更快。</p>
+            <span class="cdetail">例：一周后回看，同类的事再发生：情绪从 8 分降到 5 分，走出来从三天缩到一天——这就是"真的想通了"的证据。</span>
+          </div>
+        </li>
+        <li>
+          <span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v4H3z"/><path d="M5 11v9h14v-9"/><path d="M10 15h4"/></svg></span>
+          <div class="cbody">
+            <p class="cline">最后<em class="key">留下</em>——每次想通都进入档案，它越来越懂你。</p>
+            <span class="cdetail">例：这次的"想通"存进你的成长档案。下次你说"又是那种感觉"，它知道你说的是哪一种。</span>
+          </div>
+        </li>
+      </ul>
+      <div class="chain-nav">
+        <button id="chainPrev">‹ 上一步</button>
+        <button id="chainBack">回到六步</button>
+        <button id="chainNext">下一步 ›</button>
+      </div>
+      <p class="methods">方法来自 CBT、叙事、萨提亚、格式塔等成熟流派，由清华背景的工程与心理团队一起落地。</p>
+    </div>
+  </section>
+
+  <!-- 03 现有产品 -->
+  <section id="product">
+    <div class="content-col">
+      <div class="thread-landing" aria-hidden="true"></div>
+      <div class="prod-tabs">
+        <button class="pt-btn on" data-p="0">思维</button>
+        <button class="pt-btn" data-p="1">招聘</button>
+      </div>
+      <div class="prod on">
+        <div class="prod-name">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M12 8v4"/><path d="M10 10h4"/></svg></span>
+          <h2>「思维」想通了</h2><span class="en">IT CLICKED</span><span class="badge">正在内测</span>
+        </div>
+        <p class="sub">学业、工作、感情、家里的事……那些翻来覆去想不通的，值得被真正解开一次。一位随时都在的思维教练，陪你把事情一层层想清楚，然后走出一小步。每次对话都会留下：想通报告 · 思维图谱 · 行动计划 · 成长档案。</p>
+        <div class="entries">
+          <span data-d="「也没什么大事，就是这几天有点闷。」——&quot;那就从『有点闷』聊起吧。最近睡得还好吗？&quot;">跟我闲聊</span>
+          <span data-d="「我也不知道从哪说起……」——&quot;不急。先说说：这件事发生的那一刻，你脑子里蹦出来的第一句话是什么？&quot;">引导我说</span>
+          <span data-d="「他三个小时没回我消息，我是不是哪里得罪他了？」——&quot;事实：没回消息。感受：心慌。解释：他生气了。要不要一起看看，还有没有别的解释？&quot;">帮我分析</span>
+          <span data-d="「所以我到底该不该跟导师摊牌？」——&quot;给你三条路，各自的代价都列在这儿。挑一条你今天走得动的。&quot;">给我建议</span>
+          <span data-d="「面试挂了，脑子里全是『我不行』。」——三分钟后，一张卡片：这次真正卡住你的，是「一次失败＝整体否定」。">一键想通</span>
+        </div>
+        <div class="entry-detail"></div>
+      </div>
+      <div class="prod">
+        <div class="prod-name">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="1"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg></span>
+          <h2>「招聘」想通了</h2><span class="badge">清华大学心理系相关研究支持</span>
+        </div>
+        <p class="sub">面试官用自然语言聊出岗位需求，AI 一步步引导成精准的 JD，随即匹配人才库中的合适人选，并生成针对性的笔试与面试测评。答题时的犹豫时长、弃选项自填等交互细节，连同回答内容一起进入 AI 分析，沉淀出更完整的性格侧写；入职后，持续追踪认知成长与变化。</p>
+        <div class="entries">
+          <span data-d="「我想要个靠谱的运营。」——&quot;『靠谱』具体指什么？是能接住临时改需求，还是对数据敏感？&quot;十分钟后，模糊的形容词变成了一张清晰的岗位画像。">岗位聊清</span>
+          <span data-d="聊完当场生成 JD：职责 5 条、硬性要求 3 条、加分项 2 条——每一条都能指回你们对话里的原话，不套模板。">精准JD</span>
+          <span data-d="JD 定稿的同时，人才库里 3 位候选人浮了出来，各自标着匹配点和待确认项。">人才匹配</span>
+          <span data-d="针对「能接住临时改需求」，自动生成情景笔试题：周五 18:00 客户推翻了方案，你的前三步是什么？">定制测评</span>
+          <span data-d="候选人在第 7 题犹豫了 48 秒，最后放弃选项自己写了答案——这些细节连同回答内容，构成侧写里「高自主、慢热」的判断（清华大学心理系相关研究支持）。">性格侧写</span>
+          <span data-d="入职三个月：新人处理冲突的方式从「回避」移向「直接沟通」——当初侧写预测的成长路径，正在被验证。">入职追踪</span>
+        </div>
+        <div class="entry-detail"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 更多场景 -->
+  <section id="scenes">
+    <div class="content-col">
+      <h2>先陪年轻人想通，<br>再陪更多人。</h2>
+      <p class="sub">"想不通"不挑人生阶段。这套方法正在走向——</p>
+      <div class="thread-landing" aria-hidden="true"></div>
+      <div class="tagline-rope">
+        <div class="tag" style="--tilt:-1.6deg">青少年成长<small>学校 · 家庭 · 心智培养</small>
+          <div class="tag-detail">面向学校与家庭：为孩子建立成长型的心智档案，把情绪波动、学业压力、亲子沟通里的"想不通"，变成可以被看见、被陪伴的成长课题。</div>
+        </div>
+        <div class="tag" style="--tilt:1.1deg">创业者<small>决策复盘 · 同行经验</small>
+          <div class="tag-detail">高压力、高不确定的决策场景：复盘关键判断、沉淀同行经验，让创业路上每一次"卡住"，都变成认知升级的素材。</div>
+        </div>
+        <div class="tag" style="--tilt:-0.8deg">校友职业经验<small>高校职业发展中心</small>
+          <div class="tag-detail">与高校职业发展中心合作：把校友真实的职业路径与判断沉淀下来，学弟学妹面对选择时，有"过来人的认知"可以参照。</div>
+        </div>
+        <div class="tag dim" style="--tilt:1.4deg">长者经验留存<small>人生阅历 · 过来人</small>
+          <div class="tag-detail">用"小记者"式的对话采访，把长辈一生的经验与判断整理成人生故事集与经验档案——留给家人，也留给后来人。</div>
+        </div>
+        <div class="tag dim" style="--tilt:-1.2deg">家族传承<small>判断方式 · 处世经验</small>
+          <div class="tag-detail">家族传承的核心是判断方式与处世经验。把创始人的决策逻辑结构化保存，让下一代接住的，除了资产还有智慧。</div>
+        </div>
+        <div class="tag dim" style="--tilt:0.9deg">认知测评<small>在对话里完成，自然得像聊天</small>
+          <div class="tag-detail">用开放对话代替问卷：从表达里读出解释模式、决策风格与认知弹性。测评自然、立体，也更难"演"出一个假的自己。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 团队 -->
+  <section id="team">
+    <div class="content-col">
+      <h2>把心理学和工程<br>都当真的一群人。</h2>
+      <div class="thread-landing" aria-hidden="true"></div>
+      <div class="team">
+        <div class="member">
+          <h3>创始人 · CEO</h3>
+          <div class="role">产品 / 用户 / 增长</div>
+          <p>设计、心理、写作、AI 的跨界背景。「想通了」从她/他手里的第一张草图开始，最懂年轻人嘴上不说的那些困扰。</p>
+        </div>
+        <div class="member">
+          <h3>吴合风</h3>
+          <div class="role">技术负责人</div>
+          <p>清华大学自动化硕士，十年工程与技术管理。负责把方法论变成真正跑得起来的系统。</p>
+        </div>
+        <div class="member">
+          <h3>徐华</h3>
+          <div class="role">学术顾问</div>
+          <p>清华大学计算机背景。守住研究这一头：让产品迭代快，但不离开方法的根。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 合作 -->
+  <section id="contact" class="final">
+    <div class="content-col">
+      <h2>每一次「<span class="lit">想通</span>」，<br>都该算数。</h2>
+      <div class="thread-landing" aria-hidden="true"></div>
+      <p class="sub">如果你在高校、企业或社群里，见过太多"想不通"——欢迎聊聊，一起把这件事做成。</p>
+      <div class="contact-row">
+        <span class="micon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="1"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <a href="mailto:contact@example.com">contact@example.com（占位）</a>
+        <span>北京 · 海淀</span>
+      </div>
+      <footer class="foot-inline">
+        <span>© 2026 北京创域认知科技有限公司</span>
+        <span>京ICP备XXXXXXXX号（占位）</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="js/threads.js"></script>
+<script>
+  // ---- 场景引擎：滚轮/方向键/触滑 = 往里走一幕 ----
+  (() => {
+    window.__sceneCount = (window.__sceneCount || 0) + 1;
+    const nav = document.getElementById('nav');
+    const scenes = [...document.querySelectorAll('main section')];
+    let cur = -1, lock = false;
+
+    function go(i, dir){
+      i = Math.max(0, Math.min(scenes.length - 1, i));
+      if (i === cur) return;
+      const prev = cur; cur = i;
+      scenes.forEach((s, k) => {
+        s.classList.remove('active', 'exit-front', 'exit-back');
+        if (k === cur) s.classList.add('active');
+        else if (k === prev) s.classList.add(dir >= 0 ? 'exit-front' : 'exit-back');
+      });
+      nav.classList.toggle('scrolled', cur > 0);
+      history.replaceState(null, '', '#' + scenes[cur].id);
+      // 进入产品幕：正向从「思维」开始，倒退回来落在「招聘」
+      if (scenes[cur].id === 'product' && typeof prodSet === 'function') prodSet(dir >= 0 ? 0 : 1);
+      window.dispatchEvent(new CustomEvent('scene', {detail: {index: cur, dir}}));
+    }
+    // ---- 英雄页：巨屏"想不通？" → 变形+摇晃 → 收缩落位 ----
+    const heroSec = document.getElementById('hero');
+    const heroH1 = heroSec.querySelector('h1');
+    const buEl = document.getElementById('heroBu');
+    const qEl = document.getElementById('heroQ');
+    let heroPhase = 0;   // 0=巨字想不通？ 1=变形中 2=已落位
+
+    // 量出"放大居中占满屏幕"的位移与倍数
+    function heroFit(){
+      if (heroPhase >= 2) return;
+      const prev = heroH1.style.transform;
+      heroH1.style.transform = 'none';
+      const r = heroH1.getBoundingClientRect();
+      heroH1.style.transform = prev;
+      const s = Math.max(1, Math.min((innerWidth*0.86)/r.width, (innerHeight*0.42)/r.height));
+      heroH1.style.setProperty('--htx', (innerWidth/2 - (r.left + r.width/2)) + 'px');
+      heroH1.style.setProperty('--hty', (innerHeight*0.46 - (r.top + r.height/2)) + 'px');
+      heroH1.style.setProperty('--hs', s);
+    }
+    function heroMorph(){
+      heroPhase = 1;
+      heroSec.classList.add('p1');                                   // 不 跳跃、通 左挤
+      setTimeout(() => { buEl.textContent = '了'; qEl.textContent = '！'; }, 330);
+      setTimeout(() => { qEl.classList.add('shake'); }, 760);        // ！摇晃
+      setTimeout(() => {                                             // 整体收缩到左侧落位
+        heroPhase = 2;
+        heroSec.classList.add('p2');
+        qEl.classList.remove('shake');
+      }, 1450);
+    }
+    function heroRevert(){
+      heroPhase = 0;
+      heroSec.classList.remove('p1', 'p2');
+      qEl.classList.remove('shake');
+      setTimeout(() => { buEl.textContent = '不'; qEl.textContent = '？'; }, 200);
+    }
+    window.__hero = {morph: heroMorph, revert: heroRevert, phase: () => heroPhase};
+    heroFit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(heroFit);
+    window.addEventListener('resize', heroFit);
+
+    // ---- 03 产品子翻页：思维 ⇄ 招聘 ----
+    const prods = [...document.querySelectorAll('#product .prod')];
+    const prodTabs = [...document.querySelectorAll('.pt-btn')];
+    let prodPhase = 0;
+    function prodSet(i){
+      prodPhase = i;
+      prods.forEach((p,k) => p.classList.toggle('on', k === i));
+      prodTabs.forEach((b,k) => b.classList.toggle('on', k === i));
+      window.dispatchEvent(new CustomEvent('subpage', {detail:{scene:'product', index:i}}));
+    }
+    prodTabs.forEach(b => b.addEventListener('click', e => { e.stopPropagation(); prodSet(+b.dataset.p); }));
+    window.__prod = {set: prodSet, cur: () => prodPhase};
+
+    function step(dir){
+      if (lock) return;
+      // 在产品幕：先翻完两个产品，再离场
+      if (scenes[cur] && scenes[cur].id === 'product'){
+        if (dir > 0 && prodPhase === 0){
+          lock = true; setTimeout(() => lock = false, 800);
+          prodSet(1);
+          return;
+        }
+        if (dir < 0 && prodPhase === 1){
+          lock = true; setTimeout(() => lock = false, 800);
+          prodSet(0);
+          return;
+        }
+      }
+      // 在英雄页：第一次前进先播完整开场（变形→摇晃→落位），回退则还原成巨字
+      if (cur === 0){
+        if (dir > 0 && heroPhase === 0){
+          lock = true; setTimeout(() => lock = false, 1900);
+          heroMorph();
+          return;
+        }
+        if (dir > 0 && heroPhase === 1) return;      // 开场动画播放中，不抢
+        if (dir < 0 && heroPhase >= 1){
+          lock = true; setTimeout(() => lock = false, 800);
+          heroRevert();
+          return;
+        }
+      }
+      lock = true; setTimeout(() => lock = false, 1000);
+      go(cur + dir, dir);
+    }
+    // 点击英雄页也可触发开场
+    heroSec.addEventListener('click', () => { if (cur === 0 && heroPhase === 0) step(1); });
+
+    window.addEventListener('wheel', e => {
+      if (Math.abs(e.deltaY) > 10) step(e.deltaY > 0 ? 1 : -1);
+    }, {passive:true});
+    window.addEventListener('keydown', e => {
+      if (['ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); step(1); }
+      if (['ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); step(-1); }
+    });
+    let ts = 0;
+    window.addEventListener('touchstart', e => ts = e.touches[0].clientY, {passive:true});
+    window.addEventListener('touchend', e => {
+      const d = ts - e.changedTouches[0].clientY;
+      if (Math.abs(d) > 40) step(d > 0 ? 1 : -1);
+    }, {passive:true});
+
+    // 导航 → 直达场景
+    document.querySelectorAll('.nav-links a, .brand').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const idx = scenes.findIndex(s => s.id === a.getAttribute('href').slice(1));
+        if (idx >= 0) go(idx, idx > cur ? 1 : -1);
+      });
+    });
+
+    // 初始场景（支持 #hash 直达）
+    const initIdx = scenes.findIndex(s => '#' + s.id === location.hash);
+    go(initIdx >= 0 ? initIdx : 0, 0);
+
+    // 供验证
+    window.__scene = {go, step, cur: () => cur};
+
+    // 场景吊牌：点击展开详情（同时只开一张）
+    document.querySelectorAll('.tag').forEach(tg => {
+      tg.addEventListener('click', e => {
+        e.stopPropagation();
+        const wasOpen = tg.classList.contains('open');
+        document.querySelectorAll('.tag.open').forEach(o => o.classList.remove('open'));
+        if (!wasOpen) tg.classList.add('open');
+      });
+    });
+
+    // 02 六步：点开看例子（其他句暂隐），可上一步/下一步/回到六步
+    const chainUl = document.querySelector('.chain');
+    if (chainUl){
+      const lis = [...chainUl.querySelectorAll('li')];
+      const cnav = document.querySelector('.chain-nav');
+      const prevB = document.getElementById('chainPrev');
+      const nextB = document.getElementById('chainNext');
+      let openIdx = -1;
+      function openStep(i){
+        openIdx = i;
+        lis.forEach((li, k) => li.classList.toggle('open', k === i));
+        chainUl.classList.toggle('expanded', i >= 0);
+        cnav.classList.toggle('show', i >= 0);
+        prevB.disabled = i <= 0;
+        nextB.disabled = i >= lis.length - 1;
+      }
+      lis.forEach((li, k) => li.addEventListener('click', e => {
+        e.stopPropagation();
+        openStep(li.classList.contains('open') ? -1 : k);
+      }));
+      prevB.addEventListener('click', e => { e.stopPropagation(); if (openIdx > 0) openStep(openIdx - 1); });
+      nextB.addEventListener('click', e => { e.stopPropagation(); if (openIdx < lis.length - 1) openStep(openIdx + 1); });
+      document.getElementById('chainBack').addEventListener('click', e => { e.stopPropagation(); openStep(-1); });
+    }
+
+    // 03 产品胶囊：点击展开一句说明（同产品内单选）
+    document.querySelectorAll('.entries').forEach(en => {
+      const panel = en.parentElement.querySelector('.entry-detail');
+      if (!panel) return;
+      en.querySelectorAll('span').forEach(sp => {
+        sp.addEventListener('click', e => {
+          e.stopPropagation();
+          const was = sp.classList.contains('sel');
+          en.querySelectorAll('span.sel').forEach(o => o.classList.remove('sel'));
+          if (was){
+            panel.classList.remove('show');
+          } else {
+            sp.classList.add('sel');
+            panel.textContent = sp.dataset.d || '';
+            panel.classList.add('show');
+          }
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+/* 创域认知官网 · 主样式
+ * 暖纸底 + 墨蓝黑 + 朱砂 · 中文衬线编辑式排版
+ * 滚动吸附翻页；右侧线球由 js/threads.js 绘制，内容让出右侧空间
+ */
+:root{
+  --paper:#F7F2E9;
+  --ink:#232838;
+  --ink-soft:#5c6070;
+  --ink-mute:#8b8e9c;
+  --accent:#D6452C;
+  --rule:#d8d0bf;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%; overflow:hidden}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans SC',sans-serif;
+}
+::selection{background:var(--accent);color:#fff}
+
+/* ---------- 背景画布 ---------- */
+#threads{
+  position:fixed; inset:0;
+  width:100vw; height:100vh;
+  display:block; z-index:0;
+  pointer-events:none;
+}
+main{position:relative;z-index:1}
+
+/* ---------- 顶栏 ---------- */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:8;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 48px;
+  transition:background .3s ease, box-shadow .3s ease;
+}
+.nav.scrolled{
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  box-shadow:0 1px 0 var(--rule);
+}
+.brand{
+  font-family:'Noto Serif SC',serif; font-weight:900;
+  font-size:19px; letter-spacing:.08em;
+  color:var(--ink); text-decoration:none;
+}
+.brand i{
+  display:inline-block; width:14px; height:2px;
+  background:var(--accent); vertical-align:middle;
+  margin:0 8px 3px 0;
+}
+.nav-links{display:flex; gap:32px; list-style:none}
+.nav-links a{
+  font-size:14px; color:var(--ink-soft); text-decoration:none;
+  letter-spacing:.06em; transition:color .25s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* ---------- 场景舞台：无滚动，滚轮=往里走 ---------- */
+main{position:relative; height:100vh}
+section{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:90px max(48px, calc((100vw - 1280px)/2 + 48px)) 60px;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transform:scale(.94);
+  transition:opacity .8s ease, transform .8s cubic-bezier(.3,.6,.2,1), visibility 0s linear .8s;
+}
+section.active{
+  opacity:1; visibility:visible; pointer-events:auto;
+  transform:none; z-index:2;
+  transition-delay:0s;
+}
+/* 往前走：上一幕从身边掠过（放大淡出）；往回走：上一幕退回远处 */
+section.exit-front{opacity:0; visibility:hidden; transform:scale(1.07); z-index:3}
+section.exit-back{opacity:0; visibility:hidden; transform:scale(.94); z-index:1}
+/* 每一幕的文字与球互相让位（球的分镜在 threads.js 的 SCENE_BALL） */
+.content-col{max-width:56%}
+#hero .hero-copy{max-width:62%}
+#product .content-col{margin-left:auto; max-width:64%}   /* 球在左下，文案靠右 */
+#scenes .content-col{max-width:70%}                       /* 球缩到右上，吊牌铺开 */
+#team .content-col{max-width:72%}                         /* 球退右下，人是主角 */
+#contact .content-col{max-width:54%}
+
+.kicker{
+  font-size:13px; letter-spacing:.35em; color:var(--ink-soft);
+  margin-bottom:24px; display:flex; align-items:center; gap:14px;
+}
+.kicker .no{
+  font-family:'Noto Serif SC',serif; font-weight:900;
+  color:var(--accent); letter-spacing:0; font-size:15px;
+}
+h1{
+  font-family:'Noto Serif SC',serif; font-weight:900;
+  font-size:clamp(46px, 6.4vw, 96px);
+  line-height:1.22; letter-spacing:.02em;
+}
+h2{
+  font-family:'Noto Serif SC',serif; font-weight:900;
+  font-size:clamp(30px, 3.8vw, 52px);
+  line-height:1.34;
+}
+.sub{
+  margin-top:24px; max-width:33em;
+  font-size:15.5px; line-height:2.0; color:var(--ink-soft);
+}
+.accent{color:var(--accent)}
+
+/* 抽线落点：canvas 会把朱砂线铺在这条隐形轨道上 */
+.thread-landing{
+  height:2px; margin:30px 0 26px;
+  max-width:520px;
+}
+
+/* ---------- 切屏式内容进出场 ----------
+ * 每节内容随吸附翻页整组进出：非当前节退到透明下移，
+ * 当前节的直接子元素按顺序错峰滑入，像换了一页幻灯。
+ */
+.content-col > *, .hero-copy > *{
+  opacity:0; transform:translateY(34px);
+  transition:opacity .45s ease, transform .45s ease;
+}
+section.active .content-col > *, section.active .hero-copy > *{
+  opacity:1; transform:none;
+  transition:opacity .7s ease, transform .7s cubic-bezier(.25,.7,.25,1);
+}
+section.active :is(.content-col,.hero-copy) > *:nth-child(1){transition-delay:.08s}
+section.active :is(.content-col,.hero-copy) > *:nth-child(2){transition-delay:.18s}
+section.active :is(.content-col,.hero-copy) > *:nth-child(3){transition-delay:.28s}
+section.active :is(.content-col,.hero-copy) > *:nth-child(4){transition-delay:.38s}
+section.active :is(.content-col,.hero-copy) > *:nth-child(5){transition-delay:.48s}
+section.active :is(.content-col,.hero-copy) > *:nth-child(6){transition-delay:.58s}
+section.active :is(.content-col,.hero-copy) > *:nth-child(n+7){transition-delay:.68s}
+
+/* ---------- 01 Hero：巨屏"想不通？" → "想通了！" → 摇晃 → 收缩落位 ---------- */
+/* 初始：整个标题被 JS 量好的 --htx/--hty/--hs 放大居中，占满屏幕 */
+#hero h1{
+  white-space:nowrap;
+  transform:translate(var(--htx,0), var(--hty,0)) scale(var(--hs,1));
+  transform-origin:center;
+  transition:transform .95s cubic-bezier(.55,.08,.2,1), opacity .6s ease;
+}
+#hero.p2 h1{transform:none}                      /* 收缩回英雄页左侧原位 */
+#hero .c{display:inline-block}
+#hero .c-bu{color:var(--accent)}
+#hero .c-tong{transition:transform .55s cubic-bezier(.4,.8,.3,1) .06s}
+#hero.p1 .c-tong{transform:translateX(-1em)}     /* 通 被挤到左边 */
+#hero.p1 .c-bu{animation:jumpRight .68s cubic-bezier(.5,0,.4,1) forwards}
+@keyframes jumpRight{                             /* 不 跳到右边，空中变成 了 */
+  0%{transform:translate(0,0) rotate(0deg)}
+  45%{transform:translate(.52em,-.42em) rotate(9deg)}
+  100%{transform:translate(1em,0) rotate(0deg)}
+}
+#heroQ{display:inline-block}
+#heroQ.shake{animation:shakeQ .62s ease}          /* ！落地后的摇晃 */
+@keyframes shakeQ{
+  0%,100%{transform:rotate(0deg)}
+  22%{transform:rotate(11deg)}
+  46%{transform:rotate(-9deg)}
+  70%{transform:rotate(6deg)}
+  86%{transform:rotate(-3deg)}
+}
+/* 小字文案与提示：等收缩落位后才浮现 */
+#hero .sub, #hero .scroll-hint{
+  opacity:0; transform:translateY(20px);
+  transition:opacity .7s ease .55s, transform .7s ease .55s;
+}
+#hero.p2 .sub, #hero.p2 .scroll-hint{opacity:1; transform:none}
+
+.scroll-hint{
+  margin-top:52px;
+  display:flex; align-items:center; gap:12px;
+  font-family:'Noto Serif SC',serif; font-size:17px; font-weight:600;
+}
+.scroll-hint .line{display:inline-block; width:44px; height:2px; background:var(--accent)}
+.scroll-hint .arr{animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---------- 02 六步 ---------- */
+/* 六句话，每句放大一个关键词，行首配线条图标 */
+.chain li{
+  list-style:none;
+  display:flex; align-items:center; gap:18px;
+  padding:14px 0;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+}
+.cicon{
+  flex:0 0 auto; width:24px; height:24px;
+  color:var(--ink-mute);
+  transition:color .3s;
+}
+.cicon svg{width:100%; height:100%; display:block}
+.chain li:hover .cicon, .chain li.open .cicon{color:var(--accent)}
+.cbody{flex:1; min-width:0}
+.chain .cline{
+  font-size:15px; line-height:1.9; color:var(--ink-soft);
+}
+.chain .key{
+  font-family:'Noto Serif SC',serif; font-style:normal; font-weight:900;
+  font-size:1.5em; color:var(--ink);
+  margin:0 3px; line-height:1;
+  transition:color .3s;
+}
+.chain li:hover .key{color:var(--accent)}
+/* 点开某一句：其他句暂隐，例子展开 */
+.chain .cdetail{
+  display:none;
+  font-size:13px; line-height:1.95; color:var(--ink-soft);
+  padding:10px 0 4px;
+  border-top:1px dashed var(--rule);
+  margin-top:12px;
+}
+.chain.expanded li:not(.open){display:none}
+.chain li.open .key{color:var(--accent)}
+.chain li.open .cdetail{display:block}
+/* 展开态导航 */
+.chain-nav{display:none; gap:10px; margin-top:18px}
+.chain-nav.show{display:flex}
+.chain-nav button{
+  font-family:'Noto Serif SC',serif; font-weight:600; font-size:13px;
+  color:var(--ink-soft); background:none; cursor:pointer;
+  border:1px solid var(--rule); border-radius:999px; padding:6px 16px;
+  transition:color .3s, border-color .3s;
+}
+.chain-nav button:hover:not(:disabled){color:var(--accent); border-color:var(--accent)}
+.chain-nav button:disabled{opacity:.35; cursor:default}
+.methods{
+  margin-top:24px; font-size:12.5px; color:var(--ink-mute);
+  letter-spacing:.1em; line-height:2;
+}
+
+/* ---------- 03 现有产品（子翻页切换） ---------- */
+.prod-tabs{margin-top:26px; display:flex; gap:10px}
+.pt-btn{
+  font-family:'Noto Serif SC',serif; font-weight:600; font-size:14px;
+  color:var(--ink-soft); background:none; cursor:pointer;
+  border:1px solid var(--rule); border-radius:999px; padding:7px 20px;
+  transition:color .3s, border-color .3s;
+}
+.pt-btn.on{color:var(--accent); border-color:var(--accent)}
+.pt-btn:hover{color:var(--accent)}
+.prod{display:none; margin-top:24px}
+.prod.on{display:block; animation:prodIn .55s ease}
+@keyframes prodIn{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+.prod-name{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.picon{
+  flex:0 0 auto; width:28px; height:28px;
+  color:var(--accent); opacity:.85;
+}
+.picon svg{width:100%; height:100%; display:block}
+.prod-name h2{font-size:clamp(24px, 2.6vw, 38px)}
+.prod-name .en{
+  font-size:13px; color:var(--ink-mute); letter-spacing:.22em;
+  font-weight:400;
+}
+.prod .sub{margin-top:14px; font-size:14px; line-height:1.95; max-width:40em}
+.badge{
+  display:inline-block;
+  font-size:11.5px; letter-spacing:.12em; color:var(--accent);
+  border:1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius:999px; padding:4px 12px;
+  align-self:center;
+}
+.entries{margin-top:18px; display:flex; flex-wrap:wrap; gap:10px}
+.entries span{
+  font-family:'Noto Serif SC',serif; font-weight:600;
+  font-size:14px; color:var(--ink);
+  border:1px solid var(--rule);
+  border-radius:999px; padding:8px 18px;
+  transition:border-color .3s, color .3s, transform .3s;
+}
+.entries span:hover{
+  border-color:var(--accent); color:var(--accent);
+  transform:translateY(-3px);
+}
+.entries span{cursor:pointer}
+.entries span.sel{border-color:var(--accent); color:var(--accent)}
+.entry-detail{
+  display:none;
+  margin-top:14px; max-width:38em;
+  font-size:13px; line-height:1.95; color:var(--ink-soft);
+  border-left:2px solid var(--accent);
+  padding-left:14px;
+}
+.entry-detail.show{display:block; animation:prodIn .4s ease}
+
+/* ---------- 04 场景吊牌（挂绳=canvas 抽出的线） ---------- */
+.tagline-rope{
+  margin-top:0; position:relative;
+  padding-top:26px;
+  display:flex; flex-wrap:wrap; gap:26px 20px;
+}
+.tag{
+  position:relative;
+  background:color-mix(in srgb, #fff 60%, transparent);
+  border:1px solid var(--rule);
+  padding:14px 20px 12px;
+  font-family:'Noto Serif SC',serif; font-weight:600; font-size:15.5px;
+  transform:rotate(var(--tilt, -1.2deg));
+  transform-origin:top center;
+  transition:transform .5s cubic-bezier(.3,1.6,.4,1);
+}
+.tag::before{
+  content:""; position:absolute; top:-27px; left:50%;
+  width:1.5px; height:26px; background:var(--ink);
+}
+.tag::after{
+  content:""; position:absolute; top:-30px; left:50%;
+  width:7px; height:7px; margin-left:-2.8px;
+  border-radius:50%; background:var(--ink);
+}
+.tag:hover{transform:rotate(0deg)}
+.tag small{
+  display:block; margin-top:4px;
+  font-family:'Noto Sans SC',sans-serif; font-weight:400;
+  font-size:11px; letter-spacing:.08em; color:var(--ink-mute);
+}
+.tag.dim{opacity:.62}
+/* 吊牌点击展开 */
+.tag{cursor:pointer; max-width:300px}
+.tag .tag-detail{
+  display:none; margin-top:10px; padding-top:9px;
+  border-top:1px dashed var(--rule);
+  font-family:'Noto Sans SC',sans-serif; font-weight:400;
+  font-size:12.5px; line-height:1.9; color:var(--ink-soft);
+}
+.tag.open{transform:rotate(0deg); opacity:1}
+.tag.open .tag-detail{display:block}
+
+/* ---------- 05 团队 ---------- */
+.team{
+  margin-top:8px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+}
+.member{border-top:2px solid var(--ink); padding-top:16px}
+.member h3{font-family:'Noto Serif SC',serif; font-weight:900; font-size:19px}
+.member .role{
+  font-size:12px; letter-spacing:.18em; color:var(--accent);
+  margin:7px 0 12px;
+}
+.member p{font-size:13px; line-height:1.9; color:var(--ink-soft)}
+
+/* ---------- 06 合作 ---------- */
+.final .lit{color:var(--ink); position:relative; transition:color .8s ease}
+.final.done .lit{color:var(--accent)}
+.final .lit::after{
+  content:""; position:absolute; left:0; bottom:4px;
+  width:0; height:5px; background:var(--accent);
+  transition:width 1s cubic-bezier(.7,0,.2,1) .2s;
+}
+.final.done .lit::after{width:100%}
+.contact-row{
+  margin-top:36px; display:flex; flex-wrap:wrap; gap:16px 24px;
+  align-items:center;
+  font-size:15px; color:var(--ink-soft);
+}
+.micon{
+  flex:0 0 auto; width:22px; height:22px;
+  color:var(--accent); opacity:.85;
+}
+.micon svg{width:100%; height:100%; display:block}
+.contact-row a{
+  color:var(--ink); text-decoration:none;
+  font-family:'Noto Serif SC',serif; font-weight:600; font-size:17px;
+  border-bottom:2px solid var(--accent); padding-bottom:4px;
+  transition:color .3s;
+}
+.contact-row a:hover{color:var(--accent)}
+.foot-inline{
+  margin-top:72px;
+  display:flex; flex-wrap:wrap; gap:8px 32px;
+  font-size:12px; color:var(--ink-mute); letter-spacing:.05em;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:900px){
+  .nav{padding:16px 24px}
+  .nav-links{display:none}
+  section{padding:110px 24px 60px}
+  .content-col, #hero .hero-copy{max-width:100%}
+  .chain li{grid-template-columns:40px 1fr}
+  .chain .cdesc{grid-column:2}
+  .gains{grid-template-columns:repeat(2,1fr)}
+  .team{grid-template-columns:1fr; gap:24px}
+}

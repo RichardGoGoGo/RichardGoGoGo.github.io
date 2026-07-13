@@ -11,6 +11,13 @@ demos:
     href: /preview/mochuan/index-light.dc.html
     note: "脱敏演示模板 · 非真实产品"
 
+  - name: "创域认知 · 公司官网"
+    en: "ChuangYu Cognition"
+    desc: "场景式单页官网：滚轮是「往里走」而非上下滚动，一团拟三维乱麻随六幕被逐根抽出理顺——巨字变形开场、蛇形引导线、hover 抽丝剥茧，全站以「把线理顺」为交互母题。"
+    tags: [场景切换, 物理模拟, 交互叙事, 客户项目]
+    href: /preview/xiangtongle/
+    note: "客户委托 · 开发中版本"
+
   - name: "浅译万道实验室 · 官网"
     en: "Transwonder Lab"
     desc: "单主题浅色、插画感、社论式排版的工作室官网：粉蓝底 + 藏蓝结构色 + 六色色块板，中文衬线大标题；整层翻转的场景×支持拼盘、叠板式案例轮播，以及手绘感等距拟物动态 SVG 图标系统。"
