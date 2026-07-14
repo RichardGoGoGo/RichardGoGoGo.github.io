@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>创域认知 — 帮人把想不通的事，想通</title>
 <meta name="description" content="北京创域认知科技：把心理学里验证过的方法，变成 AI 每天都能陪你走的过程。主打产品「想通了」——年轻人的思维认知教练。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23F7F2E9'/%3E%3Cpath d='M10 32h20c7 0 7-13 15-13 6 0 9 7 9 14 0 10-8 15-21 15' fill='none' stroke='%23D6452C' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
@@ -12,7 +13,12 @@
 </head>
 <body>
 
+<div class="paper-grain" aria-hidden="true"></div>
+<div class="optic-shell" id="opticShell" aria-hidden="true">
+  <i></i><i></i><i></i><b></b>
+</div>
 <canvas id="threads"></canvas>
+<div class="optic-rim" id="opticRim" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <a class="brand" href="#hero"><i></i>创域认知</a>
@@ -102,36 +108,35 @@
         <button class="pt-btn on" data-p="0">思维</button>
         <button class="pt-btn" data-p="1">招聘</button>
       </div>
-      <div class="prod on">
+      <div class="prod-pages">
+        <div class="prod on">
         <div class="prod-name">
-          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M12 8v4"/><path d="M10 10h4"/></svg></span>
           <h2>「思维」想通了</h2><span class="en">IT CLICKED</span><span class="badge">正在内测</span>
         </div>
-        <p class="sub">学业、工作、感情、家里的事……那些翻来覆去想不通的，值得被真正解开一次。一位随时都在的思维教练，陪你把事情一层层想清楚，然后走出一小步。每次对话都会留下：想通报告 · 思维图谱 · 行动计划 · 成长档案。</p>
+        <p class="sub">先把此刻最占注意力的事说出来。系统会根据你的状态选择陪伴、追问、拆解或建议，把事件、感受、解释和隐含假设一层层理清，再落到一个今天走得动的小行动。每次对话都会沉淀为想通报告、思维图谱、行动计划和持续更新的成长档案。</p>
         <div class="entries">
-          <span data-d="「也没什么大事，就是这几天有点闷。」——&quot;那就从『有点闷』聊起吧。最近睡得还好吗？&quot;">跟我闲聊</span>
-          <span data-d="「我也不知道从哪说起……」——&quot;不急。先说说：这件事发生的那一刻，你脑子里蹦出来的第一句话是什么？&quot;">引导我说</span>
-          <span data-d="「他三个小时没回我消息，我是不是哪里得罪他了？」——&quot;事实：没回消息。感受：心慌。解释：他生气了。要不要一起看看，还有没有别的解释？&quot;">帮我分析</span>
-          <span data-d="「所以我到底该不该跟导师摊牌？」——&quot;给你三条路，各自的代价都列在这儿。挑一条你今天走得动的。&quot;">给我建议</span>
-          <span data-d="「面试挂了，脑子里全是『我不行』。」——三分钟后，一张卡片：这次真正卡住你的，是「一次失败＝整体否定」。">一键想通</span>
+          <span data-d="你不需要先把问题说完整。系统会从近况、身体感受和最近反复出现的念头里，找到真正占据注意力的那件事。先接住此刻的情绪，再把模糊的闷、累和烦整理成可以继续聊的线索。" data-k="不需要先把问题说完整|真正占据注意力|先接住此刻的情绪">跟我闲聊</span>
+          <span data-d="当你不知道从哪说起，系统会沿着事件、感受、解释和期待逐层追问，把散落的片段整理成一条可以回看的叙事线。你可以停顿、补充或推翻前面的说法，谈话节奏始终由你掌握。" data-k="事件、感受、解释和期待|可以回看的叙事线|节奏始终由你掌握">引导我说</span>
+          <span data-d="系统会把你说的话拆成事实、感受、自动解释和隐含假设，区分“发生了什么”和“我因此认定了什么”。它会列出支持证据、反向证据与其他可能性，帮你看见自己反复卡住的思维路径。" data-k="事实、感受、自动解释和隐含假设|支持证据、反向证据|反复卡住的思维路径">帮我分析</span>
+          <span data-d="系统会给出与你当前精力、关系成本和风险承受度匹配的几个选项。每个选项都讲清可能收益、需要承担的代价，以及今天就能开始的第一步，让决定从脑内打转变成可验证的小行动。" data-k="当前精力、关系成本和风险承受度|可能收益|可验证的小行动">给我建议</span>
+          <span data-d="当信息足够时，系统会把一次对话收束成想通卡片：核心卡点、新的解释、下一步行动和需要回看的信号。卡片进入成长档案，下一次遇到相似情境，可以从上次想通的地方继续。" data-k="核心卡点|新的解释|从上次想通的地方继续">一键想通</span>
         </div>
         <div class="entry-detail"></div>
-      </div>
-      <div class="prod">
+        </div>
+        <div class="prod">
         <div class="prod-name">
-          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="1"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg></span>
           <h2>「招聘」想通了</h2><span class="badge">清华大学心理系相关研究支持</span>
         </div>
-        <p class="sub">面试官用自然语言聊出岗位需求，AI 一步步引导成精准的 JD，随即匹配人才库中的合适人选，并生成针对性的笔试与面试测评。答题时的犹豫时长、弃选项自填等交互细节，连同回答内容一起进入 AI 分析，沉淀出更完整的性格侧写；入职后，持续追踪认知成长与变化。</p>
+        <p class="sub">从一次自然对话开始，把模糊的用人期待整理成可验证的岗位要求和精准 JD；随后完成人才匹配、情境化测评与带证据的性格侧写。候选人入职后，关键行为和成长变化继续回到同一份人才档案，帮助团队复盘选得准不准、用得顺不顺、怎样成长得更好。</p>
         <div class="entries">
-          <span data-d="「我想要个靠谱的运营。」——&quot;『靠谱』具体指什么？是能接住临时改需求，还是对数据敏感？&quot;十分钟后，模糊的形容词变成了一张清晰的岗位画像。">岗位聊清</span>
-          <span data-d="聊完当场生成 JD：职责 5 条、硬性要求 3 条、加分项 2 条——每一条都能指回你们对话里的原话，不套模板。">精准JD</span>
-          <span data-d="JD 定稿的同时，人才库里 3 位候选人浮了出来，各自标着匹配点和待确认项。">人才匹配</span>
-          <span data-d="针对「能接住临时改需求」，自动生成情景笔试题：周五 18:00 客户推翻了方案，你的前三步是什么？">定制测评</span>
-          <span data-d="候选人在第 7 题犹豫了 48 秒，最后放弃选项自己写了答案——这些细节连同回答内容，构成侧写里「高自主、慢热」的判断（清华大学心理系相关研究支持）。">性格侧写</span>
-          <span data-d="入职三个月：新人处理冲突的方式从「回避」移向「直接沟通」——当初侧写预测的成长路径，正在被验证。">入职追踪</span>
+          <span data-d="从一句“想要个靠谱的运营”开始，系统会继续追问业务目标、关键任务、协作场景和不能妥协的条件，把模糊形容词改写为可观察、可验证的岗位要求。对话结束即生成结构化 JD，每一条职责与要求都能回指原始讨论，方便招聘团队共同校准。" data-k="可观察、可验证|结构化 JD|回指原始讨论">岗位聊清 · 精准JD</span>
+          <span data-d="JD 定稿后，系统同步扫描人才库，逐项对照候选人的经历证据、能力迁移和岗位约束。结果会同时展示匹配点、证据来源与待确认项，让面试官知道为什么值得聊，也知道下一轮要问清什么。" data-k="经历证据|匹配点、证据来源与待确认项|下一轮要问清什么">人才匹配</span>
+          <span data-d="围绕岗位里的真实难题生成情境任务、追问题和评分维度。比如周五傍晚客户推翻方案，候选人的前三步是什么。测评关注他怎样澄清信息、排列优先级和承担取舍，避免只考熟练背诵的标准答案。" data-k="真实难题|澄清信息、排列优先级和承担取舍|评分维度">定制测评</span>
+          <span data-d="分析同时参考回答内容和作答过程：犹豫时长、修改路径、放弃选项后自行补充的答案，都会成为判断线索。侧写会呈现能力倾向、压力反应与证据强度，并明确标出仍需面试验证的部分。" data-k="回答内容和作答过程|压力反应与证据强度|仍需面试验证">性格侧写</span>
+          <span data-d="入职后的关键事件、反馈和行为变化会继续进入人才档案。团队可以回看当初的岗位判断与侧写是否得到验证，也能看见新人在哪些情境里进步、卡住，以及下一阶段更适合怎样支持。" data-k="继续进入人才档案|是否得到验证|下一阶段更适合怎样支持">入职追踪</span>
         </div>
         <div class="entry-detail"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -140,26 +145,50 @@
   <section id="scenes">
     <div class="content-col">
       <h2>先陪年轻人想通，<br>再陪更多人。</h2>
-      <p class="sub">"想不通"不挑人生阶段。这套方法正在走向——</p>
+      <p class="sub">一种理解人的方式，正在进入更多人生阶段。</p>
       <div class="thread-landing" aria-hidden="true"></div>
       <div class="tagline-rope">
         <div class="tag" style="--tilt:-1.6deg">青少年成长<small>学校 · 家庭 · 心智培养</small>
-          <div class="tag-detail">面向学校与家庭：为孩子建立成长型的心智档案，把情绪波动、学业压力、亲子沟通里的"想不通"，变成可以被看见、被陪伴的成长课题。</div>
+          <div class="tag-detail">
+            <span class="tag-stitch-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="stitch-main" d="M10 51C20 47 20 38 28 35c9-4 7-14 16-18 4-2 8-3 12-3"/><path class="stitch-echo" d="M31 33c-7-1-11-5-12-11 7 0 12 3 14 9M43 19c-1-6 2-10 8-13 2 7 0 12-6 15"/></svg></span>
+            <p>把情绪、学习压力、同伴关系与亲子沟通放进同一条成长线。系统记录孩子如何理解一次挫折、怎样恢复、哪些支持真正有效，逐步形成可回看的成长型心智档案。</p>
+            <ul class="tag-signals"><li>情绪与压力轨迹</li><li>学习行动习惯</li><li>家校沟通线索</li></ul>
+          </div>
         </div>
         <div class="tag" style="--tilt:1.1deg">创业者<small>决策复盘 · 同行经验</small>
-          <div class="tag-detail">高压力、高不确定的决策场景：复盘关键判断、沉淀同行经验，让创业路上每一次"卡住"，都变成认知升级的素材。</div>
+          <div class="tag-detail">
+            <span class="tag-stitch-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="stitch-main" d="M8 51c12-2 13-13 22-17 10-5 9-17 23-23"/><path class="stitch-echo" d="M30 34c10 1 14 9 24 10M38 26c-5-3-8-8-8-14M51 11l4 1-1 5M54 44l-5-1 1-5"/></svg></span>
+            <p>把一次关键决策里的事实、假设、风险偏好与情绪压力分开记录。复盘结果会沉淀成个人判断框架，并与同行案例、投资人经验互相参照，让下一次选择更快抓住真正变量。</p>
+            <ul class="tag-signals"><li>关键决策复盘</li><li>失败案例归因</li><li>判断框架沉淀</li></ul>
+          </div>
         </div>
         <div class="tag" style="--tilt:-0.8deg">校友职业经验<small>高校职业发展中心</small>
-          <div class="tag-detail">与高校职业发展中心合作：把校友真实的职业路径与判断沉淀下来，学弟学妹面对选择时，有"过来人的认知"可以参照。</div>
+          <div class="tag-detail">
+            <span class="tag-stitch-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle class="stitch-echo" cx="33" cy="31" r="18"/><path class="stitch-main" d="M10 53c8-8 14-12 22-13 9-1 15-7 17-17M27 35l8-15 4 13-12 2z"/><path class="stitch-echo" d="M16 13h9M12 18h6"/></svg></span>
+            <p>由校友讲清一条职业路径真实发生过什么：选择依据、转折代价、踩过的坑和长期回报。学生可以结合自己的能力与处境，获得更具体的过来人参照。</p>
+            <ul class="tag-signals"><li>行业与岗位路径</li><li>转行真实代价</li><li>求职策略参照</li></ul>
+          </div>
         </div>
         <div class="tag dim" style="--tilt:1.4deg">长者经验留存<small>人生阅历 · 过来人</small>
-          <div class="tag-detail">用"小记者"式的对话采访，把长辈一生的经验与判断整理成人生故事集与经验档案——留给家人，也留给后来人。</div>
+          <div class="tag-detail">
+            <span class="tag-stitch-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="stitch-main" d="M12 18c9-4 17-2 22 4v31c-6-5-13-6-22-2V18zm22 4c6-6 13-8 22-4v33c-9-4-16-3-22 2"/><path class="stitch-echo" d="M18 27c5-1 9 0 12 3M18 35c5-1 9 0 12 3M40 29c4-3 8-4 12-3"/></svg></span>
+            <p>用“小记者”式对话慢慢追问一段经历里的处境、选择和判断，把零散回忆整理成可阅读、可检索、可继续补充的人生经验档案。</p>
+            <ul class="tag-signals"><li>人生故事集</li><li>家庭记忆档案</li><li>经验与判断索引</li></ul>
+          </div>
         </div>
         <div class="tag dim" style="--tilt:-1.2deg">家族传承<small>判断方式 · 处世经验</small>
-          <div class="tag-detail">家族传承的核心是判断方式与处世经验。把创始人的决策逻辑结构化保存，让下一代接住的，除了资产还有智慧。</div>
+          <div class="tag-detail">
+            <span class="tag-stitch-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="stitch-main" d="M31 55V34c0-8-5-12-12-17M31 39c2-10 8-16 17-22M31 47c-5-7-11-10-19-11M31 30c6-5 13-7 21-5"/><path class="stitch-echo" d="M13 11c8-1 12 2 13 10-8 1-12-3-13-10zm36-3c-7 1-10 5-9 12 7 0 11-4 9-12z"/></svg></span>
+            <p>围绕重大决策采访创始人与家族成员，梳理风险偏好、人情尺度、商业原则和家族价值观，让接班人同时拿到故事、判断依据与决策来路。</p>
+            <ul class="tag-signals"><li>重大决策逻辑</li><li>风险与人情尺度</li><li>家族价值观</li></ul>
+          </div>
         </div>
         <div class="tag dim" style="--tilt:0.9deg">认知测评<small>在对话里完成，自然得像聊天</small>
-          <div class="tag-detail">用开放对话代替问卷：从表达里读出解释模式、决策风格与认知弹性。测评自然、立体，也更难"演"出一个假的自己。</div>
+          <div class="tag-detail">
+            <span class="tag-stitch-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="stitch-main" d="M31 9l19 12-5 23-14 11-18-13 3-23 15-10zM31 20l9 7-3 12-7 5-8-7 2-12 7-5z"/><path class="stitch-echo" d="M31 9v11M50 21l-10 6M45 44l-8-5M31 55l-1-11M13 42l9-5M16 19l8 6"/></svg></span>
+            <p>把测评放进自然对话和情境任务里，综合表达内容、选择过程、犹豫与修正，观察解释模式、压力反应、行动倾向和认知弹性。结果提供维度证据，也保留待确认项。</p>
+            <ul class="tag-signals"><li>解释与决策风格</li><li>压力下的反应</li><li>认知弹性线索</li></ul>
+          </div>
         </div>
       </div>
     </div>
@@ -172,19 +201,24 @@
       <div class="thread-landing" aria-hidden="true"></div>
       <div class="team">
         <div class="member">
-          <h3>创始人 · CEO</h3>
-          <div class="role">产品 / 用户 / 增长</div>
-          <p>设计、心理、写作、AI 的跨界背景。「想通了」从她/他手里的第一张草图开始，最懂年轻人嘴上不说的那些困扰。</p>
+          <h3>韩瑜</h3>
+          <div class="role">CEO</div>
+          <p>清华大学设计本硕<br>思维认知万粉博主</p>
         </div>
         <div class="member">
-          <h3>吴合风</h3>
-          <div class="role">技术负责人</div>
-          <p>清华大学自动化硕士，十年工程与技术管理。负责把方法论变成真正跑得起来的系统。</p>
+          <h3>沈子维</h3>
+          <div class="role">CMO</div>
+          <p>北京大学心理学博士<br>情感计算 + 人机情绪</p>
         </div>
         <div class="member">
-          <h3>徐华</h3>
-          <div class="role">学术顾问</div>
-          <p>清华大学计算机背景。守住研究这一头：让产品迭代快，但不离开方法的根。</p>
+          <h3>赵禹皓</h3>
+          <div class="role">CPO</div>
+          <p>科罗拉多大学应用数学博士<br>产品研发</p>
+        </div>
+        <div class="member">
+          <h3>朱培宸</h3>
+          <div class="role">CTO</div>
+          <p>清华大学自动化系<br>贯通 AI 全链路</p>
         </div>
       </div>
     </div>
@@ -277,14 +311,59 @@
     // ---- 03 产品子翻页：思维 ⇄ 招聘 ----
     const prods = [...document.querySelectorAll('#product .prod')];
     const prodTabs = [...document.querySelectorAll('.pt-btn')];
+    const prodStage = document.querySelector('#product .prod-pages');
     let prodPhase = 0;
+    let prodFlipTimer = 0;
+    function syncProdHeight(){
+      if (!prodStage) return;
+      const naturalHeight = p => [...p.children].reduce((max, el) =>
+        Math.max(max, el.offsetTop + el.offsetHeight), 0) + 8;
+      const h = Math.max(...prods.map(naturalHeight), 320);
+      prodStage.style.height = Math.ceil(h) + 'px';
+    }
+    function resetProdDetail(prod){
+      prod.querySelectorAll('.entries .sel').forEach(el => el.classList.remove('sel'));
+      prod.querySelectorAll('.entry-detail.show').forEach(el => el.classList.remove('show'));
+    }
     function prodSet(i){
+      i = Math.max(0, Math.min(prods.length - 1, i));
+      const prev = prodPhase;
+      const same = i === prev;
       prodPhase = i;
-      prods.forEach((p,k) => p.classList.toggle('on', k === i));
+      clearTimeout(prodFlipTimer);
+      resetProdDetail(prods[prev]);
+      if (same || !prodStage){
+        prods.forEach((p,k) => {
+          p.classList.toggle('on', k === i);
+          p.classList.remove('turning-in', 'turning-out');
+        });
+        prodStage?.classList.remove('flip-next', 'flip-prev');
+      } else {
+        const oldPage = prods[prev];
+        const newPage = prods[i];
+        prodStage.classList.remove('flip-next', 'flip-prev');
+        prods.forEach(p => p.classList.remove('turning-in', 'turning-out'));
+        oldPage.classList.remove('on');
+        newPage.classList.add('on');
+        void prodStage.offsetWidth;
+        prodStage.classList.add(i > prev ? 'flip-next' : 'flip-prev');
+        oldPage.classList.add('turning-out');
+        newPage.classList.add('turning-in');
+        prodFlipTimer = setTimeout(() => {
+          oldPage.classList.remove('turning-out');
+          newPage.classList.remove('turning-in');
+          prodStage.classList.remove('flip-next', 'flip-prev');
+          syncProdHeight();
+        }, 740);
+      }
       prodTabs.forEach((b,k) => b.classList.toggle('on', k === i));
+      requestAnimationFrame(syncProdHeight);
       window.dispatchEvent(new CustomEvent('subpage', {detail:{scene:'product', index:i}}));
     }
     prodTabs.forEach(b => b.addEventListener('click', e => { e.stopPropagation(); prodSet(+b.dataset.p); }));
+    requestAnimationFrame(syncProdHeight);
+    if (document.fonts?.ready) document.fonts.ready.then(syncProdHeight);
+    window.addEventListener('resize', syncProdHeight);
     window.__prod = {set: prodSet, cur: () => prodPhase};
 
     function step(dir){
@@ -352,13 +431,55 @@
     // 供验证
     window.__scene = {go, step, cur: () => cur};
 
-    // 场景吊牌：点击展开详情（同时只开一张）
-    document.querySelectorAll('.tag').forEach(tg => {
+    // 场景卡片：先由线认领，再重排优先级，最后沿主卡外缘缝牢。
+    const tagRope = document.querySelector('#scenes .tagline-rope');
+    const sceneTags = tagRope ? [...tagRope.querySelectorAll('.tag')] : [];
+    let priorityTimers = [];
+    function clearPriorityTimers(){
+      priorityTimers.forEach(clearTimeout);
+      priorityTimers = [];
+    }
+    function emitPriority(phase, card){
+      window.dispatchEvent(new CustomEvent('scene-priority',{detail:{phase,card}}));
+    }
+    function animatePriorityLayout(before){
+      sceneTags.forEach(card => {
+        const a = before.get(card), b = card.getBoundingClientRect();
+        if (!a || !b.width || !b.height) return;
+        const dx = a.left - b.left, dy = a.top - b.top;
+        const sx = a.width / b.width, sy = a.height / b.height;
+        card.animate([
+          {translate:`${dx}px ${dy}px`,scale:`${sx} ${sy}`},
+          {translate:'0 0',scale:'1 1'}
+        ],{duration:680,easing:'cubic-bezier(.2,.72,.18,1)'});
+      });
+    }
+    sceneTags.forEach(tg => {
       tg.addEventListener('click', e => {
         e.stopPropagation();
-        const wasOpen = tg.classList.contains('open');
-        document.querySelectorAll('.tag.open').forEach(o => o.classList.remove('open'));
-        if (!wasOpen) tg.classList.add('open');
+        if (!tagRope || tg.classList.contains('featured') || tagRope.classList.contains('sorting')) return;
+        clearPriorityTimers();
+        tagRope.classList.add('sorting');
+        sceneTags.forEach(card => card.classList.remove('priority-pending'));
+        tg.classList.add('priority-pending');
+        emitPriority('seek',tg);
+
+        priorityTimers.push(setTimeout(() => {
+          const before = new Map(sceneTags.map(card => [card,card.getBoundingClientRect()]));
+          sceneTags.forEach(card => card.classList.remove('featured','open','priority-pending','stitching'));
+          tg.classList.add('featured','open');
+          tagRope.prepend(tg);
+          tagRope.classList.add('prioritized');
+          emitPriority('layout',tg);
+          requestAnimationFrame(() => animatePriorityLayout(before));
+
+          priorityTimers.push(setTimeout(() => {
+            tagRope.classList.remove('sorting');
+            tg.classList.add('stitching');
+            emitPriority('stitch',tg);
+            priorityTimers.push(setTimeout(() => tg.classList.remove('stitching'),560));
+          },700));
+        },420));
       });
     });
 
@@ -387,10 +508,24 @@
       document.getElementById('chainBack').addEventListener('click', e => { e.stopPropagation(); openStep(-1); });
     }
 
-    // 03 产品胶囊：点击展开一句说明（同产品内单选）
+    // 03 产品胶囊：展开一张可被缝住的详细说明（同产品内单选）
+    const escapeDetail = value => String(value || '')
+      .replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')
+      .replaceAll('"','&quot;').replaceAll("'",'&#039;');
+    function detailMarkup(sp){
+      let copy = escapeDetail(sp.dataset.d);
+      const keys = (sp.dataset.k || '').split('|').filter(Boolean)
+        .sort((a,b) => b.length-a.length);
+      keys.forEach(key => {
+        const safe = escapeDetail(key);
+        copy = copy.split(safe).join(`<strong>${safe}</strong>`);
+      });
+      return `<span class="detail-eyebrow">${escapeDetail(sp.textContent.trim())}</span><p>${copy}</p>`;
+    }
     document.querySelectorAll('.entries').forEach(en => {
       const panel = en.parentElement.querySelector('.entry-detail');
       if (!panel) return;
+      panel.setAttribute('aria-live','polite');
       en.querySelectorAll('span').forEach(sp => {
         sp.addEventListener('click', e => {
           e.stopPropagation();
@@ -400,9 +535,13 @@
             panel.classList.remove('show');
           } else {
             sp.classList.add('sel');
-            panel.textContent = sp.dataset.d || '';
+            panel.innerHTML = detailMarkup(sp);
             panel.classList.add('show');
           }
+          window.dispatchEvent(new CustomEvent('product-detail', {
+            detail:{open:!was, panel}
+          }));
+          requestAnimationFrame(syncProdHeight);
         });
       });
     });
