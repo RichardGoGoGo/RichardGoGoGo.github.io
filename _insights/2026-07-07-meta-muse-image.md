@@ -13,4 +13,6 @@ pin_until: 2026-07-15
 
 7 月 7 日，Meta Superintelligence Labs（由 Alexandr Wang 领导）正式发布 Muse Image，这是 Meta 首个完全自主研发的图像生成模型。模型采用 Agent 式生成架构，可调用搜索与代码工具对输出进行自我修正，支持文生图、图像编辑、多参考图合成及以 Instagram 公开图片为参考源等功能；已在 Meta AI 应用、Instagram Stories（美国）及 WhatsApp（部分地区）上线，并计划接入广告投放系统 Advantage+。在多项第三方评测中，Muse Image 超越 Google Nano Banana 2，仅略低于 OpenAI 最新 GPT Image 模型；Muse Video 版本即将推出。消息由 Meta 官方及 TechCrunch、CNBC、Bloomberg、Axios 等 7 个以上信源同步报道。
 
+> 更新（7 月 10 日）：其中「@提及公开账号生成」功能因采用 opt-out 默认机制、允许参考任意公开 Instagram 账号历史图像，遭 SAG-AFTRA 与 CAA 联合声讨后由 Meta 下架，模型本体仍在运行。详见后续报道。
+
 > Meta 以 Agent 式架构切入图像生成并直接整合社交与广告分发渠道，标志着图像生成模型进入「生成即分发」的平台化阶段，对 AI 视觉生成在商业内容生产及社交平台工作流中的渗透路径有直接参考意义。
