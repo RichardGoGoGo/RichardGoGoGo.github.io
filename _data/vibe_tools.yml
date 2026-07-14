@@ -12,9 +12,15 @@ tools:
 
   - name: "常用 WEB 交互动效图鉴"
     en: "Web Motion Techniques"
-    desc: "常见网页动画技法的名词 + 实时迷你演示，看到名词就看到它长什么样；含入场、循环、鼠标交互三类共 17 项。"
+    desc: "常见网页动画技法的名词 + 实时迷你演示，看到名词就看到它长什么样；含入场、循环、鼠标交互、文字、背景、进阶编排六类共 45 项，顶部可按分类筛选。"
     type: internal
     href: /vibe/motion-techniques/
+
+  - name: "高级信息图与可视化类型图鉴"
+    en: "Advanced Data Viz Gallery"
+    desc: "40 种高级信息图与可视化类型的可交互示例：桑基、和弦、旭日、维诺、流图……分「流程关系 / 层级系统 / 变化比较」三类，悬停即看数值与路径，全部手写 SVG、无图表库。"
+    type: internal
+    href: /vibe/interactive-chart/
 
   - name: "动态图标图鉴"
     en: "Motion Icons"

@@ -1,0 +1,761 @@
+---
+layout: default
+permalink: /vibe/interactive-chart/
+title: "高级信息图与可视化类型图鉴"
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1>高级信息图与可视化类型图鉴</h1>
+    <p class="hero-tagline">按「流程与关系 / 层级与系统 / 变化·比较·多维」三类，给每种高级图表一个可交互的实时示例。</p>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="crumb">
+    <a href="{{ '/' | relative_url }}">首页</a><span class="sep">/</span>
+    <a href="{{ '/vibe/' | relative_url }}">VIBE工具箱</a><span class="sep">/</span>
+    <span class="cur">高级信息图与可视化类型图鉴</span>
+  </nav>
+
+  <div class="ic">
+    <p class="ic-intro">图表是否「高级」，取决于它是否准确表达了关系，而非名称是否复杂。以下每张为<strong>演示生成的示例数据</strong>，鼠标悬停可查看数值与路径。先按顺序做每类前两种。</p>
+
+    <div class="ic-seclabel">一 · 流程与关系</div>
+    <div class="ic-grid">
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">桑基图</div><div class="ic-en">Sankey Diagram</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="sankey"></div>
+        <p class="ic-desc">用不同宽度的带状连线表示数量在多个节点间的流动与分配，连线越宽流量越大。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">冲积图</div><div class="ic-en">Alluvial Diagram</div></div><span class="ic-tag t-quant">定量·半定量</span></div>
+        <div class="ic-stage" data-chart="alluvial"></div>
+        <p class="ic-desc">展示一组对象经过多个阶段时，分类如何变化、分流与延续，适合观察群体迁移。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">和弦图</div><div class="ic-en">Chord Diagram</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="chord"></div>
+        <p class="ic-desc">将多个对象排列在圆周上，用弧形带连接彼此，表现多对多关系及其强弱。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">力导向网络图</div><div class="ic-en">Force-Directed Network</div></div><span class="ic-tag t-concept">半定量·概念</span></div>
+        <div class="ic-stage" data-chart="force"></div>
+        <p class="ic-desc">用引力与斥力模拟形成网络布局，识别中心节点、聚类与连接密度。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">弧线关系图</div><div class="ic-en">Arc Diagram</div></div><span class="ic-tag t-concept">半定量·概念</span></div>
+        <div class="ic-stage" data-chart="arcdiag"></div>
+        <p class="ic-desc">节点按顺序排成一条直线，用跨越节点的弧线表示关系，适合展示跨阶段连接。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">因果回路图</div><div class="ic-en">Causal Loop</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="causal"></div>
+        <p class="ic-desc">用带方向的连线表示促进、抑制与反馈，解释系统为何增强、衰减或形成循环。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">服务蓝图</div><div class="ic-en">Service Blueprint</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="blueprint"></div>
+        <p class="ic-desc">把客户动作、前台、后台、支持放在同一时间轴，展示一项服务如何被完整交付。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">泳道图</div><div class="ic-en">Swimlane</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="swimlane"></div>
+        <p class="ic-desc">按角色划分泳道，展示各方在同一流程中的动作、责任与交接。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">状态机图</div><div class="ic-en">State Machine</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="statemachine"></div>
+        <p class="ic-desc">展示对象可能的状态、触发事件与状态变化，以及异常、退回与终止分支。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">用户旅程地图</div><div class="ic-en">Journey Map</div></div><span class="ic-tag t-concept">半定量·概念</span></div>
+        <div class="ic-stage" data-chart="journey"></div>
+        <p class="ic-desc">沿时间线展示用户在各阶段的行为、目标、接触点与体验变化。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">平行集合图</div><div class="ic-en">Parallel Sets</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="parallelsets"></div>
+        <p class="ic-desc">把多个分类维度平行排列，用带状连线展示类别组合之间的数量与路径。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">地铁线路图</div><div class="ic-en">Metro Map</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="metro"></div>
+        <p class="ic-desc">借用地铁线路的视觉语言，把多条路径、阶段与交汇点组织成易追踪的系统。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">分支时间线</div><div class="ic-en">Branching Timeline</div></div><span class="ic-tag t-concept">半定量·概念</span></div>
+        <div class="ic-stage" data-chart="branching"></div>
+        <p class="ic-desc">在时间轴上表现主线、支线、关键节点与不同选择造成的后续路径。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">径向流程图</div><div class="ic-en">Radial Process</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="radial"></div>
+        <p class="ic-desc">沿圆环安排阶段，适合表达循环、复盘、持续运营与多轮迭代。</p>
+      </article>
+    </div>
+
+    <div class="ic-seclabel">二 · 层级与系统结构</div>
+    <div class="ic-grid">
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">旭日图</div><div class="ic-en">Sunburst Chart</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="sunburst"></div>
+        <p class="ic-desc">用同心圆环展示从中心向外的多层级结构，扇区角度对应数量或占比。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">矩形树图</div><div class="ic-en">Treemap</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="treemap"></div>
+        <p class="ic-desc">用嵌套矩形同时表达层级与规模，矩形面积代表数量，颜色区分大类。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">圆形打包图</div><div class="ic-en">Circle Packing</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="circlepack"></div>
+        <p class="ic-desc">用大小不同、相互嵌套的圆表示类别、子类及规模，视觉比矩形树图更柔和。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">冰柱图</div><div class="ic-en">Icicle Chart</div></div><span class="ic-tag t-quant">定量·半定量</span></div>
+        <div class="ic-stage" data-chart="icicle"></div>
+        <p class="ic-desc">用逐层展开的条带展示层级关系，适合追踪一个大类如何拆分为多个子项。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">树状图</div><div class="ic-en">Dendrogram</div></div><span class="ic-tag t-concept">半定量·概念</span></div>
+        <div class="ic-stage" data-chart="dendrogram"></div>
+        <p class="ic-desc">用逐级分叉的树结构展示分类、相似性、聚类过程或组织层级。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">能力地图</div><div class="ic-en">Capability Map</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="capability"></div>
+        <p class="ic-desc">把组织或系统的能力按领域与层级排列，强调「能做什么」及能力归属。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">分层系统图</div><div class="ic-en">Layered System Map</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="layered"></div>
+        <p class="ic-desc">按界面、流程、执行、数据、基础设施等层级展示系统的组成与上下游关系。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">爆炸轴测图</div><div class="ic-en">Exploded Axonometric</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="exploded"></div>
+        <p class="ic-desc">把系统各层沿空间方向拆开，既保留整体结构，又能看清每层的组成与连接。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">轨道图</div><div class="ic-en">Orbit Diagram</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="orbit"></div>
+        <p class="ic-desc">以核心对象为中心，在多层轨道上安排相关角色、能力与资源，表现中心与外围关系。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">蜂巢能力图</div><div class="ic-en">Honeycomb Map</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="honeycomb"></div>
+        <p class="ic-desc">用相邻六边形组织多个平级模块，适合展示能力组合、服务模块与产品体系。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">维诺图</div><div class="ic-en">Voronoi Diagram</div></div><span class="ic-tag t-quant">定量·半定量</span></div>
+        <div class="ic-stage" data-chart="voronoi"></div>
+        <p class="ic-desc">按各中心点的影响范围划分不规则区域，表现领域分区、归属与空间邻近关系。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">维诺树图</div><div class="ic-en">Voronoi Treemap</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="voronoitree"></div>
+        <p class="ic-desc">将层级与规模编码放入不规则有机区域，在保持比例的同时获得更自然的视觉效果。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">星座图</div><div class="ic-en">Constellation Map</div></div><span class="ic-tag t-concept">半定量·概念</span></div>
+        <div class="ic-stage" data-chart="constellation"></div>
+        <p class="ic-desc">以少量核心节点与大量外围节点构成类似星座的关系图，强调主题、关联与聚类。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">剖面图</div><div class="ic-en">Cutaway Diagram</div></div><span class="ic-tag t-concept">概念</span></div>
+        <div class="ic-stage" data-chart="cutaway"></div>
+        <p class="ic-desc">通过切开外层展示内部结构与隐藏部件，常用于系统、空间或产品机制说明。</p>
+      </article>
+    </div>
+
+    <div class="ic-seclabel">三 · 变化 · 比较 · 多维</div>
+    <div class="ic-grid">
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">小多图</div><div class="ic-en">Small Multiples</div></div><span class="ic-tag t-quant">定量·半定量</span></div>
+        <div class="ic-stage" data-chart="smallmultiples"></div>
+        <p class="ic-desc">用一组结构一致的小图展示不同对象或时段，便于横向比较变化与模式。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">版本故事板</div><div class="ic-en">Iteration Storyboard</div></div><span class="ic-tag t-concept">概念·半定量</span></div>
+        <div class="ic-stage" data-chart="storyboard"></div>
+        <p class="ic-desc">按时间顺序展示一个方案的多个版本，并标注每轮的选择、修改与原因。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">平行坐标图</div><div class="ic-en">Parallel Coordinates</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="parcoord"></div>
+        <p class="ic-desc">把多个指标画成平行坐标轴，每个对象用一条折线穿过各轴，适合比较多维特征。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">热力矩阵</div><div class="ic-en">Heatmap Matrix</div></div><span class="ic-tag t-quant">定量·半定量</span></div>
+        <div class="ic-stage" data-chart="heatmap"></div>
+        <p class="ic-desc">用颜色深浅表达两个维度交叉后的数值、强度、频率或风险等级。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">流图</div><div class="ic-en">Streamgraph</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="streamgraph"></div>
+        <p class="ic-desc">用上下起伏的连续色带展示多个类别随时间的数量变化，整体形态类似河流。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">隆起图</div><div class="ic-en">Bump Chart</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="bump"></div>
+        <p class="ic-desc">用多条线展示不同对象的排名如何随时间变化，重点观察上升、下降与交叉。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">山脊图</div><div class="ic-en">Ridgeline Plot</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="ridgeline"></div>
+        <p class="ic-desc">将多组分布曲线层叠排列，便于比较不同群体、时间或条件下的数据形态。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">蜂群图</div><div class="ic-en">Beeswarm Plot</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="beeswarm"></div>
+        <p class="ic-desc">把每个数据点单独显示并错位避免重叠，既看总体分布，也保留个体。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">马赛克图</div><div class="ic-en">Marimekko / Mosaic</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="marimekko"></div>
+        <p class="ic-desc">通过宽度与高度同时表达两个比例维度，适合比较总量与内部构成。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">日历热力图</div><div class="ic-en">Calendar Heatmap</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="calheat"></div>
+        <p class="ic-desc">将每天的数据映射到日历网格，用颜色表示活跃度、频率或完成量。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">坡度图</div><div class="ic-en">Slopegraph</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="slopegraph"></div>
+        <p class="ic-desc">用简洁连线比较多个对象在两个时间点或两种条件下的数值变化。</p>
+      </article>
+      <article class="ic-card">
+        <div class="ic-head"><div><div class="ic-zh">子弹图</div><div class="ic-en">Bullet Chart</div></div><span class="ic-tag t-quant">定量</span></div>
+        <div class="ic-stage" data-chart="bullet"></div>
+        <p class="ic-desc">在紧凑空间内同时表示实际值、目标值与绩效区间，适合替代仪表盘。</p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<div class="ic-tip" id="ic-tip"></div>
+
+<style>
+.ic{--s1:#5a4bd0;--s2:#0a9f82;--s3:#b3760a;--s4:#cf4d63;--s5:#3a6ea5;margin-top:.5rem}
+@media (prefers-color-scheme:dark){.ic{--s1:#8f83e6;--s2:#14a084;--s3:#c2871f;--s4:#d65a6d;--s5:#5b90cf}}
+:root[data-theme="dark"] .ic{--s1:#8f83e6;--s2:#14a084;--s3:#c2871f;--s4:#d65a6d;--s5:#5b90cf}
+:root[data-theme="light"] .ic{--s1:#5a4bd0;--s2:#0a9f82;--s3:#b3760a;--s4:#cf4d63;--s5:#3a6ea5}
+.ic-intro{font-size:13px;color:var(--ink-mute);line-height:1.75;margin:.2rem 0 1.1rem}
+.ic-intro strong{color:var(--ink-soft);font-weight:500}
+.ic-seclabel{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--ink-mute);
+  margin:1.7rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule)}
+.ic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ic-card{border:1px solid var(--rule);border-radius:12px;background:var(--paper);overflow:hidden;display:flex;flex-direction:column}
+.ic-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:13px 15px 9px}
+.ic-zh{font-size:15px;font-weight:500;color:var(--ink);line-height:1.25}
+.ic-en{font-size:11px;color:var(--ink-mute);margin-top:1px;letter-spacing:.02em}
+.ic-tag{flex:0 0 auto;font-family:var(--sans);font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px;border:1px solid var(--rule);color:var(--ink-soft);white-space:nowrap}
+.ic-tag.t-quant{border-color:var(--accent);color:var(--accent)}
+.ic-tag.t-concept{color:var(--ink-mute);border-style:dashed}
+.ic-stage{height:214px;position:relative;background:var(--paper)}
+.ic-svg{width:100%;height:100%;display:block;overflow:visible}
+.ic-desc{font-size:12px;line-height:1.65;color:var(--ink-soft);padding:10px 15px 15px;border-top:1px solid var(--rule-soft);margin-top:auto}
+.ic-lab{font-family:var(--sans)}
+.ic-rib{transition:fill-opacity .15s}
+.ic-rib.hi{fill-opacity:.82!important}
+.ic-seg{transition:fill-opacity .15s,filter .15s}
+.ic-seg.hi{fill-opacity:1!important}
+.ic-strk{transition:stroke-opacity .15s}
+.ic-strk.hi{stroke-opacity:.9!important}
+.ic-panel{transition:opacity .15s}
+.ic-tip{position:fixed;z-index:60;pointer-events:none;opacity:0;transition:opacity .12s;background:var(--ink);color:var(--paper);
+  font-family:var(--sans);font-size:12px;line-height:1.5;padding:6px 10px;border-radius:7px;max-width:230px;
+  box-shadow:0 4px 18px rgba(0,0,0,.2)}
+.ic-tip.on{opacity:.96}
+.ic-tip b{font-weight:600}
+</style>
+
+<script>
+(function(){
+  var root=document.querySelector('.ic'); if(!root) return;
+  var NS='http://www.w3.org/2000/svg';
+  var PAL=['var(--s1)','var(--s2)','var(--s3)','var(--s4)','var(--s5)'];
+  function S(t,a){var e=document.createElementNS(NS,t);if(a)for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function add(p,t,a){var e=S(t,a);p.appendChild(e);return e;}
+  function mksvg(host,w,h){host.innerHTML='';var s=S('svg',{viewBox:'0 0 '+w+' '+h,preserveAspectRatio:'xMidYMid meet','class':'ic-svg'});host.appendChild(s);return s;}
+  function txt(p,x,y,s,anchor,fill,size){var t=add(p,'text',{x:x,y:y,'class':'ic-lab','text-anchor':anchor||'start'});t.style.fontSize=(size||11)+'px';t.style.fill=fill||'var(--ink-mute)';t.textContent=s;return t;}
+
+  // ---- tooltip ----
+  var tip=document.getElementById('ic-tip');
+  function tShow(html){tip.innerHTML=html;tip.classList.add('on');}
+  function tMove(e){var pad=14,w=tip.offsetWidth,x=e.clientX+pad,y=e.clientY+pad;if(x+w>window.innerWidth-8)x=e.clientX-w-pad;if(y+tip.offsetHeight>window.innerHeight-8)y=e.clientY-tip.offsetHeight-pad;tip.style.left=x+'px';tip.style.top=y+'px';}
+  function tHide(){tip.classList.remove('on');}
+  function hover(el,html,cls){el.style.cursor='default';
+    el.addEventListener('mouseenter',function(ev){tShow(html);tMove(ev);if(cls)el.classList.add(cls);});
+    el.addEventListener('mousemove',tMove);
+    el.addEventListener('mouseleave',function(){tHide();if(cls)el.classList.remove(cls);});}
+
+  // ---- geometry ----
+  function ribbon(x0,sy0,sy1,x1,ty0,ty1){var mx=(x0+x1)/2;
+    return 'M'+x0+' '+sy0+' C'+mx+' '+sy0+' '+mx+' '+ty0+' '+x1+' '+ty0+' L'+x1+' '+ty1+
+      ' C'+mx+' '+ty1+' '+mx+' '+sy1+' '+x0+' '+sy1+' Z';}
+  function polar(cx,cy,r,a){return [cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+  function annular(cx,cy,r0,r1,a0,a1){var large=(a1-a0)>Math.PI?1:0;
+    var p0=polar(cx,cy,r1,a0),p1=polar(cx,cy,r1,a1),p2=polar(cx,cy,r0,a1),p3=polar(cx,cy,r0,a0);
+    return 'M'+p0[0]+' '+p0[1]+' A'+r1+' '+r1+' 0 '+large+' 1 '+p1[0]+' '+p1[1]+
+      ' L'+p2[0]+' '+p2[1]+' A'+r0+' '+r0+' 0 '+large+' 0 '+p3[0]+' '+p3[1]+' Z';}
+
+  // ============ flow engine (sankey + alluvial) ============
+  function flow(host,nodes,links,opt){
+    opt=opt||{};var W=360,H=214,mT=16,mB=16,mL=opt.mL||30,mR=opt.mR||30,nodeW=9,gap=10;
+    var svg=mksvg(host,W,H);
+    var cols=[];nodes.forEach(function(n){if(cols.indexOf(n.col)<0)cols.push(n.col);});cols.sort(function(a,b){return a-b;});
+    var byId={};nodes.forEach(function(n){byId[n.id]=n;n.out=[];n.in=[];});
+    links.forEach(function(l){byId[l.s].out.push(l);byId[l.t].in.push(l);});
+    nodes.forEach(function(n){var so=n.out.reduce(function(a,l){return a+l.v;},0),si=n.in.reduce(function(a,l){return a+l.v;},0);n.value=Math.max(so,si);});
+    var colNodes={};cols.forEach(function(c){colNodes[c]=nodes.filter(function(n){return n.col===c;});});
+    var scale=Infinity;
+    cols.forEach(function(c){var arr=colNodes[c];var t=arr.reduce(function(a,n){return a+n.value;},0);var avail=(H-mT-mB)-(arr.length-1)*gap;scale=Math.min(scale,avail/t);});
+    var innerW=W-mL-mR;
+    cols.forEach(function(c,i){var x=mL+(cols.length===1?0:i*(innerW-nodeW)/(cols.length-1));
+      var arr=colNodes[c];var total=arr.reduce(function(a,n){return a+n.value*scale;},0)+(arr.length-1)*gap;
+      var y=mT+((H-mT-mB)-total)/2;
+      arr.forEach(function(n){n.x=x;n.h=n.value*scale;n.y0=y;n.y1=y+n.h;y=n.y1+gap;n.outOff=0;n.inOff=0;});});
+    nodes.forEach(function(n){n.out.sort(function(a,b){return byId[a.t].y0-byId[b.t].y0;});n.in.sort(function(a,b){return byId[a.s].y0-byId[b.s].y0;});});
+    nodes.forEach(function(n){n.out.forEach(function(l){l.sy0=n.y0+n.outOff;l.sy1=l.sy0+l.v*scale;n.outOff+=l.v*scale;});});
+    nodes.forEach(function(n){n.in.forEach(function(l){l.ty0=n.y0+n.inOff;l.ty1=l.ty0+l.v*scale;n.inOff+=l.v*scale;});});
+    links.forEach(function(l){var s=byId[l.s],t=byId[l.t];
+      var p=add(svg,'path',{d:ribbon(s.x+nodeW,l.sy0,l.sy1,t.x,l.ty0,l.ty1),'class':'ic-rib'});
+      p.style.fill=PAL[s.ci%5];p.setAttribute('fill-opacity',.4);
+      hover(p,(opt.link?opt.link(l,s,t):(s.label+' → '+t.label))+' · <b>'+l.v+'</b>','hi');});
+    nodes.forEach(function(n){var r=add(svg,'rect',{x:n.x,y:n.y0,width:nodeW,height:Math.max(1.5,n.h),rx:2});r.style.fill='var(--ink-soft)';
+      hover(r,'<b>'+n.label+'</b> · '+n.value,null);
+      if(n.col===cols[0]) txt(svg,n.x-5,(n.y0+n.y1)/2+3.5,n.label,'end','var(--ink-mute)',11);
+      else if(n.col===cols[cols.length-1]) txt(svg,n.x+nodeW+5,(n.y0+n.y1)/2+3.5,n.label,'start','var(--ink-mute)',11);});
+  }
+
+  function sankey(host){
+    var nodes=[{id:'A',label:'A',col:0,ci:0},{id:'B',label:'B',col:0,ci:1},{id:'C',label:'C',col:0,ci:2},
+      {id:'M',label:'M',col:1,ci:3},{id:'N',label:'N',col:1,ci:4},
+      {id:'X',label:'X',col:2,ci:0},{id:'Y',label:'Y',col:2,ci:1},{id:'Z',label:'Z',col:2,ci:2}];
+    var links=[{s:'A',t:'M',v:10},{s:'A',t:'N',v:8},{s:'B',t:'M',v:7},{s:'B',t:'N',v:5},{s:'C',t:'M',v:4},{s:'C',t:'N',v:5},
+      {s:'M',t:'X',v:9},{s:'M',t:'Y',v:8},{s:'M',t:'Z',v:4},{s:'N',t:'X',v:6},{s:'N',t:'Y',v:7},{s:'N',t:'Z',v:5}];
+    flow(host,nodes,links,{link:function(l,s,t){return s.label+' → '+t.label;}});
+  }
+
+  function alluvial(host){
+    var cats=['甲','乙','丙'],nodes=[],links=[];
+    for(var st=0;st<3;st++)for(var c=0;c<3;c++)nodes.push({id:'s'+st+c,label:cats[c],col:st,ci:c});
+    function L(st,a,b,v){links.push({s:'s'+st+a,t:'s'+(st+1)+b,v:v});}
+    L(0,0,0,30);L(0,0,1,10);L(0,1,1,20);L(0,1,2,15);L(0,2,0,8);L(0,2,2,17);
+    L(1,0,0,24);L(1,0,1,14);L(1,1,1,20);L(1,1,2,10);L(1,2,2,22);L(1,2,0,10);
+    flow(host,nodes,links,{link:function(l,s,t){return '阶段'+(s.col+1)+' '+s.label+' → 阶段'+(t.col+1)+' '+t.label;}});
+  }
+
+  // ============ sunburst ============
+  function sunburst(host){
+    var W=360,H=214,cx=W/2,cy=H/2,svg=mksvg(host,W,H);
+    var data=[{name:'甲',ci:0,children:[{name:'甲1',v:8},{name:'甲2',v:5},{name:'甲3',v:4}]},
+      {name:'乙',ci:1,children:[{name:'乙1',v:6},{name:'乙2',v:9}]},
+      {name:'丙',ci:2,children:[{name:'丙1',v:7},{name:'丙2',v:4},{name:'丙3',v:5}]}];
+    var total=0;data.forEach(function(b){b.v=b.children.reduce(function(a,c){return a+c.v;},0);total+=b.v;});
+    var r0=24,r1=52,r2=84,a=-Math.PI/2;
+    data.forEach(function(b){
+      var sweep=b.v/total*2*Math.PI,a1=a+sweep,mid=(a+a1)/2;
+      var seg=add(svg,'path',{d:annular(cx,cy,r0,r1,a,a1),'class':'ic-seg'});seg.style.fill=PAL[b.ci%5];seg.setAttribute('fill-opacity',.9);seg.style.stroke='var(--paper)';seg.setAttribute('stroke-width',1.5);
+      hover(seg,'<b>'+b.name+'</b> · '+b.v+' ('+Math.round(b.v/total*100)+'%)','hi');
+      if(sweep>0.5){var lp=polar(cx,cy,(r0+r1)/2,mid);txt(svg,lp[0],lp[1]+3.5,b.name,'middle','var(--paper)',11);}
+      var ca=a;
+      b.children.forEach(function(ch){var cs=ch.v/b.v*sweep,ca1=ca+cs,cmid=(ca+ca1)/2;
+        var s2=add(svg,'path',{d:annular(cx,cy,r1,r2,ca,ca1),'class':'ic-seg'});s2.style.fill=PAL[b.ci%5];s2.setAttribute('fill-opacity',.5);s2.style.stroke='var(--paper)';s2.setAttribute('stroke-width',1.5);
+        hover(s2,b.name+' / <b>'+ch.name+'</b> · '+ch.v,'hi');
+        if(cs>0.42){var lp2=polar(cx,cy,(r1+r2)/2,cmid);txt(svg,lp2[0],lp2[1]+3.5,ch.v,'middle','var(--ink-soft)',10);}
+        ca=ca1;});
+      a=a1;});
+    add(svg,'circle',{cx:cx,cy:cy,r:r0-4}).style.fill='var(--rule-soft)';
+    txt(svg,cx,cy+3.5,total,'middle','var(--ink-mute)',12);
+  }
+
+  // ============ treemap (slice & dice, 2-level) ============
+  function treemap(host){
+    var W=360,H=214,pad=6,gap=2,svg=mksvg(host,W,H);
+    var data=[{name:'A',ci:0,ch:[{name:'a1',v:6},{name:'a2',v:4},{name:'a3',v:3}]},
+      {name:'B',ci:1,ch:[{name:'b1',v:8},{name:'b2',v:5}]},
+      {name:'C',ci:2,ch:[{name:'c1',v:4},{name:'c2',v:4},{name:'c3',v:3}]},
+      {name:'D',ci:3,ch:[{name:'d1',v:6},{name:'d2',v:3}]}];
+    var total=0;data.forEach(function(p){p.v=p.ch.reduce(function(a,c){return a+c.v;},0);total+=p.v;});
+    var iw=W-pad*2,ih=H-pad*2,x=pad;
+    data.forEach(function(p){var cw=p.v/total*iw,y=pad,op=[.92,.66,.45];
+      p.ch.forEach(function(c,i){var chh=c.v/p.v*ih;
+        var r=add(svg,'rect',{x:x+gap/2,y:y+gap/2,width:Math.max(0,cw-gap),height:Math.max(0,chh-gap),rx:3,'class':'ic-seg'});
+        r.style.fill=PAL[p.ci%5];r.setAttribute('fill-opacity',op[i%3]);
+        hover(r,'<b>'+p.name+' / '+c.name+'</b> · '+c.v+' ('+Math.round(c.v/total*100)+'%)','hi');
+        if(cw>34&&chh>20)txt(svg,x+6,y+16,c.name,'start','var(--paper)',10.5);
+        y+=chh;});
+      x+=cw;});
+  }
+
+  // ============ small multiples ============
+  function smallmultiples(host){
+    var W=360,H=214,svg=mksvg(host,W,H);
+    var SM=[{n:'区域一',d:[3,5,4,6,8,7,9,11]},{n:'区域二',d:[8,7,7,5,6,4,5,3]},{n:'区域三',d:[2,3,3,5,6,8,10,12]},
+      {n:'区域四',d:[6,6,7,7,6,7,8,8]},{n:'区域五',d:[10,9,8,8,6,7,5,6]},{n:'区域六',d:[1,2,4,4,7,9,8,10]}];
+    var ymax=12,cols=3,rows=2,gx=10,gy=12,pw=(W-gx*(cols+1))/cols,ph=(H-gy*(rows+1))/rows;
+    SM.forEach(function(s,i){var col=i%cols,row=(i/cols)|0,ox=gx+col*(pw+gx),oy=gy+row*(ph+gy);
+      var g=add(svg,'g',{'class':'ic-panel'});
+      var plotY=oy+16,plotH=ph-20,n=s.d.length;
+      function X(k){return ox+6+k*(pw-12)/(n-1);}function Y(v){return plotY+plotH-(v/ymax)*plotH;}
+      var pts=s.d.map(function(v,k){return [X(k),Y(v)];});
+      var ar=add(g,'path',{d:smooth(pts)+' L'+X(n-1)+' '+(plotY+plotH)+' L'+X(0)+' '+(plotY+plotH)+' Z'});ar.style.fill='var(--s1)';ar.setAttribute('fill-opacity',.14);
+      var ln=add(g,'path',{d:smooth(pts),fill:'none','stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'});ln.style.stroke='var(--s1)';
+      add(g,'circle',{cx:X(n-1),cy:Y(s.d[n-1]),r:3}).style.fill='var(--s1)';
+      txt(g,ox+2,oy+9,s.n,'start','var(--ink-mute)',10.5);
+      var hit=add(g,'rect',{x:ox,y:oy,width:pw,height:ph,fill:'transparent',rx:6});
+      hover(hit,'<b>'+s.n+'</b> · 期末 '+s.d[n-1]+' · 峰值 '+Math.max.apply(null,s.d),null);
+      hit.addEventListener('mouseenter',function(){SM.forEach(function(_,j){if(j!==i)svg.querySelectorAll('.ic-panel')[j].style.opacity=.32;});});
+      hit.addEventListener('mouseleave',function(){[].forEach.call(svg.querySelectorAll('.ic-panel'),function(p){p.style.opacity=1;});});});
+  }
+
+  // ============ iteration storyboard ============
+  function storyboard(host){
+    var W=360,H=214,svg=mksvg(host,W,H);
+    var IT=[{v:'v1',note:'单列信息，先跑通主流程',blocks:1},{v:'v2',note:'加入分栏，信息分区',blocks:2},
+      {v:'v3',note:'引入筛选与层级',blocks:3},{v:'v4',note:'收敛配色，细节打磨定稿',blocks:4}];
+    var n=IT.length,gx=12,fw=(W-gx*(n+1))/n,fh=118,oy=42;
+    add(svg,'line',{x1:gx,y1:oy+fh/2,x2:W-gx,y2:oy+fh/2,'stroke-width':2,'stroke-dasharray':'2 4'}).style.stroke='var(--rule)';
+    IT.forEach(function(it,i){var ox=gx+i*(fw+gx),last=i===n-1;
+      var g=add(svg,'g',{'class':'ic-seg'});
+      txt(g,ox+fw/2,oy-14,it.v,'middle',last?'var(--accent)':'var(--ink-mute)',12);
+      var card=add(g,'rect',{x:ox,y:oy,width:fw,height:fh,rx:7,'stroke-width':1.5});
+      card.style.fill='var(--rule-soft)';card.style.stroke=last?'var(--accent)':'var(--rule)';card.setAttribute('fill-opacity',.6);
+      add(g,'rect',{x:ox+8,y:oy+9,width:fw-16,height:7,rx:2}).style.fill=last?'var(--s1)':'var(--ink-mute)';
+      for(var b=0;b<it.blocks;b++){var by=oy+24+b*15;
+        add(g,'rect',{x:ox+8,y:by,width:(fw-16)*(b%2?0.62:0.9),height:9,rx:2}).style.fill='var(--ink-soft)';}
+      var hit=add(g,'rect',{x:ox,y:oy-20,width:fw,height:fh+24,fill:'transparent'});
+      hover(hit,'<b>'+it.v+'</b> · '+it.note,null);
+      if(i<n-1){var ax=ox+fw+2;add(svg,'path',{d:'M'+(ax)+' '+(oy+fh/2)+' l6 0 m-3 -3 l3 3 l-3 3',fill:'none','stroke-width':1.5,'stroke-linecap':'round','stroke-linejoin':'round'}).style.stroke='var(--ink-mute)';}});
+    txt(svg,W/2,oy+fh+26,'← 悬停每帧查看该版本的选择与原因 →','middle','var(--ink-mute)',10.5);
+  }
+
+  // ---- more primitives ----
+  function ln(p,x1,y1,x2,y2,st,w,d){var e=add(p,'line',{x1:x1,y1:y1,x2:x2,y2:y2,'stroke-width':w||1.5,'stroke-linecap':'round'});e.style.stroke=st||'var(--rule)';if(d)e.setAttribute('stroke-dasharray',d);return e;}
+  function ci(p,cx,cy,r,fill,op){var e=add(p,'circle',{cx:cx,cy:cy,r:r});e.style.fill=fill||'none';if(op!=null)e.setAttribute('fill-opacity',op);return e;}
+  function pth(p,d,fill,st,w,cls){var e=add(p,'path',{d:d});if(cls)e.setAttribute('class',cls);if(fill!=null&&fill!=='none')e.style.fill=fill;else e.setAttribute('fill','none');if(st){e.style.stroke=st;e.setAttribute('stroke-width',w||2);e.setAttribute('stroke-linejoin','round');e.setAttribute('stroke-linecap','round');}return e;}
+  function rrect(p,x,y,w,h,r,fill,op,cls){var e=add(p,'rect',{x:x,y:y,width:Math.max(0,w),height:Math.max(0,h),rx:r||0});if(cls)e.setAttribute('class',cls);if(fill)e.style.fill=fill;if(op!=null)e.setAttribute('fill-opacity',op);return e;}
+  function arrow(p,x1,y1,x2,y2,st,w){ln(p,x1,y1,x2,y2,st,w);var a=Math.atan2(y2-y1,x2-x1),s=5.5;pth(p,'M'+x2+' '+y2+' L'+(x2-s*Math.cos(a-0.42))+' '+(y2-s*Math.sin(a-0.42))+' M'+x2+' '+y2+' L'+(x2-s*Math.cos(a+0.42))+' '+(y2-s*Math.sin(a+0.42)),null,st||'var(--ink-mute)',w||1.5);}
+  function smooth(pts){ // Catmull-Rom → cubic bezier
+    if(pts.length<3)return 'M'+pts.map(function(p){return p[0]+' '+p[1];}).join(' L');
+    var d='M'+pts[0][0].toFixed(1)+' '+pts[0][1].toFixed(1);
+    for(var i=0;i<pts.length-1;i++){var p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+      d+=' C'+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+' '+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+' '+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+' '+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);}
+    return d;}
+
+  // ============ 一 · 流程与关系 3-14 ============
+  function chord(host){
+    var W=360,H=214,cx=W/2,cy=H/2,R0=64,R1=74,svg=mksvg(host,W,H);
+    var names=['甲','乙','丙','丁','戊'],M=[[0,4,2,1,3],[4,0,3,2,1],[2,3,0,4,2],[1,2,4,0,3],[3,1,2,3,0]],n=5;
+    var tot=names.map(function(_,i){var s=0;for(var j=0;j<n;j++)s+=M[i][j];return s;});
+    var sum=tot.reduce(function(a,b){return a+b;},0),gap=0.1,scale=(2*Math.PI-gap*n)/sum;
+    // 每个弧段按各关系量切分出子区间（真和弦图几何）
+    var a=-Math.PI/2,arcs=[],subs=[];
+    for(var i=0;i<n;i++){arcs.push([a,a+tot[i]*scale]);var cur=a,row=[];
+      for(var j=0;j<n;j++){var w=M[i][j]*scale;row.push([cur,cur+w]);cur+=w;}
+      subs.push(row);a+=tot[i]*scale+gap;}
+    // ribbons：i<j 一对画一条带（两端各占自己弧上的子区间，中心二次曲线）
+    for(var i=0;i<n;i++)for(var j=i+1;j<n;j++){var v=M[i][j];if(!v)continue;
+      var s0=subs[i][j],s1=subs[j][i];
+      var pA0=polar(cx,cy,R0,s0[0]),pA1=polar(cx,cy,R0,s0[1]),pB0=polar(cx,cy,R0,s1[0]),pB1=polar(cx,cy,R0,s1[1]);
+      var d='M'+pA0[0].toFixed(1)+' '+pA0[1].toFixed(1)
+        +' A'+R0+' '+R0+' 0 0 1 '+pA1[0].toFixed(1)+' '+pA1[1].toFixed(1)
+        +' Q'+cx+' '+cy+' '+pB0[0].toFixed(1)+' '+pB0[1].toFixed(1)
+        +' A'+R0+' '+R0+' 0 0 1 '+pB1[0].toFixed(1)+' '+pB1[1].toFixed(1)
+        +' Q'+cx+' '+cy+' '+pA0[0].toFixed(1)+' '+pA0[1].toFixed(1)+' Z';
+      var rb=add(svg,'path',{d:d,'class':'ic-rib'});rb.style.fill=PAL[i%5];rb.setAttribute('fill-opacity',.32);
+      hover(rb,names[i]+' ↔ '+names[j]+' · <b>'+v+'</b>','hi');}
+    // 外圈弧段压在 ribbon 之上
+    for(var k=0;k<n;k++){var arc=pth(svg,annular(cx,cy,R0,R1,arcs[k][0],arcs[k][1]),PAL[k%5],null,null,'ic-seg');
+      arc.setAttribute('fill-opacity',.92);arc.style.stroke='var(--paper)';arc.setAttribute('stroke-width',1.2);
+      hover(arc,'<b>'+names[k]+'</b> · 总关联 '+tot[k],'hi');
+      var lp=polar(cx,cy,R1+9,(arcs[k][0]+arcs[k][1])/2);txt(svg,lp[0],lp[1]+3.5,names[k],'middle','var(--ink-mute)',10.5);}
+  }
+  function force(host){
+    var svg=mksvg(host,360,214);
+    var N=[{x:180,y:58,n:'核心',c:0,r:15},{x:88,y:104,n:'A',c:1,r:10},{x:272,y:96,n:'B',c:2,r:11},
+      {x:126,y:168,n:'C',c:3,r:8},{x:236,y:170,n:'D',c:4,r:9},{x:46,y:56,n:'E',c:1,r:7},{x:318,y:52,n:'F',c:2,r:7},{x:182,y:146,n:'G',c:0,r:8}];
+    var E=[[0,1],[0,2],[0,7],[1,5],[1,3],[2,6],[2,4],[3,7],[4,7],[1,2]];
+    E.forEach(function(e){ln(svg,N[e[0]].x,N[e[0]].y,N[e[1]].x,N[e[1]].y,'var(--rule)',1.2);});
+    N.forEach(function(nd,i){var deg=E.filter(function(e){return e[0]===i||e[1]===i;}).length;
+      var c=ci(svg,nd.x,nd.y,nd.r,PAL[nd.c%5],.9);c.setAttribute('class','ic-seg');c.style.stroke='var(--paper)';c.setAttribute('stroke-width',1.5);hover(c,'<b>'+nd.n+'</b> · 连接数 '+deg,'hi');});
+  }
+  function arcdiag(host){
+    var svg=mksvg(host,360,214),y=150,n=8,x0=30,x1=330,xs=[];
+    for(var i=0;i<n;i++)xs.push(x0+i*(x1-x0)/(n-1));
+    ln(svg,x0-8,y,x1+8,y,'var(--rule)',1);
+    [[0,3,3],[1,5,2],[2,4,4],[0,7,1],[3,6,2],[4,7,3],[1,2,1],[5,7,2]].forEach(function(pr,k){var a=xs[pr[0]],b=xs[pr[1]],r=(b-a)/2;
+      var p=pth(svg,'M'+a+' '+y+' A'+r+' '+r+' 0 0 1 '+b+' '+y,'none',PAL[k%5],0.8+pr[2]*0.8,'ic-strk');p.setAttribute('stroke-opacity',.5);
+      hover(p,'节点'+(pr[0]+1)+' ↔ 节点'+(pr[1]+1)+' · <b>'+pr[2]+'</b>','hi');});
+    xs.forEach(function(x,i){ci(svg,x,y,4,'var(--ink-soft)');txt(svg,x,y+16,i+1,'middle','var(--ink-mute)',10);});
+  }
+  function causal(host){
+    var svg=mksvg(host,360,214),cx=180,cy=102,R=64,nodes=['需求','投入','产能','交付'];
+    for(var i=0;i<4;i++){var a0=-Math.PI/2+i*Math.PI/2+0.36,a1=-Math.PI/2+(i+1)*Math.PI/2-0.36;
+      var p0=polar(cx,cy,R,a0),p1=polar(cx,cy,R,a1);
+      pth(svg,'M'+p0[0].toFixed(1)+' '+p0[1].toFixed(1)+' A'+R+' '+R+' 0 0 1 '+p1[0].toFixed(1)+' '+p1[1].toFixed(1),'none','var(--ink-mute)',1.5);
+      var tx=-Math.sin(a1),ty=Math.cos(a1);   // 弧末端切向 → 箭头
+      arrow(svg,p1[0]-tx*7,p1[1]-ty*7,p1[0],p1[1],'var(--ink-mute)',1.5);
+      var sp=polar(cx,cy,R+13,(a0+a1)/2);txt(svg,sp[0],sp[1]+4,'+','middle','var(--accent)',13);}
+    nodes.forEach(function(nm,i){var p=polar(cx,cy,R,-Math.PI/2+i*Math.PI/2);
+      var c=ci(svg,p[0],p[1],20,'var(--rule-soft)',1);c.style.stroke='var(--rule)';c.setAttribute('stroke-width',1.5);c.setAttribute('class','ic-seg');
+      txt(svg,p[0],p[1]+4,nm,'middle','var(--ink-soft)',10.5);hover(c,'<b>'+nm+'</b>','hi');});
+    txt(svg,cx,cy+2,'R','middle','var(--accent)',15);txt(svg,cx,cy+18,'增强回路','middle','var(--ink-mute)',9.5);
+  }
+  function blueprint(host){
+    var svg=mksvg(host,360,214),lanes=['客户动作','前台接触','后台执行','支持系统'],lh=46,x0=76,stages=4,cw=(360-x0-8)/stages;
+    lanes.forEach(function(nm,i){var y=6+i*lh;rrect(svg,x0,y+4,360-x0-8,lh-8,4,'var(--rule-soft)',.5);txt(svg,x0-6,y+lh/2+3,nm,'end','var(--ink-mute)',10);
+      for(var s=0;s<stages;s++){if((i+s)%2===0){var bx=x0+s*cw+6;var r=rrect(svg,bx,y+12,cw-12,lh-24,3,PAL[i%5],i===0?.85:.5,'ic-seg');hover(r,'<b>'+nm+'</b> · 阶段'+(s+1),'hi');}}});
+    var ly=6+2*lh;ln(svg,x0,ly,352,ly,'var(--accent)',1.5,'3 3');txt(svg,x0+2,ly-3,'可视线','start','var(--accent)',9);
+  }
+  function swimlane(host){
+    var svg=mksvg(host,360,214),lanes=['角色 A','角色 B','角色 C'],lh=64,x0=62;
+    var steps=[{lane:0,x:88},{lane:1,x:158},{lane:2,x:228},{lane:1,x:298}];
+    lanes.forEach(function(nm,i){var y=8+i*lh;ln(svg,x0,y,352,y,'var(--rule-soft)',1);txt(svg,x0-6,y+lh/2+3,nm,'end','var(--ink-mute)',10);});
+    ln(svg,x0,8+3*lh,352,8+3*lh,'var(--rule-soft)',1);
+    steps.forEach(function(st,i){var cyv=8+st.lane*lh+lh/2;
+      if(i>0){var pv=steps[i-1],pcy=8+pv.lane*lh+lh/2;arrow(svg,pv.x+(st.x>pv.x?24:-24),pcy,st.x+(st.x>pv.x?-24:24),cyv,'var(--ink-mute)',1.4);}
+      var r=rrect(svg,st.x-24,cyv-13,48,26,4,PAL[i%5],.78,'ic-seg');hover(r,'步骤'+(i+1)+' · '+lanes[st.lane],'hi');txt(svg,st.x,cyv+4,'步骤'+(i+1),'middle','var(--paper)',10);});
+  }
+  function statemachine(host){
+    var svg=mksvg(host,360,214),Sn=[{x:58,y:104,n:'待机'},{x:172,y:56,n:'运行'},{x:172,y:152,n:'暂停'},{x:304,y:104,n:'结束'}];
+    function unit(x,y){var l=Math.hypot(x,y)||1;return [x/l,y/l];}
+    function trans(i,j,label,off){var a=Sn[i],b=Sn[j],dx=b.x-a.x,dy=b.y-a.y,L=Math.hypot(dx,dy);
+      var px=-dy/L,py=dx/L,cxp=(a.x+b.x)/2+px*off,cyp=(a.y+b.y)/2+py*off;
+      var us=unit(cxp-a.x,cyp-a.y),ue=unit(cxp-b.x,cyp-b.y);
+      var sx=a.x+us[0]*23,sy=a.y+us[1]*23,ex=b.x+ue[0]*23,ey=b.y+ue[1]*23;
+      pth(svg,'M'+sx.toFixed(1)+' '+sy.toFixed(1)+' Q'+cxp.toFixed(1)+' '+cyp.toFixed(1)+' '+ex.toFixed(1)+' '+ey.toFixed(1),'none','var(--ink-mute)',1.4);
+      var ad=unit(ex-cxp,ey-cyp);
+      pth(svg,'M'+ex+' '+ey+' L'+(ex-6*ad[0]+2.6*ad[1]).toFixed(1)+' '+(ey-6*ad[1]-2.6*ad[0]).toFixed(1)+' M'+ex+' '+ey+' L'+(ex-6*ad[0]-2.6*ad[1]).toFixed(1)+' '+(ey-6*ad[1]+2.6*ad[0]).toFixed(1),null,'var(--ink-mute)',1.4);
+      var bx=0.25*sx+0.5*cxp+0.25*ex,by=0.25*sy+0.5*cyp+0.25*ey;
+      txt(svg,bx+px*10,by+py*10,label,'middle','var(--ink-mute)',9.5);}
+    trans(0,1,'启动',14);trans(1,2,'挂起',18);trans(2,1,'恢复',18);trans(1,3,'完成',14);trans(2,3,'终止',14);
+    Sn.forEach(function(s,i){var c=ci(svg,s.x,s.y,21,i===3?'var(--accent)':'var(--rule-soft)',i===3?.9:1);if(i!==3){c.style.stroke='var(--accent)';c.setAttribute('stroke-width',1.6);}c.setAttribute('class','ic-seg');
+      txt(svg,s.x,s.y+4,s.n,'middle',i===3?'var(--paper)':'var(--ink-soft)',10.5);hover(c,'<b>'+s.n+'</b>','hi');});
+  }
+  function journey(host){
+    var svg=mksvg(host,360,214),stages=['认知','考虑','购买','使用','推荐'],n=5,x0=36,x1=330,top=42,bot=150,emo=[0.3,0.55,0.35,0.72,0.88];
+    function X(i){return x0+i*(x1-x0)/(n-1);}function Y(v){return bot-v*(bot-top);}
+    ln(svg,x0,bot,x1,bot,'var(--rule)',1);
+    var pts=emo.map(function(v,i){return [X(i),Y(v)];});
+    pth(svg,smooth(pts)+' L'+x1+' '+bot+' L'+x0+' '+bot+' Z','var(--s1)').setAttribute('fill-opacity',.1);
+    pth(svg,smooth(pts),'none','var(--s1)',2.4);
+    emo.forEach(function(v,i){var c=ci(svg,X(i),Y(v),5,'var(--s1)');c.setAttribute('class','ic-seg');hover(c,'<b>'+stages[i]+'</b> · 体验 '+Math.round(v*100),'hi');txt(svg,X(i),bot+16,stages[i],'middle','var(--ink-mute)',10);});
+    txt(svg,x0-5,top+3,'高','end','var(--ink-mute)',9);txt(svg,x0-5,bot,'低','end','var(--ink-mute)',9);
+  }
+  function parallelsets(host){
+    var d1=['低','中','高'],d2=['A','B','C'],nodes=[],links=[],mat=[[18,8,4],[6,20,9],[3,7,25]];
+    for(var c=0;c<3;c++)nodes.push({id:'p0'+c,label:d1[c],col:0,ci:c});
+    for(var c2=0;c2<3;c2++)nodes.push({id:'p1'+c2,label:d2[c2],col:1,ci:c2});
+    for(var i=0;i<3;i++)for(var j=0;j<3;j++)links.push({s:'p0'+i,t:'p1'+j,v:mat[i][j]});
+    flow(host,nodes,links,{mL:34,mR:34,link:function(l,s,t){return '维度1「'+s.label+'」× 维度2「'+t.label+'」· '+l.v;}});
+  }
+  function metro(host){
+    var svg=mksvg(host,360,214);
+    [{c:0,pts:[[30,50],[90,50],[130,90],[230,90],[290,50],[332,50]]},{c:1,pts:[[40,172],[100,172],[140,132],[204,132],[244,172],[322,172]]},
+      {c:3,pts:[[130,90],[140,132]]},{c:2,pts:[[60,28],[90,50],[100,110],[140,132]]}].forEach(function(L){var d='';L.pts.forEach(function(p,i){d+=(i?' L':'M')+p[0]+' '+p[1];});
+      pth(svg,d,'none','var(--paper)',6.5);   // 白色包边：交叉处线路互相“压线”
+      pth(svg,d,'none',PAL[L.c%5],3.4,'ic-strk').setAttribute('stroke-opacity',.9);});
+    [[30,50,0],[90,50,0],[130,90,1],[230,90,0],[290,50,0],[40,172,0],[140,132,1],[244,172,0],[322,172,0]].forEach(function(p,i){var big=p[2]===1;var c=ci(svg,p[0],p[1],big?5.5:3.5,'var(--paper)');c.style.stroke='var(--ink-soft)';c.setAttribute('stroke-width',big?2.2:1.6);c.setAttribute('class','ic-seg');hover(c,big?'<b>换乘站</b>':'站点 '+(i+1),'hi');});
+  }
+  function branching(host){
+    var svg=mksvg(host,360,214),y=112,x0=24,x1=336;ln(svg,x0,y,x1,y,'var(--s1)',3);
+    [60,130,200,270].forEach(function(x,i){var c=ci(svg,x,y,5,'var(--s1)');c.setAttribute('class','ic-seg');hover(c,'主线节点 '+(i+1),'hi');});
+    pth(svg,'M130 '+y+' C150 62 200 62 222 72','none','var(--s3)',2.4,'ic-strk').setAttribute('stroke-opacity',.85);ci(svg,222,72,4.5,'var(--s3)').setAttribute('class','ic-seg');
+    pth(svg,'M200 '+y+' C222 162 262 166 300 160','none','var(--s2)',2.4,'ic-strk').setAttribute('stroke-opacity',.85);ci(svg,300,160,4.5,'var(--s2)').setAttribute('class','ic-seg');
+    txt(svg,x0,y-11,'主线','start','var(--ink-mute)',10);txt(svg,226,66,'支线 A','start','var(--ink-mute)',9.5);txt(svg,304,158,'支线 B','start','var(--ink-mute)',9.5);
+  }
+  function radial(host){
+    var svg=mksvg(host,360,214),cx=180,cy=104,R=70,n=5,names=['计划','执行','检查','改进','复盘'],pos=[];
+    for(var i=0;i<n;i++)pos.push(polar(cx,cy,R,-Math.PI/2+i*2*Math.PI/n));
+    for(var i=0;i<n;i++){var a0=-Math.PI/2+i*2*Math.PI/n+0.38,a1=-Math.PI/2+(i+1)*2*Math.PI/n-0.38,p0=polar(cx,cy,R,a0),p1=polar(cx,cy,R,a1);
+      pth(svg,'M'+p0[0]+' '+p0[1]+' A'+R+' '+R+' 0 0 1 '+p1[0]+' '+p1[1],'none','var(--ink-mute)',1.5,'ic-strk');
+      var pb=polar(cx,cy,R,a1-0.03);arrow(svg,pb[0],pb[1],p1[0],p1[1],'var(--ink-mute)',1.5);}
+    pos.forEach(function(p,i){var c=ci(svg,p[0],p[1],19,PAL[i%5],.85);c.setAttribute('class','ic-seg');txt(svg,p[0],p[1]+4,names[i],'middle','var(--paper)',10.5);hover(c,'<b>'+names[i]+'</b> · 阶段'+(i+1),'hi');});
+    txt(svg,cx,cy+4,'循环','middle','var(--ink-mute)',11);
+  }
+
+  // ---- voronoi (half-plane clipping) ----
+  function vclip(poly,mx,my,nx,ny){var res=[];for(var i=0;i<poly.length;i++){var a=poly[i],b=poly[(i+1)%poly.length];
+    var da=(a[0]-mx)*nx+(a[1]-my)*ny,db=(b[0]-mx)*nx+(b[1]-my)*ny;
+    if(da<=0)res.push(a);if((da<0)!==(db<0)){var t=da/(da-db);res.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}}return res;}
+  function vcells(seeds,W,H){return seeds.map(function(s,i){var poly=[[0,0],[W,0],[W,H],[0,H]];
+    seeds.forEach(function(t,j){if(i===j)return;vpolyset(poly);poly=vclip(poly,(s[0]+t[0])/2,(s[1]+t[1])/2,t[0]-s[0],t[1]-s[1]);});return poly;});}
+  function vpolyset(){}
+  function polyD(poly){return 'M'+poly.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1);}).join(' L')+' Z';}
+  function centroid(poly){var c=poly.reduce(function(a,p){return [a[0]+p[0],a[1]+p[1]];},[0,0]);return [c[0]/poly.length,c[1]/poly.length];}
+
+  // ============ 二 · 层级与系统结构 17-28 ============
+  function circlepack(host){
+    var svg=mksvg(host,360,214);
+    var G=[{cx:90,cy:104,R:58,ci:0,ch:[[22,-18,-8],[16,20,-16],[14,-6,26],[11,26,20]]},
+      {cx:214,cy:80,R:46,ci:1,ch:[[19,-13,-8],[14,15,6],[10,-6,20]]},{cx:292,cy:152,R:40,ci:2,ch:[[16,-10,-6],[13,13,-6],[10,-2,17]]}];
+    G.forEach(function(g){ci(svg,g.cx,g.cy,g.R,PAL[g.ci%5],.12);
+      g.ch.forEach(function(c,i){var cc=ci(svg,g.cx+c[1],g.cy+c[2],c[0],PAL[g.ci%5],.72);cc.setAttribute('class','ic-seg');hover(cc,'类'+(g.ci+1)+' · 子项'+(i+1)+' · '+c[0],'hi');});});
+  }
+  function icicle(host){
+    var svg=mksvg(host,360,214),x0=8,W=344,rh=54,gap=2;
+    var data=[{n:'A',ci:0,ch:[{n:'a1',v:6},{n:'a2',v:4}]},{n:'B',ci:1,ch:[{n:'b1',v:8},{n:'b2',v:3},{n:'b3',v:3}]},{n:'C',ci:2,ch:[{n:'c1',v:5},{n:'c2',v:4}]}];
+    var total=0;data.forEach(function(p){p.v=p.ch.reduce(function(a,c){return a+c.v;},0);total+=p.v;});
+    rrect(svg,x0,12,W,rh-gap,3,'var(--ink-soft)',.5,'ic-seg');txt(svg,x0+7,12+rh/2,'根','start','var(--paper)',10.5);
+    var x=x0;data.forEach(function(p){var w=p.v/total*W;var r=rrect(svg,x+gap/2,12+rh,w-gap,rh-gap,3,PAL[p.ci%5],.8,'ic-seg');hover(r,'<b>'+p.n+'</b> · '+p.v,'hi');if(w>26)txt(svg,x+7,12+rh+rh/2,p.n,'start','var(--paper)',10.5);
+      var xx=x;p.ch.forEach(function(c){var cw=c.v/p.v*w;var r2=rrect(svg,xx+gap/2,12+rh*2,cw-gap,rh-gap,3,PAL[p.ci%5],.5,'ic-seg');hover(r2,p.n+' / '+c.n+' · '+c.v,'hi');xx+=cw;});x+=w;});
+  }
+  function dendrogram(host){
+    var svg=mksvg(host,360,214),rootX=180,rootY=26,mids=[{x:100,y:98},{x:262,y:98}];
+    var leaves=[{x:52,y:172,p:0},{x:112,y:172,p:0},{x:172,y:172,p:0},{x:232,y:172,p:1},{x:302,y:172,p:1}];
+    function elbow(x1,y1,x2,y2){var my=(y1+y2)/2;pth(svg,'M'+x1+' '+y1+' V'+my+' H'+x2+' V'+y2,'none','var(--rule)',1.5);}
+    mids.forEach(function(m){elbow(rootX,rootY+8,m.x,m.y-8);});leaves.forEach(function(l){elbow(mids[l.p].x,mids[l.p].y+8,l.x,l.y-8);});
+    ci(svg,rootX,rootY,7,'var(--s1)').setAttribute('class','ic-seg');
+    mids.forEach(function(m,i){var c=ci(svg,m.x,m.y,6,PAL[(i+1)%5],1);c.setAttribute('class','ic-seg');hover(c,'分支 '+(i+1),'hi');});
+    leaves.forEach(function(l,i){var c=ci(svg,l.x,l.y,5,'var(--ink-soft)');c.setAttribute('class','ic-seg');hover(c,'叶 '+(i+1),'hi');txt(svg,l.x,l.y+16,'L'+(i+1),'middle','var(--ink-mute)',9.5);});
+  }
+  function capability(host){
+    var svg=mksvg(host,360,214),doms=[{n:'领域 A',ci:0,caps:['能力 1','能力 2','能力 3']},{n:'领域 B',ci:1,caps:['能力 1','能力 2']},{n:'领域 C',ci:2,caps:['能力 1','能力 2','能力 3']}];
+    var x0=8,gap=10,cw=(360-16-gap*2)/3;
+    doms.forEach(function(d,i){var x=x0+i*(cw+gap);rrect(svg,x,8,cw,198,7,'var(--rule-soft)',.5);txt(svg,x+cw/2,26,d.n,'middle','var(--ink-soft)',11);
+      d.caps.forEach(function(c,j){var r=rrect(svg,x+8,38+j*40,cw-16,32,4,PAL[d.ci%5],.72,'ic-seg');hover(r,d.n+' · '+c,'hi');txt(svg,x+cw/2,38+j*40+20,c,'middle','var(--paper)',10);});});
+  }
+  function layered(host){
+    var svg=mksvg(host,360,214),layers=['界面 UI','业务流程','执行系统','数据','基础设施'],lh=37,x0=68,iw=360-x0-8;
+    layers.forEach(function(nm,i){var y=6+i*(lh+3.5);var b=rrect(svg,x0,y,iw,lh,5,PAL[i%5],.42,'ic-seg');hover(b,'<b>'+nm+'</b> 层','hi');txt(svg,x0-6,y+lh/2+3.5,nm,'end','var(--ink-mute)',10);
+      for(var m=0;m<3;m++){rrect(svg,x0+10+m*(iw-16)/3,y+8,(iw-16)/3-8,lh-16,3,PAL[i%5],.85);}
+      if(i<4)arrow(svg,x0+iw/2,y+lh+0.5,x0+iw/2,y+lh+3.5,'var(--ink-mute)',1.2);});
+  }
+  function exploded(host){
+    var svg=mksvg(host,360,214),cx=182,w=88,h=42,t=9,plates=[{y:48,ci:0,n:'表现层'},{y:102,ci:1,n:'逻辑层'},{y:156,ci:2,n:'数据层'}];
+    for(var i=0;i<plates.length-1;i++)ln(svg,cx,plates[i].y+h/2+t+1,cx,plates[i+1].y-h/2-1,'var(--rule)',1.2,'2 3');
+    plates.forEach(function(pl){var y=pl.y,col=PAL[pl.ci%5];
+      // 挤出侧面（左暗右中），顶面最亮 → 分面体积感
+      pth(svg,'M'+(cx-w)+' '+y+' L'+cx+' '+(y+h/2)+' L'+cx+' '+(y+h/2+t)+' L'+(cx-w)+' '+(y+t)+' Z',col).setAttribute('fill-opacity',.95);
+      pth(svg,'M'+(cx+w)+' '+y+' L'+cx+' '+(y+h/2)+' L'+cx+' '+(y+h/2+t)+' L'+(cx+w)+' '+(y+t)+' Z',col).setAttribute('fill-opacity',.72);
+      var f=pth(svg,'M'+cx+' '+(y-h/2)+' L'+(cx+w)+' '+y+' L'+cx+' '+(y+h/2)+' L'+(cx-w)+' '+y+' Z',col,null,null,'ic-seg');
+      f.setAttribute('fill-opacity',.5);f.style.stroke='var(--paper)';f.setAttribute('stroke-width',1.2);
+      hover(f,'<b>'+pl.n+'</b>','hi');txt(svg,cx-w-8,y+3.5,pl.n,'end','var(--ink-mute)',10);});
+  }
+  function orbit(host){
+    var svg=mksvg(host,360,214),cx=180,cy=104;
+    [46,80].forEach(function(R){var rng=ci(svg,cx,cy,R,'none');rng.style.stroke='var(--rule)';rng.setAttribute('stroke-width',1.2);rng.setAttribute('stroke-dasharray','2 4');});
+    var core=ci(svg,cx,cy,22,'var(--accent)',.9);core.setAttribute('class','ic-seg');txt(svg,cx,cy+4,'核心','middle','var(--paper)',10.5);hover(core,'<b>核心</b>','hi');
+    [[46,-0.6,1,'A'],[46,1.8,2,'B'],[46,3.6,3,'C'],[80,-1.5,4,'D'],[80,0.5,1,'E'],[80,2.5,2,'F']].forEach(function(s){var p=polar(cx,cy,s[0],s[1]);var c=ci(svg,p[0],p[1],9,PAL[s[2]%5],.85);c.setAttribute('class','ic-seg');txt(svg,p[0],p[1]+3.5,s[3],'middle','var(--paper)',9.5);hover(c,'卫星 '+s[3],'hi');});
+  }
+  function honeycomb(host){
+    var svg=mksvg(host,360,214),r=27,cx=180,cy=104,labels=['核心','品牌','内容','渠道','数据','服务','增长'];
+    function hpts(x,y){var s='';for(var i=0;i<6;i++){var a=Math.PI/180*(60*i-90);s+=(x+r*Math.cos(a))+','+(y+r*Math.sin(a))+' ';}return s.trim();}
+    var C=[[cx,cy]];for(var i=0;i<6;i++){var a=Math.PI/180*(60*i);C.push([cx+Math.sqrt(3)*r*Math.cos(a),cy+Math.sqrt(3)*r*Math.sin(a)]);}
+    C.forEach(function(p,i){var poly=add(svg,'polygon',{points:hpts(p[0],p[1]),'class':'ic-seg'});poly.style.fill=PAL[i%5];poly.setAttribute('fill-opacity',i===0?.9:.6);poly.style.stroke='var(--paper)';poly.setAttribute('stroke-width',1.5);
+      txt(svg,p[0],p[1]+3.5,labels[i],'middle',i===0?'var(--paper)':'var(--ink-soft)',9.5);hover(poly,'<b>'+labels[i]+'</b>','hi');});
+  }
+  function voronoi(host){
+    var svg=mksvg(host,360,214),seeds=[[70,62],[182,50],[292,70],[112,152],[232,160],[312,150],[180,118]];
+    vcells(seeds,360,214).forEach(function(poly,i){if(poly.length<3)return;var pa=pth(svg,polyD(poly),PAL[i%5],null,null,'ic-seg');pa.setAttribute('fill-opacity',.42);pa.style.stroke='var(--paper)';pa.setAttribute('stroke-width',1.2);hover(pa,'区域 '+(i+1),'hi');});
+    seeds.forEach(function(s){ci(svg,s[0],s[1],3,'var(--ink)');});
+  }
+  function voronoitree(host){
+    var svg=mksvg(host,360,214),seeds=[[80,72,18],[192,58,12],[292,82,15],[120,160,9],[242,166,11],[320,150,7]];
+    vcells(seeds.map(function(s){return [s[0],s[1]];}),360,214).forEach(function(poly,i){if(poly.length<3)return;var op=[.85,.6,.45][i%3];
+      var pa=pth(svg,polyD(poly),PAL[i%5],null,null,'ic-seg');pa.setAttribute('fill-opacity',op);pa.style.stroke='var(--paper)';pa.setAttribute('stroke-width',1.5);
+      var c=centroid(poly);txt(svg,c[0],c[1]+3.5,seeds[i][2],'middle','var(--paper)',11);hover(pa,'区块 '+(i+1)+' · '+seeds[i][2],'hi');});
+  }
+  function constellation(host){
+    var svg=mksvg(host,360,214),cores=[[112,82,'主题 A'],[250,128,'主题 B']],small=[[70,50],[92,112],[142,60],[132,122],[60,92],[220,88],[292,100],[270,170],[230,158],[302,150],[180,120]];
+    small.forEach(function(p){var c=Math.hypot(p[0]-cores[0][0],p[1]-cores[0][1])<Math.hypot(p[0]-cores[1][0],p[1]-cores[1][1])?cores[0]:cores[1];ln(svg,p[0],p[1],c[0],c[1],'var(--rule)',0.8);});
+    small.forEach(function(p){var k=Math.hypot(p[0]-cores[0][0],p[1]-cores[0][1])<Math.hypot(p[0]-cores[1][0],p[1]-cores[1][1])?0:1;var c=ci(svg,p[0],p[1],3.5,PAL[k%5],.85);c.setAttribute('class','ic-seg');hover(c,'外围节点','hi');});
+    cores.forEach(function(c,i){var cc=ci(svg,c[0],c[1],13,PAL[i%5],.9);cc.setAttribute('class','ic-seg');txt(svg,c[0],c[1]+4,'★','middle','var(--paper)',12);hover(cc,'<b>'+c[2]+'</b>','hi');});
+  }
+  function cutaway(host){
+    var svg=mksvg(host,360,214),cx=180,cy=104,a0=-Math.PI/2+0.5,a1=-Math.PI/2+2*Math.PI-0.5;
+    [{r0:0,r1:34,ci:0,n:'核心'},{r0:34,r1:60,ci:1,n:'中层'},{r0:60,r1:86,ci:2,n:'外层'}].forEach(function(L){var d;
+      if(L.r0===0){var pa0=polar(cx,cy,L.r1,a0),pa1=polar(cx,cy,L.r1,a1);d='M'+cx+' '+cy+' L'+pa0[0]+' '+pa0[1]+' A'+L.r1+' '+L.r1+' 0 1 1 '+pa1[0]+' '+pa1[1]+' Z';}
+      else d=annular(cx,cy,L.r0,L.r1,a0,a1);
+      var p=pth(svg,d,PAL[L.ci%5],null,null,'ic-seg');p.setAttribute('fill-opacity',.8);p.style.stroke='var(--paper)';p.setAttribute('stroke-width',1.5);
+      var lp=polar(cx,cy,(L.r0+L.r1)/2,Math.PI);hover(p,'<b>'+L.n+'</b>','hi');txt(svg,lp[0],lp[1]+3.5,L.n,'middle','var(--paper)',9.5);});
+  }
+
+  // ============ 三 · 变化 · 比较 · 多维 31-40 ============
+  function parcoord(host){
+    var svg=mksvg(host,360,214),dims=['维度 1','维度 2','维度 3','维度 4'],nA=4,x0=42,x1=322,top=30,bot=176;
+    var data=[[.8,.3,.6,.9],[.4,.7,.5,.3],[.6,.5,.85,.6],[.2,.9,.3,.7],[.9,.2,.7,.4],[.5,.6,.4,.85]];
+    function X(i){return x0+i*(x1-x0)/(nA-1);}function Y(v){return bot-v*(bot-top);}
+    dims.forEach(function(nm,i){ln(svg,X(i),top,X(i),bot,'var(--rule)',1);txt(svg,X(i),bot+15,nm,'middle','var(--ink-mute)',9.5);});
+    data.forEach(function(row,k){var d='';row.forEach(function(v,i){d+=(i?' L':'M')+X(i)+' '+Y(v);});var p=pth(svg,d,'none',PAL[k%5],1.8,'ic-strk');p.setAttribute('stroke-opacity',.55);hover(p,'对象 '+(k+1),'hi');});
+  }
+  function heatmap(host){
+    var svg=mksvg(host,360,214),cols=7,rows=5,x0=32,y0=12,cw=(360-x0-8)/7,ch=(178-y0)/5,gap=2;
+    for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){var v=(Math.sin(r*1.3+c*0.7)+1)/2*0.85+0.1;
+      var rect=rrect(svg,x0+c*cw+gap/2,y0+r*ch+gap/2,cw-gap,ch-gap,2,'var(--s1)',0.14+v*0.8,'ic-seg');hover(rect,'行 '+(r+1)+' · 列 '+(c+1)+' · '+Math.round(v*100),'hi');}
+    for(var c=0;c<cols;c++)txt(svg,x0+c*cw+cw/2,y0+rows*ch+15,'C'+(c+1),'middle','var(--ink-mute)',9);
+    for(var r=0;r<rows;r++)txt(svg,x0-6,y0+r*ch+ch/2+3,'R'+(r+1),'end','var(--ink-mute)',9);
+  }
+  function streamgraph(host){
+    var svg=mksvg(host,360,214),n=9,S=4,x0=14,x1=346,midY=100,f=4.2,data=[];
+    for(var s=0;s<S;s++){var row=[];for(var t=0;t<n;t++)row.push(4+3*Math.sin(t*0.7+s*1.5));data.push(row);}
+    function X(t){return x0+t*(x1-x0)/(n-1);}
+    var acc=[];for(var t=0;t<n;t++){var tot=0;for(var s=0;s<S;s++)tot+=data[s][t];acc.push(midY-tot*f/2);}
+    for(var s=0;s<S;s++){var tp=[],bt=[];for(var t=0;t<n;t++){var yy0=acc[t],yy1=yy0+data[s][t]*f;tp.push([X(t),yy0]);bt.push([X(t),yy1]);acc[t]=yy1;}
+      var d=smooth(tp)+smooth(bt.reverse()).replace('M',' L')+' Z';
+      var pa=pth(svg,d,PAL[s%5],null,null,'ic-seg');pa.setAttribute('fill-opacity',.72);pa.style.stroke='var(--paper)';pa.setAttribute('stroke-width',1);hover(pa,'序列 '+(s+1),'hi');}
+  }
+  function bump(host){
+    var svg=mksvg(host,360,214),T=5,N=5,x0=42,x1=318,top=28,bot=176;
+    var ranks=[[1,2,1,3,2],[2,1,3,1,1],[3,4,2,2,4],[4,3,5,4,3],[5,5,4,5,5]];
+    function X(t){return x0+t*(x1-x0)/(T-1);}function Y(r){return top+(r-1)*(bot-top)/(N-1);}
+    for(var t=0;t<T;t++)txt(svg,X(t),bot+15,'T'+(t+1),'middle','var(--ink-mute)',9.5);
+    ranks.forEach(function(row,k){var pts=row.map(function(r,t){return [X(t),Y(r)];});var p=pth(svg,smooth(pts),'none',PAL[k%5],2.2,'ic-strk');p.setAttribute('stroke-opacity',.7);hover(p,'项 '+(k+1)+' · 排名变化','hi');
+      row.forEach(function(r,t){ci(svg,X(t),Y(r),3.5,PAL[k%5],1);});txt(svg,x0-8,Y(row[0])+3,'项'+(k+1),'end','var(--ink-mute)',9.5);});
+  }
+  function ridgeline(host){
+    var svg=mksvg(host,360,214),rows=4,x0=30,x1=330,rowH=30,base0=170,amp=42,means=[.3,.5,.55,.72],sig=[.13,.16,.12,.15];
+    for(var r=rows-1;r>=0;r--){var baseY=base0-r*rowH,d='M'+x0+' '+baseY;
+      for(var i=0;i<=40;i++){var xx=i/40,X=x0+xx*(x1-x0),y=baseY-amp*Math.exp(-Math.pow(xx-means[r],2)/(2*sig[r]*sig[r]));d+=' L'+X.toFixed(1)+' '+y.toFixed(1);}
+      d+=' L'+x1+' '+baseY+' Z';var pa=pth(svg,d,PAL[r%5],null,'var(--paper)',1.2,'ic-seg');pa.setAttribute('fill-opacity',.62);hover(pa,'分布 '+(r+1),'hi');txt(svg,x0-4,baseY-2,'D'+(r+1),'end','var(--ink-mute)',9);}
+  }
+  function beeswarm(host){
+    var svg=mksvg(host,360,214),x0=24,x1=336,cy=100,rad=4.2,N=38,vals=[];
+    for(var i=0;i<N;i++)vals.push((Math.sin(i*1.7)*0.5+0.5)*0.66+(i%5)*0.05);
+    vals.sort(function(a,b){return a-b;});var placed=[];
+    vals.forEach(function(v){var x=x0+v*(x1-x0),y=cy,step=0;
+      while(placed.some(function(p){return Math.hypot(p.x-x,p.y-y)<rad*2;})&&step<30){step++;y=cy+(step%2?1:-1)*Math.ceil(step/2)*rad*1.8;}
+      placed.push({x:x,y:Math.max(24,Math.min(178,y)),v:v});});
+    placed.forEach(function(p,i){var c=ci(svg,p.x,p.y,rad,'var(--s1)',.72);c.setAttribute('class','ic-seg');hover(c,'样本 · '+p.v.toFixed(2),'hi');});
+    ln(svg,x0,192,x1,192,'var(--rule)',1);txt(svg,x0,204,'低','start','var(--ink-mute)',9);txt(svg,x1,204,'高','end','var(--ink-mute)',9);
+  }
+  function marimekko(host){
+    var svg=mksvg(host,360,214),cats=[{n:'A',v:30,seg:[.5,.3,.2]},{n:'B',v:22,seg:[.3,.45,.25]},{n:'C',v:28,seg:[.4,.25,.35]},{n:'D',v:18,seg:[.2,.5,.3]}];
+    var total=cats.reduce(function(a,c){return a+c.v;},0),x0=8,W=344,y0=12,Hh=176,gap=2,x=x0;
+    cats.forEach(function(c){var cw=c.v/total*W,y=y0;c.seg.forEach(function(pv,r){var sh=pv*Hh;var rect=rrect(svg,x+gap/2,y+gap/2,cw-gap,sh-gap,2,PAL[r%5],.72,'ic-seg');hover(rect,c.n+' · 分段 '+(r+1)+' · '+Math.round(pv*100)+'%','hi');y+=sh;});
+      txt(svg,x+cw/2,y0+Hh+14,c.n+'·'+c.v,'middle','var(--ink-mute)',9.5);x+=cw;});
+  }
+  function calheat(host){
+    var svg=mksvg(host,360,214),weeks=12,x0=26,y0=12,cw=(360-x0-8)/12,ch=24,gap=2,dl=['一','二','三','四','五','六','日'];
+    for(var w=0;w<weeks;w++)for(var d=0;d<7;d++){var v=(Math.sin(w*0.9+d*0.7)+1)/2*0.8+0.08;
+      var rect=rrect(svg,x0+w*cw+gap/2,y0+d*ch+gap/2,cw-gap,ch-gap,2,'var(--s1)',0.12+v*0.8,'ic-seg');hover(rect,'第 '+(w+1)+' 周 · 周'+dl[d]+' · '+Math.round(v*100),'hi');}
+    for(var d=0;d<7;d+=2)txt(svg,x0-5,y0+d*ch+ch/2+3,dl[d],'end','var(--ink-mute)',9);
+  }
+  function slopegraph(host){
+    var svg=mksvg(host,360,214),xL=126,xR=234,top=26,bot=180,items=[{n:'甲',a:.8,b:.5},{n:'乙',a:.5,b:.78},{n:'丙',a:.3,b:.36},{n:'丁',a:.65,b:.92},{n:'戊',a:.45,b:.2}];
+    function Y(v){return bot-v*(bot-top);}
+    ln(svg,xL,top-6,xL,bot+6,'var(--rule)',1);ln(svg,xR,top-6,xR,bot+6,'var(--rule)',1);
+    txt(svg,xL,top-12,'之前','middle','var(--ink-mute)',10);txt(svg,xR,top-12,'之后','middle','var(--ink-mute)',10);
+    items.forEach(function(it,k){var p=pth(svg,'M'+xL+' '+Y(it.a)+' L'+xR+' '+Y(it.b),'none',PAL[k%5],2,'ic-strk');p.setAttribute('stroke-opacity',.72);hover(p,it.n+' · '+Math.round(it.a*100)+' → '+Math.round(it.b*100),'hi');
+      ci(svg,xL,Y(it.a),3.5,PAL[k%5],1);ci(svg,xR,Y(it.b),3.5,PAL[k%5],1);txt(svg,xL-8,Y(it.a)+3,it.n,'end','var(--ink-mute)',9.5);txt(svg,xR+8,Y(it.b)+3,it.n,'start','var(--ink-mute)',9.5);});
+  }
+  function bullet(host){
+    var svg=mksvg(host,360,214),rows=[{n:'营收',v:.72,t:.85},{n:'转化',v:.9,t:.7},{n:'留存',v:.55,t:.65},{n:'满意度',v:.8,t:.75}];
+    var x0=68,W=276,rh=44,bh=18;
+    rows.forEach(function(r,i){var y=16+i*rh;rrect(svg,x0,y,W,bh,3,'var(--ink-soft)',.13);rrect(svg,x0,y,W*0.66,bh,3,'var(--ink-soft)',.10);
+      var bar=rrect(svg,x0,y+bh*0.22,W*r.v,bh*0.56,2,'var(--s1)',.9,'ic-seg');hover(bar,'<b>'+r.n+'</b> · 实际 '+Math.round(r.v*100)+' / 目标 '+Math.round(r.t*100),'hi');
+      ln(svg,x0+W*r.t,y-2,x0+W*r.t,y+bh+2,'var(--accent)',2.4);txt(svg,x0-6,y+bh/2+3.5,r.n,'end','var(--ink-mute)',10);});
+  }
+
+  var R={sankey:sankey,alluvial:alluvial,sunburst:sunburst,treemap:treemap,smallmultiples:smallmultiples,storyboard:storyboard,
+    chord:chord,force:force,arcdiag:arcdiag,causal:causal,blueprint:blueprint,swimlane:swimlane,statemachine:statemachine,journey:journey,parallelsets:parallelsets,metro:metro,branching:branching,radial:radial,
+    circlepack:circlepack,icicle:icicle,dendrogram:dendrogram,capability:capability,layered:layered,exploded:exploded,orbit:orbit,honeycomb:honeycomb,voronoi:voronoi,voronoitree:voronoitree,constellation:constellation,cutaway:cutaway,
+    parcoord:parcoord,heatmap:heatmap,streamgraph:streamgraph,bump:bump,ridgeline:ridgeline,beeswarm:beeswarm,marimekko:marimekko,calheat:calheat,slopegraph:slopegraph,bullet:bullet};
+  [].forEach.call(root.querySelectorAll('.ic-stage[data-chart]'),function(host){var fn=R[host.getAttribute('data-chart')];if(fn)fn(host);});
+})();
+</script>
