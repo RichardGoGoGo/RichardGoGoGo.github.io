@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
     <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-BaDmmGCG.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BFHK9bc-.css">
+  <script type="module" crossorigin src="./assets/index-DuJJ6Kg4.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Alb2xjTq.css">
 </head>
 <body>
     <div id="game-container">
@@ -38,6 +39,8 @@
                 <div class="equip-slot" data-slot="feet" title="足部"><span class="equip-slot-label">足</span></div>
             </div>
             <div id="affix-info" class="affix-info" style="display:none"></div>
+
+            <div id="run-progress-info" class="run-progress-info" style="display:none"></div>
 
             <div class="section-title">心法 <span id="cult-slot-info">(0/1)</span></div>
             <div class="cult-slots" id="cult-slots"></div>
@@ -106,6 +109,7 @@
                             <div class="hp-bar" id="player-hp-bar"></div>
                             <span class="hp-text" id="player-hp-text"></span>
                         </div>
+                        <div class="player-battle-effects" id="player-battle-effects"></div>
                     </div>
                     <span class="vs-text">VS</span>
                     <div class="battle-enemies" id="battle-enemies"></div>
@@ -115,7 +119,6 @@
                 <div class="battle-controls">
                     <button class="btn" id="btn-auto-battle">自动: 关</button>
                     <button class="btn" id="btn-skip-battle">跳过战斗</button>
-                    <button class="btn" id="btn-battle-speed">速度: 1x</button>
                 </div>
             </div>
 
