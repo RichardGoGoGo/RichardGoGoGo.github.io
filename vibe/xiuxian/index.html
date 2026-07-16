@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
     <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-DuJJ6Kg4.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Alb2xjTq.css">
+  <script type="module" crossorigin src="./assets/index-DfBqfJds.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-fgzUAaGp.css">
 </head>
 <body>
     <div id="game-container">
@@ -16,6 +16,7 @@
                 <div class="char-portrait" id="char-portrait">剑</div>
                 <div class="char-name" id="char-name-display">无名修士</div>
                 <div class="char-realm" id="char-realm-display">炼气初期</div>
+                <button class="path-entry" id="btn-path" type="button">道途总览</button>
             </div>
 
             <div class="char-bars">
@@ -46,7 +47,12 @@
             <div class="cult-slots" id="cult-slots"></div>
 
             <div class="section-title">背包 <span id="inv-count">(0/20)</span></div>
-            <div class="inventory-grid" id="inventory-grid"></div>
+            <p class="inventory-help">拖至装备格穿戴，拖回背包卸下</p>
+            <div class="inventory-grid" id="inventory-grid" data-drop-kind="inventory" aria-label="背包卸下区域"></div>
+            <div class="inventory-discard" id="inventory-discard" data-drop-kind="discard" role="button" aria-label="拖动道具到这里永久丢弃">
+                <span class="inventory-discard-mark" aria-hidden="true">弃</span>
+                <span><b>丢弃栏</b><small>拖到此处永久丢弃</small></span>
+            </div>
         </div>
 
         <!-- CENTER PANEL: Main content -->
@@ -54,8 +60,9 @@
             <!-- Main Menu -->
             <div id="screen-main-menu" class="screen active">
                 <div class="title-art">
+                    <span class="menu-kicker">北境 · 问道</span>
                     <h1 class="game-title">北境修仙录</h1>
-                    <p class="game-subtitle">Roguelike 文字修仙</p>
+                    <p class="game-subtitle">踏雪问道，百死求真</p>
                 </div>
                 <div class="menu-buttons">
                     <button class="btn btn-primary" id="btn-new-game">开始修仙</button>
@@ -76,10 +83,12 @@
             <!-- Stronghold Screen -->
             <div id="screen-stronghold" class="screen">
                 <div class="panel">
+                    <span class="stronghold-kicker">北境行迹</span>
                     <h2 id="stronghold-name"></h2>
                     <p id="stronghold-desc"></p>
                     <div id="realm-info" class="realm-info"></div>
                     <div id="stronghold-progress"></div>
+                    <span class="stronghold-route-label">前路</span>
                     <div class="stronghold-actions">
                         <button class="btn btn-primary" id="btn-next-stage">进入下一关</button>
                         <button class="btn btn-breakthrough" id="btn-breakthrough" style="display:none">突破境界</button>
@@ -102,6 +111,10 @@
 
             <!-- Battle Screen (1vN: click an enemy card to attack it) -->
             <div id="screen-battle" class="screen">
+                <div class="battle-order-mark" aria-hidden="true">
+                    <span>战局</span>
+                    <strong>你先出手</strong>
+                </div>
                 <div class="battle-header">
                     <div class="combatant player-side">
                         <span class="combatant-name" id="player-name"></span>
@@ -143,11 +156,20 @@
                 </div>
             </div>
 
+            <!-- Build path and run statistics -->
+            <div id="screen-path" class="screen">
+                <div class="path-shell">
+                    <div id="path-content"></div>
+                    <button class="btn" id="btn-path-back" type="button">返回据点</button>
+                </div>
+            </div>
+
             <!-- Event Screen -->
             <div id="screen-event" class="screen">
                 <div class="panel event-panel">
                     <h2 id="event-title" style="color:var(--accent-gold)"></h2>
                     <p id="event-desc" style="margin:1rem 0;line-height:1.8"></p>
+                    <div id="event-workbench"></div>
                     <p id="event-result" style="color:var(--rarity-green);margin:0.5rem 0"></p>
                     <div id="event-loot"></div>
                     <div class="event-actions">
