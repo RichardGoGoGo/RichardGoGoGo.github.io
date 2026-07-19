@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
     <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-C38jJ1lN.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DpJb4I97.css">
+  <script type="module" crossorigin src="./assets/index-BFRCIllg.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DTJPurMz.css">
 </head>
 <body>
     <div id="game-container">
@@ -44,6 +44,7 @@
                             <div class="equip-slot treasure-slot" data-slot="treasure_2" data-label="法宝二" title="法宝二"><span class="equip-slot-label">宝二</span></div>
                             <div class="equip-slot treasure-slot" data-slot="treasure_3" data-label="法宝三" title="法宝三"><span class="equip-slot-label">宝三</span></div>
                             <div class="equip-slot treasure-slot" data-slot="treasure_4" data-label="法宝四" title="法宝四"><span class="equip-slot-label">宝四</span></div>
+                            <div class="equip-slot treasure-slot origin-extra-slot" data-slot="treasure_5" data-label="法宝五" title="法宝五"><span class="equip-slot-label">宝五</span></div>
                         </div>
                     </div>
                 </div>
@@ -181,6 +182,15 @@
                                     aria-hidden="true"
                                 ></div>
                                 <span class="combatant-name" id="player-name"></span>
+                                <button
+                                    class="breakthrough-card-cta"
+                                    id="btn-breakthrough-card"
+                                    type="button"
+                                    hidden
+                                >
+                                    <small>修为圆满</small>
+                                    <strong>可突破境界</strong>
+                                </button>
                             </div>
                             <div class="player-combatant-main">
                                 <div class="hp-bar-container">
@@ -219,15 +229,6 @@
                                 style="display:none"
                                 aria-label="人物行功进度"
                             ></div>
-                            <button
-                                class="breakthrough-card-cta"
-                                id="btn-breakthrough-card"
-                                type="button"
-                                hidden
-                            >
-                                <small>修为圆满</small>
-                                <strong>可突破境界</strong>
-                            </button>
                         </div>
                     </div>
                     <div class="battle-controls">
