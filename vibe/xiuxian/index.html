@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
     <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-BN8ZL8hC.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-fxD3xQmg.css">
+  <script type="module" crossorigin src="./assets/index-C38jJ1lN.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DpJb4I97.css">
 </head>
 <body>
     <div id="game-container">
@@ -35,16 +35,25 @@
                     <div class="equip-slot" data-slot="head" data-label="头部" title="头部"><span class="equip-slot-label">头</span></div>
                     <div class="equip-slot" data-slot="body" data-label="身体" title="身体"><span class="equip-slot-label">身</span></div>
                     <div class="equip-slot" data-slot="feet" data-label="足部" title="足部"><span class="equip-slot-label">足</span></div>
-                    <div class="equip-slot treasure-slot" data-slot="treasure" data-label="法宝" title="法宝"><span class="equip-slot-label">宝</span></div>
+                    <div class="treasure-slot-dock">
+                        <div class="treasure-slot-dock-heading">
+                            <span>法宝</span><small>随境界解锁</small>
+                        </div>
+                        <div class="treasure-slot-row">
+                            <div class="equip-slot treasure-slot" data-slot="treasure_1" data-label="法宝一" title="法宝一"><span class="equip-slot-label">宝一</span></div>
+                            <div class="equip-slot treasure-slot" data-slot="treasure_2" data-label="法宝二" title="法宝二"><span class="equip-slot-label">宝二</span></div>
+                            <div class="equip-slot treasure-slot" data-slot="treasure_3" data-label="法宝三" title="法宝三"><span class="equip-slot-label">宝三</span></div>
+                            <div class="equip-slot treasure-slot" data-slot="treasure_4" data-label="法宝四" title="法宝四"><span class="equip-slot-label">宝四</span></div>
+                        </div>
+                    </div>
                 </div>
                 <div id="affix-info" class="affix-info" style="display:none"></div>
-                <div class="cultivation-dock">
-                    <div class="section-title">心法 <span id="cult-slot-info">(0/1)</span></div>
-                    <div class="cult-slots" id="cult-slots"></div>
-                </div>
             </div>
 
-            <div class="section-title">背包 <span id="inv-count">(0/20)</span></div>
+            <div class="section-title inventory-title">
+                <span>背包 <span id="inv-count">(0/20)</span></span>
+                <span class="spirit-stone-balance" title="云游商铺使用的单局货币">灵石 <b id="spirit-stones">24</b></span>
+            </div>
             <p class="inventory-help">拖至人形对应部位穿戴，拖回背包卸下</p>
             <div class="inventory-grid" id="inventory-grid" data-drop-kind="inventory" aria-label="背包卸下区域"></div>
             <div class="inventory-discard" id="inventory-discard" data-drop-kind="discard" role="button" aria-label="拖动道具到这里永久丢弃">
@@ -104,7 +113,13 @@
             <div id="screen-origin" class="screen">
                 <div class="loot-overlay">
                     <h2 class="loot-title">择道而行</h2>
-                    <p class="loot-subtitle">选择你的出身，踏上修仙之路</p>
+                    <p class="loot-subtitle">先定行者之身，再选此世道途</p>
+                    <div
+                        class="origin-gender-picker"
+                        id="origin-gender-picker"
+                        role="group"
+                        aria-label="选择行者性别"
+                    ></div>
                     <div class="loot-cards" id="origin-cards"></div>
                 </div>
             </div>
@@ -112,9 +127,34 @@
             <!-- Persistent adventure scene: route, combat and events share one screen -->
             <div id="screen-battle" class="screen">
                 <header class="adventure-hud" aria-label="当前行程">
-                    <nav id="stronghold-progress" class="adventure-route" aria-label="据点路线"></nav>
-                    <button class="btn btn-breakthrough adventure-breakthrough" id="btn-breakthrough" style="display:none">突破境界</button>
+                    <div class="adventure-hud-main">
+                        <nav id="stronghold-progress" class="adventure-route" aria-label="据点路线"></nav>
+                        <button class="btn btn-breakthrough adventure-breakthrough" id="btn-breakthrough" style="display:none">突破境界</button>
+                    </div>
+                    <button
+                        id="region-omen"
+                        class="region-omen"
+                        type="button"
+                        aria-expanded="false"
+                        aria-label="查看当前区域劫兆"
+                    >
+                        <span class="region-omen-mark" aria-hidden="true">兆</span>
+                        <span class="region-omen-copy">
+                            <small>区域劫兆</small>
+                            <strong id="region-omen-title">劫兆未显</strong>
+                            <span id="region-omen-detail">继续前行以窥见此地首领术式</span>
+                        </span>
+                    </button>
+                    <div id="route-choice" class="route-choice" hidden aria-label="路线选择"></div>
                 </header>
+
+                <section id="route-scene" class="adventure-scene route-scene" hidden>
+                    <span class="route-scene-kicker">观兆择路</span>
+                    <div class="route-scene-glyph" aria-hidden="true">
+                        <i></i><b>岔</b><i></i>
+                    </div>
+                    <p>两条路都已写明代价，选择后才会显出下一幕。</p>
+                </section>
 
                 <section id="battle-scene" class="adventure-scene battle-scene">
                     <div class="battle-order-mark" aria-live="polite">
@@ -122,19 +162,53 @@
                         <strong id="battle-phase-detail">首次出手锁定装备</strong>
                     </div>
                     <div class="battle-header">
+                        <div class="battle-flight-layer" id="battle-flight-layer" aria-hidden="true"></div>
+                        <div class="battle-enemies" id="battle-enemies" aria-label="敌方卡阵"></div>
+                        <div class="battle-stage" id="battle-stage" aria-label="战斗动画舞台">
+                            <div class="battle-stage-sigil" aria-hidden="true"></div>
+                            <div id="battle-cause-chain" class="battle-cause-chain" aria-live="polite">
+                                <span class="cause-chain-placeholder">出手后按结算顺序显现因果</span>
+                            </div>
+                            <div class="battle-log" id="battle-log" hidden aria-hidden="true"></div>
+                            <p class="battle-hint" id="battle-hint" hidden></p>
+                        </div>
                         <div class="combatant player-side" id="player-combatant">
+                            <div class="card-float-layer" aria-hidden="true"></div>
                             <div class="player-combatant-head">
                                 <div
                                     class="player-combatant-avatar"
                                     id="player-combatant-avatar"
                                     aria-hidden="true"
                                 ></div>
-                                <div class="player-combatant-main">
-                                    <span class="combatant-name" id="player-name"></span>
-                                    <div class="hp-bar-container">
-                                        <div class="hp-bar" id="player-hp-bar"></div>
-                                        <span class="hp-text" id="player-hp-text"></span>
-                                    </div>
+                                <span class="combatant-name" id="player-name"></span>
+                            </div>
+                            <div class="player-combatant-main">
+                                <div class="hp-bar-container">
+                                    <div class="hp-bar" id="player-hp-bar"></div>
+                                    <span class="card-vital-label">气血</span>
+                                    <span class="hp-text" id="player-hp-text"></span>
+                                </div>
+                                <div
+                                    class="card-armor-line defense-resource-control"
+                                    id="player-armor-line"
+                                    role="button"
+                                    tabindex="0"
+                                    aria-label="查看护甲说明"
+                                >
+                                    <div class="card-armor-fill" id="player-armor-bar"></div>
+                                    <span>护甲</span>
+                                    <strong id="player-armor-text">0</strong>
+                                </div>
+                                <div
+                                    class="card-guard-line defense-resource-control"
+                                    id="player-guard-line"
+                                    role="button"
+                                    tabindex="0"
+                                    aria-label="查看坚守说明"
+                                >
+                                    <div class="card-guard-fill" id="player-guard-bar"></div>
+                                    <span>坚守</span>
+                                    <strong id="player-guard-text">0/0</strong>
                                 </div>
                             </div>
                             <span class="player-card-fx-label" id="player-card-fx-label" aria-hidden="true"></span>
@@ -155,15 +229,6 @@
                                 <strong>可突破境界</strong>
                             </button>
                         </div>
-                        <div class="battle-narrative">
-                            <div class="battle-log-toolbar">
-                                <span id="battle-log-title">本场战报</span>
-                                <button id="btn-review-last-battle" type="button" hidden>回顾上场战斗</button>
-                            </div>
-                            <div class="battle-log" id="battle-log" aria-label="战斗记录"></div>
-                            <p class="battle-hint" id="battle-hint">点击敌人，以当前装备出手并开战</p>
-                        </div>
-                        <div class="battle-enemies" id="battle-enemies"></div>
                     </div>
                     <div class="battle-controls">
                         <button class="btn" id="btn-auto-battle">自动: 关</button>
@@ -209,6 +274,7 @@
                 <div class="loot-overlay">
                     <h2 class="loot-title" id="loot-title">战利品</h2>
                     <p class="loot-subtitle">选择一件带走</p>
+                    <div id="loot-battle-recap" class="loot-battle-recap"></div>
                     <div class="loot-cards" id="loot-cards"></div>
                     <button class="btn" id="btn-loot-skip">跳过</button>
                 </div>
