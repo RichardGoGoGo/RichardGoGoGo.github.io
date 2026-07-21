@@ -7,6 +7,7 @@ source: "ICML 官方 / 机器之心 / 量子位"
 src: "https://blog.icml.cc/2026/07/05/announcing-the-icml-2026-awards/"
 tags: [ICML, 扩散模型, 机器学习, 学术奖项]
 summary: "「ICML 2026 两篇扩散模型论文同获杰出论文奖：清华黄高团队 JustGRPO（GSM8K 89.1%）与 MIT/耶鲁高精度采样算法；英伟达 Motive 获荣誉提名」"
+deep: /deep/2026-07-07-icml-2026-diffusion/
 ---
 
 ICML 2026 于 7 月 5 日公布年度奖项，两篇扩散模型论文同获杰出论文奖：清华大学黄高团队的「扩散语言模型任意顺序灵活性陷阱」研究（JustGRPO，GSM8K 数学推理准确率 89.1%），以及 MIT 与耶鲁大学联合提出的扩散采样高精度算法；英伟达 Motive（视频运动归因与数据筛选，人类偏好胜率 74.1%）获荣誉提名；时间检验奖授予 Google DeepMind 经典工作。由 ICML 官方发布，机器之心、量子位等三源报道。

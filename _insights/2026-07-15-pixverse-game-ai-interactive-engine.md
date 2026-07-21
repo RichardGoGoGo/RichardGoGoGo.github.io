@@ -8,6 +8,7 @@ tags: [PixVerse, 游戏AI, 交互娱乐, 视频生成]
 summary: "PixVerse宣布完成C轮融资延伸轮并进军交互娱乐，发布Game AI引擎，支持实时视频生成驱动游戏场景与角色行为。"
 pinned: true
 pin_until: 2026-07-24
+deep: /deep/2026-07-16-pixverse-game/
 ---
 PixVerse于2026年7月15日宣布完成C轮融资延伸轮，同步发布Game AI引擎并正式进军交互娱乐领域，该引擎支持通过实时视频生成驱动游戏场景变化与角色行为响应，将视频生成能力从内容创作延伸至游戏交互场景。消息由PixVerse官方博客发布，Yahoo Finance等国际媒体同步跟进。
 

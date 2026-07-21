@@ -8,6 +8,7 @@ tags: [天工AI, AI短剧, 分镜Agent, 视频生成]
 summary: "昆仑万维发布天工短剧工作台 SkyProduction，Agent 智能分镜可在视频生成前规划角色站位与机位；DramaWave 平台 3 部 AI 短剧 7 天内均破百万美元流水。"
 pinned: true
 pin_until: 2026-07-27
+deep: /deep/2026-07-18-skyproduction-agent-storyboard/
 ---
 
 昆仑万维发布天工短剧工作台 SkyProduction：Agent 智能分镜模块可在视频生成前先规划角色站位与机位（参考上一镜构图生成下一镜站位图），无限画布支持 720° 全景图、3D 导演台与多角度打光编辑器，已接入 Seedance 2.5、可灵等主流视频生成模型。DramaWave 平台上线的 3 部 AI 短剧在发布后 7 天内均实现流水破百万美元。

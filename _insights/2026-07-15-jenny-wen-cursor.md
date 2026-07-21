@@ -8,6 +8,7 @@ tags: [Cursor, Anthropic, 设计领导力, AI编程工具]
 summary: "Anthropic 核心设计负责人 Jenny Wen 官宣跳槽，出任 AI 编程工具 Cursor 设计主管；她此前在 Figma 任设计总监，在 Anthropic 期间主导 Claude 产品设计与 Cowork 智能体愿景。Cursor 母公司 Anysphere 此前已被 SpaceXAI 收购。"
 pinned: true
 pin_until: 2026-07-24
+deep: /deep/2026-07-15-jenny-wen-cursor/
 ---
 据新智元报道，Anthropic 核心设计负责人 Jenny Wen 于 2026 年 7 月 15 日官宣跳槽，下一站出任 AI 编程工具 Cursor 的「设计主管」。她在公开说明中表示，希望带一支真正在乎手艺、品质与「做出好工具」的团队。
 
