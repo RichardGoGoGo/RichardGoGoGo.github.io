@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
     <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-D9hbi3Fq.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DTJPurMz.css">
+  <script type="module" crossorigin src="./assets/index-CIB_9Whe.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DvHdq4fg.css">
 </head>
 <body>
     <div id="game-container">
@@ -55,7 +55,7 @@
                 <span>背包 <span id="inv-count">(0/20)</span></span>
                 <span class="spirit-stone-balance" title="云游商铺使用的单局货币">灵石 <b id="spirit-stones">24</b></span>
             </div>
-            <p class="inventory-help">拖至人形对应部位穿戴，拖回背包卸下</p>
+            <p class="inventory-help">拖动穿戴；移动端轻点查看，长按操作</p>
             <div class="inventory-grid" id="inventory-grid" data-drop-kind="inventory" aria-label="背包卸下区域"></div>
             <div class="inventory-discard" id="inventory-discard" data-drop-kind="discard" role="button" aria-label="拖动道具到这里永久丢弃">
                 <span class="inventory-discard-mark" aria-hidden="true">弃</span>
@@ -130,7 +130,6 @@
                 <header class="adventure-hud" aria-label="当前行程">
                     <div class="adventure-hud-main">
                         <nav id="stronghold-progress" class="adventure-route" aria-label="据点路线"></nav>
-                        <button class="btn btn-breakthrough adventure-breakthrough" id="btn-breakthrough" style="display:none">突破境界</button>
                     </div>
                     <button
                         id="region-omen"
@@ -146,7 +145,6 @@
                             <span id="region-omen-detail">继续前行以窥见此地首领术式</span>
                         </span>
                     </button>
-                    <div id="route-choice" class="route-choice" hidden aria-label="路线选择"></div>
                 </header>
 
                 <section id="route-scene" class="adventure-scene route-scene" hidden>
@@ -154,26 +152,36 @@
                     <div class="route-scene-glyph" aria-hidden="true">
                         <i></i><b>岔</b><i></i>
                     </div>
+                    <div id="route-choice" class="route-choice" hidden aria-label="路线选择"></div>
                     <p>两条路都已写明代价，选择后才会显出下一幕。</p>
                 </section>
 
                 <section id="battle-scene" class="adventure-scene battle-scene">
                     <div class="battle-order-mark" aria-live="polite">
                         <span id="battle-phase-label">整备</span>
-                        <strong id="battle-phase-detail">首次出手锁定装备</strong>
+                        <strong id="battle-phase-detail">开始战斗后锁定装备</strong>
                     </div>
                     <div class="battle-header">
                         <div class="battle-flight-layer" id="battle-flight-layer" aria-hidden="true"></div>
                         <div class="battle-enemies" id="battle-enemies" aria-label="敌方卡阵"></div>
                         <div class="battle-stage" id="battle-stage" aria-label="战斗动画舞台">
                             <div class="battle-stage-sigil" aria-hidden="true"></div>
-                            <div id="battle-cause-chain" class="battle-cause-chain" aria-live="polite">
-                                <span class="cause-chain-placeholder">出手后按结算顺序显现因果</span>
+                            <div class="battle-command-center" aria-label="战场控制">
+                                <div class="battle-speed-controls" role="group" aria-label="战场速度">
+                                    <button type="button" data-battle-speed="0.5" aria-pressed="true">从容 ×0.5</button>
+                                    <button type="button" data-battle-speed="1">常速 ×1</button>
+                                    <button type="button" data-battle-speed="2">疾行 ×2</button>
+                                </div>
+                                <div class="battle-controls">
+                                    <button class="btn" id="btn-auto-battle">开始战斗</button>
+                                    <button class="btn" id="btn-skip-battle">跳过战斗</button>
+                                </div>
                             </div>
                             <div class="battle-log" id="battle-log" hidden aria-hidden="true"></div>
                             <p class="battle-hint" id="battle-hint" hidden></p>
                         </div>
-                        <div class="combatant player-side" id="player-combatant">
+                        <div class="player-combat-zone">
+                          <div class="combatant player-side" id="player-combatant">
                             <div class="card-float-layer" aria-hidden="true"></div>
                             <div class="player-combatant-head">
                                 <div
@@ -181,6 +189,11 @@
                                     id="player-combatant-avatar"
                                     aria-hidden="true"
                                 ></div>
+                                <span
+                                    class="portrait-spirit-shield"
+                                    id="player-portrait-shield"
+                                    aria-hidden="true"
+                                ><i></i><i></i><b></b></span>
                                 <span class="combatant-name" id="player-name"></span>
                                 <button
                                     class="breakthrough-card-cta"
@@ -193,47 +206,35 @@
                                 </button>
                             </div>
                             <div class="player-combatant-main">
-                                <div class="hp-bar-container">
+                                <div
+                                    class="hp-bar-container combat-resource-control"
+                                    id="player-hp-line"
+                                    role="button"
+                                    tabindex="0"
+                                    aria-label="查看气血与灵盾说明"
+                                >
                                     <div class="hp-bar" id="player-hp-bar"></div>
+                                    <div class="spirit-shield-overlay" id="player-shield-overlay"></div>
                                     <span class="card-vital-label">气血</span>
-                                    <span class="hp-text" id="player-hp-text"></span>
-                                </div>
-                                <div
-                                    class="card-armor-line defense-resource-control"
-                                    id="player-armor-line"
-                                    role="button"
-                                    tabindex="0"
-                                    aria-label="查看护甲说明"
-                                >
-                                    <div class="card-armor-fill" id="player-armor-bar"></div>
-                                    <span>护甲</span>
-                                    <strong id="player-armor-text">0</strong>
-                                </div>
-                                <div
-                                    class="card-guard-line defense-resource-control"
-                                    id="player-guard-line"
-                                    role="button"
-                                    tabindex="0"
-                                    aria-label="查看坚守说明"
-                                >
-                                    <div class="card-guard-fill" id="player-guard-bar"></div>
-                                    <span>坚守</span>
-                                    <strong id="player-guard-text">0/0</strong>
+                                    <span class="hp-text"><b class="inline-shield-value" id="player-armor-text">（0）</b><span id="player-hp-text"></span></span>
                                 </div>
                             </div>
                             <span class="player-card-fx-label" id="player-card-fx-label" aria-hidden="true"></span>
                             <div class="player-battle-effects" id="player-battle-effects"></div>
+                            <div class="player-core-cycles" id="player-core-cycles" aria-label="主攻与护体周期"></div>
+                          </div>
+                          <div class="player-emitter-rack emitter-left passive-rack" id="player-emitter-left" aria-label="被动效果">
+                            <div class="player-passive-status-nodes" id="player-passive-status-nodes"></div>
                             <div
                                 id="run-progress-info"
                                 class="run-progress-info player-run-progress"
                                 style="display:none"
-                                aria-label="人物行功进度"
+                                aria-label="人物被动效果与积累"
                             ></div>
+                          </div>
+                          <div class="player-emitter-rack emitter-right active-rack" id="player-emitter-right" aria-label="主动效果"></div>
+                          <div id="auto-action-track" class="auto-action-track" hidden aria-hidden="true"></div>
                         </div>
-                    </div>
-                    <div class="battle-controls">
-                        <button class="btn" id="btn-auto-battle">自动: 关</button>
-                        <button class="btn" id="btn-skip-battle">跳过战斗</button>
                     </div>
                 </section>
 
@@ -254,7 +255,7 @@
                         <p id="event-result"></p>
                         <div id="event-loot"></div>
                         <div class="event-actions">
-                            <button class="btn btn-primary" id="btn-event-action">行动</button>
+                            <button class="btn btn-primary" id="btn-event-action">应对</button>
                             <button class="btn" id="btn-event-skip">离开</button>
                         </div>
                     </div>
@@ -288,6 +289,7 @@
                     <div id="result-details"></div>
                     <div class="result-actions">
                         <button class="btn btn-primary" id="btn-result-continue">继续</button>
+                        <button class="btn" id="btn-export-meta-result" type="button">导出洞府存档</button>
                     </div>
                 </div>
             </div>
@@ -305,6 +307,7 @@
                 <div class="panel meta-panel">
                     <h2 style="color:var(--accent-gold);margin-bottom:1rem">悟道碑</h2>
                     <div id="meta-content"></div>
+                    <input id="meta-import-file" type="file" accept="application/json,.json" hidden>
                     <button class="btn" id="btn-back-meta" style="margin-top:1rem">返回</button>
                 </div>
             </div>
@@ -315,7 +318,10 @@
                     <h2 class="game-over-title" id="game-over-title">道陨</h2>
                     <p class="game-over-text" id="game-over-text">你的修仙之路在此终结...</p>
                     <div id="game-over-rewards"></div>
-                    <button class="btn btn-primary" id="btn-restart">重新修炼</button>
+                    <div class="game-over-actions">
+                        <button class="btn btn-primary" id="btn-restart">重新修炼</button>
+                        <button class="btn" id="btn-export-meta-end" type="button">导出洞府存档</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -327,19 +333,48 @@
                 <div class="right-character-copy">
                     <span class="right-panel-eyebrow">行者</span>
                     <div class="char-name" id="char-name-display">无名修士</div>
-                    <div class="char-realm" id="char-realm-display">炼气初期</div>
+                    <div class="char-realm" id="char-realm-display">炼气</div>
                 </div>
             </div>
+
+            <section class="right-panel-section right-path-section">
+                <div class="right-panel-title"><span>道途</span><small id="right-origin-name">未定</small></div>
+                <button class="right-path-origin" id="right-path-origin" type="button">
+                    <span id="right-path-origin-icon">命</span>
+                    <strong id="right-path-origin-trait">出身本性</strong>
+                    <small>点击查看</small>
+                </button>
+                <div class="right-path-line-shell" aria-label="道途层级">
+                    <div class="right-path-timeline" id="right-path-timeline"></div>
+                </div>
+                <button class="btn path-overview-trigger" id="btn-path" type="button">
+                    展开道途
+                </button>
+            </section>
 
             <section class="right-panel-section right-realm-section">
                 <div class="right-panel-title"><span>境界修炼</span><small>跨据点承续</small></div>
                 <div id="realm-info" class="realm-info"></div>
+                <button
+                    class="btn btn-breakthrough realm-breakthrough-action"
+                    id="btn-breakthrough"
+                    type="button"
+                    style="display:none"
+                >
+                    选择问心方式
+                </button>
             </section>
 
             <section class="right-panel-section">
                 <div class="right-panel-title"><span>人物属性</span><small>当前构筑</small></div>
                 <div class="char-bars">
-                    <div class="bar-row">
+                    <div
+                        class="bar-row combat-resource-control"
+                        id="char-hp-control"
+                        role="button"
+                        tabindex="0"
+                        aria-label="查看气血说明"
+                    >
                         <span class="bar-label">气血</span>
                         <div class="mini-bar-container hp">
                             <div class="mini-bar" id="char-hp-bar"></div>
@@ -350,13 +385,6 @@
                 <div class="char-stats-grid" id="char-stats-grid"></div>
             </section>
 
-            <section class="right-panel-section right-path-section">
-                <div class="right-panel-title"><span>道途</span><small id="right-origin-name">未定</small></div>
-                <p class="right-origin-desc" id="right-origin-desc"></p>
-                <div class="right-path-timeline" id="right-path-timeline"></div>
-                <button class="path-entry" id="btn-path" type="button">展开道途总览</button>
-                <div id="path-inline-content" class="path-inline-content" hidden></div>
-            </section>
         </div>
 
         <nav id="mobile-panel-tabs" class="mobile-panel-tabs" aria-label="移动端界面切换">
