@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
     <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-CIB_9Whe.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DvHdq4fg.css">
+  <script type="module" crossorigin src="./assets/index-BMXuI0pA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BtwXipBq.css">
 </head>
 <body>
     <div id="game-container">
@@ -127,6 +127,14 @@
 
             <!-- Persistent adventure scene: route, combat and events share one screen -->
             <div id="screen-battle" class="screen">
+                <section id="stronghold-transition" class="stronghold-transition" hidden aria-live="polite">
+                    <div class="stronghold-transition-scroll">
+                        <span class="stronghold-transition-kicker">北境长卷</span>
+                        <h2 id="stronghold-transition-title">越境前行</h2>
+                        <div id="stronghold-transition-route" class="stronghold-transition-route" aria-label="四大据点进度"></div>
+                        <p id="stronghold-transition-copy"></p>
+                    </div>
+                </section>
                 <header class="adventure-hud" aria-label="当前行程">
                     <div class="adventure-hud-main">
                         <nav id="stronghold-progress" class="adventure-route" aria-label="据点路线"></nav>
