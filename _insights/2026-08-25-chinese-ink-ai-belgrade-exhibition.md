@@ -3,7 +3,7 @@ title: "水墨×AI国际展贝尔格莱德站开幕：中国当代水墨与AI生
 date: 2026-08-25
 icat: 展览与赛事
 source: "展览主办方官方"
-src: "https://www.belgrade.rs/"
+src: "https://english.news.cn/20260825/edaf524bbc5f4ebfb944c04acf1fa51b/c.html"
 tags: [水墨, AI艺术, 国际展览, 贝尔格莱德, 中国当代艺术, 跨文化]
 summary: "「水墨×AI国际巡展贝尔格莱德站开幕，聚焦中国当代水墨艺术与AI生成技术的融合创作实践」"
 ---

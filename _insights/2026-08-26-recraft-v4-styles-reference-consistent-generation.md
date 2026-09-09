@@ -3,7 +3,7 @@ title: "Recraft V4 Styles：1–10张参考图驱动风格一致性图像生成"
 date: 2026-08-26
 icat: 模型与工具
 source: "Recraft官方"
-src: "https://www.recraft.ai/"
+src: "https://www.recraft.ai/blog/meet-recraft-v4-styles"
 tags: [Recraft, V4, 风格一致性, 参考图, 图像生成, 品牌设计]
 summary: "「Recraft发布V4 Styles功能，支持输入1至10张参考图提取视觉风格，生成与参考图高度一致的新图像」"
 ---

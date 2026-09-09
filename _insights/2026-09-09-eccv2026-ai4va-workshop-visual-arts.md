@@ -3,7 +3,7 @@ title: "ECCV 2026第四届AI for Visual Arts工作坊今日举办：世界模型
 date: 2026-09-09
 icat: 研究与论文
 source: "ECCV 2026官方/AI4VA Workshop官方"
-src: "https://cvpr.thecvf.com/"
+src: "https://ai4va-eccv.github.io/"
 tags: [ECCV 2026, AI4VA, 视觉艺术, 世界模型, 学术, 长视频生成]
 summary: "「ECCV 2026第四届AI for Visual Arts专题工作坊于9月9日在瑞典马尔默举办，聚焦世界模型、长视频生成、神经三维等视觉艺术AI前沿方向」"
 ---

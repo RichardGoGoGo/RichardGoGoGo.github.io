@@ -3,7 +3,7 @@ title: "Anthropic Claude Code新增/design命令研究预览版：编程会话�
 date: 2026-08-17
 icat: 模型与工具
 source: "Anthropic官方"
-src: "https://www.anthropic.com/news/"
+src: "https://the-decoder.com/claude-code-gets-a-design-command-that-lets-developers-create-ui-mockups-right-in-the-terminal/"
 tags: [Anthropic, Claude Code, UI设计, AI原生设计, 研究预览, Figma]
 summary: "「Anthropic在Claude Code中推出/design命令研究预览版，开发者可在编码会话内通过自然语言描述生成UI画板并直接导入代码流」"
 ---

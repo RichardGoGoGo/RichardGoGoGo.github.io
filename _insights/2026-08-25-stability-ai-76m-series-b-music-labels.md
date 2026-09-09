@@ -3,7 +3,7 @@ title: "Stability AI完成$76M B轮：环球音乐、索尼、华纳、EA联合�
 date: 2026-08-25
 icat: 行业动态
 source: "TechCrunch/多家财经媒体"
-src: "https://stability.ai/"
+src: "https://stability.ai/news-updates/stability-ai-latest-funding-backed-by-entertainment-industry-biggest-names"
 tags: [Stability AI, 融资, B轮, 音乐公司, EA, 版权合规]
 summary: "「Stability AI完成$76M B轮融资，环球音乐集团、索尼音乐、华纳音乐及游戏巨头EA联合参投，此轮融资被解读为内容产业对AI公司授权路径的战略背书」"
 ---

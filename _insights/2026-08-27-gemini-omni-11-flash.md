@@ -3,7 +3,7 @@ title: "Gemini Omni 1.1 Flash 发布：40秒视频、首尾帧双锁定、4K分�
 date: 2026-08-27
 icat: 模型与工具
 source: "Google DeepMind官方"
-src: "https://deepmind.google.com/"
+src: "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/"
 tags: [Gemini, 视频生成, 4K, 首尾帧锁定, Draft Mode]
 summary: "「Google发布Gemini Omni 1.1 Flash，支持40秒视频生成、首尾帧双重锁定、4K输出及$0.03/秒的Draft快速模式」"
 pinned: true

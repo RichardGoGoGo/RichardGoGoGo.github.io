@@ -3,7 +3,7 @@ title: "Figma新增可拆卸AI对话面板、矢量路径橡皮擦、区域填�
 date: 2026-08-26
 icat: 模型与工具
 source: "Figma官方"
-src: "https://www.figma.com/"
+src: "https://www.figma.com/release-notes/"
 tags: [Figma, AI对话, 矢量编辑, 区域填色, 设计工具]
 summary: "「Figma推出可拆卸AI对话面板、矢量路径橡皮擦及区域智能填色三项新功能，进一步整合AI辅助能力至核心设计工作流」"
 ---

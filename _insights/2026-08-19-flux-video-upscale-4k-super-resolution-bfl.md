@@ -3,7 +3,7 @@ title: "FLUX Video Upscale工具发布：视频超分1.5x–3x，原生输出至
 date: 2026-08-19
 icat: 模型与工具
 source: "Black Forest Labs官方"
-src: "https://blackforestlabs.ai/"
+src: "https://bfl.ai/blog/flux-video-upscale"
 tags: [FLUX, 视频超分, 4K, Black Forest Labs, 视频后期]
 summary: "「Black Forest Labs发布FLUX Video Upscale，支持对已生成视频进行1.5x至3x超分辨率处理，最高输出4K，提供质量优先和速度优先双模式」"
 ---

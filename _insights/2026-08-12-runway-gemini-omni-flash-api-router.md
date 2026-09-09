@@ -3,7 +3,7 @@ title: "Runway接入Gemini Omni Flash并推出API Model Router，实现跨模型
 date: 2026-08-12
 icat: 模型与工具
 source: "Runway官方"
-src: "https://runwayml.com/"
+src: "https://runway.com/product/models/gemini-omni"
 tags: [Runway, Gemini, API Router, 模型路由, 视频生成]
 summary: "「Runway新增Gemini Omni Flash接入并推出API Model Router，根据任务类型自动选择最优底层视频模型」"
 ---

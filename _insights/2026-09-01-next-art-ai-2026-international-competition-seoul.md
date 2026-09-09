@@ -3,7 +3,7 @@ title: "NEXT ART AI 2026国际竞赛开放申请：AI辅助艺术作品征集，
 date: 2026-09-01
 icat: 展览与赛事
 source: "NEXT ART AI官方/StudentCompetitions.com"
-src: "https://www.nextartai.com/"
+src: "https://next-art-ai.com/en"
 tags: [NEXT ART AI, 国际竞赛, AI艺术, 征集, 学生组, 艺术设计]
 summary: "「NEXT ART AI 2026国际艺术竞赛开放申请，面向全球艺术家和学生征集AI辅助艺术作品，截止日期2026年9月30日」"
 ---

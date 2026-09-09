@@ -3,7 +3,7 @@ title: "Midjourney V8.2 Edit Mode全量开放：4图参考+Inpaint+Outpaint统�
 date: 2026-08-31
 icat: 模型与工具
 source: "Midjourney官方"
-src: "https://www.midjourney.com/"
+src: "https://updates.midjourney.com/edit-model-for-v8/"
 tags: [Midjourney, V8.2, Edit Mode, inpaint, outpaint, 多图参考]
 summary: "「Midjourney V8.2 Edit Mode正式全量开放，在单一界面整合4张参考图输入、画布内绘（inpaint）与外延（outpaint）功能」"
 pinned: true

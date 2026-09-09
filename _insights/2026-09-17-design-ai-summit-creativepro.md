@@ -3,7 +3,7 @@ title: "Design + AI Summit 2026（CreativePro）：设计师AI工作流实战峰
 date: 2026-09-17
 icat: 展览与赛事
 source: "CreativePro"
-src: "https://creativepro.com/events/design-ai-summit-2026"
+src: "https://creativepro.com/event/design-ai-summit-2026/"
 tags: [Design+AI, Summit, CreativePro, 设计师AI工作流, 线上峰会, Firefly]
 summary: "「CreativePro主办的Design + AI Summit 2026定于2026年9月17日线上举办，聚焦平面、UI和出版设计师的AI工具实战工作流」"
 ---

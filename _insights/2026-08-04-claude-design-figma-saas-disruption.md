@@ -3,7 +3,7 @@ title: "Claude Design对Figma的冲击：AI原生设计工具如何重构SaaS设
 date: 2026-08-04
 icat: 行业动态
 source: "多家科技媒体综合"
-src: "https://www.anthropic.com/"
+src: "https://www.anthropic.com/news/claude-design-anthropic-labs"
 tags: [Claude Design, Figma, AI原生设计, SaaS, 设计工具, 格局变化]
 summary: "「Claude Design等AI原生设计入口对以Figma为代表的传统SaaS设计工具形成竞争冲击，引发设计工具格局重构的行业讨论」"
 ---

@@ -3,7 +3,7 @@ title: "Anthropic发布Fable 5.1+Mythos 5.1：缓存读取成本降75%，维持�
 date: 2026-09-01
 icat: 模型与工具
 source: "Anthropic官方"
-src: "https://www.anthropic.com/"
+src: "https://www.anthropic.com/claude-fable-and-mythos-5-1"
 tags: [Anthropic, Fable 5.1, Mythos 5.1, API定价, 缓存成本, Claude]
 summary: "「Anthropic更新Fable 5.1和Mythos 5.1，缓存读取（cache read）成本降低75%，输出token价格维持不变」"
 ---

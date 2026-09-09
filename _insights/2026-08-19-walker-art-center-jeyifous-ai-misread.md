@@ -3,7 +3,7 @@ title: "Walker Art Center澄清：Jeyifous展览作品并非AI生成，认知鸿
 date: 2026-08-19
 icat: 展览与赛事
 source: "Walker Art Center官方/多家艺术媒体"
-src: "https://walkerart.org/"
+src: "https://www.mprnews.org/story/2026/08/19/walker-art-center-clarifies-ai-use-in-olalekan-jeyifous-exhibition"
 tags: [Walker Art Center, Jeyifous, AI误读, 艺术认知, 数字艺术]
 summary: "「Walker Art Center正式澄清艺术家Olalekan Jeyifous展览作品并非AI生成，此事件暴露了观众对AI艺术与数字艺术的认知边界模糊」"
 ---

@@ -3,7 +3,7 @@ title: "OpenAI发布GPT-6（Project Astra）：Computer Use能力正式上线，
 date: 2026-09-03
 icat: 模型与工具
 source: "OpenAI官方/Fortune/CNBC"
-src: "https://openai.com/"
+src: "https://openai.com/index/gpt-6-astra/"
 tags: [OpenAI, GPT-6, Project Astra, Computer Use, 3D建模, CAD, 多模态]
 summary: "「OpenAI正式发布GPT-6（Project Astra），新增Computer Use能力，官方演示包括操控3D建模软件和CAD程序执行多步骤设计任务」"
 ---

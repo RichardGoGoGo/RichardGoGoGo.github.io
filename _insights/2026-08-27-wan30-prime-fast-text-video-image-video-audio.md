@@ -3,7 +3,7 @@ title: "阿里Wan3.0 Prime发布：$0.06–$0.30/秒的快速视频变体，支�
 date: 2026-08-27
 icat: 模型与工具
 source: "阿里巴巴官方"
-src: "https://wanxiang.aliyun.com/"
+src: "https://www.alibabacloud.com/help/en/model-studio/wan3-0-video-prime"
 tags: [Wan3.0, Prime, 阿里巴巴, 视频生成, 快速模式, 定价]
 summary: "「阿里Wan3.0 Prime快速变体上线，定价$0.06–$0.30/秒，支持文字转视频、图像转视频及音频驱动视频生成三类任务」"
 ---
