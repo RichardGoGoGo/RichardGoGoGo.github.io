@@ -1,6 +1,7 @@
 ---
 title: "MIT CSAIL《Nature Communications》：AI生成图像的归因衰减使版权追责在技术层面趋于不可能"
 date: 2026-08-18
+weight: 4
 icat: 研究与论文
 source: "MIT CSAIL/Nature Communications"
 src: "https://news.mit.edu/2026/when-ai-art-has-no-author-generated-images-often-cant-be-traced-to-training-data-0818"

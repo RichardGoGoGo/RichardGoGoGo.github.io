@@ -1,6 +1,7 @@
 ---
 title: "阿里万象Wan 3.0公测正式开放：单镜30秒+文档转视频+全模态输入，API ¥0.30–1.20/秒"
 date: 2026-08-10
+weight: 2
 icat: 模型与工具
 source: "TechNode Global / Alizila"
 src: "https://technode.global/2026/08/10/chinas-alibaba-releases-wan3-0-ai-video-model-in-public-beta-with-30s-clips-multimodal-inputs/"

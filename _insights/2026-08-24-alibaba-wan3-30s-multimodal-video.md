@@ -1,6 +1,7 @@
 ---
 title: "阿里Wan3.0全球正式发布：30秒视频、文档转视频、$0.05–$0.20/秒"
 date: 2026-08-24
+weight: 4
 icat: 模型与工具
 source: "阿里巴巴官方/TechCrunch"
 src: "https://www.alibabacloud.com/blog/wan3-0-30-second-ai-video-generation-from-any-input_603452"

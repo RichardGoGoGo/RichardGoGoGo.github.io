@@ -1,6 +1,7 @@
 ---
 title: "ChatGPT 全量发布 GPT-5.6 Luna：免费层无限制使用，SOL 推理能力显著提升"
 date: 2026-08-06
+weight: 4
 icat: 模型与工具
 source: "OpenAI 官方"
 src: "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/"

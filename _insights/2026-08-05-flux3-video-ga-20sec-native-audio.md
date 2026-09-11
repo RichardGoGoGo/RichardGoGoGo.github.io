@@ -1,6 +1,7 @@
 ---
 title: "Black Forest Labs FLUX 3 Video 正式 GA：20 秒原生音频，Draft 模式 $0.06/秒，1080p 首发"
 date: 2026-08-05
+weight: 4
 icat: 模型与工具
 source: "Black Forest Labs 官方 / VentureBeat"
 src: "https://venturebeat.com/ai/black-forest-labs-launches-flux-3-video-to-production-20-second-native-audio-videos/"

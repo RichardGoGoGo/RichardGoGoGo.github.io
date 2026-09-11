@@ -1,6 +1,7 @@
 ---
 title: "Gemini Omni 1.1 Flash 发布：40秒视频、首尾帧双锁定、4K分辨率、Draft Mode $0.03/秒"
 date: 2026-08-27
+weight: 4
 icat: 模型与工具
 source: "Google DeepMind官方"
 src: "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/"

@@ -1,6 +1,7 @@
 ---
 title: "LTX-2.5 开源：10 秒 720p 仅需 6.8 秒，支持 4K 与同步音频，ComfyUI 当日 Day-0 支持"
 date: 2026-08-11
+weight: 4
 icat: 模型与工具
 source: "Lightricks 官方 / VentureBeat"
 src: "https://venturebeat.com/technology/ltx-2-5-open-weights-video-model-from-lightricks-68-seconds-720p/"

@@ -1,6 +1,7 @@
 ---
 title: "Anthropic发布「Claude for Creative Work」：接入Adobe/Canva/Blender/Autodesk等六款创意软件，三所艺术学校参与课堂测试"
 date: 2026-08-05
+weight: 4
 icat: 模型与工具
 source: "Anthropic官方 / No Film School"
 src: "https://www.anthropic.com/news/claude-for-creative-work"

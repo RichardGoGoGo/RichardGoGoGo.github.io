@@ -1,6 +1,7 @@
 ---
 title: "Google发布Veo 3.1：120秒4K视频+原生音频+三参考图一致性，Gemini API付费预览即开"
 date: 2026-08-05
+weight: 4
 icat: 模型与工具
 source: "Google Developers Blog / Gemini API官方"
 src: "https://developers.googleblog.com/en/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/"

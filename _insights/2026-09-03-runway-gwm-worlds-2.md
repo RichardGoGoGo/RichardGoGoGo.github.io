@@ -1,6 +1,7 @@
 ---
 title: "Runway GWM Worlds 2：全球首个实时可操控AI世界模型，720p/24fps持续生成并响应文字指令"
 date: 2026-09-03
+weight: 4
 icat: 模型与工具
 source: "Runway官方研究博客"
 src: "https://runway.com/research/introducing-gwm-worlds-2"

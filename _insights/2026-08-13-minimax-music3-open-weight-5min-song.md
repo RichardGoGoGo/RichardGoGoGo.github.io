@@ -1,6 +1,7 @@
 ---
 title: "MiniMax Music 3开源：首个产品级AI音乐模型，凭歌词+描述独立生成5分钟完整歌曲"
 date: 2026-08-13
+weight: 4
 icat: 模型与工具
 source: "MiniMax官方Blog / MarkTechPost"
 src: "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"
