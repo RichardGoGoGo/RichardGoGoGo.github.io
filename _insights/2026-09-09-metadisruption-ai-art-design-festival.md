@@ -1,6 +1,6 @@
 ---
 title: "Metadisruption AI Art & Design Festival 2026：9月23–27日，英国威尔士斯旺西"
-date: 2026-09-23
+date: 2026-09-09
 icat: 展览与赛事
 source: "FilmFreeway/UWTSD（威尔士三一圣大卫大学）"
 src: "https://filmfreeway.com/Metadisruption"

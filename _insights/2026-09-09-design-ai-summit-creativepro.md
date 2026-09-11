@@ -1,6 +1,6 @@
 ---
 title: "Design + AI Summit 2026（CreativePro）：设计师AI工作流实战峰会，9月17日线上举办"
-date: 2026-09-17
+date: 2026-09-09
 icat: 展览与赛事
 source: "CreativePro"
 src: "https://creativepro.com/event/design-ai-summit-2026/"
