@@ -6,6 +6,7 @@ source: "Suno官方/多家音乐媒体"
 src: "https://suno.com/blog/suno-updates-tos"
 tags: [Suno, AI音乐, 下载限制, 版权政策, 商业模式]
 summary: "「Suno正式对免费账户实施终身7次下载上限，被普遍解读为回应版权诉讼压力的商业政策调整」"
+weight: 2
 pinned: true
 pin_until: 2026-09-16
 ---

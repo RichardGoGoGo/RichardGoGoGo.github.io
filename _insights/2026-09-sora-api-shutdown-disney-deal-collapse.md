@@ -6,6 +6,7 @@ source: "OpenAI官方/The Verge/TechCrunch"
 src: "https://variety.com/2026/digital/news/openai-shutting-down-sora-video-disney-1236698277/"
 tags: [OpenAI, Sora, API关停, 迪士尼, AI视频, 格局重塑]
 summary: "「OpenAI Sora API将于2026年9月24日终止服务，独立app已于4月下线，与迪士尼约$10亿规模的AI视频合作随之流产」"
+weight: 4
 pinned: true
 pin_until: 2026-09-16
 ---
