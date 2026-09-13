@@ -10,6 +10,12 @@ tools:
     type: internal
     href: /nasumeru/
 
+  - name: "知材智能 · FDE培养工作台"
+    en: "Zhicai Talent"
+    desc: "AI 人才培养与发展平台概念原型：以 FDE 工程师培养计划为例，走通「岗位要求 → 培养任务 → 能力证据 → AI 辅助评价 + 人工复核 → 授权制人才匹配」全流程，含学员成长档案、任务设计洞察、复核抽屉与报告导出等演示交互（示例数据）。"
+    type: internal
+    href: /vibe/zhicai/
+
   - name: "赛博工头"
     en: "Cyber Foreman"
     desc: "给小团队与科研课题组配一支「写在文件里」的 AI 虚拟团队：把重复性内容、运营与学术支撑工作交给一套可视、可控、随时能换 AI 供应商的系统——组织即文件，公司和它的记忆永远归你。"
