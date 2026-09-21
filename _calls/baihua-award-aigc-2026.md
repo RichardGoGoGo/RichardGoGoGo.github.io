@@ -1,5 +1,6 @@
 ---
 title: "第 38 届百花奖 AIGC 推优单元全球征集"
+expired: true
 date: 2026-06-30
 ctype: AI视频赛事
 host: "第 38 届大众电影百花奖组委会"

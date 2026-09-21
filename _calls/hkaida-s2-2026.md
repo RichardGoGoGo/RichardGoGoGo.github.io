@@ -1,5 +1,6 @@
 ---
 title: "HKAIDA 香港 AI 艺术创作大赛 · 第二赛季"
+expired: true
 date: 2026-07-01
 ctype: AI艺术赛事
 host: "香港国际 AI 艺术节（HKAIDA）"

@@ -1,5 +1,6 @@
 ---
 title: "2026 大学生 AI 艺术季 · AI 影像创作单元（AAIA）"
+expired: true
 date: 2026-06-24
 ctype: AI视频赛事
 host: "北京师范大学艺术与传媒学院（联合主办）等"

@@ -1,5 +1,6 @@
 ---
 title: "第20届中国好创意 ·「活路儿」地方非遗生成式 AI 专项赛"
+expired: true
 date: 2026-06-20
 ctype: AIGC赛事
 host: "中国好创意大赛组委会 × 四川师范大学"

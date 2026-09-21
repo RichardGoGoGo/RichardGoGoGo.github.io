@@ -1,5 +1,6 @@
 ---
 title: "Generative Art 2026 第29届生成艺术国际会议（学术会议）"
+expired: true
 date: 2026-07-06
 ctype: 学术会议
 host: "Generative Art International（米兰理工大学发起）"

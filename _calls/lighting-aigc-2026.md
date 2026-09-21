@@ -1,5 +1,6 @@
 ---
 title: "第二届高校 AIGC 数字艺术设计大赛"
+expired: true
 date: 2026-06-29
 ctype: AIGC赛事
 host: "中国照明学会数字艺术专业委员会 × 上海市照明学会"

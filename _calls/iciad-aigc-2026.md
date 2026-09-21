@@ -1,5 +1,6 @@
 ---
 title: "2026 ICIAD 国际文化创新艺术设计奖 ·「AIGC 与计算设计」类别"
+expired: true
 date: 2026-06-02
 ctype: 设计赛事
 host: "ICIAD Award"

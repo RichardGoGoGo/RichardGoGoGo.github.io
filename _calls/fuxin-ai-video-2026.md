@@ -1,5 +1,6 @@
 ---
 title: "第二届「复新」全球大学生智能影像创作大赛"
+expired: true
 date: 2026-06-23
 ctype: AI视频赛事
 host: "复旦大学新闻学院"

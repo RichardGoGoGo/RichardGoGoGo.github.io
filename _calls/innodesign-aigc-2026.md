@@ -1,5 +1,6 @@
 ---
 title: "第13届 INNODESIGN PRIZE · INNO AIGC 设计奖"
+expired: true
 date: 2026-06-02
 ctype: 设计赛事
 host: "INNODESIGN PRIZE（北京环艺国际展览）"

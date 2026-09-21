@@ -1,5 +1,6 @@
 ---
 title: "CAADRIA 2027 第32届国际会议征稿（学术会议）"
+expired: true
 date: 2026-06-23
 ctype: 学术会议
 host: "亚洲计算机辅助建筑设计研究学会（CAADRIA）"

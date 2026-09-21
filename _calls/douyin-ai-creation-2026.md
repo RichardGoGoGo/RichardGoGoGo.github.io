@@ -1,5 +1,6 @@
 ---
 title: "抖音 AI 创作大赛（首届）"
+expired: true
 date: 2026-06-10
 ctype: AI视频赛事
 host: "抖音（字节跳动）"
