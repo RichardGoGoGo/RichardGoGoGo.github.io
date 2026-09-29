@@ -48,6 +48,7 @@ META = {
                  ("video-shotcraft", "Vincentwei1021/video-shotcraft", None, "https://github.com/Vincentwei1021/video-shotcraft"),
                  ("vox-director", "Alisa0808/vox-director", None, "https://github.com/Alisa0808/vox-director"),
                  ("pixel2motion", "nolangz/pixel2motion", "pixel2motion", None),
+                 ("three.js", "mrdoob/three.js", None, "https://github.com/mrdoob/three.js"),
                  ("常用 WEB 交互动效图鉴", "浅译万道实验室", None, "https://www.transwonder.top/vibe/motion-techniques/"),
                  ("shneural 案例", "Telegram · shneural", None, "https://t.me/shneural/1365")]),
 }

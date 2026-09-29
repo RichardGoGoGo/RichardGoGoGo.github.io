@@ -6,7 +6,7 @@ scenes: ["片头", "作品集 showreel", "产品介绍", "课程宣传", "社媒
 license: MIT
 version: "0.1"
 updated: 2026-09-29
-appendix: ["beat-sheet-template.md", "export-params.md", "render-frames.mjs", "shot-recipes.md", "skeleton.html", "style-system-template.md"]
+appendix: ["beat-sheet-template.md", "export-params.md", "render-frames.mjs", "score-example.py", "serve.mjs", "shot-recipes.md", "skeleton.html", "style-system-template.md"]
 sources:
   - name: "HyperFrames"
     repo: "heygen-com/hyperframes"
@@ -23,6 +23,9 @@ sources:
   - name: "pixel2motion"
     repo: "nolangz/pixel2motion"
     skill: pixel2motion
+  - name: "three.js"
+    repo: "mrdoob/three.js"
+    url: "https://github.com/mrdoob/three.js"
   - name: "常用 WEB 交互动效图鉴"
     repo: "浅译万道实验室"
     url: "https://www.transwonder.top/vibe/motion-techniques/"
@@ -70,7 +73,7 @@ sources:
 5. 镜头表：每镜写时长、一句话体验描述、主动作动词、配方、进出方向、转场、文字、声音节点。每镜只讲一个主要动效；每种主手法全片只当一次主角。
 6. 接缝台账：定全片主方向，普通接缝都顺着它；换方向要写理由。
 
-配方从 `references/shot-recipes.md` 里挑。它把本实验室动效图鉴的 45 种网页技法整理成了开场、文字、数据、界面、氛围、转场、收尾七类镜头配方。
+配方从 `references/shot-recipes.md` 里挑。配方库按镜头在片中的作用分九组（开场钩子 OP、字体与标题 TY、图形与形状 SH、转场与接缝 TR、界面与产品 UI、数据与信息 DA、标志与署名 LG、节奏与呼吸 RH、收尾与号召 CL），共 67 张卡；先看文件开头的组合规矩和索引，再把卡号写进镜头表的「配方」栏，卡号前缀就是这一镜的作用。本实验室动效图鉴的 45 种技法在文末附表里对应到了配方。
 
 检查点：节拍表写完给用户看。用户要一起定方向，就在这里停下等确认；用户已说「你定」，记录后继续。
 
@@ -146,7 +149,7 @@ GSAP 适合复杂编排，许可允许免费商用。接入骨架的写法：建
 
 ### 3.5 转场
 
-转场的含义表见 `references/shot-recipes.md` 的 F 节。要点：
+转场按两镜的关系选，见 `references/shot-recipes.md` 的 TR 组（开头有选型表和切点速度匹配公式）。要点：
 
 - 同向推移：上一镜加速离场并带模糊，下一镜从同一方向半途进入；切点两侧都在运动，速度相近。
 - 硬切用在节拍上和需要打断的地方；叠化少用。
@@ -160,6 +163,26 @@ GSAP 适合复杂编排，许可允许免费商用。接入骨架的写法：建
 - 文字只有两种状态：要读（够大、对比度够）或纹理（明显虚化、降亮度）。不存在「想让人读但读不清」的中间态。
 - 少用全部居中；贴边、分区，让视线有路可走。
 - 光效、扫光全片给主角一次，并裁在元素圆角内。
+
+### 3.7 三维
+
+三维给技法镜头；排版、数字、副标题保持平面，平面衬托立体。先按要做的效果选实现：
+
+| 要做的 | 用 | 要点 |
+|---|---|---|
+| 平面元素在空间里转、翻、分层（开门、立方体滚动、分层悬浮的界面、字母从纵深飞来） | CSS 3D | 父元素设 `perspective`，`perspective-origin` 放画面中心；要分层的容器设 `transform-style: preserve-3d`，它自己不能带 `filter`、`overflow`、`opacity<1`，否则会被压平；立方体的面设 `backface-visibility: hidden`，用 `translateZ(-半宽) rotateY(θ) translateZ(半宽)` 绕中心转，转开的面叠一层黑、按角度调透明度，才有明暗 |
+| 要真实光照、投影、厚度的实体（挤出形状、点阵地形、立柱、三维字） | three.js（MIT；从 npm 官方包只拷用到的文件进 `vendor/three/`） | 见下面几条 |
+
+three.js 的写法：
+
+- 每个三维镜头一个 `WebGLRenderer`（`antialias`、`alpha`、`preserveDrawingBuffer: true`），画布放进这个镜头的 section，跟 DOM 一起被裁切、叠放。`update(t)` 里摆好场景后同步调用 `render()`，不开渲染循环。每帧要变的几何体（形变、生长的立柱、扩散的圆环）就地重建，旧的 `dispose()`。
+- 像素相机：`fov = 2·atan(540 / D)`，相机放在 z = D，z = 0 平面就和 1920×1080 画面 1:1 对齐，布局直接用像素坐标。运镜写成「绕画面上某一点转动整个视角」，起止回到像素相机，三维镜头的首尾帧就能和二维构图严丝合缝。
+- 页面用 ES 模块加载 three.js，`file://` 下会被浏览器拦。把 `references/serve.mjs` 放到页面同目录，预览和渲染都走 `http://127.0.0.1:8765/`；`render-frames.mjs` 直接收 http 地址。
+- 三维字：`TTFLoader` 会在运行时从 CDN 拉 opentype.js，违反「渲染时不联网」。把品牌字体离线转成 typeface JSON（Python fontTools 读轮廓；每条命令先写终点再写控制点），`FontLoader` 读本地文件。字母位置按浏览器排版量出来（每个字母一个 span，构建期量 `offsetLeft`），三维字照着摆，停住时和二维排版一致。
+- 颜色：纸面用 `ShadowMaterial` 只画影子，底色仍是 DOM 的纸色。朝镜头的面受光系数 =（环境光 + 主光强度 × 主光方向的 z 分量）/ π，调到 1 左右，正面就是色板原色。画完读像素核对：把 WebGL 画布 `drawImage` 到 2D 画布再取色，和色板差 ≤3 级再往下走；实体铺满画面接下一镜时，两边同一位置的像素要一致。
+- 影子：three.js r186 起没有 PCFSoftShadowMap，改用 PCFShadowMap 配 `shadow.radius`；影子用墨色，透明度 .15–.2。下落的物体加一片落地影（越高越淡越大），高度才读得出来。
+- 墨色物体开环境反射时强度 ≤ .2，否则发灰。
+- 耗时参考：本机核显、4 个三维镜头的片子约 0.55 s / 帧。
 
 ## 4. 第四步：渲染导出
 
@@ -177,6 +200,15 @@ GSAP 适合复杂编排，许可允许免费商用。接入骨架的写法：建
 2. 逐帧：`node render-frames.mjs index.html --out frames`（可用 `--from/--to` 分段；`--alpha` 出透明底；`--scale 2` 出 2 倍母版）。
 3. 合成：按脚本结束时打印的命令，或 `references/export-params.md` 第 4 节的命令，出 `out/master.mp4`，再按需要加音乐、出网页版、GIF、联系表。
 4. 核对：用 ffprobe 查时长、帧率、尺寸、像素格式，与节拍表一致。
+
+配乐：用户给了音乐，就量出 BPM 和第一拍的偏移，把切点对到拍上（见镜头配方库 RH8）。没有音乐又要出有声版，可以按节拍表合成，范例见 `references/score-example.py`（numpy，固定种子）：
+
+- 画面和声音共用一张时间表：关键动作落在十六分音符网格上（120 BPM 时一拍 0.5s，十六分 0.125s），音效按画面时间点放，因果同帧。
+- 要节奏感：四拍底鼓 + 二、四拍军鼓叠拍手 + 十六分踩镲（反拍最重）+ 反拍贝斯；副歌换滚动十六分贝斯和琶音；每次大转场前军鼓滚奏（十六分转三十二分）加上扬噪声；贝斯和铺底按底鼓时刻做 sidechain（压 50–70%，约 0.1s 回弹）。
+- 高潮前的静音连混响尾巴一起掐掉，重击落在整拍上。
+- 滤波器用 TPT（零延迟反馈）状态变量结构；Chamberlin 结构在低 q、高频时会发散成 NaN。
+- 母线先把峰值归一再轻度限幅，别压扁；响度用两遍 loudnorm（第一遍测量，第二遍带测量值、`linear=true`）到 −14 LUFS，真峰值 ≤ −1 dBTP。
+- 自己听不到声音时，画波形和频谱图，对着节拍表逐个核对声音节点。
 
 单帧快速看：`msedge --headless=new --screenshot=out.png --window-size=1920,1080 "file:///…/index.html?t=2.5"`。在 Git Bash 里浏览器启动器会立刻返回、截图随后才写出，要轮询等文件出现。
 
@@ -204,6 +236,8 @@ GSAP 适合复杂编排，许可允许免费商用。接入骨架的写法：建
 机检（能跑的都跑）：
 - [ ] 同一时刻截两次，画面一致（`--at` 同一时间点跑两遍比对）。
 - [ ] 抽查帧覆盖每镜的起、中、停留和每个接缝前后；接缝处没有闪白、空帧、元素残留。
+- [ ] 放大铺满画面的转场：读最后一帧四个角的像素，确认都盖住了。`leave` 这类末段加速的缓动，在最后一帧只走到终点的约 80%，终点要给够。
+- [ ] 每个镜头切入的第一帧就有东西；错拍入场的第一个元素要在第一帧已经出现，不要空屏一帧。
 - [ ] 联系表（每 0.5 秒一格）上能看出节奏型：有快有慢，有停顿。
 - [ ] 把要读的文字帧缩到 480px 宽，仍读得清；强调色上的文字对比度够。
 - [ ] 成品时长、帧率、尺寸、像素格式与节拍表一致；有声版响度约 -14 LUFS。
@@ -225,22 +259,34 @@ GSAP 适合复杂编排，许可允许免费商用。接入骨架的写法：建
 
 ## 精炼来源
 
-[1] HeyGen. hyperframes（CLI 0.8.91，提交 ca714f1，2026-09-29）. 路径：skills/hyperframes/SKILL.md、skills/hyperframes-core/SKILL.md 与 references/determinism-rules.md、skills/hyperframes-animation/SKILL.md、skills/hyperframes-creative/references/{house-style.md, motion-principles.md, typography.md, beat-direction.md, video-composition.md}、skills/motion-graphics/SKILL.md、.claude/skills/motion-doctrine/SKILL.md、skills/remotion-to-hyperframes/SKILL.md. 借鉴：「页面可按时间定位、无头浏览器逐帧截图、FFmpeg 合成」的成片链路；确定性规则（禁时钟、禁无种子随机、禁无限循环、构建期算布局、用 fromTo、同元素不叠两个变换）；AI 默认做法清单与默认字体警示；缓动方向与时长档、每镜进场/停留/离场三段、按重要性错拍；节奏型先命名再排镜头、每拍写体验而非像素、动作动词表；转场含义与同向速度匹配；视频尺度的字号与密度；先抽查再渲染、渲染前征得同意；接缝方向一致与「不用原地晃动填时间」. 许可证：Apache-2.0（Copyright 2026 HeyGen, Inc.）. 链接：https://github.com/heygen-com/hyperframes
+[1] HeyGen. hyperframes（CLI 0.8.91，提交 ca714f1，2026-09-29）. 路径：skills/hyperframes/SKILL.md、skills/hyperframes-core/SKILL.md 与 references/determinism-rules.md、skills/hyperframes-animation/SKILL.md、skills/hyperframes-creative/references/{house-style.md, motion-principles.md, typography.md, beat-direction.md, video-composition.md}、skills/motion-graphics/SKILL.md、.claude/skills/motion-doctrine/SKILL.md、skills/remotion-to-hyperframes/SKILL.md；镜头配方库另用 .claude/skills/{cut-the-curve, oversized-cursor}/SKILL.md、skills/hyperframes-animation/{rules-index.md, transitions/*.md}、skills/motion-graphics/{references/motion-vocabulary.md, categories/*/module.md}、skills/music-to-video/references/motion-primitive-catalog.md、skills/product-launch-video/references/motion-language.md. 借鉴：「页面可按时间定位、无头浏览器逐帧截图、FFmpeg 合成」的成片链路；确定性规则（禁时钟、禁无种子随机、禁无限循环、构建期算布局、用 fromTo、同元素不叠两个变换）；AI 默认做法清单与默认字体警示；缓动方向与时长档、每镜进场/停留/离场三段、按重要性错拍；节奏型先命名再排镜头、每拍写体验而非像素、动作动词表；转场含义与同向速度匹配；视频尺度的字号与密度；先抽查再渲染、渲染前征得同意；接缝方向一致与「不用原地晃动填时间」；镜头配方库里同向推移与缩放穿越的参数、瀑布进场与瀑布切、大光标演示、按能量选转场、卡点提前量、实物即图表. 许可证：Apache-2.0（Copyright 2026 HeyGen, Inc.）. 链接：https://github.com/heygen-com/hyperframes
 
 [2] Remotion. remotion-dev/skills · remotion-best-practices（4.0.529，提交 cf49eff，2026-09-25）. 路径：skills/remotion-best-practices/SKILL.md、remotion-markup/{REFERENCE.md, timing.md, multi-scene-video.md, transitions.md}、remotion-create/{REFERENCE.md, video-layout.md}. 借鉴：动画只由当前帧驱动、不用 CSS 过渡；每个大镜头一个组件、转场重叠要计入总时长；视频版式最小字号与安全边距；只在用户要求时整片渲染、先出单帧检查；保留用户在代码外的改动. 许可证：仓库未附 LICENSE 文件，属 Remotion 项目，按 Remotion License 对待（个人、≤3 人营利公司、非营利组织免费，其余公司需 Company License），只借思路未引用代码. 链接：https://github.com/remotion-dev/skills ；许可全文 https://github.com/remotion-dev/remotion/blob/main/LICENSE.md
 
-[3] Wei Yihao (Vincentwei1021). video-shotcraft（提交 5ddbf52，2026-09-29）. 路径：SKILL.md、references/aesthetic-rules.md、references/pipeline.md、references/sequences/promo-energy-arc.md、references/shots/typography/blur-slide.md（镜头卡格式）. 借鉴：「镜头配方卡」这一层（用途、时长、能量、参数、已知坑）；自主创作与共同创作两种协作方式；视觉语言从产品自身设计系统生长；每镜一个动效、每种手法全片只当一次主角；关键信息停留 ≥1s、初版默认放慢；冲击全片 ≤3 处；光效不群发并裁进圆角；文字「要读 / 纹理」两态与最低字高；静帧定调先于动画. 许可证：Apache-2.0（Copyright 2026 Wei Yihao）；其模板与 demo 依赖 Remotion，使用时另受 Remotion License 约束. 链接：https://github.com/Vincentwei1021/video-shotcraft
+[3] Wei Yihao (Vincentwei1021). video-shotcraft（提交 5ddbf52，2026-09-29）. 路径：SKILL.md、references/aesthetic-rules.md、references/pipeline.md、references/sequences/promo-energy-arc.md、references/shots/（10 类 157 张镜头卡）. 借鉴：「镜头配方卡」这一层（用途、时长、能量、参数、已知坑）；自主创作与共同创作两种协作方式；视觉语言从产品自身设计系统生长；每镜一个动效、每种手法全片只当一次主角；关键信息停留 ≥1s、初版默认放慢；冲击全片 ≤3 处；光效不群发并裁进圆角；文字「要读 / 纹理」两态与最低字高；静帧定调先于动画；镜头配方库里冷开场、字窗入景、甩镜、藏切、变速定格、加速剪辑串、黑场蓄力、残影分身等手法的思路与参数量级（逐卡对应见 references/shot-recipes.md 文末）. 许可证：Apache-2.0（Copyright 2026 Wei Yihao）；其模板与 demo 依赖 Remotion，使用时另受 Remotion License 约束. 链接：https://github.com/Vincentwei1021/video-shotcraft
 
 [4] Alisa Qian (Alisa0808). vox-director（1.0.0，提交 668ec39，2026-08-11）. 路径：SKILL.zh.md、references/beat-layer.md、examples/money-15s.beats.json. 借鉴：先选叙事骨架再写节拍；开头 3 秒内给钩子；按片长定节拍数、每 3–5 秒一次明显变化；景别与运镜分成两根独立的轴；相邻镜头不重复同一运镜、静止留给点题镜；节拍表是开工前的确认关口. 许可证：MIT（Copyright 2026 Alisa Qian）. 链接：https://github.com/Alisa0808/vox-director
 
-[5] Nolan Lai (nolangz). pixel2motion（v2，提交 e9faedb，2026-08-21）. 路径：SKILL.md、references/motion-personality.md、references/twelve-principles-for-logos.md. 借鉴：迪士尼十二原则落到缓动参数；品牌放上「能量 × 语气」两轴推导时长、曲线、过冲、挤压；蓄势 : 主动作 : 收尾 = 20 : 50 : 30；「换个品牌还成立吗」自检；`@keyframes` 里的缓动须写字面值；用 `?t=` 定位截帧验证. 许可证：MIT（Copyright 2026 Nolan Lai）. 链接：https://github.com/nolangz/pixel2motion
+[5] Nolan Lai (nolangz). pixel2motion（v2，提交 e9faedb，2026-08-21）. 路径：SKILL.md、references/motion-personality.md、references/twelve-principles-for-logos.md、references/reveal-patterns.md. 借鉴：迪士尼十二原则落到缓动参数；品牌放上「能量 × 语气」两轴推导时长、曲线、过冲、挤压；蓄势 : 主动作 : 收尾 = 20 : 50 : 30；「换个品牌还成立吗」自检；`@keyframes` 里的缓动须写字面值；用 `?t=` 定位截帧验证；描边的虚线参数与线帽陷阱、标志出场的时间配比（镜头配方库 SH1、LG 组）. 许可证：MIT（Copyright 2026 Nolan Lai）. 链接：https://github.com/nolangz/pixel2motion
 
 [6] GreenSock. gsap-skills · gsap-timeline（提交 aed9cfd，2026-04-21）. 路径：skills/gsap-timeline/SKILL.md. 借鉴：暂停时间轴、位置参数与标签的编排写法，`tl.seek()` 定位. 许可证：skill 文本 MIT（Copyright 2026 GreenSock）；GSAP 库本身为 GSAP Standard License，免费含商用，禁止用于与 Webflow 竞争的无代码动画工具. 链接：https://github.com/greensock/gsap-skills ；https://gsap.com/standard-license
 
-[7] 浅译万道实验室（自有）. 常用 WEB 交互动效图鉴. 链接：https://www.transwonder.top/vibe/motion-techniques/（社区站当前版）. 借鉴：入场、循环、鼠标交互、文字、背景、进阶编排六类共 45 种技法，整理为本 skill 的镜头配方与「图鉴技法 → 视频用法」对照表. 许可证：浅译自有. 链接：https://richardgogogo.github.io/vibe/motion-techniques/
+[7] 浅译万道实验室（自有）. 常用 WEB 交互动效图鉴. 链接：https://www.transwonder.top/vibe/motion-techniques/（社区站当前版）. 借鉴：入场、循环、鼠标交互、文字、背景、进阶编排六类共 45 种技法，对照到镜头配方库文末的附表「图鉴 45 技法 → 可用配方」. 许可证：浅译自有. 链接：https://richardgogogo.github.io/vibe/motion-techniques/
 
 [8] 浅译万道实验室（自有）. iso-motion-icon、line-motion-icon、mark-motion-icon、pixel-motion-icon. 路径：浅译动效图标 skill <名称>/SKILL.md（当前版）. 借鉴：进场 → 操作循环 → 待机三段编排；先操作后结果、结果晚半拍；单焦点与动效预算；动效人格档位表；同元素进场与循环分层避免变换冲突；隐藏页与无头环境用 `getAnimations()` 定位时间验证. 许可证：浅译自有. 链接：内部 skill
 
 [9] shneural（Telegram 频道作者）. 案例：Opus 5.5 一句提示词生成 15 秒动态图形 showreel（2026-09-24）. 帖子：https://t.me/shneural/1365 、https://t.me/shneural3/56 . 借鉴：方法论启示——最高推理档用约 2 小时完成，高推理档明显更差；只给抽象需求时成片带预设感，字体最明显；指定具体风格或自己的设计系统可以避免. 未使用其提示词、代码或视频. 许可证：不适用（仅引用观点）.
 
-说明：以上来源只借设计思路，未复制原文或代码。`references/skeleton.html` 与 `references/render-frames.mjs` 为本实验室自写；其中 mulberry32 种子随机是公开算法。
+[10] Google. Material Design 动效系统（material-components-android，2026-09-29 访问）. 路径：docs/theming/Motion.md；设计说明 the-motion-system. 借鉴：按元素之间的关系选转场（容器转换、x/y/z 共享轴、淡出淡入），写进镜头配方库 TR 组的选型表与 TR6；容器转换里内容做反向补偿缩放；界面尺度的时长在视频里放慢 2–3 倍. 许可证：Apache-2.0（material-components-android）；设计说明页只借分类. 链接：https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md ；https://m2.material.io/design/motion/the-motion-system.html
+
+[11] IBM. Carbon Design System · Motion（2026-09-29 访问）. 路径：elements/motion/overview；packages/motion 的时长与缓动令牌. 借鉴：时长随位移距离和缩放幅度增加；高效与表现两种运动模式的区分. 许可证：Apache-2.0（carbon-design-system/carbon）. 链接：https://carbondesignsystem.com/elements/motion/overview/
+
+[12] School of Motion. Six Essential Motion Design Transitions；Seamless Storytelling: The Power of Match Cuts in Animation（2026-09-29 访问）. 借鉴：动作剪的帧衔接、匹配剪辑的匹配维度（形状、运动、颜色、构图）、无限缩放作转场. 许可证：文章版权归原作者，只借分类与原则，未引用原文. 链接：https://schoolofmotion.com/blog/six-essential-motion-design-transitions-tutorial ；https://schoolofmotion.com/blog/match-cuts
+
+[13] StudioBinder. Types of Editing Transitions in Film — The Ultimate Guide（2026-09-29 访问）. 借鉴：剪辑转场的分类和各自的含义（插入特写、猛切、隐形剪辑、J/L 切、色场、光圈、甩镜、变形），用于镜头配方库 TR 组的选型表. 许可证：文章版权归原作者，只借分类. 链接：https://www.studiobinder.com/blog/types-of-editing-transitions-in-film/
+
+[14] GreenSock / Webflow. GSAP 3.13 发布说明（2025-04-29）. 借鉴：SplitText（含行遮罩）、DrawSVG、MorphSVG、ScrambleText 自 3.13 起全部免费、可商用，列为镜头配方库 TY3、SH2 等卡的可选实现. 许可证：GSAP Standard License. 链接：https://gsap.com/blog/3-13/
+
+[15] three.js authors (mrdoob 等). three.js（r186，npm 包 three@0.186.1，2026-09-29）. 路径：build/three.module.js、build/three.core.js；examples/jsm/{geometries/TextGeometry.js, geometries/RoundedBoxGeometry.js, loaders/FontLoader.js, environments/RoomEnvironment.js, utils/BufferGeometryUtils.js}. 借鉴：3.7 节的三维实现——每镜一个 WebGLRenderer、挤出几何体与折痕法线、typeface 字形格式（据此写离线字体转换）、PCF 软影与 ShadowMaterial 只画影子、实例化网格做点阵；r186 移除 PCFSoftShadowMap 的变化. 许可证：MIT（Copyright © 2010-2026 three.js authors）. 链接：https://github.com/mrdoob/three.js
+
+说明：以上来源只借设计思路，未复制原文或代码（three.js 作为库按 MIT 使用，不随本 skill 分发）。`references/skeleton.html`、`render-frames.mjs`、`serve.mjs`、`score-example.py` 为本实验室自写；其中 mulberry32 种子随机是公开算法。
