@@ -10,10 +10,10 @@ stars: 959
 pushed: 2026-07-31
 stats_at: 2026-09-29
 tags: [设计视觉, Skill, PPT]
-summary: "研究 50+ TED 演讲提炼叙事结构的 PPT 提纲编排 skill，仅产渲染 Brief、不直接出 HTML，依赖下游出图 skill。"
+summary: "把 70 多篇 TED 演讲的叙事方式提炼成「观众状态转移」（AST）提纲的 PPT 编排 skill，仅产渲染 Brief、不直接出 HTML，依赖下游出图 skill。"
 ---
 
-**简介**：AST-based PPT 提纲编排 skill——研究 50+ TED 演讲提炼叙事结构，仅产出渲染 Brief、不直接生成 HTML，依赖下游 PPT / 出图 skill 渲染；v1.0.0 于 2026-06-19 发布。
+**简介**：PPT 提纲编排 skill。作者用 70 多篇 TED 演讲提炼出「观众状态转移」（AST，Audience-State-Transfer）的叙事方法，每页都要推动观众理解一个概念，仅产出渲染 Brief、不直接生成 HTML，依赖下游 PPT / 出图 skill 渲染；v1.0.0 于 2026-06-19 发布。
 
 **要点**：「Brief-only」设计清晰分离职责；本体声明「Zero APIs, zero Keys」（不调外部 API）。
 

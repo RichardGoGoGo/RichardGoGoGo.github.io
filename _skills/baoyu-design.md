@@ -19,6 +19,8 @@ summary: "本地产 UI mockup / 原型 / 幻灯片 / 线框图，输出全本地
 
 **作者可信度**：高（宝玉 JimLiu）。
 
+**来源说明（客观事实）**：README 自述本项目把 Anthropic 驱动 claude.ai/design 的设计技能 Claude Design 重新打包到本地 Agent 运行，并声明与 Anthropic 无隶属或背书关系；仓库标注 MIT 许可，但其中来自上游的提示词内容的授权情况，README 未作说明（references/upstream-sync/provenance.json 记录了提取过程）。核查于 2026-09-29。
+
 **安全审查（客观事实）**：无 `curl|bash`、无凭证外传；联网仅必要的 GitHub 读取（`gh api` / sparse-checkout，记录 provenance）与 Google Fonts。
 
 **风险评级**：🟢 低。
