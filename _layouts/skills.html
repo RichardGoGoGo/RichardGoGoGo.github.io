@@ -13,8 +13,24 @@ SKILL 库：参考资料，不按时间衰减。
   <div class="page-head">
     <h1>{{ page.title }}</h1>
     {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
-    {% if guide %}<p class="lead">每篇评测结构相同：要点介绍 + 七项安全审查客观事实 + 风险等级，中立呈现，不给"要不要引入"的结论。安全审查基于审查时的源码与文档，使用前请再核一次。</p>{% endif %}
   </div>
+
+  {%- assign refined = site.refined | sort: "order" -%}
+  {%- if refined.size > 0 %}
+  <div class="kicker">浅译精炼</div>
+  <div class="refined-grid">
+    {%- for r in refined %}
+    <a class="refined-card" href="{{ r.url | relative_url }}">
+      <div class="rf-name">{{ r.title }}</div>
+      {%- if r.summary %}<p class="rf-sum">{{ r.summary }}</p>{% endif %}
+      {%- if r.scenes %}<div class="rf-scenes">{% for x in r.scenes %}<span>{{ x }}</span>{% endfor %}</div>{% endif %}
+      <div class="rf-meta">精炼自 {{ r.sources | size }} 个来源<span class="dot">·</span>v{{ r.version }}<span class="dot">·</span>{{ r.updated | date: "%Y-%m-%d" }} 更新</div>
+    </a>
+    {%- endfor %}
+  </div>
+  <div class="kicker kicker-src">来源 SKILL</div>
+  <p class="lead lead-src">精炼时参考过的开源 skill。每篇评测结构相同：要点介绍 + 七项安全审查客观事实 + 风险等级，中立呈现，不给「要不要引入」的结论。安全审查基于审查时的源码与文档，使用前请再核一次。</p>
+  {%- endif %}
 
   <div class="seg" id="skills-theme" role="tablist">
     <button class="seg-btn active" data-t="all">全部 <span>{{ sk.size }}</span></button>

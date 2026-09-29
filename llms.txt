@@ -11,7 +11,7 @@ permalink: /llms.txt
 - [热点榜]({{ site.url }}/hot/)：近 14 天按独立来源数与时间衰减排序
 - [主题]({{ site.url }}/topics/)：按机构与方向聚合
 - [征集日历]({{ site.url }}/calls/)：按截止日排序的赛事与会议征稿
-- [SKILL 库]({{ site.url }}/skills/)：AI skill 的要点介绍与七项安全审查事实
+- [SKILL 精炼]({{ site.url }}/skills/)：浅译自有 SKILL（标注精炼来源）+ 来源 skill 的要点与七项安全审查事实
 - [周报 · 月报]({{ site.url }}/reports/)：每周一回顾上周、每月初回顾上月，条目链回原卡片
 - [深度分析]({{ site.url }}/deep/)：重大事件长篇分析
 

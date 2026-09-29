@@ -666,3 +666,25 @@ a.pf-title:hover { color: var(--accent); }
   .arch-recent { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
   .paper-stage { padding: 16px 16px 48px; }
 }
+
+/* ---------- SKILL 精炼：浅译自有 skill ---------- */
+.refined-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 36px; }
+.refined-card { display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--rule-soft); border-top: 3px solid var(--accent); border-radius: var(--r-card); color: var(--ink); text-decoration: none; transition: box-shadow 0.15s, border-color 0.15s; }
+.refined-card:hover { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06); border-color: var(--accent); }
+.rf-name { font-family: var(--display); font-size: 1.25rem; font-weight: 700; }
+.rf-sum { font-size: 0.9rem; line-height: 1.75; color: var(--ink-soft); margin: 0; }
+.rf-scenes { display: flex; flex-wrap: wrap; gap: 6px; }
+.rf-scenes span, .rf-tag { font-size: 0.72rem; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.rf-meta { margin-top: auto; font-size: 0.74rem; color: var(--ink-mute); }
+.rf-meta .dot { margin: 0 6px; color: var(--rule); }
+.rf-meta-page { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-top: 12px; }
+.kicker-src { margin-top: 8px; }
+.lead-src { font-size: 0.86rem; color: var(--ink-mute); margin: -6px 0 14px; }
+.rf-srclist { list-style: none; padding: 0; }
+.rf-srclist li { padding: 8px 0; border-bottom: 1px solid var(--rule-soft); }
+.rf-srclist small { display: block; font-size: 0.76rem; color: var(--ink-mute); }
+.rf-appx { font-size: 0.8rem; color: var(--ink-mute); margin: 10px 0 0; line-height: 1.8; }
+.rf-appx code { font-size: 0.76rem; margin: 0 2px; }
+.refined-body table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0 0 1.2rem; }
+.refined-body th, .refined-body td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.refined-body th { font-weight: 600; color: var(--ink-soft); }

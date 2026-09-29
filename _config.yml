@@ -24,6 +24,9 @@ collections:
   reports:
     output: true
     permalink: /reports/:name/
+  refined:
+    output: true
+    permalink: /skills/:name/
 
 exclude:
   - drafts
@@ -53,6 +56,13 @@ defaults:
       type: skills
     values:
       category: skills
+  # 浅译精炼 SKILL（正本在 00-shared/skills/，这里是对外副本）
+  - scope:
+      path: ""
+      type: refined
+    values:
+      layout: refined
+      category: refined
   # 周报 / 月报（知识库 routine 产出，每篇独立页）
   - scope:
       path: ""

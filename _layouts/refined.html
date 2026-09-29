@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{%- comment -%} 浅译精炼 SKILL 单页：头部（名称·场景·版本·来源数）+ SKILL 正文（含「精炼来源」）+ 目录 {%- endcomment -%}
+<header class="page-header">
+  <div class="container">
+    <div class="kicker">浅译精炼 SKILL</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="page-meta">{{ page.summary }}</p>{% endif %}
+    <div class="rf-meta rf-meta-page">
+      {%- if page.scenes %}{% for x in page.scenes %}<span class="rf-tag">{{ x }}</span>{% endfor %}{% endif -%}
+      <span>v{{ page.version }} · {{ page.updated | date: "%Y-%m-%d" }} 更新 · 精炼自 {{ page.sources | size }} 个来源</span>
+    </div>
+    {%- if page.appendix and page.appendix.size > 0 %}
+    <p class="rf-appx">本页是 SKILL.md 正文。附录 {% for x in page.appendix %}<code>references/{{ x }}</code>{% unless forloop.last %}、{% endunless %}{% endfor %} 随 SKILL 包提供。</p>
+    {%- endif %}
+  </div>
+</header>
+<main class="container">
+  <nav class="crumb"><a href="{{ '/skills/' | relative_url }}">SKILL 精炼</a><span class="sep">/</span><span class="cur">{{ page.title }}</span></nav>
+  <details class="mobile-toc"><summary>页面目录</summary><ul class="toc-list" id="mobile-toc-list"></ul></details>
+  <div class="content-wrapper">
+    <article class="main-content refined-body">
+      {{ content }}
+      {%- if page.sources %}
+      <h2 id="src-cards">来源 SKILL 评测</h2>
+      <ul class="rf-srclist">
+        {%- for s in page.sources %}
+        <li>{% if s.skill %}<a href="{{ '/skills/' | relative_url }}#{{ s.skill }}">{{ s.name }}</a>{% else %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }} ↗</a>{% endif %}<small>{{ s.repo | default: s.note }}</small></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </article>
+    <aside class="page-sidebar"><div class="toc-title">目录</div><ul class="toc-list" id="toc-list"></ul></aside>
+  </div>
+</main>

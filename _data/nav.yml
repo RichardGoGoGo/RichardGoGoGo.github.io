@@ -10,7 +10,7 @@
 - title: 资源
   items:
     - { label: "征集日历", href: "/calls/", icon: calendar, match: "/calls/" }
-    - { label: "SKILL 库", href: "/skills/", icon: shield, match: "/skills/" }
+    - { label: "SKILL 精炼", href: "/skills/", icon: shield, match: "/skills/" }
     - { label: "深度分析", href: "/deep/", icon: layers, match: "/deep/" }
 - title: 工具
   items:

@@ -35,7 +35,7 @@
   </div>
   {%- assign sk = site.skills | where_exp: "s", "s.guide != true" | sort: "date" | reverse -%}
   <div class="rail-box">
-    <div class="rail-title">最新 SKILL 评测<a href="{{ '/skills/' | relative_url }}">SKILL 库 →</a></div>
+    <div class="rail-title">最新 SKILL 评测<a href="{{ '/skills/' | relative_url }}">SKILL 精炼 →</a></div>
     <ul class="rail-list rail-plain">
       {%- for s in sk limit: 3 -%}
       {%- assign ss = s.path | split: '/' | last | remove: '.md' -%}
