@@ -68,9 +68,10 @@ tools:
     href: https://figure-studio.lovable.app
     cover: /assets/vibe/figure-studio.webp
 
-  - name: "北境修仙录"
-    en: "Roguelike Cultivation"
-    desc: "原生 JS 的 Roguelike 文字修仙小游戏：闯关十据点、自动战斗、收集心法装备、突破境界，死亡后永久升级循环变强（纯前端，本地存档）。"
+  # &#8288; 是不可见的词连接符：卡片标题折行时不把「修仙游戏」拆开，只在 Roguelike 后面的空格处换行
+  - name: "喵喵修仙录 · 猫主题 Roguelike 修&#8288;仙&#8288;游&#8288;戏"
+    en: "Cat Cultivation Roguelike"
+    desc: "猫主题的自动战斗构筑 Roguelike：选狸花剑修、大橘体修或布偶法修出身，闯四个据点，用装备套装、法宝和道途搭流派，问心突破，从炼气修到化神。战斗按公开的时间轴自动结算，一局约 20–40 分钟；天机令与装备图鉴跨局保留（纯前端，本地存档）。"
     type: internal
     href: /vibe/xiuxian/
     cover: /assets/vibe/xiuxian.webp
