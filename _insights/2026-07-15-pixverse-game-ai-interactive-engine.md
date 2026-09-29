@@ -1,5 +1,5 @@
 ---
-title: "🔴 PixVerse进军交互娱乐：Game AI引擎支持实时视频驱动游戏场景"
+title: "PixVerse进军交互娱乐：Game AI引擎支持实时视频驱动游戏场景"
 date: 2026-07-15
 icat: 产品
 firsthand: true

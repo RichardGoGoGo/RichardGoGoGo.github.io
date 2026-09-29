@@ -1,5 +1,5 @@
 ---
-title: "🔴 Anthropic 核心设计负责人 Jenny Wen 跳槽 Cursor 出任设计主管"
+title: "Anthropic 核心设计负责人 Jenny Wen 跳槽 Cursor 出任设计主管"
 date: 2026-07-15
 icat: 行业
 source: "新智元"
