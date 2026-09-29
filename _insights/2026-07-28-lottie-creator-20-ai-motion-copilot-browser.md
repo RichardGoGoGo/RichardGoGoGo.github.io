@@ -7,7 +7,7 @@ source: "LottieFiles官方X + ProductHunt"
 src: "https://x.com/LottieFiles/status/2079748705868259728"
 tags: [Lottie, 动效设计, AI动画, Motion Copilot]
 topics: ["视频生成", "设计工具"]
-summary: 「LottieFiles发布Lottie Creator 2.0：浏览器内完整运动设计工具，Motion Copilot AI可从自然语言描述直接生成关键帧动画；新增图形编辑器、State Machine可交互性系统；支持导入AI/EPS/PDF/PSD/SVG/AEP/FLA等16种格式；无需安装，导出生产级Lottie动画；定价$19.99/月。」
+summary: "LottieFiles发布Lottie Creator 2.0：浏览器内完整运动设计工具，Motion Copilot AI可从自然语言描述直接生成关键帧动画；新增图形编辑器、State Machine可交互性系统；支持导入AI/EPS/PDF/PSD/SVG/AEP/FLA等16种格式；无需安装，导出生产级Lottie动画；定价$19.99/月。"
 ---
 
 LottieFiles发布Lottie Creator 2.0：浏览器内完整运动设计工具，Motion Copilot AI可从自然语言描述直接生成关键帧动画；新增图形编辑器、State Machine可交互性系统；支持导入AI/EPS/PDF/PSD/SVG/AEP/FLA等16种格式；无需安装，导出生产级Lottie动画；定价$19.99/月。

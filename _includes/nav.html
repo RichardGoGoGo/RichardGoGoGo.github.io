@@ -11,7 +11,8 @@
     <div class="sb-title">{{ g.title }}</div>
     {%- for it in g.items %}
       {%- if it.exact -%}{%- if u == it.match -%}{%- assign on = true -%}{%- else -%}{%- assign on = false -%}{%- endif -%}
-      {%- else -%}{%- assign m = u | slice: 0, it.match.size -%}{%- if m == it.match -%}{%- assign on = true -%}{%- else -%}{%- assign on = false -%}{%- endif -%}{%- endif %}
+      {%- else -%}{%- assign m = u | slice: 0, it.match.size -%}{%- if m == it.match -%}{%- assign on = true -%}{%- else -%}{%- assign on = false -%}{%- endif -%}{%- endif -%}
+      {%- for al in it.also -%}{%- assign m2 = u | slice: 0, al.size -%}{%- if m2 == al -%}{%- assign on = true -%}{%- endif -%}{%- endfor %}
     <a class="sb-link{% if on %} active{% endif %}" href="{{ it.href | relative_url }}"{% if on %} aria-current="page"{% endif %}>{% include icon.html n=it.icon %}<span>{{ it.label }}</span></a>
     {%- endfor %}
   </nav>
@@ -44,6 +45,6 @@
   {%- if u == "/" or u contains "/insights" or u contains "/daily" -%}{%- assign in_more = false -%}{%- endif %}
   <a class="tab{% if u == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">{% include icon.html n="bolt" sz=20 %}<span>精选</span></a>
   <a class="tab{% if u contains '/insights' %} active{% endif %}" href="{{ '/insights/' | relative_url }}">{% include icon.html n="list" sz=20 %}<span>全部</span></a>
-  <a class="tab{% if u contains '/daily' %} active{% endif %}" href="{{ '/daily/' | relative_url }}">{% include icon.html n="doc" sz=20 %}<span>日报</span></a>
+  <a class="tab{% if u contains '/daily' or u contains '/weekly' or u contains '/monthly' or u contains '/reports' %} active{% endif %}" href="{{ '/daily/' | relative_url }}">{% include icon.html n="doc" sz=20 %}<span>日报</span></a>
   <a class="tab{% if in_more %} active{% endif %}" href="{{ '/more/' | relative_url }}">{% include icon.html n="more" sz=20 %}<span>更多</span></a>
 </nav>

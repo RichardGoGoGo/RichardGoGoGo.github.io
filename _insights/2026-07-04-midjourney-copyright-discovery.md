@@ -7,7 +7,7 @@ source: "TechCrunch / Engadget / Variety / ArtNet News"
 src: "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/"
 tags: [Midjourney, AI版权, 版权诉讼, 好莱坞]
 topics: ["Midjourney", "版权与政策"]
-summary: "「Midjourney 向法院申请强制迪士尼/环球/华纳兄弟披露其自身 AI 使用情况，以『双重标准』为由反制版权诉讼，发现权博弈将影响 AI 艺术版权判例走向」"
+summary: "Midjourney 向法院申请强制迪士尼/环球/华纳兄弟披露其自身 AI 使用情况，以『双重标准』为由反制版权诉讼，发现权博弈将影响 AI 艺术版权判例走向"
 pinned: true
 pin_until: 2026-07-14
 deep: /deep/2026-07-06-midjourney-copyright/

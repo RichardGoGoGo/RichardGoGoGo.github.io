@@ -7,7 +7,7 @@ source: "AIHub/量子位/网易/无界AI/aitop100/机器之心（多源）"
 src: "https://www.aihub.cn/news/qwen-image-3-0-release/"
 tags: [阿里, Qwen-Image, 图像生成, 文字渲染, 信息图表, 多语言, 艺术风格, 通义万象]
 topics: ["阿里巴巴", "图像生成"]
-summary: "「Qwen-Image-3.0 文字渲染精度达 10px 可辨级别，4.5K 超长指令支持多区域版面控制，12 语言覆盖多语言出版需求。」"
+summary: "Qwen-Image-3.0 文字渲染精度达 10px 可辨级别，4.5K 超长指令支持多区域版面控制，12 语言覆盖多语言出版需求。"
 pinned: true
 pin_until: 2026-08-09
 ---

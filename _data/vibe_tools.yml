@@ -5,6 +5,13 @@ title: "VIBE工具箱"
 intro: "一组 AI × 前端的小工具与交互演示——部分站内直接运行，部分为外部 Web 应用。"
 
 tools:
+  - name: "都市折叠 · 空间形态叙事的游戏化编译"
+    en: "Digital Futures 2026 · Group 25"
+    desc: "Digital Futures 2026 工作营第 25 组学员互动成果展：一排书脊即一件作品，点开翻书，看城市空间形态如何被编译成游戏化叙事。"
+    type: internal
+    href: /df2026-urban-folding/
+    cover: /assets/vibe/df2026-urban-folding.webp
+
   - name: "纳须弥 · 邮轮智能运营策划"
     en: "Nasumeru"
     desc: "邮轮空间智能配置与体验仿真系统 Demo：拖动客群画像滑杆即时重新寻优、生成运营排程与宾客宣传方案，纯前端仿真引擎、本地存档。第二届「邮轮来了」大赛参赛作品。"

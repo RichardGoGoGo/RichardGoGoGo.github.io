@@ -7,7 +7,7 @@ source: "Google Firebase官方文档 + ud.hk + clauding.de"
 src: "https://firebase.google.com/docs/ai-logic/imagen-models-migration"
 tags: [Google, Imagen, Nano Banana, API退役]
 topics: ["Google", "Figma", "图像生成"]
-summary: 「Google于2026-08-17关闭全部Imagen 4系列API（imagen-4.0-generate-001 / ultra / fast），全线切换至Gemini 3.x图像族（Nano Banana）；API调用方式从专用接口改为通用Gemini content-generation接口（modality=image）；调用Imagen端点的Figma插件/Zapier/Make/n8n及大量小SaaS工具无声停摆；受影响用户须主动迁移端点+重写SDK调用逻辑。」
+summary: "Google于2026-08-17关闭全部Imagen 4系列API（imagen-4.0-generate-001 / ultra / fast），全线切换至Gemini 3.x图像族（Nano Banana）；API调用方式从专用接口改为通用Gemini content-generation接口（modality=image）；调用Imagen端点的Figma插件/Zapier/Make/n8n及大量小SaaS工具无声停摆；受影响用户须主动迁移端点+重写SDK调用逻辑。"
 pinned: true
 pin_until: 2026-09-15
 ---

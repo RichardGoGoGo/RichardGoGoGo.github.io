@@ -7,7 +7,7 @@ source: "商汤官方 / 量子位"
 src: "https://www.sensetime.com/"
 tags: [商汤, SenseNova, 精准编辑, 4K]
 topics: ["大模型"]
-summary: 「商汤发布SenseNova U1.5-Lite-Preview：8B参数MoT（Mixture of Transformers）架构，核心突破为精准局部编辑（框选区域只改该区域、边缘自然融合）+ 4K原生输出 + 中文风格化，权重已开源，S级5+源齐发。」
+summary: "商汤发布SenseNova U1.5-Lite-Preview：8B参数MoT（Mixture of Transformers）架构，核心突破为精准局部编辑（框选区域只改该区域、边缘自然融合）+ 4K原生输出 + 中文风格化，权重已开源，S级5+源齐发。"
 pinned: true
 pin_until: 2026-09-15
 ---

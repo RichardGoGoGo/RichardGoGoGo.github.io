@@ -7,7 +7,7 @@ source: "Black Forest Labs 官方博客/VentureBeat/GlobeNewswire/TechTimes（�
 src: "https://bfl.ai/blog/flux-3"
 tags: [FLUX 3, Black Forest Labs, 多模态生成, 图像生成, 视频生成, 音频, 设计工具生态]
 topics: ["Black Forest Labs", "图像生成", "视频生成"]
-summary: "「Black Forest Labs 发布 FLUX 3，首个统一图像生成、20 秒视频与原生音频输出的多模态流模型，Canva 等首批生态伙伴同步接入。」"
+summary: "Black Forest Labs 发布 FLUX 3，首个统一图像生成、20 秒视频与原生音频输出的多模态流模型，Canva 等首批生态伙伴同步接入。"
 pinned: true
 pin_until: 2026-08-09
 ---

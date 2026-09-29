@@ -1,0 +1,9 @@
+{%- comment -%} 独立来源数 → 变量 sc。sources 条数优先；旧卡按 source 字符串（去括号注释）里 / + ＋ 、 分隔的名字数；至少 1 {%- endcomment -%}
+{%- assign sc = include.p.sources | size -%}
+{%- if sc == 0 and include.p.source -%}
+  {%- assign sc_parts = include.p.source | replace: "（", "(" | replace: "）", ")" | split: "(" -%}
+  {%- assign sc_clean = sc_parts[0] -%}
+  {%- for q in sc_parts offset: 1 -%}{%- if q contains ")" -%}{%- assign qs = q | split: ")" -%}{%- if qs.size > 1 -%}{%- assign sc_clean = sc_clean | append: qs.last -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+  {%- assign sc = sc_clean | replace: "＋", "/" | replace: "+", "/" | replace: "、", "/" | split: "/" | size -%}
+{%- endif -%}
+{%- if sc == 0 -%}{%- assign sc = 1 -%}{%- endif -%}

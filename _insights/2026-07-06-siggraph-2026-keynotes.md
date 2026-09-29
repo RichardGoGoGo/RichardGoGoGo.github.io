@@ -7,7 +7,7 @@ source: "SIGGRAPH 官方 / PRNewswire"
 src: "https://s2026.siggraph.org/program/keynote-presentations/"
 tags: [SIGGRAPH, NVIDIA, 3D生成]
 topics: ["3D 与世界模型", "研究论文", "艺术与展览"]
-summary: "「SIGGRAPH 2026 官方公布主旨演讲阵容：NVIDIA 主讲实时神经渲染技术方向，TripoAI 代表 3D 生成新范式参与演讲，大会 7 月 19–23 日于洛杉矶举行」"
+summary: "SIGGRAPH 2026 官方公布主旨演讲阵容：NVIDIA 主讲实时神经渲染技术方向，TripoAI 代表 3D 生成新范式参与演讲，大会 7 月 19–23 日于洛杉矶举行"
 ---
 
 SIGGRAPH 2026 官方页面公布主旨演讲阵容：NVIDIA 将主讲实时神经渲染技术的最新进展，TripoAI 作为 3D 生成领域代表参与主旨环节，两条演讲线路分别对应视觉计算基础设施升级与 AI 三维内容生成范式两大方向。大会将于 7 月 19–23 日在洛杉矶举行，消息由 SIGGRAPH 官方网站与 PRNewswire 同步确认。

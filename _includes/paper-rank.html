@@ -1,0 +1,15 @@
+{%- comment -%}
+报刊排序：把 include.items 按期内热度降序排，结果写入数组 pr（文档数组）。
+热度＝weight×12 ＋ (来源数−1)×6；pinned 至少按 weight 3；同分一手优先。与周报规范同口径（期内不计日龄）。
+{%- endcomment -%}
+{%- assign pr_keys = "" -%}
+{%- for p in include.items -%}
+  {%- include src-count.html p=p -%}
+  {%- assign w = p.weight | default: 0 -%}{%- if p.pinned and w < 3 -%}{%- assign w = 3 -%}{%- endif -%}
+  {%- assign fh = 0 -%}{%- if p.firsthand or p.sources[0].tier == "official" -%}{%- assign fh = 1 -%}{%- endif -%}
+  {%- assign h = sc | minus: 1 | times: 6 -%}{%- assign h = w | times: 12 | plus: h | times: 10 | plus: fh | plus: 500000 -%}
+  {%- assign pr_keys = pr_keys | append: h | append: "_" | append: forloop.index0 | append: " " -%}
+{%- endfor -%}
+{%- assign pr_keys = pr_keys | strip | split: " " | sort | reverse -%}
+{%- assign pr = "" | split: "" -%}
+{%- for k in pr_keys -%}{%- assign i = k | split: "_" | last | plus: 0 -%}{%- assign pr = pr | push: include.items[i] -%}{%- endfor -%}

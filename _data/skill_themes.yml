@@ -1,14 +1,11 @@
-# SKILL 库主题（原主题知识库的三条业务线，2026-09-29 并入 SKILL 库）
+# SKILL 库主题（原主题知识库的三条业务线，2026-09-29 并入 SKILL 库；知识库已下线）
 # SKILL 评测 frontmatter 的 theme 只能从下面的 slug 里选 1–2 个
 - slug: design-teaching
   name: AI 设计教学
   desc: 视觉出图、排版、PPT、图表与字体——高校设计课程与工作坊用得上的 skill
-  kb: /knowledge/design-teaching/
 - slug: digital-team
   name: AI 数字团队
   desc: 写作、取料、发布、规划与工程——给团队和科研组搭 AI 协作流程
-  kb: /knowledge/digital-team/
 - slug: creative-web
   name: AI 创意建站
   desc: 前端品味、动效与设计系统——用 AI 做有设计感的网页
-  kb: /knowledge/creative-web/

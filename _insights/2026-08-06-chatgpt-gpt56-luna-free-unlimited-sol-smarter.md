@@ -8,7 +8,7 @@ source: "OpenAI 官方"
 src: "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/"
 tags: [ChatGPT, GPT-5.6, Luna, OpenAI, 免费, SOL推理]
 topics: ["OpenAI"]
-summary: "「OpenAI 全量发布 GPT-5.6 Luna，面向所有 ChatGPT 用户开放免费无限制使用，SOL 逻辑推理与数学问题求解能力较前版本显著提升。」"
+summary: "OpenAI 全量发布 GPT-5.6 Luna，面向所有 ChatGPT 用户开放免费无限制使用，SOL 逻辑推理与数学问题求解能力较前版本显著提升。"
 ---
 
 OpenAI 在 ChatGPT 中全量发布 GPT-5.6 Luna，向所有免费用户开放无使用次数限制，不再要求订阅 ChatGPT Plus；重点改进 SOL（Standard of Logic）推理能力，在数学解题、多步逻辑分析和代码推理任务上优于同期基准；模型延迟与响应速度也有明显改善。Luna 是 GPT-5.6 系列的标准版本，与更早发布的 GPT-5.6 Full 形成高/标准双档并行格局。

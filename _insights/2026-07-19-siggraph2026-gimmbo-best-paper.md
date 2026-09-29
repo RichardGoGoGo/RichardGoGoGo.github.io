@@ -7,7 +7,7 @@ source: "ACM SIGGRAPH Blog / s2026.siggraph.org"
 src: "https://blog.siggraph.org/2026/05/siggraph-2026-technical-papers-awards-best-papers-honorable-mentions-and-test-of-time.html"
 tags: [SIGGRAPH 2026, 模型融合, 贝叶斯优化, 生成式图像]
 topics: ["研究论文"]
-summary: 「SIGGRAPH 2026最佳论文（洛杉矶7月19–23日，1120+投稿）：GimmBO（多伦多大学/CMU/Vector Institute）——实时交互式框架，将两个或多个生成图像模型的权重集融合，通过贝叶斯优化在融合空间导航，由用户偏好点击引导。」
+summary: "SIGGRAPH 2026最佳论文（洛杉矶7月19–23日，1120+投稿）：GimmBO（多伦多大学/CMU/Vector Institute）——实时交互式框架，将两个或多个生成图像模型的权重集融合，通过贝叶斯优化在融合空间导航，由用户偏好点击引导。"
 ---
 
 SIGGRAPH 2026最佳论文（洛杉矶7月19–23日，1120+投稿）：GimmBO（多伦多大学/CMU/Vector Institute）——实时交互式框架，将两个或多个生成图像模型的权重集融合，通过贝叶斯优化在融合空间导航，由用户偏好点击引导。艺术家与设计师无需重新训练即可混合模型美学风格。（注：同次会议Test of Time奖已另行入池。）

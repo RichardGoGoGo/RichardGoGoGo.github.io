@@ -8,7 +8,7 @@ source: "Anthropic官方 / No Film School"
 src: "https://www.anthropic.com/news/claude-for-creative-work"
 tags: [Anthropic, Claude, Adobe, Blender]
 topics: ["Anthropic", "Adobe"]
-summary: 「Anthropic发布"Claude for Creative Work"专项功能集，将Claude深度接入Adobe、Canva、Blender、Autodesk等六款以上创意软件，并与三所艺术学校开展课堂测试合作，标志着AI助理进入"内嵌于设计师日常工具"阶段。」
+summary: "Anthropic发布「Claude for Creative Work」专项功能集，将Claude深度接入Adobe、Canva、Blender、Autodesk等六款以上创意软件，并与三所艺术学校开展课堂测试合作，标志着AI助理进入「内嵌于设计师日常工具」阶段。"
 pinned: true
 pin_until: 2026-09-15
 ---

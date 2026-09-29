@@ -1,0 +1,94 @@
+{%- comment -%}
+日报一期（参考 AIHOT 日报版式）。参数：items＝当天资讯；d＝YYYY-MM-DD；num＝第几期；prev/next＝相邻期日期（可空）；hidden＝true 时默认隐藏
+头条＝期内热度第 1；今日看点＝第 2–4；各版按 _data/icats.yml 顺序，每版 ≤8 条，超出进快讯；头条不在各版重复
+{%- endcomment -%}
+{%- include paper-rank.html items=include.items -%}
+{%- assign lead = pr[0] -%}
+{%- assign ls = lead.path | split: '/' | last | remove: '.md' -%}
+{%- assign dt0 = include.items[0].date -%}
+{%- assign wd = dt0 | date: "%u" -%}
+{%- capture wdn %}{% case wd %}{% when "1" %}一{% when "2" %}二{% when "3" %}三{% when "4" %}四{% when "5" %}五{% when "6" %}六{% else %}日{% endcase %}{% endcapture -%}
+{%- comment -%} 数据条 {%- endcomment -%}
+{%- assign n_src = 0 -%}{%- assign n_fh = 0 -%}{%- assign n_model = 0 -%}{%- assign chars = 0 -%}
+{%- for p in include.items -%}
+  {%- include src-count.html p=p -%}{%- assign n_src = n_src | plus: sc -%}
+  {%- if p.firsthand or p.sources[0].tier == "official" -%}{%- assign n_fh = n_fh | plus: 1 -%}{%- endif -%}
+  {%- if p.icat == "模型" -%}{%- assign n_model = n_model | plus: 1 -%}{%- endif -%}
+  {%- assign tl = p.title | size -%}{%- assign sl = p.summary | size -%}{%- assign chars = chars | plus: tl | plus: sl -%}
+{%- endfor -%}
+{%- assign mins = chars | plus: 449 | divided_by: 450 -%}{%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+<article class="paper" id="d-{{ include.d }}" data-issue="{{ include.d }}" data-kind="daily"{% if include.hidden %} hidden{% endif %}>
+  <div class="pp-top"><span>{{ dt0 | date: "%Y 年 %-m 月 %-d 日" }} · 星期{{ wdn }}</span><span class="pp-mid">AI × 艺术设计 · 每日要闻</span><span>按消息发布日汇编</span></div>
+  <header class="pp-mast">
+    <div class="pp-name">
+      <h1 class="nameplate"><em>浅译</em>日报</h1>
+      <div class="pp-sub">浅译快报 · TRANSWONDER.TOP</div>
+    </div>
+    <div class="pp-ear">
+      <div class="ear-l"><span class="ear-k">第 {{ include.num }} 期</span><b class="ear-big">{{ dt0 | date: "%-d" }}</b><span>{{ dt0 | date: "%Y 年 %-m 月" }}</span><span>星期{{ wdn }}</span></div>
+      <div class="ear-cal js-cal" data-kind="daily" data-cur="{{ include.d }}"></div>
+    </div>
+  </header>
+  <div class="pp-stats">
+    <span><b>{{ include.items.size }}</b>件大事</span><span><b>{{ n_src }}</b>个来源</span><span><b>{{ n_fh }}</b>件一手发布</span>{% if n_model > 0 %}<span><b>{{ n_model }}</b>个新模型</span>{% endif %}
+    <span class="pp-read">约 {{ mins }} 分钟读完</span>
+  </div>
+
+  <section class="pp-front">
+    <div class="pf-main">
+      <div class="kicker">头条</div>
+      <a class="pf-title" href="{{ '/insights/' | relative_url }}#{{ ls }}">{{ lead.title }}</a>
+      {%- if lead.summary %}<p class="pf-lede">{{ lead.summary }}</p>{% endif %}
+      {%- assign nsrc = lead.sources | size -%}{%- if nsrc > 0 -%}{%- assign sn = lead.sources[0].name -%}{%- assign su = lead.sources[0].url -%}{%- else -%}{%- assign sn = lead.source -%}{%- assign su = lead.src -%}{%- endif -%}
+      {%- assign sn = sn | split: "/" | first | split: "+" | first | split: "（" | first | split: "(" | first | strip %}
+      <div class="pi-src pf-src"><span class="av">{{ sn | slice: 0 }}</span><span class="pi-sn">{{ sn }}</span>{% if lead.firsthand or lead.sources[0].tier == "official" %}<span class="fh">一手</span>{% endif %}{% if su and su != "" %}<a class="pi-out" href="{{ su }}" target="_blank" rel="noopener">原文 ↗</a>{% endif %}</div>
+    </div>
+    <div class="pf-side">
+      {%- if pr.size > 1 %}
+      <div class="kicker">今日看点</div>
+      <ol class="pf-hl">
+        {%- for p in pr offset: 1 limit: 3 -%}{%- assign s = p.path | split: '/' | last | remove: '.md' -%}{%- assign nsrc = p.sources | size -%}
+        <li><span class="hl-n">{{ forloop.index }}</span><div><a class="js-jump" href="#pi-{{ s }}">{{ p.title }}</a><small>{% if nsrc > 0 %}{{ p.sources[0].name }}{% else %}{{ p.source | split: "/" | first | split: "+" | first }}{% endif %}</small></div></li>
+        {%- endfor %}
+      </ol>
+      {%- endif %}
+      <div class="kicker kicker-2">本期版面</div>
+      <ol class="pf-toc">
+        {%- assign vi = 0 -%}{%- assign flash = "" | split: "" -%}
+        {%- for c in site.data.icats -%}
+          {%- assign sec = "" | split: "" -%}{%- for p in pr -%}{%- if p.icat == c and p.path != lead.path -%}{%- assign sec = sec | push: p -%}{%- endif -%}{%- endfor -%}
+          {%- if sec.size > 0 -%}{%- assign vi = vi | plus: 1 -%}{%- assign shown = sec.size -%}{%- if shown > 8 -%}{%- assign shown = 8 -%}{%- endif %}
+        <li><span class="toc-n">{{ vi | prepend: "0" | slice: -2, 2 }}</span><a class="js-jump" href="#v-{{ include.d }}-{{ vi }}">{{ c }}</a><em>{{ shown }} 件</em></li>
+          {%- endif -%}
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- assign vi = 0 -%}{%- assign flash = "" | split: "" -%}
+  {%- for c in site.data.icats -%}
+    {%- assign sec = "" | split: "" -%}{%- for p in pr -%}{%- if p.icat == c and p.path != lead.path -%}{%- assign sec = sec | push: p -%}{%- endif -%}{%- endfor -%}
+    {%- if sec.size > 0 -%}{%- assign vi = vi | plus: 1 %}
+  <section class="pp-sec" id="v-{{ include.d }}-{{ vi }}">
+    <h2 class="sec-head"><span class="sec-n">{{ vi | prepend: "0" | slice: -2, 2 }}</span>{{ c }}</h2>
+    <div class="pi-grid">
+      {%- for p in sec limit: 8 %}{% include paper-item.html p=p %}{% endfor %}
+    </div>
+  </section>
+      {%- for p in sec offset: 8 -%}{%- assign flash = flash | push: p -%}{%- endfor -%}
+    {%- endif -%}
+  {%- endfor %}
+  {%- if flash.size > 0 %}
+  <section class="pp-sec pp-flash">
+    <h2 class="sec-head"><span class="sec-n">快</span>快讯 <em>{{ flash.size }} 条</em></h2>
+    <ul class="flash">{% for p in flash %}{% assign s = p.path | split: '/' | last | remove: '.md' %}<li><a href="{{ '/insights/' | relative_url }}#{{ s }}">{{ p.title }}</a><small>{{ p.source | split: "/" | first }}</small></li>{% endfor %}</ul>
+  </section>
+  {%- endif %}
+
+  <nav class="pp-pager">
+    {%- if include.prev %}<a href="#{{ include.prev }}"><small>← 前一日 · {{ include.prev | date: "%-m月%-d日" }}</small>{{ include.prev_title }}</a>{% else %}<span></span>{% endif -%}
+    {%- if include.next %}<a class="nx" href="#{{ include.next }}"><small>后一日 · {{ include.next | date: "%-m月%-d日" }} →</small>{{ include.next_title }}</a>{% endif %}
+  </nav>
+  <p class="pp-end">（本期完）</p>
+  <p class="pp-endnote">每条均链回原卡片与原始来源。按消息发布日汇编，非实时。<a href="{{ '/insights/' | relative_url }}">全部资讯 →</a></p>
+</article>

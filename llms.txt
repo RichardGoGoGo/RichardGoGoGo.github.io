@@ -14,7 +14,6 @@ permalink: /llms.txt
 - [征集日历]({{ site.url }}/calls/)：按截止日排序的赛事与会议征稿
 - [SKILL 库]({{ site.url }}/skills/)：AI skill 的要点介绍与七项安全审查事实
 - [周报 · 月报]({{ site.url }}/reports/)：每周一回顾上周、每月初回顾上月，条目链回原卡片
-- [往期知识库]({{ site.url }}/knowledge/)：设计教学 / 数字团队 / 创意建站三条业务线的历史综述（已停更）
 - [深度分析]({{ site.url }}/deep/)：重大事件长篇分析
 
 ## 结构化数据

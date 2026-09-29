@@ -7,7 +7,7 @@ source: "量子位 / TechTimes / AI Weekly / Variety"
 src: "https://www.qbitai.com/2026/07/443665.html"
 tags: [AI视频, Seedance, 好莱坞, 独立电影]
 topics: ["字节跳动", "视频生成"]
-summary: "「独立电影人群体正悄然转向字节Seedance 2.5，AI视频生成成本约$9/分钟较传统摄制$24/分钟大幅压低，量子位、Variety等多源报道证实这一趋势正在专业创作圈扩散。」"
+summary: "独立电影人群体正悄然转向字节Seedance 2.5，AI视频生成成本约$9/分钟较传统摄制$24/分钟大幅压低，量子位、Variety等多源报道证实这一趋势正在专业创作圈扩散。"
 pinned: true
 pin_until: 2026-07-16
 deep: /deep/2026-07-08-seedance-hollywood/

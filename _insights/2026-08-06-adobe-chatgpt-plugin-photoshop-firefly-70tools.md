@@ -7,7 +7,7 @@ source: "Adobe官方 / 9to5Mac"
 src: "https://blog.adobe.com/en/publish/2026/08/06/introducing-adobe-chatgpt-create-edit-get-work-done-all-in-chatgpt"
 tags: [Adobe, ChatGPT, Photoshop, Firefly]
 topics: ["OpenAI", "Adobe"]
-summary: 「Adobe在ChatGPT内上线免费统一插件，整合Photoshop/Firefly/Express/Premiere/Lightroom/Illustrator/InDesign/Acrobat/Adobe Stock共70+工具；任意ChatGPT对话中@Adobe即可调用，无需Creative Cloud订阅（免费Adobe账号即可使用Firefly文生图/文生视频）；同步宣布接入Claude与Microsoft Copilot，Slack/Google Gemini列入计划。」
+summary: "Adobe在ChatGPT内上线免费统一插件，整合Photoshop/Firefly/Express/Premiere/Lightroom/Illustrator/InDesign/Acrobat/Adobe Stock共70+工具；任意ChatGPT对话中@Adobe即可调用，无需Creative Cloud订阅（免费Adobe账号即可使用Firefly文生图/文生视频）；同步宣布接入Claude与Microsoft Copilot，Slack/Google Gemini列入计划。"
 ---
 
 Adobe在ChatGPT内上线免费统一插件，整合Photoshop/Firefly/Express/Premiere/Lightroom/Illustrator/InDesign/Acrobat/Adobe Stock共70+工具；任意ChatGPT对话中@Adobe即可调用，无需Creative Cloud订阅（免费Adobe账号即可使用Firefly文生图/文生视频）；同步宣布接入Claude与Microsoft Copilot，Slack/Google Gemini列入计划。

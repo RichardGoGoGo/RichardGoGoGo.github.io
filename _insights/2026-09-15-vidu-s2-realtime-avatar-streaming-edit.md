@@ -7,7 +7,7 @@ source: "arXiv（arXiv:2609.11638）+ 生数科技 / PR Newswire"
 src: "https://arxiv.org/abs/2609.11638"
 tags: [Vidu S2, 实时视频生成, 数字人, 流式编辑, 换装换背景]
 topics: ["视频生成"]
-summary: "「生数科技发布 Vidu S2，包含实时 720p 数字人生成与无中断流式视频风格编辑两个子模型，在线演示同步开放。」"
+summary: "生数科技发布 Vidu S2，包含实时 720p 数字人生成与无中断流式视频风格编辑两个子模型，在线演示同步开放。"
 pinned: true
 pin_until: 2026-09-28
 ---

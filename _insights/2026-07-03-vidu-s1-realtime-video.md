@@ -8,7 +8,7 @@ source: "PR Newswire / 雷锋网 / IT之家 / 量子位"
 src: "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s1-bringing-real-time-interactive-generation-to-ai-video-302817626.html"
 tags: [Vidu, 实时视频生成, 数字角色, 生数科技]
 topics: ["视频生成", "音频与音乐"]
-summary: "「生数科技发布 Vidu S1：一张照片 + 实时语音即可生成可持续互动的 AI 数字角色，540P/25FPS 全双工交互，AR+扩散混合架构，模型侧延迟约 200ms」"
+summary: "生数科技发布 Vidu S1：一张照片 + 实时语音即可生成可持续互动的 AI 数字角色，540P/25FPS 全双工交互，AR+扩散混合架构，模型侧延迟约 200ms"
 pinned: true
 pin_until: 2026-07-14
 deep: /deep/2026-07-05-vidu-s1/

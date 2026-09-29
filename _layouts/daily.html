@@ -1,30 +1,26 @@
 ---
 layout: default
 ---
-{%- comment -%} 日报：近 21 天按天汇总（按资讯发布日），紧凑列表 {%- endcomment -%}
-{%- assign now_s = site.time | date: "%s" -%}
-{%- assign pool = site.insights | sort: "date" | reverse -%}
-<div class="container">
-  <div class="page-head">
-    <h1>{{ page.title }}</h1>
-    <p class="lead">按消息发布日汇总近三周资讯，一天一组，点标题跳到全文。</p>
-  </div>
-  <div class="feed-col" style="max-width:var(--feed-w);">
-  {%- assign cur = "" -%}
-  {%- for p in pool -%}
-    {%- assign cs = p.date | date: "%s" -%}{%- assign age = now_s | minus: cs | divided_by: 86400 -%}
-    {%- if age > 21 -%}{%- break -%}{%- endif -%}
-    {%- assign d = p.date | date: "%Y-%m-%d" -%}
-    {%- if d != cur -%}
-      {%- if cur != "" %}</ul></section>{% endif %}
-    <section class="day" id="d-{{ d }}">
-      {% include day-bar.html d=p.date %}
-      <ul class="daily-list">
-      {%- assign cur = d -%}
-    {%- endif -%}
-    {%- assign s = p.path | split: '/' | last | remove: '.md' %}
-        <li><span class="daily-kind">{{ p.icat }}</span><div><a href="{{ '/insights/' | relative_url }}#{{ s }}">{{ p.title }}</a>{% assign nn = p.sources | size %}<span class="daily-sub">{% if nn > 0 %}{{ p.sources[0].name }}{% if nn > 1 %} 等 {{ nn }} 家{% endif %}{% else %}{{ p.source }}{% endif %}{% if p.editor_pick %} · 编辑精选{% endif %}</span></div></li>
-  {%- endfor -%}
-  {%- if cur != "" %}</ul></section>{% endif %}
+{%- comment -%}
+日报（参考 AIHOT）：往期栏 + 报纸版面。所有日报期都渲染在本页、默认显示最新一期，按 #YYYY-MM-DD 切换（js/main.js）。
+期＝有资讯的一天；按消息发布日汇编。
+{%- endcomment -%}
+{%- assign sorted = site.insights | sort: "date" -%}
+{%- assign dgs = sorted | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" -%}
+{%- assign latest = dgs | last -%}
+<div class="paper-shell">
+  {% include paper-archive.html kind="daily" cur=latest.name %}
+  <div class="paper-stage">
+    {%- for dg in dgs reversed -%}
+      {%- assign ri = forloop.rindex0 -%}{%- assign num = ri | plus: 1 -%}
+      {%- assign pi = ri | minus: 1 -%}{%- assign ni = ri | plus: 1 -%}
+      {%- assign pv = nil -%}{%- assign pv_t = "" -%}{%- if ri > 0 -%}{%- assign pv = dgs[pi] -%}{%- endif -%}
+      {%- assign nx = dgs[ni] -%}
+      {%- if pv -%}{%- include paper-rank.html items=pv.items -%}{%- assign pv_t = pr[0].title -%}{%- endif -%}
+      {%- assign nx_t = "" -%}{%- if nx -%}{%- include paper-rank.html items=nx.items -%}{%- assign nx_t = pr[0].title -%}{%- endif -%}
+      {%- assign hid = true -%}{%- if forloop.first -%}{%- assign hid = false -%}{%- endif -%}
+      {% include paper-daily.html items=dg.items d=dg.name num=num prev=pv.name prev_title=pv_t next=nx.name next_title=nx_t hidden=hid %}
+    {%- endfor %}
   </div>
 </div>
+<script type="application/json" id="paper-index">{"daily":[{% for dg in dgs %}"{{ dg.name }}"{% unless forloop.last %},{% endunless %}{% endfor %}]}</script>

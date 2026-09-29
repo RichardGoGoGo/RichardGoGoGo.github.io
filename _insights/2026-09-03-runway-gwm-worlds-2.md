@@ -8,7 +8,7 @@ source: "Runway官方研究博客"
 src: "https://runway.com/research/introducing-gwm-worlds-2"
 tags: [Runway, GWM Worlds 2, 世界模型, 实时交互, AI视频, 互动叙事]
 topics: ["Runway", "视频生成", "3D 与世界模型"]
-summary: "「Runway发布通用世界模型第二代GWM Worlds 2，持续生成720p/24fps视频并响应用户实时文字操控指令，世界从当前状态延续而非重置」"
+summary: "Runway发布通用世界模型第二代GWM Worlds 2，持续生成720p/24fps视频并响应用户实时文字操控指令，世界从当前状态延续而非重置"
 pinned: true
 pin_until: 2026-09-16
 ---

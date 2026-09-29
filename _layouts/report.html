@@ -1,37 +1,12 @@
 ---
 layout: default
 ---
-{%- comment -%} 周报 / 月报单篇：头部（类型 · 时段 · 摘要 · 数据条）+ 正文 + 目录 + 上下篇（同类型） {%- endcomment -%}
-{%- assign same = site.reports | where: "kind", page.kind | sort: "start" -%}
-{%- assign prev = nil -%}{%- assign next = nil -%}
-{%- for r in same -%}{%- if r.url == page.url -%}{%- assign i = forloop.index0 -%}{%- endif -%}{%- endfor -%}
-{%- if i -%}{%- assign pi = i | minus: 1 -%}{%- assign ni = i | plus: 1 -%}{%- if i > 0 -%}{%- assign prev = same[pi] -%}{%- endif -%}{%- assign next = same[ni] -%}{%- endif -%}
-<header class="page-header">
-  <div class="container">
-    <p class="report-kicker"><span class="badge">{% if page.kind == "monthly" %}月报{% else %}周报{% endif %}</span>{{ page.start | date: "%Y年%-m月%-d日" }} – {{ page.end | date: "%-m月%-d日" }}<span class="dot">·</span>发布于 {{ page.date | date: "%-m月%-d日" }}</p>
-    <h1>{{ page.title }}</h1>
-    {% if page.summary %}<p class="page-meta">{{ page.summary }}</p>{% endif %}
-    {%- if page.stats %}
-    <div class="report-stats">
-      {%- if page.stats.insights and page.stats.insights > 0 %}<div><b>{{ page.stats.insights }}</b><span>条资讯</span></div>{% endif -%}
-      {%- if page.stats.firsthand and page.stats.firsthand > 0 %}<div><b>{{ page.stats.firsthand }}</b><span>条一手</span></div>{% endif -%}
-      {%- if page.stats.calls and page.stats.calls > 0 %}<div><b>{{ page.stats.calls }}</b><span>项征集</span></div>{% endif -%}
-      {%- if page.stats.skills and page.stats.skills > 0 %}<div><b>{{ page.stats.skills }}</b><span>个 SKILL</span></div>{% endif -%}
-    </div>
-    {%- endif %}
+{%- comment -%} 周报 / 月报单期：往期栏（周报或月报）+ 报纸版面 {%- endcomment -%}
+{%- assign reps = site.reports | where: "kind", page.kind | sort: "start" -%}
+<div class="paper-shell">
+  {% include paper-archive.html kind=page.kind cur=page.url %}
+  <div class="paper-stage">
+    {% include paper-report.html r=page %}
   </div>
-</header>
-<main class="container">
-  <nav class="crumb"><a href="{{ '/reports/' | relative_url }}">周报 · 月报</a><span class="sep">/</span><span class="cur">{{ page.period }}</span></nav>
-  <details class="mobile-toc"><summary>页面目录</summary><ul class="toc-list" id="mobile-toc-list"></ul></details>
-  <div class="content-wrapper">
-    <article class="main-content report-body">
-      {{ content }}
-      <nav class="report-pager">
-        {%- if prev %}<a href="{{ prev.url | relative_url }}"><small>上一期</small>{{ prev.title }}</a>{% else %}<span></span>{% endif -%}
-        {%- if next %}<a class="nx" href="{{ next.url | relative_url }}"><small>下一期</small>{{ next.title }}</a>{% endif -%}
-      </nav>
-    </article>
-    <aside class="page-sidebar"><div class="toc-title">目录</div><ul class="toc-list" id="toc-list"></ul></aside>
-  </div>
-</main>
+</div>
+<script type="application/json" id="paper-index">{"{{ page.kind }}":[{% for x in reps %}{"k":"{{ x.period }}","u":"{{ x.url | relative_url }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]}</script>

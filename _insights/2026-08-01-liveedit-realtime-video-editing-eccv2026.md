@@ -7,7 +7,7 @@ source: "机器之心 / ECCV 2026"
 src: "https://arxiv.org/abs/2606.26740"
 tags: [LiveEdit, 实时视频编辑, 清华大学, 香港科技大学]
 topics: ["研究论文"]
-summary: 「清华×港科大联合提出LiveEdit，通过三阶段渐进蒸馏将双向扩散Transformer的视频编辑能力迁移至因果流式编辑器，仅需4步去噪即可实现12.66FPS实时逐帧视频编辑；ECCV 2026接收。」
+summary: "清华×港科大联合提出LiveEdit，通过三阶段渐进蒸馏将双向扩散Transformer的视频编辑能力迁移至因果流式编辑器，仅需4步去噪即可实现12.66FPS实时逐帧视频编辑；ECCV 2026接收。"
 ---
 
 清华×港科大联合提出LiveEdit，通过三阶段渐进蒸馏将双向扩散Transformer的视频编辑能力迁移至因果流式编辑器，仅需4步去噪即可实现12.66FPS实时逐帧视频编辑；ECCV 2026接收。

@@ -124,6 +124,81 @@ document.addEventListener('DOMContentLoaded', function () {
     return f === 'all' || el.getAttribute('data-kind') === f;
   });
 
+  // --- 报刊：日报切期 / 版内跳转 / 期号卡点阵日历 ---
+  var pIndexEl = $('#paper-index'), pIndex = {};
+  try { pIndex = pIndexEl ? JSON.parse(pIndexEl.textContent) : {}; } catch (e) {}
+  var MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+  function el(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function drawCal(box) {
+    if (!box || box.getAttribute('data-done')) return;
+    box.setAttribute('data-done', '1');
+    var kind = box.getAttribute('data-kind'), cur = box.getAttribute('data-cur') || '';
+    var head = el('div', 'cal-h'), grid = el('div', 'cal-g');
+    if (kind === 'daily') {
+      var days = pIndex.daily || [], y = +cur.slice(0, 4), m = +cur.slice(5, 7);
+      var have = {}, cnt = 0;
+      days.forEach(function (d) { have[d] = 1; if (d.slice(0, 7) === cur.slice(0, 7)) cnt++; });
+      head.appendChild(el('b', null, MONTHS[m - 1])); head.appendChild(el('span', null, '本月 ' + cnt + ' 期'));
+      grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+      '一二三四五六日'.split('').forEach(function (w) { grid.appendChild(el('span', 'cal-w', w)); });
+      var first = new Date(y, m - 1, 1).getDay(), lead = (first + 6) % 7, total = new Date(y, m, 0).getDate();
+      for (var i = 0; i < lead; i++) grid.appendChild(el('span'));
+      for (var d = 1; d <= total; d++) {
+        var key = y + '-' + pad(m) + '-' + pad(d), dot = el(have[key] ? 'button' : 'span', 'cal-d');
+        if (have[key]) { dot.classList.add('has'); dot.title = m + '月' + d + '日'; dot.setAttribute('data-go', '#' + key); }
+        if (key === cur) dot.classList.add('cur');
+        grid.appendChild(dot);
+      }
+    } else {
+      var list = pIndex[kind] || [], year = box.getAttribute('data-year'), map = {}, n2 = 0;
+      list.forEach(function (x) { if (x.k.slice(0, 4) === year) { map[x.k] = x.u; n2++; } });
+      head.appendChild(el('b', null, year)); head.appendChild(el('span', null, '全年 ' + n2 + ' 期'));
+      var cols = kind === 'weekly' ? 13 : 6, count = kind === 'weekly' ? 52 : 12;
+      grid.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+      for (var k = 1; k <= count; k++) {
+        var key2 = kind === 'weekly' ? year + '-W' + pad(k) : year + '-' + pad(k), dot2 = el(map[key2] ? 'button' : 'span', 'cal-d');
+        if (map[key2]) { dot2.classList.add('has'); dot2.title = kind === 'weekly' ? '第 ' + k + ' 周' : k + ' 月'; dot2.setAttribute('data-go', map[key2]); }
+        if (key2 === cur) dot2.classList.add('cur');
+        grid.appendChild(dot2);
+      }
+    }
+    box.appendChild(head); box.appendChild(grid);
+  }
+  document.addEventListener('click', function (e) {
+    var go = e.target.closest('.cal-d[data-go]');
+    if (go) { var t = go.getAttribute('data-go'); if (t.charAt(0) === '#') location.hash = t; else location.href = t; return; }
+    var j = e.target.closest('.js-jump');
+    if (!j) return;
+    var paper = j.closest('.paper'), id = (j.getAttribute('href') || '').slice(1), tgt = id && document.getElementById(id);
+    if (!tgt) return;
+    e.preventDefault();
+    tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (tgt.classList.contains('pi')) { tgt.classList.remove('flash-hi'); void tgt.offsetWidth; tgt.classList.add('flash-hi'); }
+  });
+  var dailyPapers = $$('.paper[data-issue]');
+  function showIssue(key) {
+    if (!dailyPapers.length) return;
+    var hit = dailyPapers.filter(function (p) { return p.getAttribute('data-issue') === key; })[0] || dailyPapers[0];
+    dailyPapers.forEach(function (p) { p.hidden = p !== hit; });
+    var k = hit.getAttribute('data-issue');
+    $$('.arch-recent .chip[data-issue]').forEach(function (c) { c.classList.toggle('on', c.getAttribute('data-issue') === k); });
+    $$('.arch-item[data-issue]').forEach(function (a) {
+      var on = a.getAttribute('data-issue') === k;
+      a.classList.toggle('on', on);
+      if (on) { var g = a.closest('details'); if (g) g.open = true; a.scrollIntoView({ block: 'nearest' }); }
+    });
+    drawCal($('.js-cal', hit));
+    document.title = document.title.replace(/^[^·]*·/, (+k.slice(5, 7)) + '月' + (+k.slice(8, 10)) + '日 日报 ·');
+  }
+  if (dailyPapers.length) {
+    var fromHash = function () { var h = decodeURIComponent(location.hash.slice(1)); if (/^\d{4}-\d{2}-\d{2}$/.test(h)) { showIssue(h); window.scrollTo(0, 0); } };
+    window.addEventListener('hashchange', fromHash);
+    if (/^#\d{4}-\d{2}-\d{2}$/.test(location.hash)) fromHash(); else showIssue(dailyPapers[0].getAttribute('data-issue'));
+  } else {
+    $$('.js-cal').forEach(drawCal);
+  }
+
   // --- 文章目录 ---
   var tocList = $('#toc-list'), mobileToc = $('#mobile-toc-list'), main = $('.main-content');
   var tocItems = [], tocLinks = null;

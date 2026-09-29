@@ -1,0 +1,12 @@
+{%- comment -%} 报刊单条：来源行（头像·来源·一手·[日期]）→ 标题 → 摘要（4 行）→ 原文。参数 p；showdate=true 显示日期 {%- endcomment -%}
+{%- assign p = include.p -%}
+{%- assign s = p.path | split: '/' | last | remove: '.md' -%}
+{%- assign nsrc = p.sources | size -%}
+{%- if nsrc > 0 -%}{%- assign sn = p.sources[0].name -%}{%- assign su = p.sources[0].url -%}{%- else -%}{%- assign sn = p.source | default: p.host -%}{%- assign su = p.src -%}{%- endif -%}
+{%- assign sn = sn | split: "/" | first | split: "+" | first | split: "（" | first | split: "(" | first | strip -%}
+<div class="pi" id="pi-{{ s }}">
+  <div class="pi-src"><span class="av">{{ sn | slice: 0 }}</span><span class="pi-sn">{{ sn | truncate: 22 }}</span>{% if p.firsthand or p.sources[0].tier == "official" %}<span class="fh">一手</span>{% endif %}{% if include.showdate %}<span class="pi-date">{{ p.date | date: "%m.%d" }}</span>{% endif %}</div>
+  <a class="pi-title" href="{{ '/insights/' | relative_url }}#{{ s }}">{{ p.title }}</a>
+  {%- if p.summary %}<p class="pi-sum">{{ p.summary }}</p>{% endif %}
+  {%- if su and su != "" %}<a class="pi-out" href="{{ su }}" target="_blank" rel="noopener">原文 ↗</a>{% endif %}
+</div>

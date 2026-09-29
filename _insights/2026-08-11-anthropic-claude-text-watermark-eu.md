@@ -6,7 +6,7 @@ source: "The Decoder / TechTimes"
 src: "https://the-decoder.com/anthropic-watermarks-all-claude-outputs-globally-with-marks-that-may-persist/"
 tags: [Anthropic, Claude, 水印, EU AI Act]
 topics: ["Anthropic", "版权与政策"]
-summary: 「Anthropic宣布为所有Claude输出嵌入不可见文本水印，水印在部分编辑后仍可持续存在，用于EU AI Act Article 50合规；标记证明"AI处理过"而非"AI完全创作"，全球用户即时生效。」
+summary: "Anthropic宣布为所有Claude输出嵌入不可见文本水印，水印在部分编辑后仍可持续存在，用于EU AI Act Article 50合规；标记证明「AI处理过」而非「AI完全创作」，全球用户即时生效。"
 ---
 
 Anthropic宣布为所有Claude输出嵌入不可见文本水印，水印在部分编辑后仍可持续存在，用于EU AI Act Article 50合规；标记证明"AI处理过"而非"AI完全创作"，全球用户即时生效。

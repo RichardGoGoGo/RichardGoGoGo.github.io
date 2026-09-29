@@ -1,0 +1,13 @@
+---
+layout: default
+---
+{%- comment -%} /weekly/ 与 /monthly/：显示该类最新一期（与单期页同版式） {%- endcomment -%}
+{%- assign reps = site.reports | where: "kind", page.kind | sort: "start" -%}
+{%- assign r = reps | last -%}
+<div class="paper-shell">
+  {% include paper-archive.html kind=page.kind cur=r.url %}
+  <div class="paper-stage">
+    {%- if r %}{% include paper-report.html r=r %}{% else %}<p class="empty">{% if page.kind == "weekly" %}第一期周报将在周一发布。{% else %}第一期月报将在月初发布。{% endif %}</p>{% endif %}
+  </div>
+</div>
+<script type="application/json" id="paper-index">{"{{ page.kind }}":[{% for x in reps %}{"k":"{{ x.period }}","u":"{{ x.url | relative_url }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]}</script>

@@ -8,7 +8,7 @@ source: "Google Developers Blog / Gemini API官方"
 src: "https://developers.googleblog.com/en/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/"
 tags: [Veo 3.1, Google, AI视频, 120秒]
 topics: ["Google", "视频生成", "音频与音乐"]
-summary: 「Google Veo 3.1于2026年8月5日登陆Gemini API付费预览：视频时长从8秒升至120秒，支持4K分辨率、原生立体声音频全链路生成（对话/音效/环境音）、跨场景角色一致性、竖版9:16，最多3张参考图引导生图到视频；Veo 3.1 Lite专注高并发与快速迭代，同步上线。」
+summary: "Google Veo 3.1于2026年8月5日登陆Gemini API付费预览：视频时长从8秒升至120秒，支持4K分辨率、原生立体声音频全链路生成（对话/音效/环境音）、跨场景角色一致性、竖版9:16，最多3张参考图引导生图到视频；Veo 3.1 Lite专注高并发与快速迭代，同步上线。"
 pinned: true
 pin_until: 2026-09-15
 ---

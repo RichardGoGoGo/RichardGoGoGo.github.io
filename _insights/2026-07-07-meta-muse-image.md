@@ -8,7 +8,7 @@ source: "Meta 官方 / TechCrunch / CNBC / Bloomberg / Axios"
 src: "https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/"
 tags: [Meta, 图像生成, Agent, 社交媒体]
 topics: ["Meta", "图像生成", "智能体与工作流"]
-summary: "「Meta Superintelligence Labs 发布首个自研图像生成模型 Muse Image，采用 Agent 式架构（调用搜索与代码工具自我修正），已上线 Meta AI 应用、Instagram Stories 及 WhatsApp，并将接入广告系统 Advantage+，多指标超越 Google Nano Banana 2」"
+summary: "Meta Superintelligence Labs 发布首个自研图像生成模型 Muse Image，采用 Agent 式架构（调用搜索与代码工具自我修正），已上线 Meta AI 应用、Instagram Stories 及 WhatsApp，并将接入广告系统 Advantage+，多指标超越 Google Nano Banana 2"
 pinned: true
 pin_until: 2026-07-15
 deep: /deep/2026-07-08-meta-muse-image/

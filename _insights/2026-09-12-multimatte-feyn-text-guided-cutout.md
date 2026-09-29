@@ -7,7 +7,7 @@ source: "usefeyn.com"
 src: "https://usefeyn.com/blog/multimatte/"
 tags: [Feyn, MultiMatte, 蒙版, 图像编辑]
 topics: ["图像生成"]
-summary: 「Feyn 发布 MultiMatte，通过文字描述同时生成多个精准蒙版层，输出与 Photoshop / After Effects 兼容的 alpha 通道分层文件，支持复杂场景下对多对象分层抠图。」
+summary: "Feyn 发布 MultiMatte，通过文字描述同时生成多个精准蒙版层，输出与 Photoshop / After Effects 兼容的 alpha 通道分层文件，支持复杂场景下对多对象分层抠图。"
 ---
 
 Feyn 于 2026 年 9 月 12 日发布 MultiMatte，通过文字描述同时生成多个精准蒙版层；支持复杂场景下对人物、服装、发丝、背景等多对象分层抠图；输出与 Photoshop / After Effects 兼容的 alpha 通道分层文件，主打免后期精修的一键精细分层体验。

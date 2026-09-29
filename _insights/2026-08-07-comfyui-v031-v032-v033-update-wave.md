@@ -7,7 +7,7 @@ source: "ComfyUI官方GitHub / ComfyUI Wiki"
 src: "https://comfyui-wiki.com/en/news/2026-08-13-comfyui-v0-33-1"
 tags: [ComfyUI, v0.31, v0.32, v0.33.1]
 topics: ["阿里巴巴", "ComfyUI", "大模型"]
-summary: 「ComfyUI在8月7至13日连续发布三个版本：v0.31.0（8/7）原生支持Wan-Animate2（姿态+参考控制）、SeeDance 2.5/Seedream 5.0 Layer Separation伙伴节点、PSD风格分层合成（混合模式+图层状态）；v0.32.0（8/11）原生LTX 2.5 Partner Nodes + PyTorch 2.7最低要求；v0.33.1（8/13）原生支持MiniMax Music 3开源权重（歌词文本编码+音频生成）、Bria伙伴节点、修复MiniMax H3/LTX/KSamplerAdvanced已知问题。」
+summary: "ComfyUI在8月7至13日连续发布三个版本：v0.31.0（8/7）原生支持Wan-Animate2（姿态+参考控制）、SeeDance 2.5/Seedream 5.0 Layer Separation伙伴节点、PSD风格分层合成（混合模式+图层状态）；v0.32.0（8/11）原生LTX 2.5 Partner Nodes + PyTorch 2.7最低要求；v0.33.1（8/13）原生支持MiniMax Music 3开源权重（歌词文本编码+音频生成）、Bria伙伴节点、修复MiniMax H3/LTX/KSamplerAdvanced已知问题。"
 ---
 
 ComfyUI在8月7至13日连续发布三个版本：v0.31.0（8/7）原生支持Wan-Animate2（姿态+参考控制）、SeeDance 2.5/Seedream 5.0 Layer Separation伙伴节点、PSD风格分层合成（混合模式+图层状态）；v0.32.0（8/11）原生LTX 2.5 Partner Nodes + PyTorch 2.7最低要求；v0.33.1（8/13）原生支持MiniMax Music 3开源权重（歌词文本编码+音频生成）、Bria伙伴节点、修复MiniMax H3/LTX/KSamplerAdvanced已知问题。

@@ -7,7 +7,7 @@ source: "FilmFreeway/UWTSD（威尔士三一圣大卫大学）"
 src: "https://filmfreeway.com/Metadisruption"
 tags: [AI艺术, 设计节, 英国, UWTSD, 威尔士, 算法设计, 国际展览]
 topics: ["艺术与展览"]
-summary: "「Metadisruption AI Art & Design Festival 2026定于9月23–27日在英国威尔士斯旺西（UWTSD）举办，聚焦AI艺术、算法设计与创意科技的跨学科展览与研讨」"
+summary: "Metadisruption AI Art & Design Festival 2026定于9月23–27日在英国威尔士斯旺西（UWTSD）举办，聚焦AI艺术、算法设计与创意科技的跨学科展览与研讨"
 ---
 
 Metadisruption AI Art & Design Festival 2026定于2026年9月23至27日在英国威尔士斯旺西举办，由威尔士三一圣大卫大学（UWTSD）主办，面向艺术家、设计师、研究者和学生，含展览、工作坊和学术研讨三个模块，聚焦AI艺术、算法生成设计与创意科技的跨学科探索。

@@ -1,0 +1,118 @@
+{%- comment -%}
+周报 / 月报一期（参考 AIHOT 周报/月报版式）。参数 r＝_reports 文档（结构化字段：headline/overview/lead/highlights/sections/calls/skills/stats）
+{%- endcomment -%}
+{%- assign r = include.r -%}
+{%- if r.kind == "weekly" -%}{%- assign wk = true -%}{%- else -%}{%- assign wk = false -%}{%- endif -%}
+{%- assign same = site.reports | where: "kind", r.kind | sort: "start" -%}
+{%- assign idx = 0 -%}{%- for x in same -%}{%- if x.url == r.url -%}{%- assign idx = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- assign prev = nil -%}{%- if idx > 0 -%}{%- assign pi = idx | minus: 1 -%}{%- assign prev = same[pi] -%}{%- endif -%}
+{%- assign ni = idx | plus: 1 -%}{%- assign next = same[ni] -%}
+{%- assign num = idx | plus: 1 -%}
+{%- capture base %}{{ '/insights/' | relative_url }}{% endcapture -%}
+<article class="paper" data-kind="{{ r.kind }}">
+  <div class="pp-top"><span>{{ r.start | date: "%Y 年 %-m 月 %-d 日" }} — {{ r.end | date: "%-m 月 %-d 日" }}</span><span class="pp-mid">AI × 艺术设计 · {% if wk %}每周综述{% else %}每月盘点{% endif %}</span><span>{% if wk %}每周一出刊{% else %}每月初出刊{% endif %}</span></div>
+  <header class="pp-mast">
+    <div class="pp-name">
+      <h1 class="nameplate"><em>浅译</em>{% if wk %}周报{% else %}月报{% endif %}</h1>
+      <div class="pp-sub">浅译快报 · TRANSWONDER.TOP</div>
+    </div>
+    <div class="pp-ear">
+      <div class="ear-l">
+        <span class="ear-k">第 {{ num }} 期</span>
+        {%- if wk %}
+        <b class="ear-big">{{ r.period | split: "W" | last }}</b><span>{{ r.start | date: "%Y" }} 年第 {{ r.period | split: "W" | last | plus: 0 }} 周</span><span>{{ r.start | date: "%m.%d" }} — {{ r.end | date: "%m.%d" }}</span>
+        {%- else %}
+        <b class="ear-big">{{ r.start | date: "%m" }}</b><span>{{ r.start | date: "%Y" }} 年</span><span>{{ r.start | date: "%-m" }} 月</span>
+        {%- endif %}
+      </div>
+      <div class="ear-cal js-cal" data-kind="{{ r.kind }}" data-cur="{{ r.period }}" data-year="{{ r.start | date: '%Y' }}"></div>
+    </div>
+  </header>
+  <div class="pp-stats">
+    {%- if r.stats.insights %}<span><b>{{ r.stats.insights }}</b>件大事</span>{% endif -%}
+    {%- if r.stats.sources %}<span><b>{{ r.stats.sources }}</b>个来源</span>{% endif -%}
+    {%- if r.stats.firsthand %}<span><b>{{ r.stats.firsthand }}</b>件一手</span>{% endif -%}
+    {%- if r.stats.picks %}<span><b>{{ r.stats.picks }}</b>条精选</span>{% endif -%}
+    {%- if r.stats.dailies %}<span><b>{{ r.stats.dailies }}</b>期日报</span>{% endif %}
+  </div>
+
+  <section class="pp-front">
+    <div class="pf-main">
+      <div class="kicker">本期导读</div>
+      <h2 class="pf-title pf-title-static">{{ r.headline | default: r.title }}</h2>
+      {%- if r.overview %}<p class="pf-lede">{{ r.overview }}</p>{% endif %}
+      {%- if r.lead -%}{%- capture lp %}_insights/{{ r.lead }}.md{% endcapture -%}{%- assign L = site.insights | where: "path", lp | first -%}
+      {%- if L %}
+      <a class="pf-leadcard js-jump" href="#pi-{{ r.lead }}"><span class="kicker-mini">头条</span>{{ L.title }}</a>
+      {%- endif -%}{%- endif %}
+    </div>
+    <div class="pf-side">
+      {%- if r.highlights %}
+      <div class="kicker">{% if wk %}本周看点{% else %}本月看点{% endif %}</div>
+      <ol class="pf-hl">
+        {%- for s in r.highlights limit: 3 -%}{%- capture hp %}_insights/{{ s }}.md{% endcapture -%}{%- assign p = site.insights | where: "path", hp | first -%}
+        {%- if p %}<li><span class="hl-n">{{ forloop.index }}</span><div><a class="js-jump" href="#pi-{{ s }}">{{ p.title }}</a><small>{{ p.source | split: "/" | first | split: "+" | first }}</small></div></li>{% endif -%}
+        {%- endfor %}
+      </ol>
+      {%- endif %}
+      <div class="kicker kicker-2">本期版面</div>
+      <ol class="pf-toc">
+        {%- for sec in r.sections %}
+        <li><span class="toc-n">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span><a class="js-jump" href="#v-{{ forloop.index }}">{{ sec.name }}</a><em>{{ sec.items.size }} 件</em></li>
+        {%- endfor -%}
+        {%- assign vn = r.sections.size -%}
+        {%- if r.calls %}{%- assign vn = vn | plus: 1 %}<li><span class="toc-n">{{ vn | prepend: "0" | slice: -2, 2 }}</span><a class="js-jump" href="#v-calls">征集与赛展</a><em>{{ r.calls.size }} 项</em></li>{% endif -%}
+        {%- if r.skills %}{%- assign vn = vn | plus: 1 %}<li><span class="toc-n">{{ vn | prepend: "0" | slice: -2, 2 }}</span><a class="js-jump" href="#v-skills">SKILL</a><em>{{ r.skills.size }} 个</em></li>{% endif %}
+      </ol>
+    </div>
+  </section>
+
+  {%- for sec in r.sections %}
+  <section class="pp-sec" id="v-{{ forloop.index }}">
+    <h2 class="sec-head"><span class="sec-n">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>{{ sec.name }}</h2>
+    {%- if sec.intro %}<p class="sec-intro"><b>本版导读</b>{{ sec.intro }}</p>{% endif %}
+    <div class="pi-grid">
+      {%- for s in sec.items -%}{%- capture ip %}_insights/{{ s }}.md{% endcapture -%}{%- assign p = site.insights | where: "path", ip | first -%}
+      {%- if p %}{% include paper-item.html p=p showdate=true %}{% endif -%}
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endfor %}
+  {%- assign vn = r.sections.size -%}
+  {%- if r.calls %}{%- assign vn = vn | plus: 1 %}
+  <section class="pp-sec" id="v-calls">
+    <h2 class="sec-head"><span class="sec-n">{{ vn | prepend: "0" | slice: -2, 2 }}</span>征集与赛展</h2>
+    <ul class="pp-list">
+      {%- for s in r.calls -%}{%- capture cp %}_calls/{{ s }}.md{% endcapture -%}{%- assign c = site.calls | where: "path", cp | first -%}
+      {%- if c %}<li><a href="{{ '/calls/' | relative_url }}#{{ s }}">{{ c.title }}</a><small>{{ c.host }}{% if c.deadline %} · 截止 {{ c.deadline | date: "%-m月%-d日" }}{% endif %}</small></li>{% endif -%}
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+  {%- if r.skills %}{%- assign vn = vn | plus: 1 %}
+  <section class="pp-sec" id="v-skills">
+    <h2 class="sec-head"><span class="sec-n">{{ vn | prepend: "0" | slice: -2, 2 }}</span>SKILL</h2>
+    <ul class="pp-list">
+      {%- for s in r.skills -%}{%- capture kp %}_skills/{{ s }}.md{% endcapture -%}{%- assign k = site.skills | where: "path", kp | first -%}
+      {%- if k %}<li><a href="{{ '/skills/' | relative_url }}#{{ s }}">{{ k.title }}</a><small>{% if k.stars %}★ {{ k.stars }}{% endif %}</small></li>{% endif -%}
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  <nav class="pp-pager">
+    {%- if prev %}<a href="{{ prev.url | relative_url }}"><small>← 上一期 · {{ prev.start | date: "%-m月%-d日" }} 起</small>{{ prev.headline | default: prev.title }}</a>{% else %}<span></span>{% endif -%}
+    {%- if next %}<a class="nx" href="{{ next.url | relative_url }}"><small>下一期 · {{ next.start | date: "%-m月%-d日" }} 起 →</small>{{ next.headline | default: next.title }}</a>{% endif %}
+  </nav>
+  {%- assign olds = site.reports | where: "kind", r.kind | sort: "start" | reverse %}
+  {%- if olds.size > 1 %}
+  <div class="kicker pp-olds-k">往期{% if wk %}周报{% else %}月报{% endif %}</div>
+  <ul class="pp-olds">
+    {%- for o in olds limit: 12 -%}{%- unless o.url == r.url %}
+    <li><a href="{{ o.url | relative_url }}"><span>{% if wk %}{{ o.period }}{% else %}{{ o.start | date: "%Y.%m" }}{% endif %}</span>{{ o.headline | default: o.title }}</a></li>
+    {%- endunless -%}{%- endfor %}
+  </ul>
+  {%- endif %}
+  <p class="pp-end">（本期完）</p>
+  <p class="pp-endnote">条目均来自本站已发布资讯，链回原卡片与原始来源；导读与本版导读为编辑汇编，不含评价。<a href="{{ '/daily/' | relative_url }}">看日报 →</a></p>
+</article>

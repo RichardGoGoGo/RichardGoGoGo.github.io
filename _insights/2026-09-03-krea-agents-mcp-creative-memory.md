@@ -7,7 +7,7 @@ source: "alphasignal.ai"
 src: "https://alphasignal.ai/news/krea-agents-replaces-complex-node-graphs-with-a-single-creative-prompt"
 tags: [Krea, Agents, MCP, 工作流自动化]
 topics: ["智能体与工作流"]
-summary: 「Krea 发布 Agents，单条自然语言指令驱动整套图像 / 视频生成工作流，内置 MCP 工具调用与跨会话长期记忆，面向 Krea Pro 订阅用户开放。」
+summary: "Krea 发布 Agents，单条自然语言指令驱动整套图像 / 视频生成工作流，内置 MCP 工具调用与跨会话长期记忆，面向 Krea Pro 订阅用户开放。"
 ---
 
 Krea 于 2026 年 9 月 3 日发布 Krea Agents，以单条自然语言指令驱动完整的图像 / 视频生成工作流；内置 MCP（Model Context Protocol）工具调用与跨会话长期记忆，用户无需手动连接节点，Agent 自动规划并执行多步创作任务；目前面向 Krea Pro 订阅用户开放。

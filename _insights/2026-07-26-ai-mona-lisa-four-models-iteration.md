@@ -6,7 +6,7 @@ source: "AIERA / 量子位"
 src: "https://aiera.com.cn/2026/07/26/other/admin/105826/"
 tags: [AI绘画, 蒙娜丽莎, 模型对比, 迭代修正, Midjourney, DALL-E, Stable Diffusion, 图像生成]
 topics: ["Midjourney", "Stability AI", "图像生成"]
-summary: "「测试者用 GPT-4o/Midjourney/SD/Flux 各自完成 8 轮蒙娜丽莎临摹迭代，记录过度修正与风格漂移全过程」"
+summary: "测试者用 GPT-4o/Midjourney/SD/Flux 各自完成 8 轮蒙娜丽莎临摹迭代，记录过度修正与风格漂移全过程"
 ---
 
 AIERA 发布四大主流 AI 图像模型 8 轮迭代临摹达芬奇《蒙娜丽莎》的完整对比实验。每轮迭代以前一轮输出作为参考图输入，记录各模型在多轮反馈后的收敛行为；实验发现所有模型均在 3–5 轮后出现不同程度的"过度修正"现象——对用户指出的局部问题进行过激修正，同时丢失已正确还原的其他区域细节；Midjourney 在色彩还原上表现最稳定，GPT-4o Image 在五官结构精度上领先；文章附有每一轮的输出图像对比与结构相似度（SSIM）量化数据。

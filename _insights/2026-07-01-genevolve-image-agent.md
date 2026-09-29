@@ -8,7 +8,7 @@ source: "机器之心 / 腾讯新闻 / arXiv:2605.21605 / GitHub（MeiGen-AI）"
 src: "https://arxiv.org/abs/2605.21605"
 tags: [GenEvolve, AI Agent, 图像生成, 开源]
 topics: ["图像生成", "智能体与工作流", "研究论文"]
-summary: "「GenEvolve 将图像生成从『一句话提示词』升级为 Agent 自主编排工具调用轨迹，港科广+美团+港科大+新加坡国立联合开源」"
+summary: "GenEvolve 将图像生成从『一句话提示词』升级为 Agent 自主编排工具调用轨迹，港科广+美团+港科大+新加坡国立联合开源"
 pinned: true
 pin_until: 2026-07-14
 deep: /deep/2026-07-04-genevolve/

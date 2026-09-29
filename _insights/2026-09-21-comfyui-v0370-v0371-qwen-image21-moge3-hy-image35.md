@@ -7,7 +7,7 @@ source: "ComfyUI 官方"
 src: "https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.37.0"
 tags: [ComfyUI, v0.37, Qwen-Image, MoGe3, HY-Image, 背景移除, 几何估计, 工作流]
 topics: ["阿里巴巴", "ComfyUI", "图像生成"]
-summary: "「ComfyUI v0.37.0/v0.37.1 原生集成 Qwen-Image 2.1 三种生成模式节点，并接入 MoGe 3 单目几何估计与 HY Image 3.5 Preview 五参考图 2K 输出。」"
+summary: "ComfyUI v0.37.0/v0.37.1 原生集成 Qwen-Image 2.1 三种生成模式节点，并接入 MoGe 3 单目几何估计与 HY Image 3.5 Preview 五参考图 2K 输出。"
 pinned: true
 pin_until: 2026-10-05
 ---

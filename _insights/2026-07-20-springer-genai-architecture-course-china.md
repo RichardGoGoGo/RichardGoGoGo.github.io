@@ -7,7 +7,7 @@ source: "Springer / 学术期刊"
 src: "https://link.springer.com/"
 tags: [Springer, Midjourney, 建筑设计, PBL, 高校教育, 实证研究, 生成式AI教育]
 topics: ["Midjourney", "设计教育", "研究论文"]
-summary: "「Springer发表实证研究，分析Midjourney融入高校建筑设计PBL课程的效果，发现弱基础学生在AI辅助下的学习收益显著高于强基础学生，两组均报告正向体验。」"
+summary: "Springer发表实证研究，分析Midjourney融入高校建筑设计PBL课程的效果，发现弱基础学生在AI辅助下的学习收益显著高于强基础学生，两组均报告正向体验。"
 ---
 
 Springer期刊发表实证研究，追踪一所中国高校建筑设计专业将Midjourney融入PBL（项目式学习）课程的教学实验，对比AI辅助前后不同基础水平学生的学习成效与体验。数据显示，弱基础学生组在方案迭代速度与最终成果质量上的提升幅度显著高于强基础学生组；两组学生均报告了正向的工具使用体验，但强基础组对AI建议的依赖度明显低于弱基础组。

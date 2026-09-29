@@ -7,7 +7,7 @@ source: "Ars Electronica官方"
 src: "https://ars.electronica.art/futurebegins/en/"
 tags: [Ars Electronica, 2026, Future Begins, 媒体艺术]
 topics: ["艺术与展览"]
-summary: 「Ars Electronica 2026（第47届）将于9月9–13日在奥地利林茨举行，主题「Future Begins」聚焦"协商人类性"（Negotiating Humanity）：AI已从"奇异未来场景"渗透至社会各层面，媒体艺术的任务是持续协商技术与人性的边界。」
+summary: "Ars Electronica 2026（第47届）将于9月9–13日在奥地利林茨举行，主题「Future Begins」聚焦「协商人类性」（Negotiating Humanity）：AI已从「奇异未来场景」渗透至社会各层面，媒体艺术的任务是持续协商技术与人性的边界。"
 ---
 
 Ars Electronica 2026（第47届）将于9月9–13日在奥地利林茨举行，主题「Future Begins」聚焦"协商人类性"（Negotiating Humanity）：AI已从"奇异未来场景"渗透至社会各层面，媒体艺术的任务是持续协商技术与人性的边界。今年同时是Ars Electronica Center成立30周年，设"AI for Social Impact"倡议及Prix Ars Electronica 2026颁奖。

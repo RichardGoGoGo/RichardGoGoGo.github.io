@@ -7,7 +7,7 @@ source: "Midjourney官方"
 src: "https://updates.midjourney.com/edit-model-for-v8/"
 tags: [Midjourney, V8.2, Edit Mode, inpaint, outpaint, 多图参考]
 topics: ["Midjourney"]
-summary: "「Midjourney V8.2 Edit Mode正式全量开放，在单一界面整合4张参考图输入、画布内绘（inpaint）与外延（outpaint）功能」"
+summary: "Midjourney V8.2 Edit Mode正式全量开放，在单一界面整合4张参考图输入、画布内绘（inpaint）与外延（outpaint）功能"
 pinned: true
 pin_until: 2026-09-16
 ---

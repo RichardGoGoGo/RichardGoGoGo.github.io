@@ -7,7 +7,7 @@ source: "Runway官方"
 src: "https://runway.com/product/models/gemini-omni"
 tags: [Runway, Gemini, API Router, 模型路由, 视频生成]
 topics: ["Google", "Runway", "视频生成"]
-summary: "「Runway新增Gemini Omni Flash接入并推出API Model Router，根据任务类型自动选择最优底层视频模型」"
+summary: "Runway新增Gemini Omni Flash接入并推出API Model Router，根据任务类型自动选择最优底层视频模型"
 ---
 
 Runway于8月12日在平台接入Google Gemini Omni Flash视频生成能力，同时推出API Model Router功能：开发者通过Runway API调用视频生成时，Model Router根据任务参数（分辨率、时长、风格描述、成本预算）自动在Runway Gen-4、Gemini Omni Flash等底层模型间进行路由选择，无需手动指定模型版本。这一机制将底层模型差异对开发者透明化，降低了在多模型生态中构建视频生成应用的复杂度。

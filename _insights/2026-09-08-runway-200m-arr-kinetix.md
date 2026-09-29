@@ -6,7 +6,7 @@ source: "Bloomberg / TechTimes"
 src: "https://www.bloomberg.com/news/articles/2026-09-08/ai-startup-runway-hits-200-million-in-annual-recurring-revenue"
 tags: [Runway, AI视频, 商业, 收购]
 topics: ["Runway", "视频生成", "行业与融资"]
-summary: 「Runway AI 年收入从 4 月 1 亿美元跃升至 9 月 2 亿美元，同时宣布收购专研三维人体动作的巴黎实验室 Kinetix。」
+summary: "Runway AI 年收入从 4 月 1 亿美元跃升至 9 月 2 亿美元，同时宣布收购专研三维人体动作的巴黎实验室 Kinetix。"
 pinned: true
 pin_until: 2026-09-20
 ---

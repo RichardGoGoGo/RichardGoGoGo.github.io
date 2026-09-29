@@ -8,7 +8,7 @@ source: "MIT CSAIL/Nature Communications"
 src: "https://news.mit.edu/2026/when-ai-art-has-no-author-generated-images-often-cant-be-traced-to-training-data-0818"
 tags: [MIT CSAIL, 版权, 归因衰减, AI生成图像, 学术研究]
 topics: ["版权与政策", "研究论文"]
-summary: "「MIT CSAIL发表于《Nature Communications》的研究显示，AI图像生成的多步骤变换机制导致训练数据归因信号快速衰减，使版权追责在技术层面趋于不可能」"
+summary: "MIT CSAIL发表于《Nature Communications》的研究显示，AI图像生成的多步骤变换机制导致训练数据归因信号快速衰减，使版权追责在技术层面趋于不可能"
 pinned: true
 pin_until: 2026-09-16
 ---
