@@ -1,10 +1,11 @@
 ---
 title: "智象未来vivago R1：全球首个无限时长多模态创作智能体，打破AI视频15-30秒上限，商用内容可用率85%"
 date: 2026-07-20
-icat: 模型与工具
+icat: 产品
 source: "量子位 / 环球网 / 凤凰科技 / 雷锋网 / Chinaz（多源）"
 src: "https://www.qbitai.com/2026/07/455434.html"
 tags: [智象未来, HiDream, vivago R1, AI视频生成, 无限时长, HD-AgentOS, WAIC 2026, 商业内容]
+topics: ["视频生成", "智能体与工作流"]
 summary: "智象未来（HiDream.ai）在WAIC 2026发布基于自研HD-AgentOS的vivago R1，突破行业15-30秒视频时长限制，支持任意时长视频连续连贯生成，叙事逻辑/画面风格/角色IP全程统一，商业可用率达85%，适配短剧/专题片/品牌宣传片等长周期创作场景。"
 pinned: true
 pin_until: 2026-07-30

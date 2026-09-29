@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 技术论文 5 大设计方向：3D 感知/身体交互/AI 产品化/虚实融合/设计工具"
 date: 2026-07-04
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "搜狐 / 一只梨 / SIGGRAPH 2026 官方"
 src: "https://www.sohu.com/a/1045842105_121124300"
 tags: [SIGGRAPH, 设计研究, 视觉计算, AI前沿]
+topics: ["3D 与世界模型", "设计工具", "研究论文"]
 summary: "「从 SIGGRAPH 2026 技术论文提炼 5 大设计前沿方向：3D 空间感知、身体与情境交互、AI 产品化、虚实融合、设计工具，覆盖从感知到工具的完整链路」"
 ---
 

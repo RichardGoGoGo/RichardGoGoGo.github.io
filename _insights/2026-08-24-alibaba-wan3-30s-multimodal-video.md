@@ -2,10 +2,12 @@
 title: "阿里Wan3.0全球正式发布：30秒视频、文档转视频、$0.05–$0.20/秒"
 date: 2026-08-24
 weight: 4
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "阿里巴巴官方/TechCrunch"
 src: "https://www.alibabacloud.com/blog/wan3-0-30-second-ai-video-generation-from-any-input_603452"
 tags: [Wan3.0, 阿里巴巴, 视频生成, 文档转视频, 多模态]
+topics: ["阿里巴巴", "视频生成"]
 summary: "「阿里巴巴Wan3.0全球发布，支持最长30秒视频生成、PDF/PPT/Word文档直接转视频，定价$0.05–$0.20/秒」"
 pinned: true
 pin_until: 2026-09-16

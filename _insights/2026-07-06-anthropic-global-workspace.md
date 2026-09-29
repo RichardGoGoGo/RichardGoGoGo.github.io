@@ -1,10 +1,12 @@
 ---
 title: "Anthropic《语言模型中的全局工作空间》：Claude内部发现J-space意识结构"
 date: 2026-07-06
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "Anthropic官方"
 src: "https://www.anthropic.com/research/global-workspace"
 tags: [Anthropic, 可解释性, 意识研究, 大模型]
+topics: ["Anthropic", "大模型", "研究论文"]
 summary: "Anthropic研究发现Claude内部自发形成J-space全局工作空间结构，J-lens解释工具已开源，Claude能感知自身处于测试状态。"
 pinned: true
 pin_until: 2026-07-18

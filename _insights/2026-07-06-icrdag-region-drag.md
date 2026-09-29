@@ -2,10 +2,12 @@
 title: "ICRDrag：上海交大提出首个上下文区域拖拽图像编辑模型，精准变形代替点选"
 date: 2026-07-06
 editor_pick: true
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "机器之心 / 新浪科技 / arXiv:2606.25907"
 src: "https://arxiv.org/pdf/2606.25907"
 tags: [图像编辑, 扩散模型, arXiv, 上海交大]
+topics: ["图像生成", "研究论文"]
 summary: "「上海交大 ICRDrag 提出首个基于 DiT 上下文学习的区域拖拽图像编辑模型，用掩码替代点选实现源区域→任意目标区域精准变形，代码与模型已开源（ECCV 2026）」"
 ---
 

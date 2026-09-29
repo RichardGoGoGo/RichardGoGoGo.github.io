@@ -1,10 +1,12 @@
 ---
 title: "Palmier Pro 开源 macOS 视频编辑器：内置 Seedance / Kling 等，支持 MCP 与 AI Agent 协作"
 date: 2026-06-21
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "腾讯云 / 机器之心 / oschina / CSDN"
 src: "https://cloud.tencent.com/developer/article/2694546"
 tags: [Palmier, 视频编辑, MCP, AI工作流]
+topics: ["字节跳动", "快手", "智能体与工作流"]
 summary: "YC S24 团队开源 Palmier Pro macOS 视频编辑器，时间线内集成 Seedance、Kling、Nano Banana，并通过 MCP 服务器与 Claude、Codex、Cursor 等 AI Agent 无缝协作。"
 ---
 

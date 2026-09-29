@@ -1,10 +1,12 @@
 ---
 title: "阿里开源 Qwen-Image-2.1：7B 统一图像生成+编辑模型，原生 RGBA 透明通道，支持 10 图参考，首日同步 ComfyUI/Diffusers/vLLM"
 date: 2026-09-20
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Qwen 官方博客 + GitHub + TechNode + Hugging Face（多源）"
 src: "https://github.com/QwenLM/Qwen-Image-2.1"
 tags: [Qwen, 阿里巴巴, 图像生成, 图像编辑, 开源, RGBA透明, 参考图像, ComfyUI, vLLM]
+topics: ["阿里巴巴", "ComfyUI", "图像生成"]
 summary: "阿里开源 Qwen-Image-2.1，7B 参数统一图像生成与编辑模型，首次原生支持 RGBA 透明通道，最多 10 张参考图输入，发布首日可通过 ComfyUI、Diffusers、vLLM 调用。"
 ---
 

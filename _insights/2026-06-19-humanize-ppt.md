@@ -1,10 +1,12 @@
 ---
 title: "Humanize PPT v0.9：为「演讲」而生的开源 PPT Skill"
 date: 2026-06-19
-icat: 观点与技巧
+icat: 产品
+firsthand: true
 source: "卡尔的AI沃茨 / GitHub"
 src: "https://github.com/LearnPrompt/humanize-ppt"
 tags: [开源, PPT, Skill]
+topics: ["设计工具", "智能体与工作流"]
 summary: "Humanize PPT v0.9：为『演讲』而生的开源 PPT Skill。"
 ---
 

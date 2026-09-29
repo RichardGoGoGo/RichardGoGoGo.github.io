@@ -1,10 +1,11 @@
 ---
 title: "SIGGRAPH 2026 投稿：AI 秒级生成高精度数字浮雕（港城大 / 斯坦福 / 康奈尔联合研究）"
 date: 2026-06-25
-icat: 研究与论文
+icat: 论文
 source: "techwalker.com"
 src: "https://www.techwalker.com/2026/0625/3191631.shtml"
 tags: [SIGGRAPH, 数字浮雕, 3D生成, 计算机图形]
+topics: ["3D 与世界模型", "研究论文"]
 summary: "香港城市大学、斯坦福、康奈尔科技学院、德州大学奥斯汀联合研究，实现 AI 在秒级时间内生成高精度数字浮雕，相关成果已投递 SIGGRAPH 2026；目前为单一来源报道。"
 ---
 

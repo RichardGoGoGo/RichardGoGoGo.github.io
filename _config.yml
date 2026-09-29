@@ -21,6 +21,9 @@ collections:
     output: false
   skills:
     output: false
+  reports:
+    output: true
+    permalink: /reports/:name/
 
 exclude:
   - drafts
@@ -50,6 +53,13 @@ defaults:
       type: skills
     values:
       category: skills
+  # 周报 / 月报（知识库 routine 产出，每篇独立页）
+  - scope:
+      path: ""
+      type: reports
+    values:
+      layout: report
+      category: reports
   # 深度文章页（加更长版；独立页，不进资讯 feed——category 不是 insights）
   - scope:
       path: "content/deep"

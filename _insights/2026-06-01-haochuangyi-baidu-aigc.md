@@ -1,10 +1,12 @@
 ---
 title: "2026 中国好创意大赛 · 百度 AIGC 未来创作专项赛"
 date: 2026-06-01
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "设计竞赛网"
 src: "https://www.shejijingsai.com/2026/02/1501689.html"
 tags: [赛事, 高校, AIGC]
+topics: ["设计教育", "艺术与展览"]
 summary: "2026 中国好创意大赛设百度 AIGC 未来创作专项赛（原始时间：2026-06）。"
 ---
 

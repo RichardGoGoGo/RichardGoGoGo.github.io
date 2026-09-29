@@ -1,10 +1,11 @@
 ---
 title: "国内 AI 视频赛道从「技术炫技」进入「商业化验证」阶段"
 date: 2026-06-26
-icat: 观点与技巧
+icat: 观点
 source: "新浪财经"
 src: "https://finance.sina.com.cn/jjxw/2026-06-26/doc-inieszry5247748.shtml"
 tags: [AI视频, 商业化, 即梦, HappyHorse]
+topics: ["字节跳动", "视频生成"]
 summary: "字节 Seedance 2.5 与阿里 HappyHorse 1.1 同日亮相，可灵估值下调至 150 亿美元，Sand.ai 融资超亿美元——深度分析认为国内 AI 视频赛道正从「技术炫技」进入「商业化验证」阶段。"
 ---
 

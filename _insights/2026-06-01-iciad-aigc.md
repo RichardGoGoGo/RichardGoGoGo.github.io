@@ -1,10 +1,12 @@
 ---
 title: "2026 ICIAD 国际文化创新艺术设计奖设「AIGC 与计算设计」类别"
 date: 2026-06-01
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "设计竞赛网"
 src: "https://www.shejijingsai.com/2026/03/1517443.html"
 tags: [赛事, AIGC, 生成艺术]
+topics: ["艺术与展览"]
 summary: "2026 ICIAD 设『AIGC 与计算设计』类别（原始时间：2026-06）。"
 ---
 

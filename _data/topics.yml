@@ -6,7 +6,7 @@
 # - 增删主题只改这里，由「社区站维护」agent 负责；新增后需补一个 topics/<slug>.md 页面
 # type: org（公司/机构）| direction（方向）
 
-- { name: "OpenAI", slug: openai, type: org, alias: ["OpenAI", "ChatGPT", "GPT-", "Sora", "DALL"] }
+- { name: "OpenAI", slug: openai, type: org, alias: ["OpenAI", "ChatGPT", "GPT-", "Sora", "DALL", "Codex"] }
 - { name: "Google", slug: google, type: org, alias: ["Google", "谷歌", "Gemini", "Veo", "Imagen", "DeepMind", "Nano Banana"] }
 - { name: "Anthropic", slug: anthropic, type: org, alias: ["Anthropic", "Claude"] }
 - { name: "Meta", slug: meta, type: org, alias: ["Meta "] }
@@ -22,13 +22,15 @@
 - { name: "Stability AI", slug: stability, type: org, alias: ["Stability", "Stable Diffusion"] }
 - { name: "ComfyUI", slug: comfyui, type: org, alias: ["ComfyUI"] }
 
-- { name: "图像生成", slug: image-gen, type: direction, alias: ["图像生成", "文生图", "生图", "图像编辑", "Image"] }
-- { name: "视频生成", slug: video-gen, type: direction, alias: ["视频生成", "视频模型", "文生视频", "AI视频", "AI 视频", "短剧"] }
+- { name: "图像生成", slug: image-gen, type: direction, alias: ["图像生成", "文生图", "生图", "图像编辑", "Image", "AI影像", "AI 影像"] }
+- { name: "视频生成", slug: video-gen, type: direction, alias: ["视频生成", "视频模型", "文生视频", "AI视频", "AI 视频", "短剧", "AI动画", "AI 动画", "AI电影", "AI 电影", "TVC"] }
+- { name: "大模型", slug: llm, type: direction, alias: ["大模型", "大语言模型", "多模态模型", "多模态生成", "开源多模态", "DeepSeek", "Grok", "Kimi", "MiniMax", "SenseNova", "商汤", "月之暗面", "问小白"] }
 - { name: "3D 与世界模型", slug: 3d-world, type: direction, alias: ["3D", "世界模型", "World Model", "三维"] }
 - { name: "音频与音乐", slug: audio-music, type: direction, alias: ["音乐", "音频", "Music", "Audio", "TTS", "语音"] }
-- { name: "设计工具", slug: design-tools, type: direction, alias: ["设计工具", "设计系统", "UI", "矢量", "字体"] }
-- { name: "智能体与工作流", slug: agents-workflow, type: direction, alias: ["Agent", "智能体", "工作流", "MCP"] }
-- { name: "研究论文", slug: research, type: direction, icat: "研究与论文", alias: ["arXiv", "论文", "CVPR", "ICML", "ECCV", "SIGGRAPH"] }
+- { name: "设计工具", slug: design-tools, type: direction, alias: ["设计工具", "设计系统", "UI 设计", "UI设计", "矢量", "字体", "排版", "PPT", "海报", "平面设计", "动效", "前端设计"] }
+- { name: "智能体与工作流", slug: agents-workflow, type: direction, alias: ["Agent", "智能体", "工作流", "MCP", "Skill", "提示工程", "提示词", "上下文工程"] }
+- { name: "研究论文", slug: research, type: direction, icat: "论文", alias: ["arXiv", "论文", "CVPR", "ICML", "ECCV", "SIGGRAPH"] }
 - { name: "版权与政策", slug: copyright-policy, type: direction, alias: ["版权", "政策", "法案", "AI Act", "监管", "水印", "诉讼"] }
-- { name: "艺术与展览", slug: art-exhibition, type: direction, icat: "展览与赛事", alias: ["展览", "艺术节", "美术馆", "双年展", "Ars Electronica", "Prix"] }
-- { name: "行业与融资", slug: industry, type: direction, alias: ["融资", "收购", "ARR", "估值", "营收", "上市"] }
+- { name: "艺术与展览", slug: art-exhibition, type: direction, icat: "赛展", alias: ["展览", "艺术节", "美术馆", "双年展", "Ars Electronica", "Prix", "毕业展", "毕设展", "Art Basel", "电影节"] }
+- { name: "行业与融资", slug: industry, type: direction, icat: "行业", alias: ["融资", "收购", "ARR", "估值", "营收", "上市"] }
+- { name: "设计教育", slug: design-edu, type: direction, alias: ["艺术教育", "设计教育", "艺术设计教育", "高校", "美院", "央美", "微专业", "毕业展", "毕设展", "课程"] }

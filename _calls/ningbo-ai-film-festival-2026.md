@@ -5,6 +5,7 @@ ctype: AI视频赛事
 host: "宁波青年 AI 影像节组委会"
 src: "https://www.shejijingsai.com/2026/06/1578045.html"
 tags: [AI影像, 视频创作, 国际征集, 赛事]
+topics: ["图像生成"]
 summary: "2026 宁波青年 AI 影像节开启全球征片，设四大竞赛单元及 10 余项奖项，面向全球青年创作者征集 AI 辅助或 AI 生成的影像作品。"
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: "魔芯Flash World Model：视频世界模型训练成本降70%，50FPS实时交互"
 date: 2026-07-07
-icat: 模型与工具
+icat: 模型
 source: "量子位"
 src: "https://www.qbitai.com/2026/07/446411.html"
 tags: [世界模型, 视频生成, 实时交互, 开源]
+topics: ["视频生成", "3D 与世界模型"]
 summary: "魔芯发布Flash World Model，视频世界模型训练成本较同类降低70%，实现50FPS实时交互世界生成。"
 ---
 

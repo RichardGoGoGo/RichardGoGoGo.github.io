@@ -1,10 +1,12 @@
 ---
 title: "Google Labs 开源 DESIGN.md：给 AI 编码智能体一份「看得懂」的设计系统说明"
 date: 2026-06-29
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Google Labs / GitHub / 腾讯云开发者"
 src: "https://github.com/google-labs-code/design.md"
 tags: [Google, DESIGN.md, 设计系统, AI编码]
+topics: ["Google", "设计工具", "智能体与工作流"]
 summary: "Google Labs 开源 DESIGN.md 格式规范，用 YAML 设计 token + Markdown 说明的双层结构，让 Claude Code、Cursor 等 AI 编码智能体持久、结构化地理解并遵循一套设计系统。"
 pinned: true
 pin_until: 2026-07-06

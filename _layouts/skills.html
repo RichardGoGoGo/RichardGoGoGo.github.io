@@ -1,27 +1,52 @@
 ---
 layout: default
 ---
-{%- comment -%} SKILL 库：参考资料，不按时间衰减；按风险等级与用途筛选 {%- endcomment -%}
+{%- comment -%}
+SKILL 库：参考资料，不按时间衰减。
+一级＝主题（原知识库三条业务线，_data/skill_themes.yml）；二级＝风险 + 排序（最新收录 / 星标最多 / 近 7 天上升）。
+星标数据来自 GitHub API（stars / pushed / stats_at），近 7 天增量来自 SKILL 雷达每周快照（stars_7d，有才显示）。
+{%- endcomment -%}
 {%- assign sk = site.skills | where_exp: "s", "s.guide != true" | sort: "date" | reverse -%}
 {%- assign guide = site.skills | where: "guide", true | first -%}
+{%- assign has_growth = sk | where_exp: "s", "s.stars_7d" | size -%}
 <div class="container">
   <div class="page-head">
     <h1>{{ page.title }}</h1>
     {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
     {% if guide %}<p class="lead">每篇评测结构相同：要点介绍 + 七项安全审查客观事实 + 风险等级，中立呈现，不给"要不要引入"的结论。安全审查基于审查时的源码与文档，使用前请再核一次。</p>{% endif %}
   </div>
-  {%- assign gstr = "" -%}{%- for s in sk -%}{%- if s.tags[0] -%}{%- assign gstr = gstr | append: s.tags[0] | append: "," -%}{%- endif -%}{%- endfor -%}
-  {%- assign groups = gstr | split: "," | uniq -%}
-  <div class="tag-filter" id="skills-filter">
-    <button class="tag-chip active" data-f="all">全部 {{ sk.size }}</button>
-    <button class="tag-chip" data-f="r:low">低风险</button>
-    <button class="tag-chip" data-f="r:medium">中风险</button>
-    {%- for g in groups %}<button class="tag-chip" data-f="g:{{ g }}">{{ g }}</button>{% endfor %}
+
+  <div class="seg" id="skills-theme" role="tablist">
+    <button class="seg-btn active" data-t="all">全部 <span>{{ sk.size }}</span></button>
+    {%- for t in site.data.skill_themes -%}
+      {%- assign n = 0 -%}{%- for s in sk -%}{%- if s.theme contains t.slug -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor %}
+    <button class="seg-btn" data-t="{{ t.slug }}">{{ t.name }} <span>{{ n }}</span></button>
+    {%- endfor %}
   </div>
+  {%- for t in site.data.skill_themes %}
+  <p class="theme-intro" data-for="{{ t.slug }}" hidden>{{ t.desc }}{% if t.kb %}　<a href="{{ t.kb | relative_url }}">往期方法综述 →</a>{% endif %}</p>
+  {%- endfor %}
+
+  <div class="skills-bar">
+    <div class="tag-filter" id="skills-risk">
+      <span class="bar-label">风险</span>
+      <button class="tag-chip active" data-r="all">全部</button>
+      <button class="tag-chip" data-r="low">低</button>
+      <button class="tag-chip" data-r="medium">中</button>
+    </div>
+    <div class="tag-filter" id="skills-sort">
+      <span class="bar-label">排序</span>
+      <button class="tag-chip active" data-s="date">最新收录</button>
+      <button class="tag-chip" data-s="stars">星标最多</button>
+      {%- if has_growth > 0 %}<button class="tag-chip" data-s="growth">近 7 天上升</button>{% endif %}
+    </div>
+  </div>
+
   <div class="skill-grid" id="skills-grid">
     {%- for p in sk %}
-    <div class="skill-cell" data-risk="{{ p.risk }}" data-group="{{ p.tags[0] }}">{% include card.html p=p tags=true %}</div>
+    <div class="skill-cell" data-risk="{{ p.risk }}" data-theme="{{ p.theme | join: ' ' }}" data-date="{{ p.date | date: '%Y%m%d' }}" data-stars="{{ p.stars | default: 0 }}" data-growth="{{ p.stars_7d | default: 0 }}">{% include card.html p=p %}</div>
     {%- endfor %}
   </div>
   <p class="empty" id="skills-empty" hidden>该筛选下暂无评测</p>
+  <p class="fineprint">星标与最近提交时间取自 GitHub，更新于 {% assign sa = sk | map: "stats_at" | compact | sort | last %}{{ sa | date: "%-m月%-d日" }}；「近 7 天」为相邻两次每周快照之差。</p>
 </div>

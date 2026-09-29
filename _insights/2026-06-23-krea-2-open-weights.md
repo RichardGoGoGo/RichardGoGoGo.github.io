@@ -1,10 +1,12 @@
 ---
 title: "Krea 2 技术报告：开源 12B DiT 图像模型，明确不使用 AI 生成图像预训练"
 date: 2026-06-23
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Krea AI 官方"
 src: "https://www.krea.ai/blog/krea-2-technical-report"
 tags: [开源模型, Krea, 图像生成, LoRA]
+topics: ["图像生成"]
 summary: "Krea 发布 Krea 2 技术报告，推出 Raw（LoRA 微调基座）与 Turbo（8 步推理，约 2 秒生成）两个开放权重变体，明确训练数据中不使用 AI 生成图像，采用商业友好许可，ComfyUI v0.26.0 于发布当日接入。"
 ---
 

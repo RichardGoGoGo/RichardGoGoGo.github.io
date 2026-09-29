@@ -1,10 +1,12 @@
 ---
 title: "RelightFormer：SIGGRAPH Asia 2026 多视角物体重打光生成式 Transformer，无需逆渲染"
 date: 2026-09-10
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "arXiv"
 src: "https://arxiv.org/abs/2609.07414"
 tags: [RelightFormer, 重打光, 生成式AI, SIGGRAPH Asia 2026]
+topics: ["研究论文"]
 summary: 「香港科技大学 vLAR 团队提出 RelightFormer，前馈生成式 Transformer 无需逆渲染，输入目标光照条件和多视角图像即可输出光照一致的多视角重打光结果，已被 SIGGRAPH Asia 2026 接收，权重开源。」
 ---
 

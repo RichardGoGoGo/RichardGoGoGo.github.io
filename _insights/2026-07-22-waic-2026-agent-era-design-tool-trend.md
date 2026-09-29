@@ -1,10 +1,11 @@
 ---
 title: "量子位 WAIC 2026 十大趋势：Agent 演示取代大模型发布，设计工具 Agent 化成明确风向标"
 date: 2026-07-22
-icat: 观点与技巧
+icat: 观点
 source: "量子位 / 51CTO"
 src: "https://www.qbitai.com/2026/07/456974.html"
 tags: [WAIC 2026, AI趋势, Agent化, 设计工具, 量子位, 行业洞察]
+topics: ["设计工具", "大模型", "智能体与工作流"]
 summary: "量子位发布 WAIC 2026 十大趋势：83 家参展主体聚焦 AI Agent，设计工具 Agent 化从个别案例变为行业风向标，从「对话式 AI」进入「交付式 Agent」。"
 ---
 量子位在 WAIC 2026 闭幕日发布十大趋势观察：大模型不再独占 C 位，83 家参展主体聚焦 AI Agent 与智能应用，Agent 演示增多；「设计工具 Agent 化」从个别案例变为行业风向标——从「对话式 AI」进入「交付式 Agent」，WAIC 2026 标志 AI 进入「能力收割」而非「能力竞赛」阶段。

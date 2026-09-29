@@ -1,10 +1,11 @@
 ---
 title: "🔴 Xmax AI X2.0发布：端侧实时交互视频生成，延迟低于300ms"
 date: 2026-07-15
-icat: 工具与产品
+icat: 模型
 source: "量子位/36氪/凤凰科技等"
 src: "https://www.qbitai.com/2026/07/450130.html"
 tags: [实时视频生成, 端侧推理, Xmax, 交互视频]
+topics: ["视频生成"]
 summary: "Xmax AI发布X2.0模型，实现端侧实时交互视频生成，延迟低于300ms，是端侧推理能力在视频生成场景的重要突破。"
 pinned: true
 pin_until: 2026-07-24

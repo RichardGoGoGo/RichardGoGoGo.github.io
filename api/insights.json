@@ -5,6 +5,6 @@ permalink: /api/insights.json
 {%- assign pool = site.insights | sort: "date" | reverse -%}
 {"site": {{ site.title | jsonify }}, "updated": "{{ site.time | date_to_xmlschema }}", "items": [
 {%- for p in pool -%}{%- assign s = p.path | split: '/' | last | remove: '.md' -%}
-{"id": {{ s | jsonify }}, "url": "{{ site.url }}/insights/#{{ s }}", "title": {{ p.title | jsonify }}, "date": "{{ p.date | date: '%Y-%m-%d' }}", "category": {{ p.icat | jsonify }}, "source": {{ p.source | jsonify }}, "src": {{ p.src | jsonify }}, "sources": {{ p.sources | jsonify }}, "summary": {{ p.summary | jsonify }}, "reason": {{ p.reason | jsonify }}, "tags": {{ p.tags | jsonify }}, "topics": {{ p.topics | jsonify }}, "editor_pick": {% if p.editor_pick %}true{% else %}false{% endif %}}{% unless forloop.last %},{% endunless %}
+{"id": {{ s | jsonify }}, "url": "{{ site.url }}/insights/#{{ s }}", "title": {{ p.title | jsonify }}, "date": "{{ p.date | date: '%Y-%m-%d' }}", "category": {{ p.icat | jsonify }}, "source": {{ p.source | jsonify }}, "src": {{ p.src | jsonify }}, "sources": {{ p.sources | jsonify }}, "summary": {{ p.summary | jsonify }}, "reason": {{ p.reason | jsonify }}, "tags": {{ p.tags | jsonify }}, "topics": {{ p.topics | jsonify }}, "firsthand": {% if p.firsthand or p.sources[0].tier == "official" %}true{% else %}false{% endif %}, "editor_pick": {% if p.editor_pick %}true{% else %}false{% endif %}}{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]}

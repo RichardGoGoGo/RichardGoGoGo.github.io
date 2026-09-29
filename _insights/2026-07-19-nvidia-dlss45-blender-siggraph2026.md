@@ -1,10 +1,12 @@
 ---
 title: "NVIDIA DLSS 4.5 进驻 Blender：SIGGRAPH 2026 宣布，随 Blender 5.3「今秋」发布"
 date: 2026-07-19
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "NVIDIA 官方 / Blender Foundation"
 src: "https://www.nvidia.com/en-us/events/siggraph/"
 tags: [NVIDIA, DLSS 4.5, Blender, SIGGRAPH 2026]
+topics: ["研究论文"]
 summary: "NVIDIA 在 SIGGRAPH 2026 开幕首日宣布 DLSS 4.5（含多帧生成与 AI 超分辨率）将随 Blender 5.3「今秋」正式发布，为开源 3D 工具引入 AI 加速渲染。"
 ---
 

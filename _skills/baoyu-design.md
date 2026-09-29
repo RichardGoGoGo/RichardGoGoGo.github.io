@@ -4,6 +4,11 @@ date: 2026-06-22
 source: "JimLiu（宝玉）"
 src: "https://github.com/JimLiu/baoyu-design"
 risk: low
+theme: [design-teaching, creative-web]
+repo: "JimLiu/baoyu-design"
+stars: 4211
+pushed: 2026-09-23
+stats_at: 2026-09-29
 tags: [设计视觉, Skill, 原型]
 summary: "本地产 UI mockup / 原型 / 幻灯片 / 线框图，输出全本地、无上传。"
 ---

@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 Art Gallery「In-Betweens」入选作品公布，7 月洛杉矶登场"
 date: 2026-05-21
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "SIGGRAPH 2026 官网"
 src: "https://s2026.siggraph.org/program/art-gallery/"
 tags: [SIGGRAPH, Art Gallery, 交互装置, 生成艺术, 科技艺术, 洛杉矶, 学生竞赛]
+topics: ["研究论文", "艺术与展览"]
 summary: "SIGGRAPH 2026 Art Gallery『In-Betweens』入选公布，7 月洛杉矶登场。"
 ---
 

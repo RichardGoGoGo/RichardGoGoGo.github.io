@@ -1,10 +1,12 @@
 ---
 title: "Adobe Firefly「项目记忆」私测启动：跨会话保存角色设定、产品角度与品牌资产"
 date: 2026-06-18
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Adobe 官方 / WinBuzzer"
 src: "https://winbuzzer.com/2026/06/19/adobe-firefly-adds-project-memory-in-private-beta-xcxwbn/"
 tags: [Adobe, Firefly, 项目记忆, Elements, Projects, 持续创作]
+topics: ["Adobe"]
 summary: "Firefly 私测『项目记忆』，跨会话保存角色、产品角度与品牌资产，保持连续创作一致性。"
 ---
 

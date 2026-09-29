@@ -1,10 +1,12 @@
 ---
 title: "Pika推出场景感知视频配音模型：画面驱动全场景音效与音乐同步生成"
 date: 2026-08-27
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Pika官方"
 src: "https://experiment.pika.art/blog/pika-audio-models"
 tags: [Pika, 视频配音, AI音效, 音视频同步, 视频后期, 场景感知]
+topics: ["音频与音乐"]
 summary: "「Pika推出专属视频配音模型，分析视频画面语义和节奏后同步生成音效、环境声和音乐底层，无需手动对口型或检索素材库」"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Serpentine首届Art+Technology Fellowship开放申请：Refik Anadol与曹斐担任评委"
 date: 2026-09-02
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "The Art Newspaper/Serpentine官方"
 src: "https://www.serpentinegalleries.org/whats-on/future-art-ecosystems-rd-fellowship-art-x-convergence/"
 tags: [Serpentine, Art+Technology Fellowship, Refik Anadol, 曹斐, AI艺术, 驻留, 申请]
+topics: ["艺术与展览"]
 summary: "「伦敦蛇形画廊首届Art+Technology Fellowship正式开放申请，Refik Anadol和曹斐担任评审，面向AI艺术与科技交叉领域创作者」"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Midjourney Niji V7 正式上线：动漫风格连贯性与 sref 风格参考全面升级"
 date: 2026-06-10
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Midjourney 官方"
 src: "https://www.midjourney.com/updates"
 tags: [Midjourney, Niji V7, 动漫, 插画, 风格参考]
+topics: ["Midjourney"]
 summary: "Niji V7 发布，动漫/插画风格连贯性与 sref 风格参考全面升级。"
 ---
 

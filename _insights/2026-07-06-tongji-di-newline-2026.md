@@ -1,10 +1,12 @@
 ---
 title: "同济D&I 2026毕业展「换行 NewLine」：近260件作品，AI辅助设计方向成常态"
 date: 2026-07-06
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "同济DF"
 src: "https://tjdi.tongji.edu.cn/NewsDetail.do?ID=5989&lang="
 tags: [毕业展, 同济大学, AI设计, 设计教育]
+topics: ["设计教育", "艺术与展览"]
 summary: "「同济大学设计创意学院2026届毕业展「换行 NewLine」于7月6日开幕，近260件作品涵盖AI辅助设计方向，展现设计专业毕业生对AI工具融入创作实践的探索。」"
 ---
 

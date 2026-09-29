@@ -2,10 +2,12 @@
 title: "Adobe 宣布收购 AI 图像与视频增强公司 Topaz Labs"
 date: 2026-06-25
 editor_pick: true
-icat: 模型与工具
+icat: 行业
+firsthand: true
 source: "Adobe 官方 / TechCrunch / Variety / PetaPixel"
 src: "https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs"
 tags: [Adobe, Topaz Labs, 图像增强, 视频超分]
+topics: ["Adobe", "行业与融资"]
 summary: "Adobe 宣布收购曾获艾美奖的 AI 图像与视频增强公司 Topaz Labs，其旗舰模型 Astra（视频超分）与 Wonder（图像增强）将整合进 Firefly 及 CC 全系产品；Neurostream 技术可在消费级设备本地运行大型 AI 模型；交易预计 2026 年下半年完成，Topaz 现有工具同期保持独立可用。"
 pinned: true
 pin_until: 2026-07-05

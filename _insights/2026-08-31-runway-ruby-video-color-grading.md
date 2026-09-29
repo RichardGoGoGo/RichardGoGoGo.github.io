@@ -1,10 +1,12 @@
 ---
 title: "Runway Ruby：自然语言描述驱动的专业级视频色彩分级模型"
 date: 2026-08-31
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Runway官方changelog"
 src: "https://help.runwayml.com/hc/en-us/articles/54749891346579-Creating-HDR-videos-with-Runway-Ruby"
 tags: [Runway, Ruby, 视频调色, 色彩分级, 视频后期, AI美学]
+topics: ["Runway"]
 summary: "「Runway发布Ruby专用视频调色模型，通过自然语言描述（如「70s胶片感」「清晨蓝调」）执行专业级色彩分级，理解光线情绪与时代氛围」"
 ---
 

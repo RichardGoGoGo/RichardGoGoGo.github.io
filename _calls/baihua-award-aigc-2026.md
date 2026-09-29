@@ -7,6 +7,7 @@ host: "第 38 届大众电影百花奖组委会"
 src: "https://www.cnstock.com/commonDetail/736281"
 deadline: 2026-07-20
 tags: [百花奖, AIGC影片, 电影节, 全球征集]
+topics: ["艺术与展览"]
 summary: "第 38 届大众电影百花奖首次设立 AIGC 推优单元，面向全球征集 AI 生成内容影像短片，设 30 部入围名额、6 个奖项，即梦 AI 担任独家技术合作方，截止 7 月 20 日。"
 ---
 

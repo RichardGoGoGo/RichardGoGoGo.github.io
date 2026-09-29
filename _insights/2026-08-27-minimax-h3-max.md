@@ -1,10 +1,12 @@
 ---
 title: "MiniMax H3 Max：fal.ai联合发布，35倍加速，Design Arena全球第一"
 date: 2026-08-27
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "MiniMax官方/fal.ai"
 src: "https://blog.fal.ai/introducing-h3-max-by-fal/"
 tags: [MiniMax, H3 Max, fal.ai, 视频生成, 加速, Design Arena]
+topics: ["视频生成", "大模型"]
 summary: "「MiniMax与fal.ai联合发布H3 Max，相比H3标准版实现35倍推理加速，在Design Arena视频质量评测中位列全球第一」"
 ---
 

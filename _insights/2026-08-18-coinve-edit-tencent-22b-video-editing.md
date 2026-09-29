@@ -1,10 +1,12 @@
 ---
 title: "腾讯CoinVE-Edit：22B参数区域感知视频编辑，单次Pass完成多处局部修改"
 date: 2026-08-18
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "腾讯研究院"
 src: "https://arxiv.org/abs/2608.17566"
 tags: [腾讯, 视频编辑, CoinVE-Edit, 22B, 区域感知, 局部编辑]
+topics: ["腾讯", "研究论文"]
 summary: "「腾讯发布CoinVE-Edit，22B参数视频编辑模型，区域感知架构支持单次推理同时完成2-5处独立局部修改」"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Prix Ars Electronica 2026：AI 与档案影像融合作品「Deer Hunter」获新动画艺术金熊奖"
 date: 2026-09-10
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "Ars Electronica 官方"
 src: "https://ars.electronica.art/prix/en/winners/"
 tags: [Ars Electronica, Prix, AI动画, 媒体艺术]
+topics: ["视频生成", "艺术与展览"]
 summary: 「第 38 届 Prix Ars Electronica 2026 颁奖，Andrew Herzog 的「Deer Hunter」以档案素材与生成式 AI 融合叙事摘得新动画艺术金熊奖（Golden Nica）。」
 ---
 

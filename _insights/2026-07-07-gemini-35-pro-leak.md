@@ -1,10 +1,11 @@
 ---
 title: "Gemini 3.5 Pro 传闻预告：完全重新训练，主打前端代码像素级精准与 200 万上下文（未经官方确认）"
 date: 2026-07-07
-icat: 模型与工具
+icat: 模型
 source: "新智元 / 36氪 / 凤凰科技 / 多源"
 src: "https://aiera.com.cn/2026/07/07/other/admin/102702/"
 tags: [Gemini, Google, 模型发布, 前端设计]
+topics: ["Google", "设计工具"]
 summary: "「多源传言 Google DeepMind 将于 7 月 17 日发布 Gemini 3.5 Pro，称完全重新预训练，主打前端代码像素级精准、200 万上下文窗口及 SVG 与 3D 建模能力，尚未经官方确认」"
 ---
 

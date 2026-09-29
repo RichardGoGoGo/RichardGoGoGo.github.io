@@ -6,6 +6,7 @@ host: "HOBAN Cultural Foundation（韩国）"
 src: "https://ai-arts.org"
 deadline: 2026-09-30
 tags: [AI艺术, AI图像, AI视频, 国际]
+topics: ["视频生成"]
 summary: "韩国 HOBAN 文化财团主办的第 4 届国际 AI 艺术竞赛，设 AI Image Art 与 AI Video Art 两个类别，全球开放、免费参赛，获奖作品入选首届 AI-ARTS Biennale，截止 2026-09-30（韩国时间）。"
 ---
 

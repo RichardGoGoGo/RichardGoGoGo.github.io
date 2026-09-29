@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI v0.36.0：FastVideo FastH3 8步视频生成 + BFL FLUX 视频编辑节点 + YuE2 音乐 + Tripo P2 3D"
 date: 2026-09-15
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "GitHub (comfyanonymous/ComfyUI releases) + comfyui-wiki.com"
 src: "https://github.com/comfyanonymous/ComfyUI/releases/tag/v0.36.0"
 tags: [ComfyUI, FastH3, BFL FLUX Video Edit, YuE2, 视频生成]
+topics: ["Black Forest Labs", "ComfyUI", "视频生成"]
 summary: "「ComfyUI v0.36.0 新增 FastH3 8步蒸馏视频、BFL FLUX 视频编辑、YuE2 音乐生成与 Tripo P2 3D 等多项节点，单一工作流覆盖文字到视频配乐完整链路。」"
 pinned: true
 pin_until: 2026-09-28

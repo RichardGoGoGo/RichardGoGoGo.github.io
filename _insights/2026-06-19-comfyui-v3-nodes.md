@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI 核心节点迁移 V3 架构，修复 FP8 scaled LoRA 问题"
 date: 2026-06-19
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "ComfyUI 更新日志"
 src: "https://docs.comfy.org/zh/changelog"
 tags: [ComfyUI, LoRA, 工作流]
+topics: ["ComfyUI", "智能体与工作流"]
 summary: "ComfyUI 核心节点迁移 V3 架构，修复 FP8 scaled LoRA 问题。"
 ---
 

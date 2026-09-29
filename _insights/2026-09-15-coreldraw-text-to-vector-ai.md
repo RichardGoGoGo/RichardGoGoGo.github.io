@@ -1,10 +1,12 @@
 ---
 title: "CorelDRAW Graphics Suite 九月更新：Text-to-Vector AI 文字直生可编辑矢量图形 + PowerTRACE 提速"
 date: 2026-09-15
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "GlobeNewswire + PR Newswire"
 src: "https://www.globenewswire.com/news-release/2026/09/15/3362194/0/en/ai-vector-graphics-tools-power-creative-workflows-in-coreldraw-graphics-suite-2026.html"
 tags: [CorelDRAW, Text-to-Vector, 矢量生成, 平面设计]
+topics: ["设计工具"]
 summary: "「CorelDRAW Graphics Suite September 2026 Update 新增 Text-to-Vector AI，支持从文字描述直接生成可商用、可编辑矢量图形路径，并将 PowerTRACE 速度提升 4 倍。」"
 ---
 

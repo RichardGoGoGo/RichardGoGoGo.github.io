@@ -1,10 +1,12 @@
 ---
 title: "PQSG：首个系统评估 AI 视频物理一致性的基准，揭示 Sora 2 / Veo 3 的系统性短板"
 date: 2026-06-24
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "arXiv (2606.25306) / TechWalker"
 src: "https://arxiv.org/abs/2606.25306"
 tags: [AI视频评估, 物理一致性, 基准测试, 视频生成]
+topics: ["OpenAI", "Google", "视频生成"]
 summary: "北卡罗来纳大学、Johns Hopkins、AI2 与德克萨斯大学奥斯汀联合发布 PQSG 评估体系（arXiv:2606.25306），首次系统评估 AI 视频生成模型的物理一致性，覆盖刚体动力学、流体模拟、软体变形，揭示主流视频模型的系统性物理短板。"
 ---
 

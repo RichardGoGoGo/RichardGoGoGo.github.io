@@ -1,10 +1,11 @@
 ---
 title: "VGGRPO（ECCV 2026 Google）：4D 隐空间几何奖励强化学习，解决视频扩散模型几何漂移"
 date: 2026-07-18
-icat: 研究与论文
+icat: 论文
 source: "机器之心 / QQ新闻"
 src: "https://news.qq.com/rain/a/20260717A0B3CG00"
 tags: [VGGRPO, ECCV 2026, 视频生成, 几何一致性]
+topics: ["Google", "视频生成", "研究论文"]
 summary: "Google 团队提出 VGGRPO，通过隐空间 4D 几何奖励进行强化学习后训练，解决视频扩散模型几何漂移与摄像机轨迹不稳定问题，已被 ECCV 2026 收录。"
 ---
 

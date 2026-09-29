@@ -7,6 +7,7 @@ host: "INNODESIGN PRIZE（北京环艺国际展览）"
 src: "https://www.innodesignglobal.com/"
 deadline: 2026-09-15
 tags: [AIGC, 设计赛事, 国际]
+topics: ["艺术与展览"]
 summary: "全球创新设计大赛旗下 INNO AIGC 设计奖，2026-09-15 截止。"
 ---
 

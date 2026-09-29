@@ -1,10 +1,11 @@
 ---
 title: "蚂蚁 LingBot-Vision：边界驱动视觉预训练新范式，10 亿参数超越 70 亿参数 DINOv3，权重开源"
 date: 2026-07-15
-icat: 研究与论文
+icat: 论文
 source: "蚂蚁集团 / arXiv / 腾讯新闻"
 src: "https://news.qq.com/rain/a/20260715A03MP800"
 tags: [视觉预训练, 深度估计, 蚂蚁集团, 开源模型, arXiv, ECCV]
+topics: ["研究论文"]
 summary: "蚂蚁集团提出「掩码边界建模」预训练范式，10 亿参数 ViT-g 在深度估计基准上超越 70 亿参数 DINOv3，透明物体深度估计达 RMSE 0.010，权重已开源。"
 ---
 蚂蚁集团提出 LingBot-Vision 边界驱动视觉预训练方案，将边界检测从输出任务转为预训练核心目标；10 亿参数 ViT-g/16 在 NYU-Depth v2 深度估计测试中 RMSE 达 0.296，超越 70 亿参数 DINOv3（0.309）；衍生的 LingBot-Depth 2.0 在透明物体深度估计上 RMSE 达 0.010；模型权重已开源。

@@ -1,10 +1,12 @@
 ---
 title: "MiniMax H3正式发布：全模态2K/15秒视频+原生立体声，开源权重8月首发ModelScope"
 date: 2026-07-31
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "MarkTechPost/ComfyUI官方/Civitai"
 src: "https://www.marktechpost.com/2026/08/01/minimax-releases-minimax-h3-an-omni-modal-video-model-that-generates-15-second-2k-clips-with-native-stereo-audio/"
 tags: [MiniMax, H3, Hailuo, 2K视频, 原生立体声, 开源, 视频生成]
+topics: ["视频生成", "大模型"]
 summary: "MiniMax发布H3（Hailuo 3.0），支持全模态输入生成最高2K分辨率、15秒、原生立体声视频，API当日可调用，开源权重首发ModelScope，ComfyUI同步支持。"
 pinned: true
 pin_until: 2026-08-30

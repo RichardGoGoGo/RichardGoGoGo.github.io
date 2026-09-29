@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026最佳艺术论文：Resonance——AI生成艺术中共鸣感的形式化研究"
 date: 2026-07-22
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "SIGGRAPH 2026官方"
 src: "https://s2026.conference-schedule.org/presentation/?id=artpl_169&sess=sess226"
 tags: [SIGGRAPH 2026, 最佳艺术论文, Resonance, AI艺术, 生成艺术, 学术]
+topics: ["研究论文"]
 summary: "「SIGGRAPH 2026最佳艺术论文奖授予论文Resonance，探索AI生成艺术中「共鸣感」的形式化定义与计算方法」"
 ---
 

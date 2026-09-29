@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 计算机动画节：Google DeepMind AI 辅助油画风动画短片《Dear Upstairs Neighbors》入选"
 date: 2026-07-02
-icat: 案例与作品
+icat: 案例
+firsthand: true
 source: "SIGGRAPH 2026 官方 / PRNewswire"
 src: "https://s2026.siggraph.org/siggraph-2026-computer-animation-festival-celebrates-global-storytelling-alongside-a-blockbuster-production-sessions-lineup/"
 tags: [SIGGRAPH, AI动画, Google DeepMind, 计算机动画节]
+topics: ["Google", "视频生成", "研究论文"]
 summary: "「SIGGRAPH 2026 计算机动画节入选 Google DeepMind 团队 AI 辅助油画风动画短片，艺术家全程主导 + AI 协同创作模式获学院奖认证节展认可」"
 ---
 

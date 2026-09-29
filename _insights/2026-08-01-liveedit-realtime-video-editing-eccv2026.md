@@ -1,10 +1,12 @@
 ---
 title: "LiveEdit（清华×港科大）：4步去噪实现12.66 FPS实时逐帧视频编辑，ECCV 2026"
 date: 2026-08-01
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "机器之心 / ECCV 2026"
 src: "https://arxiv.org/abs/2606.26740"
 tags: [LiveEdit, 实时视频编辑, 清华大学, 香港科技大学]
+topics: ["研究论文"]
 summary: 「清华×港科大联合提出LiveEdit，通过三阶段渐进蒸馏将双向扩散Transformer的视频编辑能力迁移至因果流式编辑器，仅需4步去噪即可实现12.66FPS实时逐帧视频编辑；ECCV 2026接收。」
 ---
 

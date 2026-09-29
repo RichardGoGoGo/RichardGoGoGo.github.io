@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 开幕预告：「Diffusion TV」扩散模型沉浸装置与 AI 创作伙伴工作坊"
 date: 2026-07-17
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "PR Newswire（SIGGRAPH 官方）"
 src: "https://www.prnewswire.com/news-releases/siggraph-2026-puts-ai-to-work-as-a-creative-partner-across-research-art-and-industry-302828862.html"
 tags: [SIGGRAPH 2026, AI艺术装置, 扩散模型, 学术会议]
+topics: ["研究论文", "艺术与展览"]
 summary: "SIGGRAPH 2026 会前公告披露两大 AI 亮点：将扩散模型实时可视化的沉浸装置「Diffusion TV」，以及「视频生成视觉语言」专题研讨工作坊，大会 7 月 19—23 日于洛杉矶举行。"
 ---
 

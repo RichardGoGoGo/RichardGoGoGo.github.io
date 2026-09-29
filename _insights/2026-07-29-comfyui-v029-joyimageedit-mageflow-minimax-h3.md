@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI v0.29.0–0.29.2：JoyImageEdit/MageFlow/Uni3C ControlNet/MiniMax H3 Partner Nodes一次到位"
 date: 2026-07-29
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "GitHub Comfy-Org / docs.comfy.org"
 src: "https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.29.0"
 tags: [ComfyUI, JoyImageEdit, MageFlow, Uni3C, ControlNet, Wan, MiniMax, 工作流, 视频控制]
+topics: ["ComfyUI", "图像生成", "大模型"]
 summary: "ComfyUI v0.29.0–0.29.2原生集成JoyImageEdit图像指令编辑、MageFlow 4B、Uni3C ControlNet（Wan系列视频精准控制），v0.29.2追加MiniMax H3与Ideogram Partner Nodes。"
 ---
 

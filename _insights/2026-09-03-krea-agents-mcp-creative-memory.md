@@ -1,10 +1,12 @@
 ---
 title: "Krea Agents：单一创意提示替代复杂节点图，支持 MCP 与长期记忆"
 date: 2026-09-03
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "alphasignal.ai"
 src: "https://alphasignal.ai/news/krea-agents-replaces-complex-node-graphs-with-a-single-creative-prompt"
 tags: [Krea, Agents, MCP, 工作流自动化]
+topics: ["智能体与工作流"]
 summary: 「Krea 发布 Agents，单条自然语言指令驱动整套图像 / 视频生成工作流，内置 MCP 工具调用与跨会话长期记忆，面向 Krea Pro 订阅用户开放。」
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Adobe 把「创意智能体」铺进 Photoshop、Premiere、Illustrator、InDesign（公测）"
 date: 2026-06-18
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Adobe 官方 / Engadget"
 src: "https://news.adobe.com/news/2026/06/adobe-unveils-major-expansion"
 tags: [Adobe, 创意工具, Agent, 设计工作流]
+topics: ["Adobe", "智能体与工作流"]
 summary: "Adobe 把创意智能体铺进 PS/Pr/Ai/Id 公测，AI 从生成器转向流程助手。"
 ---
 

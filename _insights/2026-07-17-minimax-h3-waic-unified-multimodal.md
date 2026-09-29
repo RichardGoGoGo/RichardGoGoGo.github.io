@@ -1,10 +1,11 @@
 ---
 title: "MiniMax H3 @ WAIC 2026：下一代多模态生成模型，统一图像/视频/声音生成"
 date: 2026-07-17
-icat: 模型与工具
+icat: 模型
 source: "每日经济新闻 / 新浪财经"
 src: "https://finance.sina.com.cn/roll/2026-07-17/doc-iniiaxpa4241254.shtml"
 tags: [MiniMax, H3, WAIC 2026, 多模态生成]
+topics: ["大模型"]
 summary: "MiniMax 在 WAIC 2026 首次公开 H3 模型，定位为将图像、视频、声音生成统一进单一架构的下一代多模态生成模型，现场标注「Coming Soon」。"
 pinned: true
 pin_until: 2026-07-27

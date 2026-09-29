@@ -1,5 +1,12 @@
 {%- comment -%} 右栏：当前热点 / 即将截止 / 最新 SKILL（≥1280px 显示） {%- endcomment -%}
 <aside class="rail">
+  {%- assign latest_rep = site.reports | sort: "date" | last -%}
+  {%- if latest_rep %}
+  <div class="rail-box">
+    <div class="rail-title">最新{% if latest_rep.kind == "monthly" %}月报{% else %}周报{% endif %}<a href="{{ '/reports/' | relative_url }}">全部 →</a></div>
+    <a class="rail-report" href="{{ latest_rep.url | relative_url }}">{{ latest_rep.title }}<small>{{ latest_rep.start | date: "%-m月%-d日" }} – {{ latest_rep.end | date: "%-m月%-d日" }}{% if latest_rep.stats.insights %} · {{ latest_rep.stats.insights }} 条资讯{% endif %}</small></a>
+  </div>
+  {%- endif %}
   {%- include heat-rank.html mode="hot" -%}
   <div class="rail-box">
     <div class="rail-title">当前热点<a href="{{ '/hot/' | relative_url }}">热点榜 →</a></div>

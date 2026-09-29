@@ -2,10 +2,11 @@
 title: "TryOnCrafter：首个自由视角视频虚拟试衣 DiT 框架（ECCV 2026）"
 date: 2026-07-07
 editor_pick: true
-icat: 研究与论文
+icat: 论文
 source: "机器之心 / arXiv"
 src: "https://www.jiqizhixin.com/articles/2026-07-07-tryoncrafter"
 tags: [虚拟试衣, AI视频, 计算机视觉, ECCV 2026]
+topics: ["视频生成", "研究论文"]
 summary: "「TryOnCrafter提出首个支持自由视角的视频虚拟试衣DiT框架，引入4D试衣代理机制，入选ECCV 2026，机器之心与arXiv双源确认。」"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "GPT-5.6三款模型全量公开发布，结束国家安全审查有限预览期"
 date: 2026-07-09
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "OpenAI官方"
 src: "https://openai.com/index/previewing-gpt-5-6-sol/"
 tags: [OpenAI, GPT-5, 大模型发布, AI基础设施]
+topics: ["OpenAI", "大模型"]
 summary: "GPT-5.6 Sol旗舰、Terra均衡、Luna轻量三款模型于7月9日全量公开，结束约两周国家安全审查，在ChatGPT与API中全球同步上线。"
 deep: /deep/2026-07-11-gpt-5-6-sol-ga/
 ---

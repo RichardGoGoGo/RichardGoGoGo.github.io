@@ -1,10 +1,11 @@
 ---
 title: "广电总局微短剧分类分层标准 7 月 1 日施行：AI 生成微短剧须每集加标识"
 date: 2026-06-29
-icat: 行业观察
+icat: 行业
 source: "央视网 / 人民日报 / 澎湃"
 src: "https://news.cctv.cn/2026/06/26/ARTIENiZ1cMOJy4Jdwfctm3U260625.shtml"
 tags: [广电总局, 微短剧, AIGC标识, 政策]
+topics: ["视频生成", "版权与政策", "行业与融资"]
 summary: "广电总局发布微短剧分类分层管理标准，按投资额与题材分三类实行备案与发行许可，并要求 AI 生成、制作的微短剧在每集明显位置添加提示标识，自 2026 年 7 月 1 日起施行。"
 pinned: true
 pin_until: 2026-07-06

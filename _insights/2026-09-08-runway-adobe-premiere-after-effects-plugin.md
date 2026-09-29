@@ -1,10 +1,12 @@
 ---
 title: "Runway 发布 Adobe Premiere Pro 与 After Effects 原生插件"
 date: 2026-09-08
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Runway 官方 / Adobe 官方"
 src: "https://runway.com/news/company-news/runway-for-adobe"
 tags: [Runway, Adobe, Premiere Pro, AI视频生成]
+topics: ["Adobe", "Runway", "视频生成"]
 summary: 「Runway 推出 Adobe Premiere Pro 和 After Effects 官方原生插件，专业剪辑者可在时间轴内直接调用 Runway Aleph 2 完成 AI 视频生成、风格化与超分辨率，无需离开剪辑软件。」
 pinned: true
 pin_until: 2026-09-22

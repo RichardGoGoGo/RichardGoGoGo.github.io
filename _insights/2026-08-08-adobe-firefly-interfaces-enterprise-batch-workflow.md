@@ -1,10 +1,12 @@
 ---
 title: "Adobe Firefly「Interfaces」企业级批量工作流Beta：500资产一次性生成"
 date: 2026-08-08
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Adobe官方"
 src: "https://helpx.adobe.com/firefly/web/work-with-enterprise-features/creative-production/creative-production-overview.html"
 tags: [Adobe, Firefly, 企业工作流, 批量生成, Interfaces]
+topics: ["Adobe", "智能体与工作流"]
 summary: "「Adobe推出Firefly Interfaces beta，提供企业级UI支持单次批量生成最多500个视觉资产，面向品牌营销和内容团队」"
 ---
 

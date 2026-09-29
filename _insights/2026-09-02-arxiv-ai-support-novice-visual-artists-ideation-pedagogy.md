@@ -1,10 +1,12 @@
 ---
 title: "arXiv研究：AI如何支持视觉艺术初学者的创意构思与教学介入"
 date: 2026-09-02
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "arXiv（论文编号 2509.24167）"
 src: "https://arxiv.org/abs/2509.24167"
 tags: [arXiv, AI艺术教育, 视觉艺术, 初学者, 创意构思, 教学法]
+topics: ["研究论文", "设计教育"]
 summary: "「arXiv论文2509.24167考察AI工具如何支持视觉艺术初学者的创意构思过程，并探讨教学介入的适当边界」"
 ---
 

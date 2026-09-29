@@ -4,6 +4,11 @@ date: 2026-06-22
 source: "op7418（归藏）"
 src: "https://github.com/op7418/guizang-social-card-skill"
 risk: low
+theme: [design-teaching]
+repo: "op7418/guizang-social-card-skill"
+stars: 7293
+pushed: 2026-07-01
+stats_at: 2026-09-29
 tags: [设计视觉, Skill, 配图]
 summary: "小红书图文(1080×1440)+公众号封面对，Editorial/Swiss 两套视觉，HTML→PNG 直接出图。"
 ---

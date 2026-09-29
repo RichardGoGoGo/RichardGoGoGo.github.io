@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 Experience Hall全面公布：五大板块，Art Gallery「In-Betweens」含4件AI艺术"
 date: 2026-07-10
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "SIGGRAPH官方"
 src: "https://s2026.siggraph.org/siggraph-2026-experience-hall-invites-attendees-to-step-inside-the-future-of-interaction-and-storytelling/"
 tags: [SIGGRAPH, AI艺术, 展览, 计算机图形]
+topics: ["研究论文", "艺术与展览"]
 summary: "SIGGRAPH 2026 Experience Hall公布五大板块完整阵容，Art Gallery「In-Betweens」12件入选作品中含4件AI艺术，探索AI与记忆、身份及人机关系，7月19-23日洛杉矶举行。"
 ---
 

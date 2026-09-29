@@ -2,10 +2,11 @@
 title: "可口可乐中国世界杯营销全面 AI 化：5 人 5 城 TVC 全由 Prompt 生成，范志毅数字人 2 秒实时互动"
 date: 2026-06-23
 editor_pick: true
-icat: 案例与作品
+icat: 案例
 source: "量子位 / 优设"
 src: "https://www.qbitai.com/2026/06/437381.html"
 tags: [加更, 可口可乐, AI广告, 数字人, 品牌营销]
+topics: ["视频生成"]
 summary: "可口可乐中国 2026 世界杯限定版 TVC 5 人 5 城场景全由 Prompt 生成（操盘方百度一镜），范志毅数字人实现 2 秒端到端实时互动，是顶级国际品牌世界杯广告预算被 AI 替代的直接落地案例。"
 pinned: true
 pin_until: 2026-07-01

@@ -1,10 +1,11 @@
 ---
 title: "字节 TRAE Work Design 模式：AI 识别设计系统组件库，自动生成 UI 稿并转代码"
 date: 2026-06-26
-icat: 模型与工具
+icat: 产品
 source: "量子位"
 src: "https://www.qbitai.com/2026/06/438750.html"
 tags: [字节, TRAE, 设计到代码, AI工作流]
+topics: ["字节跳动", "设计工具", "智能体与工作流"]
 summary: "字节 TRAE 推出 Work Design 模式，可精准识别设计系统组件库，输入需求后自动生成 UI 设计稿并同步转代码，覆盖从设计到开发的完整工作流。"
 deep: /deep/2026-06-29-bytedance-trae-work-design/
 ---

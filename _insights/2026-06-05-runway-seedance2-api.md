@@ -1,10 +1,11 @@
 ---
 title: "Runway API 接入 Seedance 2.0 Fast，支持关键帧控制与参考图生成"
 date: 2026-06-05
-icat: 模型与工具
+icat: 产品
 source: "Runway"
 src: "https://releasebot.io/updates/runwayai"
 tags: [Runway, Seedance, 视频生成, API]
+topics: ["字节跳动", "Runway", "视频生成"]
 summary: "Runway API 正式接入 Seedance 2.0 Fast，支持关键帧控制、参考图及参考视频生成，输出 4–15 秒视频，提供 480p/720p 两档分辨率。"
 ---
 

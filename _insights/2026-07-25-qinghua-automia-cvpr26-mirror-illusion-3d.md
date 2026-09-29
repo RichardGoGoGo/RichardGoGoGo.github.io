@@ -1,10 +1,11 @@
 ---
 title: "清华 AutoMIA 入选 CVPR'26：输入两张图片 76 秒生成镜像错觉 3D 艺术品，支持 3D 打印"
 date: 2026-07-25
-icat: 研究与论文
+icat: 论文
 source: "新智元 / 量子位 / 36氪 / CSDN / 51CTO"
 src: "https://aiera.com.cn/2026/07/25/other/admin/105716/"
 tags: [清华, AutoMIA, CVPR 2026, 3D错觉, 镜像艺术, 3D打印, AI装置艺术]
+topics: ["3D 与世界模型", "研究论文"]
 summary: "「清华 AutoMIA 系统可将任意两张图片自动生成镜像错觉 3D 物体，76 秒完成，支持直接 3D 打印输出，已入选 CVPR 2026」"
 pinned: true
 pin_until: 2026-08-28

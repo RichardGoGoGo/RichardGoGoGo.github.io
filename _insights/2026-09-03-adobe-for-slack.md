@@ -1,10 +1,12 @@
 ---
 title: "Adobe for Slack：Firefly生图能力嵌入Slack工作流，商业授权直接可用"
 date: 2026-09-03
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Adobe官方"
 src: "https://9to5mac.com/2026/09/02/adobe-brings-photoshop-firefly-and-70-creative-tools-to-slack-with-mcp-app/"
 tags: [Adobe, Firefly, Slack, 工作流集成, 文生图, 商业授权, 协作设计]
+topics: ["Adobe", "图像生成", "智能体与工作流"]
 summary: "「Adobe推出Firefly for Slack集成，用户在Slack对话中可直接调用文生图、图生图和重新着色功能生成商业可用视觉资产，无需切换应用」"
 ---
 

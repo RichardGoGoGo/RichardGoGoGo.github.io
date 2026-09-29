@@ -1,10 +1,12 @@
 ---
 title: "xAI 推出 Grok for Office 插件，进入 Word / PowerPoint / Excel"
 date: 2026-06-20
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "xAI News"
 src: "https://x.ai/news"
 tags: [xAI, Grok, 办公工具]
+topics: ["大模型"]
 summary: "xAI 推出免费 Grok for Office 插件，进入 Word/PPT/Excel。"
 ---
 

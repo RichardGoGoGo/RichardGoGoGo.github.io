@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 前沿预热：多篇中文解读密集放出，AI「全面入侵」大会"
 date: 2026-06-21
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "内核观察 / 哲思哲言 / 深圳大学"
 src: "https://s2026.siggraph.org/"
 tags: [SIGGRAPH, 计算机图形学, AI研究, 学术会议]
+topics: ["研究论文"]
 summary: "SIGGRAPH 2026 开幕前夕，国内多个技术媒体和高校研究团队集中放出中文深度解读，覆盖从芯片到像素的 AI 全链路渗透格局。"
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: "上海国际电影节设立技术创制单元与 AI Backlot 计划：AI 进入主流电影节创作机制"
 date: 2026-06-18
-icat: 行业观察
+icat: 行业
 source: "Variety / Hollywood Reporter / China.org.cn"
 src: "https://variety.com/2026/film/news/shanghai-film-fest-tech-unit-ai-industry-push-1236780477/"
 tags: [上海国际电影节, AI电影, AI Backlot, 行业机制, AIGC]
+topics: ["视频生成", "艺术与展览", "行业与融资"]
 summary: "第 28 届上海国际电影节（6/12–22）设立「技术创制单元」并推出 AI Backlot 计划，全球收到 500+ 申请，4 支跨国团队在电影节开放工作室实时制作 AI 短片，标志 AI 正式进入主流电影节的创作机制。"
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: "Adobe Firefly Creative Skills 上线：对话式设计与 AI 助手进驻全系 CC"
 date: 2026-06-18
-icat: 模型与工具
+icat: 产品
 source: "搜狐科技"
 src: "https://www.sohu.com/a/1038594646_121956424"
 tags: [Adobe, Firefly, Creative Cloud, AI助手]
+topics: ["Adobe", "智能体与工作流"]
 summary: "Adobe Firefly Creative Skills 发布，对话式 AI 设计能力与 AI 助手全面入驻 Creative Cloud 全系应用，独立于同期「项目记忆」更新。"
 deep: /deep/2026-06-18-adobe-firefly-agent/
 ---

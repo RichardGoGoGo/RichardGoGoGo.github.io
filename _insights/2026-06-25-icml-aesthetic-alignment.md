@@ -1,10 +1,12 @@
 ---
 title: "ICML 2026 Spotlight：AI 图像审美对齐机制正在削弱生成内容的艺术多样性"
 date: 2026-06-25
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "机器之心 / arXiv:2512.11883"
 src: "https://arxiv.org/abs/2512.11883"
 tags: [ICML, 审美对齐, 图像生成研究, 多样性]
+topics: ["图像生成", "研究论文"]
 summary: "「ICML 2026 Spotlight 论文指出，HPS 等 AI 图像审美评分系统的对齐机制正在削弱生成图像的艺术多样性，越符合评分标准的图像越缺乏表现力」"
 ---
 

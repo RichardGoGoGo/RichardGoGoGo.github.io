@@ -2,10 +2,12 @@
 title: "ChatGPT 全量发布 GPT-5.6 Luna：免费层无限制使用，SOL 推理能力显著提升"
 date: 2026-08-06
 weight: 4
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "OpenAI 官方"
 src: "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/"
 tags: [ChatGPT, GPT-5.6, Luna, OpenAI, 免费, SOL推理]
+topics: ["OpenAI"]
 summary: "「OpenAI 全量发布 GPT-5.6 Luna，面向所有 ChatGPT 用户开放免费无限制使用，SOL 逻辑推理与数学问题求解能力较前版本显著提升。」"
 ---
 

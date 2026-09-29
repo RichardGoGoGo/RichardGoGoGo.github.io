@@ -1,10 +1,11 @@
 ---
 title: "腾讯 Miora 国际版全量上线：生图 / 视频 / 3D / UI 四子 Agent 协同，登顶 Product Hunt 日榜，新用户赠 1000 积分"
 date: 2026-07-22
-icat: 模型与工具
+icat: 产品
 source: "量子位 / 腾讯新闻 / 虎嗅 / 新浪财经 / 数字生命卡兹克 / 机器之心"
 src: "https://news.qq.com/rain/a/20260722A08LY600"
 tags: [腾讯, Miora, 设计Agent, 多Agent协同, 品牌视觉, Product Hunt, 生成式AI]
+topics: ["腾讯", "图像生成", "3D 与世界模型"]
 summary: "腾讯首个设计 Agent 平台 Miora 国际版全量上线，生图 / 视频 / 3D / UI 四子 Agent 同一画布协同交付，首日登顶 Product Hunt 日榜第一。"
 pinned: true
 pin_until: 2026-08-11

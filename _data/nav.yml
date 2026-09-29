@@ -6,12 +6,12 @@
     - { label: "全部资讯", href: "/insights/", icon: list, match: "/insights/" }
     - { label: "热点榜", href: "/hot/", icon: flame, match: "/hot/" }
     - { label: "日报", href: "/daily/", icon: doc, match: "/daily/" }
+    - { label: "周报 · 月报", href: "/reports/", icon: chart, match: "/reports/" }
     - { label: "主题", href: "/topics/", icon: grid, match: "/topics/" }
 - title: 资源
   items:
     - { label: "征集日历", href: "/calls/", icon: calendar, match: "/calls/" }
     - { label: "SKILL 库", href: "/skills/", icon: shield, match: "/skills/" }
-    - { label: "知识库", href: "/knowledge/", icon: book, match: "/knowledge/" }
     - { label: "深度分析", href: "/deep/", icon: layers, match: "/deep/" }
 - title: 工具
   items:
@@ -19,5 +19,6 @@
 - title: 更多
   items:
     - { label: "工作营 · 都市折叠", href: "/df2026-urban-folding/", icon: star, match: "/df2026" }
+    - { label: "往期知识库", href: "/knowledge/", icon: book, match: "/knowledge/" }
     - { label: "关于", href: "/about/", icon: info, match: "/about/" }
     - { label: "接入", href: "/agent/", icon: plug, match: "/agent/" }

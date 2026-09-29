@@ -1,10 +1,12 @@
 ---
 title: "arXiv 2609.18065：为生成式图像模型构建视觉界面设计空间框架"
 date: 2026-09-16
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "arXiv.org"
 src: "https://arxiv.org/abs/2609.18065"
 tags: [arXiv, 界面设计, 设计空间, HCI, 生成式图像模型]
+topics: ["研究论文"]
 summary: "「arXiv 论文 2609.18065 提出系统性框架梳理生成式图像模型视觉界面的提示输入、控制粒度、迭代模式与输出展示四大核心维度。」"
 ---
 

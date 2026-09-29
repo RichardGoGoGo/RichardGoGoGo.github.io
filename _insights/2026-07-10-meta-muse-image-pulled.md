@@ -1,10 +1,12 @@
 ---
 title: "Meta Muse Image上线不足一周因opt-out默认机制遭SAG-AFTRA/CAA联合声讨后下架"
 date: 2026-07-10
-icat: 模型与工具
+icat: 行业
+firsthand: true
 source: "财联社/Deadline/Hollywood Reporter/TechWeez/Forbes/MacRumors/Variety"
 src: "https://www.hollywoodreporter.com/business/digital/meta-pulls-opt-out-ai-tool-hollywood-outrage-1236644312/"
 tags: [Meta, AI肖像权, 版权, opt-out]
+topics: ["Meta", "图像生成", "版权与政策"]
 summary: "Meta Muse Image的「@提及公开账号生成」功能因采用opt-out默认机制允许生成公开IG账号AI图像，遭SAG-AFTRA与CAA联合声讨，Meta承认「missed the mark」后将该功能下架。"
 pinned: true
 pin_until: 2026-07-21

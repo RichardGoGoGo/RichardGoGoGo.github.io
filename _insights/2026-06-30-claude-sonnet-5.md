@@ -2,10 +2,12 @@
 title: "Anthropic 发布 Claude Sonnet 5：Agentic 场景最强 Sonnet，成为 Free/Pro 默认模型"
 date: 2026-06-30
 editor_pick: true
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Anthropic 官方 / TechCrunch / VentureBeat"
 src: "https://www.anthropic.com/news/claude-sonnet-5"
 tags: [Claude, Anthropic, 大模型, Agentic]
+topics: ["Anthropic", "大模型", "智能体与工作流"]
 summary: "Anthropic 于 6 月 30 日发布 Claude Sonnet 5，定位 Agentic 场景，性能接近旗舰 Opus 级，成为 Claude Free/Pro 用户默认模型；入门定价 $2/$10 每百万 Token（至 2026 年 8 月底），与 GPT-5.6 同日形成正面竞争格局。"
 ---
 

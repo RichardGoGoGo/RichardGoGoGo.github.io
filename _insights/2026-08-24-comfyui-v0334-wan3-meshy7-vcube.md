@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI v0.33.4：Wan 3.0 30秒原生节点+Meshy-7 Ultra 3D生成+ByteDance vCube 8K视频增强"
 date: 2026-08-24
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "ComfyUI官方GitHub"
 src: "https://github.com/comfy-org/ComfyUI/releases/tag/v0.33.4"
 tags: [ComfyUI, v0.33.4, Wan 3.0, Meshy-7, vCube]
+topics: ["阿里巴巴", "ComfyUI", "3D 与世界模型"]
 summary: "ComfyUI v0.33.4 发布，新增阿里 Wan 3.0 原生工作流节点（30秒/1080p视频+多模态输入）、Meshy-7 Ultra 3D生成节点、字节跳动 vCube 视频增强节点（至8K超分+帧率增强），同时修复若干UI稳定性问题。"
 ---
 

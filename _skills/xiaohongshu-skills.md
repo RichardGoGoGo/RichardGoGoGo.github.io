@@ -4,6 +4,11 @@ date: 2026-06-24
 source: "white0dew"
 src: "https://github.com/white0dew/XiaohongshuSkills"
 risk: medium
+theme: [digital-team]
+repo: "white0dew/XiaohongshuSkills"
+stars: 3466
+pushed: 2026-09-28
+stats_at: 2026-09-29
 tags: [内容发布, Skill, 小红书]
 summary: "基于 Chrome CDP 的小红书自动化 skill：发图文/视频、搜索、评论、多账号管理、数据导出 CSV。"
 ---

@@ -1,10 +1,11 @@
 ---
-title: ""
+title: "Claude Code 删去 80% 系统提示词：Anthropic 工程师解释新模型为何不再需要旧规则"
 date: 2026-07-25
-icat: 观点与技巧
+icat: 观点
 source: "Anthropic工程师"
 src: "https://x.com/trq212/status/2080710971228918066"
 tags: [Claude, Code, 上下文工程, 系统提示词]
+topics: ["Anthropic", "智能体与工作流"]
 summary: "Anthropic工程师Thariq Shihipar详解Claude Code为Opus 5/Fable 5删除80%系统提示词的原因：旧规则是为旧模型设计的，新模型已能根据代码自主判断"
 ---
 

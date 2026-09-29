@@ -1,10 +1,12 @@
 ---
 title: "Adobe Premiere Pro 内嵌五大 AI 视频模型与 AI 音效生成——IBC 2026 Generative Media Tool"
 date: 2026-09-08
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Adobe 官方博客 / No Film School / TechTimes"
 src: "https://blog.adobe.com/en/publish/2026/09/08/generate-create-directly-in-your-timeline-with-new-ai-powered-innovations-in-premiere-after-effects"
 tags: [Adobe, Premiere Pro, AI视频生成, IBC 2026]
+topics: ["Adobe", "视频生成"]
 summary: 「Adobe 于 IBC 2026 推出 Premiere Pro Generative Media Tool，时间轴内框选即可调用 Firefly、Runway、Kling、Veo、Luma 五大 AI 视频模型，并同步新增 AI 音效与声景生成。」
 pinned: true
 pin_until: 2026-09-22

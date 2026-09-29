@@ -4,6 +4,11 @@ date: 2026-06-22
 source: "oaker-io"
 src: "https://github.com/oaker-io/wewrite"
 risk: low
+theme: [digital-team]
+repo: "imraywang/wewrite"
+stars: 3369
+pushed: 2026-09-28
+stats_at: 2026-09-29
 tags: [写作, Skill, 全流程]
 summary: "公众号文章全流程：热点抓取→选题→写作→SEO→配图→排版→草稿箱。"
 ---

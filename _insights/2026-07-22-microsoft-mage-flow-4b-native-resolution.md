@@ -1,10 +1,11 @@
 ---
 title: "微软开源 Mage-Flow：4B 参数原生任意分辨率图像生成与编辑，GenEval 0.90 开源最高，MIT 许可可商用"
 date: 2026-07-22
-icat: 模型与工具
+icat: 模型
 source: "机器之心/ComfyUI Wiki/arXiv/GitHub/HuggingFace（多源）"
 src: "https://comfyui-wiki.com/zh/news/2026-07-22-mage-flow-microsoft"
 tags: [微软, Mage-Flow, 开源, 图像生成, 图像编辑, 原生分辨率, ComfyUI, MIT许可]
+topics: ["ComfyUI", "图像生成"]
 summary: "「Mage-Flow 4B 参数原生支持 512–2048 任意宽高比文生图与指令式编辑，GenEval 0.90 为开源最优，Turbo 版 0.59 秒/张。」"
 ---
 

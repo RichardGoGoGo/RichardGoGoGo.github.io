@@ -1,10 +1,11 @@
 ---
 title: "Figma CEO Dylan Field：AI是设计顺风，设计师需成为Out-of-Distribution力量，Q1营收+46%"
 date: 2026-07-22
-icat: 观点与技巧
+icat: 观点
 source: "Stratechery / Lenny's Newsletter / Yahoo Finance / TechCrunch"
 src: "https://stratechery.com/2026/an-interview-with-figma-ceo-dylan-field-about-design-and-ai/"
 tags: [Figma, Dylan Field, 设计价值, AI顺风, Out-of-Distribution, 设计教育, 英文源]
+topics: ["Figma", "设计教育", "行业与融资"]
 summary: "Figma CEO Dylan Field在Stratechery等多个访谈中阐明：AI处理分布内均值，设计师需以品味和文化洞察成为Out-of-Distribution力量；Figma Q1营收+46%至3.334亿美元印证AI扩大了设计工具市场。"
 pinned: true
 pin_until: 2026-08-31

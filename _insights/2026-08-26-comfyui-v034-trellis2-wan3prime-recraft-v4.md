@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI v0.34系列：Pixal3D+TRELLIS2原生3D、Recraft V4、Gemini Omni 1.1 Flash、Wan3.0 Prime"
 date: 2026-08-26
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "ComfyUI官方GitHub/ComfyUI Wiki"
 src: "https://github.com/Comfy-Org/ComfyUI/releases"
 tags: [ComfyUI, v0.34, TRELLIS2, Recraft V4, Gemini Omni, Wan3.0 Prime, 3D生成]
+topics: ["Google", "阿里巴巴", "ComfyUI"]
 summary: "「ComfyUI v0.34系列版本集成Pixal3D+TRELLIS2原生3D管线、Recraft V4风格生成、Gemini Omni 1.1 Flash视频及Wan3.0 Prime快速变体」"
 ---
 

@@ -2,10 +2,12 @@
 title: "Adobe Firefly Partner Models 全面开放：CC 全系内置 30+ 第三方行业模型"
 date: 2026-06-24
 editor_pick: true
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Adobe 官方 / Creative Bloq / AWN"
 src: "https://www.adobe.com/products/firefly/partner-models.html"
 tags: [Adobe, Firefly, 合作模型, 多模型, AIGC]
+topics: ["Adobe"]
 summary: "Adobe 将 30+ 第三方行业模型内置进 Creative Cloud 全系（Firefly / Express / Photoshop / Illustrator 等），含 Kling 3.0、Veo 3.1、FLUX.2、Runway Gen-4.5、Luma、ElevenLabs 等，现有 CC 订阅即可调用、无需额外付费。"
 ---
 

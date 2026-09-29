@@ -1,10 +1,11 @@
 ---
 title: "MiniMax Hub 发布：图·视频·配音·音乐·剪辑一站式多模态 AI 创作平台"
 date: 2026-06-15
-icat: 模型与工具
+icat: 产品
 source: "Variety / Sixth Tone / 多源"
 src: "https://variety.com/2026/film/festivals/minimax-hub-ai-video-generator-shanghai-film-festival-1236781901/"
 tags: [MiniMax, 多模态, AI视频, 创作平台, 上海国际电影节]
+topics: ["视频生成", "大模型", "音频与音乐"]
 summary: "MiniMax 于上海国际电影节期间发布 MiniMax Hub，整合图像、视频、配音、音乐与剪辑的一站式多模态创作平台，由 Agent 拆解任务并保留人工决策节点，4 支跨国团队用于电影节 AI 短片制作。"
 ---
 

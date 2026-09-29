@@ -4,6 +4,11 @@ date: 2026-09-21
 source: "danilo-znamerovszkij"
 src: "https://github.com/danilo-znamerovszkij/draw-your-font"
 risk: low
+theme: [design-teaching]
+repo: "danilo-znamerovszkij/draw-your-font"
+stars: 795
+pushed: 2026-08-05
+stats_at: 2026-09-29
 tags: [设计视觉, 字体设计, Skill]
 summary: "拍一张手写样本，CLI 自动分割字母 + SVG 矢量化 + 输出可安装的 TTF/WOFF/WOFF2 字体文件；含可选易混字母检测（rn→m、I/l/1、O/0）；全流程本地运行、零上传。"
 ---

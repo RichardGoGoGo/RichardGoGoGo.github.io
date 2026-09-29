@@ -1,10 +1,11 @@
 ---
 title: "Gemini 3.5 Pro 确认延期：前端 UI 像素级一次生成能力仍在打磨"
 date: 2026-07-17
-icat: 模型与工具
+icat: 模型
 source: "新浪财经 / 36氪"
 src: "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-inihzvzs1344436.shtml"
 tags: [Google, Gemini, 前端生成, 模型动态]
+topics: ["Google"]
 summary: "谷歌 Gemini 3.5 Pro 原定 7 月 17 日发布已确认延期，主因是编程能力仍在打磨，10 名现任和前任员工参与确认。"
 ---
 

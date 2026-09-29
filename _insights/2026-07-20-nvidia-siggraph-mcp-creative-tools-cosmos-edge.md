@@ -1,10 +1,12 @@
 ---
 title: "NVIDIA SIGGRAPH 2026：MCP接入Adobe/Blender/Houdini/Unreal等全链路创作工具，同步发布Cosmos 3 Edge 4B边缘世界模型"
 date: 2026-07-20
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "NVIDIA官方Blog / Claypier / 掘金 / OmniTools（多源）"
 src: "https://blogs.nvidia.com/blog/siggraph-news-2026/"
 tags: [NVIDIA, MCP, Adobe Firefly, Blender, Houdini, Unreal, Cosmos 3 Edge, 边缘世界模型, SIGGRAPH 2026, AI工具链]
+topics: ["Adobe", "3D 与世界模型", "智能体与工作流"]
 summary: "NVIDIA在SIGGRAPH 2026宣布Adobe Firefly/Creative Cloud、Canva/Affinity Designer、Blender、SideFX Houdini 22、Unreal Editor等主流创作软件全面支持MCP协议，AI Agent可直接在DCC工具内执行场景检查/材质标记/版本导出等操作；同步开源Cosmos 3 Edge（4B参数，VANTAGE-Bench同参数同类第一），可在Jetson Thor/RTX PRO/GeForce RTX上本地运行。"
 pinned: true
 pin_until: 2026-07-30

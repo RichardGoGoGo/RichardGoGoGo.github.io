@@ -1,10 +1,12 @@
 ---
 title: "Google Vids 三连更：Veo 3.1 对所有账号免费、Lyria 3 AI 音乐生成、AI 虚拟人扩容至 53 种"
 date: 2026-06-18
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Google Workspace Blog"
 src: "https://workspaceupdates.googleblog.com/2026/06/enhanced-ai-avatars-vids.html"
 tags: [Google, Veo 3.1, Lyria 3, AI虚拟人, 视频生成, AI音乐, Google Vids]
+topics: ["Google", "视频生成", "音频与音乐"]
 summary: "Google Vids 升级：Veo 3.1 免费、Lyria 3 AI 配乐、AI 虚拟人扩至 53 种。"
 ---
 

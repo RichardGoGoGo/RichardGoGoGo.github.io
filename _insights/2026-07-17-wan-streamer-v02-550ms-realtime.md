@@ -1,10 +1,11 @@
 ---
 title: "阿里通义 Wan-Streamer v0.2：端到端 AI 视频通话延迟降至 550ms，听/看/说/演统一进单一 Transformer"
 date: 2026-07-17
-icat: 模型与工具
+icat: 模型
 source: "IT之家 / 虎嗅 / 同花顺"
 src: "https://www.ithome.com/0/978/125.htm"
 tags: [阿里通义, Wan-Streamer, 实时交互, 多模态]
+topics: ["阿里巴巴", "视频生成"]
 summary: "阿里通义实验室发布 Wan-Streamer v0.2，将听、看、说、演统一进单个 Transformer，端到端交互延迟约 550ms，较 v0.1 大幅改善。"
 ---
 

@@ -7,6 +7,7 @@ host: "复旦大学新闻学院"
 src: "https://xwxy.fudan.edu.cn/qqdxsznyxczds/list.htm"
 deadline: 2026-09-20
 tags: [AI影像, 视频创作, 大学生赛事, 全球征集]
+topics: ["图像生成"]
 summary: "复旦大学新闻学院主办的全球 AI 影像创作赛事，设上海/科幻/思辨/剧情/品牌五大赛道，要求以生成式视频技术完成 ≥1 分钟 AI 影像作品，各赛道头名 2 万元，截止 2026-09-20。"
 ---
 

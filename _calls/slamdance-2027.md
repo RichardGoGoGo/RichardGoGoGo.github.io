@@ -6,6 +6,7 @@ host: "Slamdance Film Festival"
 src: "https://slamdance.com/festival-submit"
 deadline: 2026-10-06
 tags: [独立电影, AI影像, 国际, 短片]
+topics: ["图像生成", "艺术与展览"]
 summary: "美国独立电影节 Slamdance 第 33 届（2027 年 2 月洛杉矶）征片，Digital、Interactive、Gaming 单元明确欢迎 AI 驱动的影像与音乐作品，全球开放，延期截止 2026-10-06。"
 ---
 

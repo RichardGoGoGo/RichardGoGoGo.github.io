@@ -1,10 +1,12 @@
 ---
 title: "Claude Cowork 扩展至 web/iOS/Android：后台持续运行，90% 使用集中于内容创作"
 date: 2026-07-07
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Anthropic 官方 / TechCrunch / 9to5Mac"
 src: "https://claude.com/blog/cowork-web-mobile"
 tags: [Claude, AI工具, 跨设备, 知识工作]
+topics: ["Anthropic"]
 summary: "「Anthropic宣布Claude Cowork扩展至web、iOS与Android端，支持后台持续运行与跨设备协作，官方数据显示90%的使用场景集中于内容创作等知识型工作而非编程。」"
 ---
 

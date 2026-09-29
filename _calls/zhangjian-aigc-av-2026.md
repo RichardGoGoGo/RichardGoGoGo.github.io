@@ -6,6 +6,7 @@ host: "上海市金融数据港 × 上海耘擎文化（浦东新区经委支持
 src: "https://www.shobserver.com/sgh/detail?id=1753307"
 deadline: 2026-09-30
 tags: [AIGC视听, 短剧, IP孵化, 青年]
+topics: ["视频生成"]
 summary: "面向全球青年的 AIGC 视听内容创新创业大赛，设高校组与专业组，三个赛道为 AIGC 数字视听内容创作、产业宣传内容创新、张江本地 IP 孵化，截止 2026-09-30，决赛 10 月。"
 ---
 

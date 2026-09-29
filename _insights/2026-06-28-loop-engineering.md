@@ -1,10 +1,11 @@
 ---
 title: "「Prompt 已死」与 Loop Engineering 崛起：从写提示词到设计 AI 驱动循环"
 date: 2026-06-28
-icat: 观点与技巧
+icat: 观点
 source: "凤凰科技 / 新智元 / SlashDot / HackerNoon / X 多源"
 src: "https://tech.ifeng.com/c/8uITKAT4QLO"
 tags: [Loop Engineering, AI工作流, 范式转移, Prompt工程]
+topics: ["智能体与工作流"]
 summary: "Peter Steinberger、Addy Osmani（Google Cloud）命名，黄仁勋、Karpathy、Claude Code 作者 Boris Cherny 等多人呼应——「Loop Engineering」主张从调单次提示词转向设计以 AI 为引擎的持续循环工作结构，被认为是 Prompt Engineering 的范式接班。"
 ---
 

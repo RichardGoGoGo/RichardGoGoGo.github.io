@@ -1,10 +1,12 @@
 ---
 title: "Figma AI 设计 Agent 接入联网搜索，Runway Aleph 2.0 嵌入 Weave 画布"
 date: 2026-06-18
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Figma / Runway"
 src: "https://www.figma.com/blog/direct-every-frame-with-runway-aleph-2/"
 tags: [Figma, Runway, 设计工作流, AI视频编辑]
+topics: ["Figma", "Runway", "视频生成"]
 summary: "Figma AI 设计 Agent 新增联网搜索能力，Runway Aleph 2.0 同步嵌入 Figma Weave 画布，设计师可在 Figma 内直接用文字提示编辑视频帧。"
 ---
 

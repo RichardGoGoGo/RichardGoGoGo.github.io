@@ -1,10 +1,12 @@
 ---
 title: "Qwen-Image-2.0-RL：阿里用强化学习训练 AI「审美」，图像生成 Elo 提升 78 分"
 date: 2026-06-25
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "科技行者 / arXiv (2606.27608)"
 src: "https://arxiv.org/abs/2606.27608"
 tags: [Qwen, 强化学习, AI审美, 图像生成]
+topics: ["阿里巴巴", "图像生成", "研究论文"]
 summary: "阿里 Qwen 团队发布 Qwen-Image-2.0-RL（arXiv:2606.27608），通过 GRPO 强化学习与在线策略蒸馏设计图文对齐、美感、肖像三类奖励模型，文生图 Elo 从 1115 升至 1193（+78），图像编辑 Elo 从 1256 升至 1349（+93）。"
 ---
 

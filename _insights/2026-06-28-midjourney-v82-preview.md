@@ -1,10 +1,12 @@
 ---
 title: "Midjourney V8.2 预览版开放：强化非 V7 审美路线，Sref 一致性提升"
 date: 2026-06-28
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Midjourney 官方 / Pexo"
 src: "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
 tags: [Midjourney, V8.2, 文生图, Sref]
+topics: ["Midjourney", "图像生成"]
 summary: "Midjourney V8.2 预览版可通过 --preview 参数提前体验，主要强化非 V7 审美风格路线、提升 Sref 风格板一致性；目前尚在开发阶段，表现不保证稳定，与 V8.1 Draft Mode 并行可用。"
 ---
 

@@ -6,6 +6,7 @@ host: "We Are Human（法国）"
 src: "https://wearehumanfestival.com"
 deadline: 2026-09-30
 tags: [AI艺术, 国际展映, 免费投稿, 巡展]
+topics: ["艺术与展览"]
 summary: "探讨人机协作与数字时代创意身份的国际艺术节，征集 AI 生成艺术、数字影像、生成式装置等作品，巴黎 Forum des images 主场展映（2026-11-24）并全球多城巡展，免费投稿，截止 2026-09-30。"
 ---
 

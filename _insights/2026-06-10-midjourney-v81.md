@@ -1,10 +1,12 @@
 ---
 title: "Midjourney V8.1 成为默认版本：生成速度 4–5 倍提升，原生 2K 高清输出"
 date: 2026-06-10
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Midjourney 官方"
 src: "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
 tags: [Midjourney, V8.1, 图像生成, 2K, 速度提升]
+topics: ["Midjourney", "图像生成"]
 summary: "Midjourney V8.1 成默认版本，速度提升约 4–5 倍，支持原生 2K 输出。"
 ---
 

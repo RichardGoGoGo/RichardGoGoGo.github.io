@@ -1,10 +1,12 @@
 ---
 title: "SIGGRAPH 2026 Art Papers 录用名单公布，主题「创作性翻译的复杂性」"
 date: 2026-06-24
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "SIGGRAPH 2026 官方"
 src: "https://s2026.siggraph.org/program/art-papers/"
 tags: [SIGGRAPH, 艺术研究, 学术会议, 2026]
+topics: ["研究论文"]
 summary: "SIGGRAPH 2026 Art Papers 录用名单已公布，主题为「The Creative Complexities of Translation」，入选论文发表于 PACMCGIT 特刊，覆盖艺术×科学×技术交叉研究，有别于早先公布的 Art Gallery 入选；大会于 7 月 19–23 日在洛杉矶举行。"
 ---
 

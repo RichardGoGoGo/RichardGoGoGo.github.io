@@ -7,6 +7,7 @@ host: "亚洲计算机辅助建筑设计研究学会（CAADRIA）"
 src: "https://www.caadria2027.org"
 deadline: 2026-07-27
 tags: [学术会议, 计算性设计, 建筑, AI设计]
+topics: ["艺术与展览"]
 summary: "亚洲计算机辅助建筑设计领域旗舰国际会议第32届，主题「Adaptive Horizons」，聚焦 AI 与计算方法应对设计中的不确定性与复杂适应性，2027 年 3-4 月在苏州举办，摘要截止 2026-07-27。"
 ---
 

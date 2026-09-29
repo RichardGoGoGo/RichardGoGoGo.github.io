@@ -1,10 +1,12 @@
 ---
 title: "Anthropic Claude 统一界面：Chat + Cowork 合并单窗口，Claude Design 保持品牌一致性"
 date: 2026-09-16
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "TechCrunch + Anthropic 官方"
 src: "https://techcrunch.com/2026/09/16/anthropic-merges-claude-chat-and-cowork-in-one-interface/"
 tags: [Anthropic, Claude, Cowork, Claude Design, 统一界面]
+topics: ["Anthropic"]
 summary: "「Anthropic 将 Claude.ai 聊天与 Cowork 工作空间合并至单一窗口，并推出 Claude Design 支持跨项目品牌一致性管理。」"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Disney 幻想工程 × Adobe Firefly Foundry：训练 IP 自定义模型，草图直出品牌级概念图"
 date: 2026-06-16
-icat: 案例与作品
+icat: 案例
+firsthand: true
 source: "Adobe 官方"
 src: "https://news.adobe.com/news/2026/06/adobe-and-disney-imagineering-collaborate"
 tags: [企业案例, Adobe, Disney, IP生成]
+topics: ["Adobe"]
 summary: "Disney 幻想工程与 Adobe Firefly Foundry 合作，基于内部 IP 资产训练自定义生成模型，可从草图生成米奇、冰雪奇缘、汽车总动员等 IP 的品牌级概念图，生成结果已直接导入商业制作流程，为 Firefly Foundry 企业自定义模型的标志性落地案例。"
 ---
 

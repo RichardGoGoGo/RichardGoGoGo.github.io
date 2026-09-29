@@ -1,10 +1,12 @@
 ---
 title: "🔴 PixVerse进军交互娱乐：Game AI引擎支持实时视频驱动游戏场景"
 date: 2026-07-15
-icat: 工具与产品
+icat: 产品
+firsthand: true
 source: "PixVerse官方博客/Yahoo Finance等"
 src: "https://pixverse.ai/en/blog/pixverse-closes-series-c-extension-and-announces-expansion-into-interactive-entertainment"
 tags: [PixVerse, 游戏AI, 交互娱乐, 视频生成]
+topics: ["视频生成"]
 summary: "PixVerse宣布完成C轮融资延伸轮并进军交互娱乐，发布Game AI引擎，支持实时视频生成驱动游戏场景与角色行为。"
 pinned: true
 pin_until: 2026-07-24

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{%- comment -%} 周报 · 月报索引：按期倒序，分段切换 全部 / 周报 / 月报 {%- endcomment -%}
+{%- assign rs = site.reports | sort: "start" | reverse -%}
+{%- assign nw = rs | where: "kind", "weekly" | size -%}{%- assign nm = rs | where: "kind", "monthly" | size -%}
+<div class="container">
+  <div class="page-head">
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.description }}</p>
+  </div>
+  <div class="seg" id="reports-filter" role="tablist">
+    <button class="seg-btn active" data-f="all">全部 <span>{{ rs.size }}</span></button>
+    <button class="seg-btn" data-f="weekly">周报 <span>{{ nw }}</span></button>
+    <button class="seg-btn" data-f="monthly">月报 <span>{{ nm }}</span></button>
+  </div>
+  {%- if rs.size > 0 %}
+  <div class="report-list">
+    {%- for r in rs %}
+    <a class="report-card" data-kind="{{ r.kind }}" href="{{ r.url | relative_url }}">
+      <div class="rc-head"><span class="badge{% if r.kind == 'monthly' %} solid{% endif %}">{% if r.kind == "monthly" %}月报{% else %}周报{% endif %}</span><span>{{ r.start | date: "%Y年%-m月%-d日" }} – {{ r.end | date: "%-m月%-d日" }}</span></div>
+      <div class="rc-title">{{ r.title }}</div>
+      {% if r.summary %}<p class="rc-sum">{{ r.summary }}</p>{% endif %}
+      {%- if r.stats %}<div class="rc-stats">{% if r.stats.insights and r.stats.insights > 0 %}<span>{{ r.stats.insights }} 条资讯</span>{% endif %}{% if r.stats.calls and r.stats.calls > 0 %}<span>{{ r.stats.calls }} 项征集</span>{% endif %}{% if r.stats.skills and r.stats.skills > 0 %}<span>{{ r.stats.skills }} 个 SKILL</span>{% endif %}</div>{% endif %}
+    </a>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="empty">第一期周报将在下周一发布。</p>
+  {%- endif %}
+</div>

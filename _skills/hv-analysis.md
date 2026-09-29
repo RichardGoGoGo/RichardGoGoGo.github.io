@@ -4,6 +4,11 @@ date: 2026-06-22
 source: "KKKKhazix"
 src: "https://github.com/KKKKhazix/khazix-skills"
 risk: low
+theme: [digital-team]
+repo: "KKKKhazix/khazix-skills"
+stars: 20990
+pushed: 2026-09-25
+stats_at: 2026-09-29
 tags: [写作, Skill, 深度长文]
 summary: "横纵分析法，本地生成 1–3 万字 PDF 深度报告。"
 ---

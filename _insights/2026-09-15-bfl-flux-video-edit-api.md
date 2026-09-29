@@ -1,10 +1,12 @@
 ---
 title: "BFL FLUX Video Edit API：$0.03/秒保留原片运动与音频的精准视频编辑端点"
 date: 2026-09-15
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Black Forest Labs 官方文档 + ComfyUI v0.36.0 发布说明"
 src: "https://bfl.ai/video-edit"
 tags: [BFL, FLUX Video Edit, 视频编辑, 运动保留, ComfyUI]
+topics: ["Black Forest Labs", "ComfyUI", "音频与音乐"]
 summary: "「Black Forest Labs 推出 FLUX Video Edit API，$0.03/秒输出，可按文字描述精准修改视频中指定元素，同时完整保留原片运动轨迹与音频。」"
 ---
 

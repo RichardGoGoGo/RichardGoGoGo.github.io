@@ -4,6 +4,11 @@ date: 2026-06-24
 source: "levnikolaevich"
 src: "https://github.com/levnikolaevich/claude-code-skills"
 risk: medium
+theme: [digital-team]
+repo: "levnikolaevich/claude-code-skills"
+stars: 566
+pushed: 2026-09-16
+stats_at: 2026-09-29
 tags: [开发, Skill, MCP]
 summary: "137 个开发 skill + 4 个 MCP Server（哈希验证编辑、代码知识图谱、远程 SSH 编辑、本地研究索引），覆盖规划到优化全链路。"
 ---

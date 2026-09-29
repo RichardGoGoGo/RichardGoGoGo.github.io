@@ -1,10 +1,11 @@
 ---
 title: "腾讯视频 WorkRally + 火龙漫剧：AI 全链路内容生产与「5–20 人创作小队」组织模式"
 date: 2026-06-25
-icat: 案例与作品
+icat: 案例
 source: "DoNews / 新浪 / 腾讯新闻"
 src: "https://finance.sina.com.cn/tech/roll/2026-06-25/doc-inierpqn0899151.shtml"
 tags: [AI影视, 漫剧, 内容生产, 腾讯视频]
+topics: ["腾讯"]
 summary: "腾讯视频发布 WorkRally 全链路 AI 内容生产平台，并披露火龙漫剧平台运营数据：5 个月产出 7 万部，40 万成本作品获 2000 万分账；提出「5–20 人 AI 创作小队」为 AI 时代主流生产力单元。"
 ---
 

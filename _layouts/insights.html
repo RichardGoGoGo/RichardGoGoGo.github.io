@@ -12,15 +12,12 @@ layout: default
     <div class="feed-col">
       {%- assign sk = site.skills | where_exp: "s", "s.guide != true" -%}
       {%- assign all = site.insights | concat: site.calls | concat: sk | sort: "date" | reverse -%}
-      {%- assign icatstr = "" -%}
-      {%- for p in site.insights -%}{%- if p.icat -%}{%- assign icatstr = icatstr | append: p.icat | append: "," -%}{%- endif -%}{%- endfor -%}
-      {%- assign all_icats = icatstr | split: "," | uniq -%}
-      <div class="tag-filter" id="feed-filter">
-        <button class="tag-chip active" data-f="all">全部</button>
-        <button class="tag-chip chip-editor" data-f="editor">编辑精选</button>
-        <button class="tag-chip" data-f="k:calls">征集</button>
-        <button class="tag-chip" data-f="k:skills">SKILL 评测</button>
-        {%- for c in all_icats %}<button class="tag-chip" data-f="c:{{ c }}">{{ c }}</button>{% endfor %}
+      {%- comment -%} 分类参考 AIHOT：全部 / 一手 / 8 个 icat（_data/icats.yml）/ SKILL；「赛展」同时含征集 {%- endcomment -%}
+      <div class="seg" id="feed-filter" role="tablist">
+        <button class="seg-btn active" data-f="all">全部</button>
+        <button class="seg-btn" data-f="first">一手</button>
+        {%- for c in site.data.icats %}<button class="seg-btn" data-f="c:{{ c }}">{{ c }}</button>{% endfor %}
+        <button class="seg-btn" data-f="k:skills">SKILL</button>
       </div>
 
       <div class="timeline" id="timeline">

@@ -17,28 +17,32 @@
 {%- if nsrc > 0 -%}{%- assign src_name = p.sources[0].name -%}{%- assign src_url = p.sources[0].url -%}
 {%- else -%}{%- assign src_name = p.source | default: p.host -%}{%- assign src_url = p.src -%}{%- endif -%}
 {%- if kind == "calls" -%}{%- assign src_name = p.host | default: src_name -%}{%- endif -%}
-<article class="item{% if include.lead %} lead-card{% endif %}{% if expired %} is-expired{% endif %}" id="{{ slug }}" data-kind="{{ kind }}" data-icat="{{ p.icat }}"{% if p.editor_pick %} data-editor="1"{% endif %}{% if dl != "" %} data-deadline="{{ dl }}"{% endif %}>
+{%- assign first = false -%}{%- if p.firsthand or p.sources[0].tier == "official" -%}{%- assign first = true -%}{%- endif -%}
+<article class="item{% if include.lead %} lead-card{% endif %}{% if expired %} is-expired{% endif %}" id="{{ slug }}" data-kind="{{ kind }}" data-icat="{{ p.icat }}"{% if p.editor_pick %} data-editor="1"{% endif %}{% if first %} data-first="1"{% endif %}{% if dl != "" %} data-deadline="{{ dl }}"{% endif %}>
   <header class="item-head">
     {%- if kind == "calls" %}<span class="badge kind">征集</span>{% elsif kind == "skills" %}<span class="badge kind">SKILL 评测</span>{% endif %}
     {%- if src_name %}<span class="item-src">{{ src_name | truncate: 30 }}</span><span class="dot">·</span>{% endif %}
     <span>{{ p.date | date: "%-m月%-d日" }}</span>
+    {%- if first %}<span class="badge mute" title="首发来源为官方或原始出处">一手</span>{% endif %}
     {%- if p.editor_pick %}<span class="badge line">编辑精选</span>{% endif %}
     <span class="item-right">
       {%- if kind == "calls" -%}
         {%- if expired -%}<span class="badge mute">已截止</span>
         {%- elsif dl != "" -%}<span class="badge js-dl" data-deadline="{{ dl }}">截止 {{ p.deadline | date: "%-m月%-d日" }}</span>{%- endif -%}
       {%- elsif kind == "skills" -%}
+        {%- if p.stars -%}<span class="badge mute stars" title="GitHub 星标（{{ p.stats_at | date: '%-m月%-d日' }}）">★ {% if p.stars >= 1000 %}{{ p.stars | divided_by: 100.0 | round | divided_by: 10.0 }}k{% else %}{{ p.stars }}{% endif %}{% if p.stars_7d and p.stars_7d > 0 %}<em class="up">+{{ p.stars_7d }}</em>{% endif %}</span>{%- endif -%}
         {%- case p.risk -%}{%- when "low" -%}<span class="badge mute risk-low">低风险</span>{%- when "medium" -%}<span class="badge mute risk-medium">中风险</span>{%- when "high" -%}<span class="badge mute risk-high">高风险</span>{%- endcase -%}
       {%- elsif p.icat -%}<span class="badge">{{ p.icat }}</span>{%- endif -%}
     </span>
   </header>
   <h3 class="item-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
   {%- if p.summary %}<p class="item-sum">{{ p.summary }}</p>{% endif %}
+  {%- comment -%} 标签只显示受控主题（_data/topics.yml），自由 tags 仅供搜索；SKILL 显示类别 {%- endcomment -%}
   {%- assign ntop = p.topics | size -%}
-  {%- if ntop > 0 or include.tags %}
+  {%- if ntop > 0 or kind == "skills" %}
   <div class="item-tags">
-    {%- for t in p.topics -%}{%- assign tp = site.data.topics | where: "name", t | first -%}{%- if tp %}<a href="{{ '/topics/' | append: tp.slug | append: '/' | relative_url }}">#{{ t }}</a>{% endif -%}{%- endfor -%}
-    {%- if include.tags -%}{%- for t in p.tags limit: 3 -%}{%- unless t == "Skill" -%}<span>#{{ t }}</span>{%- endunless -%}{%- endfor -%}{%- endif -%}
+    {%- if kind == "skills" and p.tags[0] %}<span>{{ p.tags[0] }}</span>{% endif -%}
+    {%- for t in p.topics limit: 3 -%}{%- assign tp = site.data.topics | where: "name", t | first -%}{%- if tp %}<a href="{{ '/topics/' | append: tp.slug | append: '/' | relative_url }}">#{{ t }}</a>{% endif -%}{%- endfor -%}
   </div>
   {%- endif %}
   {%- if nsrc > 1 or p.deep %}

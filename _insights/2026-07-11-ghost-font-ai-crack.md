@@ -1,10 +1,12 @@
 ---
 title: "Ghost Font幽灵字体72小时攻防：字母编码为运动轨迹，人眼秒懂而GPT-5.6等主流大模型全部失读，72小时后凭一句方向提示GPT-5.6完整破解"
 date: 2026-07-11
-icat: 案例与作品
+icat: 案例
+firsthand: true
 source: "新智元/36氪/Hacker News/Tom's Guide/ghostfont.org"
 src: "https://ghostfont.org"
 tags: [字体设计, AI认知, 大模型局限, 人机对抗]
+topics: ["OpenAI", "大模型", "设计工具"]
 summary: "设计师Eric Lu与Mixfont将字母编码为移动轨迹，发布24小时内达14.7M播放；GPT-5.6、Gemini、Claude均无法读取；72小时后一句方向提示使GPT-5.6完整破解，完成设计与AI认知对抗的首个完整回合制案例。"
 pinned: true
 pin_until: 2026-07-23

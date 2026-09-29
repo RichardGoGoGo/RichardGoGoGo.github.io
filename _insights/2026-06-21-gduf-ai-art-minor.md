@@ -1,10 +1,12 @@
 ---
 title: "广东财经大学发布 2026 年 AI 艺术设计微专业招生方案"
 date: 2026-06-21
-icat: 观点与技巧
+icat: 行业
+firsthand: true
 source: "广东财经大学"
 src: "https://www.gduf.edu.cn/"
 tags: [AI艺术设计, 微专业, 高校招生, 艺术设计教育]
+topics: ["设计教育"]
 summary: "广东财经大学正式发布 2026 年 AI 艺术设计微专业招生方案，是国内高校在 AI 与艺术设计交叉方向设置微专业的又一落地案例。"
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: "2026 AI 设计工具全收录：按使用场景分类整理"
 date: 2026-06-22
-icat: 观点与技巧
+icat: 教程
 source: "AI工坊pro"
 src: "https://mp.weixin.qq.com/"
 tags: [AI设计工具, 工具合集, 图像生成, 工作流]
+topics: ["图像生成", "设计工具", "智能体与工作流"]
 summary: "AI工坊pro 发布 2026 年 AI 设计工具全收录，按图像、视频、3D、UI 等使用场景分类整理，覆盖当前主流工具生态。"
 ---
 

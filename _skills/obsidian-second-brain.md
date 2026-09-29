@@ -4,6 +4,11 @@ date: 2026-07-09
 source: "eugeniughelbur"
 src: "https://github.com/eugeniughelbur/obsidian-second-brain"
 risk: medium
+theme: [digital-team]
+repo: "eugeniughelbur/obsidian-second-brain"
+stars: 4633
+pushed: 2026-09-28
+stats_at: 2026-09-29
 tags: [取料, 知识管理, Obsidian, Skill]
 summary: "把 Obsidian vault 变成 AI-first 第二大脑，40+ slash 命令覆盖笔记管理、语义搜索、网络研究与内容摄入，跨会话持久化、定时维护，支持多种 CLI。"
 ---

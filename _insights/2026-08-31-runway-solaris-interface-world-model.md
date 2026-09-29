@@ -1,10 +1,12 @@
 ---
 title: "Runway Solaris：首个界面世界模型，将实时网站与应用UI转化为视频体验"
 date: 2026-08-31
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Runway官方研究博客"
 src: "https://runwayml.com/research/solaris"
 tags: [Runway, Solaris, 界面世界模型, UI视频化, 交互视频, 研究发布]
+topics: ["Runway", "3D 与世界模型"]
 summary: "「Runway发布研究级模型Solaris，定义为界面世界模型（Interface World Model），可将网页和应用UI实时渲染为连续视频体验，目前为研究Demo阶段」"
 pinned: true
 pin_until: 2026-09-16

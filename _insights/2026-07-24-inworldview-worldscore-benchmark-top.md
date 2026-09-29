@@ -1,10 +1,11 @@
 ---
 title: "兔展智能UniWorld-View登顶WorldScore：单图生成任意视角视频，全开源适配昇腾"
 date: 2026-07-24
-icat: 研究与论文
+icat: 论文
 source: "量子位 / 凤凰科技 / ITBear"
 src: "https://www.qbitai.com/2026/07/460041.html"
 tags: [世界模型, UniWorld, 3D视角, 开源, 国产AI, 兔展智能, WorldScore]
+topics: ["3D 与世界模型", "研究论文"]
 summary: "兔展智能联合北京大学提出UniWorld-View，在李飞飞团队WorldScore评测中登顶（国产首次），双流架构支持单图生成任意视角视频，代码权重全开源，已适配国产昇腾算力。"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Runway 推出 Agent Skills：命令驱动 AI 代理接管完整广告活动与商业视频全流程"
 date: 2026-07-02
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Runway 官方 changelog"
 src: "https://runwayml.com/changelog"
 tags: [Runway, AI视频, Agent自动化, 商业视频]
+topics: ["Runway", "视频生成", "智能体与工作流"]
 summary: "「Runway 推出 Agent Skills（7/2），支持用简单命令构建完整广告活动与商业视频，AI 代理接管从概念到成片的全流程」"
 ---
 

@@ -6,6 +6,7 @@ host: "AI Creativity Awards 组委会"
 src: "https://graphiccompetitions.com/multiple-disciplines/2026-ai-creativity-awards"
 deadline: 2026-11-01
 tags: [AI艺术, 赛事, 国际]
+topics: ["艺术与展览"]
 summary: "专为 AI 创意作品设立的国际奖项，8 大类别，2026-11-01 截止（仅荣誉、无现金）。"
 ---
 

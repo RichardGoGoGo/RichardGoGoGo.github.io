@@ -2,10 +2,12 @@
 title: "Google Nano Banana 2 Lite + Gemini Omni Flash：4 秒出图、质量反超 Pro 档，静态图一键带运镜"
 date: 2026-06-30
 editor_pick: true
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Google DeepMind / IT之家 / 新浪财经 / ITBear / Winbuzzer"
 src: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/"
 tags: [Google, Nano Banana 2, 图像生成, Gemini]
+topics: ["Google", "图像生成"]
 summary: "Google DeepMind 于 2026-06-30 同步发布 Nano Banana 2 Lite 图像模型（约 4 秒出图、每张 1K 分辨率图约 $0.034）与 Gemini Omni Flash 静态图转带运镜视频模型；两款均已接入 Adobe Firefly 与 Google Stitch 生态。"
 pinned: true
 pin_until: 2026-07-10

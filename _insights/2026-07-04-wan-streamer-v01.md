@@ -1,10 +1,12 @@
 ---
 title: "Wan-Streamer v0.1：首个端到端实时音视频流数字人框架，arXiv 提前公开"
 date: 2026-07-04
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "arXiv / 优设"
 src: "https://arxiv.org/abs/2606.25041"
 tags: [数字人, 实时流, AI视频]
+topics: ["阿里巴巴", "视频生成", "研究论文"]
 summary: "「Wan-Streamer v0.1 提出端到端实时音视频流数字人生成框架，论文 arXiv:2606.25041 提前公开，覆盖音频驱动唇形同步与实时视频流输出全链路」"
 ---
 

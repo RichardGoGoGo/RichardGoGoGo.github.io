@@ -1,10 +1,12 @@
 ---
 title: "OpenAI 发布 ChatGPT Images 2.5：新增手绘 Sketch 参考与双轨 API 模型"
 date: 2026-09-08
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "OpenAI 官方博客"
 src: "https://openai.com/index/introducing-chatgpt-images-2-5/"
 tags: [OpenAI, 图像生成, Sketch, API]
+topics: ["OpenAI", "图像生成"]
 summary: 「ChatGPT Images 2.5 新增手绘草图 Sketch 参考功能，生成速度提升 50%，并发布 Flare（速度优先）和 Sunburst（精度优先）两个 API 模型，全面取代 GPT-Image-2。」
 pinned: true
 pin_until: 2026-09-20

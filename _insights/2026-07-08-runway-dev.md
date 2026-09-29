@@ -1,10 +1,12 @@
 ---
 title: "Runway Dev发布：单一API接入Gen-4.5/Aleph 2.0等，Adobe/Figma Weave已接入"
 date: 2026-07-08
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Runway官方"
 src: "https://runwayml.com/news/introducing-runway-dev"
 tags: [Runway, API, 开发者平台, 设计工具集成]
+topics: ["Adobe", "Figma", "Runway"]
 summary: "Runway推出一站式AI媒体开发者平台Runway Dev，通过单一API调用接入Gen-4.5、Aleph 2.0、Act-Two、Seedance等多模型，Adobe、Figma Weave、Shutterstock等已接入，通过SOC 2 Type II合规认证。"
 ---
 

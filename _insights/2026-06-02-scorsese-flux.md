@@ -2,10 +2,11 @@
 title: "斯科塞斯用 FLUX 为好莱坞新片分镜，出任 Black Forest Labs 顾问"
 date: 2026-06-02
 editor_pick: true
-icat: 案例与作品
+icat: 案例
 source: "Variety / Hollywood Reporter"
 src: "https://variety.com/2026/film/news/martin-scorsese-supports-ai-company-storyboard-movies-1236765037/"
 tags: [Martin Scorsese, FLUX, Black Forest Labs, 分镜, 好莱坞, AI辅助创作]
+topics: ["Black Forest Labs"]
 summary: "斯科塞斯用 FLUX 为新片绘制分镜，并出任 Black Forest Labs 顾问。"
 ---
 

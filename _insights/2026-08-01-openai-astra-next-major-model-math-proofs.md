@@ -1,10 +1,12 @@
 ---
 title: "OpenAI预告下一代旗舰Astra：多智能体协同攻克十道历史数学难题，深度研究助手形态浮现"
 date: 2026-08-01
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "OpenAI官博 + The Decoder + BleepingComputer"
 src: "https://openai.com/index/ten-advances-in-mathematics/"
 tags: [OpenAI, Astra, 多智能体, 大模型]
+topics: ["OpenAI", "大模型", "智能体与工作流"]
 summary: 「OpenAI 以非常规方式预告下一代旗舰模型 Astra：不发布产品，而是在数学博客第三段点名，随后将 Astra 内部版本解决的十道历史级数学难题（群论/算子代数/格密码/量子复杂度等）推上 GitHub，附249页技术报告及完整 Lean 4 机器可验证证明。」
 ---
 

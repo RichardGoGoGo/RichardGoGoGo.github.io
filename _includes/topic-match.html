@@ -1,6 +1,10 @@
 {%- comment -%} 判断文档 include.p 是否属于主题 include.t，结果写入变量 hit {%- endcomment -%}
 {%- assign hit = false -%}
+{%- comment -%} 有 topics 字段的卡只认显式主题；旧卡回退到 tags / icat / 标题别名 {%- endcomment -%}
+{%- assign has_topics = include.p.topics | size -%}
 {%- if include.p.topics contains include.t.name -%}{%- assign hit = true -%}{%- endif -%}
+{%- if has_topics == 0 -%}
 {%- if hit == false and include.p.tags contains include.t.name -%}{%- assign hit = true -%}{%- endif -%}
 {%- if hit == false and include.t.icat and include.p.icat == include.t.icat -%}{%- assign hit = true -%}{%- endif -%}
 {%- if hit == false -%}{%- for a in include.t.alias -%}{%- if include.p.title contains a -%}{%- assign hit = true -%}{%- break -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+{%- endif -%}

@@ -1,10 +1,12 @@
 ---
 title: "OpenAI GPT-5.6 有限预览发布：Sol 旗舰 / Terra 均衡 / Luna 轻量三档模型"
 date: 2026-06-26
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "OpenAI 官方 / VentureBeat / Axios / 量子位"
 src: "https://openai.com/index/previewing-gpt-5-6-sol/"
 tags: [OpenAI, GPT-5.6, 多模态, 大模型生态]
+topics: ["OpenAI", "大模型"]
 summary: "OpenAI 推出 GPT-5.6 三款模型的有限预览：Sol（旗舰）、Terra（均衡）、Luna（轻量），约 20 个组织受邀，Sol 已登顶 LMSYS 排行，预计数周内全量开放。"
 deep: /deep/2026-06-30-gpt-5-6/
 ---

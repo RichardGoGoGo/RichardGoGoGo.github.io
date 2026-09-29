@@ -1,10 +1,12 @@
 ---
 title: "ElevenLabs MCP 多模态扩展：语音+音乐+图像+视频 50+ 模型单次 OAuth 接入"
 date: 2026-09-15
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "ElevenLabs 官方博客"
 src: "https://www.testingcatalog.com/elevenlabs-mcp-can-now-generate-voice-music-images-video/"
 tags: [ElevenLabs, MCP, 多模态, 创意管线, 音乐生成]
+topics: ["音频与音乐", "智能体与工作流"]
 summary: "「ElevenLabs 将 MCP 连接器从纯语音扩展至多模态全链路，单次 OAuth 安装接入 50 余个语音、音乐、图像与视频生成模型。」"
 ---
 

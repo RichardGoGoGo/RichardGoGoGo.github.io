@@ -1,10 +1,11 @@
 ---
 title: "VAST AI Tripo 完成超 10 亿元 A3 轮融资，4399/贪玩/巨人网络等产业方参投"
 date: 2026-07-02
-icat: 模型与工具
+icat: 行业
 source: "投资界 / 新浪财经 / SiliconAngle"
 src: "https://news.pedaily.cn/202607/565779.shtml"
 tags: [VAST AI, Tripo, 3D生成, 融资]
+topics: ["3D 与世界模型", "行业与融资"]
 summary: "「VAST AI 完成超 10 亿元 A3 轮融资，游戏产业方参投，Tripo 3D 大模型加速游戏/影视/工业设计商业化落地」"
 ---
 

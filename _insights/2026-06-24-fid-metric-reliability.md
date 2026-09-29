@@ -1,10 +1,12 @@
 ---
 title: "Kyutai+UC Berkeley 预印本系统质疑 FID 指标：AI 图像生成评测可靠性存疑"
 date: 2026-06-24
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "Kyutai / UC Berkeley / 腾讯新闻"
 src: "https://arxiv.org/abs/2606.20536"
 tags: [FID, 评测方法论, AI图像生成, 学术研究]
+topics: ["图像生成", "研究论文"]
 summary: "Kyutai 与 UC Berkeley 联合预印本（arXiv:2606.20536）对 AI 图像生成常用评测指标 FID 的可靠性提出系统性质疑，指出不同评测环境下结论相互矛盾，「最强」排名可能依赖了一个有缺陷的指标。"
 ---
 

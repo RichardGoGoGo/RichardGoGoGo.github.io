@@ -1,10 +1,12 @@
 ---
 title: "「未来之境」AI艺术沉浸大展北京启幕：情绪感知引擎+XR影像，近20项AI体验展至12月"
 date: 2026-07-23
-icat: 展览与赛事
+icat: 赛展
+firsthand: true
 source: "中新网/腾讯/京报网/新京报"
 src: "https://www.chinanews.com.cn/cul/2026/07-24/10665978.shtml"
 tags: [AI艺术展览, 沉浸式, XR, 情绪感知, 北京, 装置艺术, 仲夏艺术季]
+topics: ["艺术与展览"]
 summary: "第五届仲夏艺术季旗舰展览「未来之境」于北京启幕，融合情绪感知智能引擎与XR虚拟影像，近20项AI+艺术沉浸体验，展至2026年12月。"
 pinned: true
 pin_until: 2026-09-01

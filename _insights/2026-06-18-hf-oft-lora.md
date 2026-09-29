@@ -1,10 +1,12 @@
 ---
 title: "HuggingFace：别只用 LoRA——公平基准下 OFT 等技术更优"
 date: 2026-06-18
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "HuggingFace Blog"
 src: "https://huggingface.co/blog"
 tags: [PEFT, LoRA, 微调, 模型训练]
+topics: ["研究论文"]
 summary: "HuggingFace：公平基准下 OFT 等技术在部分任务上优于 LoRA。"
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: "Figma 九月新功能：Weave 节点（Design→AI 工作流）+ Shaders 开放测试版 + 社区工具发布"
 date: 2026-09-16
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Figma 官方博客（release-notes）"
 src: "https://www.figma.com/blog/how-we-built-generative-plugins-and-shaders/"
 tags: [Figma, Weave, Shaders, AI视觉特效, 工作流]
+topics: ["Figma", "智能体与工作流"]
 summary: "「Figma 推出 Weave 节点支持将 Design 画框拖入 AI 工作流、Shaders 开放测试版通过提示词生成动效着色器，并上线 Weave 社区工具发布功能。」"
 ---
 

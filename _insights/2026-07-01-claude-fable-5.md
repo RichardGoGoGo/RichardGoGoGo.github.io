@@ -1,10 +1,12 @@
 ---
 title: "Claude Fable 5 全球重新上线：19 天出口管制停摆后美国解除限制"
 date: 2026-07-01
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "Anthropic / VentureBeat / MacRumors / 9to5mac"
 src: "https://www.anthropic.com/news/claude-fable-5-mythos-5"
 tags: [Claude, Fable 5, AI大模型, 政策合规]
+topics: ["Anthropic", "大模型", "版权与政策"]
 summary: "Claude Fable 5 与 Mythos 5 于 2026-07-01 在 Claude.ai、Claude Code 及 API 全球恢复访问，此前因美国出口管制中断 19 天（6/12–7/1）；配套新安全分类器拦截率 >99%，7/7 前 Pro/Max/Team 用户可用 50% 额度。"
 ---
 

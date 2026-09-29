@@ -1,10 +1,11 @@
 ---
 title: "商汤SenseNova U1 Pro @ WAIC 2026：首个「交付级」多模态创作模型，原生8K直出，200位美院评审盲测六成图可直接交付客户"
 date: 2026-07-18
-icat: 模型与工具
+icat: 模型
 source: "新智元/新浪财经/36氪（多源 6+源）"
 src: "https://aiera.com.cn/2026/07/19/other/admin/104701/"
 tags: [商汤SenseNova, U1 Pro, WAIC 2026, 交付级设计]
+topics: ["大模型", "设计教育"]
 summary: "商汤在WAIC 2026发布SenseNova U1 Pro，基于NEO-unify统一架构，原生8K输出，200位美院学生与设计师盲评六成作品「可直接交付客户」，在文字精准度与东方美学维度对标GPT Image 2并部分胜出。"
 pinned: true
 pin_until: 2026-07-28

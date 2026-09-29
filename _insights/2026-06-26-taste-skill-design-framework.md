@@ -1,10 +1,11 @@
 ---
 title: "Taste Skill 开源「反平庸前端框架」：为 AI 生成界面注入设计品味"
 date: 2026-06-26
-icat: 观点与技巧
+icat: 产品
 source: "机器之心"
 src: "https://www.jiqizhixin.com/"
 tags: [前端设计, AI编码, 开源工具, 界面品质]
+topics: ["设计工具", "智能体与工作流"]
 summary: "Taste Skill 在 GitHub 获 51K 星，通过布局、排版、动效规则库为 AI 编程工具提供设计规范约束，旨在解决 Vibe Coding 同质化「AI 味」问题，提升 AI 辅助生成界面的视觉品质。"
 ---
 

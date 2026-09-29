@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var bar = $(barSel);
     if (!bar) return;
     bar.addEventListener('click', function (e) {
-      var b = e.target.closest('.tag-chip');
+      var b = e.target.closest('.tag-chip, .seg-btn');
       if (!b) return;
-      $$('.tag-chip', bar).forEach(function (x) { x.classList.remove('active'); });
+      $$('.tag-chip, .seg-btn', bar).forEach(function (x) { x.classList.remove('active'); });
       b.classList.add('active');
       var f = b.getAttribute('data-f');
       $$(itemSel).forEach(function (el) { el.style.display = test(el, f) ? '' : 'none'; });
@@ -77,7 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   bindFilter('#feed-filter', '#timeline .item', function (it, f) {
     if (f === 'all') return true;
-    if (f === 'editor') return it.hasAttribute('data-editor');
+    if (f === 'first') return it.hasAttribute('data-first');
+    if (f === 'c:赛展') return it.getAttribute('data-kind') === 'calls' || it.getAttribute('data-icat') === '赛展';
     if (f.indexOf('k:') === 0) return it.getAttribute('data-kind') === f.slice(2);
     if (f.indexOf('c:') === 0) return it.getAttribute('data-icat') === f.slice(2);
     return true;
@@ -89,14 +90,38 @@ document.addEventListener('DOMContentLoaded', function () {
   bindFilter('#calls-filter', '.cal-row', function (el, f) {
     return f === 'all' || el.getAttribute('data-ctype') === f;
   });
-  bindFilter('#skills-filter', '.skill-cell', function (el, f) {
-    if (f === 'all') return true;
-    if (f.indexOf('r:') === 0) return el.getAttribute('data-risk') === f.slice(2);
-    if (f.indexOf('g:') === 0) return el.getAttribute('data-group') === f.slice(2);
-    return true;
-  }, function () {
-    var empty = $('#skills-empty');
-    if (empty) empty.hidden = $$('.skill-cell').some(function (el) { return el.style.display !== 'none'; });
+  // SKILL 库：主题 × 风险 筛选 + 排序（三者叠加）
+  var sgrid = $('#skills-grid');
+  if (sgrid) {
+    var st = { t: 'all', r: 'all', s: 'date' };
+    var applySkills = function () {
+      var cells = $$('.skill-cell', sgrid), shown = 0;
+      cells.forEach(function (el) {
+        var ok = (st.t === 'all' || (' ' + el.getAttribute('data-theme') + ' ').indexOf(' ' + st.t + ' ') !== -1) &&
+                 (st.r === 'all' || el.getAttribute('data-risk') === st.r);
+        el.style.display = ok ? '' : 'none'; if (ok) shown++;
+      });
+      var key = { date: 'data-date', stars: 'data-stars', growth: 'data-growth' }[st.s];
+      cells.sort(function (x, y) { return (+y.getAttribute(key) || 0) - (+x.getAttribute(key) || 0); })
+        .forEach(function (el) { sgrid.appendChild(el); });
+      $$('.theme-intro').forEach(function (p) { p.hidden = p.getAttribute('data-for') !== st.t; });
+      var empty = $('#skills-empty'); if (empty) empty.hidden = shown > 0;
+    };
+    var bindSeg = function (sel, btnSel, attr, key) {
+      var bar = $(sel); if (!bar) return;
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest(btnSel); if (!b) return;
+        $$(btnSel, bar).forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active'); st[key] = b.getAttribute(attr); applySkills();
+      });
+    };
+    bindSeg('#skills-theme', '.seg-btn', 'data-t', 't');
+    bindSeg('#skills-risk', '.tag-chip', 'data-r', 'r');
+    bindSeg('#skills-sort', '.tag-chip', 'data-s', 's');
+  }
+
+  bindFilter('#reports-filter', '.report-card', function (el, f) {
+    return f === 'all' || el.getAttribute('data-kind') === f;
   });
 
   // --- 文章目录 ---

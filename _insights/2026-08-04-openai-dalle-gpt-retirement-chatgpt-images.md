@@ -1,10 +1,12 @@
 ---
 title: "ChatGPT官方DALL-E GPT将于8/30退役，图像生成入口统一迁往ChatGPT Images"
 date: 2026-08-04
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "OpenAI帮助中心 + CryptoBriefing + ITdaily"
 src: "https://help.openai.com/en/articles/11084440-images-in-chatgpt"
 tags: [OpenAI, DALL-E, ChatGPT Images, gpt-image-1]
+topics: ["OpenAI", "图像生成"]
 summary: 「OpenAI 宣布 8月30日关闭 ChatGPT 内的官方 DALL-E GPT，所有图像生成入口统一迁往「ChatGPT Images」（基于 gpt-image-1 和 gpt-image-1-mini）。」
 ---
 

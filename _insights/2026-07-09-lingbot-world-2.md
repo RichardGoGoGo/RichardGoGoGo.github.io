@@ -1,10 +1,11 @@
 ---
 title: "LingBot-World 2.0开源：全球首个小时级连续运行世界模型，720p/60fps实时生成"
 date: 2026-07-09
-icat: 研究与论文
+icat: 论文
 source: "新智元/搜狐/知乎"
 src: "https://www.163.com/dy/article/L1DA18770511ABV6.html"
 tags: [世界模型, 开源, 视频生成, Robbyant]
+topics: ["视频生成", "3D 与世界模型", "研究论文"]
 summary: "Ant Group旗下Robbyant开源LingBot-World 2.0，实现全球首个小时级连续运行世界模型，支持720p/60fps实时生成，一张图片可延展为无限AI世界。"
 ---
 Ant Group旗下Robbyant团队开源了LingBot-World 2.0世界模型，据多源报道，这是目前全球首个支持小时级连续运行的世界生成模型，可在720p分辨率、60帧每秒的条件下实时生成场景。其核心特性是可从单张图片出发，生成持续延展的AI世界，突破了此前视频生成模型的短片级时长瓶颈。

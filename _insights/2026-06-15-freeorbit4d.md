@@ -1,10 +1,12 @@
 ---
 title: "FreeOrbit4D：单目视频→任意相机轨迹重拍，无需训练，单卡可跑（CVPR 2026）"
 date: 2026-06-15
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "arXiv / CVPR 2026 / 机器之心"
 src: "https://arxiv.org/abs/2601.18993"
 tags: [4D重建, 相机控制, 视频生成, CVPR]
+topics: ["视频生成", "研究论文"]
 summary: "UIUC 与 Eyeline Labs 提出 FreeOrbit4D：输入单目视频，无需额外训练即可重拍出任意相机轨迹视角；于 CVPR 2026 Workshop 展示，代码开源，单卡 A40 可运行。"
 ---
 

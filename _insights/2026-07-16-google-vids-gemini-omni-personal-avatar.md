@@ -1,10 +1,12 @@
 ---
 title: "Google Vids 引入 Gemini Omni 视频生成与个人 AI 数字人"
 date: 2026-07-16
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Google Blog / TechCrunch"
 src: "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/"
 tags: [Google, Gemini Omni, AI数字人, 视频生成]
+topics: ["Google", "视频生成"]
 summary: "Google Workspace 正式推出个人 AI 数字人，用户录制一次自拍和声音样本，即可在 Vids 中以本人形象出镜任意视频，并内嵌 SynthID 隐形水印。"
 ---
 

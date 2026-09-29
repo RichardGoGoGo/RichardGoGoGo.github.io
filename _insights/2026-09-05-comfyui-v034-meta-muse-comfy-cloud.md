@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI v0.34.4+v0.34.5：Meta Muse首发、子工作流嵌套、Comfy Cloud视频直出"
 date: 2026-09-05
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "ComfyUI官方GitHub/ComfyUI Wiki"
 src: "https://github.com/Comfy-Org/ComfyUI/releases"
 tags: [ComfyUI, v0.34.4, v0.34.5, Meta Muse, Comfy Cloud, 子工作流, 视频生成]
+topics: ["Meta", "ComfyUI", "视频生成"]
 summary: "「ComfyUI v0.34.4首发Meta Muse视频生成节点；v0.34.5新增子工作流嵌套调用及Comfy Cloud原生视频流式预览」"
 ---
 

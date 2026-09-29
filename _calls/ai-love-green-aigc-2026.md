@@ -6,6 +6,7 @@ host: "淘宝集团 × 绿网计划 × 阿里巴巴公益"
 src: "https://www.aitop100.cn/infomation/details/34545.html"
 deadline: 2026-10-08
 tags: [AIGC, 公益广告, 短片, 海报]
+topics: ["设计工具"]
 summary: "淘宝集团与阿里巴巴公益联合主办的 AIGC 公益创作赛事，设公益 AI 短片与公益 AI 海报两个赛道，要求 AI 创作占比不低于 70%，截止 2026-10-08。"
 ---
 

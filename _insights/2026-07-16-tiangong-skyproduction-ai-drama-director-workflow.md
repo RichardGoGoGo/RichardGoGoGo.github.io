@@ -1,10 +1,12 @@
 ---
 title: "天工短剧工作台 SkyProduction：Agent 智能分镜先规划站位再生成视频，3 部 AI 短剧 7 天均破百万美元"
 date: 2026-07-16
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "中新网 / 36氪 / AIbase（多源）"
 src: "https://www.chinanews.com/cj/2026/07-16/10660511.shtml"
 tags: [天工AI, AI短剧, 分镜Agent, 视频生成]
+topics: ["视频生成", "智能体与工作流"]
 summary: "昆仑万维发布天工短剧工作台 SkyProduction，Agent 智能分镜可在视频生成前规划角色站位与机位；DramaWave 平台 3 部 AI 短剧 7 天内均破百万美元流水。"
 pinned: true
 pin_until: 2026-07-27

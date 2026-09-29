@@ -1,10 +1,11 @@
 ---
 title: "Vivix灵动时刻发布首个实时互动多模态模型A1/W1，全双工全身表演+单卡10000 video tokens/s"
 date: 2026-07-25
-icat: 模型与工具
+icat: 模型
 source: "量子位/极客公园/网易/36氪"
 src: "https://www.qbitai.com/2026/07/460174.html"
 tags: [Vivix, 实时互动, 多模态, 全双工, AI角色, 视频生成]
+topics: ["视频生成", "大模型"]
 summary: "Vivix灵动时刻A1实现AI角色全身表演与全双工实时交互，TTFF低于0.6秒；W1支持统一流式交互叙事，单卡突破10000 video tokens/s，成本0.2美元/小时。"
 pinned: true
 pin_until: 2026-08-30

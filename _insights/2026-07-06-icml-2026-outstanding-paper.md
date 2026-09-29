@@ -2,10 +2,12 @@
 title: "ICML 2026 杰出论文揭晓：清华扩散语言模型与 MIT/耶鲁采样算法同获大奖"
 date: 2026-07-05
 editor_pick: true
-icat: 研究与论文
+icat: 论文
+firsthand: true
 source: "ICML 官方 / 机器之心 / 量子位"
 src: "https://blog.icml.cc/2026/07/05/announcing-the-icml-2026-awards/"
 tags: [ICML, 扩散模型, 机器学习, 学术奖项]
+topics: ["研究论文"]
 summary: "「ICML 2026 两篇扩散模型论文同获杰出论文奖：清华黄高团队 JustGRPO（GSM8K 89.1%）与 MIT/耶鲁高精度采样算法；英伟达 Motive 获荣誉提名」"
 deep: /deep/2026-07-07-icml-2026-diffusion/
 ---

@@ -1,10 +1,11 @@
 ---
 title: "四大 AI 8 轮迭代临摹蒙娜丽莎：谁最接近原作？过度修正如何发生"
 date: 2026-07-26
-icat: 案例与作品
+icat: 案例
 source: "AIERA / 量子位"
 src: "https://aiera.com.cn/2026/07/26/other/admin/105826/"
 tags: [AI绘画, 蒙娜丽莎, 模型对比, 迭代修正, Midjourney, DALL-E, Stable Diffusion, 图像生成]
+topics: ["Midjourney", "Stability AI", "图像生成"]
 summary: "「测试者用 GPT-4o/Midjourney/SD/Flux 各自完成 8 轮蒙娜丽莎临摹迭代，记录过度修正与风格漂移全过程」"
 ---
 

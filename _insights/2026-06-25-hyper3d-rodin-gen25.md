@@ -2,10 +2,12 @@
 title: "影眸 Hyper3D Rodin Gen-2.5 发布：首个「先思考再生成」机制的原生 3D 大模型"
 date: 2026-06-25
 editor_pick: true
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "新智元"
 src: "https://hyper3d.ai/"
 tags: [3D生成, Hyper3D, AI建模, 影视后期]
+topics: ["大模型", "3D 与世界模型"]
 summary: "影眸科技发布 Hyper3D Rodin Gen-2.5 并完成数亿元融资，首创五档思考深度机制（约 4–80 秒），支持千万面级几何、12K 原生贴图、3D ControlNet、自然语言局部编辑与递归分件，Unity/Blender/Unreal 等 DCC 全面接入。"
 pinned: true
 pin_until: 2026-07-03

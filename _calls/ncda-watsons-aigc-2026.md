@@ -6,6 +6,7 @@ host: "未来设计师大赛组委会 × 屈臣氏中国"
 src: "https://www.shejijingsai.com/2026/05/1552872.html"
 deadline: 2026-09-30
 tags: [NCDA, AIGC, 品牌创意, 高校]
+topics: ["设计教育"]
 summary: "NCDA 第 14 届的屈臣氏品牌专项赛，以屈臣氏 185 周年品牌文化 × AIGC 为主题，设 AI 视觉海报、AI 品牌广告视频、AI 创意交互三个赛道，面向高校师生，截止 2026-09-30。"
 ---
 

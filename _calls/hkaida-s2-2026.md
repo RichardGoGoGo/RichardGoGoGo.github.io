@@ -7,6 +7,7 @@ host: "香港国际 AI 艺术节（HKAIDA）"
 src: "https://www.ai-art.hk"
 deadline: 2026-07-01
 tags: [AI艺术, 赛事, 香港]
+topics: ["艺术与展览"]
 summary: "香港国际 AI 艺术节主办，第二赛季 2026-07-01 起征集、10-30 截止，全球开放。"
 ---
 

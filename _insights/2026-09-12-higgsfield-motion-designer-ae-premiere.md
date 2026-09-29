@@ -1,10 +1,11 @@
 ---
 title: "Higgsfield AI Motion Designer：原生内嵌 After Effects 与 Premiere Pro 的 AI 视频生成插件"
 date: 2026-09-12
-icat: 模型与工具
+icat: 产品
 source: "X (@higgsfield) / AI media"
 src: "https://x.com/higgsfield/status/2098409362041753708"
 tags: [Higgsfield, After Effects, Premiere Pro, AI视频生成]
+topics: ["Adobe", "视频生成"]
 summary: 「Higgsfield AI 推出 Motion Designer 插件，在 After Effects / Premiere Pro 时间线上选取片段、输入文字提示即可原地生成或替换运动画面，已开放候补名单申请。」
 pinned: true
 pin_until: 2026-09-22

@@ -1,10 +1,12 @@
 ---
 title: "ComfyUI v0.35.0：Comfy Compiler 加速与七个前沿模型官方合作节点一键接入"
 date: 2026-09-09
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "ComfyUI 官方 / ai-tldr.dev"
 src: "https://docs.comfy.org/changelog"
 tags: [ComfyUI, 工作流, 多模型, 3D生成]
+topics: ["ComfyUI", "3D 与世界模型", "智能体与工作流"]
 summary: 「ComfyUI v0.35.0 引入 Comfy Compiler 内存加速，并新增 GPT-6、GPT Image 2.5、Claude Fable 5.1、Gemini Omni 1.1 等 7 个官方合作模型节点，同时扩展 3D 管线。」
 pinned: true
 pin_until: 2026-09-20

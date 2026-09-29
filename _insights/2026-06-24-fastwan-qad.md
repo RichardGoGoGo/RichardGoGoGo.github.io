@@ -1,10 +1,12 @@
 ---
 title: "FastWan-QAD 开源：单卡 RTX 5090 端到端 1.8 秒生成 5 秒 480P 视频"
 date: 2026-06-24
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "foxnan.com"
 src: "https://www.foxnan.com/2026/06/3929.html"
 tags: [视频生成, 开源, 量化蒸馏, 硬件门槛]
+topics: ["阿里巴巴", "视频生成"]
 summary: "Sky Computing Lab 开源 FastWan-QAD 量化感知蒸馏方案，单卡 RTX 5090 端到端 1.8 秒生成 5 秒 480P 视频，较标准版显著降低硬件门槛，模型与代码已完整开源。"
 ---
 

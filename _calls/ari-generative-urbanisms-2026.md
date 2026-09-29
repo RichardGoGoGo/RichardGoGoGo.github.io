@@ -6,6 +6,7 @@ host: "Springer Nature × 同济大学"
 src: "https://link.springer.com/collections/fbdiddbjcb"
 deadline: 2026-11-30
 tags: [期刊专刊, 生成式AI, 城市设计, SCI/EI]
+topics: ["艺术与展览"]
 summary: "Architectural Intelligence（ARI）国际 SCI/EI 期刊专刊，聚焦生成式 AI 与城市设计交叉领域（AI 城市形态生成、AI 辅助建成环境设计、参数化城市规划等），APC 全免，投稿截止 2026-11-30。"
 ---
 

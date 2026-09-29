@@ -4,6 +4,11 @@ date: 2026-09-21
 source: "Leonxlnx"
 src: "https://github.com/Leonxlnx/taste-skill"
 risk: low
+theme: [creative-web]
+repo: "Leonxlnx/taste-skill"
+stars: 90965
+pushed: 2026-09-26
+stats_at: 2026-09-29
 tags: [设计视觉, 前端, Skill]
 summary: "全生态星标最高的民间设计 skill：13 个 skill 组合，通过 DESIGN_VARIANCE / MOTION_INTENSITY / VISUAL_DENSITY 三参数调音台指导 AI 生成有品味的落地页、作品集与 redesign 原型，用 100+ 预检清单 + 9 大「AI 味」反模式清单规避默认模板感；纯 Markdown 规范、无运行时代码。"
 ---

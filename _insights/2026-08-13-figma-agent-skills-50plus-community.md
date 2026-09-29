@@ -1,10 +1,12 @@
 ---
 title: "Figma开放Agent Skills创作权限：设计师可编写自定义工作流技能，社区已发布50+技能"
 date: 2026-08-13
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Figma官方博客"
 src: "https://www.figma.com/blog/got-skills-make-the-figma-agent-a-better-collaborator/"
 tags: [Figma, Agent Skills, 工作流自动化, 设计工具, 设计平台]
+topics: ["Figma", "设计工具", "智能体与工作流"]
 summary: "「Figma向所有用户开放Agent Skills创作权限，设计师可编写自定义工作流技能并发布至社区，截至9月社区已积累50+可用技能」"
 ---
 

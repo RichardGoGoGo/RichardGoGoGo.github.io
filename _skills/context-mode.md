@@ -4,6 +4,11 @@ date: 2026-07-09
 source: "mksglu"
 src: "https://github.com/mksglu/context-mode"
 risk: medium
+theme: [digital-team]
+repo: "mksglu/context-mode"
+stars: 24185
+pushed: 2026-09-28
+stats_at: 2026-09-29
 tags: [开发, MCP, 上下文优化, Skill]
 summary: "面向 AI 编码 Agent 的上下文优化 MCP server，沙箱执行工具输出（约 98% token 压缩）、SQLite 会话持久化、FTS5 知识索引，支持 17+ 平台。"
 ---

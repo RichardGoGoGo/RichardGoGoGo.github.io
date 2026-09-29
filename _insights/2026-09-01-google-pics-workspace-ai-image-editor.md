@@ -1,10 +1,12 @@
 ---
 title: "Google Pics 登陆 Workspace：Gemini 驱动的专业级 AI 图像创建与编辑"
 date: 2026-09-01
-icat: 模型与工具
+icat: 产品
+firsthand: true
 source: "Google Workspace 官方博客"
 src: "https://workspaceupdates.googleblog.com/2026/09/google-pics-brings-pro-level-ai-image-creation-and-editing-to-Google-Workspace.html"
 tags: [Google, Workspace, Gemini, 图像编辑]
+topics: ["Google", "图像生成"]
 summary: 「Google 将 Pics 正式集成进 Workspace，以 Gemini 为底层提供文生图、背景替换、对象移除等专业级图像编辑，可在 Google Docs / Slides / Drive 内直接操作。」
 ---
 

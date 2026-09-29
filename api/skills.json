@@ -5,6 +5,6 @@ permalink: /api/skills.json
 {%- assign pool = site.skills | where_exp: "s", "s.guide != true" | sort: "date" | reverse -%}
 {"site": {{ site.title | jsonify }}, "updated": "{{ site.time | date_to_xmlschema }}", "items": [
 {%- for p in pool -%}{%- assign s = p.path | split: '/' | last | remove: '.md' -%}
-{"id": {{ s | jsonify }}, "url": "{{ site.url }}/skills/#{{ s }}", "title": {{ p.title | jsonify }}, "date": "{{ p.date | date: '%Y-%m-%d' }}", "author": {{ p.source | jsonify }}, "repo": {{ p.src | jsonify }}, "risk": {{ p.risk | jsonify }}, "summary": {{ p.summary | jsonify }}, "tags": {{ p.tags | jsonify }}}{% unless forloop.last %},{% endunless %}
+{"id": {{ s | jsonify }}, "url": "{{ site.url }}/skills/#{{ s }}", "title": {{ p.title | jsonify }}, "date": "{{ p.date | date: '%Y-%m-%d' }}", "author": {{ p.source | jsonify }}, "repo": {{ p.src | jsonify }}, "risk": {{ p.risk | jsonify }}, "theme": {{ p.theme | jsonify }}, "stars": {{ p.stars | jsonify }}, "stars_7d": {{ p.stars_7d | jsonify }}, "pushed": {{ p.pushed | date: "%Y-%m-%d" | jsonify }}, "stats_at": {{ p.stats_at | date: "%Y-%m-%d" | jsonify }}, "summary": {{ p.summary | jsonify }}, "tags": {{ p.tags | jsonify }}}{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]}

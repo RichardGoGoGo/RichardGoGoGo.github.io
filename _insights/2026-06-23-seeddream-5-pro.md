@@ -1,10 +1,12 @@
 ---
 title: "字节 Seeddream 5.0 Pro：交互式精准编辑与多图层分离输出，对接 PSD 工作流"
 date: 2026-06-23
-icat: 模型与工具
+icat: 模型
+firsthand: true
 source: "ChooseAI"
 src: "https://www.chooseai.net/news/4583/"
 tags: [字节, 图像生成, 图层分离, 多语种]
+topics: ["字节跳动", "图像生成", "智能体与工作流"]
 summary: "字节跳动于 FORCE 大会（6 月 23 日）发布 Seeddream 5.0 Pro，新增箭头/圈选直接标注的交互式精准编辑、多图层分离输出（可直接对接 PSD 工作流）及 10 余种语言原生文字生成，与 Seedance 2.5 构成图像→视频完整工业化链路。"
 ---
 

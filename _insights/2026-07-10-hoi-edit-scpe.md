@@ -1,10 +1,11 @@
 ---
 title: "北大HOI-Edit+SCPE：AI图像编辑进入「交互理解」时代（ICML 2026）"
 date: 2026-07-10
-icat: 研究与论文
+icat: 论文
 source: "机器之心"
 src: "https://www.163.com/dy/article/L1GGB6U30511AQHO.html"
 tags: [图像编辑, AI研究, ICML, 北大]
+topics: ["图像生成", "研究论文"]
 summary: "北大王选所等团队发布HOI-Edit基准+SCPE自纠错框架（ICML 2026），将AI图像编辑从「改像素」推进到「交互理解」三层认知评测，L1交互分数提升22%，数据集与代码已开源。"
 deep: /deep/2026-07-11-pku-hoi-edit/
 ---
