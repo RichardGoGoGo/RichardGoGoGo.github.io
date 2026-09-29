@@ -1,0 +1,29 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> 浅译万道实验室出品的 AI × 艺术设计资讯站：每日动态、征集机会（赛事 / 展览 / 学术会议）、AI skill 安全评测、主题知识库。所有资讯附原始来源链接。
+
+## 栏目
+- [全部资讯]({{ site.url }}/insights/)：按消息发布日倒序的时间线，含资讯、征集、SKILL 评测
+- [热点榜]({{ site.url }}/hot/)：近 14 天按独立来源数与时间衰减排序
+- [日报]({{ site.url }}/daily/)：近三周按天汇总
+- [主题]({{ site.url }}/topics/)：按机构与方向聚合
+- [征集日历]({{ site.url }}/calls/)：按截止日排序的赛事与会议征稿
+- [SKILL 库]({{ site.url }}/skills/)：AI skill 的要点介绍与七项安全审查事实
+- [知识库]({{ site.url }}/knowledge/)：设计教学 / 数字团队 / 创意建站三条业务线的综述
+- [深度分析]({{ site.url }}/deep/)：重大事件长篇分析
+
+## 结构化数据
+- [资讯 JSON]({{ site.url }}/api/insights.json)
+- [征集 JSON]({{ site.url }}/api/calls.json)
+- [SKILL JSON]({{ site.url }}/api/skills.json)
+- [RSS]({{ site.url }}/feed.xml)
+
+## 最新资讯
+{% assign pool = site.insights | sort: "date" | reverse -%}
+{% for p in pool limit: 30 -%}{%- assign s = p.path | split: '/' | last | remove: '.md' -%}
+- [{{ p.title }}]({{ site.url }}/insights/#{{ s }})（{{ p.date | date: "%Y-%m-%d" }}）：{{ p.summary }}
+{% endfor %}

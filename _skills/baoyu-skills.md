@@ -3,6 +3,7 @@ title: "JimLiu/baoyu-skills：宝玉 skill 合集（内容生成 + 发布）"
 date: 2026-07-11
 source: "JimLiu（宝玉）"
 src: "https://github.com/JimLiu/baoyu-skills"
+risk: medium
 tags: [设计视觉, 内容发布, Skill]
 summary: "宝玉出品的 skill 合集：内容生成类（小红书卡片/信息图/SVG 图/封面/幻灯片/漫画）+ 发布类（公众号/微博/X，支持 API 与 Chrome CDP 浏览器自动化）；建议按子 skill 单装，风险按类区分。"
 ---

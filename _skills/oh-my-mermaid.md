@@ -3,6 +3,7 @@ title: "oh-my-mermaid/oh-my-mermaid：代码库架构可视化 skill"
 date: 2026-09-21
 source: "oh-my-mermaid"
 src: "https://github.com/oh-my-mermaid/oh-my-mermaid"
+risk: medium
 tags: [开发, 架构可视化, Skill]
 summary: "AI 分析代码库生成多维架构视图（Mermaid 图表 + 文档说明），复杂组件递归嵌套，本地生成 .omm/ 目录；本地模式完全离线，`/omm-push` 为可选云端分享。"
 ---

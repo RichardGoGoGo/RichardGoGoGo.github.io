@@ -3,6 +3,7 @@ title: "Agents365-ai/drawio-skill：自然语言生成技术图表"
 date: 2026-07-09
 source: "Agents365-ai"
 src: "https://github.com/Agents365-ai/drawio-skill"
+risk: low
 tags: [设计视觉, 技术图表, drawio, Skill]
 summary: "自然语言 → draw.io 技术图表（架构图/UML/ERD/C4/ML 模型/流程图），6 种预设，自带视觉自检，导出 PNG/SVG/PDF/JPG。"
 ---

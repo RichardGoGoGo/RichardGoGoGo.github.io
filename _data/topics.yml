@@ -1,32 +1,34 @@
 # 主题表（唯一来源）
 # - 洞察写作：卡片 topics 只能从下面的 name 里选 1–3 个，照抄 name，不自造新主题
 # - 社区站：主题页按 slug 生成 URL（/topics/<slug>/）
-# - 增删主题只改这里，由「社区站维护」agent 负责；改动后写作下一轮自动生效
+#   归入规则（任一满足）：卡片 topics 含 name / tags 含 name / 标题含任一 alias / 卡片 icat 等于 icat
+#   alias 用于没有 topics 字段的旧卡；写得越准，误归越少（如 "Meta " 带空格，避免匹配到 Metadisruption）
+# - 增删主题只改这里，由「社区站维护」agent 负责；新增后需补一个 topics/<slug>.md 页面
 # type: org（公司/机构）| direction（方向）
 
-- { name: "OpenAI", slug: openai, type: org }
-- { name: "Google", slug: google, type: org }
-- { name: "Anthropic", slug: anthropic, type: org }
-- { name: "Meta", slug: meta, type: org }
-- { name: "字节跳动", slug: bytedance, type: org }
-- { name: "阿里巴巴", slug: alibaba, type: org }
-- { name: "腾讯", slug: tencent, type: org }
-- { name: "快手", slug: kuaishou, type: org }
-- { name: "Adobe", slug: adobe, type: org }
-- { name: "Figma", slug: figma, type: org }
-- { name: "Midjourney", slug: midjourney, type: org }
-- { name: "Runway", slug: runway, type: org }
-- { name: "Black Forest Labs", slug: bfl, type: org }
-- { name: "Stability AI", slug: stability, type: org }
-- { name: "ComfyUI", slug: comfyui, type: org }
+- { name: "OpenAI", slug: openai, type: org, alias: ["OpenAI", "ChatGPT", "GPT-", "Sora", "DALL"] }
+- { name: "Google", slug: google, type: org, alias: ["Google", "谷歌", "Gemini", "Veo", "Imagen", "DeepMind", "Nano Banana"] }
+- { name: "Anthropic", slug: anthropic, type: org, alias: ["Anthropic", "Claude"] }
+- { name: "Meta", slug: meta, type: org, alias: ["Meta "] }
+- { name: "字节跳动", slug: bytedance, type: org, alias: ["字节", "豆包", "Seedance", "Seedream", "即梦", "剪映"] }
+- { name: "阿里巴巴", slug: alibaba, type: org, alias: ["阿里", "通义", "Qwen", "千问", "万相", "Wan3", "Wan 3", "Wan-"] }
+- { name: "腾讯", slug: tencent, type: org, alias: ["腾讯", "混元", "Hunyuan", "Miora"] }
+- { name: "快手", slug: kuaishou, type: org, alias: ["快手", "可灵", "Kling"] }
+- { name: "Adobe", slug: adobe, type: org, alias: ["Adobe", "Firefly", "Photoshop", "Illustrator", "Premiere"] }
+- { name: "Figma", slug: figma, type: org, alias: ["Figma"] }
+- { name: "Midjourney", slug: midjourney, type: org, alias: ["Midjourney"] }
+- { name: "Runway", slug: runway, type: org, alias: ["Runway"] }
+- { name: "Black Forest Labs", slug: bfl, type: org, alias: ["FLUX", "Black Forest", "BFL"] }
+- { name: "Stability AI", slug: stability, type: org, alias: ["Stability", "Stable Diffusion"] }
+- { name: "ComfyUI", slug: comfyui, type: org, alias: ["ComfyUI"] }
 
-- { name: "图像生成", slug: image-gen, type: direction }
-- { name: "视频生成", slug: video-gen, type: direction }
-- { name: "3D 与世界模型", slug: 3d-world, type: direction }
-- { name: "音频与音乐", slug: audio-music, type: direction }
-- { name: "设计工具", slug: design-tools, type: direction }
-- { name: "智能体与工作流", slug: agents-workflow, type: direction }
-- { name: "研究论文", slug: research, type: direction }
-- { name: "版权与政策", slug: copyright-policy, type: direction }
-- { name: "艺术与展览", slug: art-exhibition, type: direction }
-- { name: "行业与融资", slug: industry, type: direction }
+- { name: "图像生成", slug: image-gen, type: direction, alias: ["图像生成", "文生图", "生图", "图像编辑", "Image"] }
+- { name: "视频生成", slug: video-gen, type: direction, alias: ["视频生成", "视频模型", "文生视频", "AI视频", "AI 视频", "短剧"] }
+- { name: "3D 与世界模型", slug: 3d-world, type: direction, alias: ["3D", "世界模型", "World Model", "三维"] }
+- { name: "音频与音乐", slug: audio-music, type: direction, alias: ["音乐", "音频", "Music", "Audio", "TTS", "语音"] }
+- { name: "设计工具", slug: design-tools, type: direction, alias: ["设计工具", "设计系统", "UI", "矢量", "字体"] }
+- { name: "智能体与工作流", slug: agents-workflow, type: direction, alias: ["Agent", "智能体", "工作流", "MCP"] }
+- { name: "研究论文", slug: research, type: direction, icat: "研究与论文", alias: ["arXiv", "论文", "CVPR", "ICML", "ECCV", "SIGGRAPH"] }
+- { name: "版权与政策", slug: copyright-policy, type: direction, alias: ["版权", "政策", "法案", "AI Act", "监管", "水印", "诉讼"] }
+- { name: "艺术与展览", slug: art-exhibition, type: direction, icat: "展览与赛事", alias: ["展览", "艺术节", "美术馆", "双年展", "Ars Electronica", "Prix"] }
+- { name: "行业与融资", slug: industry, type: direction, alias: ["融资", "收购", "ARR", "估值", "营收", "上市"] }

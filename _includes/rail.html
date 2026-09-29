@@ -1,0 +1,39 @@
+{%- comment -%} 右栏：当前热点 / 即将截止 / 最新 SKILL（≥1280px 显示） {%- endcomment -%}
+<aside class="rail">
+  {%- include heat-rank.html mode="hot" -%}
+  <div class="rail-box">
+    <div class="rail-title">当前热点<a href="{{ '/hot/' | relative_url }}">热点榜 →</a></div>
+    <ol class="rail-list">
+      {%- for k in rank_keys limit: 5 -%}{%- assign idx = k | split: "_" | last | plus: 0 -%}{%- assign r = rank_pool[idx] -%}{%- assign rs = r.path | split: '/' | last | remove: '.md' -%}
+      <li><div><a href="{{ '/insights/' | relative_url }}#{{ rs }}">{{ r.title | truncate: 46 }}</a><span class="rail-meta">{% assign rn = r.sources | size %}{% if rn > 1 %}{{ rn }} 家来源 · {% endif %}{{ r.date | date: "%-m月%-d日" }}</span></div></li>
+      {%- endfor -%}
+    </ol>
+  </div>
+  {%- assign today = site.time | date: "%Y-%m-%d" -%}
+  {%- assign calls_by_dl = site.calls | sort: "deadline", "last" -%}
+  <div class="rail-box">
+    <div class="rail-title">即将截止<a href="{{ '/calls/' | relative_url }}">征集日历 →</a></div>
+    <ul class="rail-list rail-plain">
+      {%- assign shown = 0 -%}
+      {%- for c in calls_by_dl -%}
+        {%- if shown < 4 and c.deadline and c.expired != true -%}{%- assign cd = c.deadline | date: "%Y-%m-%d" -%}
+          {%- if cd >= today -%}
+      {%- assign cs2 = c.path | split: '/' | last | remove: '.md' -%}
+      <li><div><a href="{{ '/calls/' | relative_url }}#{{ cs2 }}">{{ c.title | truncate: 40 }}</a><span class="rail-meta js-dl" data-deadline="{{ cd }}">截止 {{ c.deadline | date: "%-m月%-d日" }}</span></div></li>
+          {%- assign shown = shown | plus: 1 -%}{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if shown == 0 %}<li><span class="rail-meta">暂无即将截止的征集</span></li>{% endif -%}
+    </ul>
+  </div>
+  {%- assign sk = site.skills | where_exp: "s", "s.guide != true" | sort: "date" | reverse -%}
+  <div class="rail-box">
+    <div class="rail-title">最新 SKILL 评测<a href="{{ '/skills/' | relative_url }}">SKILL 库 →</a></div>
+    <ul class="rail-list rail-plain">
+      {%- for s in sk limit: 3 -%}
+      {%- assign ss = s.path | split: '/' | last | remove: '.md' -%}
+      <li><div><a href="{{ '/skills/' | relative_url }}#{{ ss }}">{{ s.title | split: "：" | first | truncate: 40 }}</a><span class="rail-meta risk-{{ s.risk }}"> {% case s.risk %}{% when "low" %}低风险{% when "medium" %}中风险{% else %}高风险{% endcase %}</span></div></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</aside>

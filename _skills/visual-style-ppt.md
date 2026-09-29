@@ -3,6 +3,7 @@ title: "irenerachel/visual-style-ppt-skill：图片式中文视觉 PPT"
 date: 2026-07-09
 source: "irenerachel"
 src: "https://github.com/irenerachel/visual-style-ppt-skill"
+risk: medium
 tags: [设计视觉, PPT, 图像生成, Skill]
 summary: "以 OpenAI GPT-image-2 驱动的中文视觉 PPT skill，风格优先（3 套风格文件，含 Style Lock），每张幻灯片独立成图，产出仅含图片的 PPTX 文件包。"
 ---

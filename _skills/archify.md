@@ -3,6 +3,7 @@ title: "tt-a1i/archify：纯 HTML 技术图表生成 skill"
 date: 2026-07-14
 source: "tt-a1i"
 src: "https://github.com/tt-a1i/archify"
+risk: low
 tags: [设计视觉, 技术图表, Skill]
 summary: "生成单文件自包含 HTML 技术图表（内联 SVG）的 skill：五种图表类型（架构/工作流/序列/数据流/生命周期），内置明暗主题切换与 PNG/JPEG/WebP/SVG 导出；零运行时依赖，接受自然语言或 Mermaid 输入，与 drawio-skill 互补。"
 ---

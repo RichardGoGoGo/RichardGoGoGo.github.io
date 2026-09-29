@@ -1,0 +1,21 @@
+---
+layout: default
+title: 深度分析
+permalink: /deep/
+---
+{%- assign deep = site.pages | where: "category", "deep" | sort: "date" | reverse -%}
+<div class="container">
+  <div class="page-head">
+    <h1>深度分析</h1>
+    <p class="lead">重大事件的长篇客观分析：已知事实、横向与纵向定位、待核实事项，附全部参考来源。</p>
+  </div>
+  <ul class="post-list" style="max-width:var(--feed-w);">
+    {%- for p in deep %}
+    <li class="post-item">
+      <h3 class="post-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+      <div class="post-meta">{% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}<span>{{ p.date | date: "%Y-%m-%d" }}</span>{% if p.source %}<span>· {{ p.source | truncate: 40 }}</span>{% endif %}</div>
+      {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</div>

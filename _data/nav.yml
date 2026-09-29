@@ -1,0 +1,23 @@
+# 站点导航（唯一来源）：桌面侧栏、手机「更多」页都读这里
+# match: 当前页 URL 以此开头即高亮；exact: true 表示仅完全相等时高亮（首页）
+- title: 内容
+  items:
+    - { label: "精选", href: "/", icon: bolt, match: "/", exact: true }
+    - { label: "全部资讯", href: "/insights/", icon: list, match: "/insights/" }
+    - { label: "热点榜", href: "/hot/", icon: flame, match: "/hot/" }
+    - { label: "日报", href: "/daily/", icon: doc, match: "/daily/" }
+    - { label: "主题", href: "/topics/", icon: grid, match: "/topics/" }
+- title: 资源
+  items:
+    - { label: "征集日历", href: "/calls/", icon: calendar, match: "/calls/" }
+    - { label: "SKILL 库", href: "/skills/", icon: shield, match: "/skills/" }
+    - { label: "知识库", href: "/knowledge/", icon: book, match: "/knowledge/" }
+    - { label: "深度分析", href: "/deep/", icon: layers, match: "/deep/" }
+- title: 工具
+  items:
+    - { label: "VIBE 工具箱", href: "/vibe/", icon: apps, match: "/vibe/" }
+- title: 更多
+  items:
+    - { label: "工作营 · 都市折叠", href: "/df2026-urban-folding/", icon: star, match: "/df2026" }
+    - { label: "关于", href: "/about/", icon: info, match: "/about/" }
+    - { label: "接入", href: "/agent/", icon: plug, match: "/agent/" }

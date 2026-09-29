@@ -1,0 +1,26 @@
+---
+layout: default
+title: 主题
+permalink: /topics/
+---
+{%- assign pool = site.insights -%}
+<div class="container">
+  <div class="page-head">
+    <h1>主题</h1>
+    <p class="lead">按机构和方向聚合资讯。</p>
+  </div>
+  {%- assign orgs = site.data.topics | where: "type", "org" -%}
+  {%- assign dirs = site.data.topics | where: "type", "direction" -%}
+  <div class="sec-label">方向</div>
+  <div class="topic-grid">
+  {%- for t in dirs -%}{%- assign cnt = 0 -%}{%- for p in pool -%}{%- include topic-match.html p=p t=t -%}{%- if hit -%}{%- assign cnt = cnt | plus: 1 -%}{%- endif -%}{%- endfor %}
+    <a class="topic-card" href="{{ '/topics/' | append: t.slug | append: '/' | relative_url }}">{{ t.name }}<span>{{ cnt }}</span></a>
+  {%- endfor %}
+  </div>
+  <div class="sec-label">机构</div>
+  <div class="topic-grid">
+  {%- for t in orgs -%}{%- assign cnt = 0 -%}{%- for p in pool -%}{%- include topic-match.html p=p t=t -%}{%- if hit -%}{%- assign cnt = cnt | plus: 1 -%}{%- endif -%}{%- endfor %}
+    <a class="topic-card" href="{{ '/topics/' | append: t.slug | append: '/' | relative_url }}">{{ t.name }}<span>{{ cnt }}</span></a>
+  {%- endfor %}
+  </div>
+</div>

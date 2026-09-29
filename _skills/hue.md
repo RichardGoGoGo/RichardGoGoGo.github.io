@@ -3,6 +3,7 @@ title: "dominikmartn/hue：品牌设计系统生成 skill"
 date: 2026-07-14
 source: "dominikmartn"
 src: "https://github.com/dominikmartn/hue"
+risk: medium
 tags: [设计视觉, 品牌设计, Skill]
 summary: "从 URL/截图/本地代码库学习任意品牌，自动产出完整设计系统（color tokens、typography、spacing、明暗模式、组件库、icon 选型）的 skill；含交互式 Bento Grid 预览页与组件规格库，validate.mjs 自动验 WCAG 对比度。"
 ---

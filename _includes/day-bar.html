@@ -1,0 +1,2 @@
+{%- assign wds = "日,一,二,三,四,五,六" | split: "," -%}{%- assign wd = include.d | date: "%w" | plus: 0 -%}
+<div class="day-bar"><span class="day-date">{{ include.d | date: "%-m月%-d日" }}</span><span class="day-week">周{{ wds[wd] }}</span><span class="day-count"></span></div>

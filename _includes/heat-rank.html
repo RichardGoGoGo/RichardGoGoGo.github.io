@@ -1,0 +1,29 @@
+{%- comment -%}
+热度排序（静态构建时计算，每次推送重算）。参数：mode=lead|hot。输出变量：rank_pool（按日期倒序的资讯）、rank_keys（按热度降序的 "分数_下标" 数组）。
+  n   = 独立来源数（sources 条数，缺省按 1）
+  w   = 编辑权重 weight（缺省：旧 pinned 记 3，否则 0）
+  age = 距今天数
+  lead（头版）：heat = w×12 + (n−1)×6 − age；仅 w>0 或 n≥3 且 heat>0 的入选
+  hot（热点榜）：heat = w×12 + n×10 − age×3；仅近 14 天
+{%- endcomment -%}
+{%- assign rank_pool = site.insights | sort: "date" | reverse -%}
+{%- assign now_s = site.time | date: "%s" -%}
+{%- assign keys = "" -%}
+{%- for p in rank_pool -%}
+  {%- assign n = p.sources | size -%}{%- if n == 0 -%}{%- assign n = 1 -%}{%- endif -%}
+  {%- assign w = p.weight | default: 0 -%}{%- if w == 0 and p.pinned -%}{%- assign w = 3 -%}{%- endif -%}
+  {%- assign cs = p.date | date: "%s" -%}
+  {%- assign age = now_s | minus: cs | divided_by: 86400 -%}
+  {%- if include.mode == "lead" -%}
+    {%- if w > 0 or n >= 3 -%}
+      {%- assign heat = w | times: 12 -%}{%- assign bonus = n | minus: 1 | times: 6 -%}{%- assign heat = heat | plus: bonus | minus: age -%}
+      {%- if heat > 0 -%}{%- assign pad = heat | plus: 100000 -%}{%- assign keys = keys | append: pad | append: "_" | append: forloop.index0 | append: " " -%}{%- endif -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- if age <= 14 -%}
+      {%- assign heat = w | times: 12 -%}{%- assign bonus = n | times: 10 -%}{%- assign dec = age | times: 3 -%}{%- assign heat = heat | plus: bonus | minus: dec -%}
+      {%- assign pad = heat | plus: 100000 -%}{%- assign keys = keys | append: pad | append: "_" | append: forloop.index0 | append: " " -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign rank_keys = keys | strip | split: " " | sort | reverse -%}

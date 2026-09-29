@@ -3,6 +3,7 @@ title: "khazix-writer：模仿卡兹克文风的写作规范 skill"
 date: 2026-06-22
 source: "KKKKhazix"
 src: "https://github.com/KKKKhazix/khazix-skills"
+risk: low
 tags: [写作, Skill]
 summary: "模仿卡兹克公众号文风的写作规范：五大文章原型 + 四层去 AI 味自检 + 风格库。"
 ---

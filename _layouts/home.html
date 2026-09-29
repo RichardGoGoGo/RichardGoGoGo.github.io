@@ -1,117 +1,57 @@
 ---
 layout: default
 ---
-
-{% assign insights = site.insights | sort: "date" | reverse %}
-{% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign featured = nil %}
-{% for p in insights %}
-  {% if p.pinned and featured == nil %}
-    {% assign pu = p.pin_until | date: "%Y-%m-%d" %}
-    {% if pu == "" or pu >= today %}{% assign featured = p %}{% endif %}
-  {% endif %}
-{% endfor %}
-{% if featured == nil and insights.size > 0 %}{% assign featured = insights[0] %}{% endif %}
-{% if featured %}{% assign featured_slug = featured.path | split: '/' | last | remove: '.md' %}{% endif %}
-
-<main class="container">
-
-  <div class="mast-rule" style="margin-top:1.2rem;"></div>
-  <div class="masthead">
-    <div class="mast-name">浅译快报</div>
-    <div class="mast-tagline">AI Art &amp; Design Frontier</div>
-  </div>
-  <div class="mast-rule"></div>
-  <nav class="ed-nav">
-    <a href="/insights/">AI×艺术设计资讯</a>
-    <a href="/calls/">赛展信息</a>
-    <a href="/skills/">SKILL评测</a>
-    <a href="/knowledge/">知识库</a>
-    <a href="/vibe/">VIBE工具箱</a>
-  </nav>
-  <div class="mast-rule" style="margin-bottom:1.6rem;"></div>
-
-  {% if featured %}
-  <article class="feat fade-in" id="{{ featured_slug }}">
-    <div class="feat-kicker">
-      {% if featured.pinned %}加更 · {% endif %}{{ featured.icat }} · {{ featured.date | date: "%m.%d" }}
-    </div>
-    <h2 class="feat-title" aria-expanded="false"><span class="caret">›</span>{{ featured.title }}</h2>
-    {% if featured.summary %}<p class="feat-lead">{{ featured.summary }}</p>{% endif %}
-    {% if featured.source %}<div class="feat-by">— 来源 {{ featured.source }}</div>{% endif %}
-    {% if featured.deep %}<a class="deep-link" href="{{ featured.deep | relative_url }}">深度分析 →</a>{% endif %}
-    <div class="post-detail insight-body">
-      {{ featured.content }}
-      {% if featured.src and featured.src != "" %}<p class="detail-src"><a href="{{ featured.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
-    </div>
-  </article>
-  {% endif %}
-
-  <div class="sec-label">最新资讯</div>
-  <ul class="post-list fade-in">
-    {% assign shown = 0 %}
-    {% for p in insights %}
-      {% assign p_slug = p.path | split: '/' | last | remove: '.md' %}
-      {% unless featured and p_slug == featured_slug %}
-        {% if shown < 5 %}
-        <li class="post-item" id="{{ p_slug }}">
-          <h3 class="post-title" aria-expanded="false"><span class="caret">›</span>{{ p.title }}</h3>
-          <div class="post-meta">
-            {% if p.icat %}<span class="post-badge">{{ p.icat }}</span>{% endif %}
-            <span>{{ p.date | date: "%Y-%m-%d" }}</span>
-            {% if p.source %}<span>· {{ p.source }}</span>{% endif %}
-            {% if p.deep %}<a class="deep-link" href="{{ p.deep | relative_url }}">深度分析 →</a>{% endif %}
-          </div>
-          {% if p.summary %}<p class="post-summary">{{ p.summary }}</p>{% endif %}
-          <div class="post-detail insight-body">
-            {{ p.content }}
-            {% if p.src and p.src != "" %}<p class="detail-src"><a href="{{ p.src }}" target="_blank" rel="noopener">查看原始来源 ↗</a></p>{% endif %}
-          </div>
-        </li>
-        {% assign shown = shown | plus: 1 %}
-        {% endif %}
-      {% endunless %}
-    {% endfor %}
-  </ul>
-  <p style="margin-top:0.9rem;"><a href="/insights/" style="color:var(--accent); font-size:0.85rem;">查看全部资讯（日更）→</a></p>
-
-  {% assign calls = site.calls | sort: "date" | reverse %}
-  {% assign skills = site.skills | sort: "date" | reverse %}
-
-  <div class="sec-label">赛展 · 评测 · 知识</div>
-  <div class="rail-grid fade-in">
-    <div>
-      <div class="rail-label">赛展信息</div>
-      {% for p in calls limit: 3 %}
-      <div class="rail-item"><a href="/calls/#{{ p.path | split: '/' | last | remove: '.md' }}">{{ p.title }}</a></div>
-      {% endfor %}
-      <div class="rail-item" style="margin-top:0.4rem;"><a href="/calls/" style="color:var(--accent);">全部赛展 →</a></div>
-    </div>
-    <div>
-      <div class="rail-label">SKILL评测</div>
-      {% for p in skills limit: 3 %}
-      <div class="rail-item"><a href="/skills/#{{ p.path | split: '/' | last | remove: '.md' }}">{{ p.title }}</a></div>
-      {% endfor %}
-      <div class="rail-item" style="margin-top:0.4rem;"><a href="/skills/" style="color:var(--accent);">全部评测 →</a></div>
-    </div>
-    <div>
-      <div class="rail-label">知识库</div>
-      <div class="rail-item">设计教学 / 学术写作 / 日常办公 / 内容生产</div>
-      <div class="rail-item" style="margin-top:0.4rem;"><a href="/knowledge/" style="color:var(--accent);">进入知识库 →</a></div>
-    </div>
+{%- comment -%} 精选：头版（重要度 × 来源数 × 时间衰减）+ 编辑精选流 {%- endcomment -%}
+<div class="container">
+  <div class="page-head">
+    <h1>精选</h1>
+    <p class="lead">AI × 艺术设计前沿，客观汇集每日动态、征集机会与 SKILL 评测。</p>
   </div>
 
-  <div class="sec-label">关于本站</div>
-  <div class="about fade-in">
-    <div class="about-text">
-      「浅译快报」是浅译万道实验室的对外资讯与知识站，聚焦 AI × 艺术设计：客观汇集前沿洞察、赛事与学术征稿、AI skill 评测，并沉淀可复用的主题方法库。我们相信前沿信息应当被客观地整理、自由地分享。
-    </div>
-    <div class="about-stats">
-      {% assign pages_total = site.pages | where_exp: "p", "p.layout == 'page'" | size %}
-      {% assign total = site.insights.size | plus: site.calls.size | plus: site.skills.size | plus: pages_total %}
-      <div><div class="stat-num">{{ total }}</div><div class="stat-label">篇内容</div></div>
-      <div><div class="stat-num">7</div><div class="stat-label">个栏目</div></div>
-    </div>
-  </div>
+  <div class="feed-layout">
+    <div class="feed-col">
+      {%- include heat-rank.html mode="lead" -%}
+      {%- assign lead_urls = "" -%}
+      {%- if rank_keys.size > 0 and rank_keys[0] != "" %}
+      <div class="sec-label">头版</div>
+      {%- for k in rank_keys limit: 3 -%}
+        {%- assign idx = k | split: "_" | last | plus: 0 -%}{%- assign p = rank_pool[idx] -%}
+        {%- assign lead_urls = lead_urls | append: p.url | append: "|" -%}
+        {%- if forloop.first %}
+      {% include card.html p=p lead=true tags=true %}
+      <div class="lead-grid">
+        {%- else %}
+        {% include card.html p=p %}
+        {%- endif -%}
+        {%- if forloop.last %}</div>{% endif -%}
+      {%- endfor -%}
+      {%- endif %}
 
-</main>
+      <div class="sec-label">最新精选 <a href="{{ '/insights/' | relative_url }}">全部资讯 →</a></div>
+      {%- assign pool = site.insights | sort: "date" | reverse -%}
+      {%- assign shown = 0 -%}{%- assign cur = "" -%}
+      <div class="timeline">
+      {%- for p in pool -%}
+        {%- if shown < 16 -%}
+          {%- assign w = p.weight | default: 0 -%}
+          {%- if p.editor_pick or w >= 3 -%}{%- unless lead_urls contains p.url -%}
+            {%- assign d = p.date | date: "%Y-%m-%d" -%}
+            {%- if d != cur -%}
+              {%- if cur != "" %}</div></section>{% endif %}
+        <section class="day">
+          {% include day-bar.html d=p.date %}
+          <div class="day-items">
+              {%- assign cur = d -%}
+            {%- endif %}
+            {% include card.html p=p tags=true %}
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endunless -%}{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if cur != "" %}</div></section>{% endif %}
+      </div>
+      <p style="margin-top:14px;"><a href="{{ '/insights/' | relative_url }}" style="color:var(--accent); font-size:0.88rem;">查看全部资讯 →</a></p>
+    </div>
+    {% include rail.html %}
+  </div>
+</div>

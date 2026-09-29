@@ -1,0 +1,26 @@
+---
+layout: default
+title: 关于
+permalink: /about/
+---
+{%- assign sk = site.skills | where_exp: "s", "s.guide != true" -%}
+<div class="container">
+  <div class="page-head"><h1>关于浅译快报</h1></div>
+  <div class="main-content">
+    <p>「浅译快报」是浅译万道实验室的对外资讯与知识站，聚焦 AI × 艺术设计：客观汇集前沿动态、赛事与学术征集、AI skill 安全评测，并沉淀按业务线整理的主题知识库。</p>
+    <h2>内容怎么来</h2>
+    <p>资讯每天由信息雷达从官方博客、更新日志、论文与主流媒体采集，经去重、多源核对后成稿；每条都附原始来源链接，打不开或对不上的来源不收。同一事件如有多家报道，合并为一张卡并列出全部来源。</p>
+    <h2>排序规则</h2>
+    <ul>
+      <li><strong>全部资讯</strong>：按消息发布日倒序。</li>
+      <li><strong>热点榜 / 头版</strong>：按报道同一事件的独立来源数、发布时间远近计算热度，编辑评定的重要事件额外加权；每次站点更新时重算。</li>
+      <li><strong>征集日历</strong>：按截止日由近到远。</li>
+    </ul>
+    <h2>收录原则</h2>
+    <p>只收与艺术设计相关的 AI 进展；只陈述客观事实，不做参赛或选型建议；预告不当作已上线；日期与数字以官方为准。</p>
+    <p>目前收录资讯 {{ site.insights.size }} 条、征集 {{ site.calls.size }} 条、SKILL 评测 {{ sk.size }} 条。</p>
+    <h2>致谢</h2>
+    <p>本站的信息结构与界面设计参考了开源项目 <a href="https://github.com/KKKKhazix/AIHOT" target="_blank" rel="noopener">AIHOT</a>（MIT License），配色与字体沿用本站原有设定。</p>
+    <p>面向高校教师与院系的合作请访问 <a href="https://www.transwonder-lab.com" target="_blank" rel="noopener">transwonder-lab.com</a>。</p>
+  </div>
+</div>

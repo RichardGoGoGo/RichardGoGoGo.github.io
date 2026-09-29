@@ -1,0 +1,16 @@
+---
+layout: default
+title: 更多
+permalink: /more/
+---
+<div class="container">
+  <div class="page-head"><h1>全部栏目</h1></div>
+  {%- for g in site.data.nav %}
+  <div class="sec-label">{{ g.title }}</div>
+  <div class="topic-grid">
+    {%- for it in g.items %}<a class="topic-card" href="{{ it.href | relative_url }}">{{ it.label }}<span>→</span></a>{% endfor %}
+  </div>
+  {%- endfor %}
+  <div class="sec-label">其他</div>
+  <div class="topic-grid"><a class="topic-card" href="https://www.transwonder-lab.com" target="_blank" rel="noopener">商务合作<span>↗</span></a></div>
+</div>

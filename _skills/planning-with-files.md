@@ -3,6 +3,7 @@ title: "OthmanAdi/planning-with-files：跨会话持久化任务规划 skill"
 date: 2026-07-14
 source: "OthmanAdi"
 src: "https://github.com/OthmanAdi/planning-with-files"
+risk: low
 tags: [工作流, Agent, Skill]
 summary: "让 AI agent 在上下文压缩/清除/崩溃后仍能续跑任务的持久化规划 skill：三个 Markdown 文件（task_plan/findings/progress）在项目目录内持久化，lifecycle hooks 在每次工具调用前注入计划、停止前校验完成状态；含 SHA-256 防篡改与防注入机制，支持 60+ agent 平台。"
 ---

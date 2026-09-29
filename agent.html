@@ -1,0 +1,21 @@
+---
+layout: default
+title: 接入
+permalink: /agent/
+---
+<div class="container">
+  <div class="page-head"><h1>接入</h1><p class="lead">让 RSS 阅读器与 AI 助手直接读取本站内容。</p></div>
+  <div class="main-content">
+    <h2>RSS</h2>
+    <p>订阅地址：<code>{{ site.url }}/feed.xml</code>（最新 50 条资讯，Atom 格式）。</p>
+    <h2>llms.txt</h2>
+    <p>站点结构说明，供大模型读取：<a href="{{ '/llms.txt' | relative_url }}"><code>{{ site.url }}/llms.txt</code></a></p>
+    <h2>JSON 接口</h2>
+    <p>全部资讯、征集与 SKILL 评测的结构化数据，静态文件，随站点更新：</p>
+    <ul>
+      <li><a href="{{ '/api/insights.json' | relative_url }}"><code>/api/insights.json</code></a> — 资讯（含 sources / reason / topics 等字段）</li>
+      <li><a href="{{ '/api/calls.json' | relative_url }}"><code>/api/calls.json</code></a> — 征集（含 deadline）</li>
+      <li><a href="{{ '/api/skills.json' | relative_url }}"><code>/api/skills.json</code></a> — SKILL 评测（含 risk）</li>
+    </ul>
+  </div>
+</div>

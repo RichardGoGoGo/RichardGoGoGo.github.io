@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{%- comment -%} 日报：近 21 天按天汇总（按资讯发布日），紧凑列表 {%- endcomment -%}
+{%- assign now_s = site.time | date: "%s" -%}
+{%- assign pool = site.insights | sort: "date" | reverse -%}
+<div class="container">
+  <div class="page-head">
+    <h1>{{ page.title }}</h1>
+    <p class="lead">按消息发布日汇总近三周资讯，一天一组，点标题跳到全文。</p>
+  </div>
+  <div class="feed-col" style="max-width:var(--feed-w);">
+  {%- assign cur = "" -%}
+  {%- for p in pool -%}
+    {%- assign cs = p.date | date: "%s" -%}{%- assign age = now_s | minus: cs | divided_by: 86400 -%}
+    {%- if age > 21 -%}{%- break -%}{%- endif -%}
+    {%- assign d = p.date | date: "%Y-%m-%d" -%}
+    {%- if d != cur -%}
+      {%- if cur != "" %}</ul></section>{% endif %}
+    <section class="day" id="d-{{ d }}">
+      {% include day-bar.html d=p.date %}
+      <ul class="daily-list">
+      {%- assign cur = d -%}
+    {%- endif -%}
+    {%- assign s = p.path | split: '/' | last | remove: '.md' %}
+        <li><span class="daily-kind">{{ p.icat }}</span><div><a href="{{ '/insights/' | relative_url }}#{{ s }}">{{ p.title }}</a>{% assign nn = p.sources | size %}<span class="daily-sub">{% if nn > 0 %}{{ p.sources[0].name }}{% if nn > 1 %} 等 {{ nn }} 家{% endif %}{% else %}{{ p.source }}{% endif %}{% if p.editor_pick %} · 编辑精选{% endif %}</span></div></li>
+  {%- endfor -%}
+  {%- if cur != "" %}</ul></section>{% endif %}
+  </div>
+</div>

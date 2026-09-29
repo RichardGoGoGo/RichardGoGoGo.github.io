@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{%- comment -%} 征集日历：可投的按截止日由近到远；截止日未公布的其后；已截止沉底置灰 {%- endcomment -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign by_dl = site.calls | sort: "deadline", "last" -%}
+<div class="container">
+  <div class="page-head">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+  </div>
+  <div class="tag-filter" id="calls-filter">
+    <button class="tag-chip active" data-f="all">全部可投</button>
+    {%- assign ctstr = "" -%}{%- for c in site.calls -%}{%- if c.ctype -%}{%- assign ctstr = ctstr | append: c.ctype | append: "," -%}{%- endif -%}{%- endfor -%}
+    {%- assign cts = ctstr | split: "," | uniq -%}
+    {%- for t in cts %}<button class="tag-chip" data-f="{{ t }}">{{ t }}</button>{% endfor %}
+  </div>
+  <div class="feed-col" style="max-width:var(--feed-w);">
+    <div class="sec-label">可投</div>
+    <div class="day-items" id="calls-open">
+    {%- for p in by_dl -%}
+      {%- assign cd = "" -%}{%- if p.deadline -%}{%- assign cd = p.deadline | date: "%Y-%m-%d" -%}{%- endif -%}
+      {%- unless p.expired -%}{%- if cd == "" or cd >= today %}
+      <div class="cal-row" data-ctype="{{ p.ctype }}">{% include card.html p=p tags=true %}</div>
+      {%- endif -%}{%- endunless -%}
+    {%- endfor %}
+    </div>
+    <div class="sec-label">已截止</div>
+    <div class="day-items" id="calls-closed">
+    {%- assign rev = by_dl | reverse -%}
+    {%- for p in rev -%}
+      {%- assign cd = "" -%}{%- if p.deadline -%}{%- assign cd = p.deadline | date: "%Y-%m-%d" -%}{%- endif -%}
+      {%- assign closed = false -%}{%- if p.expired -%}{%- assign closed = true -%}{%- endif -%}{%- if cd != "" and cd < today -%}{%- assign closed = true -%}{%- endif -%}
+      {%- if closed %}
+      <div class="cal-row" data-ctype="{{ p.ctype }}">{% include card.html p=p %}</div>
+      {%- endif -%}
+    {%- endfor %}
+    </div>
+  </div>
+</div>

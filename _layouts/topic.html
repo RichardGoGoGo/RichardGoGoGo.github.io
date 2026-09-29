@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{%- assign t = site.data.topics | where: "slug", page.topic_slug | first -%}
+{%- assign pool = site.insights | sort: "date" | reverse -%}
+<div class="container">
+  <nav class="crumb" style="margin-top:22px;"><a href="{{ '/topics/' | relative_url }}">主题</a><span class="sep">/</span><span class="cur">{{ t.name }}</span></nav>
+  <div class="page-head" style="padding-top:0;">
+    <h1>{{ t.name }}</h1>
+    <p class="lead">{% if t.type == "org" %}与 {{ t.name }} 相关的资讯{% else %}「{{ t.name }}」方向的资讯{% endif %}，按发布日倒序。</p>
+  </div>
+  <div class="feed-layout">
+    <div class="feed-col"><div class="day-items">
+    {%- assign cnt = 0 -%}
+    {%- for p in pool -%}
+      {%- include topic-match.html p=p t=t -%}
+      {%- if hit %}
+      {% include card.html p=p tags=true %}{%- assign cnt = cnt | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor %}
+    </div>
+    {%- if cnt == 0 %}<p class="empty">这个主题下还没有资讯</p>{% endif %}
+    </div>
+    {% include rail.html %}
+  </div>
+</div>

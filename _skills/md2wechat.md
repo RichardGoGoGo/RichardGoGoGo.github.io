@@ -3,6 +3,7 @@ title: "md2wechat：Markdown 转公众号 HTML skill"
 date: 2026-06-22
 source: "geekjourneyx"
 src: "https://github.com/geekjourneyx/md2wechat-skill"
+risk: medium
 tags: [内容发布, Skill, 公众号]
 summary: "Markdown→公众号 HTML（43 排版模块）+ 推草稿箱 + AI 配图。"
 ---

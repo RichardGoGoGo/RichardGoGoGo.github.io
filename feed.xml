@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+  <title>{{ site.title }} · AI 艺术设计前沿</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <id>{{ site.url }}/</id>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  {%- assign pool = site.insights | sort: "date" | reverse -%}
+  {%- for p in pool limit: 50 -%}{%- assign s = p.path | split: '/' | last | remove: '.md' %}
+  <entry>
+    <title>{{ p.title | xml_escape }}</title>
+    <link href="{{ site.url }}/insights/#{{ s }}"/>
+    <id>{{ site.url }}/insights/#{{ s }}</id>
+    <updated>{{ p.date | date_to_xmlschema }}</updated>
+    {%- if p.icat %}<category term="{{ p.icat | xml_escape }}"/>{% endif %}
+    <summary>{{ p.summary | xml_escape }}</summary>
+    <content type="html">{{ p.content | xml_escape }}{% if p.src %}{{ '<p><a href="' | append: p.src | append: '">原始来源</a></p>' | xml_escape }}{% endif %}</content>
+  </entry>
+  {%- endfor %}
+</feed>
