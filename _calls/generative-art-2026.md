@@ -5,6 +5,7 @@ date: 2026-07-06
 ctype: 学术会议
 host: "Generative Art International（米兰理工大学发起）"
 src: "http://www.generativeart.com"
+deadline: 2026-09-03
 tags: [学术会议, 生成艺术, 算法美学, AI艺术]
 summary: "全球历史最悠久的生成艺术专项学术会议（始于 1998），聚焦计算艺术/生成系统/算法美学/AI 艺术交叉领域，接受论文、艺术作品、互动装置等多类提交，2026 年 11 月在意大利卡利亚里举办，提案截止 2026-09-03。"
 ---

@@ -5,6 +5,7 @@ date: 2026-06-20
 ctype: AIGC赛事
 host: "中国好创意大赛组委会 × 四川师范大学"
 src: "https://contest.cdec.org.cn/"
+deadline: 2026-07-27
 tags: [AIGC, 非遗, 数字艺术, 全国赛事]
 summary: "教育部榜单赛事 CDEC（中国好创意）第20届 AI 专项赛，聚焦四川地方非遗与生成式 AI 结合，设 AI+平面/视频/8K 影像/AR 文创/营销策划五大赛道，专业组与学生组均可，截止 2026-07-27。"
 ---

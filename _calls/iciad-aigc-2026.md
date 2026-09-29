@@ -5,6 +5,7 @@ date: 2026-06-02
 ctype: 设计赛事
 host: "ICIAD Award"
 src: "https://www.shejijingsai.com/2026/03/1517443.html"
+deadline: 2026-08-31
 tags: [AIGC, 设计赛事, 国际]
 summary: "ICIAD 前沿探索单元新设「AIGC 与计算设计」类别，冲刺阶段至 2026-08-31。"
 ---

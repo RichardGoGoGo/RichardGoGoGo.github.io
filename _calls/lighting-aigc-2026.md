@@ -5,6 +5,7 @@ date: 2026-06-29
 ctype: AIGC赛事
 host: "中国照明学会数字艺术专业委员会 × 上海市照明学会"
 src: "https://workdrive.zohopublic.com.cn/collection/kki5tbdbcca3f2dba47729fd0a44cab67a231/external"
+deadline: 2026-07-15
 tags: [AIGC, 数字艺术, 光影装置, 高校赛事]
 summary: "中国照明学会主办、面向高校的 AIGC 数字艺术设计竞赛，设定向命题（3D mapping/AR）与自由选题（AIGC 影像/光影装置/互动装置）两方向，入选作品将在 2026 年 9 月上海国际光影节展演，截止 2026-07-15。"
 ---

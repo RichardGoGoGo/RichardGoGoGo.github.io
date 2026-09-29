@@ -4,6 +4,7 @@ date: 2026-06-23
 ctype: 学术会议
 host: "Springer Nature × 同济大学"
 src: "https://link.springer.com/collections/bdeajgided"
+deadline: 2026-10-31
 tags: [期刊专刊, AI城市规划, 数据驱动, SCI/EI]
 summary: "Architectural Intelligence（ARI）国际 SCI/EI 期刊第二个专刊，聚焦 AI 与数据驱动的城市规划与设计（AI 决策支持、数字孪生、智慧城市、GIS+AI 等），APC 全免，投稿截止 2026-10-31。"
 ---
