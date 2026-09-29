@@ -3,6 +3,7 @@ title: "浅译·通用写作"
 order: 1
 summary: "中英文写作与去 AI 味：写、改、检三种模式，四层自检，P0、P1 问题清零才交付。"
 scenes: ["公众号", "说明文档", "邮件", "课程材料", "项目介绍"]
+license: MIT
 version: "0.1"
 updated: 2026-09-29
 appendix: ["banned-en.md", "banned-zh.md", "examples.md", "genres.md"]

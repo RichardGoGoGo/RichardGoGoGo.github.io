@@ -24,7 +24,7 @@ SKILL 库：参考资料，不按时间衰减。
       <div class="rf-name">{{ r.title }}</div>
       {%- if r.summary %}<p class="rf-sum">{{ r.summary }}</p>{% endif %}
       {%- if r.scenes %}<div class="rf-scenes">{% for x in r.scenes %}<span>{{ x }}</span>{% endfor %}</div>{% endif %}
-      <div class="rf-meta">精炼自 {{ r.sources | size }} 个来源<span class="dot">·</span>v{{ r.version }}<span class="dot">·</span>{{ r.updated | date: "%Y-%m-%d" }} 更新</div>
+      <div class="rf-meta">精炼自 {{ r.sources | size }} 个来源<span class="dot">·</span>v{{ r.version }}<span class="dot">·</span>{{ r.updated | date: "%Y-%m-%d" }} 更新{% if r.license %}<span class="dot">·</span>{{ r.license }}{% endif %}</div>
     </a>
     {%- endfor %}
   </div>

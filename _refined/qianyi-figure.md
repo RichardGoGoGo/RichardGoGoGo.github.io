@@ -3,6 +3,7 @@ title: "浅译·科研配图"
 order: 2
 summary: "论文插图、申报书框架图与技术路线图：按要表达的关系选图型，按印刷规范出图，机检加看图两步自检。"
 scenes: ["论文插图", "课题申报", "技术路线图", "系统架构图"]
+license: MIT
 version: "0.1"
 updated: 2026-09-29
 appendix: ["academic-specs.md", "checklist.md", "figure-types.md", "formats.md", "style.md"]

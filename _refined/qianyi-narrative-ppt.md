@@ -3,6 +3,7 @@ title: "浅译·叙事PPT"
 order: 3
 summary: "先搭叙事再做页面：观众状态、故事线、每页只讲一件事，最后出 HTML 演示稿或 PPTX。"
 scenes: ["工作坊", "课程课件", "学术报告", "项目汇报"]
+license: MIT
 version: "0.1"
 updated: 2026-09-29
 appendix: ["html-stage.md", "narrative-structures.md", "page-types.md", "speaker-notes.md", "style-file-template.md"]
