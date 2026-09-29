@@ -1,7 +1,7 @@
 ---
 title: "浅译·科研配图"
 order: 2
-summary: "论文插图、申报书框架图与技术路线图：按要表达的关系选图型，按印刷规范出图，机检加看图两步自检。"
+summary: "论文插图、申报书框架图与技术路线图：按要表达的关系选图型，按印刷规范出图，核数值加看图两步自检。"
 scenes: ["论文插图", "课题申报", "技术路线图", "系统架构图"]
 license: MIT
 version: "0.1"
@@ -18,7 +18,7 @@ sources:
     repo: "oh-my-mermaid/oh-my-mermaid"
     skill: oh-my-mermaid
   - name: "academic-figure-builder"
-    repo: "浅译万道"
+    repo: "浅译万道实验室"
 ---
 
 ## 1. 定位与适用范围
@@ -124,14 +124,10 @@ sources:
 
 每次出图都要做，分两部分：
 
-1. **机检**：对 SVG 运行（路径相对本 skill 目录；需要 Python 3 和本机 Edge 或 Chrome）
-   ```bash
-   python scripts/figcheck.py figure.svg --width-mm 174 --min-pt 7 --pdf
-   ```
-   脚本用本机 Edge/Chrome 无头渲染，报告成品字号、压字、出界和字体，并导出 PNG（600 dpi）、灰度 PNG 和矢量 PDF。退出码 1 表示有机检问题。它只在本机渲染，不联网。若在受限沙箱里浏览器没有输出，换到沙箱外运行。
-2. **看图**：打开导出的 PNG 和灰度 PNG，逐项对照 `references/checklist.md`：连线是否穿过节点、箭头是否指对、文字是否被遮挡、分组边界是否清楚、灰度下类别能否分辨、内容是否与原文一致。
+1. **核数值**：画布按「1 单位 = 1 pt」画，SVG 里的 `font-size` 就是成品字号。逐个列出所有 `font-size`，确认没有低于下限（期刊 7 pt、申报书 9 pt），字号档位不超过 4 档。文字是否出界、是否互相压住，用文字框的坐标和宽度（中文按一字一字号宽估算）核对。
+2. **看图**：在浏览器里打开 SVG，并导出一张 PNG 和一张灰度 PNG（浏览器截图，或 `inkscape 图.svg --export-type=png --export-dpi=600`），逐项对照 `references/checklist.md`：连线是否穿过节点、箭头是否指对、文字是否被遮挡、分组边界是否清楚、灰度下类别能否分辨、内容是否与原文一致。
 
-看图容易漏掉几像素的错位，也会把没问题的地方看成问题。涉及位置的判断以脚本或坐标数值为准，截图只作辅助。
+看图容易漏掉几像素的错位，也会把没问题的地方看成问题。涉及位置的判断以 SVG 里的坐标数值为准，截图只作辅助。
 
 ### 第 4 步：修正
 
@@ -173,7 +169,7 @@ figures/
 - 文件名用「图号-英文短名」，全小写、连字符分隔；图号与稿件一致。
 - `brief.md` 写：图题（按目标语言，需要时中英双语）、图注全文、一句可直接放进正文的引用句（如「技术路线如图 3 所示」）、成品尺寸与字号下限、每个节点的原文出处、仍待用户确认的事项。
 - 批量任务另给一个 `figures/index.html`：用 `<img>` 平铺所有 SVG 并附图号和图题，便于一次浏览，不引用任何外部脚本。
-- 回复用户时列出：文件路径、图型和尺寸、机检结果、是否已看图检查、剩余问题。没有做的检查不要说做过；机检通过不等于看图检查通过。
+- 回复用户时列出：文件路径、图型和尺寸、数值核对结果、是否已看图检查、剩余问题。没有做的检查不要说做过；数值核对通过不等于看图检查通过。
 
 批量配图（10 张以上）可以按章节分给子代理并行画，每个子代理要拿到：本章的图清单和对应原文、第 3 节的规范、`references/style.md` 的色板与字号、输出目录。收齐后统一跑一遍 figcheck，再统一检查跨图的一致性。
 
@@ -187,4 +183,4 @@ figures/
 
 [4] 浅译万道实验室（自有）. academic-figure-builder. 路径：academic-figure-builder/SKILL.md、references/figure-patterns.md、references/viewer-template.md、scripts/assemble_figures.py、scripts/validate_babel.py. 借鉴：从稿件「此处应有图」标记批量抽取配图需求；图必须忠实于原文、写入原文里的具体名称和数字；按内容类型选布局的图型表（流程、概念、对比、层级、表格、决策、时间线）；沉稳低饱和的学术色板；大批量按章节分给子代理并行、主进程汇总校验；批量图库浏览. 未沿用：React/Babel/Tailwind CDN 查看器与配套两个脚本（本 skill 改为纯 SVG + 无依赖索引页）、图内标题、960 宽画布配 10–11 px 字号（缩到双栏约 5 pt，低于印刷下限）. 许可证：浅译自有. 链接：内部 skill
 
-说明：以上仓库均只借设计思路，未复制原文或代码。`scripts/figcheck.py` 为本 skill 新写，思路来自 [1] 的浏览器实测门与 [2] 的「以渲染坐标为准」。Okabe–Ito 色板出自 Okabe & Ito (2008), *Color Universal Design*.
+说明：以上仓库均只借设计思路，未复制原文或代码。Okabe–Ito 色板出自 Okabe & Ito (2008), *Color Universal Design*.
