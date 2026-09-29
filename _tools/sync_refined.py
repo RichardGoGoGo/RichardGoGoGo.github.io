@@ -39,6 +39,17 @@ META = {
                  ("visual-style-ppt-skill", "irenerachel/visual-style-ppt-skill", "visual-style-ppt", None),
                  ("Anthropic pptx skill", "anthropics/skills", "anthropics-skills", None),
                  ("baoyu-design", "JimLiu/baoyu-design", "baoyu-design", None)]),
+    "qianyi-motion-video": dict(
+        title="浅译·创意视频", order=4,
+        summary="用前端方式做动效视频：先定节拍表和风格系统，再用 HTML/CSS/JS 写可逐帧定位的动效镜头，渲染成 MP4，并按清单去掉 AI 预设感。",
+        scenes=["片头", "作品集 showreel", "产品介绍", "课程宣传", "社媒短视频"],
+        sources=[("HyperFrames", "heygen-com/hyperframes", None, "https://github.com/heygen-com/hyperframes"),
+                 ("remotion-best-practices", "remotion-dev/skills", None, "https://github.com/remotion-dev/skills"),
+                 ("video-shotcraft", "Vincentwei1021/video-shotcraft", None, "https://github.com/Vincentwei1021/video-shotcraft"),
+                 ("vox-director", "Alisa0808/vox-director", None, "https://github.com/Alisa0808/vox-director"),
+                 ("pixel2motion", "nolangz/pixel2motion", "pixel2motion", None),
+                 ("常用 WEB 交互动效图鉴", "浅译万道实验室", None, "https://www.transwonder.top/vibe/motion-techniques/"),
+                 ("shneural 案例", "Telegram · shneural", None, "https://t.me/shneural/1365")]),
 }
 
 # 内部路径 → 对外说法（按顺序替换）
@@ -51,8 +62,11 @@ SANITIZE = [
     ("（记忆文件 writing-anti-slop-defaults.md，2026-09-09，源自 [4]）", "（2026-09-09，源自 [4]）"),
     ("用户默认写作限制", "浅译默认写作限制"),
     ("路径：~/.claude/skills/academic-figure-builder/", "路径：academic-figure-builder/"),
+    ("路径：.claude/skills/<名称>/SKILL.md（当前版）", "路径：浅译动效图标 skill <名称>/SKILL.md（当前版）"),
+    ("路径：external/RichardGoGoGo.github.io/vibe/motion-techniques.html（社区站当前版）", "链接：https://www.transwonder.top/vibe/motion-techniques/（社区站当前版）"),
 ]
-LEAK = re.compile(r"00-shared|07-skillradar|\.claude|C:\\|D:\\|march|记忆文件")
+# 只抓我们自己的内部路径；来源仓库里自带的 .claude/… 路径（如 HyperFrames 的 motion-doctrine）属于正常引用
+LEAK = re.compile(r"00-shared|07-skillradar|~/\.claude|路径：\.claude|C:\\|D:\\|march|记忆文件|external/RichardGoGoGo")
 
 
 def q(x):
@@ -68,7 +82,7 @@ def build(slug, m):
         body = body.replace(a, b)
     # 本机路径形式的「链接：…」一律改为「链接：内部 skill」
     body = re.sub(r"链接：本(?:地|机)[^\n]*", "链接：内部 skill", body)
-    appx = sorted(os.path.basename(p) for p in glob.glob(os.path.join(SK, slug, "references", "*.md")))
+    appx = sorted(os.path.basename(p) for p in glob.glob(os.path.join(SK, slug, "references", "*")))
     fm = ["---", f"title: {q(m['title'])}", f"order: {m['order']}", f"summary: {q(m['summary'])}",
           "scenes: [" + ", ".join(q(x) for x in m["scenes"]) + "]", "license: MIT", 'version: "0.1"',
           f"updated: {UPDATED}", "appendix: [" + ", ".join(q(x) for x in appx) + "]", "sources:"]
