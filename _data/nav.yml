@@ -5,7 +5,7 @@
     - { label: "精选", href: "/", icon: bolt, match: "/", exact: true }
     - { label: "全部资讯", href: "/insights/", icon: list, match: "/insights/" }
     - { label: "热点榜", href: "/hot/", icon: flame, match: "/hot/" }
-    - { label: "日报 · 周报 · 月报", href: "/daily/", icon: doc, match: "/daily/", also: ["/weekly/", "/monthly/", "/reports/"] }
+    - { label: "周报 · 月报", href: "/weekly/", icon: doc, match: "/weekly/", also: ["/monthly/", "/reports/"] }
     - { label: "主题", href: "/topics/", icon: grid, match: "/topics/" }
 - title: 资源
   items:

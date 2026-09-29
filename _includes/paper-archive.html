@@ -1,46 +1,20 @@
 {%- comment -%}
-报刊往期栏（参考 AIHOT）：顶部 日报/周报/月报 分段切换 → 「往期」→ 按月（日报/周报）或按年（月报）分组的 <details>，当期所在组展开。
-参数：kind＝daily|weekly|monthly；cur＝当期键（日报 YYYY-MM-DD，周报月报为报告 url）
+报刊往期栏（参考 AIHOT）：顶部 周报/月报 分段切换 → 「往期」→ 周报按月、月报按年分组的 <details>，当期所在组展开。
+参数：kind＝weekly|monthly；cur＝当期报告 url
 {%- endcomment -%}
 {%- assign kind = include.kind -%}
+{%- assign reps = site.reports | where: "kind", kind | sort: "start" | reverse -%}
 <aside class="arch" data-kind="{{ kind }}">
-  <div class="seg arch-seg" role="tablist">
-    <a class="seg-btn{% if kind == 'daily' %} active{% endif %}" href="{{ '/daily/' | relative_url }}">日报</a>
+  <div class="seg arch-seg arch-seg-2" role="tablist">
     <a class="seg-btn{% if kind == 'weekly' %} active{% endif %}" href="{{ '/weekly/' | relative_url }}">周报</a>
     <a class="seg-btn{% if kind == 'monthly' %} active{% endif %}" href="{{ '/monthly/' | relative_url }}">月报</a>
   </div>
   {%- comment -%} 手机端：往期栏隐藏，改为最近几期胶囊 {%- endcomment -%}
   <div class="arch-recent">
-    {%- if kind == "daily" -%}
-      {%- assign rd = site.insights | sort: "date" | reverse | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" -%}
-      {%- for g in rd limit: 8 %}<a class="chip{% if g.name == include.cur %} on{% endif %}" href="{{ '/daily/' | relative_url }}#{{ g.name }}" data-issue="{{ g.name }}">{{ g.items[0].date | date: "%-m月%-d日" }}</a>{% endfor -%}
-    {%- else -%}
-      {%- assign rr = site.reports | where: "kind", kind | sort: "start" | reverse -%}
-      {%- for x in rr limit: 8 %}<a class="chip{% if x.url == include.cur %} on{% endif %}" href="{{ x.url | relative_url }}">{% if kind == "weekly" %}第 {{ x.period | split: "W" | last | plus: 0 }} 周{% else %}{{ x.start | date: "%Y.%-m" }}{% endif %}</a>{% endfor -%}
-    {%- endif %}
+    {%- for x in reps limit: 8 %}<a class="chip{% if x.url == include.cur %} on{% endif %}" href="{{ x.url | relative_url }}">{% if kind == "weekly" %}第 {{ x.period | split: "W" | last | plus: 0 }} 周{% else %}{{ x.start | date: "%Y.%-m" }}{% endif %}</a>{% endfor %}
   </div>
   <div class="arch-head">往 期</div>
   <div class="arch-scroll">
-  {%- if kind == "daily" -%}
-    {%- assign days_sorted = site.insights | sort: "date" | reverse -%}
-    {%- assign cur_month = include.cur | slice: 0, 7 -%}
-    {%- assign months = days_sorted | group_by_exp: "p", "p.date | date: '%Y-%m'" -%}
-    {%- for mg in months -%}
-      {%- assign mdays = mg.items | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" %}
-    <details class="arch-group"{% if mg.name == cur_month or forloop.first and cur_month == "" %} open{% endif %}>
-      <summary><span>{{ mg.items[0].date | date: "%Y 年 %-m 月" }}</span><em>{{ mdays.size }}</em></summary>
-      {%- for dg in mdays -%}
-        {%- include paper-rank.html items=dg.items -%}
-        {%- assign wd = dg.items[0].date | date: "%u" -%}
-      <a class="arch-item{% if dg.name == include.cur %} on{% endif %}" href="{{ '/daily/' | relative_url }}#{{ dg.name }}" data-issue="{{ dg.name }}">
-        <span class="ai-num"><b>{{ dg.items[0].date | date: "%-d" }}</b><small>周{% case wd %}{% when "1" %}一{% when "2" %}二{% when "3" %}三{% when "4" %}四{% when "5" %}五{% when "6" %}六{% else %}日{% endcase %}</small></span>
-        <span class="ai-title">{{ pr[0].title }}</span>
-      </a>
-      {%- endfor %}
-    </details>
-    {%- endfor -%}
-  {%- else -%}
-    {%- assign reps = site.reports | where: "kind", kind | sort: "start" | reverse -%}
     {%- if kind == "weekly" -%}{%- assign groups = reps | group_by_exp: "r", "r.start | date: '%Y 年 %-m 月'" -%}
     {%- else -%}{%- assign groups = reps | group_by_exp: "r", "r.start | date: '%Y 年'" -%}{%- endif -%}
     {%- for g in groups -%}
@@ -59,8 +33,7 @@
       {%- endfor %}
     </details>
     {%- endfor -%}
-    {%- if reps.size == 0 %}<p class="arch-empty">{% if kind == "weekly" %}第一期周报将在周一发布{% else %}第一期月报将在月初发布{% endif %}</p>{% endif -%}
-  {%- endif %}
+    {%- if reps.size == 0 %}<p class="arch-empty">{% if kind == "weekly" %}第一期周报将在周一发布{% else %}第一期月报将在月初发布{% endif %}</p>{% endif %}
   </div>
-  {%- if kind == "daily" %}<a class="arch-foot" href="{{ '/insights/' | relative_url }}">全部资讯时间线<span>›</span></a>{% endif %}
+  <a class="arch-foot" href="{{ '/insights/' | relative_url }}">全部资讯时间线<span>›</span></a>
 </aside>

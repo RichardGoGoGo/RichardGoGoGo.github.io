@@ -33,7 +33,7 @@
     {%- if r.stats.sources %}<span><b>{{ r.stats.sources }}</b>个来源</span>{% endif -%}
     {%- if r.stats.firsthand %}<span><b>{{ r.stats.firsthand }}</b>件一手</span>{% endif -%}
     {%- if r.stats.picks %}<span><b>{{ r.stats.picks }}</b>条精选</span>{% endif -%}
-    {%- if r.stats.dailies %}<span><b>{{ r.stats.dailies }}</b>期日报</span>{% endif %}
+    {%- if r.stats.dailies %}<span><b>{{ r.stats.dailies }}</b>天有更新</span>{% endif %}
   </div>
 
   <section class="pp-front">
@@ -114,5 +114,5 @@
   </ul>
   {%- endif %}
   <p class="pp-end">（本期完）</p>
-  <p class="pp-endnote">条目均来自本站已发布资讯，链回原卡片与原始来源；导读与本版导读为编辑汇编，不含评价。<a href="{{ '/daily/' | relative_url }}">看日报 →</a></p>
+  <p class="pp-endnote">条目均来自本站已发布资讯，链回原卡片与原始来源；导读与本版导读为编辑汇编，不含评价。<a href="{{ '/insights/' | relative_url }}">全部资讯 →</a></p>
 </article>

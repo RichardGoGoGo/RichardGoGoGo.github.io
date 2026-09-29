@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return f === 'all' || el.getAttribute('data-kind') === f;
   });
 
-  // --- 报刊：日报切期 / 版内跳转 / 期号卡点阵日历 ---
+  // --- 报刊（周报/月报）：版内跳转 / 期号卡点阵日历（日报切期逻辑保留，页面上没有日报时不生效） ---
   var pIndexEl = $('#paper-index'), pIndex = {};
   try { pIndex = pIndexEl ? JSON.parse(pIndexEl.textContent) : {}; } catch (e) {}
   var MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];

@@ -45,6 +45,6 @@
   {%- if u == "/" or u contains "/insights" or u contains "/daily" -%}{%- assign in_more = false -%}{%- endif %}
   <a class="tab{% if u == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">{% include icon.html n="bolt" sz=20 %}<span>精选</span></a>
   <a class="tab{% if u contains '/insights' %} active{% endif %}" href="{{ '/insights/' | relative_url }}">{% include icon.html n="list" sz=20 %}<span>全部</span></a>
-  <a class="tab{% if u contains '/daily' or u contains '/weekly' or u contains '/monthly' or u contains '/reports' %} active{% endif %}" href="{{ '/daily/' | relative_url }}">{% include icon.html n="doc" sz=20 %}<span>日报</span></a>
+  <a class="tab{% if u contains '/weekly' or u contains '/monthly' or u contains '/reports' %} active{% endif %}" href="{{ '/weekly/' | relative_url }}">{% include icon.html n="doc" sz=20 %}<span>周报</span></a>
   <a class="tab{% if in_more %} active{% endif %}" href="{{ '/more/' | relative_url }}">{% include icon.html n="more" sz=20 %}<span>更多</span></a>
 </nav>
