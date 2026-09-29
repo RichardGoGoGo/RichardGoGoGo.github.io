@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
-    <title>北境修仙录</title>
-  <script type="module" crossorigin src="./assets/index-BMXuI0pA.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BtwXipBq.css">
+    <title>喵喵修仙录</title>
+  <script type="module" crossorigin src="./assets/index-CYbbRSNw.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BglGmlCZ.css">
 </head>
 <body>
     <div id="game-container">
@@ -24,7 +24,7 @@
                 <div class="equip-slots loadout-manikin" id="equip-slots">
                     <img
                         class="loadout-figure-image"
-                        src="./assets/equipment-manikin-neutral-lowpoly-v3-C8cle6-k.webp"
+                        src="./assets/equipment-manikin-cat-neutral-lowpoly-v1-DiiWniSy.webp"
                         alt=""
                         aria-hidden="true"
                         draggable="false"
@@ -68,13 +68,13 @@
             <!-- Main Menu -->
             <div id="screen-main-menu" class="screen active">
                 <div class="title-art">
-                    <span class="menu-kicker">北境 · 问道</span>
-                    <h1 class="game-title">北境修仙录</h1>
-                    <p class="game-subtitle">踏雪问道，百死求真</p>
+                    <span class="menu-kicker">云岚 · 问道</span>
+                    <h1 class="game-title">喵喵修仙录</h1>
+                    <p class="game-subtitle">踏爪凌云，九命求真</p>
                 </div>
                 <div class="menu-buttons">
-                    <button class="btn btn-primary" id="btn-new-game">开始修仙</button>
-                    <button class="btn" id="btn-continue" disabled>继续修炼</button>
+                    <button class="btn btn-primary" id="btn-new-game">踏上猫仙路</button>
+                    <button class="btn" id="btn-continue" disabled>继续猫修</button>
                     <button class="btn" id="btn-meta">悟道碑</button>
                 </div>
             </div>
@@ -82,19 +82,19 @@
             <!-- Player naming -->
             <div id="screen-naming" class="screen">
                 <form id="naming-form" class="naming-scroll" novalidate>
-                    <span class="naming-eyebrow">落名入道</span>
-                    <div class="naming-seal" aria-hidden="true">名</div>
-                    <h2>请留道号</h2>
-                    <p>此名将随你写入北境行卷，并随存档一同承续。</p>
+                    <span class="naming-eyebrow">落爪留名</span>
+                    <div class="naming-seal" aria-hidden="true">爪</div>
+                    <h2>请赐猫名</h2>
+                    <p>此名将随你写入云岚行卷，并随存档一同承续。</p>
                     <label class="naming-field" for="player-name-input">
-                        <span>行者姓名</span>
+                        <span>猫修名号</span>
                         <input
                             id="player-name-input"
                             name="playerName"
                             type="text"
                             autocomplete="off"
                             enterkeyhint="next"
-                            placeholder="例如：沈照雪"
+                            placeholder="例如：芝麻糊"
                             aria-describedby="player-name-help player-name-error"
                         >
                     </label>
@@ -113,13 +113,13 @@
             <!-- Origin Selection Screen -->
             <div id="screen-origin" class="screen">
                 <div class="loot-overlay">
-                    <h2 class="loot-title">择道而行</h2>
-                    <p class="loot-subtitle">先定行者之身，再选此世道途</p>
+                    <h2 class="loot-title">择猫问道</h2>
+                    <p class="loot-subtitle">先选今世猫身，再踏这条修仙道途</p>
                     <div
                         class="origin-gender-picker"
                         id="origin-gender-picker"
                         role="group"
-                        aria-label="选择行者性别"
+                        aria-label="选择猫修性别"
                     ></div>
                     <div class="loot-cards" id="origin-cards"></div>
                 </div>
@@ -129,7 +129,7 @@
             <div id="screen-battle" class="screen">
                 <section id="stronghold-transition" class="stronghold-transition" hidden aria-live="polite">
                     <div class="stronghold-transition-scroll">
-                        <span class="stronghold-transition-kicker">北境长卷</span>
+                        <span class="stronghold-transition-kicker">云岚长卷</span>
                         <h2 id="stronghold-transition-title">越境前行</h2>
                         <div id="stronghold-transition-route" class="stronghold-transition-route" aria-label="四大据点进度"></div>
                         <p id="stronghold-transition-copy"></p>
@@ -237,7 +237,7 @@
                                 id="run-progress-info"
                                 class="run-progress-info player-run-progress"
                                 style="display:none"
-                                aria-label="人物被动效果与积累"
+                                aria-label="猫修被动效果与积累"
                             ></div>
                           </div>
                           <div class="player-emitter-rack emitter-right active-rack" id="player-emitter-right" aria-label="主动效果"></div>
@@ -271,7 +271,7 @@
 
                 <section id="journey-scene" class="adventure-scene journey-scene" hidden>
                     <div class="journey-seal" aria-hidden="true">终</div>
-                    <span class="stronghold-kicker">北境尽头</span>
+                    <span class="stronghold-kicker">九霄尽头</span>
                     <h2 id="journey-title">此境已破</h2>
                     <p id="stronghold-desc"></p>
                     <button class="btn btn-primary" id="btn-next-stage">继续前行</button>
@@ -323,11 +323,11 @@
             <!-- Game Over / Ascension Screen -->
             <div id="screen-game-over" class="screen">
                 <div class="panel">
-                    <h2 class="game-over-title" id="game-over-title">道陨</h2>
-                    <p class="game-over-text" id="game-over-text">你的修仙之路在此终结...</p>
+                    <h2 class="game-over-title" id="game-over-title">九命已尽</h2>
+                    <p class="game-over-text" id="game-over-text">这一世猫仙路暂止于此……</p>
                     <div id="game-over-rewards"></div>
                     <div class="game-over-actions">
-                        <button class="btn btn-primary" id="btn-restart">重新修炼</button>
+                        <button class="btn btn-primary" id="btn-restart">再续一命</button>
                         <button class="btn" id="btn-export-meta-end" type="button">导出洞府存档</button>
                     </div>
                 </div>
@@ -339,8 +339,8 @@
             <div class="right-character-profile">
                 <div class="char-portrait" id="char-portrait">剑</div>
                 <div class="right-character-copy">
-                    <span class="right-panel-eyebrow">行者</span>
-                    <div class="char-name" id="char-name-display">无名修士</div>
+                    <span class="right-panel-eyebrow">猫修</span>
+                    <div class="char-name" id="char-name-display">无名猫修</div>
                     <div class="char-realm" id="char-realm-display">炼气</div>
                 </div>
             </div>
@@ -374,7 +374,7 @@
             </section>
 
             <section class="right-panel-section">
-                <div class="right-panel-title"><span>人物属性</span><small>当前构筑</small></div>
+                <div class="right-panel-title"><span>猫修属性</span><small>当前构筑</small></div>
                 <div class="char-bars">
                     <div
                         class="bar-row combat-resource-control"
