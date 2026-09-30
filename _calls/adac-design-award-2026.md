@@ -3,7 +3,7 @@ title: "2026 亚洲青年大学生设计创新奖（ADAC）"
 date: 2026-09-29
 ctype: 设计赛事
 host: "亚洲数字艺术研究中心（ADAC）"
-src: "https://www.transadia.com"
+src: "https://www.transadia.com/1136.html"
 deadline: 2026-10-15
 tags: [数字艺术, AI视频, 生成式艺术, 大学生]
 topics: ["视频生成"]
@@ -20,4 +20,4 @@ summary: "亚洲数字艺术研究中心主办的年度大学生设计赛事，�
 
 **截止与要求**：作品征集截止 2026-10-15 24:00；10-26 至 10-30 评审，11-8 公布结果。分组、赛道与提交格式以官方页面为准，不臆造。
 
-> 客观资讯，截止与要求以官方公告为准。来源：[官方页面](https://www.transadia.com)。
+> 客观资讯，截止与要求以官方公告为准。来源：[官方页面](https://www.transadia.com/1136.html)。

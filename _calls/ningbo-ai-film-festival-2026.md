@@ -1,5 +1,6 @@
 ---
 title: "2026 宁波青年 AI 影像节全球征片"
+expired: true
 date: 2026-06-15
 ctype: AI视频赛事
 host: "宁波青年 AI 影像节组委会"

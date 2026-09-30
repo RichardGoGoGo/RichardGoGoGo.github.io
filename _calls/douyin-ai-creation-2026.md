@@ -4,7 +4,7 @@ expired: true
 date: 2026-06-10
 ctype: AI视频赛事
 host: "抖音（字节跳动）"
-src: "https://aiia.douyin.com/"
+src: "https://jimeng.jianying.com/ai-tool/activity-detail/2026-289-dreamina-weekly-challenge"
 deadline: 2026-08-20
 tags: [AI视频, 赛事, 字节跳动]
 topics: ["字节跳动", "视频生成"]
@@ -13,9 +13,9 @@ summary: "抖音首届 AI 创作大赛，总奖池 400 万元现金，2026-08-20
 
 **简介**：抖音首届 AI 创作大赛，主题「去创作，直到幻想尽头」，面向全网征集 AI 叙事视频，设开放赛道、命题赛道、品牌赛道；不限参赛者身份，AI 工具不限。
 
-**主办方**：抖音（字节跳动）· 可信度高（官方举办，主流媒体广泛报道）。
+**主办方**：抖音（字节跳动）。
 
-**时间**：2026-06-10 开赛，**2026-08-20 24:00 截止**（现在可投）。
+**时间**：2026-06-10 开赛，**2026-08-20 24:00 截止**。
 
 **产物要求**：AI 叙事视频，时长 ≥ 2 分钟、须有完整故事；在抖音 App（带赛道话题标签 + 勾选「AI 发布自主声明」）与即梦 AI 网页活动页双端同步投稿。
 
@@ -23,4 +23,4 @@ summary: "抖音首届 AI 创作大赛，总奖池 400 万元现金，2026-08-20
 
 **参赛资格**：无身份限制，机构 / 团队 / 个人均可。
 
-> 客观资讯，投稿前以 [官方活动页](https://aiia.douyin.com/) 公告为准。转载来源：[量子位](https://www.qbitai.com/2026/06/433832.html)。
+> 客观资讯，投稿前以 [官方活动页](https://jimeng.jianying.com/ai-tool/activity-detail/2026-289-dreamina-weekly-challenge) 公告为准。转载来源：[量子位](https://www.qbitai.com/2026/06/433832.html)。

@@ -1,9 +1,9 @@
 ---
 title: "2026 全国青年建筑与城市 AI 创意作品征集"
-date: 2026-06-01
+date: 2026-05-20
 ctype: 设计赛事
 host: "中国建筑文化中心（住房和城乡建设部直属）"
-src: "https://www.chinacon.com.cn/site/content/1589.html"
+src: "https://www.chinacon.com.cn/site/content/3534.html"
 deadline: 2026-10-15
 tags: [建筑设计, AI创意, 全国征集, 作品征集]
 topics: ["艺术与展览"]
@@ -18,6 +18,6 @@ summary: "住建部直属中国建筑文化中心主办的全国青年建筑 × 
 
 **适合方向**：建筑、城市、视觉与 AI 影像方向的创作者与团队。
 
-**截止与要求**：征集截止 2026-10-15；分组、单元与提交格式以官方页面为准，不臆造。
+**截止与要求**：征集截止 2026-10-15（以官方附件为准）；分组、单元与提交格式以官方页面为准，不臆造。
 
-> 客观资讯，截止与要求以官方公告为准。来源：[中国建筑文化中心](https://www.chinacon.com.cn/site/content/1589.html)。
+> 客观资讯，截止与要求以官方公告为准。来源：[中国建筑文化中心](https://www.chinacon.com.cn/site/content/3534.html)。
