@@ -1,19 +1,20 @@
 ---
-title: "OpenAI Sora API 9月24日关停：$10亿迪士尼合作流产，AI视频格局重塑"
-date: 2026-09-09
+title: "OpenAI Sora 视频 API 于 9 月 24 日关停，官方未提供替代；迪士尼已退出授权与 10 亿美元入股计划"
+date: 2026-09-24
 icat: 行业
 firsthand: true
-source: "OpenAI官方/The Verge/TechCrunch"
-src: "https://variety.com/2026/digital/news/openai-shutting-down-sora-video-disney-1236698277/"
-tags: [OpenAI, Sora, API关停, 迪士尼, AI视频, 格局重塑]
+source: "OpenAI 开发者文档 / Variety / 迪士尼新闻稿"
+src: "https://developers.openai.com/api/docs/deprecations#2026-03-24-sora-2-video-generation-models-and-videos-api"
+tags: [OpenAI, Sora, API关停, 迪士尼, AI视频]
 topics: ["OpenAI", "视频生成", "行业与融资"]
-summary: "OpenAI Sora API将于2026年9月24日终止服务，独立app已于4月下线，与迪士尼约$10亿规模的AI视频合作随之流产"
+summary: "OpenAI 的 Sora 2 视频模型与 Videos API 于 9 月 24 日关停，官方文档写明没有一对一的替代 API；迪士尼 2025 年底宣布的角色授权与 10 亿美元入股计划，在 3 月关停消息公布时已退出。"
 weight: 4
 pinned: true
 pin_until: 2026-09-16
 editor_pick: true
+deep: /deep/2026-09-24-sora-api-shutdown/
 ---
 
-OpenAI宣布Sora API将于2026年9月24日正式关停。Sora独立应用此前已于4月26日下线。与此同时，此前报道中规模约$10亿的Sora与迪士尼AI视频战略合作也随Sora产品线关停而终止。2024年2月发布时引爆行业想象力的旗舰AI视频产品，在不到两年内完成从里程碑到退出的完整周期。开源阵营（FLUX 3 Video、LTX-2.5、MiniMax H3）及国产视频模型（Wan 3.0、Seedance 2.5、Kling 3.5）在此期间已具备替代能力。
+OpenAI 的 Sora 2 视频模型与 Videos API 已于 9 月 24 日关停。OpenAI 在 3 月 24 日的弃用通知中列出 Videos API、sora-2、sora-2-pro 及其快照，推荐替代一栏为空；视频生成指南写明没有一对一的替代 API。Sora 独立应用定于 4 月 26 日下线（据 The Decoder）。迪士尼 2025 年 12 月宣布与 OpenAI 签订三年授权、让 200 多个角色进入 Sora，并计划入股 10 亿美元，交易仍需谈判最终协议；3 月关停消息公布时，Variety 报道迪士尼退出合作，据 exchange4media 报道双方未发生资金往来。此后 ElevenLabs、ComfyUI 等平台陆续下架 Sora 相关功能。
 
-> Sora从2024年全球最具关注度的AI视频到2026年关停，是AI商业化复杂性的典型案例；$10亿迪士尼协议流产将成为AI与传统内容产业合作中商业风险的重要参照案例。
+> Sora 的 Videos API 从开放到关停不到一年，依赖单一闭源视频 API 的创作流程需要预留替换路径。

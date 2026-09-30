@@ -1,16 +1,18 @@
 ---
-title: "Runway AI 年收入达 2 亿美元并购巴黎实验室 Kinetix"
+title: "Runway 称年化经常性收入五个月翻倍至 2 亿美元，巴黎实验室 Kinetix 团队加入"
 date: 2026-09-08
 icat: 行业
-source: "Bloomberg / TechTimes"
-src: "https://www.bloomberg.com/news/articles/2026-09-08/ai-startup-runway-hits-200-million-in-annual-recurring-revenue"
-tags: [Runway, AI视频, 商业, 收购]
+firsthand: true
+source: "Runway 官方 / PYMNTS"
+src: "https://runway.com/news/company-news/kinetix-joins-runway"
+tags: [Runway, AI视频, ARR, Kinetix]
 topics: ["Runway", "视频生成", "行业与融资"]
-summary: "Runway AI 年收入从 4 月 1 亿美元跃升至 9 月 2 亿美元，同时宣布收购专研三维人体动作的巴黎实验室 Kinetix。"
+summary: "Runway 联合 CEO Anastasis Germanidis 9 月 8 日称，公司年化经常性收入已超过 2 亿美元（4 月为 1 亿美元）；同日 Runway 宣布巴黎 AI 实验室 Kinetix 的团队加入，参与其面向机器人的世界模型研究。"
 pinned: true
 pin_until: 2026-09-20
+deep: /deep/2026-09-08-runway-200m-arr-kinetix/
 ---
 
-Runway AI 年度重复收入（ARR）于 2026 年 9 月达 2 亿美元，较 4 月 1 亿美元在五个月内翻倍；净收入留存率超 300%，现有企业客户平均三倍扩消费。增长几乎全部由大型媒体、广告与游戏公司驱动，这些机构已将 Runway 工具嵌入专业制作管线。Runway 同期宣布收购巴黎 AI 实验室 Kinetix（7 人），该团队专研三维人体动作模拟与具身视频生成，此前已集成于 Unity Muse 与 Adobe Mixamo。Runway AI Summit 将于 9 月 30 日在旧金山举行。
+Runway 联合 CEO Anastasis Germanidis 9 月 8 日在领英发文称，公司年化经常性收入（ARR）已在前一周超过 2 亿美元，4 月时为 1 亿美元（PYMNTS 等媒体报道）。Runway 首席营收官 8 月 20 日在官网文章中称，公司净收入留存率超过 300%，一家财富 20 强企业今年的使用量增长逾 17 倍。同日 Runway 官网宣布，巴黎 AI 研究实验室 Kinetix 的团队加入其巴黎中心，参与面向机器人的世界模型研究，公告未披露交易金额与人数。Kinetix 研究 3D 人体动作与角色动画，其模型此前已集成进 Unity Muse，并授权给 Adobe Mixamo。
 
-> AI 视频生成商业化成熟度的关键指标：净留存率超 300% 表明企业用户在扩大而非缩减对 AI 视频工具的投入，Kinetix 收购预示其在角色动画与互动媒体方向的能力延伸。
+> 企业客户持续加码，Kinetix 团队加入，Runway 在视频生成之外把世界模型推向角色动作与机器人方向。
