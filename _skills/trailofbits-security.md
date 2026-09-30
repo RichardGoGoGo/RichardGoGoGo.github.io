@@ -6,9 +6,9 @@ src: "https://github.com/trailofbits/skills"
 risk: low
 theme: [digital-team]
 repo: "trailofbits/skills"
-stars: 7281
+stars: 7301
 pushed: 2026-09-28
-stats_at: 2026-09-29
+stats_at: 2026-09-30
 tags: [安全, Skill, 代码审计]
 summary: "顶尖安全研究机构 Trail of Bits 出品的 40+ 安全分析插件，含供应链审查、内存安全、静态分析、智能合约审计等。"
 ---
@@ -17,7 +17,7 @@ summary: "顶尖安全研究机构 Trail of Bits 出品的 40+ 安全分析插�
 
 **要点**：行业机构出品；`supply-chain-risk-auditor` 子插件可用于审查依赖链。
 
-**活跃度**：5.8k★ / 122 commits（CC-BY-SA-4.0）。作者可信度：高。
+**作者可信度**：高（Trail of Bits；CC-BY-SA-4.0）。
 
 **安全审查（七项客观事实，审查于 2026-06）**：① 无隐藏指令（AGENTS.md 为标准贡献指南）；② 分析全本地，`supply-chain-risk-auditor` 经 `gh` CLI 查询 GitHub 公开 API；③ `static-analysis` 需本地安装 CodeQL / Semgrep 等工具，属安全分析合理需求；④ 无混淆 / 远程执行；⑤ 描述与行为一致；⑥ 依赖公开安全工具（CodeQL、Semgrep、Burp Suite、Yara-X），无私有来源；⑦ 无凭证窃取。
 

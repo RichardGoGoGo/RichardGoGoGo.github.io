@@ -8,7 +8,7 @@ theme: [design-teaching]
 repo: "irenerachel/visual-style-ppt-skill"
 stars: 389
 pushed: 2026-04-30
-stats_at: 2026-09-29
+stats_at: 2026-09-30
 tags: [设计视觉, PPT, 图像生成, Skill]
 summary: "以 OpenAI GPT-image-2 驱动的中文视觉 PPT skill，风格优先（3 套风格文件，含 Style Lock），每张幻灯片独立成图，产出仅含图片的 PPTX 文件包。"
 ---
@@ -17,7 +17,7 @@ summary: "以 OpenAI GPT-image-2 驱动的中文视觉 PPT skill，风格优先�
 
 **要点**：每张幻灯片均为图片；需 OpenAI GPT-image-2（Image 2）API；中文场景友好。
 
-**活跃度**：274★ / 2026-06-30 更新（未标 license）。作者：个人维护。
+**作者可信度**：个人维护（仓库未标 license）。
 
 **安全审查（七项客观事实，审查于 2026-07）**：① 无隐藏指令，SKILL.md 与目的一致；② 数据外泄需注意——每张幻灯片图片均调用 OpenAI GPT-image-2 API，用户内容（标题 / 文案 / 风格提示词）会发往 OpenAI 服务器；③ 安装走 git clone、无 curl|bash，无系统命令执行、不写敏感路径；④ 无 curl|bash、无 base64 混淆；⑤ 描述与行为一致，Image 2 依赖已在 SKILL.md 声明；⑥ 纯 Markdown + YAML 结构、无 npm/pip 依赖，但未标注 license；⑦ 无凭证窃取，OPENAI_API_KEY 由用户自备、skill 不读不传。
 

@@ -1,14 +1,14 @@
 ---
 title: "wewrite：公众号文章全流程 skill"
 date: 2026-06-22
-source: "oaker-io"
-src: "https://github.com/oaker-io/wewrite"
+source: "imraywang（原 oaker-io）"
+src: "https://github.com/imraywang/wewrite"
 risk: low
 theme: [digital-team]
 repo: "imraywang/wewrite"
-stars: 3369
+stars: 3378
 pushed: 2026-09-28
-stats_at: 2026-09-29
+stats_at: 2026-09-30
 tags: [写作, Skill, 全流程]
 summary: "公众号文章全流程：热点抓取→选题→写作→SEO→配图→排版→草稿箱。"
 ---
@@ -23,4 +23,4 @@ summary: "公众号文章全流程：热点抓取→选题→写作→SEO→配�
 
 **风险评级**：🟢 低（注意凭证明文）。
 
-> 安全审查基于审查时（2026-06）的源码与文档，使用前请再核一次。来源：[GitHub](https://github.com/oaker-io/wewrite)。
+> 安全审查基于审查时（2026-06）的源码与文档，使用前请再核一次。来源：[GitHub](https://github.com/imraywang/wewrite)。

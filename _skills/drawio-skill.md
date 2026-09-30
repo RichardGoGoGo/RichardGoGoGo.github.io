@@ -6,9 +6,9 @@ src: "https://github.com/Agents365-ai/drawio-skill"
 risk: low
 theme: [design-teaching]
 repo: "Agents365-ai/drawio-skill"
-stars: 9742
+stars: 9765
 pushed: 2026-09-14
-stats_at: 2026-09-29
+stats_at: 2026-09-30
 tags: [设计视觉, 技术图表, drawio, Skill]
 summary: "自然语言 → draw.io 技术图表（架构图/UML/ERD/C4/ML 模型/流程图），6 种预设，自带视觉自检，导出 PNG/SVG/PDF/JPG。"
 ---
@@ -17,7 +17,7 @@ summary: "自然语言 → draw.io 技术图表（架构图/UML/ERD/C4/ML 模型
 
 **要点**：本地 CLI 操作为主；28 个反向生成脚本。
 
-**活跃度**：5,392★ / 2026-07-07 更新。作者：多产开发者。
+**作者可信度**：个人维护，作者另有多个开源项目。
 
 **安全审查（七项客观事实，审查于 2026-07）**：① 无隐藏指令；② 全本地 CLI 操作，CLI 不可用时的 diagrams.net fallback URL 会将 XML 发到 draw.io 官方服务器（仅备用、属官方已知服务）；③ 需本地安装 draw.io CLI（合理需求），Graphviz 可选；④ 无混淆 / 远程执行；⑤ 描述与行为一致；⑥ Python 脚本 + draw.io 官方开源 CLI，无私有来源；⑦ 无凭证窃取。
 

@@ -6,9 +6,9 @@ src: "https://github.com/LearnPrompt/humanize-ppt"
 risk: medium
 theme: [design-teaching]
 repo: "LearnPrompt/humanize-ppt"
-stars: 959
+stars: 962
 pushed: 2026-07-31
-stats_at: 2026-09-29
+stats_at: 2026-09-30
 tags: [设计视觉, Skill, PPT]
 summary: "把 70 多篇 TED 演讲的叙事方式提炼成「观众状态转移」（AST）提纲的 PPT 编排 skill，仅产渲染 Brief、不直接出 HTML，依赖下游出图 skill。"
 ---
@@ -17,7 +17,7 @@ summary: "把 70 多篇 TED 演讲的叙事方式提炼成「观众状态转移�
 
 **要点**：「Brief-only」设计清晰分离职责；本体声明「Zero APIs, zero Keys」（不调外部 API）。
 
-**活跃度**：421★ / v1.0.0（2026-06-19）。作者可信度：中（有 AI 教育背景）。
+**作者可信度**：中（有 AI 教育背景）。
 
 **安全审查（七项客观事实，审查于 2026-06）**：① 无隐藏指令；② 本体声明「zero APIs, zero Keys」，仅写本地 Brief 文件——下游 image-gen / ppt-skill 等需另行审查；③ 无系统命令执行；④ 安装走 `npx skills add LearnPrompt/humanize-ppt`（npm 远程包），需审 npm 依赖链；⑤ 描述与行为一致；⑥ 下游依赖（ppt-skill、image-gen、frontend-slides）未在本次审查范围；⑦ 无凭证窃取。
 

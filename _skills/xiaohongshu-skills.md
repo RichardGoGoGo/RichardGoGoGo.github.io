@@ -6,9 +6,9 @@ src: "https://github.com/white0dew/XiaohongshuSkills"
 risk: medium
 theme: [digital-team]
 repo: "white0dew/XiaohongshuSkills"
-stars: 3466
-pushed: 2026-09-28
-stats_at: 2026-09-29
+stars: 3470
+pushed: 2026-09-30
+stats_at: 2026-09-30
 tags: [内容发布, Skill, 小红书]
 summary: "基于 Chrome CDP 的小红书自动化 skill：发图文/视频、搜索、评论、多账号管理、数据导出 CSV。"
 ---
@@ -17,7 +17,7 @@ summary: "基于 Chrome CDP 的小红书自动化 skill：发图文/视频、搜
 
 **要点**：Chrome 无头模式 + 远程 CDP；Cookie 隔离多账号；README 明确警示平台封号风险。
 
-**活跃度**：3.1k★ / 30 commits（MIT）。作者可信度：中。
+**作者可信度**：中（MIT）。
 
 **安全审查（七项客观事实，审查于 2026-06）**：① 无隐藏指令；② `cdp_publish.py` 网络请求仅指向 xiaohongshu.com，`tmp/login_status_cache.json` 仅存布尔登录态、无凭证明文；③ 需本机 Chrome 控制（CDP 8222+ 端口）+ 文件系统读写，发布场景下属功能需要，攻击面较大；④ base64 仅用于截图显示二维码（合理用途）；⑤ 功能如 README 所述，已写明平台封号风险；⑥ Python 标准依赖（playwright / requests），无私有 pip 源；⑦ Cookie 存本机 Chrome Profile，无外传。
 

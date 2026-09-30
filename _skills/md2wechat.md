@@ -6,9 +6,9 @@ src: "https://github.com/geekjourneyx/md2wechat-skill"
 risk: medium
 theme: [digital-team]
 repo: "geekjourneyx/md2wechat-skill"
-stars: 3674
+stars: 3682
 pushed: 2026-09-24
-stats_at: 2026-09-29
+stats_at: 2026-09-30
 tags: [内容发布, Skill, 公众号]
 summary: "Markdown→公众号 HTML（43 排版模块）+ 推草稿箱 + AI 配图。"
 ---
