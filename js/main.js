@@ -46,14 +46,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // --- 时间线筛选 + 按天计数 ---
+  // 全部资讯里当天的 SKILL 评测收在 .skill-fold 折叠行：日计数只数资讯和征集，SKILL 数写在折叠行上；
+  // 时间线带 .unfold（筛「SKILL」）时折叠行展开并隐藏行头，计数包含 SKILL
   function isHiddenCall(it) { return it.getAttribute('data-kind') === 'calls' && it.classList.contains('is-expired'); }
+  function isShown(it) { return it.style.display !== 'none' && !isHiddenCall(it); }
   function refreshDays(root) {
-    var total = 0;
+    var total = 0, unfold = !!root && root.classList.contains('unfold');
     $$('.day', root).forEach(function (day) {
-      var n = $$('.item', day).filter(function (it) { return it.style.display !== 'none' && !isHiddenCall(it); }).length;
+      var n = $$('.item', day).filter(isShown).length, folded = 0;
+      $$('.skill-fold', day).forEach(function (f) {
+        var k = $$('.item', f).filter(isShown).length;
+        f.hidden = k === 0; folded += k;
+        var fc = $('.fold-count', f);
+        if (fc) fc.textContent = k;
+      });
       day.hidden = n === 0;
-      var c = $('.day-count', day);
-      if (c) c.textContent = n ? n + ' 条' : '';
+      var c = $('.day-count', day), shown = unfold ? n : n - folded;
+      if (c) c.textContent = shown ? shown + ' 条' : '';
       total += n;
     });
     return total;
@@ -83,6 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (f.indexOf('c:') === 0) return it.getAttribute('data-icat') === f.slice(2);
     return true;
   }, function () {
+    var act = $('#feed-filter .seg-btn.active'), unfold = !!act && act.getAttribute('data-f') === 'k:skills';
+    tl.classList.toggle('unfold', unfold);
+    $$('.skill-fold', tl).forEach(function (f) { f.open = unfold; });
     var n = refreshDays(tl);
     var empty = $('#feed-empty');
     if (empty) empty.hidden = n > 0;
@@ -301,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (overlay && overlay.classList.contains('active')) { overlay.classList.remove('active'); document.body.style.overflow = ''; }
     var anc = el.closest('.fade-in'); if (anc) anc.classList.add('visible');
     var day = el.closest('.day'); if (day) day.hidden = false;
+    var fold = el.closest('.skill-fold'); if (fold) { fold.hidden = false; fold.open = true; }
     el.style.display = '';
     el.classList.add('open');
     var h = $('.item-title, .post-title, .feat-title', el);

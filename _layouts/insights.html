@@ -20,19 +20,35 @@ layout: default
         <button class="seg-btn" data-f="k:skills">SKILL</button>
       </div>
 
+      {%- comment -%} 每天内：资讯（按 weight 高→低）→ 征集 → 当天的 SKILL 评测折叠成一行（点开展开；筛「SKILL」时自动展开，见 js/main.js） {%- endcomment -%}
       <div class="timeline" id="timeline">
-      {%- assign cur = "" -%}
-      {%- for p in all -%}
-        {%- assign d = p.date | date: "%Y-%m-%d" -%}
-        {%- if d != cur -%}
-          {%- unless forloop.first %}</div></section>{% endunless %}
-        <section class="day" data-day="{{ d }}">
-          {% include day-bar.html d=p.date %}
+      {%- assign days = all | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" -%}
+      {%- for g in days -%}
+        {%- assign d0 = g.items | first -%}
+        {%- assign news = g.items | where: "collection", "insights" | sort: "weight", "first" | reverse -%}
+        {%- assign dcalls = g.items | where: "collection", "calls" -%}
+        {%- assign dskills = g.items | where: "collection", "skills" %}
+        <section class="day" data-day="{{ g.name }}">
+          {% include day-bar.html d=d0.date %}
           <div class="day-items">
-          {%- assign cur = d -%}
-        {%- endif %}
+          {%- for p in news %}
             {% include card.html p=p tags=true %}
-        {%- if forloop.last %}</div></section>{% endif -%}
+          {%- endfor -%}
+          {%- for p in dcalls %}
+            {% include card.html p=p tags=true %}
+          {%- endfor -%}
+          {%- if dskills.size > 0 %}
+            <details class="skill-fold">
+              <summary class="fold-row"><span class="badge kind">SKILL 评测</span><span class="fold-title">上新 <b class="fold-count">{{ dskills.size }}</b> 个</span><span class="fold-names">{% for p in dskills limit: 3 %}{{ p.title | split: "：" | first | split: "/" | last }}{% unless forloop.last %}、{% endunless %}{% endfor %}{% if dskills.size > 3 %} 等{% endif %}</span><span class="fold-caret" aria-hidden="true">›</span></summary>
+              <div class="fold-items">
+              {%- for p in dskills %}
+                {% include card.html p=p tags=true %}
+              {%- endfor %}
+              </div>
+            </details>
+          {%- endif %}
+          </div>
+        </section>
       {%- endfor %}
       </div>
       <p class="empty" id="feed-empty" hidden>该筛选下暂无内容</p>
