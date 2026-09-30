@@ -10,6 +10,7 @@ topics: ["Midjourney"]
 summary: "Midjourney V8.2 Edit Mode正式全量开放，在单一界面整合4张参考图输入、画布内绘（inpaint）与外延（outpaint）功能"
 pinned: true
 pin_until: 2026-09-16
+editor_pick: true
 ---
 
 Midjourney于8月31日将V8.2 Edit Mode推送至全量用户，该界面整合了此前分散于不同入口的多项编辑功能：最多4张参考图可联合输入并分别指定影响权重（人物/风格/色调/构图）；画布内绘（Inpaint）支持框选区域进行局部重绘；外延（Outpaint）支持向任意方向扩展画布；所有操作在统一的网页编辑器界面中完成，无需切换命令模式。V8.2 Edit Mode与HD模式及SREF风格参考保持兼容。

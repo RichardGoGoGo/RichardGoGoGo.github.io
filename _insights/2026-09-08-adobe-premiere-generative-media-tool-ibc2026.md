@@ -10,6 +10,7 @@ topics: ["Adobe", "视频生成"]
 summary: "Adobe 于 IBC 2026 推出 Premiere Pro Generative Media Tool，时间轴内框选即可调用 Firefly、Runway、Kling、Veo、Luma 五大 AI 视频模型，并同步新增 AI 音效与声景生成。"
 pinned: true
 pin_until: 2026-09-22
+editor_pick: true
 ---
 
 Adobe 于 2026 年 9 月 8 日（IBC 2026 期间）正式推出 Premiere Pro Generative Media Tool：编辑者在时间轴任意轨道框选范围、输入文字提示，即可在原地生成视频片段（参考帧采样保持风格一致），Firefly、Google Veo、Runway、Kling、Luma 五个 AI 视频模型可在同一工具栏直接切换，完全消除往返导出流程。同步发布的 AI SFX 支持声音引导节奏的音效生成；Generate Soundscape Beta 可将 15 秒视频自动生成多层音轨底稿；After Effects 同步推出 AI 助手 Beta，自然语言指令可完成项目重组、expression 修复和 rig 创建。

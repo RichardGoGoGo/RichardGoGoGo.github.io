@@ -8,6 +8,7 @@ src: "https://huggingface.co/inclusionAI/LLaDA-Image"
 tags: [图像生成, 开源, 中文, 文字渲染, inclusionAI]
 topics: ["图像生成", "设计工具"]
 summary: "inclusionAI 发布 LLaDA-Image：6B 参数开源统一图像生成与编辑模型，分 Base（50步高质量）和 Turbo（4步快速，Twin-DMD 蒸馏）双档，支持文生图、参考图风格迁移、精准编辑以及中英文文字排版渲染。"
+editor_pick: true
 ---
 
 inclusionAI 发布 LLaDA-Image：6B 参数开源统一图像生成与编辑模型，分 Base（50步高质量）和 Turbo（4步快速，Twin-DMD 蒸馏）双档，支持文生图、参考图风格迁移、精准编辑以及中英文文字排版渲染。

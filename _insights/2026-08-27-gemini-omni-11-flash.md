@@ -11,6 +11,7 @@ topics: ["Google", "视频生成"]
 summary: "Google发布Gemini Omni 1.1 Flash，支持40秒视频生成、首尾帧双重锁定、4K输出及$0.03/秒的Draft快速模式"
 pinned: true
 pin_until: 2026-09-16
+editor_pick: true
 ---
 
 Google DeepMind于8月27日发布Gemini Omni 1.1 Flash视频生成模型，在上一代基础上引入四项升级：最长单次生成时长从15秒延伸至40秒；新增首帧+尾帧双重锁定功能，用户可同时指定视频开头和结尾的画面，模型负责填充中间的运动过渡；原生输出分辨率升至4K；并推出Draft Mode，以$0.03/秒的定价大幅降低快速预览成本，正式模式仍维持原价。

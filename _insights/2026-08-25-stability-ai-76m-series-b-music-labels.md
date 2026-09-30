@@ -8,6 +8,7 @@ src: "https://stability.ai/news-updates/stability-ai-latest-funding-backed-by-en
 tags: [Stability AI, 融资, B轮, 音乐公司, EA, 版权合规]
 topics: ["Stability AI", "音频与音乐", "版权与政策"]
 summary: "Stability AI完成$76M B轮融资，环球音乐集团、索尼音乐、华纳音乐及游戏巨头EA联合参投，此轮融资被解读为内容产业对AI公司授权路径的战略背书"
+editor_pick: true
 ---
 
 Stability AI宣布完成7600万美元B轮融资，投资方阵容包括环球音乐集团（UMG）、索尼音乐、华纳音乐及游戏公司Electronic Arts（EA）。这是Stability AI在公司历经高管更替和财务困境后的重要融资节点。三大唱片公司的联合参投被广泛解读为在版权诉讼之外，内容产业正在以投资方式参与AI生成内容授权体系的构建，以期在未来商业模式中获得议价地位。

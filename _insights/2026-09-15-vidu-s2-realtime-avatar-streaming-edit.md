@@ -10,6 +10,7 @@ topics: ["视频生成"]
 summary: "生数科技发布 Vidu S2，包含实时 720p 数字人生成与无中断流式视频风格编辑两个子模型，在线演示同步开放。"
 pinned: true
 pin_until: 2026-09-28
+editor_pick: true
 ---
 
 生数科技（Shengshu Technology）于9月15日发布 Vidu S2，包含两个子模型：Vidu S2-Avatar 支持实时生成 720p 数字人，可在对话中动态替换参考图、跟随舞蹈等复杂肢体指令；Vidu S2-Editing 实现流式实时视频风格编辑，包括风格渲染、换装、换人、换背景，整个过程无需中断视频流。论文同时展示了 VR 空间中的实时视频生成与编辑能力，配套在线演示已开放（vidu.com/vidu-stream），对应论文为 arXiv:2609.11638。

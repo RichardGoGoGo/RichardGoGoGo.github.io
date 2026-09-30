@@ -10,6 +10,7 @@ topics: ["Adobe", "音频与音乐"]
 summary: "Adobe Firefly 音频工具（Generate Music / Generate Speech / Generate Sound Effects）2026年8月20日正式对所有用户全量开放；三工具均为商业免许可证授权，Generate Music由Firefly Music Model驱动可生成与视频时长/情绪匹配的原创音乐，Generate Speech支持ElevenLabs可选模型+情绪/语速调节，Generate Sound Effects根据视频节奏自动同步音效；同日新增Gemini Omni Flash为合作伙伴模型。"
 pinned: true
 pin_until: 2026-09-15
+editor_pick: true
 ---
 
 Adobe Firefly 音频工具（Generate Music / Generate Speech / Generate Sound Effects）2026年8月20日正式对所有用户全量开放；三工具均为商业免许可证授权，Generate Music由Firefly Music Model驱动可生成与视频时长/情绪匹配的原创音乐，Generate Speech支持ElevenLabs可选模型+情绪/语速调节，Generate Sound Effects根据视频节奏自动同步音效；同日新增Gemini Omni Flash为合作伙伴模型。

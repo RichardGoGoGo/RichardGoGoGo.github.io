@@ -9,6 +9,7 @@ topics: ["Adobe", "视频生成"]
 summary: "Higgsfield AI 推出 Motion Designer 插件，在 After Effects / Premiere Pro 时间线上选取片段、输入文字提示即可原地生成或替换运动画面，已开放候补名单申请。"
 pinned: true
 pin_until: 2026-09-22
+editor_pick: true
 ---
 
 Higgsfield AI 于 2026 年 9 月 12 日发布 Motion Designer，以原生插件形式直接集成进 Adobe After Effects 与 Premiere Pro；用户在时间线上选取片段，输入文字提示即可生成或替换运动画面，无需导出到外部平台；支持与现有合成工作流无缝衔接，已开放候补名单申请。

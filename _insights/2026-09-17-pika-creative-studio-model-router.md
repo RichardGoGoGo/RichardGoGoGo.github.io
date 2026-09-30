@@ -7,6 +7,7 @@ src: "https://www.semafor.com/article/09/17/2026/video-ai-company-pika-offers-to
 tags: [Pika, 视频生成, 模型路由, 分镜, 重打光]
 topics: ["视频生成"]
 summary: "Pika 将产品从单一视频生成工具重构为多模型创意工作室，集成 7 个 AI 模型并新增逐镜头清单生成、重打光与换装工具套件。"
+editor_pick: true
 ---
 
 Pika 于9月17日宣布将产品从单一视频生成工具重构为多模型创意工作室，集成 Seedance 2.5、Veo 3.1、GPT Image 2.5、MiniMax H3、Grok Imagine 等 7 个 AI 模型，并推出独立应用套件（Video Studio、Color Grade、Extend Video、Edit Image、Character Studio、Product Shot）；核心新特性包括：输入基本描述后自动生成可编辑逐镜头清单、重打光工具、角色与服装替换工具套件；平台自动路由至最优模型，同时支持手动指定。

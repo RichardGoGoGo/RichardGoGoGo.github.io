@@ -8,6 +8,7 @@ src: "https://updates.midjourney.com/alpha-changelog-9-16-26/"
 tags: [Midjourney, Alpha更新, V8.2, 韩文支持]
 topics: ["Midjourney"]
 summary: "Midjourney Alpha 9/16 更新：新增韩文语言界面支持"
+editor_pick: true
 ---
 Midjourney Alpha 9/16 更新：新增韩文语言界面支持；V8.2 编辑器改进——图片附件提示词输入框进入提示词栏（图文混合提示更流畅）、Draft 批次显示来源网格与悬停预览、Enhance 按钮替代原 Upscale 按钮；移动端与平板端布局重新适配，触控体验优化。
 
