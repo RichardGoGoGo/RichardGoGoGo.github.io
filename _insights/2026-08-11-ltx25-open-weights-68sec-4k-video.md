@@ -13,4 +13,4 @@ summary: "Lightricks 于 2026-08-11 开源 LTX-2.5（HuggingFace `Lightricks/LTX
 
 Lightricks 于 2026-08-11 开源 LTX-2.5（HuggingFace `Lightricks/LTX-Video-2.5`）：10 秒 720p 视频生成仅需 6.8 秒（单 RTX 4090），支持 4K 输出、同步音频、原生多镜头（multi-shot）叙事；ComfyUI 发布当日 day-0 官方支持（含节点与工作流模板）；商业营收 $10M ARR 以下完全免费。是目前开源视频模型中速度与质量综合最优选择。
 
-> 6.8 秒/10 秒生成速度达到「课堂当场出片」级别，大幅降低 AI 视频教学摩擦
+> 约 6.8 秒生成 10 秒视频，接近即时出片，现场演示和快速迭代的等待时间明显缩短。

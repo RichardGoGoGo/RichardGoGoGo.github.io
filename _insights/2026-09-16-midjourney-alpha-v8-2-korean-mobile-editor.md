@@ -3,7 +3,7 @@ title: "Midjourney Alpha 9/16：韩文支持 + V8.2 编辑器优化 + 移动/平
 date: 2026-09-16
 icat: 产品
 firsthand: true
-source: "Midjourney 官方更新日志（官方单源）"
+source: "Midjourney 官方更新日志"
 src: "https://updates.midjourney.com/alpha-changelog-9-16-26/"
 tags: [Midjourney, Alpha更新, V8.2, 韩文支持]
 topics: ["Midjourney"]

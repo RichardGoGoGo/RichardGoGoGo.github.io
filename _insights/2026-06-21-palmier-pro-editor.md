@@ -12,4 +12,4 @@ summary: "YC S24 团队开源 Palmier Pro macOS 视频编辑器，时间线内�
 
 由 YC 2024 年夏季批次团队开发的 Palmier Pro 于 2026 年 6 月 21 日前后开源，这是一款 macOS 原生视频编辑器，在时间线内集成了 Seedance、Kling、Nano Banana 等视频生成模型，并通过内置 MCP（Model Context Protocol）服务器与 Claude、Codex、Cursor 等 AI Agent 无缝协作；中文技术社区于 6 月 23 日起展开大量讨论，四家以上媒体源核认。
 
-> 将 AI Agent 协作与视频生成管线整合进桌面编辑器，是「AI 原生创作工具」形态的典型探索；对关注 AI 工具链整合或正在研究 MCP 生态的师生具有直接的实验参考价值。
+> 将 AI Agent 协作与视频生成管线整合进桌面编辑器，是「AI 原生创作工具」形态的典型探索；对关注 AI 工具链整合与 MCP 生态的创作者有实验参考价值。

@@ -13,4 +13,4 @@ summary: "OpenAI 全量发布 GPT-5.6 Luna，面向所有 ChatGPT 用户开放�
 
 OpenAI 在 ChatGPT 中全量发布 GPT-5.6 Luna，向所有免费用户开放无使用次数限制，不再要求订阅 ChatGPT Plus；重点改进 SOL（Standard of Logic）推理能力，在数学解题、多步逻辑分析和代码推理任务上优于同期基准；模型延迟与响应速度也有明显改善。Luna 是 GPT-5.6 系列的标准版本，与更早发布的 GPT-5.6 Full 形成高/标准双档并行格局。
 
-> GPT-5.6 Luna 向免费用户全量开放，是 OpenAI 在国产 AI 集中发力后的竞争性回应，也意味着高校师生无需任何订阅即可接触到当前最先进的对话式 AI 推理能力。
+> GPT-5.6 Luna 向免费用户全量开放，是 OpenAI 在国产 AI 集中发力后的竞争性回应，也意味着用户无需订阅即可使用它的推理能力。
