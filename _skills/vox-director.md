@@ -6,9 +6,9 @@ src: "https://github.com/Alisa0808/vox-director"
 risk: medium
 theme: [design-teaching, digital-team]
 repo: "Alisa0808/vox-director"
-stars: 2090
+stars: 2100
 pushed: 2026-08-11
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [内容发布, AI视频, 拼贴, Skill]
 summary: "输入一个选题，自动完成分镜脚本、拼贴海报关键帧、图生视频动效、旁白、配乐与字幕，本地 ffmpeg 合成 MP4；图像、视频、语音、音乐都经 Atlas Cloud API 生成，流程中有确认分镜与挑选风格两个人工节点。"
 ---

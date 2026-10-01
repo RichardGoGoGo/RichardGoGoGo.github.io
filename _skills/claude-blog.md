@@ -6,9 +6,9 @@ src: "https://github.com/AgriciDaniel/claude-blog"
 risk: medium
 theme: [digital-team]
 repo: "AgriciDaniel/claude-blog"
-stars: 2293
+stars: 2295
 pushed: 2026-09-25
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [写作, 博客, SEO, Skill]
 summary: "面向博客的 Claude Code skill 套件（1 个编排器 + 31 个子 skill、5 个 agent），覆盖选题策略、大纲、写作、改写、SEO 与 Schema、多语言发布、配图和音频；每篇稿件交付前要过 5 道检查关卡，百分制审稿低于 90 分不交付。"
 ---

@@ -6,9 +6,9 @@ src: "https://github.com/yanliudesign/mono-color-skill"
 risk: low
 theme: [design-teaching]
 repo: "yanliudesign/mono-color-skill"
-stars: 3307
+stars: 3314
 pushed: 2026-09-02
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 图像生成, 编辑设计, Skill]
 summary: "把主题、短句、物件或照片转成单色 / 受控双色的编辑印刷风格图像（网点、孔版颗粒、可见纸面、大面积留白），交付位图、完整生成 Prompt 与配方说明；本体为 Markdown + JSON 设计规范，无运行时依赖。"
 ---

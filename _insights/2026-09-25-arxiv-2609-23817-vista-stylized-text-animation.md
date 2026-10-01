@@ -10,6 +10,7 @@ sources:
   - { name: "arXiv:2609.23817", url: "https://arxiv.org/abs/2609.23817", tier: official }
 reason: "文字定动作、视频定风格，角色动画的风格化有了一条不依赖配对数据的路线。"
 topics: [研究论文, 3D 与世界模型]
+editor_pick: true
 ---
 
 VISTA（Video-Injected Stylized Text-to-Animation）是 9 月 20 日提交 arXiv 的一篇 3 页论文，作者为 Monseej Purkayastha、Anindita Ghosh 与 Philipp Slusallek。方法分两阶段：双通道自编码器先把动作序列与视频片段映射到共享的潜空间；掩码自回归扩散主干在该空间中生成动作，通过专门的后融合 Dual-AdaLN 通路注入视频中的风格，同时保留文本决定的动作内容。训练采用跨批次的非配对方案加潜空间循环一致性，可以分别使用语义丰富和风格多样的数据集。论文在渲染的动作捕捉参考上验证，作者称在以视频为条件的方法中风格识别准确率最高，内容对齐保持竞争力；推理时的三路无分类器引导可以分别调节内容与风格的比重。

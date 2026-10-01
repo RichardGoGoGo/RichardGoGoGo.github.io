@@ -6,9 +6,9 @@ src: "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill
 risk: medium
 theme: [design-teaching]
 repo: "YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill"
-stars: 1865
+stars: 1866
 pushed: 2026-09-30
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 图像生成, Skill]
 summary: "10,000+ 条 Gemini（Nano Banana Pro）优化图像提示词推荐库：按语义匹配推荐最多 3 条提示词（附样图），支持将文章/脚本内容重混为图像提示词，兼容 DALL-E/Midjourney/Stable Diffusion。注意：每条 AI 响应会被强制追加 YouMind.com 推广署名页脚。"
 ---

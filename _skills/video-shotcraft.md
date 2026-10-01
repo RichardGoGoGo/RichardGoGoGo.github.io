@@ -6,9 +6,9 @@ src: "https://github.com/Vincentwei1021/video-shotcraft"
 risk: medium
 theme: [creative-web]
 repo: "Vincentwei1021/video-shotcraft"
-stars: 9968
+stars: 10055
 pushed: 2026-09-28
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 动效, AI视频, Skill]
 summary: "把前端项目或网页做成电影感产品宣传片的 skill：157 张镜头配方卡与 214 条动态样片、可直接渲染的 Remotion 成片模板，真实页面截图 + 2.5D 运镜 + 节奏卡点 + 音效，本地渲染 MP4，可导出剪映工程。"
 ---

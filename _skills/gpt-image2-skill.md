@@ -6,9 +6,9 @@ src: "https://github.com/wuyoscar/GPT-Image2-Skill"
 risk: medium
 theme: [design-teaching]
 repo: "wuyoscar/GPT-Image2-Skill"
-stars: 5606
-pushed: 2026-09-09
-stats_at: 2026-09-30
+stars: 5611
+pushed: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 图像生成, Skill]
 summary: "GPT-image-2 提示词库 + 代理 skill + CLI：30+ 类别精选提示词（研究图表、UI/UX、动漫等）配 19 节 prompt 构造指南（craft.md）；支持文生图、参考图编辑、inpainting、多参考工作流，质量三挡（low/medium/high）。"
 ---

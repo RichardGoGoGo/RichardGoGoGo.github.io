@@ -15,6 +15,7 @@ reason: "Adobe 的对话端接入已覆盖 ChatGPT、Claude、Copilot、Slack �
 topics: [Adobe, 智能体与工作流, 设计工具]
 weight: 3
 deep: /deep/2026-09-24-adobe-gemini-claude-80-tools/
+editor_pick: true
 ---
 
 9 月 24 日，Adobe 推出 Adobe in Gemini：用户可在 Google Gemini 对话中调用 Photoshop、Lightroom、Adobe Express 和 Firefly 的工具修图、制作营销素材和修改设计，覆盖所有 Gemini 订阅档位，需登录 Adobe 账号；按 Google 的可用性说明，目前仅支持英文，限个人 Google 账号使用。同日 Adobe for Claude 插件首次并入 Acrobat 工具，可调用的工具增至 80 多个，并新增 PDF 交互式编辑器（调整页序、编辑文字、批注）、Document Review 技能和基于图层的 Express 设计编辑器。两项均从当日起在全球逐步推出。

@@ -12,6 +12,7 @@ sources:
 reason: "与 9 月 3 日发布的旗舰 GPT-6 Astra 组成三档；Luna 的输入价格约为 Astra 的百分之一，是估算批量调用成本的直接参照。"
 topics: [OpenAI, 大模型]
 weight: 3
+editor_pick: true
 ---
 
 OpenAI 于 9 月 22 日在 API 发布 GPT-6 Sol（gpt-6-sol）与 GPT-6 Luna（gpt-6-luna）。两款均为推理模型，接受文本与图像输入、输出文本，可通过 Responses API 与 Chat Completions API 调用。标准定价（输入不超过 272K token，每百万 token）：Sol 输入 $2、缓存输入 $0.20、输出 $10；Luna 输入 $0.10、缓存输入 $0.01、输出 $0.50。按官方模型目录的分工，复杂推理与编程用旗舰 GPT-6 Astra，兼顾能力与成本用 Sol，成本敏感、调用量大的任务用 Luna。9 月 25 日 OpenAI 修复了一个影响这两款模型图像理解的编码问题；9 月 29 日又发布了 GPT-6.1 Sol。

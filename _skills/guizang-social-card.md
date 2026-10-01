@@ -6,9 +6,9 @@ src: "https://github.com/op7418/guizang-social-card-skill"
 risk: low
 theme: [design-teaching]
 repo: "op7418/guizang-social-card-skill"
-stars: 7312
+stars: 7319
 pushed: 2026-07-01
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, Skill, 配图]
 summary: "小红书图文(1080×1440)+公众号封面对，Editorial/Swiss 两套视觉，HTML→PNG 直接出图。"
 ---

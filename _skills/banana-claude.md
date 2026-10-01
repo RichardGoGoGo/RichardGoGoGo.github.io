@@ -6,9 +6,9 @@ src: "https://github.com/AgriciDaniel/banana-claude"
 risk: medium
 theme: [design-teaching]
 repo: "AgriciDaniel/banana-claude"
-stars: 1068
+stars: 1067
 pushed: 2026-09-25
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 图像生成, Gemini, Skill]
 summary: "由 Claude 整理视觉 brief、Google Gemini（Nano Banana 系列模型）生成图像的 skill，支持生成、编辑、多轮续作与多方案对比；每次付费请求前展示完整 Prompt、模型与预估费用，一次批准只放行一次调用；提示词与参考图发往 Google Gemini API。"
 ---

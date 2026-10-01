@@ -6,9 +6,9 @@ src: "https://github.com/tt-a1i/archify"
 risk: low
 theme: [design-teaching]
 repo: "tt-a1i/archify"
-stars: 74654
+stars: 75288
 pushed: 2026-09-30
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 技术图表, Skill]
 summary: "生成单文件自包含 HTML 技术图表（内联 SVG）的 skill：五种图表类型（架构/工作流/序列/数据流/生命周期），内置明暗主题切换与 PNG/JPEG/WebP/SVG 导出；零运行时依赖，接受自然语言或 Mermaid 输入，与 drawio-skill 互补。"
 ---

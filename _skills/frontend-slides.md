@@ -6,9 +6,9 @@ src: "https://github.com/zarazhangrui/frontend-slides"
 risk: low
 theme: [design-teaching, creative-web]
 repo: "zarazhangrui/frontend-slides"
-stars: 30003
+stars: 30026
 pushed: 2026-06-23
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, Slides, HTML, Skill]
 summary: "零依赖 HTML 幻灯片生成 skill——固定 1920×1080 舞台、单文件 HTML 内联 CSS/JS，含 34 套设计模板，可选 Vercel 发布或 PDF 导出。"
 ---

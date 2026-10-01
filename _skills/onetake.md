@@ -6,9 +6,9 @@ src: "https://github.com/feitangyuan/onetake"
 risk: medium
 theme: [creative-web]
 repo: "feitangyuan/onetake"
-stars: 1011
+stars: 1059
 pushed: 2026-09-29
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [设计视觉, 动效, AI视频, Skill]
 summary: "用单个 HTML 合成文件和实测过的动作库制作 10–30 秒的产品发布片与功能演示，画面之间靠元素衔接、不做跳切；本地逐帧渲染并加运动模糊（草稿 1080p30、成片 4K60），自带连贯度自动验收；PolyForm Noncommercial 许可，不允许商用。"
 ---

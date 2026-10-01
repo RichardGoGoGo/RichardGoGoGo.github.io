@@ -6,9 +6,9 @@ src: "https://github.com/NarratorAI-Studio/narrator-ai-cli-skill"
 risk: medium
 theme: [digital-team]
 repo: "NarratorAI-Studio/narrator-ai-cli-skill"
-stars: 2972
+stars: 3019
 pushed: 2026-07-05
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [内容发布, AI视频, 视频解说, Skill]
 summary: "封装 narrator-ai-cli 的 AI 视频解说 skill，快速路径生成原创解说词、标准路径仿参考风格，支持 BGM/配音/90+ 解说模板，成片自动合成（云端处理）。"
 ---

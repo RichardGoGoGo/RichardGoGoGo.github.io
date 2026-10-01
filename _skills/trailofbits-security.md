@@ -6,9 +6,9 @@ src: "https://github.com/trailofbits/skills"
 risk: low
 theme: [digital-team]
 repo: "trailofbits/skills"
-stars: 7301
+stars: 7312
 pushed: 2026-09-28
-stats_at: 2026-09-30
+stats_at: 2026-10-01
 tags: [安全, Skill, 代码审计]
 summary: "顶尖安全研究机构 Trail of Bits 出品的 40+ 安全分析插件，含供应链审查、内存安全、静态分析、智能合约审计等。"
 ---
