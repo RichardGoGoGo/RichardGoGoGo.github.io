@@ -6,9 +6,10 @@ src: "https://github.com/imraywang/wewrite"
 risk: low
 theme: [digital-team]
 repo: "imraywang/wewrite"
-stars: 3381
-pushed: 2026-09-28
-stats_at: 2026-10-01
+stars: 3393
+pushed: 2026-10-05
+stats_at: 2026-10-06
+stars_7d: 24
 tags: [写作, Skill, 全流程]
 summary: "公众号文章全流程：热点抓取→选题→写作→SEO→配图→排版→草稿箱。"
 ---

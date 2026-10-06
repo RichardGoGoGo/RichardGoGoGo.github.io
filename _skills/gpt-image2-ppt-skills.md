@@ -6,9 +6,9 @@ src: "https://github.com/JuneYaooo/gpt-image2-ppt-skills"
 risk: medium
 theme: [design-teaching]
 repo: "JuneYaooo/gpt-image2-ppt-skills"
-stars: 1314
+stars: 1328
 pushed: 2026-08-22
-stats_at: 2026-09-30
+stats_at: 2026-10-06
 tags: [设计视觉, PPT, 图像生成, Skill]
 summary: "用 OpenAI gpt-image-2 把每页幻灯片当作整页视觉稿生成，交付 16:9 PNG 与打包好的 .pptx；支持上传 .pptx 模板仿版式出新内容、按页自然语言修改和默认关闭的可编辑模式；每页内容发往 OpenAI 或用户配置的兼容接口。"
 ---
