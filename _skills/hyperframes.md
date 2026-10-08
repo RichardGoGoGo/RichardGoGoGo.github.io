@@ -6,9 +6,9 @@ src: "https://github.com/heygen-com/hyperframes"
 risk: medium
 theme: [creative-web, design-teaching]
 repo: "heygen-com/hyperframes"
-stars: 57385
-pushed: 2026-10-06
-stats_at: 2026-10-06
+stars: 58770
+pushed: 2026-10-08
+stats_at: 2026-10-08
 tags: [动效, AI视频, HTML, Skill]
 summary: "HeyGen 官方开源的视频框架：用 HTML 写视频，附 21 个 agent skill，覆盖需求访谈、分镜、制作到渲染；访谈只产出一份 BRIEF.md 作为下游依据，再分流到产品宣传、知识讲解、口播字幕、音乐卡点、幻灯片等 10 类工作流。CLI 遥测默认开启。"
 ---

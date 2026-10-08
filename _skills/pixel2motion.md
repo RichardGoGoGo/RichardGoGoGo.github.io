@@ -6,9 +6,9 @@ src: "https://github.com/nolangz/pixel2motion"
 risk: low
 theme: [design-teaching, creative-web]
 repo: "nolangz/pixel2motion"
-stars: 2383
+stars: 2400
 pushed: 2026-08-21
-stats_at: 2026-10-06
+stats_at: 2026-10-08
 stars_7d: 31
 tags: [设计视觉, 品牌动效, SVG, Skill]
 summary: "把光栅 logo 转为精准 SVG 矢量，再按迪士尼 12 动画原则编排缓动动画，输出无依赖 HTML 展示页 + motion_spec.md。"
