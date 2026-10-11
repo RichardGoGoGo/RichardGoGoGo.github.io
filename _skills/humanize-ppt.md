@@ -6,9 +6,9 @@ src: "https://github.com/LearnPrompt/humanize-ppt"
 risk: medium
 theme: [design-teaching]
 repo: "LearnPrompt/humanize-ppt"
-stars: 970
+stars: 972
 pushed: 2026-07-31
-stats_at: 2026-10-08
+stats_at: 2026-10-11
 stars_7d: 5
 tags: [设计视觉, Skill, PPT]
 summary: "把 70 多篇 TED 演讲的叙事方式提炼成「观众状态转移」（AST）提纲的 PPT 编排 skill，仅产渲染 Brief、不直接出 HTML，依赖下游出图 skill。"
