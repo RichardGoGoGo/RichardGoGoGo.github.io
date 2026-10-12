@@ -6,9 +6,9 @@ src: "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill"
 risk: low
 theme: [digital-team]
 repo: "Adkid-Zephyr/anti-defensive-writing-Skill"
-stars: 2614
+stars: 2803
 pushed: 2026-10-07
-stats_at: 2026-10-11
+stats_at: 2026-10-12
 tags: [写作, 学术写作, Skill]
 summary: "以「论文是一场学术发布会」为原则的学术写作 skill：叙事、语言、实验、结构四类 12 条规则加交稿前自查清单，用于改写摘要、引言、结论和实验章节；中英双版，纯 Markdown、无代码。"
 ---
