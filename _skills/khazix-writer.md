@@ -6,9 +6,9 @@ src: "https://github.com/KKKKhazix/khazix-skills"
 risk: low
 theme: [digital-team]
 repo: "KKKKhazix/khazix-skills"
-stars: 21343
+stars: 21497
 pushed: 2026-10-01
-stats_at: 2026-10-13
+stats_at: 2026-10-19
 stars_7d: 189
 tags: [写作, Skill]
 summary: "模仿卡兹克公众号文风的写作规范：五大文章原型 + 四层去 AI 味自检 + 风格库。"

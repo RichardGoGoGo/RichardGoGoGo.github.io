@@ -6,9 +6,9 @@ src: "https://github.com/MengTo/Skills"
 risk: medium
 theme: [creative-web, design-teaching]
 repo: "MengTo/Skills"
-stars: 6727
-pushed: 2026-10-06
-stats_at: 2026-10-13
+stars: 6830
+pushed: 2026-10-18
+stats_at: 2026-10-19
 tags: [设计视觉, UI 设计, 提示词, Skill]
 summary: "Design+Code 创始人 Meng To 的 162 个 skill：UI「去 AI 味」的质量门与诊断、网页风格卡、把参考视频拆成可复刻的提示词，以及 3D 与游戏开发；约一半是游戏和 3D，部分 skill 绑定作者自己的项目。"
 ---
