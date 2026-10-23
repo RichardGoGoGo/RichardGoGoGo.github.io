@@ -6,9 +6,9 @@ src: "https://github.com/cathrynlavery/diagram-design"
 risk: low
 theme: [design-teaching, creative-web]
 repo: "cathrynlavery/diagram-design"
-stars: 57924
-pushed: 2026-10-16
-stats_at: 2026-10-19
+stars: 60186
+pushed: 2026-10-21
+stats_at: 2026-10-23
 tags: [设计视觉, 示意图, 科研配图, Skill]
 summary: "把需求或 draw.io、Mermaid、Excalidraw 源文件重绘成编辑出版风格的单文件 HTML + 内联 SVG 示意图，覆盖 45 种图型，可导出 SVG / PNG；对节点、连线、强调色数量设密度上限，配几何校验脚本。"
 ---

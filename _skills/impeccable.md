@@ -6,9 +6,9 @@ src: "https://github.com/pbakaus/impeccable"
 risk: medium
 theme: [creative-web, design-teaching]
 repo: "pbakaus/impeccable"
-stars: 82814
-pushed: 2026-10-19
-stats_at: 2026-10-19
+stars: 85162
+pushed: 2026-10-23
+stats_at: 2026-10-23
 tags: [设计视觉, 前端设计, 设计系统, Skill]
 summary: "让编程 agent 做网页时遵循一套设计规范并自查：1 个入口 skill、24 个子命令（shape、critique、audit、polish、typeset、layout 等），配确定性检测引擎和浏览器内实时改稿；产品事实与视觉方向分别写在 PRODUCT.md 和 DESIGN.md。"
 ---

@@ -6,9 +6,9 @@ src: "https://github.com/remotion-dev/skills"
 risk: low
 theme: [creative-web]
 repo: "remotion-dev/skills"
-stars: 5344
-pushed: 2026-10-16
-stats_at: 2026-10-19
+stars: 5552
+pushed: 2026-10-22
+stats_at: 2026-10-23
 tags: [动效, AI视频, React, Skill]
 summary: "Remotion 官方的 agent skill 集，教 agent 用 React + Remotion 编写、预览、渲染程序化视频：总路由 skill 下设 create、markup、maps、captions（本地 Whisper 字幕）、studio、render 等子 skill。仓库未附许可证文件，主仓的 Remotion License 规定员工超过 3 人的营利公司商用须购买公司许可。"
 ---

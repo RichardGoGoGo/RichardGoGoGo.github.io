@@ -6,9 +6,9 @@ src: "https://github.com/calesthio/OpenMontage"
 risk: medium
 theme: [creative-web, design-teaching]
 repo: "calesthio/OpenMontage"
-stars: 69630
+stars: 71013
 pushed: 2026-10-16
-stats_at: 2026-10-19
+stats_at: 2026-10-23
 tags: [AI视频, 动效, 流水线, Skill]
 summary: "由智能体驱动的开源视频生产系统：从选题研究、提案、脚本、分镜，到配音、配乐、图像视频素材、剪辑，再用 Remotion 或 HyperFrames 合成；13 条 YAML 流水线、约 91 个 skill，关键阶段默认人工审核，支持豆包 TTS、即梦、Kling 等国内服务。AGPL-3.0。"
 ---

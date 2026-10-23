@@ -6,9 +6,9 @@ src: "https://github.com/AgriciDaniel/claude-obsidian"
 risk: medium
 theme: [digital-team]
 repo: "AgriciDaniel/claude-obsidian"
-stars: 15633
-pushed: 2026-10-18
-stats_at: 2026-10-19
+stars: 15739
+pushed: 2026-10-22
+stats_at: 2026-10-23
 stars_7d: 86
 tags: [取料, 知识管理, Skill]
 summary: "基于 LLM Wiki 模式的 Obsidian 知识库 skill：Claude 自动把摄入内容组织成相互关联的 Markdown 知识图谱；15 个 skill、3 个 agent，涵盖摄入/查询/混合语义检索/笔记自检，支持 LYT/PARA/Zettelkasten 三种组织法，本地优先、可 --no-llm 完全离线运行。"

@@ -6,9 +6,9 @@ src: "https://github.com/Vincentwei1021/anything2explainer"
 risk: medium
 theme: [digital-team]
 repo: "Vincentwei1021/anything2explainer"
-stars: 2594
+stars: 2698
 pushed: 2026-09-18
-stats_at: 2026-10-19
+stats_at: 2026-10-23
 tags: [内容发布, AI视频, 科普视频, Skill]
 summary: "给一个主题或一篇文章，产出 2–8 分钟、带配音、字幕和章节进度条的黑底动态图形讲解视频（1280×720，中文或英文），画面全部由 Remotion 代码绘制；9 个阶段、4 个人工确认点，调研文档每条附来源链接；PolyForm Noncommercial 许可。"
 ---
