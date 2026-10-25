@@ -1,0 +1,402 @@
+{
+  "id": "neg",
+  "name": "谈薪",
+  "company": "midcorp",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S8a",
+  "_note": "两个隐藏数值：T 谈判分从 0 开始，R 好感从 3 开始，见策划案 4.4。R 降到 0 时 HR 给出最终方案，后面的议价全部作废。数字均为游戏设定，不代表市场行情。",
+  "band_text": "13 到 16k",
+  "offer_terms": [
+    {
+      "id": "salary",
+      "label": "月薪",
+      "value": "{salary}k",
+      "detail": "按定级档位发放。",
+      "bad": false
+    },
+    {
+      "id": "months",
+      "label": "薪数",
+      "value": "{months} 薪",
+      "detail": "其中最后 1–2 个月是年终奖，按公司和个人绩效发放，不保底。",
+      "bad": true
+    },
+    {
+      "id": "probation",
+      "label": "试用期",
+      "value": "6 个月",
+      "detail": "试用期工资按 80% 发放。",
+      "bad": true
+    },
+    {
+      "id": "fund",
+      "label": "公积金",
+      "value": "按 12% 缴纳",
+      "detail": "缴纳基数按当地最低档，不是按实际工资。按规定一般应以实际工资为基数，可以问清楚，并要求写进书面材料。",
+      "bad": true
+    },
+    {
+      "id": "breach",
+      "label": "三方违约金",
+      "value": "见三方协议",
+      "detail": "签了三方再毁约，要按协议付违约金（这里是 5000 元）。签之前问清金额，薪资等口头承诺最好写进三方备注栏。",
+      "bad": true
+    },
+    {
+      "id": "start",
+      "label": "入职时间",
+      "value": "明年 7 月",
+      "detail": "可以申请提前入职实习。",
+      "bad": false
+    }
+  ],
+  "open_seconds": 4,
+  "flow": [
+    "neg_ask",
+    "neg_offer",
+    "neg_counter",
+    "neg_second",
+    "neg_close"
+  ],
+  "nodes": {
+    "neg_ask": {
+      "text": "恭喜，你通过了我们所有的面试！开奖之前我先问一下，你的期望薪资是多少？",
+      "options": [
+        {
+          "id": "na_a",
+          "T": 1,
+          "next": "neg_range",
+          "text": "我想先听听这个岗位的薪资范围？",
+          "face": "nod",
+          "line": "可以。"
+        },
+        {
+          "id": "na_b",
+          "T": 1,
+          "text": "16k。",
+          "face": "nod",
+          "line": "嗯，在我们的范围里。"
+        },
+        {
+          "id": "na_c",
+          "T": 0,
+          "R": -1,
+          "text": "18k。",
+          "face": "frown",
+          "line": "这个超出我们的范围了，我先按标准给你出个方案。"
+        },
+        {
+          "id": "na_d",
+          "T": -2,
+          "flags": [
+            "low_anchor"
+          ],
+          "text": "看公司安排就好。",
+          "face": "nod",
+          "line": "好，那我按标准来。"
+        }
+      ],
+      "explain": "谁先报数，谁就定了锚点。不清楚行情时，先问范围更稳；要报就报有依据的高位。“看公司安排”听着谦虚，实际上是把锚点交给了对方，HR 多半会从区间下限开始给。"
+    },
+    "neg_range": {
+      "text": "这个岗位一般在 13 到 16k，具体看定级。你自己的期望呢？",
+      "options": [
+        {
+          "id": "nr_a",
+          "T": 2,
+          "text": "16k，参考的是我{p.lev|项目}的产出和这个岗位的要求。",
+          "face": "nod",
+          "line": "嗯，我记一下。"
+        },
+        {
+          "id": "nr_b",
+          "T": 0,
+          "text": "15k 左右就可以，我更看重成长。",
+          "face": "nod",
+          "line": "好。"
+        },
+        {
+          "id": "nr_c",
+          "T": 0,
+          "R": -1,
+          "text": "18k。我{p.lev_brag|项目经验挺多}，觉得自己值这个价。",
+          "face": "frown",
+          "line": "这个超出范围不少了。"
+        },
+        {
+          "id": "nr_d",
+          "T": 0,
+          "R": -1,
+          "text": "您那边先报，我再考虑。",
+          "face": "calm",
+          "line": "我们一般是先听候选人的期望。"
+        }
+      ],
+      "explain": "问到区间之后，报在上沿、再给一个说得出口的依据，是比较稳的做法。HR 已经报了区间还继续推，就显得在回避了。"
+    },
+    "neg_offer": {
+      "kind": "inspect",
+      "text": "这是给你的方案，你先看看。",
+      "_note": "offer 条款卡：玩家可以逐条点开看细节，每点开一条花 4 秒，倒计时不停。没点开的不利条款，结算时每条扣 1 分，最多扣 2 分。",
+      "explain": "offer 要拆开看。年终保不保底、试用期发多少、公积金按什么基数交、三方违约金多少，都藏在细节里。不点开就看不到，也就不知道该问什么、该谈什么。"
+    },
+    "neg_counter": {
+      "text": "方案大概就是这样，你看还有什么问题吗？",
+      "options": [
+        {
+          "id": "nc_a",
+          "T": 3,
+          "text": "月薪能不能往上调一档？我{p.lev_detail|独立负责过完整的项目}。",
+          "face": "nod",
+          "line": "{p.lev_kind|项目经历}确实是加分项，我去申请一下。"
+        },
+        {
+          "id": "nc_r",
+          "requires": {
+            "flag": "has_real_offer"
+          },
+          "_note": "之前用同一个人设拿到过别家 offer 才出现，替换签字费那项",
+          "T": 2,
+          "text": "我手上有{offer}，更想来方格，希望方案能更有竞争力。",
+          "face": "nod",
+          "line": "明白，有书面 offer 的话，我拿去申请会更有说服力。",
+          "pre_lines": [
+            {
+              "if_flag": "claimed_only_us",
+              "R": -2,
+              "face": "frown",
+              "line": "你上次不是说只投了我们？"
+            }
+          ],
+          "fallback": {
+            "id": "nc_b",
+            "T": 0,
+            "R": -1,
+            "text": "能不能加一笔签字费？其他几家校招都有这个。",
+            "face": "calm",
+            "line": "我们校招没有签字费。"
+          }
+        },
+        {
+          "id": "nc_c",
+          "T": 2,
+          "requires": {
+            "opened": "probation"
+          },
+          "text": "试用期能不能按 100% 发？6 个月打八折差得有点多。",
+          "face": "nod",
+          "line": "这个我可以帮你申请。",
+          "fallback": {
+            "id": "nc_c0",
+            "T": 0,
+            "R": -1,
+            "text": "这边生活成本挺高的，光房租就要三千多……",
+            "face": "calm",
+            "line": "嗯，理解，不过薪资是按岗位定的。"
+          }
+        },
+        {
+          "id": "nc_d",
+          "requires": {
+            "flag": "has_processes"
+          },
+          "T": 1,
+          "text": "{process.company|别家}也还在推进，希望方格能给一个更有竞争力的方案。",
+          "face": "nod",
+          "line": "明白，我会把这个情况报上去。",
+          "fallback": {
+            "id": "nc_d0",
+            "next": "neg_bluff",
+            "text": "我手上还有别的 offer，你们能不能再加点？",
+            "face": "probe",
+            "line": "哦？"
+          }
+        }
+      ],
+      "explain": "谈什么比谈多少更要紧。方格的月薪有空间、试用期工资可以谈；签字费可以问，但“别家都有”是拿别人当依据。拿实习、项目这些真实经历当依据是实打实的筹码；真拿到了别家 offer，如实拿出来谈是正当的筹码，没有却说有，是在赌 HR 不追问。"
+    },
+    "neg_bluff": {
+      "text": "方便说一下是哪家、给的多少吗？",
+      "pre_lines": [
+        {
+          "if_flag": "claimed_only_us",
+          "R": -3,
+          "face": "frown",
+          "line": "你上次不是说只投了我们吗？"
+        },
+        {
+          "if_flag": "bluffed_offer",
+          "face": "probe",
+          "line": "是上次说在谈薪的那家吗？"
+        }
+      ],
+      "options": [
+        {
+          "id": "nb_a",
+          "T": 0,
+          "R": -1,
+          "text": "说 offer 不太准确，是{process.company}还在流程里，还没到谈薪。",
+          "face": "frown",
+          "line": "嗯……实话就好，我知道了。",
+          "requires": {
+            "flag": "has_other_process"
+          },
+          "fallback": {
+            "id": "nb_a0",
+            "T": 0,
+            "R": -1,
+            "text": "说 offer 不太准确，其实目前没有别家的 offer。",
+            "face": "frown",
+            "line": "嗯……实话就好，我知道了。"
+          }
+        },
+        {
+          "id": "nb_b",
+          "redline": true,
+          "text": "那家给的是 17k，十四薪，具体是哪家现在不方便说。",
+          "face": "disappointed",
+          "line": "这样吧，我们内部再评估一下，有消息通知你。"
+        },
+        {
+          "id": "nb_c",
+          "T": 0,
+          "R": -2,
+          "text": "还没最终定。我更想来方格，想看看这边能不能再争取一下。",
+          "face": "calm",
+          "line": "嗯……那我按正常流程帮你问问。"
+        }
+      ],
+      "explain": "拿别家 offer 议价，前提是真有。HR 一追问是哪家、给多少，虚的筹码就撑不住了：如实改口伤一点好感，含糊带过伤得更多，硬撑下去可能连手上这个 offer 都保不住。"
+    },
+    "neg_second": {
+      "requires_R": 1,
+      "text": "好，这些我会帮你争取。还有别的吗？",
+      "options": [
+        {
+          "id": "ns_a",
+          "T": 2,
+          "requires": {
+            "opened": "probation",
+            "not_chosen": "nc_c"
+          },
+          "text": "试用期能不能按 100% 发？",
+          "face": "nod",
+          "line": "我一起报上去。",
+          "fallback": {
+            "id": "ns_a0",
+            "if_R_gte": 2,
+            "T": 1,
+            "else": {
+              "R": -2
+            },
+            "text": "那月薪能不能再加 1k？",
+            "face": "calm",
+            "line": "我试试，不保证。"
+          }
+        },
+        {
+          "id": "ns_b",
+          "T": 0,
+          "R": 1,
+          "text": "可以，谢谢您帮忙争取。",
+          "face": "pleased",
+          "line": "不客气。"
+        },
+        {
+          "id": "ns_c",
+          "if_R_gte": 2,
+          "T": 1,
+          "else": {
+            "R": -2
+          },
+          "text": "能不能直接再上一档？差这一点我就签。",
+          "face": "probe",
+          "line": "这个得走特批了……我试试。"
+        },
+        {
+          "id": "ns_d",
+          "T": 1,
+          "text": "入职前能不能先来实习？寒假就可以过来。",
+          "face": "pleased",
+          "line": "这个好说，组里也缺人。"
+        }
+      ],
+      "explain": "第二轮议价看的是火候。好感还够时多争一点没问题；好感已经见底还继续压，对方会直接给出“最终方案”。提前来实习不涨钱，但会让对方更愿意帮你争取。"
+    },
+    "neg_close": {
+      "text": "那我们就按这个来。你没问题的话，我先跟你口头确认一下，这就算 OC 了。",
+      "options": [
+        {
+          "id": "ncl_a",
+          "T": 1,
+          "text": "麻烦先发书面 offer，我看完条款、问清三方违约金再确认。",
+          "face": "nod",
+          "line": "可以，今天下班前发你邮箱，违约金写在三方里。"
+        },
+        {
+          "id": "ncl_b",
+          "T": 0,
+          "text": "没问题，我现在就接受。",
+          "face": "pleased",
+          "line": "好，欢迎加入！"
+        },
+        {
+          "id": "ncl_c",
+          "T": 0,
+          "text": "我需要考虑几天，周五前给您答复。",
+          "face": "nod",
+          "line": "可以，offer 有效期是一周。"
+        },
+        {
+          "id": "ncl_d",
+          "T": 0,
+          "R": -1,
+          "text": "能不能再等等？我想等另一家的结果出来，再一起做决定。",
+          "face": "calm",
+          "line": "我们这边也有其他候选人在等。",
+          "pre_lines": [
+            {
+              "if_flag": "claimed_only_us",
+              "R": -2,
+              "face": "frown",
+              "line": "你不是只投了我们吗？"
+            }
+          ]
+        }
+      ],
+      "explain": "口头 offer（OC）不算数，条款以书面 offer 为准。先要书面版、看完再确认，是最稳的收尾；三方协议一旦签了，毁约要付违约金，签之前把金额问清。"
+    }
+  },
+  "breakdown": {
+    "_note": "结算页 offer 拆解卡用：选过 ids 里任一选项就算拿到，没拿到时显示 else。",
+    "wins": [
+      {
+        "ids": [
+          "nc_c",
+          "ns_a"
+        ],
+        "text": "试用期按 100% 发",
+        "else": "试用期 6 个月，按 80% 发",
+        "missed": "试用期工资其实可以谈"
+      },
+      {
+        "ids": [
+          "ns_d"
+        ],
+        "text": "寒假可以先来实习",
+        "missed": "入职前可以申请先来实习"
+      },
+      {
+        "ids": [
+          "ncl_a"
+        ],
+        "text": "先拿书面 offer 再确认",
+        "else": "口头确认（OC）",
+        "missed": "口头 offer 不算数，最好先要书面版"
+      }
+    ]
+  }
+}

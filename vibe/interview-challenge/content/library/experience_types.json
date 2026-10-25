@@ -1,0 +1,1089 @@
+{
+  "_note": "经历类型：每段经历都是某个类型的一份实例。类型给出各岗位的默认对口程度（实例可以覆盖）、默认参数（p），以及项目深挖的问法（frames）。深挖题里 {exp.*} 填这段经历的参数；{\"slot\": \"highlight\"} 那一项换成这段经历第一个适用于本岗位的亮点（见 highlights.json）的进取选项和追问链，解析里接上亮点的解析。一个问法需要的参数这段经历不全，或者需要亮点却没有合适的亮点，就不用这个问法；都不能用时，看这段经历的主亮点有没有自带的整题（lead），再不行就用最后的通用深挖。第一页第一行是奖项、证书这类没有展开内容的条目时，用 fallbacks 里的问法（{first.*} 是那一行，{cite.*} 按选项条件绑定第一页的经历）。",
+  "types": {
+    "intern_dev": {
+      "name": "研发实习",
+      "relevance": {
+        "fe": "match",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "实习"
+      },
+      "frames": [
+        {
+          "id": "best_work",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "简历上这段实习，你挑一件最能代表你水平的事讲讲。",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲{exp.routine}，按需求一步步做完。",
+                "face": "nod",
+                "line": "嗯，基本功没问题。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "讲我是怎么快速上手公司的组件库和发布流程，一周就能独立提测。",
+                "face": "calm",
+                "line": "嗯……有没有技术上更有挑战的？"
+              }
+            ],
+            "explain": "挑代表作时，讲一个自己解决过的难题最容易被记住。“按需求做完”说明你能干活，但说不出难点，面试官多半会接着问有没有更有挑战的。"
+          }
+        },
+        {
+          "id": "shipped",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "{exp.term}这{exp.duration}，你做的东西上线了吗？做的是什么？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "上线了，是{exp.shipped}，组里每天在用。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "{exp.duration}太短了，主要在熟悉流程，没来得及做太多东西。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            ],
+            "explain": "实习被问“上线了吗”，答得出上线的是什么、谁在用，就说明你的代码真的被人用过。"
+          }
+        },
+        {
+          "id": "dev_to_pm",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "你这段是开发实习，投的是产品。这段经历对你做产品有什么用？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲我怎么对需求：{exp.pm_routine}。",
+                "face": "nod",
+                "line": "嗯，和需求方打过交道。"
+              },
+              {
+                "key": "b",
+                "type": "bold",
+                "text": "我懂实现，估得出改动的成本，提需求时会先想清楚边界。",
+                "face": "probe",
+                "line": "举个例子？",
+                "followup": {
+                  "text": "哪一次你因为懂实现，让需求少走了弯路？",
+                  "options": [
+                    {
+                      "key": "b1",
+                      "type": "hold",
+                      "delta": 9,
+                      "text": "{exp.pm_story}",
+                      "face": "pleased",
+                      "line": "嗯，这就是开发出身的好处。"
+                    },
+                    {
+                      "key": "b2",
+                      "type": "partial",
+                      "delta": -2,
+                      "text": "具体例子不多，主要是沟通时能听懂研发在说什么。",
+                      "face": "calm",
+                      "line": "能听懂只是起点。"
+                    },
+                    {
+                      "key": "b3",
+                      "type": "fail",
+                      "delta": -7,
+                      "text": "我一般直接按自己的理解改，省得和需求方来回沟通。",
+                      "face": "frown",
+                      "line": "那需求方知道吗？"
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "这段主要是写代码，需求都是产品定好的，和做产品关系不大。",
+                "face": "frown",
+                "line": "那为什么放在这么前面？"
+              }
+            ],
+            "explain": "开发出身投产品，多半会被追问开发经验能不能变成做产品的优势：懂成本、懂边界、能和研发对上话。只说“我能听懂研发”不够，要拿得出一次因为懂实现而改了需求的事；绕开需求方自己改，是开发转产品最容易被挑的毛病。"
+          }
+        }
+      ]
+    },
+    "intern_pm": {
+      "name": "产品实习",
+      "relevance": {
+        "fe": "none",
+        "pm": "match"
+      },
+      "p": {
+        "kind_word": "实习"
+      },
+      "frames": [
+        {
+          "id": "off_role",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "你投的是{role.name}，简历第一段写的却是{exp.kind_long}，是怎么考虑的？",
+            "options": [
+              {
+                "key": "a",
+                "type": "off",
+                "delta": -3,
+                "text": "觉得多一段实习显得更完整，{role.name}相关的就放在了后面。",
+                "face": "frown",
+                "line": "那我们直接看后面吧。"
+              },
+              {
+                "key": "b",
+                "type": "safe",
+                "delta": 1,
+                "text": "那段确实不是{role.name}。我更想聊后面那段和岗位相关的经历。",
+                "face": "calm",
+                "line": "行。"
+              },
+              {
+                "key": "c",
+                "type": "bold",
+                "text": "做{exp.kind}让我更懂需求从哪来，写页面时会多想一步用户。",
+                "face": "probe",
+                "line": "哦？",
+                "followup": {
+                  "text": "那你举个例子：哪个页面因为你多想了一步，做得不一样了？",
+                  "options": [
+                    {
+                      "key": "c1",
+                      "type": "partial",
+                      "delta": 2,
+                      "text": "做后台表单时，我会先问运营最常用哪几个字段，放到最前面。",
+                      "face": "nod",
+                      "line": "嗯，算一个。"
+                    },
+                    {
+                      "key": "c2",
+                      "type": "partial",
+                      "delta": -4,
+                      "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                      "face": "frown",
+                      "line": "……好吧。"
+                    },
+                    {
+                      "key": "c3",
+                      "type": "fail",
+                      "delta": -7,
+                      "text": "我做的每个页面，都会站在用户角度反复打磨，细节不将就。",
+                      "face": "frown",
+                      "line": "那具体是哪个？"
+                    }
+                  ]
+                }
+              }
+            ],
+            "explain": "简历第一段最值钱。投{role.name}却把一段和岗位关系不大的实习放在最前面，面试官的第一个问题就会花在它上面，最强的那段反而被挤到了后面。"
+          }
+        },
+        {
+          "id": "pm_work",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "{exp.kind}这段，你做的哪件事最能说明你懂产品？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲{exp.pm_routine}。",
+                "face": "nod",
+                "line": "嗯，基本功有了。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "主要是打杂，写写文档、跟跟进度。",
+                "face": "calm",
+                "line": "打杂里也能看出懂不懂。"
+              }
+            ],
+            "explain": "助理岗最容易被说成“打杂”。只说打杂，面试官多半会接着问：杂事里你看到了什么、推动了什么。"
+          }
+        }
+      ]
+    },
+    "user_research_intern": {
+      "name": "用研实习",
+      "relevance": {
+        "fe": "half",
+        "pm": "strong"
+      },
+      "p": {
+        "kind_word": "实习"
+      },
+      "frames": [
+        {
+          "id": "off_role",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "你投的是{role.name}，这段写的却是{exp.kind}，是怎么考虑的？",
+            "options": [
+              {
+                "key": "a",
+                "type": "off",
+                "delta": -3,
+                "text": "觉得多一段实习显得更完整，就放上来了。",
+                "face": "frown",
+                "line": "那我们看后面吧。"
+              },
+              {
+                "key": "b",
+                "type": "safe",
+                "delta": 1,
+                "text": "那段确实不是{role.name}。我更想聊后面那段和岗位相关的经历。",
+                "face": "calm",
+                "line": "行。"
+              },
+              {
+                "key": "c",
+                "type": "bold",
+                "text": "做{exp.kind}让我更懂用户卡在哪，写页面时会先想用户怎么用。",
+                "face": "probe",
+                "line": "哦？",
+                "followup": {
+                  "text": "举个例子：用研里看到的哪个问题，改变了你写页面的方式？",
+                  "options": [
+                    {
+                      "key": "c1",
+                      "type": "hold",
+                      "delta": 9,
+                      "text": "{exp.fe_story}",
+                      "face": "pleased",
+                      "line": "嗯，这个连得上。"
+                    },
+                    {
+                      "key": "c2",
+                      "type": "partial",
+                      "delta": -4,
+                      "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                      "face": "frown",
+                      "line": "……好吧。"
+                    },
+                    {
+                      "key": "c3",
+                      "type": "fail",
+                      "delta": -7,
+                      "text": "我做的每个页面，都会站在用户角度反复打磨，细节不将就。",
+                      "face": "frown",
+                      "line": "那具体是哪个？"
+                    }
+                  ]
+                }
+              }
+            ],
+            "explain": "投{role.name}却把一段用研实习放在前面，面试官会先问它和岗位有什么关系。能拿出一个“看到用户卡住、回头改了自己做的页面”的具体例子，这段经历才算用上了；说不出例子，就只是在占地方。"
+          }
+        },
+        {
+          "id": "proud",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "{exp.kind}里，你最有成就感的一件事是什么？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲{exp.modest}。",
+                "face": "nod",
+                "line": "嗯，能接住批评。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -1,
+                "text": "讲我怎么把研究报告做得清楚好看，产品同学一看就懂、直接能用。",
+                "face": "calm",
+                "line": "嗯……结论呢？"
+              }
+            ],
+            "explain": ""
+          }
+        }
+      ]
+    },
+    "research_tool": {
+      "name": "科研项目（写代码做工具）",
+      "relevance": {
+        "fe": "match",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "项目"
+      },
+      "frames": [
+        {
+          "id": "my_part",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "{exp.short}这段，你具体负责哪一块？挑最能说明你水平的讲。",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "{exp.my_part}，整体方案是{exp.lead}定的，我按方案落地。",
+                "face": "nod",
+                "line": "嗯，分工说得很清楚。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "讲整个平台的技术选型：为什么用{exp.stack}，怎么分层。",
+                "face": "calm",
+                "line": "我问的是你自己做的部分。"
+              }
+            ],
+            "explain": "问“你负责哪一块”，回答要分清你和团队各做了什么。实话说清分工最稳；只讲整个平台怎么选型，听不出哪块是你做的。"
+          }
+        },
+        {
+          "id": "hardest",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "你写的{exp.short}，挑一个最难的地方讲讲。",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲怎么把{exp.process}拆成网页上的一步步，再和老师逐步对齐要求。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "这是老师布置的任务，我主要负责把代码写出来。",
+                "face": "calm",
+                "line": "那判断是谁做的？"
+              }
+            ],
+            "explain": "转行的人最该讲的，就是自己主动解决过的真问题。"
+          }
+        },
+        {
+          "id": "solo_build",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "专业",
+            "text": "{exp.short}是你一个人从零写的？挑技术上最难的一处讲讲。",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲{exp.solo_part}。",
+                "face": "nod",
+                "line": "嗯，是自己写过的。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "其实主要是套框架的模板，没写多少自己的代码。",
+                "face": "calm",
+                "line": "那简历上怎么写的是自学开发？"
+              }
+            ],
+            "explain": "自学做出来的东西，多半会被追问两件事：是不是你自己写的，难点你是不是真懂。"
+          }
+        },
+        {
+          "id": "needs",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "{exp.short}的需求是谁提的？你是怎么把需求弄清楚的？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "{exp.lead}对接{exp.client}，我跟着开会，把需求整理成页面清单。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              {
+                "key": "b",
+                "type": "bold",
+                "text": "讲{exp.client}改了{exp.change_times}次需求，我怎么判断哪些该接、哪些该劝回去。",
+                "face": "probe",
+                "line": "那我问个具体的。",
+                "followup": {
+                  "text": "如果对方坚持要一个你觉得没用的图表，你怎么办？",
+                  "options": [
+                    {
+                      "key": "b1",
+                      "type": "hold",
+                      "delta": 9,
+                      "text": "先问他要拿这个图表做什么决定，常常能换成已有图表加个筛选。",
+                      "face": "pleased",
+                      "line": "嗯，先问目的，这是做产品的思路。"
+                    },
+                    {
+                      "key": "b2",
+                      "type": "partial",
+                      "delta": -2,
+                      "text": "照做，毕竟是甲方，多做一个图表也不费事。",
+                      "face": "calm",
+                      "line": "做多了谁来维护？"
+                    },
+                    {
+                      "key": "b3",
+                      "type": "fail",
+                      "delta": -7,
+                      "text": "直接告诉他这个图表没有用，劝他别加了。",
+                      "face": "frown",
+                      "line": "他凭什么听你的？"
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "需求都是{exp.lead}定的，我只负责照着做。",
+                "face": "calm",
+                "line": "那你对需求有什么看法？"
+              }
+            ],
+            "explain": "技术项目投产品，要讲的不是代码，是你怎么理解需求、取舍需求。对方要一个功能，先问他要用它做什么决定，常常能找到更省事的办法；照单全收或者一口回绝，都不是做产品的思路。"
+          }
+        }
+      ]
+    },
+    "campus_team_project": {
+      "name": "团队课外项目",
+      "relevance": {
+        "fe": "match",
+        "pm": "match"
+      },
+      "p": {
+        "kind_word": "项目"
+      },
+      "frames": [
+        {
+          "id": "split",
+          "roles": [
+            "fe",
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "{exp.short}这个项目，你们{exp.team}个人怎么分工？你负责哪块？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "我负责{exp.my_part}，{exp.others}是另外{exp.n_others}位同学，每周对一次进度。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "我们没有严格分工，哪里需要人就去哪里。",
+                "face": "frown",
+                "line": "那你个人最主要做了什么？"
+              }
+            ],
+            "explain": "团队项目一定会被问分工。“没有严格分工”听着很团结，面试官却分不清哪部分是你做的。"
+          }
+        }
+      ]
+    },
+    "personal_project": {
+      "name": "个人项目",
+      "relevance": {
+        "fe": "match",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "项目"
+      },
+      "frames": [
+        {
+          "id": "design",
+          "roles": [
+            "fe"
+          ],
+          "node": {
+            "tag": "专业",
+            "text": "你那个{exp.short}，挑一个{exp.unit}说说是怎么设计的。",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲{exp.design_point}。",
+                "face": "nod",
+                "line": "嗯，思路清楚。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "这个是业余做着玩的，没什么特别的设计。",
+                "face": "calm",
+                "line": "那怎么写到简历上了？"
+              }
+            ],
+            "explain": "自己的项目，面试官一般会挑细节问。说“做着玩的”是谦虚，听起来却像没认真想过。"
+          }
+        },
+        {
+          "id": "case",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "你的{exp.short}里，挑一个案例讲讲。",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "讲{exp.case_simple}。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "{exp.short}主要是为了找工作，临时整理出来的。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            ],
+            "explain": ""
+          }
+        }
+      ]
+    },
+    "course_project": {
+      "name": "课程项目",
+      "relevance": {
+        "fe": "match",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "项目"
+      },
+      "frames": []
+    },
+    "thesis": {
+      "name": "毕业论文",
+      "relevance": {
+        "fe": "none",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "论文"
+      },
+      "frames": [
+        {
+          "id": "conclusion",
+          "roles": [
+            "pm"
+          ],
+          "node": {
+            "tag": "项目表达",
+            "text": "你的{exp.short}，目前的结论是什么？",
+            "options": [
+              {
+                "key": "a",
+                "type": "safe",
+                "delta": 3,
+                "text": "{exp.finding}",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              {
+                "slot": "highlight"
+              },
+              {
+                "key": "c",
+                "type": "off",
+                "delta": -3,
+                "text": "{exp.short}还没写完，暂时没有结论。",
+                "face": "calm",
+                "line": "初步的也没有？"
+              }
+            ],
+            "explain": ""
+          }
+        }
+      ]
+    },
+    "paper": {
+      "name": "论文发表",
+      "relevance": {
+        "fe": "none",
+        "pm": "none"
+      },
+      "p": {
+        "kind_word": "论文"
+      },
+      "frames": []
+    },
+    "competition": {
+      "name": "竞赛",
+      "relevance": {
+        "fe": "half",
+        "pm": "none"
+      },
+      "p": {
+        "kind_word": "奖项"
+      },
+      "frames": []
+    },
+    "student_org": {
+      "name": "学生组织",
+      "relevance": {
+        "fe": "half",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "社团经历"
+      },
+      "frames": []
+    },
+    "media_ops": {
+      "name": "新媒体运营",
+      "relevance": {
+        "fe": "none",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "运营经历"
+      },
+      "frames": []
+    },
+    "event_planning": {
+      "name": "活动策划",
+      "relevance": {
+        "fe": "none",
+        "pm": "half"
+      },
+      "p": {
+        "kind_word": "活动经历"
+      },
+      "frames": []
+    },
+    "part_time": {
+      "name": "兼职和校内助理",
+      "relevance": {
+        "fe": "none",
+        "pm": "none"
+      },
+      "p": {
+        "kind_word": "兼职"
+      },
+      "frames": []
+    },
+    "certificate": {
+      "name": "证书和培训",
+      "relevance": {
+        "fe": "general",
+        "pm": "general"
+      },
+      "p": {
+        "kind_word": "证书"
+      },
+      "frames": []
+    },
+    "award": {
+      "name": "荣誉",
+      "relevance": {
+        "fe": "general",
+        "pm": "general"
+      },
+      "p": {
+        "kind_word": "奖项"
+      },
+      "frames": []
+    }
+  },
+  "generic_frame": {
+    "_note": "通用深挖：这段经历没有合适的问法、也没有自带整题的亮点时用。只需要这段经历的 label。",
+    "node": {
+      "tag": "项目表达",
+      "text": "简历上{exp.label}这段，你具体做了什么？挑最能说明你能力的讲。",
+      "options": [
+        {
+          "key": "a",
+          "type": "safe",
+          "delta": 1,
+          "text": "讲我具体负责的那部分：做了什么、结果怎么样。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "key": "b",
+          "type": "off",
+          "delta": -1,
+          "text": "讲这段经历让我学到了什么，有哪些成长。",
+          "face": "calm",
+          "line": "嗯……具体做了什么呢？"
+        },
+        {
+          "key": "c",
+          "type": "off",
+          "delta": -3,
+          "text": "这段和{role.name}关系不大，主要是想让简历丰富一些。",
+          "face": "frown",
+          "line": "那为什么放在这么前面？"
+        }
+      ],
+      "explain": "被问到一段没准备过的经历，最稳的是讲清自己做了什么、结果如何；只谈收获和成长，面试官听不到事实。和岗位关系不大的经历，最好别放在第一页的显眼位置。"
+    }
+  },
+  "fallbacks": {
+    "fe": [
+      {
+        "when_first": [
+          "paper",
+          "award"
+        ],
+        "node": {
+          "id": "ddf_relate",
+          "tag": "项目表达",
+          "text": "你简历第一行是这个……跟{role.name}有什么关系？",
+          "options": [
+            {
+              "id": "ddfr_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "关系不大，放第一是想突出成绩，下面的项目更能说明{role.name}能力。",
+              "face": "nod",
+              "line": "那我们看下面的项目。"
+            },
+            {
+              "id": "ddfr_b",
+              "type": "bold",
+              "text": "讲{cite.short}训练对我写代码的影响：边界条件会想得更全。",
+              "requires": {
+                "exp_type": "competition"
+              },
+              "face": "probe",
+              "line": "举个例子？",
+              "fallback": {
+                "id": "ddfr_b0",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲它锻炼了我的哪些能力，比如耐心和专注。",
+                "face": "calm",
+                "line": "嗯……"
+              },
+              "followup": {
+                "text": "举一个你在{role.name}里因为这个少踩坑的例子？",
+                "options": [
+                  {
+                    "id": "ddfr_b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "{cite.relate_example}",
+                    "face": "pleased",
+                    "line": "嗯，这就连上了。"
+                  },
+                  {
+                    "id": "ddfr_b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "具体例子一时想不起来，主要是一种思考的习惯吧。",
+                    "face": "calm",
+                    "line": "嗯……"
+                  },
+                  {
+                    "id": "ddfr_b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "{role.name}里很少碰到边界问题，大部分时间都是在写页面和调样式。",
+                    "face": "frown",
+                    "line": "是吗？"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ddfr_c",
+              "type": "off",
+              "delta": -3,
+              "text": "{first.short|这一项}是我最大的成果，我想先讲讲{first.method|它}。",
+              "face": "calm",
+              "line": "我们这次主要聊{role.name}。"
+            }
+          ],
+          "explain": "简历第一行是给面试官的第一印象。投{role.name}却把论文、奖项放在第一，面试官会先问一句“这和岗位有什么关系”。能把它和写代码的习惯连起来、再举出实例，才算把这一行用上了。"
+        }
+      },
+      {
+        "node": {
+          "id": "ddf_pick",
+          "tag": "项目表达",
+          "text": "第一行是个{first.kind_word|奖项}……那你挑一个最能代表你的项目讲讲吧。",
+          "options": [
+            {
+              "id": "ddfp_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 1
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "ddfp_a2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我自学{role.name}的过程。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            },
+            {
+              "id": "ddfp_b",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 2
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "ddfp_b2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我课程设计里做过的一个小项目。",
+                "face": "calm",
+                "line": "嗯。"
+              }
+            },
+            {
+              "id": "ddfp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "我觉得{first.short|这一项}最能代表我，讲讲{first.story|它}。",
+              "face": "calm",
+              "line": "这个我们先放一放。"
+            }
+          ],
+          "explain": "简历第一段决定了面试从哪儿聊起。把奖项、证书放在最前面，面试官往往会跳过它，让你另挑一个项目，开场的主动权就这么交了出去。"
+        }
+      }
+    ],
+    "pm": [
+      {
+        "node": {
+          "id": "ddf_pick",
+          "tag": "项目表达",
+          "text": "第一行是个{first.kind_word|证书}……那你挑一个最能代表你的项目讲讲吧。",
+          "options": [
+            {
+              "id": "ddfp_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 1
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "ddfp_a2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我为什么想做{role.name}。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            },
+            {
+              "id": "ddfp_b",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 2
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "ddfp_b2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我平时怎么体验和分析产品。",
+                "face": "calm",
+                "line": "嗯。"
+              }
+            },
+            {
+              "id": "ddfp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲{first.story|这一项}。",
+              "face": "calm",
+              "line": "这个……还有别的吗？"
+            }
+          ],
+          "explain": "简历第一行放证书，面试官多半会跳过它，让你另挑一个项目。最需要真实做过的东西撑场的时候，证书放在第一位，反而像是在承认没有更硬的经历。"
+        }
+      }
+    ],
+    "any": [
+      {
+        "node": {
+          "id": "ddf_pick",
+          "tag": "项目表达",
+          "text": "第一行是个{first.kind_word|奖项}……那你挑一个最能代表你的项目讲讲吧。",
+          "options": [
+            {
+              "id": "ddfp_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 1
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "ddfp_a2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我为什么想做{role.name}。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            },
+            {
+              "id": "ddfp_b",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 2
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "ddfp_b2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我平时怎么自学{role.name}相关的东西。",
+                "face": "calm",
+                "line": "嗯。"
+              }
+            },
+            {
+              "id": "ddfp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲{first.story|这一项}。",
+              "face": "calm",
+              "line": "这个……还有别的吗？"
+            }
+          ],
+          "explain": "简历第一行放奖项、证书这类条目，面试官多半会跳过它，让你另挑一个项目，开场的主动权就这么交了出去。第一行最值钱，留给和岗位最相关的那段经历。"
+        }
+      }
+    ],
+    "_note": "按岗位列出第一行是奖项、证书时的问法；没写的岗位用 any。"
+  }
+}

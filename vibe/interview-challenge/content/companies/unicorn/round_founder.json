@@ -1,0 +1,197 @@
+{
+  "id": "r3",
+  "name": "创始人面",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A8",
+    "title": "创始人"
+  },
+  "scene": "S7b",
+  "pressure": true,
+  "hello": "我是跃迁的创始人。先交个底：我们去年拿了 B 轮，今年的目标是收支平衡。我时间不多，直接开始。",
+  "_note": "独角兽没有单独的 HR 面，动机和稳定性在这一轮顺带问掉（策划案 3.1、4.3）。开场白里交代的公司阶段，谈期权时用得上。压力面，答题时间 ×0.75。",
+  "flow": [
+    {
+      "slot": "q1",
+      "node": "q_f_vision",
+      "swap": true,
+      "alternates": [
+        "q_f_carry"
+      ]
+    },
+    {
+      "slot": "q2",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false,
+      "_note": "创始人翻到简历上的另一段：优先追问夸大写法，其次是含糊写法，再其次深挖下一段经历"
+    },
+    {
+      "slot": "q3",
+      "dynamic": "background",
+      "pool": "founder",
+      "swap": false,
+      "_note": "背景题位：按人设的背景和特殊设定挑一道（library/background.json）"
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false,
+      "_note": "真假按游戏里的投递进度算",
+      "prefer": [
+        "q_f_offers"
+      ]
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false,
+      "prefer": [
+        "zf_reverse"
+      ]
+    }
+  ],
+  "nodes": {
+    "q_f_vision": {
+      "tag": "视野与取舍",
+      "text": "AI 写作这个赛道，大厂都在做。你觉得我们凭什么活下来？",
+      "options": [
+        {
+          "id": "fv_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "大厂做通用功能，你们可以先把一个细分场景做深，比如论文修改。",
+          "face": "nod",
+          "line": "嗯，这个方向我们想过。"
+        },
+        {
+          "id": "fv_b",
+          "type": "bold",
+          "text": "说说我用了你们产品一周的感受：哪里比大厂好，哪里还差一截。",
+          "face": "probe",
+          "line": "差一截的是哪里？",
+          "followup": {
+            "text": "说具体的，差在哪里？",
+            "options": [
+              {
+                "id": "fv_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "长文改写会把引用格式弄乱，我拿自己的长文试的时候碰到的。",
+                "face": "pleased",
+                "line": "……这个我回头让他们查。你是真用过。"
+              },
+              {
+                "id": "fv_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "整体还不错，就是有时候生成得慢，长文要等十几秒。",
+                "face": "calm",
+                "line": "慢是哪一步慢？"
+              },
+              {
+                "id": "fv_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "说实话没什么差的，我觉得你们已经比大厂那款做得好了。",
+                "face": "frown",
+                "line": "那我们怎么还没赚钱？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fv_c",
+          "type": "off",
+          "delta": -3,
+          "text": "赛道不重要，关键是团队的执行力。",
+          "face": "frown",
+          "line": "这句话谁都会说。"
+        }
+      ],
+      "explain": "被问“凭什么活下来”，答案能看出你有没有认真想过这家公司。泛泛地说“做深细分场景”不会错；真用过产品、能说出一个具体的问题，分量最重。当着创始人只说好话，多半会被一句“那我们怎么还没赚钱”问住，也说明你没用心用过。"
+    },
+    "q_f_carry": {
+      "tag": "视野与取舍",
+      "text": "我们这儿没人带你，事扔给你就得自己扛。有没有一件事，是没人教、你自己扛下来的？",
+      "options": [
+        {
+          "id": "fcy_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "讲{cite.short}：{cite.client}催进度时，{cite.issue}问题是我自己查资料解决的。",
+          "requires": {
+            "highlight": "chart_perf"
+          },
+          "face": "nod",
+          "line": "嗯。",
+          "fallback": {
+            "id": "fcy_a0",
+            "type": "safe",
+            "delta": 2,
+            "text": "讲{p.self_drive|一次没人带、我自己摸索着做完的事}。",
+            "face": "nod",
+            "line": "嗯。"
+          }
+        },
+        {
+          "id": "fcy_b",
+          "type": "bold",
+          "text": "讲{cite.short}：审稿要求补实验，那部分是我从头做完的。",
+          "face": "probe",
+          "line": "我问一句。",
+          "followup": {
+            "text": "那篇论文你是第几作者？补实验是你主导的吗？",
+            "options": [
+              {
+                "id": "fcy_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "{cite.author_hold}",
+                "face": "pleased",
+                "line": "嗯，说得清楚。"
+              },
+              {
+                "id": "fcy_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "主要是一作在推进，我参与了其中实验的那一部分。",
+                "face": "calm",
+                "line": "参与是指？"
+              },
+              {
+                "id": "fcy_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "第一作者，整篇论文从选题到实验，都是我主导的。",
+                "face": "frown",
+                "line": "作者顺序是一查就能对上的事。"
+              }
+            ]
+          },
+          "requires": {
+            "highlight": "paper_rebuttal"
+          },
+          "fallback": {
+            "id": "fcy_b0",
+            "type": "safe",
+            "delta": 1,
+            "text": "讲一次临时要学新东西，我是怎么几天里补上的。",
+            "face": "nod",
+            "line": "嗯。"
+          }
+        },
+        {
+          "id": "fcy_c",
+          "type": "off",
+          "delta": -3,
+          "text": "说实话，大部分事还是有人带比较好，我学得快，但需要方向。",
+          "face": "frown",
+          "line": "在我们这儿，方向得你自己找。"
+        }
+      ],
+      "explain": "这道题落在“没人管的时候，你会不会自己往前推”。说一件真事最有力；被追问作者顺序、谁主导时实话实说，比把功劳揽到自己身上安全得多，这类事一查就能对上。"
+    }
+  }
+}

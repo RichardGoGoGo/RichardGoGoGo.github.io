@@ -1,0 +1,121 @@
+{
+  "_note": "简历追问。patterns 是夸大写法（exag）和含糊写法（vague）被追问时的固定结构：三个选项的类型、分数和默认表情，以及默认解析；具体问法和三个选项的文字写在人设档案里那条写法的 probe 上（简历文本是人设的，追问它的话也跟着人设走）。skill_probes 是技能栏写了“精通”时的追问，所有人设共用，{p.*} 按人设填。",
+  "patterns": {
+    "exag": {
+      "tag": "诚信",
+      "options": [
+        {"key": "double_down", "type": "redline", "face": "disappointed"},
+        {"key": "correct", "type": "fail", "delta": -5, "face": "frown"},
+        {"key": "evade", "type": "fail", "delta": -8, "face": "frown"}
+      ],
+      "explain": "简历上的夸大迟早会被追问。被问到时如实修正，代价最小；绕开问题，面试官多半会追得更紧；硬圆下去，基本就没有下文了。"
+    },
+    "vague": {
+      "tag": "项目表达",
+      "options": [
+        {"key": "facts", "type": "safe", "delta": 1, "face": "nod"},
+        {"key": "dodge", "type": "off", "delta": -4, "face": "frown"},
+        {"key": "inflate", "type": "fail", "delta": -7, "face": "frown"}
+      ],
+      "explain": "含糊的写法，面试官会顺手问一句“具体是什么、有多少”。手里有事实就直接写上去，比等面试官来问强得多。"
+    }
+  },
+  "skill_probes": {
+    "probe_js_proto": {
+      "tag": "专业",
+      "text": "你写了精通 JavaScript，那我问深一点：原型链是怎么回事？new 一个对象时发生了什么？",
+      "options": [
+        {"id": "pj_a", "type": "safe", "delta": 3, "text": "讲实例的 __proto__ 指向构造函数的 prototype，再讲 new 的四步。", "face": "nod", "line": "嗯，讲得清楚。"},
+        {"id": "pj_b", "type": "off", "delta": -3, "text": "原型链是 JS 里实现继承的方式，new 其实就是调用一下构造函数而已。", "face": "frown", "line": "写了精通，就这些？"},
+        {"id": "pj_c", "type": "bold", "text": "讲完原型链，再手撕一个简版的 new，边写边讲每一步在做什么。", "face": "probe", "line": "好，写吧。",
+          "followup": {
+            "text": "如果构造函数里自己 return 了一个对象，你写的 new 返回什么？",
+            "options": [
+              {"id": "pj_c1", "type": "hold", "delta": 9, "text": "返回 return 的对象；返回值不是对象时，才返回新实例。", "face": "pleased", "line": "对，很多人手写时漏了这个判断。"},
+              {"id": "pj_c2", "type": "partial", "delta": 1, "text": "这种情况没遇到过，我猜是以 return 的为准？", "face": "calm", "line": "猜对了，不过最好知道为什么。"},
+              {"id": "pj_c3", "type": "fail", "delta": -7, "text": "会忽略 return，new 出来的永远是新建的那个实例。", "face": "frown", "line": "你确定？"}
+            ]
+          }
+        }
+      ],
+      "explain": "写了“精通”，面试官就按精通的标准来问。讲清原型链和 new 的过程是及格线；手撕 new 时，构造函数自己 return 对象这种情况，很容易被追问到。"
+    },
+    "probe_js_float": {
+      "tag": "专业",
+      "text": "你写了精通 JavaScript。问一个：0.1 + 0.2 为什么不等于 0.3？要比较的话怎么写？",
+      "options": [
+        {"id": "pzj_a", "type": "safe", "delta": 3, "text": "二进制存小数有误差，比较时看差值是否小于 Number.EPSILON。", "face": "nod", "line": "嗯，标准答案。"},
+        {"id": "pzj_b", "type": "bold", "text": "从 IEEE 754 讲起：为什么 0.1 和 0.2 只是近似值。", "face": "probe", "line": "那我追一个。",
+          "followup": {
+            "text": "那 0.5 + 0.25 === 0.75 是 true 还是 false？为什么？",
+            "options": [
+              {"id": "pzj_b1", "type": "hold", "delta": 9, "text": "是 true，0.5 和 0.25 在二进制里能精确表示。", "face": "pleased", "line": "对，这才叫懂了。"},
+              {"id": "pzj_b2", "type": "partial", "delta": -2, "text": "应该也是 false 吧，浮点数之间的运算都会有误差。", "face": "calm", "line": "都会有？"},
+              {"id": "pzj_b3", "type": "fail", "delta": -7, "text": "是 true，因为 JS 会自动把运算结果四舍五入到 15 位小数。", "face": "frown", "line": "自动四舍五入？"}
+            ]
+          }
+        },
+        {"id": "pzj_c", "type": "off", "delta": -1, "text": "“精通”写得有点满，我更熟的其实是{p.strengths|框架和业务代码}。", "face": "frown", "line": "那为什么写精通？"}
+      ],
+      "explain": "写了“精通”，面试官就会挑经典的细节来问。浮点误差是基础（拿差值和 Number.EPSILON 比，只适合 1 附近的数，数值大了要按相对误差比），能讲到“哪些小数能被二进制精确表示”，才配得上这两个字；撑不住时如实承认写满了，丢的分最少。"
+    },
+    "probe_react_master": {
+      "tag": "专业",
+      "text": "看你写了精通 React。问一个：useEffect 的依赖数组没写全，会出什么问题？",
+      "options": [
+        {"id": "pr_a", "type": "fail", "delta": -7, "text": "React 会自动补上缺的依赖，一般不影响结果。", "face": "frown", "line": "会自动补？"},
+        {"id": "pr_b", "type": "partial", "delta": -2, "text": "会读到旧的值，也就是闭包陷阱……再往下我就不太确定了。", "face": "calm", "line": "嗯，知道个大概。"},
+        {"id": "pr_c", "type": "fail", "delta": -1, "text": "“精通”写过头了，React 我只{p.react_truth|写过几个小 demo}。", "face": "frown", "line": "那为什么写精通？"}
+      ],
+      "explain": "“精通”两个字，就是请面试官往深里问。依赖没写全会读到旧的状态值，这是 React 里很常见的坑。撑不住的“精通”，怎么答都要丢分：如实承认写过头丢得最少，硬说“会自动补”丢得最多；最划算的是一开始就别写。"
+    },
+    "probe_vue_source": {
+      "tag": "专业",
+      "text": "精通 Vue 3 源码？那说说 ref 和 reactive 在底层有什么区别。",
+      "options": [
+        {"id": "pzv_a", "type": "safe", "delta": 3, "text": "reactive 用 Proxy 代理对象，ref 靠 .value 的读写追踪。", "face": "nod", "line": "嗯。"},
+        {"id": "pzv_b", "type": "bold", "text": "顺着依赖收集讲：effect、track、trigger 是怎么串起来的。", "face": "probe", "line": "好，那问个实际的。",
+          "followup": {
+            "text": "那为什么把 reactive 里的基本类型字段解构出来，就不响应了？",
+            "options": [
+              {"id": "pzv_b1", "type": "hold", "delta": 9, "text": "拿到的是原始值，读它不走 Proxy、不 track，改了也不 trigger。", "face": "pleased", "line": "嗯，是真看过。"},
+              {"id": "pzv_b2", "type": "partial", "delta": -2, "text": "要用 toRefs 才能保持响应，具体原理我没仔细看过源码。", "face": "calm", "line": "知道怎么用，不知道为什么。"},
+              {"id": "pzv_b3", "type": "fail", "delta": -7, "text": "Vue 3 解构不会丢失响应性，那是 Vue 2 才有的老问题。", "face": "frown", "line": "你确定？"}
+            ]
+          }
+        },
+        {"id": "pzv_c", "type": "off", "delta": -1, "text": "源码只看过响应式那一部分，别的模块没细看，“精通”写满了。", "face": "frown", "line": "那就不该写精通。"}
+      ],
+      "explain": "“精通源码”很容易被追问到底。解构丢失响应性是 Vue 3 里很常见的坑：解构出来的基本类型字段是普通值；字段本身是对象的话，拿到的仍是响应式代理。答得出“为什么”，才算真看过源码；没看全就如实说，丢的分最少。"
+    },
+    "probe_sql_master": {
+      "tag": "专业",
+      "text": "你写了精通 SQL。那问一个：查每个用户最近一次下单的时间，怎么写？",
+      "options": [
+        {"id": "psq_a", "type": "fail", "delta": -7, "text": "SELECT user_id, order_time FROM orders ORDER BY order_time DESC。", "face": "frown", "line": "这样每个用户会有好多行吧？"},
+        {"id": "psq_b", "type": "partial", "delta": -1, "text": "按 user_id 分组取 MAX(order_time)……再复杂的我还在学。", "face": "calm", "line": "嗯，这个对。"},
+        {"id": "psq_c", "type": "fail", "delta": -1, "text": "“精通”写过头了，我只会课上学的基础查询。", "face": "frown", "line": "那为什么写精通？"}
+      ],
+      "explain": "“精通”两个字，就是请面试官往深里问。分组取最大值是基础题，答得出来也只能补回一点印象；如实承认写过头，丢的分和它一样少，比自信地写一句不对的查询强得多。撑不住的“精通”，不如一开始就写“了解”。"
+    },
+    "probe_ab_master": {
+      "tag": "专业",
+      "text": "你写了精通 A/B 测试。问个实际的：测了三天，新版显著更好，你会马上全量吗？",
+      "options": [
+        {"id": "pab_a", "type": "safe", "delta": 3, "text": "不会马上全量，先排除新奇效应，至少跑满一个完整周期。", "face": "nod", "line": "嗯。"},
+        {"id": "pab_b", "type": "bold", "text": "先查两组是否均衡、是不是一显著就提前停了，再决定。", "face": "probe", "line": "说说第二点。",
+          "followup": {
+            "text": "“一看到显著就停”，为什么有问题？",
+            "options": [
+              {"id": "pab_b1", "type": "hold", "delta": 9, "text": "反复看、一显著就停，假阳性会大增，样本量要事先定。", "face": "pleased", "line": "对，统计的底子在这儿用上了。"},
+              {"id": "pab_b2", "type": "partial", "delta": 1, "text": "因为三天的样本量可能还不够大，结论不稳？", "face": "calm", "line": "沾边，但不是关键。"},
+              {"id": "pab_b3", "type": "fail", "delta": -7, "text": "没什么问题，显著就是显著，早停还能省时间、早点上线。", "face": "frown", "line": "嗯……"}
+            ]
+          }
+        },
+        {"id": "pab_c", "type": "off", "delta": -5, "text": "显著了就马上全量，数据不会骗人，多拖一天就少一天收益。", "face": "frown", "line": "写了精通，就这么做决定？"}
+      ],
+      "explain": "“精通”一般是陷阱，但对学过实验设计和统计检验的人不一定。新奇效应和“偷看结果提前停”，是 A/B 测试里最常被追问的两件事。"
+    }
+  }
+}

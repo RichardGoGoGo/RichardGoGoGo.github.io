@@ -1,0 +1,183 @@
+{
+  "id": "r2", "name": "业务二面 · 现场写代码", "company": "unicorn",
+  "interviewer": {"art": "A3", "title": "前端负责人"},
+  "scene": "S5",
+  "hello": "二面我们写点代码。题目：做一个搜索框的联想功能，用户输入停顿 300ms 再请求，旧请求的结果不能覆盖新的。边写边说就行。",
+  "_note": "独角兽的业务二面改为现场写代码（策划案 4.3）。整轮围绕一道题分 5 步走，题面里的 code 字段在界面上按代码块显示。追问最多 2 层。",
+  "flow": [
+    {"slot": "c1", "node": "q_code_clarify", "swap": false},
+    {"slot": "c2", "node": "q_code_debounce", "swap": true, "alternates": ["q_code_wait"]},
+    {"slot": "c3", "node": "q_code_race", "swap": false},
+    {"slot": "c4", "node": "q_code_bug", "swap": true, "alternates": ["q_code_order"]},
+    {"slot": "c5", "node": "q_code_wrap", "swap": true, "alternates": ["q_code_ime"]},
+    {"slot": "reverse", "node": "zc_reverse", "swap": false}
+  ],
+  "nodes": {
+    "q_code_clarify": {
+      "tag": "项目表达",
+      "text": "题目就是这样。你可以先问问题，也可以直接开始写。",
+      "options": [
+        {"id": "cc_a", "type": "safe", "delta": 3, "text": "先确认两点：旧请求要不要真取消，空输入显示什么。", "face": "nod", "line": "好问题。取消不强求，空输入就清空。"},
+        {"id": "cc_b", "type": "bold", "text": "不问了，先写一版能跑的，边写边说思路。", "face": "probe", "line": "行，写完我们看看。",
+          "followup": {
+            "text": "你这第一版，输入 ab 停了一下，又删成 a，显示的却是 ab 的结果。为什么？",
+            "options": [
+              {"id": "cc_b1", "type": "hold", "delta": 9, "text": "ab 的请求后返回，覆盖了 a 的结果，得丢掉过期的响应。", "face": "pleased", "line": "对，这就是题目里那句话。"},
+              {"id": "cc_b2", "type": "partial", "delta": -2, "text": "防抖时间太短了，调到 500ms，请求就不会挤在一起。", "face": "calm", "line": "网慢一点还是会挤。"},
+              {"id": "cc_b3", "type": "fail", "delta": -7, "text": "浏览器缓存了 ab 的结果，加个时间戳参数就好。", "face": "frown", "line": "和缓存有什么关系？"}
+            ]
+          }
+        },
+        {"id": "cc_c", "type": "off", "delta": -3, "text": "能先给我十分钟自己写完吗？写完了再一起从头讲思路。", "face": "frown", "line": "我想听你边写边想。"}
+      ],
+      "explain": "现场写代码，过程和结果一样摆在面试官面前。先问清边界最稳；直接开写也行，但要能当场看出自己的漏洞。闷头写十分钟再讲，面试官就看不到你的思路了。"
+    },
+    "q_code_debounce": {
+      "tag": "专业",
+      "text": "先写防抖。在 Vue 组件的 methods 里写成 search: debounce(function () { … }, 300)，有什么问题？",
+      "code": "function debounce(fn, wait) {\n  let timer\n  return function (...args) {\n    clearTimeout(timer)\n    timer = setTimeout(() => fn(...args), wait)\n  }\n}",
+      "options": [
+        {"id": "cd_a", "type": "safe", "delta": 3, "text": "调用 fn 时丢了 this，要改成 fn.apply(this, args)。", "face": "nod", "line": "对，还有吗？先往下走。"},
+        {"id": "cd_b", "type": "bold", "text": "this 丢了；而且这样写，所有组件实例会共用一个定时器。", "face": "probe", "line": "那你补上。",
+          "followup": {
+            "text": "那怎么改，让每个搜索框各有自己的定时器？",
+            "options": [
+              {"id": "cd_b1", "type": "hold", "delta": 9, "text": "在 created 里给每个实例各包一份，卸载时调它的 cancel 清掉。", "face": "pleased", "line": "嗯，干净。"},
+              {"id": "cd_b2", "type": "partial", "delta": -2, "text": "组件里设个标志位，卸载以后在回调里先判断一下再执行。", "face": "calm", "line": "共用的定时器还是共用的。"},
+              {"id": "cd_b3", "type": "fail", "delta": -7, "text": "把 timer 提到模块最外层统一管理，组件卸载时清掉就行。", "face": "frown", "line": "那不是更共用了？"}
+            ]
+          }
+        },
+        {"id": "cd_c", "type": "off", "delta": -3, "text": "clearTimeout 应该写在 setTimeout 后面，现在顺序反了。", "face": "frown", "line": "反了？你再看看。"}
+      ],
+      "explain": "这样用有两个坑。一是 this：箭头函数里直接调用 fn，组件方法里的 this 就丢了，要写成 fn.apply(this, args)。二是共用：写在 methods 里时，debounce 只在定义组件时调用一次，页面上所有实例共用一个定时器，一个搜索框会把另一个的请求清掉。Vue 官方文档的做法是在 created（组合式写法在 setup）里给每个实例各建一份，卸载时取消。"
+    },
+    "q_code_wait": {
+      "tag": "专业",
+      "text": "防抖的等待时间你设多少？依据是什么？",
+      "options": [
+        {"id": "cw_a", "type": "safe", "delta": 3, "text": "300ms 左右，接近正常打字的间隔，再按体验调。", "face": "nod", "line": "嗯。"},
+        {"id": "cw_b", "type": "bold", "text": "看场景：联想短一点，提交类长一点，再按数据调。", "face": "probe", "line": "那我出个难题。",
+          "followup": {
+            "text": "产品说“输入第一个字就要马上出结果”，怎么改？",
+            "options": [
+              {"id": "cw_b1", "type": "hold", "delta": 9, "text": "第一次立即执行，之后再防抖，也就是同时开 leading 和 trailing。", "face": "pleased", "line": "对。"},
+              {"id": "cw_b2", "type": "partial", "delta": -2, "text": "那就不防抖了，每次输入都发请求，反正后端扛得住。", "face": "calm", "line": "后端同学会来找你的。"},
+              {"id": "cw_b3", "type": "fail", "delta": -7, "text": "把等待时间设成 0，就等于输入后马上执行了。", "face": "frown", "line": "设成 0 还算防抖吗？"}
+            ]
+          }
+        },
+        {"id": "cw_c", "type": "off", "delta": -3, "text": "越长越好，能省请求，设成 1 秒用户也感觉不出来。", "face": "frown", "line": "用户等一秒才出联想？"}
+      ],
+      "explain": "防抖时间没有标准答案，要看场景和体验。“第一个字马上出结果”要的是首次立即执行；等待时间设成 0，回调仍然要等当前任务结束才执行，而且就不算防抖了。"
+    },
+    "q_code_race": {
+      "tag": "专业",
+      "text": "防抖只解决了请求太频繁。旧请求覆盖新结果的问题还在，你怎么处理？",
+      "options": [
+        {"id": "cr_a", "type": "safe", "delta": 3, "text": "每次请求带一个递增序号，返回时只处理序号最新的那个。", "face": "nod", "line": "可以，写吧。"},
+        {"id": "cr_b", "type": "bold", "text": "用 AbortController 直接取消上一个请求。", "face": "probe", "line": "那问个细节。",
+          "followup": {
+            "text": "取消之后，那个 fetch 会怎样？你的代码要注意什么？",
+            "options": [
+              {"id": "cr_b1", "type": "hold", "delta": 9, "text": "会抛 AbortError，catch 里要和真报错分开处理，别弹提示。", "face": "pleased", "line": "对，很多人在这儿弹了一堆报错。"},
+              {"id": "cr_b2", "type": "partial", "delta": -2, "text": "会 reject，在 catch 里把所有错误统一吞掉，页面上就不会报错了。", "face": "calm", "line": "真出错的时候呢？"},
+              {"id": "cr_b3", "type": "fail", "delta": -7, "text": "请求会直接消失，后面的代码什么都不用处理。", "face": "frown", "line": "Promise 就这么没了？"}
+            ]
+          }
+        },
+        {"id": "cr_c", "type": "off", "delta": -3, "text": "把防抖时间加长到 1 秒，旧请求基本就能赶在新请求之前回来。", "face": "frown", "line": "基本？"}
+      ],
+      "explain": "处理乱序有两种常见办法：给请求编号、只认最新的；或者用 AbortController 直接取消旧请求。取消后 fetch 会以 AbortError 失败，要和真正的网络错误区分开；把错误统一吞掉，真出问题时就什么提示都没有了。"
+    },
+    "q_code_bug": {
+      "tag": "专业",
+      "text": "你按序号方案写完了，跑起来基本对。但输入 C++ 或 a&b 时，结果不对。问题在哪？",
+      "code": "let latest = 0\nasync function search(q) {\n  const id = ++latest\n  const res = await fetch('/suggest?q=' + q)\n  const list = await res.json()\n  if (id !== latest) return\n  render(list)\n}",
+      "options": [
+        {"id": "cb_a", "type": "safe", "delta": 3, "text": "q 没转义，+ 和 & 在网址里有特殊含义，要用 encodeURIComponent。", "face": "nod", "line": "对。"},
+        {"id": "cb_b", "type": "bold", "text": "q 没转义；另外 latest 是全局的，有两个搜索框时会互相干扰。", "face": "probe", "line": "那你改一下。",
+          "followup": {
+            "text": "怎么改，才能让两个搜索框各管各的？",
+            "options": [
+              {"id": "cb_b1", "type": "hold", "delta": 9, "text": "把 latest 放进闭包或组件实例里，每个搜索框各有一份。", "face": "pleased", "line": "嗯。"},
+              {"id": "cb_b2", "type": "partial", "delta": -2, "text": "给两个搜索框各起一个变量，latest1 和 latest2。", "face": "calm", "line": "三个呢？"},
+              {"id": "cb_b3", "type": "fail", "delta": -7, "text": "加一把锁，一个搜索框请求时，另一个先等着。", "face": "frown", "line": "那第二个搜索框就卡住了。"}
+            ]
+          }
+        },
+        {"id": "cb_c", "type": "off", "delta": -3, "text": "res.json() 是同步的，不用 await，这里多写了一个。", "face": "frown", "line": "同步的？"}
+      ],
+      "explain": "拼接网址时，查询参数要用 encodeURIComponent 转义，不然 +、&、# 这些字符会被当成网址的一部分。latest 写在模块最外层，页面上有两个搜索框就会互相把对方的结果判成过期。res.json() 返回的是 Promise，必须 await。"
+    },
+    "q_code_order": {
+      "tag": "专业",
+      "text": "换一版代码。这段还是会被旧请求覆盖，哪里写得不对？",
+      "code": "let latest = 0\nasync function search(q) {\n  const id = ++latest\n  const res = await fetch(url(q))\n  render(await res.json())\n  if (id !== latest) return\n}",
+      "options": [
+        {"id": "co_a", "type": "safe", "delta": 3, "text": "判断写在 render 后面了，应该先判断是不是最新的，再渲染。", "face": "nod", "line": "对。"},
+        {"id": "co_b", "type": "bold", "text": "判断位置不对；而且要放在 res.json() 之后，不是 fetch 之后。", "face": "probe", "line": "为什么？",
+          "followup": {
+            "text": "为什么要放在 json() 之后？fetch 之后判断不行吗？",
+            "options": [
+              {"id": "co_b1", "type": "hold", "delta": 9, "text": "json() 也要等，期间可能又发了新请求，所以放最后。", "face": "pleased", "line": "嗯，想得细。"},
+              {"id": "co_b2", "type": "partial", "delta": -2, "text": "其实放哪都差不多，fetch 和 json() 之间就差几毫秒。", "face": "calm", "line": "大响应体可不止几毫秒。"},
+              {"id": "co_b3", "type": "fail", "delta": -7, "text": "fetch 之后判断就够了，json() 是同步解析的，不用再等。", "face": "frown", "line": "json() 是同步的？"}
+            ]
+          }
+        },
+        {"id": "co_c", "type": "off", "delta": -3, "text": "latest 应该等请求返回后再加一，现在加得太早了。", "face": "frown", "line": "那还怎么分先后？"}
+      ],
+      "explain": "判断“是不是最新的请求”，要放在真正渲染之前、所有 await 之后。res.json() 也是异步的，等它的时候可能又有新请求发出。序号要在发请求时加，等返回再加，就分不清谁先谁后了。"
+    },
+    "q_code_wrap": {
+      "tag": "视野与取舍",
+      "text": "时间差不多了。你觉得这段代码要上线，还差什么？",
+      "options": [
+        {"id": "cwr_a", "type": "safe", "delta": 3, "text": "补上加载中、没结果和接口报错三种状态，分开提示。", "face": "nod", "line": "嗯，都需要。"},
+        {"id": "cwr_b", "type": "bold", "text": "说说我会怎么测：怎么稳定地模拟慢请求和乱序返回。", "face": "probe", "line": "说具体点。",
+          "followup": {
+            "text": "乱序返回，你具体怎么模拟？",
+            "options": [
+              {"id": "cwr_b1", "type": "hold", "delta": 9, "text": "mock fetch，让先发的请求晚返回，断言渲染的是新结果。", "face": "pleased", "line": "嗯，这样每次都测得到。"},
+              {"id": "cwr_b2", "type": "partial", "delta": -2, "text": "开 Chrome 的慢速 3G，多输入几次，总能碰到乱序的时候。", "face": "calm", "line": "看运气了。"},
+              {"id": "cwr_b3", "type": "fail", "delta": -7, "text": "真实网络里乱序很少见，把正常情况测好就够了，没必要专门模拟。", "face": "frown", "line": "那我们这题在解决什么？"}
+            ]
+          }
+        },
+        {"id": "cwr_c", "type": "off", "delta": -3, "text": "差不多了，能跑就可以先上，有问题再修。", "face": "frown", "line": "嗯……"}
+      ],
+      "explain": "代码写完，还要想上线后会遇到什么：加载中、没结果、接口报错要分开提示，键盘上下选择和中文输入法也要照顾到。乱序这类问题手动很难稳定复现，在测试里控制每个请求的返回时间，才能每次都测到。"
+    },
+    "q_code_ime": {
+      "tag": "专业",
+      "text": "上线后有用户反馈：拼音还没选字，联想就发了一堆请求。怎么解决？",
+      "options": [
+        {"id": "ci_a", "type": "safe", "delta": 3, "text": "监听 composition 事件，拼音还没选字时先不发请求。", "face": "nod", "line": "对。"},
+        {"id": "ci_b", "type": "bold", "text": "讲讲 v-model 和直接监听 input，在中文输入时有什么区别。", "face": "probe", "line": "好，那你自己监听呢？",
+          "followup": {
+            "text": "如果你自己监听 @input，怎么处理拼音阶段？",
+            "options": [
+              {"id": "ci_b1", "type": "hold", "delta": 9, "text": "用 isComposing 判断，组合输入中跳过，选完字后再发一次。", "face": "pleased", "line": "嗯，中文输入这块想到了。"},
+              {"id": "ci_b2", "type": "partial", "delta": -2, "text": "把防抖时间调长到 800ms，等用户拼完再发。", "face": "calm", "line": "拼得慢的用户呢？"},
+              {"id": "ci_b3", "type": "fail", "delta": -7, "text": "拼音也是用户输入，照常发请求，后端会处理。", "face": "frown", "line": "拼音能搜出什么？"}
+            ]
+          }
+        },
+        {"id": "ci_c", "type": "off", "delta": -3, "text": "让产品去掉自动联想，改成用户按回车再搜。", "face": "frown", "line": "那还叫联想吗？"}
+      ],
+      "explain": "中文输入时，拼音阶段也会触发 input 事件。Vue 的 v-model 默认会等选完字才更新；自己监听 input 就要处理组合输入：用 compositionstart / compositionend 或事件上的 isComposing 跳过拼音阶段，选完字后再发请求。做中文写作产品，这一点尤其要紧。"
+    },
+    "zc_reverse": {
+      "tag": "动机与稳定", "kind": "reverse",
+      "text": "我这边差不多了。你有什么想问的？",
+      "options": [
+        {"id": "zcr_a", "type": "reverse", "delta": 3, "text": "如果我进来，前三个月主要会做什么？", "face": "pleased", "line": "先接手搜索和编辑器这两块……"},
+        {"id": "zcr_b", "type": "reverse", "delta": 1, "text": "团队平时怎么做代码评审？多久发一次版？", "face": "nod", "line": "两个人互相看，小改动直接合。"},
+        {"id": "zcr_c", "type": "reverse", "delta": -2, "text": "期权和薪资是怎么定的？", "face": "calm", "line": "这个得问创始人。"},
+        {"id": "zcr_d", "type": "reverse", "delta": -3, "text": "没有了。", "face": "calm", "line": "好。"}
+      ],
+      "explain": "反问是最后一道题。问前三个月做什么，说明你已经在想进来之后的事；问代码评审和发版节奏也是好问题，能看出新人能不能拿到反馈；待遇问题留到和创始人谈。"
+    }
+  }
+}

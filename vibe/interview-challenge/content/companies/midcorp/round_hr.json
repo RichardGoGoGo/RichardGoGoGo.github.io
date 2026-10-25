@@ -1,0 +1,223 @@
+{
+  "id": "r3",
+  "name": "HR 面",
+  "company": "midcorp",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S4",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "intro_hr",
+      "swap": false,
+      "prefer": [
+        "r3_intro"
+      ]
+    },
+    {
+      "slot": "q1",
+      "node": "q_why_us",
+      "swap": true,
+      "alternates": [
+        "q_career"
+      ]
+    },
+    {
+      "slot": "q2",
+      "dynamic": "background",
+      "pool": "hr",
+      "swap": false,
+      "_note": "背景题位：按人设的背景和特殊设定挑一道（library/background.json），重打时不换"
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false,
+      "_note": "答案会带进谈薪，真假按游戏里的投递进度算，重打时不换",
+      "prefer": [
+        "q_other_offers"
+      ]
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "hr_misc",
+      "swap": true,
+      "prefer": [
+        "q_overtime"
+      ]
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false,
+      "prefer": [
+        "r3_reverse"
+      ]
+    }
+  ],
+  "nodes": {
+    "q_why_us": {
+      "tag": "动机与稳定",
+      "text": "为什么想来方格科技？",
+      "options": [
+        {
+          "id": "wu_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "你们做企业 SaaS，跟我{cite.kind}做的东西接近，上手快。",
+          "requires": {
+            "exp_type": "intern_dev"
+          },
+          "face": "nod",
+          "line": "嗯。",
+          "fallback": {
+            "id": "wu_a0",
+            "type": "safe",
+            "delta": 3,
+            "text": "你们做企业 SaaS，正好是我想深入的方向。",
+            "face": "nod",
+            "line": "嗯。"
+          }
+        },
+        {
+          "id": "wu_b",
+          "type": "bold",
+          "text": "我看过你们的技术博客，说一两点具体的印象。",
+          "face": "probe",
+          "line": "哦？",
+          "followup": {
+            "text": "你看的是哪篇？",
+            "options": [
+              {
+                "id": "wu_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "讲大表格卡顿那篇，说说里面的方案和我的理解。",
+                "face": "pleased",
+                "line": "那篇是我们组长写的。"
+              },
+              {
+                "id": "wu_b2",
+                "type": "partial",
+                "delta": -4,
+                "text": "具体哪篇记不清了，就是整体感觉你们技术氛围很不错。",
+                "face": "frown",
+                "line": "嗯……"
+              },
+              {
+                "id": "wu_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "好几篇都看了，性能优化和工程化那几篇写得都挺好。",
+                "face": "frown",
+                "line": "比如？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wu_c",
+          "type": "off",
+          "delta": -1,
+          "text": "离家近，而且你们的流程走得快。",
+          "face": "calm",
+          "line": "嗯，挺实在。"
+        },
+        {
+          "id": "wu_d",
+          "type": "off",
+          "delta": -3,
+          "text": "想先在中等规模的公司攒几年经验，再去更大的平台。",
+          "face": "frown",
+          "line": "那你打算在我们这儿待多久？"
+        }
+      ],
+      "explain": "“为什么选我们”的回答，既看得出你有没有做功课，也会被拿来估计你会待多久。说具体的、跟自己经历对得上的理由最稳；坦白“想先攒经验再走”，HR 多半会接着问你打算待多久。"
+    },
+    "q_career": {
+      "tag": "动机与稳定",
+      "text": "你对未来三年有什么规划？",
+      "options": [
+        {
+          "id": "cp_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "先把{role.name}基本功打扎实，两三年后独立负责一块业务。",
+          "face": "nod",
+          "line": "嗯，挺清楚。"
+        },
+        {
+          "id": "cp_b",
+          "type": "bold",
+          "text": "想往{role.growth}。",
+          "face": "probe",
+          "line": "那我多问一句。",
+          "followup": {
+            "text": "那你现在为这个方向做了什么准备？",
+            "options": [
+              {
+                "id": "cp_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "{cite.short}里自己搭了单元测试和文档站，算是第一步。",
+                "requires": {
+                  "highlight": "unit_test_bug"
+                },
+                "face": "pleased",
+                "line": "嗯，有实际动作。",
+                "fallback": {
+                  "id": "cp_b10",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "在看这个方向的资料和别人的做法，记了笔记，还没真正用上。",
+                  "face": "nod",
+                  "line": "嗯，先看是对的。"
+                }
+              },
+              {
+                "id": "cp_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "还没开始，打算入职以后跟着团队再系统地学。",
+                "face": "calm",
+                "line": "嗯。"
+              },
+              {
+                "id": "cp_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "我已经掌握得差不多了，就差一个实践的机会。",
+                "face": "frown",
+                "line": "差不多是指？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cp_c",
+          "type": "off",
+          "delta": -3,
+          "text": "三年后想转{role.switch_to}，我觉得自己的性格更适合那边的工作。",
+          "face": "frown",
+          "line": "那这次怎么投了{role.name}？"
+        },
+        {
+          "id": "cp_d",
+          "type": "off",
+          "delta": -1,
+          "text": "还没想那么远，先找到工作再说。",
+          "face": "calm",
+          "line": "嗯，理解。"
+        }
+      ],
+      "explain": "规划题不要求你真能看清三年后，只要方向和这份工作对得上。说“想转岗”是实话，但在这个场合等于提前宣布要走。"
+    }
+  },
+  "_note": "方格科技的 HR 面，所有岗位共用：和岗位有关的说法用 {role.*}（见 catalog.json 的 roles）。"
+}

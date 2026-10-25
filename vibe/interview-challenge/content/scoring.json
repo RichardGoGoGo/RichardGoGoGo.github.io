@@ -1,0 +1,37 @@
+{
+  "_note": "全局计分参数，见策划案 4.1、4.3、4.4、5.4。数值是初始值，由 tools/balance_sim.py 校验，上线后按埋点再调。",
+  "resume": {
+    "relevance": {"strong": 1.2, "match": 1.0, "half": 0.5, "none": 0.1, "general": 0.3},
+    "quality": {"empty": 0.2, "duty": 0.5, "evidence": 1.0, "evidence_off_angle": 0.6, "exag": 1.2, "fact": 1.0},
+    "quality_override": {"unicorn": {"exag": 0.6, "evidence": 1.1}},
+    "position_weights": [1.0, 0.9, 0.8, 0.7, 0.6],
+    "position_weight_after": 0.5,
+    "empty_penalty": 0.1,
+    "thin_page_penalty": 0.8,
+    "thin_page_min_entries": 3,
+    "skill_value": 0.1,
+    "skill_value_cap": 0.4,
+    "max_skills": 6,
+    "education_score": {"985_master": 1.0, "211_bachelor": 0.6, "double_non_bachelor": 0.3},
+    "major_match_bonus": 0.3,
+    "bonus_to_first_round": {"per_margin": 2.5, "max": 5}
+  },
+  "interview": {
+    "option_delta": {"safe": 3, "off": -3, "hold": 9, "fail": -7},
+    "time_penalty": {"waiting": -1, "timeout": -5},
+    "think_extra_seconds": 10,
+    "reading_chars_per_second": 6,
+    "thinking_seconds": 8,
+    "relaxed_window_ratio": 0.6,
+    "probe_cap_per_run": 2
+  },
+  "negotiation": {
+    "start_T": 0,
+    "start_R": 3,
+    "tier_up_at": 7,
+    "tier_down_below": 2,
+    "unopened_bad_term_penalty": 1,
+    "unopened_bad_term_cap": 2
+  },
+  "tiers": ["白菜", "普通", "SP", "SSP"]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A2",
+    "title": "前端工程师"
+  },
+  "scene": "S5",
+  "_note": "独角兽一面：偏实际问题和项目，基础题问得浅。追问最多 2 层。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "prefer": [
+        "zi_intro"
+      ],
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "fe_page",
+      "prefer": [
+        "q_mobile_fit",
+        "q_infinite_list"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false,
+      "_note": "深挖简历第一页排第 1 的那段经历；那段是夸大或含糊写法时，换成对应的追问"
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "fe_engineering",
+      "prefer": [
+        "q_white_screen",
+        "q_deploy"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "node": "q_algo_fe",
+      "swap": false,
+      "_note": "技能栏写了“精通 Vue 3 源码”或“精通 JavaScript”时换成对应追问，否则问 q_algo_fe"
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "fe_workstyle",
+      "prefer": [
+        "q_small_team",
+        "q_req_change"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "prefer": [
+        "zi_reverse"
+      ],
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "q_algo_fe": {
+      "tag": "专业",
+      "text": "你是{bg.major_degree}出身。你觉得算法在前端里用得上吗？",
+      "options": [
+        {
+          "id": "af_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "多数时候用不上，大数据量渲染时会用到，比如抽样和分片。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "af_b",
+          "type": "bold",
+          "text": "讲{cite.subject}：{cite.n_points}个点怎么抽样，复杂度怎么估的。",
+          "requires": {
+            "highlight": "chart_perf"
+          },
+          "face": "probe",
+          "line": "好，我挑个刺。",
+          "fallback": {
+            "id": "af_b0",
+            "type": "safe",
+            "delta": 2,
+            "text": "讲{p.algo_story|一次在项目里用上算法的经历}。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          "followup": {
+            "text": "抽样会不会把异常点漏掉？业务方可能恰恰想看异常。",
+            "options": [
+              {
+                "id": "af_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "会，所以单独保留离群点，放大时再看原始数据。",
+                "face": "pleased",
+                "line": "嗯，想到业务方了。"
+              },
+              {
+                "id": "af_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "会漏一些，但整体趋势是对的，业务方看趋势就够用了。",
+                "face": "calm",
+                "line": "业务方可不一定只看趋势。"
+              },
+              {
+                "id": "af_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "不会，随机抽样在统计上是无偏的，异常点也会按比例被留下来。",
+                "face": "frown",
+                "line": "按比例留下，几个异常点还剩几个？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "af_c",
+          "type": "off",
+          "delta": -3,
+          "text": "前端基本用不上算法，日常主要就是写业务、调样式、对接口。",
+          "face": "calm",
+          "line": "那你的算法底子不是浪费了？"
+        }
+      ],
+      "explain": "算法好是一项优势，但要能落到前端的实际问题上。大数据量渲染时，抽样会丢掉少数异常点，而业务方往往最关心异常；按比例随机抽样，恰恰最容易把它们抽掉。"
+    }
+  }
+}

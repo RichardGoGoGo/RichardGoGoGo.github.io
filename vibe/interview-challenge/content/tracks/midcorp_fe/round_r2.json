@@ -1,0 +1,54 @@
+{
+  "id": "r2", "name": "业务二面", "company": "midcorp",
+  "interviewer": {"art": "A3", "title": "前端组长"},
+  "scene": "S4",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["r2_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "probe_or_deep_dive_next", "swap": false, "_note": "简历第一页有夸大写法且还没被追问过时，优先追问夸大（按第一页从上到下）；其次是含糊写法；都没有就深挖第一页里下一段还没聊过的经历"},
+    {"slot": "q2", "dynamic": "pool", "pool": "fe_collab", "prefer": ["q_lastminute", "q_codereview"], "swap": true},
+    {"slot": "q3", "dynamic": "pool", "pool": "fe_collab", "prefer": ["q_api_conflict", "q_deadline"], "swap": true},
+    {"slot": "q4", "node": "q_vue_react", "swap": true, "alternates": ["q_admin_stack"], "when": {"skill_min": {"vue": 1}}, "else": "q_admin_stack", "_note": "二面考框架原理和技术决策：从一面挪来的框架题，重打时换成技术选型题。没用过 Vue 的人设直接问技术选型题"},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["r2_reverse"], "swap": false}
+  ],
+  "nodes": {
+    "q_vue_react": {
+      "tag": "专业",
+      "text": "你主要用 Vue，有没有想过为什么不用 React？",
+      "options": [
+        {"id": "vr_a", "type": "safe", "delta": 3, "text": "手上的项目都是 Vue，先把它用扎实，React 也在学。", "face": "nod", "line": "嗯，实在。"},
+        {"id": "vr_b", "type": "bold", "text": "讲两者在响应式和渲染上的差别，再说我现在为什么选 Vue。", "face": "probe", "line": "好，那我挑一个问。",
+          "followup": {
+            "text": "说说 Vue 3 的响应式是怎么实现的？",
+            "options": [
+              {"id": "vr_b1", "type": "hold", "delta": 9, "text": "用 Proxy 拦截读写：读时收集依赖，写时通知副作用重跑。", "face": "pleased", "line": "嗯，清楚。"},
+              {"id": "vr_b2", "type": "fail", "delta": -5, "text": "用 Object.defineProperty 劫持每个属性的 getter 和 setter。", "face": "frown", "line": "那是 Vue 2 的做法。"},
+              {"id": "vr_b3", "type": "fail", "delta": -7, "text": "Vue 3 靠虚拟 DOM 做新旧对比，对比完才知道是哪些数据变了。", "face": "frown", "line": "虚拟 DOM 是管渲染的吧？"}
+            ]
+          }
+        },
+        {"id": "vr_c", "type": "off", "delta": -3, "text": "Vue 上手快，React 太复杂了，暂时没必要学。", "face": "frown", "line": "嗯……"},
+        {"id": "vr_d", "type": "off", "delta": -3, "text": "React 更流行，招聘要求里也更多，其实我更想用 React，只是没机会。", "face": "calm", "line": "那你 Vue 用得怎么样？"}
+      ],
+      "explain": "问“为什么不用另一个”，没人要你站队，能说出自己为什么这么选就够了。把对方贬低一通，或者把自己手上的贬低一通，都不加分。"
+    },
+    "q_admin_stack": {
+      "tag": "视野与取舍",
+      "text": "如果让你从零搭一个新的运营后台，技术栈怎么选？",
+      "options": [
+        {"id": "as_a", "type": "safe", "delta": 3, "text": "Vue 3 加 TypeScript，再配个成熟的组件库，是我最熟的一套。", "face": "nod", "line": "嗯，稳妥。"},
+        {"id": "as_b", "type": "bold", "text": "先看团队现在用什么、以后谁来维护，再在 Vue 3 和 React 里选。", "face": "probe", "line": "好，那我给个条件。",
+          "followup": {
+            "text": "假设团队一半人会 Vue、一半会 React，你选哪个？理由呢？",
+            "options": [
+              {"id": "as_b1", "type": "hold", "delta": 9, "text": "选 Vue。我能马上搭好骨架和规范，后台多是表单表格，两边都好上手。", "face": "pleased", "line": "理由站得住。"},
+              {"id": "as_b2", "type": "partial", "delta": -2, "text": "选 React，生态更大，招人也容易，以后团队扩张不用愁。", "face": "calm", "line": "理由没错，可你自己 React 写得多吗？"},
+              {"id": "as_b3", "type": "fail", "delta": -5, "text": "都行，技术栈其实不重要，关键是先把业务跑通。", "face": "frown", "line": "那你刚才说要先看什么？"}
+            ]
+          }
+        },
+        {"id": "as_c", "type": "off", "delta": -3, "text": "选最新的框架，社区活跃，接下来几年都不会过时。", "face": "frown", "line": "后台要维护好几年，新框架组里谁熟？"}
+      ],
+      "explain": "选技术栈，关键在理由：团队会什么、以后谁来维护、项目是什么类型，以及你自己能不能马上扛起来。选自己不熟的那个，理由再好也站不住；只追新、不看团队，圈里管这叫“简历驱动开发”。"
+    }
+  }
+}

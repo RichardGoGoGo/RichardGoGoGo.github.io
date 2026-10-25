@@ -1,0 +1,4297 @@
+{
+  "_note": "数据分析师岗位扩展包。relevance：各经历类型对这个岗位的默认对口程度；skills：这个岗位技能栏里的技能（已有的技能只补这个岗位的对口和关键词，sql、ab 补了数据岗用的“精通”追问）；frames：各类经历投数据分析时的深挖问法（带亮点位的要这段经历有 roles 含 data 的亮点）；highlights：数据岗亮点（结论反转、口径对齐、剔除规则、小样本、分母变化、用数据改决定……），具体数字和事实都在人设参数里；skill_probes：数据岗的“精通”追问，岗位线 track.json 的 skill_probes 指定用哪道；background：数据岗背景题，ID 前缀 bgd_；fallbacks.data：第一行是论文、奖项时的问法。写法见 docs/面试挑战/素材补充交接.md。",
+  "relevance": {
+    "intern_dev": {
+      "data": "half"
+    },
+    "intern_pm": {
+      "data": "half"
+    },
+    "user_research_intern": {
+      "data": "match"
+    },
+    "research_tool": {
+      "data": "match"
+    },
+    "campus_team_project": {
+      "data": "half"
+    },
+    "personal_project": {
+      "data": "half"
+    },
+    "course_project": {
+      "data": "half"
+    },
+    "thesis": {
+      "data": "half"
+    },
+    "paper": {
+      "data": "half"
+    },
+    "competition": {
+      "data": "half"
+    },
+    "student_org": {
+      "data": "none"
+    },
+    "media_ops": {
+      "data": "half"
+    },
+    "event_planning": {
+      "data": "half"
+    },
+    "part_time": {
+      "data": "none"
+    },
+    "certificate": {
+      "data": "general"
+    },
+    "award": {
+      "data": "general"
+    }
+  },
+  "skills": {
+    "sql": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "SQL"
+          ]
+        }
+      },
+      "master_probes": [
+        "dap_sql_window",
+        "dap_sql_null"
+      ]
+    },
+    "data": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "python": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "Python"
+          ]
+        }
+      }
+    },
+    "stats": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "统计"
+          ]
+        }
+      }
+    },
+    "ab": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "A/B 测试"
+          ]
+        }
+      },
+      "master_probes": [
+        "dap_ab_pvalue"
+      ]
+    },
+    "exp_design": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "实验设计"
+          ]
+        }
+      }
+    },
+    "excel": {
+      "labels": {
+        "1": "会用 Excel 透视表和常用函数",
+        "2": "熟练使用 Excel 数据分析"
+      },
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "Excel"
+          ]
+        }
+      }
+    },
+    "bi": {
+      "labels": {
+        "1": "会用 BI 工具做看板",
+        "2": "熟悉 Tableau / Power BI"
+      },
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "BI"
+          ]
+        }
+      }
+    },
+    "metrics": {
+      "labels": {
+        "1": "了解指标体系",
+        "2": "熟悉指标体系搭建"
+      },
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "指标体系"
+          ]
+        }
+      }
+    },
+    "research": {
+      "roles": {
+        "data": {
+          "relevant": false,
+          "keywords": [
+            "用户研究"
+          ]
+        }
+      }
+    },
+    "ml": {
+      "roles": {
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "机器学习"
+          ]
+        }
+      }
+    },
+    "office": {
+      "roles": {
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    }
+  },
+  "frames": {
+    "research_tool": [
+      {
+        "id": "data_source",
+        "roles": [
+          "data"
+        ],
+        "_note": "需要经历参数 data_routine（一句“讲……”）和一条 roles 含 data、带 pitch 的亮点。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，数据是怎么来、怎么处理的？挑最能说明你数据功底的一处讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.data_routine}",
+              "face": "nod",
+              "line": "嗯，基本功是有的。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "这段主要是写程序，数据怎么分析，是用数据的人自己的事情。",
+              "face": "frown",
+              "line": "那你投数据分析，是想做什么？"
+            }
+          ],
+          "explain": "技术项目拿来投数据分析，只讲代码，面试官多半会接着问：数据从哪来、怎么整理、哪一步可能出错。把这几步讲清，这段经历才和岗位连得上；说“数据是别人的事”，等于亲手剪断了这层联系。"
+        }
+      }
+    ],
+    "user_research_intern": [
+      {
+        "id": "research_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "需要一条 roles 含 data、带 pitch 的亮点（比如 small_sample_scope）。",
+        "node": {
+          "tag": "项目表达",
+          "text": "你做的是{exp.kind|用研}，投的是数据分析。你的研究结论，数据上站得住吗？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲定性和定量怎么配合：访谈找原因，再用问卷看有多少人。",
+              "face": "nod",
+              "line": "嗯，分工清楚。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "用研靠的是洞察和同理心，数据只是辅助，结论主要看判断。",
+              "face": "frown",
+              "line": "分析岗要的恰恰是数据。"
+            }
+          ],
+          "explain": "用研转数据分析，讲到研究结论，面试官多半会追问它能推多远。访谈和可用性测试擅长找到问题、解释原因，说不清问题有多普遍；把研究和数据对立起来，或者拿几个人的样本去推比例，都可能让面试官关注到你的分析习惯。"
+        }
+      }
+    ],
+    "intern_dev": [
+      {
+        "id": "dev_to_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "需要一条 roles 含 data、带 pitch 的亮点（比如 rule_conflict_table）；没有时用下一个问法 dev_to_data_gen。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}这段，对你做数据分析有什么用？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我知道数据是怎么来的：埋点、接口日志、业务库各记什么。",
+              "face": "nod",
+              "line": "嗯，懂数据的源头是好事。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "这段主要是写代码，和数据分析关系不大，放上来是凑经历。",
+              "face": "frown",
+              "line": "那为什么放在这么前面？"
+            }
+          ],
+          "explain": "开发出身投数据分析，优势是懂数据从哪来、在哪一环会出错。能把开发里养成的习惯讲成分析的习惯，这段经历就不是凑数的。"
+        }
+      },
+      {
+        "id": "dev_to_data_gen",
+        "roles": [
+          "data"
+        ],
+        "_note": "通用版：不需要亮点和额外参数，谁的开发实习都能问。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}这段，对你做数据分析有什么用？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我知道数据是怎么来的：埋点、接口日志、业务库各记什么。",
+              "face": "nod",
+              "line": "嗯，懂数据的源头是好事。"
+            },
+            {
+              "key": "d",
+              "type": "bold",
+              "text": "开发让我知道数据在哪一环会出错，比如一次点击被记两条。",
+              "face": "probe",
+              "line": "那我顺着问。",
+              "followup": {
+                "text": "同一次点击，为什么会在表里记成两条？",
+                "options": [
+                  {
+                    "key": "d1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "前端重复上报或者请求重试了，入库时又没按事件 ID 去重。",
+                    "face": "pleased",
+                    "line": "对，取数前先想到这一层，很有用。"
+                  },
+                  {
+                    "key": "d2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "可能是用户手快点了两下，这算正常行为，不用特别处理。",
+                    "face": "calm",
+                    "line": "每次都正好两条？"
+                  },
+                  {
+                    "key": "d3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "主键冲突了，把表换成自增主键，就不会再重复了。",
+                    "face": "frown",
+                    "line": "自增主键只会让重复的也顺利入库吧？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "这段主要是写代码，和数据分析关系不大，放上来是凑经历。",
+              "face": "frown",
+              "line": "那为什么放在这么前面？"
+            }
+          ],
+          "explain": "开发出身投数据分析，优势是懂数据从哪来、在哪一环会出错。重复上报是最常见的坑之一：前端重复触发、网络重试都会多记一条，入库时按事件 ID 去重才挡得住；换成自增主键，只会让每条重复记录都拿到新编号、顺利入库。"
+        }
+      },
+      {
+        "id": "dev_to_data_shipped",
+        "roles": [
+          "data"
+        ],
+        "_note": "通用版：需要经历参数 shipped（上线的东西，名词短语）。不会自动选到，给有两段开发实习的人设在暂存区指定，免得两轮问同一题。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.shipped}上线以后，你看过它的哪些数？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "看调用量、报错率和耗时，出了问题先看这几个。",
+              "face": "nod",
+              "line": "嗯，基本的都看了。"
+            },
+            {
+              "key": "d",
+              "type": "bold",
+              "text": "讲我怎么判断它上线后有没有人在用、用得顺不顺。",
+              "face": "probe",
+              "line": "好，我问个具体的。",
+              "followup": {
+                "text": "调用量一直在涨，就说明它好用吗？",
+                "options": [
+                  {
+                    "key": "d1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "不一定，可能是重试或同一个人反复调；要按人去重再看。",
+                    "face": "pleased",
+                    "line": "对，先想清楚这个数是怎么来的。"
+                  },
+                  {
+                    "key": "d2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "基本能说明，用的人越多，说明需求越真实。",
+                    "face": "calm",
+                    "line": "用的“人”，还是用的“次数”？"
+                  },
+                  {
+                    "key": "d3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "说明好用，调用量是最客观的数据，它不会骗人。",
+                    "face": "frown",
+                    "line": "一个接口超时重试三次呢？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "上线以后的数是运营和产品在看，开发只管功能没问题。",
+              "face": "frown",
+              "line": "那你投分析是想看什么？"
+            }
+          ],
+          "explain": "用调用量判断“好不好用”要小心：重试、同一个人反复操作、定时任务，都会把调用量抬高。按人去重，再看完成率和报错率，才说得清它是不是真的被用起来了。开发出身的人知道这些数从哪来，这正是转做分析的底子。"
+        }
+      }
+    ],
+    "intern_pm": [
+      {
+        "id": "pm_to_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "需要经历参数 kind。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.kind}这段，你做决定时用过数据吗？举一次。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲整理反馈时，拉使用数据看每类问题影响多少人。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "d",
+              "type": "bold",
+              "text": "讲排需求时，我为什么不只看用户反馈的条数。",
+              "face": "probe",
+              "line": "这个我想听。",
+              "followup": {
+                "text": "反馈最多的问题，不就是最该先做的吗？",
+                "options": [
+                  {
+                    "key": "d1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "不一定。反馈只来自愿意开口的人，得拿使用数据看影响面。",
+                    "face": "pleased",
+                    "line": "对，反馈本身就是有偏的样本。"
+                  },
+                  {
+                    "key": "d2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "基本是，反馈多说明痛的人多，再结合老板的意见定。",
+                    "face": "calm",
+                    "line": "老板的意见算数据吗？"
+                  },
+                  {
+                    "key": "d3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "是，反馈条数就是需求热度，按条数从高到低排就行。",
+                    "face": "frown",
+                    "line": "一个人提十次呢？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "产品实习主要靠沟通和写文档，数据是分析师的事，我很少碰。",
+              "face": "frown",
+              "line": "那你投分析是为什么？"
+            }
+          ],
+          "explain": "产品实习投数据分析，只讲沟通和文档，面试官多半会接着问：你做决定时用过数据吗？用户反馈是很有用的信号，但它来自“愿意开口的人”，是一份有偏的样本：反馈多的不一定影响面大，同一个人也可能反复提。拿使用数据去核影响了多少人，才是分析的思路。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "thesis_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "需要经历参数 data_method（一句“讲……”）和一条 roles 含 data、带 pitch 的亮点（比如 simpson_reversal）。",
+        "node": {
+          "tag": "项目表达",
+          "text": "你的{exp.short}用了什么分析方法？现在的结论靠得住吗？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.data_method}",
+              "face": "nod",
+              "line": "嗯，知道边界在哪。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "跑了几个检验，p 小于 0.05 的都写进了结论。",
+              "face": "frown",
+              "line": "那不显著的呢？"
+            }
+          ],
+          "explain": "论文拿来投分析岗，面试官多半会顺着方法往下问。跑一堆检验、只把显著的写进结论，是研究里很忌讳的做法：检验做得越多，越容易有几个是碰巧显著的。"
+        }
+      }
+    ],
+    "media_ops": [
+      {
+        "id": "media_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "可选经历参数 data_metric；需要一条 roles 含 data、带 pitch 的亮点（比如 denominator_check）。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，你平时看哪些数？有没有靠数据做过决定？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.data_metric|看阅读、新增关注和取关，挑数据好的选题接着做。}",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "主要看阅读量，阅读高就说明内容好，别的数参考意义不大。",
+              "face": "frown",
+              "line": "标题党的阅读也高。"
+            }
+          ],
+          "explain": "新媒体经历投数据分析，只列出看过哪些数，面试官多半会接着问：你靠数据改过什么？只盯一个阅读量，很容易被标题和推荐流量带偏。"
+        }
+      }
+    ],
+    "event_planning": [
+      {
+        "id": "event_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "需要一条 roles 含 data、带 pitch 的亮点（比如 data_led_decision）。",
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这个活动，你是怎么用数据做决定的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "活动前看报名，活动后看签到和反馈，再定下一次怎么改。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "活动主要靠经验和宣传，数据只在写总结时用。",
+              "face": "frown",
+              "line": "那这段为什么投分析岗？"
+            }
+          ],
+          "explain": "校园活动也能讲出分析能力：先用数据找到问题出在哪，再决定改什么。"
+        }
+      }
+    ],
+    "course_project": [
+      {
+        "id": "course_eval",
+        "roles": [
+          "data"
+        ],
+        "_note": "通用版：只用经历的 short。",
+        "node": {
+          "tag": "视野与取舍",
+          "text": "{exp.short}做完以后，你怎么判断它做得好不好？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "看多少人真用了、用了几次，再对照几条反馈。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "d",
+              "type": "bold",
+              "text": "定一个“完成核心操作的用户占比”，先讲清分子分母。",
+              "face": "probe",
+              "line": "那我就问分母。",
+              "followup": {
+                "text": "分母用“注册的用户”，还是“打开过的用户”？为什么？",
+                "options": [
+                  {
+                    "key": "d1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "用打开过的：没来的人说明的是拉新，不是好不好用。",
+                    "face": "pleased",
+                    "line": "对，分母决定了你在回答哪个问题。"
+                  },
+                  {
+                    "key": "d2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "用注册的，人数多一些，算出来的比例会更稳定。",
+                    "face": "calm",
+                    "line": "稳是稳，可回答的是哪个问题？"
+                  },
+                  {
+                    "key": "d3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "哪个算出来高就用哪个，汇报的时候能好看一点。",
+                    "face": "frown",
+                    "line": "……"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "课程项目主要是为了拿分，做得好不好，看老师给的成绩。",
+              "face": "calm",
+              "line": "老师可不是你的用户。"
+            }
+          ],
+          "explain": "“做得好不好”，分析师的第一反应应该是：用哪个数衡量、分子分母是什么。分母决定了你在回答哪个问题：除以注册用户，混进了拉新的效果；除以真正打开过的用户，看的才是好不好用。按哪个好看选口径，是数据岗最忌讳的事。"
+        }
+      }
+    ],
+    "paper": [
+      {
+        "id": "paper_data",
+        "roles": [
+          "data"
+        ],
+        "_note": "通用版：只用经历的 kind（没有时写“论文”）。论文多半不带标题，只在第一行是论文、又带标题时才会用到。",
+        "node": {
+          "tag": "专业",
+          "text": "这篇{exp.kind|论文}里，你怎么证明新方法确实比原来的好？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "和几个基线方法在同样的数据、同样的指标上比，结果列成表。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "d",
+              "type": "bold",
+              "text": "讲我怎么排除“碰巧更好”：多次重复实验，看均值也看波动。",
+              "face": "probe",
+              "line": "那我追一个。",
+              "followup": {
+                "text": "提升只有零点几个点，你怎么判断它不是随机波动？",
+                "options": [
+                  {
+                    "key": "d1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "换几个随机种子各跑几次，提升稳定大过波动才算，必要时做检验。",
+                    "face": "pleased",
+                    "line": "嗯，这是做分析的底子。"
+                  },
+                  {
+                    "key": "d2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "零点几个点在这个方向已经不小了，审稿人也认可。",
+                    "face": "calm",
+                    "line": "审稿人认可，和它是不是波动，是两回事。"
+                  },
+                  {
+                    "key": "d3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "跑出来最好的那一次，就代表方法的真实水平。",
+                    "face": "frown",
+                    "line": "那最差的那次代表什么？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "论文主要是导师和一作在把关，我负责按要求跑实验。",
+              "face": "calm",
+              "line": "跑实验的人最该知道结果稳不稳。"
+            }
+          ],
+          "explain": "论文投数据岗，讲到新方法更好，面试官多半会追问：这个提升是不是真的？只报最好的一次，等于把随机波动也算成了方法的功劳；换几个随机种子重复跑，看提升是否稳定地大过波动，是分析师每天都要用的思路。"
+        }
+      }
+    ]
+  },
+  "highlights": {
+    "exclusion_rule": {
+      "name": "剔除无效数据的规则事先定好",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：n_excluded（剔了多少，如“40 多份”）、rule（剔除规则，一句短语）；可选 intro（自我介绍里提这件事的说法）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}的数据清洗：剔了{hl.n_excluded}，规则怎么定的。",
+        "face": "probe",
+        "line": "剔数据？我得问问。",
+        "followup": {
+          "text": "剔掉{hl.n_excluded}，你怎么证明不是在挑对结论有利的数据？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "收数据前就写进了方案：{hl.rule}。",
+              "face": "pleased",
+              "line": "嗯，事先定规则，这才是关键。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "剔掉的都是明显乱填的，一眼就能看出来，不会影响结论。",
+              "face": "calm",
+              "line": "看一眼？标准是什么？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "剔完以后结果更显著了，正好说明剔掉的那些都是噪声。",
+              "face": "frown",
+              "line": "按显不显著来判断剔得对不对？"
+            }
+          ]
+        }
+      },
+      "explain": "剔除数据本身没问题，问题在规则是什么时候定的。看完结果再决定剔谁，哪怕每一步都说得通，也很容易一步步剔向想要的结论；剔除规则事先写进方案、剔前剔后的结果都报，才经得起追问。"
+    },
+    "power_analysis": {
+      "name": "样本量事先按功效分析算",
+      "roles": [
+        "data"
+      ],
+      "_note": "只供岗位题引用（requires.highlight）。参数：n_total（样本量，如“300”）。"
+    },
+    "small_sample_scope": {
+      "name": "小样本发现，说清能推多远",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：finding（发现，名词短语）、n_small（样本和比例，如“8 个新用户里 6 个找不到”）；可选 intro。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲“{hl.finding}”这个发现能推多远：样本其实并不大。",
+        "face": "probe",
+        "line": "好，我就问样本。",
+        "followup": {
+          "text": "{hl.n_small}，能说明大多数用户都这样吗？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "能说明问题存在，说明不了占多少，比例得看埋点。",
+              "face": "pleased",
+              "line": "对，存在和比例是两回事。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "比例这么高，样本小一点也不碍事，大方向肯定没错。",
+              "face": "calm",
+              "line": "大方向是什么方向？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "能，按这个比例推下去，大部分用户都会卡在这一步。",
+              "face": "frown",
+              "line": "就这几个人，推全部用户？"
+            }
+          ]
+        }
+      },
+      "explain": "小样本的定性研究擅长回答“有没有这个问题、为什么会有”，回答不了“有多少人”。8 个人里 6 个，按精确法算，真实比例的 95% 置信区间大约在 35% 到 97% 之间，宽到几乎说明不了占比；要估比例，得靠埋点或足够大的问卷样本。"
+    },
+    "simpson_reversal": {
+      "name": "分组后结论反转（辛普森悖论）",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：agg_view（合起来看到的结论）、split_by（按什么拆开，它同时影响两个变量）；可选 intro。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}里的一次反转：按{hl.split_by}拆开，结论就反了。",
+        "face": "probe",
+        "line": "哦？这个有意思。",
+        "followup": {
+          "text": "合起来看{hl.agg_view}，拆开却相反。为什么？你最后信哪个？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "{hl.split_by}同时影响两边，各组人数占比又不一样；这里信分组的。",
+              "face": "pleased",
+              "line": "对，先想清楚它是不是混杂因素。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "信合起来的，样本大得多；拆开以后每组人太少，不稳。",
+              "face": "calm",
+              "line": "样本大就一定对？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "说明数据有问题，同一批数据不可能得出相反的结论。",
+              "face": "frown",
+              "line": "为什么不可能？"
+            }
+          ]
+        }
+      },
+      "explain": "这就是辛普森悖论：每组里的规律，合起来以后可能整个反过来，因为各组人数占比不同，而分组的变量又同时影响着两边。信哪个不看样本大小，看因果关系：分组变量是混杂因素（同时影响原因和结果），就看分组后的；如果它本身是中间环节，合起来的反而更对。"
+    },
+    "denominator_check": {
+      "name": "基数在变，比较先折算",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：base_grew（基数怎么变了，一句话）、fair_compare（怎么公平地比，接住的回答）、detail 和 miss_cost（二面开场题引用：容易忽略的细节、没注意会怎样）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}复盘：数涨了，怎么分清是做得好还是基数大了。",
+        "face": "probe",
+        "line": "好，我问个细的。",
+        "followup": {
+          "text": "{hl.base_grew}，光比绝对数公平吗？你怎么比的？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "{hl.fair_compare}",
+              "face": "pleased",
+              "line": "嗯，找了同期的对照，挺好。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "不太公平，但基数涨得不算快，影响应该不会太大。",
+              "face": "calm",
+              "line": "不算快？你算过吗？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "公平，最终看的就是绝对数，涨了就说明这件事做对了。",
+              "face": "frown",
+              "line": "那基数变大的功劳算谁的？"
+            }
+          ]
+        }
+      },
+      "explain": "基数在变的时候，绝对数的涨跌说明不了做得好不好：粉丝、用户从几百涨到几千，什么都不改，阅读和点击也会涨。要么折算成比率（比如阅读除以粉丝数），要么找同一时期的对照，差出来的那部分才算是这件事的作用。"
+    },
+    "data_led_decision": {
+      "name": "用数据改了一个决定",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：data_src（用了什么数据）、decision（改了什么，名词短语）、evidence_hold（被质疑时拿出的具体证据，接住的回答）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}：怎么用数据说服大家改了{hl.decision}。",
+        "face": "probe",
+        "line": "说服？那我来当反对的人。",
+        "followup": {
+          "text": "有人说去年只是个例，今年照旧就行。你拿什么说服他？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "{hl.evidence_hold}",
+              "face": "pleased",
+              "line": "嗯，拆到具体的地方，就不好反驳了。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "整体的数那么低，这个数本身就很说明问题了。",
+              "face": "calm",
+              "line": "低在哪儿呢？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "数据是我负责的，按数据来就行，不用特意说服谁。",
+              "face": "frown",
+              "line": "大家凭什么听你的？"
+            }
+          ]
+        }
+      },
+      "explain": "用数据推动决定，难的往往不是算，而是说服。一个笼统的总数（“整体偏低”）很容易被一句“个例”挡回去；把问题拆到具体的地方、具体的现象，对方才知道该改什么，也更难反驳。"
+    },
+    "caliber_mismatch": {
+      "name": "两边数字对不上，对齐口径",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：client（对方，如“合作单位”）、metric（哪个指标，带引号）、caliber_diff（查出来的差异和最后的处理，接住的回答）；可选 intro。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲交付前对不上的{hl.metric}：我怎么查出差在哪。",
+        "face": "probe",
+        "line": "对不上？我最爱听这个。",
+        "followup": {
+          "text": "查下来是哪儿不一样？最后按谁的来？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "{hl.caliber_diff}",
+              "face": "pleased",
+              "line": "嗯，口径写明了，下次就不用再吵。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "两边都没算错，差得也不多，在交付文档里备注一句就行了。",
+              "face": "calm",
+              "line": "备注一句，对方看得懂吗？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "我们是直接从库里算的，肯定更准，让他们改报表。",
+              "face": "frown",
+              "line": "他们的报表也是从库里来的吧？"
+            }
+          ]
+        }
+      },
+      "explain": "两边数字对不上，多数时候不是谁算错了，是口径不同：分子分母怎么定、按什么去重、时间怎么切。先把两边的定义并排列出来，再抽几条记录逐条对，差在哪就清楚了。定了按谁的口径，要写在页面或文档上，不然下一个人还会再吵一遍。"
+    },
+    "sampling_display": {
+      "name": "抽样只管画图，统计按全量",
+      "roles": [
+        "data"
+      ],
+      "_note": "只供岗位题引用。参数：detail（容易忽略的细节）、miss_cost（没注意会怎样）。"
+    },
+    "rule_conflict_table": {
+      "name": "把规则整理成表、查出矛盾",
+      "roles": [
+        "data"
+      ],
+      "_note": "参数：n_fields（字段数，如“40 多”）、n_conflict（查出几条矛盾，如“三”）；可选 intro。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲把{hl.n_fields}个字段的联动规则整理成表，查出{hl.n_conflict}条矛盾。",
+        "face": "probe",
+        "line": "整理成表？说说看。",
+        "followup": {
+          "text": "几十条规则，你是怎么系统地找出矛盾的？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "写成“条件→结果”表，同条件不同结果就是矛盾。",
+              "face": "pleased",
+              "line": "对，这就是核口径的基本功。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "对着页面一条条点，点到不对劲的就记下来。",
+              "face": "calm",
+              "line": "几十条都点？漏了怎么办？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "规则是产品给的，照着写成代码，有矛盾测试会发现。",
+              "face": "frown",
+              "line": "测试照什么测？也是这份规则吧？"
+            }
+          ]
+        }
+      },
+      "explain": "把散在文档里的规则整理成一张“条件→结果”的表，是分析师核口径、查数据质量的基本功：同一个条件推出两个结果，就是矛盾；有条件没结果，就是漏洞。指望测试兜底不现实，测试用例往往也是照着同一份规则写的。"
+    },
+    "secure_handling": {
+      "name": "按约定处理敏感数据",
+      "roles": [
+        "data"
+      ],
+      "_note": "只供岗位题引用（国企专业面的保密题）。参数：rule（数据怎么处理的约定，一句短语）。"
+    }
+  },
+  "skill_probes": {
+    "dap_sql_window": {
+      "tag": "专业",
+      "text": "你写了精通 SQL。现场写一个：取每个用户最近一次下单的那一整行记录。",
+      "code": "orders(order_id, user_id, order_time, amount)\n-- 每个用户只要最近的一单，整行都要",
+      "options": [
+        {
+          "id": "dap_sw_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "用 ROW_NUMBER 按用户分区、时间倒序编号，取第 1 条。",
+          "face": "nod",
+          "line": "嗯，写法对。"
+        },
+        {
+          "id": "dap_sw_b",
+          "type": "bold",
+          "text": "写完窗口函数版，再讲两单同一时刻时，结果为什么不确定。",
+          "face": "probe",
+          "line": "好，我就问这个。",
+          "followup": {
+            "text": "同一个用户最晚的两单，时间一模一样。ROW_NUMBER 和 RANK 各返回几行？",
+            "options": [
+              {
+                "id": "dap_sw_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "ROW_NUMBER 一行，哪单不确定；RANK 两行，都排第 1。",
+                "face": "pleased",
+                "line": "对，所以排序最好再加个 order_id。"
+              },
+              {
+                "id": "dap_sw_b2",
+                "type": "partial",
+                "delta": 1,
+                "text": "RANK 会返回两行；ROW_NUMBER 返回哪一行，我没细想过。",
+                "face": "calm",
+                "line": "一半对，另一半正是坑。"
+              },
+              {
+                "id": "dap_sw_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "都返回两行，时间相同的记录，排名函数给的名次一定相同。",
+                "face": "frown",
+                "line": "ROW_NUMBER 也会给并列？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "dap_sw_c",
+          "type": "off",
+          "delta": -3,
+          "text": "按 user_id 分组取 MAX(order_time)，其他字段一起查。",
+          "face": "frown",
+          "line": "其他字段是哪一行的？"
+        },
+        {
+          "id": "dap_sw_d",
+          "type": "off",
+          "delta": -1,
+          "text": "“精通”写得有点满，这题用到的窗口函数我还没掌握。",
+          "face": "frown",
+          "line": "那为什么写精通？"
+        }
+      ],
+      "explain": "写了“精通”，追问多半会按精通的标准来。分组取 MAX 只拿得到时间，把其他字段一起查出来，在标准 SQL 里不合法（MySQL 默认的 ONLY_FULL_GROUP_BY 会直接报错；关掉它，其他字段也可能取自别的行）。窗口函数是正解，并列时要分清：ROW_NUMBER 硬排出 1、2，谁排第 1 不确定，最好再加 order_id 做第二排序；RANK 和 DENSE_RANK 会让并列的都排第 1。答不上来时如实说“精通”写满了，代价比硬答一个错的小。"
+    },
+    "dap_sql_null": {
+      "tag": "专业",
+      "text": "你写了精通 SQL。问个细的：amount 列有空值，COUNT(*)、COUNT(amount)、AVG(amount) 各怎么对待空值？",
+      "options": [
+        {
+          "id": "dap_sn_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "COUNT(*) 数所有行，COUNT(amount) 和 AVG 跳过空值。",
+          "face": "nod",
+          "line": "嗯，没错。"
+        },
+        {
+          "id": "dap_sn_b",
+          "type": "bold",
+          "text": "讲完三者的区别，再说 AVG 跳过空值，会让“人均”算偏。",
+          "face": "probe",
+          "line": "好，那问个报表里的。",
+          "followup": {
+            "text": "表里 amount 为空的，有的是没消费，有的是漏录了。人均金额怎么算？",
+            "options": [
+              {
+                "id": "dap_sn_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "漏录的先查出来补上或单列；确认没消费的，按 0 算进分母。",
+                "face": "pleased",
+                "line": "对，先分清空值是什么意思。"
+              },
+              {
+                "id": "dap_sn_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "全部按 0 算，用 AVG(COALESCE(amount, 0))，最省事。",
+                "face": "calm",
+                "line": "漏录的也当 0？"
+              },
+              {
+                "id": "dap_sn_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "直接用 AVG(amount)，空值数据库会自动跳过，结果最准。",
+                "face": "frown",
+                "line": "没消费的人去哪了？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "dap_sn_c",
+          "type": "off",
+          "delta": -3,
+          "text": "三个都会把空值当成 0 来算，所以结果是一样的。",
+          "face": "frown",
+          "line": "COUNT(amount) 也当 0？"
+        },
+        {
+          "id": "dap_sn_d",
+          "type": "off",
+          "delta": -1,
+          "text": "“精通”写满了，空值的这些细节我没系统地弄清过。",
+          "face": "frown",
+          "line": "那为什么写精通？"
+        }
+      ],
+      "explain": "COUNT(*) 数的是行，COUNT(列)、SUM、AVG 都会跳过空值，所以 AVG 的分母只是“有值的行”。更要紧的是先弄清空值是什么意思：没发生（应该当 0）和没录入（不知道）是两回事，混在一起，不管当 0 还是跳过都会算偏。报表里的人均、占比，分母都要先对口径。答不上来时如实说“精通”写满了，代价比硬说一条错的规则小。"
+    },
+    "dap_ab_pvalue": {
+      "tag": "专业",
+      "text": "你写了精通 A/B 测试设计。新版转化率高了 0.8 个点，p 值 0.03。业务方问：“是不是说新版更好的概率是 97%？”你怎么答？",
+      "options": [
+        {
+          "id": "dap_ap_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "不是。p 值是假设没差别时，出现至少这么大差异的概率。",
+          "face": "nod",
+          "line": "嗯，定义清楚。"
+        },
+        {
+          "id": "dap_ap_b",
+          "type": "bold",
+          "text": "先纠正 p 值的意思，再用置信区间讲提升大概有多少。",
+          "face": "probe",
+          "line": "好，那给你个区间。",
+          "followup": {
+            "text": "95% 置信区间是 0.1 到 1.5 个点。业务方说至少涨 1 个点才值得上，你怎么建议？",
+            "options": [
+              {
+                "id": "dap_ap_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "显著，但够不够 1 个点说不准；加样本再看，或按成本定。",
+                "face": "pleased",
+                "line": "对，显著只是入场券。"
+              },
+              {
+                "id": "dap_ap_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "已经显著了就直接上，涨多少可以上线以后再看。",
+                "face": "calm",
+                "line": "那 1 个点的门槛呢？"
+              },
+              {
+                "id": "dap_ap_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "区间上限有 1.5，说明涨够 1 个点没问题，直接上。",
+                "face": "frown",
+                "line": "上限能到，就是一定能到？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "dap_ap_c",
+          "type": "off",
+          "delta": -3,
+          "text": "差不多可以这么说，p 值越小，新版更好的把握就越大，97% 没错。",
+          "face": "frown",
+          "line": "p 值是这个意思吗？"
+        },
+        {
+          "id": "dap_ap_d",
+          "type": "off",
+          "delta": -1,
+          "text": "“精通”写得有点满，业务里的 A/B 测试我没真正负责过。",
+          "face": "frown",
+          "line": "那为什么写精通？"
+        }
+      ],
+      "explain": "p 值说的是：如果两版其实没差别，看到这么大（或更大）差异的概率有多小。它不是“新版更好的概率”。要回答“好多少”，看置信区间：0.1 到 1.5 不含 0，说明提升为正站得住，但是否超过 1 个点的业务门槛还说不准。值不值得上，要把区间、门槛和成本放在一起看；拿上限 1.5 说“肯定够 1 个点”，是把区间最乐观的一端当成了结论。被问住时如实说“精通”写满了，代价比硬答一个错的定义小。"
+    }
+  },
+  "background": [
+    {
+      "id": "bgd_cross_data",
+      "pools": [
+        "hr",
+        "panel",
+        "founder",
+        "director"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "data",
+        "major_kind": "non_tech"
+      },
+      "_note": "人设参数 data_switch_reason、data_cross_gap（缺什么、怎么补，接住的回答；都可选，没有时用中性的默认文字）；进取选项要第一页有 simpson_reversal、exclusion_rule 或 small_sample_scope 亮点。",
+      "node": {
+        "tag": "动机与稳定",
+        "text": "{bg.major}出身，为什么来做数据分析？",
+        "options": [
+          {
+            "id": "bgd_cd_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.data_switch_reason|做课题时发现，我最喜欢从数据里找答案，再说清它有多可信。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgd_cd_b",
+            "type": "bold",
+            "text": "讲{cite.short}里的一件事：我第一次发现，数据不细看会骗人。",
+            "requires": {
+              "highlight": [
+                "simpson_reversal",
+                "exclusion_rule",
+                "small_sample_scope"
+              ]
+            },
+            "face": "probe",
+            "line": "那我问一句。",
+            "fallback": {
+              "id": "bgd_cd_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "觉得用数据找答案，比凭感觉下判断更踏实，就想转过来。",
+              "face": "calm",
+              "line": "嗯……还有呢？"
+            },
+            "followup": {
+              "text": "和统计、计算机出身的比，你缺什么？怎么补？",
+              "options": [
+                {
+                  "id": "bgd_cd_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.data_cross_gap|缺的是 SQL 和统计基础，在按题库和课程一点点补。}",
+                  "face": "pleased",
+                  "line": "嗯，知道缺什么，也在补。"
+                },
+                {
+                  "id": "bgd_cd_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "缺的其实不多，工具这些入职以后边做边学就来得及。",
+                  "face": "calm",
+                  "line": "入职以后？"
+                },
+                {
+                  "id": "bgd_cd_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不缺什么，我们{bg.major_short}的统计课比他们学得还要深。",
+                  "face": "frown",
+                  "line": "SQL 呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgd_cd_c",
+            "type": "off",
+            "delta": -3,
+            "text": "{bg.major}不好找工作，数据分析岗位多，门槛也不高。",
+            "face": "calm",
+            "line": "门槛不高？"
+          }
+        ],
+        "explain": "跨专业投数据分析，面试官多半会接着问两件事：是不是一时兴起，基本功够不够。拿一件自己在数据里“踩过坑、看出问题”的真事讲动机，再坦白说出缺什么、怎么补，最可信。说本专业的统计课学得更深，绕开了 SQL 这类明摆着的差距；说“门槛不高”，可能让面试官关注到你低估了这份工作。"
+      }
+    },
+    {
+      "id": "bgd_tech_to_data",
+      "pools": [
+        "hr",
+        "panel",
+        "founder",
+        "director"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "data",
+        "major_kind": "tech"
+      },
+      "_note": "人设参数 data_reason（可选）；进取选项要第一页有 caliber_mismatch、rule_conflict_table 或 sampling_display 亮点。",
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你学{bg.major_short}的，为什么不做开发，来做数据分析？",
+        "options": [
+          {
+            "id": "bgd_td_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.data_reason|做项目时发现，比起把功能做出来，我更想知道它有没有用。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgd_td_b",
+            "type": "bold",
+            "text": "讲{cite.short}里的一件事：我发现自己更爱追问数对不对。",
+            "requires": {
+              "highlight": [
+                "caliber_mismatch",
+                "rule_conflict_table",
+                "sampling_display"
+              ]
+            },
+            "face": "probe",
+            "line": "那我追问一句。",
+            "fallback": {
+              "id": "bgd_td_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "觉得分析离业务决定更近，比单纯写功能更有意思。",
+              "face": "calm",
+              "line": "嗯……具体是哪件事让你这么想？"
+            },
+            "followup": {
+              "text": "技术出身做分析，常见的毛病是什么？你有吗？",
+              "options": [
+                {
+                  "id": "bgd_td_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "只顾写查询，忘了问这个数拿去做什么。我有，在改。",
+                  "face": "pleased",
+                  "line": "嗯，看得挺清楚。"
+                },
+                {
+                  "id": "bgd_td_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "可能是沟通少一点，不过数据会说话，沟通不是重点。",
+                  "face": "calm",
+                  "line": "数据会自己说话？"
+                },
+                {
+                  "id": "bgd_td_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "没什么毛病，技术好的人来做分析，只会更快、更准。",
+                  "face": "frown",
+                  "line": "快和准，是同一件事吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgd_td_c",
+            "type": "off",
+            "delta": -3,
+            "text": "开发太卷了，数据分析相对轻松，不用天天改 bug。",
+            "face": "frown",
+            "line": "分析也要天天对数的。"
+          }
+        ],
+        "explain": "技术背景投数据分析，面试官多半会追问：是想清楚了才来，还是在躲写代码。讲一件你在数据上较真的真事，再坦白技术出身的毛病（只顾着把查询写对，忘了先问这个数要拿去做什么决定），比说“分析更轻松”可信得多。"
+      }
+    },
+    {
+      "id": "bgd_ai_value",
+      "pools": [
+        "hr",
+        "panel",
+        "founder",
+        "director"
+      ],
+      "priority": 15,
+      "when": {
+        "role": "data"
+      },
+      "_note": "数据岗的通用背景题，排在专业相关的背景题后面。",
+      "node": {
+        "tag": "视野与取舍",
+        "text": "现在 AI 都能自动写 SQL、出报表了，你觉得数据分析师还有价值吗？",
+        "options": [
+          {
+            "id": "bgd_ai_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "取数会越来越自动；拆问题、对口径、推动决定还靠人。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgd_ai_b",
+            "type": "bold",
+            "text": "说说 AI 写 SQL 最容易错在哪：语法都对，口径却是错的。",
+            "face": "probe",
+            "line": "那我问问你。",
+            "followup": {
+              "text": "那你自己会怎么用它？",
+              "options": [
+                {
+                  "id": "bgd_ai_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "让它出初稿，我来核口径和边界，再拿一小段数据手算对一遍。",
+                  "face": "pleased",
+                  "line": "嗯，用得清醒。"
+                },
+                {
+                  "id": "bgd_ai_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "让它写，能跑出结果就直接用，省下来的时间多做些分析。",
+                  "face": "calm",
+                  "line": "能跑出结果，就是对的结果吗？"
+                },
+                {
+                  "id": "bgd_ai_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "尽量全交给它，它比人细心，出错的概率更低。",
+                  "face": "frown",
+                  "line": "口径错了它会提醒你吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgd_ai_c",
+            "type": "off",
+            "delta": -1,
+            "text": "AI 再强也替代不了人，分析师永远都有价值。",
+            "face": "calm",
+            "line": "为什么？"
+          },
+          {
+            "id": "bgd_ai_d",
+            "type": "off",
+            "delta": -3,
+            "text": "确实会被替代，所以我打算过两年转去做算法，那边更不容易被替代。",
+            "face": "frown",
+            "line": "那这次投分析是过渡？"
+          }
+        ],
+        "explain": "取数和基础看板确实越来越容易自动化，但口径对不对、问题该怎么拆、结论拿去推动什么决定，还得靠人。只说“AI 替代不了人”是空话；说“迟早被替代、我要转行”，可能让面试官关注到你不会久留。"
+      }
+    }
+  ],
+  "fallbacks": {
+    "data": [
+      {
+        "when_first": [
+          "paper",
+          "competition"
+        ],
+        "node": {
+          "id": "ddf_data_relate",
+          "tag": "项目表达",
+          "text": "你简历第一行是这个……跟数据分析有什么关系？",
+          "options": [
+            {
+              "id": "dafr_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "关系不大，放第一是想突出成绩，后面的经历更能说明分析能力。",
+              "face": "nod",
+              "line": "那我们看后面的。"
+            },
+            {
+              "id": "dafr_b",
+              "type": "bold",
+              "text": "讲{cite.short}里我做的实验对比：怎么排除结果是碰巧的。",
+              "requires": {
+                "exp_type": "paper"
+              },
+              "face": "probe",
+              "line": "好，那我问一个。",
+              "fallback": {
+                "id": "dafr_b0",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲它锻炼了我的逻辑和耐心，这些对分析也有用。",
+                "face": "calm",
+                "line": "嗯……"
+              },
+              "followup": {
+                "text": "提升只有零点几个点，你怎么判断它不是随机波动？",
+                "options": [
+                  {
+                    "id": "dafr_b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "换几个随机种子各跑几次，提升稳定大过波动才算，必要时做检验。",
+                    "face": "pleased",
+                    "line": "嗯，这就连上了。"
+                  },
+                  {
+                    "id": "dafr_b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "零点几个点在这个方向已经不小了，审稿人也认可。",
+                    "face": "calm",
+                    "line": "审稿人认可，和它是不是波动，是两回事。"
+                  },
+                  {
+                    "id": "dafr_b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "跑出来最好的那一次，就代表方法的真实水平。",
+                    "face": "frown",
+                    "line": "那最差的那次代表什么？"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "dafr_c",
+              "type": "off",
+              "delta": -3,
+              "text": "{first.short|这一项}是我最大的成果，我想先讲讲{first.method|它}。",
+              "face": "calm",
+              "line": "我们这次主要聊数据分析。"
+            }
+          ],
+          "explain": "简历第一行是给面试官的第一印象。投数据分析却把论文、竞赛放在第一，面试官多半会先问一句“这和岗位有什么关系”。论文里的对比实验其实连得上分析：能讲清怎么排除“碰巧更好”，这一行才算用上了。"
+        }
+      },
+      {
+        "node": {
+          "id": "ddf_data_pick",
+          "tag": "项目表达",
+          "text": "第一行是个{first.kind_word|奖项}……那你挑一段最能说明分析能力的经历讲讲吧。",
+          "options": [
+            {
+              "id": "dafp_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 1
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "dafp_a2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我为什么想做数据分析。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            },
+            {
+              "id": "dafp_b",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 2
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "dafp_b2",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我平时怎么自学 SQL 和统计。",
+                "face": "calm",
+                "line": "嗯。"
+              }
+            },
+            {
+              "id": "dafp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲{first.story|这一项}。",
+              "face": "calm",
+              "line": "这个……还有别的吗？"
+            }
+          ],
+          "explain": "简历第一行放奖项、证书这类条目，面试官多半会跳过它，让你另挑一段经历，开场的主动权就这么交了出去。第一行最值钱，留给和数据最相关的那段经历。"
+        }
+      }
+    ]
+  },
+  "pools": [
+    {
+      "id": "md1_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "data"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先简单做个自我介绍吧，两三分钟就行。",
+        "options": [
+          {
+            "id": "md1i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一句背景，再讲两段最相关的经历和各自的结论。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "md1i_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间线讲：学校、实习、项目、论文、获奖，每段都讲到。",
+            "face": "calm",
+            "line": "嗯，挺完整……重点是哪一段？"
+          },
+          {
+            "id": "md1i_b",
+            "type": "bold",
+            "text": "只挑两件事讲：{cite.intro}，和{other.label|另一段经历}。",
+            "requires": {
+              "highlight": [
+                "exclusion_rule",
+                "small_sample_scope",
+                "simpson_reversal",
+                "caliber_mismatch",
+                "rule_conflict_table"
+              ]
+            },
+            "face": "probe",
+            "line": "好，那我先问一句。",
+            "fallback": {
+              "id": "md1i_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "只挑两件事讲：{p1.label|最相关的一段经历}，和{p2.label|最近在补的技能}。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "你说的那件事，怎么确定不是数据本身出了错？",
+              "options": [
+                {
+                  "id": "md1i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先核口径，再抽几条原始记录，从头手算对一遍。",
+                  "face": "pleased",
+                  "line": "嗯，先验数，这个习惯很好。"
+                },
+                {
+                  "id": "md1i_b2",
+                  "type": "partial",
+                  "delta": -4,
+                  "text": "数据是系统直接导出来的，一般不会错，我主要看分析逻辑。",
+                  "face": "frown",
+                  "line": "系统导出的就不会错？"
+                },
+                {
+                  "id": "md1i_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "结论和我事先的判断一致，说明数据本身是没问题的。",
+                  "face": "frown",
+                  "line": "和预期一致，就说明数据对？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "讲我从小对数字敏感，一路是怎么喜欢上数据的。",
+            "face": "calm",
+            "line": "嗯……那我们直接聊经历吧。"
+          }
+        ],
+        "explain": "分析岗的自我介绍，讲到的事面试官多半会挑一两件接着追问。按重要性讲、控制在两分钟内最稳；按时间线一样不落，信息多却没有重点。只讲两件事，相当于替面试官选好了追问方向，前提是你经得起问：数据岗最常见的追问是“你怎么知道数据本身没错”，先核口径、再回原始记录抽查，是这一行的第一条规矩；拿“和我预想的一致”当证据，正好说反了。"
+      }
+    },
+    {
+      "id": "md2_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "data"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "一面的同事跟我说过你的情况了。你挑一件一面没聊到的事，说说吧。",
+        "options": [
+          {
+            "id": "md2i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲{cite.short}：怎么用{cite.data_src}调整了{cite.decision}。",
+            "requires": {
+              "highlight": "data_led_decision"
+            },
+            "face": "nod",
+            "line": "嗯，用数据推动过事情。",
+            "fallback": {
+              "id": "md2i_a0",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲一次我用数据，把一件大家争了很久的事讲清楚。",
+              "face": "nod",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "md2i_b",
+            "type": "bold",
+            "text": "讲{cite.short}里一个容易漏的细节：{cite.detail}。",
+            "requires": {
+              "highlight": [
+                "denominator_check",
+                "sampling_display"
+              ]
+            },
+            "face": "probe",
+            "line": "好，细节我爱听。",
+            "fallback": {
+              "id": "md2i_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲讲我平时怎么练 SQL、怎么找数据集做分析。",
+              "face": "calm",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "这个细节当时要是没注意到，会出什么问题？",
+              "options": [
+                {
+                  "id": "md2i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{cite.miss_cost}",
+                  "face": "pleased",
+                  "line": "嗯，知道代价落在哪，才算真想过。"
+                },
+                {
+                  "id": "md2i_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "影响应该不大，差的也就一点点，大方向还是对的。",
+                  "face": "calm",
+                  "line": "差一点是多少？"
+                },
+                {
+                  "id": "md2i_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "也没什么，大家看的都是趋势，具体数字没人细究。",
+                  "face": "frown",
+                  "line": "没人细究，就可以不准？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "把一面讲过的那段再从头展开讲一遍，补上一面没来得及说的细节。",
+            "face": "calm",
+            "line": "一面已经聊过了。"
+          }
+        ],
+        "explain": "二面让你挑一件一面没聊过的事，把一面的内容再讲一遍，组长多半会接着问：还有别的吗？讲一个容易被忽略的数据细节，组长多半会追问“没注意到会怎样”：答得出代价落在哪，才说明你不是背来的。"
+      }
+    },
+    {
+      "id": "sd1_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "data",
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "你好，请用两分钟做个自我介绍，重点讲讲和数据工作相关的经历。",
+        "options": [
+          {
+            "id": "sd1i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "背景一句带过，重点讲两段数据相关的经历和产出。",
+            "face": "nod",
+            "line": "好，清楚。"
+          },
+          {
+            "id": "sd1i_b",
+            "type": "bold",
+            "text": "重点讲一件事：{cite.intro}。",
+            "requires": {
+              "highlight": [
+                "caliber_mismatch",
+                "rule_conflict_table",
+                "exclusion_rule",
+                "simpson_reversal",
+                "small_sample_scope"
+              ]
+            },
+            "face": "probe",
+            "line": "好，那我顺着问一句。",
+            "fallback": {
+              "id": "sd1i_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "重点讲{p1.label|最相关的一段经历}：我做了什么、交付了什么。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "这件事最后是怎么形成文字、留下记录的？",
+              "options": [
+                {
+                  "id": "sd1i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "口径和处理规则都写成了文字，别人照着就能复核。",
+                  "face": "pleased",
+                  "line": "嗯，有记录，才经得起查。"
+                },
+                {
+                  "id": "sd1i_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "当时口头对齐就够了，大家都清楚，没专门写下来。",
+                  "face": "calm",
+                  "line": "过半年，还有人清楚吗？"
+                },
+                {
+                  "id": "sd1i_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "留记录太花时间，我更习惯发现问题就直接改掉。",
+                  "face": "frown",
+                  "line": "改了什么、为什么改，谁知道呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1i_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间顺序，把学习、实习、项目和获奖都过一遍。",
+            "face": "calm",
+            "line": "嗯……时间有限，挑重点吧。"
+          },
+          {
+            "id": "sd1i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲我为什么一直向往国企：稳定、踏实，也能长期发展。",
+            "face": "calm",
+            "line": "动机综合面会问，先说专业经历吧。"
+          }
+        ],
+        "explain": "国企专业面的自我介绍，讲清做过什么、交付过什么最稳。按时间顺序面面俱到，重点反而被淹没；一上来谈向往稳定，是把动机题提前到了专业面。只讲一件事，面试官多半会追问“留下记录没有”：口径、规则写成文字、别人能复核，是国企数据工作很看重的习惯。"
+      }
+    },
+    {
+      "id": "md1_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "data"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你有什么想问我的吗？",
+        "options": [
+          {
+            "id": "md1r_ra",
+            "type": "reverse",
+            "delta": 3,
+            "text": "团队现在最常被业务方问到、又最难答的是哪类问题？",
+            "face": "pleased",
+            "line": "好问题。说实话，是“这个数为什么和上周对不上”……"
+          },
+          {
+            "id": "md1r_rb",
+            "type": "reverse",
+            "delta": 1,
+            "text": "团队平时用哪些工具？SQL 之外，要不要写 Python 做清洗？",
+            "face": "nod",
+            "line": "SQL 为主，Python 做一些清洗和报表自动化。"
+          },
+          {
+            "id": "md1r_rc",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位的薪资大概是多少？试用期打折吗？",
+            "face": "calm",
+            "line": "这个你问 HR 会更准。"
+          },
+          {
+            "id": "md1r_rd",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问团队最难答的问题，说明你在想自己进去能做什么；问工具也是好问题，只是没有前者能看出你的思考；薪资可以问，但业务面试官多半答不了，留到 HR 面更合适。"
+      }
+    },
+    {
+      "id": "md2_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "data"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边差不多了，你有什么想问的？",
+        "options": [
+          {
+            "id": "md2v_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "要是我进组，您最希望我前三个月做到什么？",
+            "face": "pleased",
+            "line": "嗯，我想想……"
+          },
+          {
+            "id": "md2v_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "新人入职一般先做些什么？会先从取数和做周报开始吗？",
+            "face": "nod",
+            "line": "说实话，前两个月主要是取数和周报，熟了再碰专题分析。"
+          },
+          {
+            "id": "md2v_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位的薪资范围大概是多少？转正后会调吗？",
+            "face": "calm",
+            "line": "这个 HR 那边会跟你细聊。"
+          },
+          {
+            "id": "md2v_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，今天聊得挺清楚的。",
+            "face": "calm",
+            "line": "好。"
+          }
+        ],
+        "explain": "问组长对你的期待，等于提前拿到了考核标准。问入职做什么也正常，组长多半会实话实说。"
+      }
+    },
+    {
+      "id": "sd1_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "data",
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你有什么想了解的吗？",
+        "options": [
+          {
+            "id": "sd1r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "部门现在最常做哪类分析？新人一般先从哪类报表接手？",
+            "face": "pleased",
+            "line": "嗯，问得实在。新人一般先接月报，熟悉口径……"
+          },
+          {
+            "id": "sd1r_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "部门的数据平台用哪些工具？新人入职会有统一的培训吗？",
+            "face": "nod",
+            "line": "有统一的培训，工具以 SQL 和报表平台为主。"
+          },
+          {
+            "id": "sd1r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "入职多久能评职称？落户指标每年有多少？",
+            "face": "calm",
+            "line": "这些人事部门会统一说明。"
+          },
+          {
+            "id": "sd1r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢老师。",
+            "face": "calm",
+            "line": "好，请等通知。"
+          }
+        ],
+        "explain": "专业面的反问，问工作本身最合适：新人先接什么、部门做什么分析，说明你在想进去以后怎么干。职称、落户是国企求职者很关心的事，但专业面的面试官多半答不了，留到综合面或人事沟通时再问。"
+      }
+    },
+    {
+      "id": "md1_sql_join",
+      "pools": [
+        "data_sql"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "看这段 SQL：想统计每个用户 10 月的订单数，没下单的记 0。结果有什么问题？",
+        "code": "SELECT u.user_id, COUNT(o.order_id) AS n\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.user_id\nWHERE o.order_time >= '2026-10-01'\n  AND o.order_time <  '2026-11-01'\nGROUP BY u.user_id;",
+        "options": [
+          {
+            "id": "md1q_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "10 月没下单的用户会被 WHERE 滤掉；日期条件要挪进 ON 里。",
+            "face": "nod",
+            "line": "对，这是最常见的坑。"
+          },
+          {
+            "id": "md1q_b",
+            "type": "bold",
+            "text": "指出 WHERE 让左连接变成了内连接，再讲 COUNT 的写法。",
+            "face": "probe",
+            "line": "好，那我改一下。",
+            "followup": {
+              "text": "日期挪进 ON 以后，要是把 COUNT(o.order_id) 换成 COUNT(*)，没下单的用户显示几？",
+              "options": [
+                {
+                  "id": "md1q_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "显示 1。COUNT(*) 数行，补出来的空行也算一行。",
+                  "face": "pleased",
+                  "line": "对，很多人在这儿把 0 算成了 1。"
+                },
+                {
+                  "id": "md1q_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "应该会变成 1，不过我得写出来跑一下才敢确定。",
+                  "face": "nod",
+                  "line": "对的，不过最好知道为什么。"
+                },
+                {
+                  "id": "md1q_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "还是 0，COUNT(*) 和 COUNT(列) 遇到空行时结果是一样的。",
+                  "face": "frown",
+                  "line": "补出来的那一行不算行吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1q_c",
+            "type": "off",
+            "delta": -3,
+            "text": "没问题，LEFT JOIN 会保留所有用户，没下单的就是 0。",
+            "face": "frown",
+            "line": "WHERE 是在连接之后才过滤的。"
+          },
+          {
+            "id": "md1q_d",
+            "type": "off",
+            "delta": -3,
+            "text": "日期该用 BETWEEN '2026-10-01' AND '2026-10-31'，现在会多算。",
+            "face": "frown",
+            "line": "那 31 号白天的订单还在吗？"
+          }
+        ],
+        "explain": "左连接要“保留左表所有行”，右表的筛选条件就得写在 ON 里；写进 WHERE，没匹配上的那行右表字段全是空值，比较结果不成立，整行被滤掉，左连接实际变成了内连接。计数时用右表的 order_id，补出来的空行才会记 0；COUNT(*) 数的是行，会记 1。日期用“大于等于 1 日、小于下月 1 日”的半开区间是对的；BETWEEN 写到 31 日，遇到带时分秒的时间，31 日当天零点以后的订单都会漏掉。"
+      }
+    },
+    {
+      "id": "md1_sql_fanout",
+      "pools": [
+        "data_sql"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "订单表一单一行，明细表一单多行。这段 SQL 想算每天含图书的订单总额，结果比财务的大不少，为什么？",
+        "code": "SELECT DATE(o.order_time) AS d, SUM(o.amount) AS total\nFROM orders o\nJOIN order_items i ON i.order_id = o.order_id\nWHERE i.category = '图书'\nGROUP BY DATE(o.order_time);",
+        "options": [
+          {
+            "id": "md1f_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一单里有几件图书，订单金额就被加了几次；先按订单去重再求和。",
+            "face": "nod",
+            "line": "对。"
+          },
+          {
+            "id": "md1f_b",
+            "type": "bold",
+            "text": "讲关联键一对多导致的行数膨胀，再说写完怎么提前发现。",
+            "face": "probe",
+            "line": "好，我就问怎么发现。",
+            "followup": {
+              "text": "不看最终结果，这类 SQL 写完你会先查什么？",
+              "options": [
+                {
+                  "id": "md1f_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先比关联前后的行数和去重后的订单数，对不上就是放大了。",
+                  "face": "pleased",
+                  "line": "嗯，这个习惯能提前发现问题。"
+                },
+                {
+                  "id": "md1f_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "拿一天的结果和财务报表对一下，差得不多就没问题。",
+                  "face": "nod",
+                  "line": "能发现，就是晚了点。"
+                },
+                {
+                  "id": "md1f_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "把 SUM 换成 SUM(DISTINCT o.amount)，重复的金额就去掉了。",
+                  "face": "frown",
+                  "line": "两单金额正好一样呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1f_c",
+            "type": "off",
+            "delta": -3,
+            "text": "JOIN 默认是内连接，没匹配上的订单被丢掉了，所以数不对。",
+            "face": "frown",
+            "line": "丢了订单，数会变大吗？"
+          },
+          {
+            "id": "md1f_d",
+            "type": "off",
+            "delta": -1,
+            "text": "DATE() 按服务器时区截断，有些订单被算到了别的日期。",
+            "face": "calm",
+            "line": "那也只是挪了日期，总数呢？"
+          }
+        ],
+        "explain": "一对多关联是数据岗最常见的“数变大”原因：订单表连上明细表，一单有几行明细，订单金额就会被重复几次。写完先比一比关联前后的行数、去重后的订单数，就能提前发现。SUM(DISTINCT 金额) 看着省事，其实会把金额碰巧相同的不同订单也合并掉；稳妥的写法是先把符合条件的订单号去重（或用 EXISTS），再关联求和。"
+      }
+    },
+    {
+      "id": "sd1_sql_percap",
+      "pools": [
+        "data_sql"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "这段 SQL 出“各部门 9 月人均报销额”，人均按部门在岗人数算。和财务核对时，几个部门明显偏高，问题在哪？",
+        "code": "SELECT e.dept_id,\n       SUM(e.amount) / COUNT(DISTINCT e.emp_id) AS per_capita\nFROM expense e\nWHERE e.month = '2026-09'\nGROUP BY e.dept_id;",
+        "options": [
+          {
+            "id": "sd1q_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "分母只数了报过销的人；应该用在岗人员表做分母。",
+            "face": "nod",
+            "line": "对。"
+          },
+          {
+            "id": "sd1q_b",
+            "type": "bold",
+            "text": "分母口径错了；再说说人员表怎么关联、月中调岗的人怎么算。",
+            "face": "probe",
+            "line": "好，就问调岗。",
+            "followup": {
+              "text": "有人 9 月中旬从 A 部门调到 B 部门，分母里他算哪个部门？",
+              "options": [
+                {
+                  "id": "sd1q_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按单位统计口径定，比如月末所在部门，写进报表说明。",
+                  "face": "pleased",
+                  "line": "嗯，口径有依据、有说明。"
+                },
+                {
+                  "id": "sd1q_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "按月初所在部门算吧，这样最简单，各部门应该也都能接受。",
+                  "face": "nod",
+                  "line": "可以，写进说明了吗？"
+                },
+                {
+                  "id": "sd1q_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "两个部门各算一次吧，这样哪一边的人数都不会把他漏掉。",
+                  "face": "frown",
+                  "line": "全单位的人数加起来，就多了一个人。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1q_c",
+            "type": "off",
+            "delta": -3,
+            "text": "SUM 除以 COUNT 是整数除法，结果被截断了，所以才偏高。",
+            "face": "frown",
+            "line": "截断只会让数变小吧？"
+          },
+          {
+            "id": "sd1q_d",
+            "type": "off",
+            "delta": -1,
+            "text": "可能是报销数据录重了，先让财务把重复的单子删掉，再重新跑一遍。",
+            "face": "calm",
+            "line": "可以查，可这段 SQL 本身呢？"
+          }
+        ],
+        "explain": "“人均”的分母最容易出错：从报销表里数人，只数到了报过销的人，没报销的人被漏掉，人均自然偏高。分母应该来自在岗人员表，再把报销金额关联过去。月中调岗、借调这类人怎么算，没有唯一正确答案，关键是按单位的统计口径定下来、写进报表说明、每个月保持一致；两边各算一次，全单位就会凭空多出人来。"
+      }
+    },
+    {
+      "id": "sd1_sql_notin",
+      "pools": [
+        "data_sql"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "这段 SQL 想找出 9 月没办过业务的客户，结果一行都没有。业务部门说肯定有，问题可能在哪？",
+        "code": "SELECT c.customer_id\nFROM customer c\nWHERE c.customer_id NOT IN (\n  SELECT b.customer_id\n  FROM biz b\n  WHERE b.month = '2026-09'\n);",
+        "options": [
+          {
+            "id": "sd1n_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "子查询里有空的客户号，NOT IN 就一行都不返回。",
+            "face": "nod",
+            "line": "对，这个坑很隐蔽。"
+          },
+          {
+            "id": "sd1n_b",
+            "type": "bold",
+            "text": "先讲 NOT IN 碰到空值的坑，再给一个更稳的写法。",
+            "face": "probe",
+            "line": "好，写法是什么？",
+            "followup": {
+              "text": "更稳的写法是什么？它为什么不怕空值？",
+              "options": [
+                {
+                  "id": "sd1n_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "用 NOT EXISTS：它只看子查询有没有匹配的行，空值不碍事。",
+                  "face": "pleased",
+                  "line": "对。"
+                },
+                {
+                  "id": "sd1n_b2",
+                  "type": "partial",
+                  "delta": 2,
+                  "text": "子查询里加一句 customer_id IS NOT NULL，空值就进不来了。",
+                  "face": "nod",
+                  "line": "能用，就是得每次都记得加。"
+                },
+                {
+                  "id": "sd1n_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "改成 LEFT JOIN，再加 WHERE b.customer_id = NULL 就行。",
+                  "face": "frown",
+                  "line": "等于 NULL，什么时候成立过？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1n_c",
+            "type": "off",
+            "delta": -3,
+            "text": "可能 9 月每个客户都办过业务，SQL 本身没问题，是业务记错了。",
+            "face": "frown",
+            "line": "业务部门说肯定有。"
+          },
+          {
+            "id": "sd1n_d",
+            "type": "off",
+            "delta": -1,
+            "text": "NOT IN 在数据量大时会超时，数据库把结果截成了空的。",
+            "face": "calm",
+            "line": "超时会报错，不会悄悄返回空。"
+          }
+        ],
+        "explain": "SQL 里空值和任何值比较，结果都是“未知”。NOT IN 等于逐个判断“不等于”，列表里只要有一个空值，每一行的判断都成了“未知”，结果就一行也没有。NOT EXISTS 只看子查询有没有匹配到行，不受空值影响，是更稳的写法；判断空值要用 IS NULL，写成 = NULL 永远不成立。这类坑在报表里很常见，上游数据有缺失时尤其要当心。"
+      }
+    },
+    {
+      "id": "md1_sample",
+      "pools": [
+        "data_ab"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "要验证一个新按钮能不能提高点击率，实验该收多少样本，你怎么定？",
+        "options": [
+          {
+            "id": "md1s_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "按基线点击率、最小可测提升、显著性和功效算样本量。",
+            "face": "nod",
+            "line": "嗯，几个要素都齐了。"
+          },
+          {
+            "id": "md1s_b",
+            "type": "bold",
+            "text": "讲{cite.short}：{cite.n_total}份样本是我事先用功效分析算出来的。",
+            "requires": {
+              "highlight": "power_analysis"
+            },
+            "face": "probe",
+            "line": "哦？那我考考你。",
+            "fallback": {
+              "id": "md1s_b0",
+              "type": "bold",
+              "text": "先讲样本量和哪几个数有关，再讲为什么不能边跑边看。",
+              "face": "probe",
+              "line": "那就说第二点。",
+              "followup": {
+                "text": "为什么不能边跑边看，一显著就停？",
+                "options": [
+                  {
+                    "id": "md1s_b0a",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "反复看、一显著就停，假阳性会远高于 5%；样本量得事先定好。",
+                    "face": "pleased",
+                    "line": "对，这是最常见的坑。"
+                  },
+                  {
+                    "id": "md1s_b0b",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "因为早期样本少，结果还不稳，多跑几天更保险。",
+                    "face": "calm",
+                    "line": "沾边，但不是关键。"
+                  },
+                  {
+                    "id": "md1s_b0c",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "其实可以，显著了就说明效果是真的，早停还省流量。",
+                    "face": "frown",
+                    "line": "那每天看一次，总有一天会显著吧？"
+                  }
+                ]
+              }
+            },
+            "followup": {
+              "text": "功效分析要先定哪几个数？哪个最难定？",
+              "options": [
+                {
+                  "id": "md1s_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "显著性水平、功效和效应量；效应量最难，我参考了同类研究。",
+                  "face": "pleased",
+                  "line": "嗯，是真算过的。"
+                },
+                {
+                  "id": "md1s_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "主要是显著性水平，取 0.05，其他的软件会自己算。",
+                  "face": "calm",
+                  "line": "效应量软件也替你定？"
+                },
+                {
+                  "id": "md1s_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "样本越多越好，所以先尽量多收，收完再看显不显著，最省心。",
+                  "face": "frown",
+                  "line": "那还算什么功效？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1s_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先跑一周看看，显著了就停，不显著就再多跑几天。",
+            "face": "frown",
+            "line": "看到显著就停？"
+          },
+          {
+            "id": "md1s_d",
+            "type": "off",
+            "delta": -1,
+            "text": "样本量凭经验定就行，一般每组有一千人左右就够了。",
+            "face": "calm",
+            "line": "点击率 1% 和 30%，都一千人？"
+          }
+        ],
+        "explain": "样本量要事先算：取决于现在的基线、想测出的最小提升、显著性水平和功效。想测出的提升越小，要的样本越多，大致和提升幅度的平方成反比，提升小一半，样本要翻四倍。最难定的是预期效应量，一般参考历史数据或同类研究。边跑边看、一显著就停，相当于给自己多次“碰运气”的机会，假阳性会远高于名义上的 5%。"
+      }
+    },
+    {
+      "id": "md1_interval",
+      "pools": [
+        "data_ab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "实验结果：新版点击率提升 2%，95% 置信区间是 -0.5% 到 4.5%。你怎么跟产品说？",
+        "options": [
+          {
+            "id": "md1v_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "区间跨过了 0，现在不能说新版更好，也不能说它没用。",
+            "face": "nod",
+            "line": "嗯，说法很准。"
+          },
+          {
+            "id": "md1v_b",
+            "type": "bold",
+            "text": "讲区间跨 0 的意思，再估要多少样本。",
+            "face": "probe",
+            "line": "那我当一回产品。",
+            "followup": {
+              "text": "“那不就是没效果吗？直接下掉吧。”你怎么回？",
+              "options": [
+                {
+                  "id": "md1v_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不是没效果，是还看不清；要么加样本再测，要么按上线成本来定。",
+                  "face": "pleased",
+                  "line": "嗯，没证据和证明没有，是两回事。"
+                },
+                {
+                  "id": "md1v_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "也行，反正不显著，先下掉，等以后有空了再测一次。",
+                  "face": "calm",
+                  "line": "以后是什么时候？"
+                },
+                {
+                  "id": "md1v_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不用下，周报里就写新版提升了 2%，直接全量。",
+                  "face": "frown",
+                  "line": "区间下限是负的，2% 能写成结论？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1v_c",
+            "type": "off",
+            "delta": -3,
+            "text": "提升 2% 是正的，说明新版更好，可以全量上线了。",
+            "face": "frown",
+            "line": "区间下限是负的。"
+          },
+          {
+            "id": "md1v_d",
+            "type": "off",
+            "delta": -1,
+            "text": "区间这么宽，说明实验做坏了，得从头重做一遍。",
+            "face": "calm",
+            "line": "宽，就一定是做坏了？"
+          }
+        ],
+        "explain": "置信区间跨过 0，说的是“按现在的数据，看不清有没有提升”，既不能说新版更好，也不能说它没用：没有证据，不等于证明没有。区间宽通常是样本不够，不一定是实验做坏了；下一步要么加样本，要么结合上线成本做决定。反过来，把 2% 当成已经验证的提升写进周报，是把没看清的东西说成了结论。"
+      }
+    },
+    {
+      "id": "md1_stat_mean",
+      "pools": [
+        "data_metric"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "运营说上个月“人均消费”涨了 20%，可大部分用户的花费几乎没变。这可能吗？你会怎么看？",
+        "options": [
+          {
+            "id": "md1m_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "可能。少数大额用户就能拉高均值，我会再看中位数。",
+            "face": "nod",
+            "line": "嗯，基本功没问题。"
+          },
+          {
+            "id": "md1m_b",
+            "type": "bold",
+            "text": "先查是不是少数大额用户拉的，再看“人均”的分母有没有变。",
+            "face": "probe",
+            "line": "分母？你展开说说。",
+            "followup": {
+              "text": "分母会怎么变？举个例子。",
+              "options": [
+                {
+                  "id": "md1m_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "比如低消费的人流失了，或者口径改成只算下单用户，人均就涨了。",
+                  "face": "pleased",
+                  "line": "对，分子没变，分母也能变出“增长”。"
+                },
+                {
+                  "id": "md1m_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "分母一般就是固定的总用户数，变化主要还是出在分子上。",
+                  "face": "calm",
+                  "line": "总用户数也会变吧？"
+                },
+                {
+                  "id": "md1m_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "分母变不变不重要，均值涨了就说明大家整体花得更多。",
+                  "face": "frown",
+                  "line": "那“大部分人没变”怎么解释？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1m_c",
+            "type": "off",
+            "delta": -3,
+            "text": "不可能，均值涨了 20%，大部分人的花费肯定也涨了。",
+            "face": "frown",
+            "line": "一个人花了一百万呢？"
+          },
+          {
+            "id": "md1m_d",
+            "type": "off",
+            "delta": -1,
+            "text": "可能是统计误差，再看一个月，会不会回落就清楚了。",
+            "face": "calm",
+            "line": "等一个月，运营的汇报怎么办？"
+          }
+        ],
+        "explain": "均值会被极端值拉着走：消费、收入这类分布很偏的数据，几个大额用户就能把“人均”抬上去，看中位数和分位数更稳。另一个常被忽略的是分母：低消费的人流失了，或者口径从“全部用户”悄悄换成“下单用户”，人人都没多花钱，人均也会涨。"
+      }
+    },
+    {
+      "id": "md1_metric_define",
+      "pools": [
+        "data_metric"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "让你给一个在线课程定“完课率”，你会怎么定？",
+        "options": [
+          {
+            "id": "md1d_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "分母是开始学的人，分子是学完最后一节的人，再定时间窗口。",
+            "face": "nod",
+            "line": "嗯，要素齐了。"
+          },
+          {
+            "id": "md1d_b",
+            "type": "bold",
+            "text": "先问完课率拿去做什么，再定“完”的标准、分母和时间窗。",
+            "face": "probe",
+            "line": "好，我出个难题。",
+            "followup": {
+              "text": "有人把进度条直接拖到最后，算完课吗？",
+              "options": [
+                {
+                  "id": "md1d_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不算。“完”按有效学习时长或关键节点来定，写进口径说明。",
+                  "face": "pleased",
+                  "line": "对，指标得防得住刷。"
+                },
+                {
+                  "id": "md1d_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "算吧，系统记录他看到了最后一节，口径上没办法区分开。",
+                  "face": "calm",
+                  "line": "真的没法区分吗？"
+                },
+                {
+                  "id": "md1d_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "算，拖到最后也是完课，完课率高一点对课程方也好。",
+                  "face": "frown",
+                  "line": "那这个指标还衡量什么？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1d_c",
+            "type": "off",
+            "delta": -1,
+            "text": "直接用后台现成的完课率，口径平台早就定好了。",
+            "face": "calm",
+            "line": "你知道它怎么算的吗？"
+          },
+          {
+            "id": "md1d_d",
+            "type": "off",
+            "delta": -3,
+            "text": "完课率意义不大，看课程好评率就够了，更能说明质量。",
+            "face": "frown",
+            "line": "好评的人学完了吗？"
+          }
+        ],
+        "explain": "定一个指标，要写清分子、分母和时间窗口，还要想到它会不会被“刷”：进度条一拖到底也算完课，这个指标就衡量不了学习了。先问它拿去做什么决定，口径才定得准；直接用现成的数而不知道它怎么算，是分析里最容易出事的地方。"
+      }
+    },
+    {
+      "id": "md1_retention",
+      "pools": [
+        "data_metric"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "产品问你：“上周新用户的 7 日留存是多少？”你开口前会先确认什么？",
+        "options": [
+          {
+            "id": "md1r_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问口径：第 7 天当天回来，还是 7 天内回来过。",
+            "face": "nod",
+            "line": "嗯，口径先行。"
+          },
+          {
+            "id": "md1r_b",
+            "type": "bold",
+            "text": "先问他拿这个数做什么决定，再定口径和分母。",
+            "face": "probe",
+            "line": "好，我告诉你用途。",
+            "followup": {
+              "text": "他要比较两个投放渠道的新用户质量。口径怎么定？",
+              "options": [
+                {
+                  "id": "md1r_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "两个渠道同一口径、同一批注册日期，只算已经满 7 天的用户。",
+                  "face": "pleased",
+                  "line": "对，还没满 7 天的人混进来，留存就被压低了。"
+                },
+                {
+                  "id": "md1r_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "用“7 天内回来过”的口径，数大一些，两个渠道都好看。",
+                  "face": "calm",
+                  "line": "好看是给谁看的？"
+                },
+                {
+                  "id": "md1r_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "各渠道用各自投放后台给的留存数，直接拿来对比就行。",
+                  "face": "frown",
+                  "line": "两边后台的口径一样吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1r_c",
+            "type": "off",
+            "delta": -3,
+            "text": "7 日留存就是 7 天后还在用的比例，这个定义各家都是统一的。",
+            "face": "frown",
+            "line": "统一吗？"
+          },
+          {
+            "id": "md1r_d",
+            "type": "off",
+            "delta": -1,
+            "text": "直接把看板上最新的数抄给他，看板的口径应该没错。",
+            "face": "calm",
+            "line": "看板上是哪种留存？"
+          }
+        ],
+        "explain": "“7 日留存”至少有几种算法：第 7 天当天回来的比例、7 天内任意一天回来过的比例，还有按自然日还是按满 24 小时算。比较两组时，口径和注册日期都要一致，而且只能算已经满 7 天的用户，不然最近几天的新人还没来得及“留下”，就被算成了流失。按哪种好看选口径，是这一行的大忌。"
+      }
+    },
+    {
+      "id": "md1_north_star",
+      "pools": [
+        "data_metric"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "给一个刷题 App 挑一个北极星指标，你选什么？",
+        "options": [
+          {
+            "id": "md1n_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "选每周完成练习的用户数，它说明用户真在学。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "md1n_b",
+            "type": "bold",
+            "text": "先讲北极星该满足哪三条，再给我的选择。",
+            "face": "probe",
+            "line": "那我挑一个问。",
+            "followup": {
+              "text": "为什么不直接选日活？大家都看日活。",
+              "options": [
+                {
+                  "id": "md1n_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "日活能被签到、推送刷高；完成练习更贴近价值。",
+                  "face": "pleased",
+                  "line": "嗯，说到点子上了。"
+                },
+                {
+                  "id": "md1n_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "日活也可以，两个差别不大，主要看公司平时的习惯。",
+                  "face": "calm",
+                  "line": "差别真的不大吗？"
+                },
+                {
+                  "id": "md1n_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "日活太低了不好看，选累计注册用户更能体现规模。",
+                  "face": "frown",
+                  "line": "累计注册只会涨，还能看出什么？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md1n_c",
+            "type": "off",
+            "delta": -1,
+            "text": "选收入，公司最终都要赚钱，收入涨了，别的指标自然也会跟着涨。",
+            "face": "calm",
+            "line": "收入是结果，怎么指导每天的事？"
+          },
+          {
+            "id": "md1n_d",
+            "type": "off",
+            "delta": -3,
+            "text": "日活、时长、收入一起当北极星，各管一块更全面。",
+            "face": "frown",
+            "line": "三颗北极星，往哪走？"
+          }
+        ],
+        "explain": "北极星指标要反映用户得到的价值，能往下拆成各团队能动的数，看到它就知道该干什么。日活容易被签到、推送这类动作刷高，不一定代表用户在学；累计注册数只涨不跌，看不出好坏；同时立好几个“北极星”，等于没有方向。"
+      }
+    },
+    {
+      "id": "md2_anomaly",
+      "pools": [
+        "data_case"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "早上看板显示，昨天的下单量比上周同一天跌了 30%。你第一步做什么？",
+        "options": [
+          {
+            "id": "md2a_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先确认数是真的：数据任务跑完没有，埋点和口径有没有变。",
+            "face": "nod",
+            "line": "嗯，先验数，顺序对。"
+          },
+          {
+            "id": "md2a_b",
+            "type": "bold",
+            "text": "先核数据，再按端、渠道、新老用户拆，找跌得最多的。",
+            "face": "probe",
+            "line": "好，数据没问题，我给你个结果。",
+            "followup": {
+              "text": "拆完发现只有安卓端在跌，而且是从昨天下午三点开始的。下一步？",
+              "options": [
+                {
+                  "id": "md2a_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "查三点前后安卓有没有发版或改过配置，再看下单链路哪一步掉了。",
+                  "face": "pleased",
+                  "line": "对，时间点就是线索。"
+                },
+                {
+                  "id": "md2a_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先通知业务方安卓下单在跌，原因还在查，有进展再同步。",
+                  "face": "nod",
+                  "line": "同步是对的，原因呢？"
+                },
+                {
+                  "id": "md2a_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "可能是竞品在做活动，把安卓用户吸走了，先观察两天再说。",
+                  "face": "frown",
+                  "line": "竞品活动正好下午三点开始，还只影响安卓？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2a_c",
+            "type": "off",
+            "delta": -3,
+            "text": "跌 30% 可能是正常波动，先观察两天再说。",
+            "face": "frown",
+            "line": "30% 也算正常波动？"
+          },
+          {
+            "id": "md2a_d",
+            "type": "off",
+            "delta": -1,
+            "text": "先去问运营，昨天是不是停了什么活动。",
+            "face": "calm",
+            "line": "也是个方向，数据你核过了吗？"
+          }
+        ],
+        "explain": "指标异动的排查有固定顺序：先验数据（任务有没有跑完、埋点和口径有没有变），排除“假跌”；再定范围、按维度拆，找到贡献最大的那一块；最后才是找原因、给行动。拆到“某个端、某个时间点”，内部的发版和配置变更往往比外部原因更值得先查。"
+      }
+    },
+    {
+      "id": "md2_mix",
+      "pools": [
+        "data_case"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "上个月整体转化率降了，可每个渠道的转化率都在涨。这是怎么回事？",
+        "options": [
+          {
+            "id": "md2x_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "渠道结构变了：低转化渠道占比涨了，把整体拉低了。",
+            "face": "nod",
+            "line": "对。"
+          },
+          {
+            "id": "md2x_b",
+            "type": "bold",
+            "text": "拆成两部分看：渠道结构变了多少，各渠道转化变了多少。",
+            "face": "probe",
+            "line": "好，我当一回业务方。",
+            "followup": {
+              "text": "“整体转化降了，那到底算好还是算坏？”你怎么回？",
+              "options": [
+                {
+                  "id": "md2x_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "各渠道都在变好；低转化渠道变多了，看它值不值。",
+                  "face": "pleased",
+                  "line": "嗯，好坏要分开说。"
+                },
+                {
+                  "id": "md2x_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "算坏，整体转化才是最终结果，各渠道涨了也没什么用。",
+                  "face": "calm",
+                  "line": "那新渠道带来的人呢？"
+                },
+                {
+                  "id": "md2x_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "算好，各渠道都涨了，整体降肯定是哪里统计算错了。",
+                  "face": "frown",
+                  "line": "为什么一定是算错了？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2x_c",
+            "type": "off",
+            "delta": -3,
+            "text": "数据肯定有错：每个渠道都在涨，加起来的总体不可能降。",
+            "face": "frown",
+            "line": "不可能吗？"
+          },
+          {
+            "id": "md2x_d",
+            "type": "off",
+            "delta": -1,
+            "text": "可能是月底的转化还没回传完，整体口径滞后，过几天再看就正常了。",
+            "face": "calm",
+            "line": "每个渠道都回传完了，就整体没完？"
+          }
+        ],
+        "explain": "各部分都在涨、整体却在降，是结构变化（辛普森悖论的一种）：低转化渠道的流量占比变大，整体平均就被拉低了。拆成“结构变化”和“各渠道转化变化”两部分，好坏才说得清：各渠道在变好是好事，低转化渠道变多值不值，要看它带来的人值不值得花这份钱。"
+      }
+    },
+    {
+      "id": "md2_srm",
+      "pools": [
+        "data_ab"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "一个实验设的是五五分流。跑完一看，实验组 5.2 万人、对照组 4.8 万人，实验组转化更高。你怎么看这个结论？",
+        "options": [
+          {
+            "id": "md2s_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先别下结论。人数比例差这么多不正常，得先查分流和埋点。",
+            "face": "nod",
+            "line": "嗯，警觉性不错。"
+          },
+          {
+            "id": "md2s_b",
+            "type": "bold",
+            "text": "做样本比例检验：十万人差四千，分流肯定有问题。",
+            "face": "probe",
+            "line": "对，确实有问题。",
+            "followup": {
+              "text": "可能是什么原因造成的？",
+              "options": [
+                {
+                  "id": "md2s_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "两组进实验的条件不一样，比如只有新版多报了一次曝光。",
+                  "face": "pleased",
+                  "line": "嗯，排查方向对。"
+                },
+                {
+                  "id": "md2s_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "具体原因说不准，我会先找开发一起查分流代码和日志。",
+                  "face": "nod",
+                  "line": "也行，至少知道去哪查。"
+                },
+                {
+                  "id": "md2s_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "随机分流本来就会有偏差，差四千人很正常，不影响结论。",
+                  "face": "frown",
+                  "line": "十万人里差四千，正常？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2s_c",
+            "type": "off",
+            "delta": -3,
+            "text": "实验组人多，说明新版更受欢迎，转化又更高，结论很可靠。",
+            "face": "frown",
+            "line": "分流是系统分的，人多跟受欢迎有关吗？"
+          },
+          {
+            "id": "md2s_d",
+            "type": "off",
+            "delta": -3,
+            "text": "把实验组多出来的四千人随机删掉，两组人数一样再比。",
+            "face": "frown",
+            "line": "多出来的那些，是随机多的吗？"
+          }
+        ],
+        "explain": "五五分流跑出 52 比 48，叫样本比例失衡（SRM）。十万人里，按随机波动，每组人数的标准差只有一百多人，差出两千是十几个标准差，卡方值约 160，几乎不可能是巧合，说明两组进实验的条件不一样，转化率怎么比都不可信。这时要先查分流和埋点；随机删掉多出来的人也没用，偏差还在留下来的人里。"
+      }
+    },
+    {
+      "id": "md2_novelty",
+      "pools": [
+        "data_ab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "新首页实验第一周点击率涨了 15%，第二周只涨 3%。你怎么解释？要不要上？",
+        "options": [
+          {
+            "id": "md2n_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "像新奇效应：用户先图新鲜点得多。看后面几周稳在哪再定。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "md2n_b",
+            "type": "bold",
+            "text": "按新老用户拆开看：是不是老用户的涨幅在回落。",
+            "face": "probe",
+            "line": "好，我们快进一下。",
+            "followup": {
+              "text": "跑满四周，稳定在涨 3%，但页面停留时长降了。上不上？",
+              "options": [
+                {
+                  "id": "md2n_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先弄清时长为什么降：是找得更快了，还是看得更少了。",
+                  "face": "pleased",
+                  "line": "对，护栏指标要先读懂。"
+                },
+                {
+                  "id": "md2n_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "上，主指标点击率涨了，时长是次要指标，可以先不管。",
+                  "face": "calm",
+                  "line": "要是用户看得更少了呢？"
+                },
+                {
+                  "id": "md2n_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不上，只要有一个指标下降，就说明新版有问题，不能冒险。",
+                  "face": "frown",
+                  "line": "停留短一点，一定是坏事吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2n_c",
+            "type": "off",
+            "delta": -3,
+            "text": "第一周涨 15% 才是真实效果，第二周是波动，按 15% 算。",
+            "face": "frown",
+            "line": "为什么第一周才是真的？"
+          },
+          {
+            "id": "md2n_d",
+            "type": "off",
+            "delta": -1,
+            "text": "两周涨幅差这么多，说明实验做坏了，得重做一遍。",
+            "face": "calm",
+            "line": "做坏了，还是效果在变？"
+          }
+        ],
+        "explain": "新功能刚上线时，老用户常因为新鲜多点几下，这叫新奇效应，所以实验要跑满几个完整周期，看效果稳在哪。主指标涨了、护栏指标降了，不能一刀切：停留时长变短，可能是用户更快找到了想要的，也可能是看得更少了，先读懂它再决定。"
+      }
+    },
+    {
+      "id": "sd1_delivery",
+      "pools": [
+        "data_deliver"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "周一上午要给领导交季度分析报告。周五下午你发现，上游有张表从月中开始少了一个网点的数据。你怎么办？",
+        "options": [
+          {
+            "id": "sd1d_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "马上报告主管，说清影响范围，商量补数还是调整时间。",
+            "face": "nod",
+            "line": "嗯，早说是对的。"
+          },
+          {
+            "id": "sd1d_b",
+            "type": "bold",
+            "text": "先估影响，同时找上游补数，下班前报备主管。",
+            "face": "probe",
+            "line": "好，那上游补不上呢？",
+            "followup": {
+              "text": "上游说最快周二才能补上。周一的报告怎么交？",
+              "options": [
+                {
+                  "id": "sd1d_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按时交，标明缺了哪个网点、影响哪些结论，补齐后再出新版。",
+                  "face": "pleased",
+                  "line": "嗯，按时、透明、有后手。"
+                },
+                {
+                  "id": "sd1d_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "跟主管申请延到周二，数据补全了再交，宁晚勿错。",
+                  "face": "nod",
+                  "line": "也稳，就看领导等不等得起。"
+                },
+                {
+                  "id": "sd1d_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按其他网点的平均水平补上缺的数，报告照常按时交上去。",
+                  "face": "frown",
+                  "line": "补出来的数，你在报告里写了吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1d_c",
+            "type": "off",
+            "delta": -3,
+            "text": "缺一个网点影响不大，先照常交，有人问起再解释。",
+            "face": "frown",
+            "line": "没人问，就没人知道了。"
+          },
+          {
+            "id": "sd1d_d",
+            "type": "off",
+            "delta": -1,
+            "text": "周末加班，自己从原始单据里把那个网点的数补出来。",
+            "face": "calm",
+            "line": "补出来的数谁复核？"
+          }
+        ],
+        "explain": "稳妥交付的关键是不藏问题：发现缺数先报告，说清影响范围；来不及补，就按时交并在报告里写明缺什么、影响哪些结论，补齐后再出更新版。周末自己从原始单据补数，没人复核也容易出新错；拿平均值悄悄补上，报告看着完整，其实是在造数。"
+      }
+    },
+    {
+      "id": "md2_deadline",
+      "pools": [
+        "data_deliver"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "业务方要你今天给结论：上个月的满减活动到底赚没赚？可退货数据要下周才全。你怎么办？",
+        "options": [
+          {
+            "id": "md2d_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先交现有数据能算出的结论，标明退货没算，下周补正。",
+            "face": "nod",
+            "line": "嗯，能交的先交。"
+          },
+          {
+            "id": "md2d_b",
+            "type": "bold",
+            "text": "给一个区间：按往期退货率估上下限，说清哪部分是估的。",
+            "face": "probe",
+            "line": "区间？业务方可不爱听。",
+            "followup": {
+              "text": "业务方说：“别给区间，我就要一个数，好跟老板汇报。”",
+              "options": [
+                {
+                  "id": "md2d_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "给中间估计值，但写明前提和区间，下周数据全了再更新。",
+                  "face": "pleased",
+                  "line": "嗯，数给了，底也交了。"
+                },
+                {
+                  "id": "md2d_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就给保守的下限，往小了报，出了问题也怪不到我。",
+                  "face": "calm",
+                  "line": "往小报，是为了准，还是为了自保？"
+                },
+                {
+                  "id": "md2d_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "那就给中间值，前提和区间就不写了，免得老板觉得不靠谱。",
+                  "face": "frown",
+                  "line": "下周数一变，老板怎么看你？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2d_c",
+            "type": "off",
+            "delta": -1,
+            "text": "数据不全不能下结论，等下周退货数据出来再说。",
+            "face": "calm",
+            "line": "业务方今天就要。"
+          },
+          {
+            "id": "md2d_d",
+            "type": "off",
+            "delta": -3,
+            "text": "先按没有退货算一版，结论好看一点，业务方也满意。",
+            "face": "frown",
+            "line": "下周退货一进来呢？"
+          }
+        ],
+        "explain": "数据不够却要结论，是分析师最常碰到的局面。先交能回答的部分，再把不确定性讲明白：哪些是估的、按什么估、范围多大、什么时候补正。为了显得笃定把前提藏起来，或者干脆拖着不给，都会伤到你在业务方那里的信用。"
+      }
+    },
+    {
+      "id": "md2_bad_news",
+      "pools": [
+        "data_deliver"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你的分析结论是：老板很看好的那个新功能，基本没带来增长。你怎么跟业务方讲？",
+        "options": [
+          {
+            "id": "md2b_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先讲结论和依据，再讲对哪些人有用，给下一步建议。",
+            "face": "nod",
+            "line": "嗯，有结论也有出路。"
+          },
+          {
+            "id": "md2b_b",
+            "type": "bold",
+            "text": "上会前先和功能负责人对一遍数，口径没争议了再讲。",
+            "face": "probe",
+            "line": "好，那我就是负责人。",
+            "followup": {
+              "text": "负责人看完说：“你换个口径再算算，应该能看到增长。”",
+              "options": [
+                {
+                  "id": "md2b_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "可以换个口径再算，但两版都放进报告里，写清各自的定义。",
+                  "face": "pleased",
+                  "line": "嗯，愿意算，也不藏。"
+                },
+                {
+                  "id": "md2b_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "不换，我的口径就是对的，再换就是在凑想要的结论。",
+                  "face": "calm",
+                  "line": "他的口径一点道理都没有？"
+                },
+                {
+                  "id": "md2b_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "行，按他的口径重新算，原来那一版就不放进报告了。",
+                  "face": "frown",
+                  "line": "那这份报告还是你的分析吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2b_c",
+            "type": "off",
+            "delta": -3,
+            "text": "结论太敏感，先不说没增长，只挑涨了的几个指标讲，给老板留面子。",
+            "face": "frown",
+            "line": "老板以后怎么信你的数？"
+          },
+          {
+            "id": "md2b_d",
+            "type": "off",
+            "delta": -1,
+            "text": "直接在周会上讲，数据就是数据，不需要提前沟通。",
+            "face": "calm",
+            "line": "负责人在会上第一次听到，会怎么想？"
+          }
+        ],
+        "explain": "讲“不好听”的结论，难在既守住数据、又照顾到人。会前先和负责人对一遍数，能避免会上吵口径；对方要求换口径，可以认真算，但两版都摆出来、写清定义，比悄悄换掉原结论或者一口回绝都更站得住。"
+      }
+    },
+    {
+      "id": "sd1_caliber",
+      "pools": [
+        "data_caliber"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "两个处室报上来的“9 月在岗人数”对不上，差了 12 个人，领导下午就要用。你怎么处理？",
+        "options": [
+          {
+            "id": "sd1c_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先对口径：借调、长假、月中入离职算不算，按哪一天统计。",
+            "face": "nod",
+            "line": "嗯，先对口径。"
+          },
+          {
+            "id": "sd1c_b",
+            "type": "bold",
+            "text": "对完口径，再拿两份名单逐人比，列出差的 12 人。",
+            "face": "probe",
+            "line": "好，差异找到了。",
+            "followup": {
+              "text": "差异找到了，可下午前来不及让两个处室统一口径。报哪个？",
+              "options": [
+                {
+                  "id": "sd1c_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按现行统计口径报，附上差异说明，会后再推动统一。",
+                  "face": "pleased",
+                  "line": "嗯，有依据，也留了说明。"
+                },
+                {
+                  "id": "sd1c_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "两个数都报上去，请领导自己来判断到底用哪一个。",
+                  "face": "calm",
+                  "line": "领导要的是一个能用的数。"
+                },
+                {
+                  "id": "sd1c_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按我觉得更合理的口径，把两边的数改成统一的一个。",
+                  "face": "frown",
+                  "line": "改别人报上来的数，跟人家说了吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1c_c",
+            "type": "off",
+            "delta": -1,
+            "text": "以人事处的数为准，另一个处室的数直接改成一样的。",
+            "face": "calm",
+            "line": "差在哪你还没弄清呢。"
+          },
+          {
+            "id": "sd1c_d",
+            "type": "off",
+            "delta": -3,
+            "text": "差 12 个人不算多，先按大的那个报，以后再说。",
+            "face": "frown",
+            "line": "为什么是大的那个？"
+          }
+        ],
+        "explain": "报表数字对不上，先别急着定谁对：统计时点、借调、长假、外包算不算，往往就是差异所在。逐人比对能把差异落到具体的人身上。时间不够统一口径时，按单位现行的统计口径报、附上差异说明，事后再推动统一，是最稳妥的做法；自己动手改别人报上来的数，哪怕改得对，也是越权。"
+      }
+    },
+    {
+      "id": "sd1_spike",
+      "pools": [
+        "data_caliber"
+      ],
+      "priority": 50,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "月报马上要报送，你发现有一项数据比上月猛涨了 40%。报送前你会做什么？",
+        "options": [
+          {
+            "id": "sd1k_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先查是真涨还是数据问题：口径、来源、公式逐项核。",
+            "face": "nod",
+            "line": "嗯，先核。"
+          },
+          {
+            "id": "sd1k_b",
+            "type": "bold",
+            "text": "先自查数据和公式，再找业务部门确认原因，写进报表说明。",
+            "face": "probe",
+            "line": "好，那时间紧一点呢？",
+            "followup": {
+              "text": "业务部门说是真的涨了，可离报送只剩一小时，原因还没写清。",
+              "options": [
+                {
+                  "id": "sd1k_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先报备主管，再按时报送、附注异常，原因查清后补报。",
+                  "face": "pleased",
+                  "line": "嗯，按时、透明，还报备了。"
+                },
+                {
+                  "id": "sd1k_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "先按时报，数据部门只管报数，原因让业务部门去解释。",
+                  "face": "calm",
+                  "line": "被问到时，你怎么答？"
+                },
+                {
+                  "id": "sd1k_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "先把这项改回和上月差不多，免得被追问，查清了再改。",
+                  "face": "frown",
+                  "line": "报出去的数，是可以这么改的吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1k_c",
+            "type": "off",
+            "delta": -3,
+            "text": "数据是系统算出来的，涨了就是涨了，按时报送就行。",
+            "face": "frown",
+            "line": "系统就不会出错？"
+          },
+          {
+            "id": "sd1k_d",
+            "type": "off",
+            "delta": -1,
+            "text": "先不报，等原因全部查清再报，晚一点总比报错强。",
+            "face": "calm",
+            "line": "报送时间是定好的。"
+          }
+        ],
+        "explain": "报送前看到异常波动，第一反应是核数据：口径变没变、来源对不对、公式有没有错。确认是真的，就把原因写进说明；时间来不及时，向主管报备、按时报送并标注异常、随后补充说明，既守了时限又不藏问题。为了不被追问把数据改回去，是报表工作的大忌。"
+      }
+    },
+    {
+      "id": "md2_caliber",
+      "pools": [
+        "data_caliber"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你报的“上月活跃用户”是 120 万，运营报给老板的是 150 万。老板问到底哪个对，你怎么办？",
+        "options": [
+          {
+            "id": "md2c_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先对口径：活跃怎么定义、怎么去重、按什么时间算。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "md2c_b",
+            "type": "bold",
+            "text": "把两边的定义并排列出来，再抽一批用户逐个对，看差在哪。",
+            "face": "probe",
+            "line": "好，我给你查的结果。",
+            "followup": {
+              "text": "查下来，运营把“点开过推送”也算成了活跃。你怎么跟老板说？",
+              "options": [
+                {
+                  "id": "md2c_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "讲清两个数各自的定义，建议统一成一个口径，写进指标字典。",
+                  "face": "pleased",
+                  "line": "嗯，对事不对人，还把坑填上了。"
+                },
+                {
+                  "id": "md2c_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "就说我的 120 万是对的，运营那边把活跃的口径算宽了。",
+                  "face": "calm",
+                  "line": "运营听了会怎么想？"
+                },
+                {
+                  "id": "md2c_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "就报 150 万，数大老板高兴，口径的事没必要细讲。",
+                  "face": "frown",
+                  "line": "那你的 120 万呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2c_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我的数是从数仓直接取的，肯定是我的对。",
+            "face": "frown",
+            "line": "运营的数也是从数仓取的。"
+          },
+          {
+            "id": "md2c_d",
+            "type": "off",
+            "delta": -1,
+            "text": "两个数都报给老板，让老板自己选用哪个。",
+            "face": "calm",
+            "line": "老板问的就是哪个对。"
+          }
+        ],
+        "explain": "两个“活跃用户”打架，大多不是谁算错了，而是“活跃”的定义不一样。先把定义并排列出来，再抽样逐个核对，差在哪就清楚了。给老板的不该是“谁对谁错”，而是两个数各自代表什么，再推动把口径统一、写进指标字典，下次就不用再吵。"
+      }
+    },
+    {
+      "id": "md2_reconcile",
+      "pools": [
+        "data_caliber"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "同一个“订单数”，财务系统和业务看板每天都差几十单。你怎么查？",
+        "options": [
+          {
+            "id": "md2r_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先对定义：退款、取消、测试单算不算，按什么时间算。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "md2r_b",
+            "type": "bold",
+            "text": "先对定义，再挑一天把两边订单号逐条对，看差的是哪类单。",
+            "face": "probe",
+            "line": "好，我给你对出来的结果。",
+            "followup": {
+              "text": "对下来，差的全是每晚 11 点 50 分以后的单。可能是什么原因？",
+              "options": [
+                {
+                  "id": "md2r_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "两边切日的时间点不一样，比如零点和跑批截止。",
+                  "face": "pleased",
+                  "line": "对，就是这个。"
+                },
+                {
+                  "id": "md2r_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "可能是那几分钟网络不稳定，有一部分订单没同步过来。",
+                  "face": "calm",
+                  "line": "每天都正好在那几分钟？"
+                },
+                {
+                  "id": "md2r_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "每天差几十单占比很小，可以忽略，不影响看趋势。",
+                  "face": "frown",
+                  "line": "财务对账的时候也忽略？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "md2r_c",
+            "type": "off",
+            "delta": -1,
+            "text": "以财务系统为准，把看板的数改成和财务一样就行。",
+            "face": "calm",
+            "line": "差在哪你还不知道呢。"
+          },
+          {
+            "id": "md2r_d",
+            "type": "off",
+            "delta": -3,
+            "text": "差得不多，在看板上加一句“仅供参考”就行。",
+            "face": "frown",
+            "line": "那看板还有人信吗？"
+          }
+        ],
+        "explain": "两个系统对不上，先对定义（哪些单算、按什么时间算），再挑一段时间逐条对账，看差的是哪类记录。差异集中在某个时间点，往往是切日方式不同：一边按自然日零点，一边按跑批截止时间。把原因查清、写进口径说明，比直接把一边改成另一边的数可靠得多。"
+      }
+    },
+    {
+      "id": "sd1_quality",
+      "pools": [
+        "data_quality"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "下属单位每月报上来的数据，总有缺报和明显录错的。让你来管这件事，你怎么做？",
+        "options": [
+          {
+            "id": "sd1u_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先定校验规则：必填、取值范围、环比波动，不过就退回。",
+            "face": "nod",
+            "line": "嗯，有章法。"
+          },
+          {
+            "id": "sd1u_b",
+            "type": "bold",
+            "text": "先查错在哪一环：填报口径不清、系统没校验，还是赶着交。",
+            "face": "probe",
+            "line": "好，那我给你个难缠的。",
+            "followup": {
+              "text": "规则定好了，可有个单位每次都卡着截止时间报，来不及退回。",
+              "options": [
+                {
+                  "id": "sd1u_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "校验做到填报时就提示，再约对方提前报、留复核期。",
+                  "face": "pleased",
+                  "line": "嗯，从源头管，还留了余量。"
+                },
+                {
+                  "id": "sd1u_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "截止时间一到就先收下来，等到下个月再一起补报和修改。",
+                  "face": "calm",
+                  "line": "这个月的报表怎么办？"
+                },
+                {
+                  "id": "sd1u_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "错的地方我们这边直接帮他改掉，省得一趟趟来回退回。",
+                  "face": "frown",
+                  "line": "改错了，算谁的？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1u_c",
+            "type": "off",
+            "delta": -1,
+            "text": "每月通报排名，报错多的单位扣分，靠考核压下去。",
+            "face": "calm",
+            "line": "扣分能让他们知道错在哪吗？"
+          },
+          {
+            "id": "sd1u_d",
+            "type": "off",
+            "delta": -3,
+            "text": "缺的数我们用平均值补上，保证报表是完整的。",
+            "face": "frown",
+            "line": "补出来的数，报表上标了吗？"
+          }
+        ],
+        "explain": "数据质量要从源头管：先弄清错在哪一环，再把校验规则（必填、取值范围、环比波动）放到填报那一步，让错误当场暴露。报数单位的数据，发现错了要退回、请对方确认后更正，不能自己替人改；用平均值悄悄补缺，报表看着完整，其实是在造数。"
+      }
+    },
+    {
+      "id": "sd1_dedupe",
+      "pools": [
+        "data_quality"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "导出的客户表里，同一个人出现了好几行：手机号一样，名字写法不一样。你怎么去重？",
+        "options": [
+          {
+            "id": "sd1e_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "定判重规则：证件号优先，手机号辅助，拿不准的人工核。",
+            "face": "nod",
+            "line": "嗯，有规则。"
+          },
+          {
+            "id": "sd1e_b",
+            "type": "bold",
+            "text": "证件号相同的直接判重；只是手机号相同的，先标成疑似。",
+            "face": "probe",
+            "line": "疑似多了怎么办？",
+            "followup": {
+              "text": "疑似重复有两千多条，人工核不过来，怎么办？",
+              "options": [
+                {
+                  "id": "sd1e_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按把握分级：有把握的合并并留日志、能回退，没把握的抽样核。",
+                  "face": "pleased",
+                  "line": "嗯，又快又能回头查。"
+                },
+                {
+                  "id": "sd1e_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "全按手机号合并，同一个手机号基本就是同一个人。",
+                  "face": "calm",
+                  "line": "一家人共用一个号呢？"
+                },
+                {
+                  "id": "sd1e_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "直接把重复的行删掉，只留最早录入的那一条就行。",
+                  "face": "frown",
+                  "line": "最早那条要是过时的呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1e_c",
+            "type": "off",
+            "delta": -3,
+            "text": "名字不同就不算重复，按姓名加手机号去重最保险。",
+            "face": "frown",
+            "line": "“张三”和“张 三”呢？"
+          },
+          {
+            "id": "sd1e_d",
+            "type": "off",
+            "delta": -1,
+            "text": "交给业务部门自己处理，数据部门只负责导出。",
+            "face": "calm",
+            "line": "业务部门会问你怎么判。"
+          }
+        ],
+        "explain": "去重先定规则：哪个字段最可靠（证件号）、哪个只能辅助（手机号可能一家人共用），拿不准的不自动合并。量大时按把握分级处理，合并要留日志、能回退；直接删行最省事，也最容易把真实信息一起删掉。"
+      }
+    },
+    {
+      "id": "sd1_secrecy",
+      "pools": [
+        "data_secure"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "合作单位的同事找你要一份客户明细，说急着核对，让你先发到他私人邮箱。你怎么办？",
+        "options": [
+          {
+            "id": "sd1s_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "不发私人邮箱，先确认他的权限，按审批走正式渠道。",
+            "face": "nod",
+            "line": "嗯，规矩清楚。"
+          },
+          {
+            "id": "sd1s_b",
+            "type": "bold",
+            "text": "按{cite.short}的老规矩：{cite.rule}。",
+            "requires": {
+              "highlight": "secure_handling"
+            },
+            "face": "probe",
+            "line": "那他要是着急呢？",
+            "fallback": {
+              "id": "sd1s_b0",
+              "type": "bold",
+              "text": "先问清要什么、做什么用，能给汇总就不给明细。",
+              "face": "probe",
+              "line": "那他要是着急呢？",
+              "followup": {
+                "text": "他说审批要两天，领导催得急，就这一次，出了事他负责。",
+                "options": [
+                  {
+                    "id": "sd1s_b0a",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "不能私发。帮他催审批，或先给脱敏后的汇总。",
+                    "face": "pleased",
+                    "line": "嗯，不松口，也帮他想了办法。"
+                  },
+                  {
+                    "id": "sd1s_b0b",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "那就先发一部分，把手机号这类敏感字段删掉再发。",
+                    "face": "frown",
+                    "line": "还是发到私人邮箱？"
+                  },
+                  {
+                    "id": "sd1s_b0c",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "既然他愿意负责，就先发吧，事后补个审批手续。",
+                    "face": "frown",
+                    "line": "出了事，真是他一个人负责吗？"
+                  }
+                ]
+              }
+            },
+            "followup": {
+              "text": "他说审批要两天，领导催得急，就这一次，出了事他负责。",
+              "options": [
+                {
+                  "id": "sd1s_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不能私发。帮他催审批，或先给脱敏后的汇总。",
+                  "face": "pleased",
+                  "line": "嗯，不松口，也帮他想了办法。"
+                },
+                {
+                  "id": "sd1s_b2",
+                  "type": "partial",
+                  "delta": -4,
+                  "text": "那就先发一部分，把手机号这类敏感字段删掉再发。",
+                  "face": "frown",
+                  "line": "还是发到私人邮箱？"
+                },
+                {
+                  "id": "sd1s_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "既然他愿意负责，就先发吧，事后补个审批手续。",
+                  "face": "frown",
+                  "line": "出了事，真是他一个人负责吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1s_c",
+            "type": "redline",
+            "text": "先发给他救急，同时抄送我的领导，邮件都留痕，事后也查得到。",
+            "face": "disappointed",
+            "line": "……好，这个问题就到这儿。"
+          },
+          {
+            "id": "sd1s_d",
+            "type": "off",
+            "delta": -1,
+            "text": "这事我做不了主，让他直接找我们领导，按领导的意思办。",
+            "face": "calm",
+            "line": "嗯，推给领导也是一种办法。"
+          }
+        ],
+        "explain": "客户明细属于个人信息，给谁、给多少、走什么渠道，都要有授权和记录。正确的顺序是：先确认对方的权限和用途，能给汇总就不给明细，按审批走正式渠道，私人邮箱无论如何不能用。“出了事我负责”转移不了你自己的责任；抄送领导、留了痕，也改变不了数据已经发到私人邮箱这件事，这是数据岗的红线。"
+      }
+    },
+    {
+      "id": "sd1_take_home",
+      "pools": [
+        "data_secure"
+      ],
+      "priority": 50,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "周末在家想赶一份分析，能不能把单位的数据拷到自己电脑上做？",
+        "options": [
+          {
+            "id": "sd1h_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "不拷。用内网或单位配的设备做，来不及提前申请。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "sd1h_b",
+            "type": "bold",
+            "text": "不拷。做{cite.short}时就是这个规矩，早习惯了。",
+            "requires": {
+              "highlight": "secure_handling"
+            },
+            "face": "probe",
+            "line": "那我再问细一点。",
+            "fallback": {
+              "id": "sd1h_b0",
+              "type": "bold",
+              "text": "不拷。先问单位有没有正规的远程办公方式。",
+              "face": "probe",
+              "line": "那我再问细一点。",
+              "followup": {
+                "text": "要是只拷一份脱敏后的汇总表呢？",
+                "options": [
+                  {
+                    "id": "sd1h_b0a",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "汇总表也看密级和规定：能带就报备，不能就不带。",
+                    "face": "pleased",
+                    "line": "嗯，不靠自己判断“应该没事”。"
+                  },
+                  {
+                    "id": "sd1h_b0b",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "汇总表没有个人信息，应该可以拷，用完删掉就行。",
+                    "face": "calm",
+                    "line": "“应该”是谁定的？"
+                  },
+                  {
+                    "id": "sd1h_b0c",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "汇总表随便拷，只有明细数据才需要保密。",
+                    "face": "frown",
+                    "line": "经营数据的汇总也不用保密？"
+                  }
+                ]
+              }
+            },
+            "followup": {
+              "text": "要是只拷一份脱敏后的汇总表呢？",
+              "options": [
+                {
+                  "id": "sd1h_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "汇总表也看密级和规定：能带就报备，不能就不带。",
+                  "face": "pleased",
+                  "line": "嗯，不靠自己判断“应该没事”。"
+                },
+                {
+                  "id": "sd1h_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "汇总表没有个人信息，应该可以拷，用完删掉就行。",
+                  "face": "calm",
+                  "line": "“应该”是谁定的？"
+                },
+                {
+                  "id": "sd1h_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "汇总表随便拷，只有明细数据才需要保密。",
+                  "face": "frown",
+                  "line": "经营数据的汇总也不用保密？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd1h_c",
+            "type": "off",
+            "delta": -3,
+            "text": "拷到加密 U 盘里，做完马上删，文件也设密码，就不会有问题。",
+            "face": "frown",
+            "line": "加密了，就合规了吗？"
+          },
+          {
+            "id": "sd1h_d",
+            "type": "off",
+            "delta": -3,
+            "text": "看情况，领导急着要的话，偶尔拷一次也能理解。",
+            "face": "frown",
+            "line": "偶尔一次，出了事算谁的？"
+          }
+        ],
+        "explain": "单位数据能不能带出、怎么带出，看的是单位的规定和数据的密级，不是自己觉得“脱敏了应该没事”。加密 U 盘、用完就删，解决的是“丢了怎么办”，解决不了“该不该带”。来不及就提前申请正规的远程方式，是最稳妥的回答。"
+      }
+    },
+    {
+      "id": "dax_event_drift",
+      "pools": [
+        "data_quality"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "某次发版后购买漏斗的转化率突然上升，但订单量没有明显变化，你先查什么？",
+        "options": [
+          {
+            "id": "dax_event_drift_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "核对发版前后的埋点定义、覆盖与订单对账。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "dax_event_drift_b",
+            "type": "bold",
+            "text": "按版本还原漏斗分母分子，定位缺失或重复事件。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "新版把购买成功事件改成点击提交时触发，会产生什么问题？",
+              "options": [
+                {
+                  "id": "dax_event_drift_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "成功语义变了，先修正事件口径再重算可比数据。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "dax_event_drift_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "事件触发更早，给新旧数据加一个固定修正比例。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "dax_event_drift_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "只要每次都这样采集，长期趋势仍可直接和旧版比较。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "事件名称相同不代表业务含义相同。成功改为点击会把失败、取消等混入分子，新旧转化率不可直接比较。应核对版本、时点、去重和覆盖，与订单事实对账；固定比例无法保证校正不同场景，先确认数据质量再解释业务变化。"
+            }
+          },
+          {
+            "id": "dax_event_drift_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先按新漏斗结论找流失环节，尽快让产品调整页面。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "事件名称相同不代表业务含义相同。成功改为点击会把失败、取消等混入分子，新旧转化率不可直接比较。应核对版本、时点、去重和覆盖，与订单事实对账；固定比例无法保证校正不同场景，先确认数据质量再解释业务变化。"
+      }
+    },
+    {
+      "id": "dax_coupon_margin",
+      "pools": [
+        "data_case"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "发券活动让订单数上升，业务问下月是否加预算。你怎样分析？",
+        "options": [
+          {
+            "id": "dax_coupon_margin_c",
+            "type": "off",
+            "delta": -3,
+            "text": "订单增长说明拉动有效，再看平均客单价是否稳定。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          },
+          {
+            "id": "dax_coupon_margin_b",
+            "type": "bold",
+            "text": "拆订单增长、优惠成本、退款和自然购买替代。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "老客领券很多，活动结束后一周订单又下降，怎么解释？",
+              "options": [
+                {
+                  "id": "dax_coupon_margin_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先算活动期毛利扣券成本，按活动窗口判断收益。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "dax_coupon_margin_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "活动结束下降正常，只要活动期赚钱就继续加预算。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                },
+                {
+                  "id": "dax_coupon_margin_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "检查购买提前与补贴替代，延长观察窗口再判断。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                }
+              ],
+              "explain": "订单增长可能来自新增购买，也可能是原本会买的人领券，或把未来购买提前。预算判断需要纳入优惠、退款和相关成本，采用可比窗口与适当对照，说明归因限制。活动期热闹不能直接证明长期净收益，结束后下降也不能单独证明活动无效。"
+            }
+          },
+          {
+            "id": "dax_coupon_margin_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先核对活动目标，比较净收益和新增购买的证据。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          }
+        ],
+        "explain": "订单增长可能来自新增购买，也可能是原本会买的人领券，或把未来购买提前。预算判断需要纳入优惠、退款和相关成本，采用可比窗口与适当对照，说明归因限制。活动期热闹不能直接证明长期净收益，结束后下降也不能单独证明活动无效。"
+      }
+    },
+    {
+      "id": "dax_stock_gap",
+      "pools": [
+        "data_case"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "商品详情访问增长，但成交额没涨。运营想改详情页，你先怎样拆解？",
+        "options": [
+          {
+            "id": "dax_stock_gap_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先拆商品、渠道和库存，再看访问到成交各环节。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "dax_stock_gap_b",
+            "type": "bold",
+            "text": "比较可售商品的转化与客单价，核对缺货影响。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "增长流量集中在缺货商品，可售商品转化没有下降，怎么建议？",
+              "options": [
+                {
+                  "id": "dax_stock_gap_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先评估供给和导流，区分缺货损失与页面问题。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "dax_stock_gap_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "统一加强购买按钮提示，减少用户找不到入口。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "dax_stock_gap_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "提高缺货商品曝光，让更多人收藏等待补货。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "成交额受访问、可售供给、转化和客单价共同影响。新增访问若集中于缺货商品，总体转化下降不能直接归咎页面。应分层核对库存状态和流量去向，再比较补货、替代推荐或导流的可行性；只优化按钮可能没有触及主要限制。"
+            }
+          },
+          {
+            "id": "dax_stock_gap_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先看详情到下单掉得最多的步骤，直接优化按钮。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "成交额受访问、可售供给、转化和客单价共同影响。新增访问若集中于缺货商品，总体转化下降不能直接归咎页面。应分层核对库存状态和流量去向，再比较补货、替代推荐或导流的可行性；只优化按钮可能没有触及主要限制。"
+      }
+    }
+  ]
+}

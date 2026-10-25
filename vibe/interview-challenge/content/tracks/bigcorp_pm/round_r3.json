@@ -1,0 +1,167 @@
+{
+  "id": "r3",
+  "name": "总监面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A6",
+    "title": "产品总监"
+  },
+  "scene": "S7a",
+  "pressure": true,
+  "_note": "压力面：答题时间乘 0.75。总监不让做自我介绍，直接开问。",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "background",
+      "pool": "director",
+      "swap": false,
+      "_note": "背景题位（总监面的压力题）：按人设的背景挑一道，见 library/background.json"
+    },
+    {
+      "slot": "q2",
+      "node": "q_vision",
+      "swap": true,
+      "alternates": [
+        "q_trend_ai"
+      ]
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "pm_tradeoff",
+      "prefer": [
+        "q_growth_vs_ux"
+      ],
+      "swap": false
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "prefer": [
+        "b3_reverse"
+      ],
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "q_vision": {
+      "tag": "视野与取舍",
+      "text": "你觉得学习类 App 未来三年最大的变化是什么？",
+      "options": [
+        {
+          "id": "vs_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "AI 会让“讲题”变便宜，竞争会转向怎么让人坚持学下去。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "vs_b",
+          "type": "bold",
+          "text": "最大的变化不在技术，在“陪伴感”：谁能让人坚持，谁就赢。",
+          "face": "probe",
+          "line": "那我问具体的。",
+          "followup": {
+            "text": "那塔塔学习现在离这个还差什么？",
+            "options": [
+              {
+                "id": "vs_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "差在新用户第一周：打卡只记次数，没让人觉得有人陪。",
+                "face": "pleased",
+                "line": "嗯，看到点子上了。"
+              },
+              {
+                "id": "vs_b2",
+                "type": "partial",
+                "delta": -5,
+                "text": "差在功能还不够多，社区、直播、答疑这些都还没有做起来。",
+                "face": "frown",
+                "line": "功能多就有陪伴感了？"
+              },
+              {
+                "id": "vs_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "差在营销投入不够，很多目标用户根本不知道它还有陪伴功能。",
+                "face": "frown",
+                "line": "嗯……"
+              }
+            ]
+          }
+        },
+        {
+          "id": "vs_c",
+          "type": "off",
+          "delta": -3,
+          "text": "这个我没怎么想过，我更关注眼前能做的事。",
+          "face": "calm",
+          "line": "嗯。"
+        }
+      ],
+      "explain": "趋势题的难点，在于把大判断落到具体产品上。说一个观点不难，难的是被追问“那我们差在哪”时，答得出一个具体的地方。"
+    },
+    "q_trend_ai": {
+      "tag": "视野与取舍",
+      "text": "AI 已经能直接讲题了，学习类 App 还需要产品经理吗？",
+      "options": [
+        {
+          "id": "ta_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "需要。AI 解决“讲清楚”，但“学下去”和“学对了”还得有人设计。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "ta_b",
+          "type": "bold",
+          "text": "更需要懂人的产品经理：AI 越强，坚持和动机越成为瓶颈。",
+          "face": "probe",
+          "line": "那你怎么解决？",
+          "followup": {
+            "text": "你会怎么用 AI 解决“坚持”的问题？",
+            "options": [
+              {
+                "id": "ta_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "先用 AI 识别快放弃的信号，比如连续两天没做完，再试提醒方式。",
+                "face": "pleased",
+                "line": "嗯，能落地。"
+              },
+              {
+                "id": "ta_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "让 AI 每天根据学习进度给用户发几句鼓励。",
+                "face": "calm",
+                "line": "这个现在就有人在做，效果一般。"
+              },
+              {
+                "id": "ta_b3",
+                "type": "fail",
+                "delta": -5,
+                "text": "能交给 AI 的都交给 AI，提醒、答疑、陪聊全自动，产品经理盯数据就行。",
+                "face": "frown",
+                "line": "那还要产品经理干嘛？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ta_c",
+          "type": "off",
+          "delta": -3,
+          "text": "说不好，AI 发展太快了。",
+          "face": "calm",
+          "line": "嗯。"
+        }
+      ],
+      "explain": "被问“还需不需要你这个岗位”时，最好的回答是指出 AI 解决不了、而你恰好擅长的那部分，再给一个能落地的做法。"
+    }
+  }
+}

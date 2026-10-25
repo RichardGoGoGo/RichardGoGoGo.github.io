@@ -1,0 +1,17 @@
+{
+  "id": "r1", "name": "专业面", "company": "soe",
+  "interviewer": {"art": "A4", "title": "数据部门面试官"},
+  "scene": "S9",
+  "_note": "国企数据分析专业面：数据部门的面试官来面，考 SQL 和报表口径、数据质量、合规与保密、稳妥交付，加一道简历深挖和一道“精通”追问。语气比中厂正式。选项 ID 前缀 sd1_。题目在 library/packs/data.json 的题池（pools）里，题位用 prefer 按原来的顺序钉住原来的题。",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["sd1_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "pool", "pool": "data_sql", "prefer": ["sd1_sql_percap", "sd1_sql_notin"], "swap": true, "_note": "报表 SQL：人均的分母；重打时换成 NOT IN 遇到空值"},
+    {"slot": "q2", "dynamic": "deep_dive_first", "swap": false, "_note": "深挖简历第一页排第 1 的那段经历；那段用的是夸大或含糊写法时，换成对应的追问"},
+    {"slot": "q3", "dynamic": "pool", "pool": "data_caliber", "prefer": ["sd1_caliber", "sd1_spike"], "swap": true, "_note": "报表口径：两个处室的在岗人数对不上；重打时换成报送前发现数据猛涨"},
+    {"slot": "q4", "dynamic": "skill_probe", "fallback_pool": "data_quality", "prefer": ["sd1_quality", "sd1_dedupe"], "swap": true, "_note": "技能栏写了“精通 SQL”时换成追问（track.json 的 skill_probes 指定），否则问下属单位报数的质量；重打时换成客户去重"},
+    {"slot": "q5", "dynamic": "pool", "pool": "data_secure", "prefer": ["sd1_secrecy", "sd1_take_home"], "swap": true, "_note": "合规与保密：合作方要客户明细；重打时换成周末把数据拷回家"},
+    {"slot": "q6", "dynamic": "pool", "pool": "data_deliver", "prefer": ["sd1_delivery"], "swap": false, "_note": "稳妥交付：交报告前发现上游缺数"},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["sd1_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

@@ -28,6 +28,10 @@ collections:
     output: true
     permalink: /skills/:name/
 
+# 「面试挑战」试玩版的 content/_staging/ 要原样发布（Jekyll 默认跳过下划线目录）
+include:
+  - _staging
+
 exclude:
   - drafts
   - templates

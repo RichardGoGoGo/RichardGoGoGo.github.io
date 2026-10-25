@@ -1,0 +1,54 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "midcorp",
+  "interviewer": {
+    "art": "A4",
+    "title": "产品面试官"
+  },
+  "scene": "S4",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "pm_research",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "skill_probe",
+      "fallback_pool": "pm_spec",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "pm_metric",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "pm_delivery",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

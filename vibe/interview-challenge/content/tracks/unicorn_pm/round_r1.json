@@ -1,0 +1,55 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A4",
+    "title": "产品经理"
+  },
+  "scene": "S5",
+  "hello": "先聊你做过的事，再做几道日常判断题。没有做过的部分，可以说你会怎样验证。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "pm_startup_problem",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "pm_research",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "pm_startup_prd",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "pm_startup_validation",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

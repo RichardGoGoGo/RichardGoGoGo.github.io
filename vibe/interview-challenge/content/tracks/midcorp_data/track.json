@@ -1,0 +1,75 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（catalog.json 里的 base_persona）标定，见 tools/balance_sim.py。（2026-10-25 按基准组合标定）",
+  "id": "midcorp_data",
+  "company": "midcorp",
+  "role": "data",
+  "label": "中厂 × 数据分析",
+  "est_minutes": "7–9",
+  "stages": [
+    "resume",
+    "r1",
+    "r2",
+    "r3",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/midcorp_data/round_r1.json",
+    "tracks/midcorp_data/round_r2.json",
+    "companies/midcorp/round_hr.json"
+  ],
+  "resume_screen": {
+    "screener": "HR",
+    "edu_weight": 1.0,
+    "page2_discount": 0.3,
+    "overflow_penalty": 0.2,
+    "machine_screen": false,
+    "pass_line": 2.5,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 60,
+    "followup_depth": 1,
+    "time_multiplier": 1.0
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、HR 面三轮的余量之和分档，阈值由 tools/balance_sim.py 标定。",
+    "thresholds": {
+      "普通": 26,
+      "SP": 47,
+      "SSP": 64
+    }
+  },
+  "skill_probe_order": [
+    "sql",
+    "ab"
+  ],
+  "skill_probes": {
+    "sql": "dap_sql_window",
+    "ab": "dap_ab_pvalue"
+  },
+  "review_phrases": {
+    "_note": "面评卡用语：每轮结束时按这一轮里加分、扣分最多的诊断标签各挑一句。",
+    "专业": {
+      "plus": "SQL 和统计基础扎实，边界和口径想得清楚。",
+      "minus": "部分方法和概念有混淆，追问时没能讲清。"
+    },
+    "项目表达": {
+      "plus": "分析讲得具体，结论有数据撑着，经得起追问。",
+      "minus": "分析做了什么、结论怎么来的，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "能从数据走到业务建议，知道先查什么、怎么讲结论。",
+      "minus": "分析停在数字上，没落到业务判断。"
+    },
+    "动机与稳定": {
+      "plus": "求职动机清楚，和岗位匹配。",
+      "minus": "求职动机和稳定性还有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（catalog.json 里的 base_persona）标定，见 tools/balance_sim.py。（2026-10-25 按基准组合标定）",
+  "id": "unicorn_algo",
+  "company": "unicorn",
+  "role": "algo",
+  "label": "初创独角兽 × 算法",
+  "est_minutes": "8–10",
+  "stages": [
+    "resume",
+    "r1",
+    "r2",
+    "r3",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/unicorn_algo/round_r1.json",
+    "tracks/unicorn_algo/round_r2.json",
+    "companies/unicorn/round_founder.json"
+  ],
+  "resume_screen": {
+    "screener": "业务负责人",
+    "_note": "业务负责人直接看，不过机器：学历权重低，夸大写法不加分（0.6），证据型略有加成，第二页也会看（策划案 4.1）。",
+    "edu_weight": 0.5,
+    "page2_discount": 0.5,
+    "overflow_penalty": 0.1,
+    "machine_screen": false,
+    "pass_line": 2.4,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 63,
+    "followup_depth": 2,
+    "time_multiplier": 0.9,
+    "pressure_multiplier": 0.75
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、创始人面三轮的余量之和分档，阈值由 tools/balance_sim.py 标定。",
+    "thresholds": {
+      "普通": 22,
+      "SP": 38,
+      "SSP": 56
+    }
+  },
+  "skill_probe_order": [
+    "ml",
+    "dl"
+  ],
+  "skill_probes": {
+    "ml": "probe_ml_master",
+    "dl": "probe_dl_master"
+  },
+  "review_phrases": {
+    "_note": "面评卡用语：每轮结束时按这一轮里加分、扣分最多的诊断标签各挑一句。",
+    "专业": {
+      "plus": "基础扎实，推导和代码都稳，能讲清方法背后的为什么。",
+      "minus": "部分概念有混淆，推导或代码在追问时没能讲清。"
+    },
+    "项目表达": {
+      "plus": "效果提升讲得清来源、对照和局限。",
+      "minus": "效果从哪来、怎么验证，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "知道在效果、成本和工期之间做取舍。",
+      "minus": "方案偏理想化，没算落地的成本和延迟。"
+    },
+    "动机与稳定": {
+      "plus": "想清楚了为什么来，和团队的方向对得上。",
+      "minus": "来这里的理由还不够清楚，稳定性有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  }
+}

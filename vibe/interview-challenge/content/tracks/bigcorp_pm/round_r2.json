@@ -1,0 +1,212 @@
+{
+  "id": "r2",
+  "name": "业务二面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A5",
+    "title": "产品组长"
+  },
+  "scene": "S6",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "prefer": [
+        "b2_intro"
+      ],
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "pm_collab",
+      "prefer": [
+        "q_cut_scope",
+        "q_ops_popup"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "pm_tradeoff",
+      "prefer": [
+        "q_boss_feature",
+        "q_data_vs_gut"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "node": "q_retention_design",
+      "swap": true,
+      "alternates": [
+        "q_feature_design"
+      ],
+      "_note": "重打时换成“设计一个功能”（资料 G6-qa-4：产品面最经典的一类题）"
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "prefer": [
+        "b2_reverse"
+      ],
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "q_retention_design": {
+      "tag": "专业",
+      "text": "塔塔学习新用户 7 日留存只有 18%。给你两周，你会怎么入手？",
+      "options": [
+        {
+          "id": "rd_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "先拆新用户前 7 天在哪一步流失最多，再针对那一步改。",
+          "face": "nod",
+          "line": "嗯，标准思路。"
+        },
+        {
+          "id": "rd_b",
+          "type": "bold",
+          "text": "先看留下来的人第一天做了什么，再想办法让新用户也做到。",
+          "face": "probe",
+          "line": "好，假设有个发现。",
+          "followup": {
+            "text": "比如你发现，留下来的人第一天都加了错题本。你会怎么做？",
+            "options": [
+              {
+                "id": "rd_b1",
+                "type": "bold",
+                "text": "先别急：可能只是爱学习的人才会加，得先验证因果。",
+                "face": "probe",
+                "line": "实验怎么做？",
+                "followup": {
+                  "text": "实验具体怎么设计？",
+                  "options": [
+                    {
+                      "id": "rd_b1a",
+                      "type": "hold",
+                      "delta": 12,
+                      "text": "新用户随机分两组，一组做错题后引导加错题本，比 7 日留存。",
+                      "face": "pleased",
+                      "line": "嗯，实验设计的底子在这儿用上了。"
+                    },
+                    {
+                      "id": "rd_b1b",
+                      "type": "partial",
+                      "delta": 1,
+                      "text": "直接上线引导功能，对比前后两周留存涨没涨。",
+                      "face": "calm",
+                      "line": "没有对照组，涨了是因为引导吗？"
+                    },
+                    {
+                      "id": "rd_b1c",
+                      "type": "fail",
+                      "delta": -9,
+                      "text": "看加了和没加的用户留存差多少就行，数据是现成的。",
+                      "face": "frown",
+                      "line": "这不还是刚才的相关？"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "rd_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "那就在新手引导里强制加错题本，让新用户第一天都加上。",
+                "face": "calm",
+                "line": "强制之后呢？"
+              },
+              {
+                "id": "rd_b3",
+                "type": "fail",
+                "delta": -5,
+                "text": "说明错题本很重要，下个版本先把错题本做好、做显眼。",
+                "face": "frown",
+                "line": "这个推论站得住吗？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rd_c",
+          "type": "off",
+          "delta": -3,
+          "text": "先做个大改版，把首页和新手引导都重新设计一遍。",
+          "face": "frown",
+          "line": "两周大改版？"
+        }
+      ],
+      "explain": "“留下来的人都做了某件事”是相关，不是因果：可能只是爱学习的人本来就会做。要证明引导有用，得随机分组做实验。这道题对学过实验设计的人来说，正好是主场。"
+    },
+    "q_feature_design": {
+      "tag": "视野与取舍",
+      "text": "给塔塔学习的错题本加一个“复习提醒”，第一版你做什么、不做什么？",
+      "options": [
+        {
+          "id": "fd_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "只做按遗忘曲线推当天该复习的题，提醒时间让用户选。",
+          "face": "nod",
+          "line": "嗯，够小。"
+        },
+        {
+          "id": "fd_b",
+          "type": "bold",
+          "text": "先说目标：要解决的是“记了不看”，再定最小的第一版。",
+          "face": "probe",
+          "line": "好，那上线以后呢？",
+          "followup": {
+            "text": "第一版上线了，你看哪个数判断它有没有用？",
+            "options": [
+              {
+                "id": "fd_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "看第二天回看错题的比例，和随机没开提醒的一组比。",
+                "face": "pleased",
+                "line": "嗯，看的是行为有没有变。"
+              },
+              {
+                "id": "fd_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "看提醒的点击率，点的人多就说明有用。",
+                "face": "calm",
+                "line": "点了就有用？"
+              },
+              {
+                "id": "fd_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "看错题本的总使用人数涨没涨，涨了就说明提醒有效。",
+                "face": "frown",
+                "line": "涨了一定是提醒带来的？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fd_c",
+          "type": "off",
+          "delta": -3,
+          "text": "一次做全：智能推荐、学习报告、排行榜，第一版体验更完整。",
+          "face": "frown",
+          "line": "第一版就做这么多？"
+        }
+      ],
+      "explain": "“设计一个功能”考的是先想清目标和用户，再定第一版做什么、不做什么，最后说清怎么验证。一上来堆功能是常见的错；验证要看用户行为有没有变（比如回看比例），最好和随机对照组比，光看点击率说明不了有用。"
+    }
+  }
+}

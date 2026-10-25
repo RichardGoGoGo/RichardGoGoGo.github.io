@@ -1,0 +1,40 @@
+{
+  "_note": "公司底座：名称、风格、档位、虚构薪资表、信件、谈薪。关卡顺序、筛选设置、通过线和档位阈值跟着岗位线走（tracks/）。HR 面或创始人面这一轮放在这里，所有岗位共用。 类型（sector）、规模（scale）、阶段（stage，可选）的说法见 catalog.json；星数是这家公司自己的难度。",
+  "id": "midcorp",
+  "name": "方格科技",
+  "sector": "internet",
+  "scale": "mid",
+  "short": "方格",
+  "stars": 2,
+  "style": "朴素实用，浅灰蓝色调",
+  "logo": "LOGO_fangge",
+  "disclaimer": "游戏里的公司、流程和数字都是虚构的。流程按公开的求职资料概括，实际因公司和年份而异。",
+  "tiers": {},
+  "salary_table": {
+    "_note": "游戏设定，不代表市场行情。",
+    "白菜": {
+      "salary": 12,
+      "months": 13
+    },
+    "普通": {
+      "salary": 14,
+      "months": 14
+    },
+    "SP": {
+      "salary": 16,
+      "months": 15
+    },
+    "SSP": {
+      "salary": 18,
+      "months": 16,
+      "note": "特批"
+    }
+  },
+  "letters": {
+    "next_round": "【方格科技】恭喜你通过{round}！{next}的时间，我们会另行通知。",
+    "reject": "【方格科技】感谢你对方格科技的关注。经过综合评估，你与该岗位的匹配度暂时不足。你的简历已进入我司人才库，后续有合适的机会会再联系你。",
+    "reject_aside": "（进了人才库，一般就是没下文了。）",
+    "offer": "【方格科技】恭喜你！附件是你的正式录用通知，请在一周内确认。"
+  },
+  "negotiation": "companies/midcorp/negotiation.json"
+}

@@ -1,0 +1,713 @@
+{
+  "id": "linke",
+  "name": "林可",
+  "label": "双非实战派",
+  "art": "P2",
+  "background": {
+    "school_tier": "double_non",
+    "degree": "bachelor",
+    "school": "普通一本",
+    "major": "软件工程",
+    "major_short": "软件工程",
+    "major_group": "cs",
+    "year": "大四"
+  },
+  "traits": [
+    "intern_not_converted"
+  ],
+  "p": {
+    "_note": "人设级参数：题目里的 {p.*}。值也可以按岗位分开写成 {\"fe\": ..., \"pm\": ...}。",
+    "intern_duration": "6 个月",
+    "convert_reason": "那边今年没开前端校招名额，导师也帮我问过，确实没有。",
+    "convert_short": "没开名额",
+    "mentor_flaw": "大概会说我刚开始不敢问，闷头查太久，后来改了。",
+    "lev": "6 个月实习",
+    "lev_brag": "实习时就独立负责活动页了",
+    "lev_detail": "实习 6 个月独立负责过活动页",
+    "lev_kind": "实习经历",
+    "lev_brag_short": "实习过半年",
+    "react_truth": "跟着官方教程做过一个小 demo",
+    "self_learn": "实习时怎么自学 TypeScript 的",
+    "pitfall": "运营后台导出一万多行数据时页面直接卡死，后来改成分批处理。",
+    "pm_reason": "做产品助理那三个月发现，比起把页面写出来，我更想参与决定做什么。",
+    "soe_agree": "讲实习时提议把活动文案做成配置、说服组长的那次。",
+    "soe_agree_hold": "组长怕多一套配置难维护；我先只做最常改的两项，试了两期。",
+    "soe_after_intern": "最有成就感是让运营不用再排期，我想做让人省事的活。"
+  },
+  "skills": {
+    "html_css": 2,
+    "js": 2,
+    "ts": 2,
+    "vue": 2,
+    "react": 1,
+    "mp": 2,
+    "build": 1,
+    "node": 1,
+    "perf": 2,
+    "git": 2,
+    "prd": 1,
+    "research": 1,
+    "html_js": 2,
+    "office": 1,
+    "java": 1,
+    "mysql": 1,
+    "linux": 1,
+    "network": 1,
+    "sql": 1,
+    "algo": 1,
+    "copywriting": 1,
+    "event": 1,
+    "community": 1,
+    "excel": 1,
+    "data": 1,
+    "design_tools": 1
+  },
+  "skill_bar": {
+    "_note": "技能栏里给哪些标签（标签 ID：技能 ID 是按真实水平的那个，加 _master 是“精通”诱饵）。没写的岗位按规则自动生成。",
+    "fe": [
+      "html_css",
+      "js",
+      "js_master",
+      "ts",
+      "vue",
+      "react_master",
+      "mp",
+      "build",
+      "node",
+      "perf",
+      "git"
+    ]
+  },
+  "test_inspire": {
+    "fe": [],
+    "pm": []
+  },
+  "card": {
+    "_note": "人设卡：开局选人设时、面试中都能展开查看（倒计时不停）。只写做过什么、强项和短板，不写标准答案。求职进度由程序按游戏里的投递记录生成，不写在这里。",
+    "lines": [
+      "普通一本，软件工程，大四。",
+      "前端实习 6 个月：一家两百人左右的电商 SaaS 公司，做营销活动页和运营后台，技术栈是 Vue 3 + TypeScript。导师是前端组长。",
+      "实习里做过：6 个活动页的首屏优化，用 Lighthouse 测过，大约从 4 秒降到 2 秒；自己定位并修好了倒计时切到后台就走慢的 bug。",
+      "运营每次改活动页文案都要找开发；林可提议把文案和时间做成配置项，后来改活动不用再排期。",
+      "也闯过一次祸：上线的一处改动让下单按钮失灵了十几分钟，当场回滚，事后补了测试。",
+      "运营后台那次重构，方案是组长定的，林可做了列表页和表单的改造。",
+      "没转正的原因：那家公司今年没开前端校招名额，导师帮忙问过。导师愿意做推荐人。",
+      "校园二手交易小程序：4 人课外项目，林可负责前端。后端是同学用 Node 写的，林可只改过几个接口。用分包把首次打开压到了 1 秒内。上线一学期，大约 600 人用过，成交 300 多单。",
+      "Vue 3 组件库：12 个组件，有单元测试和文档站，GitHub 上 60 多个 star，目前只有自己和几个同学在用。",
+      {
+        "text": "提议把活动文案做成配置时，组长担心多一套配置后台不好维护；林可先只把最常改的文案和时间两项做成配置，试了两期活动才推开。",
+        "companies": [
+          "soe"
+        ]
+      },
+      {
+        "text": "产品助理实习3个月：整理300多条反馈归成5类，推动其中2类进入版本；能按影响范围、严重性和成本讨论优先级。",
+        "roles": [
+          "pm"
+        ]
+      },
+      {
+        "text": "校园交易小程序中访谈20位同学，参与砍掉竞价功能；一学期约600人使用、成交300多单，未做对照，不能把成交都归因于砍功能。",
+        "roles": [
+          "pm"
+        ]
+      },
+      {
+        "text": "活动页配置化是林可提出的建议，组长确认后，先只配置文案和时间，试用两期再推广。",
+        "roles": [
+          "pm"
+        ]
+      },
+      "短板：React 只跟着官方教程做过一个小 demo；Node.js 只写过简单的接口和脚本。"
+    ],
+    "company_notes": {
+      "midcorp": "面试方格科技前做的功课：看过他们技术博客里讲大表格卡顿的那篇。",
+      "unicorn": "面试跃迁智能前做的功课：用他们的 AI 写作助手改过两篇课程报告，发现长文改写会把引用格式弄乱；看过创始人的一次访谈。",
+      "bigcorp": "面试巨塔前做的功课：把巨塔旗下的“塔塔学习”App 用了一周，觉得错题本入口太深。",
+      "soe": "面试恒川数科前做的功课：看了招聘公告，知道新员工先到下属单位轮岗一年；官网新闻说集团在把十几家下属单位的老系统迁到统一平台。"
+    }
+  },
+  "resume": {
+    "capacity_lines": 15,
+    "experiences": [
+      {
+        "id": "E1",
+        "type": "intern_dev",
+        "header": true,
+        "title": "前端开发实习生 · 某电商 SaaS 公司",
+        "period": "大三下 · 6 个月",
+        "relevance": {
+          "fe": "strong",
+          "pm": "half",
+          "be": "half",
+          "algo": "none",
+          "data": "none",
+          "ops": "none"
+        },
+        "p": {
+          "label": "电商公司的前端实习",
+          "pitch": "实习里做的活动页，从需求到上线",
+          "short": "实习",
+          "kind": "前端实习",
+          "routine": "运营后台的列表页：筛选、分页、导出",
+          "pm_routine": "先和运营过一遍活动页需求，列出常改的地方",
+          "pm_story": "运营每次改文案都要找开发，我提议做成配置，后来改活动不用再排期。",
+          "be_link": "做运营后台时常和后端对分页、导出接口，知道接口怎么设计才好用。"
+        },
+        "frames": {
+          "fe": "best_work",
+          "pm": "dev_to_pm"
+        },
+        "highlights": [
+          {
+            "type": "perf_firstscreen",
+            "p": {
+              "label": "活动页首屏优化",
+              "intro": "实习里的活动页优化",
+              "subject": "活动页"
+            }
+          },
+          {
+            "type": "timer_drift",
+            "p": {
+              "label": "倒计时切到后台就走慢"
+            }
+          },
+          {
+            "type": "incident",
+            "p": {
+              "impact": "下单按钮失灵十几分钟"
+            }
+          },
+          {
+            "type": "ops_tooling",
+            "p": {
+              "pain": "每次改活动文案都要找开发",
+              "saved": "以前改文案要等开发排期，做成配置以后，运营自己就能改。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "e1_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [],
+            "text": "参与公司核心业务的前端研发，具备扎实的工程能力和良好的跨团队沟通能力。"
+          },
+          {
+            "id": "e1_duty",
+            "type": "duty",
+            "lines": 2,
+            "keywords": [
+              "活动页",
+              "联调"
+            ],
+            "text": "负责营销活动页和运营后台的页面开发，参与需求评审、联调、测试和上线。"
+          },
+          {
+            "id": "e1_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 3,
+            "keywords": [
+              "性能优化",
+              "懒加载",
+              "Lighthouse"
+            ],
+            "text": "独立负责 6 个营销活动页：图片懒加载加压缩后，首屏从约 4 秒降到 2 秒左右（Lighthouse 实测）；定位并修复了倒计时切到后台就走慢的问题。"
+          },
+          {
+            "id": "e1_exag",
+            "type": "exag",
+            "lines": 2,
+            "keywords": [
+              "架构",
+              "性能优化"
+            ],
+            "text": "主导运营后台前端架构重构，页面性能提升 300%，有力支撑公司 GMV 增长。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "你写的是“主导运营后台架构重构，性能提升 300%”。重构是你主导的吗？300% 怎么算的？",
+              "double_down": {
+                "text": "对，方案是我出的，组长拍板。300% 是接口响应和页面渲染一起算的。",
+                "line": "我们组长当年也做过类似的重构……行，今天先到这儿吧。"
+              },
+              "correct": {
+                "text": "说“主导”不准确：方案是组长定的，我做了列表页和表单的改造。",
+                "line": "嗯……那你说说你做的那部分。"
+              },
+              "evade": {
+                "text": "这个数据是团队统计的，我说说我负责的部分吧。",
+                "line": "我问的是 300% 怎么来的。"
+              }
+            }
+          },
+          {
+            "id": "mpm_e1_evidence_pm",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "需求分析",
+              "配置化",
+              "验收"
+            ],
+            "text": "发现活动文案反复占用研发排期，提出配置化建议；先将文案与时间两项做成配置，试用两期活动后推广。"
+          }
+        ]
+      },
+      {
+        "id": "E2",
+        "type": "intern_pm",
+        "header": true,
+        "title": "产品助理实习生 · 某教育创业公司",
+        "period": "大三上 · 3 个月",
+        "relevance": {
+          "fe": "none",
+          "pm": "match"
+        },
+        "p": {
+          "label": "产品助理实习",
+          "pitch": "产品助理实习里整理用户反馈的事",
+          "short": "产品实习",
+          "kind": "产品助理",
+          "kind_long": "产品实习",
+          "pm_routine": "每周把用户反馈整理成表，分出哪些是 bug、哪些是新需求"
+        },
+        "variants": [
+          {
+            "id": "e2_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [],
+            "text": "具备敏锐的用户洞察和产品思维，深度参与产品从需求到上线的全流程。"
+          },
+          {
+            "id": "e2_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "需求文档"
+            ],
+            "text": "协助产品经理写需求文档、跟进测试进度、整理用户反馈。"
+          },
+          {
+            "id": "e2_evidence",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "用户反馈"
+            ],
+            "text": "整理 300 多条用户反馈，归成 5 类问题，推动其中 2 类排进了下个版本。"
+          }
+        ],
+        "frames": {
+          "pm": "pm_work"
+        },
+        "highlights": [
+          {
+            "type": "feedback_triage",
+            "p": {
+              "n_feedback": "300 多",
+              "n_class": "5",
+              "n_ship": "2"
+            }
+          }
+        ]
+      },
+      {
+        "id": "E3",
+        "type": "campus_team_project",
+        "header": true,
+        "title": "校园二手交易小程序 · 4 人课外项目",
+        "period": "大二下至大三上",
+        "relevance": {
+          "fe": "match",
+          "pm": "match",
+          "be": "half",
+          "ops": "half",
+          "data": "half"
+        },
+        "p": {
+          "label": "校园二手交易小程序",
+          "pitch": "校园二手交易小程序里我负责的部分",
+          "short": "小程序",
+          "team": "四",
+          "my_part": "前端",
+          "others": "后端和产品",
+          "n_others": "三",
+          "be_part": "我负责前端，后端是同学用 Node 写的，我只改过几个接口。"
+        },
+        "highlights": [
+          {
+            "type": "mp_subpackage",
+            "p": {
+              "label": "分包为什么能把首次打开压到 1 秒内"
+            }
+          },
+          {
+            "type": "interview_cut_feature",
+            "p": {
+              "n": "20",
+              "cut": "竞价功能",
+              "verify": "砍完后成交 300 多单；但没做对照，不能都算在这一个改动上。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "e3_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [
+              "小程序"
+            ],
+            "text": "具备良好的工程化意识，熟练运用组件化思想完成小程序开发，获得同学广泛好评。",
+            "probe": {
+              "pattern": "vague",
+              "ask": "你写“获得同学广泛好评”，广泛大概是多少人？",
+              "facts": {
+                "text": "约 600 人用过，成交 300 多单，好评是问卷里看到的。",
+                "line": "嗯，这些数字其实该直接写在简历上。"
+              },
+              "dodge": {
+                "text": "没具体统计过，不过身边同学基本都用过，评价都挺好。",
+                "line": "身边是多少人？"
+              },
+              "inflate": {
+                "text": "日活最高的时候有一千多，开学那一周服务器都差点扛不住。",
+                "line": "日活一千多？你们后台能看到这个数？"
+              },
+              "explain": "“广泛好评”“大量用户”这类词，面试官会顺手问一句“多少”。手里有数字就直接写上去，比等面试官来问强得多。"
+            }
+          },
+          {
+            "id": "e3_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "小程序"
+            ],
+            "text": "负责小程序前端页面开发，参与需求讨论和测试上线。"
+          },
+          {
+            "id": "e3_evidence_fe",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 2,
+            "keywords": [
+              "小程序",
+              "分包",
+              "性能优化"
+            ],
+            "text": "独立负责前端：用分包加载把首次打开从约 3 秒降到 1 秒以内；上线一学期，约 600 名同学用过。"
+          },
+          {
+            "id": "e3_evidence_pm",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "小程序",
+              "用户访谈"
+            ],
+            "text": "访谈 20 位同学后砍掉竞价功能，聚焦“毕业季清仓”；上线一学期约 600 人使用，成交 300 余单。"
+          },
+          {
+            "id": "e3_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "小程序"
+            ],
+            "text": "主导校园交易平台从 0 到 1，用户破万，GMV 显著增长。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“用户破万”……你们学校一共多少人？这一万是怎么统计的？",
+              "double_down": {
+                "text": "是累计访问人数，很多外校同学也在用，后台能看到一万多。",
+                "line": "后台数据能给我看看吗？……算了，今天先这样。"
+              },
+              "correct": {
+                "text": "“破万”是写夸张了，实际一学期大概 600 人用过。",
+                "line": "嗯，那就按 600 说。"
+              },
+              "evade": {
+                "text": "具体数字记不清了，反正用的人挺多的。",
+                "line": "记不清，还写破万？"
+              },
+              "explain": "“破万”这种数字最容易被核实，面试官只要问一句学校有多少人就够了。改口承认会丢分，但还能接着聊；含糊过去，丢得更多。"
+            }
+          }
+        ],
+        "frames": {}
+      },
+      {
+        "id": "E4",
+        "type": "personal_project",
+        "header": true,
+        "title": "个人开源项目 · Vue 3 组件库",
+        "period": "大三至今",
+        "relevance": {
+          "fe": "match",
+          "pm": "none",
+          "be": "half",
+          "ops": "none",
+          "data": "none"
+        },
+        "p": {
+          "label": "Vue 3 组件库",
+          "pitch": "我的 Vue 3 组件库",
+          "short": "组件库",
+          "unit": "组件",
+          "design_point": "日期选择组件：props 和事件怎么定，怎么同时支持单选和范围"
+        },
+        "frames": {
+          "fe": "design"
+        },
+        "highlights": [
+          {
+            "type": "unit_test_bug",
+            "p": {
+              "bug": "跨月选日期时，结束能早于开始，测试一跑就红了。",
+              "bug_area": "日期和时区"
+            }
+          },
+          {
+            "type": "oss_library",
+            "p": {
+              "stars": "60 多个 star"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "e4_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "热爱开源，具备良好的代码规范意识和组件设计能力。"
+          },
+          {
+            "id": "e4_duty",
+            "type": "duty",
+            "lines": 2,
+            "keywords": [
+              "Vue"
+            ],
+            "text": "业余维护一个 Vue 3 组件库，包含日期选择、文件上传等常用组件。"
+          },
+          {
+            "id": "e4_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 2,
+            "keywords": [
+              "Vue",
+              "单元测试"
+            ],
+            "text": "自研 12 个 Vue 3 组件，配了单元测试和文档站，GitHub 上有 60 多个 star。"
+          },
+          {
+            "id": "e4_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "Vue",
+              "开源"
+            ],
+            "text": "独立开发开源 UI 组件库，已被多家企业项目采用。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“已被多家企业项目采用”，能说一两家吗？",
+              "double_down": {
+                "text": "有几家创业公司在用，签了保密协议，不方便说名字。",
+                "line": "开源组件还签保密？……好，我了解了。"
+              },
+              "correct": {
+                "text": "这句写过头了，目前就是我自己和几个同学的项目在用。",
+                "line": "嗯，实话。",
+                "face": "calm"
+              },
+              "evade": {
+                "text": "是看 npm 下载量推测的，具体谁在用不清楚。",
+                "line": "下载量里有不少是机器跑出来的，你知道吧？",
+                "delta": -7
+              },
+              "explain": "“被多家企业采用”是很多人会往开源项目上添的一句。问题在于，一旦被问到是哪家，你给不出名字。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "E5",
+        "type": "competition",
+        "header": false,
+        "title": "蓝桥杯",
+        "period": "大二",
+        "relevance": {
+          "fe": "half",
+          "pm": "none"
+        },
+        "p": {
+          "short": "比赛",
+          "story": "蓝桥杯的那道题"
+        },
+        "variants": [
+          {
+            "id": "e5_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "算法"
+            ],
+            "text": "蓝桥杯软件类省赛二等奖（Java 组）"
+          }
+        ]
+      },
+      {
+        "id": "E6",
+        "type": "student_org",
+        "header": true,
+        "title": "技术部部长 · 校计算机协会",
+        "period": "大二至大三",
+        "relevance": {
+          "fe": "half",
+          "pm": "half",
+          "ops": "half",
+          "be": "half"
+        },
+        "p": {
+          "label": "社团技术部",
+          "pitch": "在社团技术部带新人的事",
+          "short": "技术部",
+          "role": "技术部部长",
+          "role_short": "部长"
+        },
+        "highlights": [
+          {
+            "type": "mentoring",
+            "p": {
+              "where": "社团技术部",
+              "practice": "改协会网站",
+              "n": "3",
+              "n_cn": "三",
+              "goal": "能独立改页面",
+              "output": "页面",
+              "struggle_fix": "有个同学跟不上，我把任务拆到一次只改一个按钮，后来跟上了。"
+            }
+          },
+          {
+            "type": "talks",
+            "p": {
+              "where": "社团",
+              "n": "6"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "e6_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "具备出色的领导力和组织协调能力，团队凝聚力强。"
+          },
+          {
+            "id": "e6_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [],
+            "text": "担任技术部部长，负责协会网站维护和新成员培训。"
+          },
+          {
+            "id": "e6_evidence",
+            "type": "evidence",
+            "angle": "both",
+            "lines": 2,
+            "keywords": [
+              "前端"
+            ],
+            "text": "带 8 人的技术部维护协会网站；办了 6 次前端入门分享，带出 3 个能独立改页面的新成员。"
+          }
+        ]
+      },
+      {
+        "id": "E7",
+        "type": "part_time",
+        "header": false,
+        "title": "兼职家教",
+        "period": "大一至大二",
+        "relevance": {
+          "fe": "none",
+          "pm": "none"
+        },
+        "p": {
+          "short": "家教"
+        },
+        "variants": [
+          {
+            "id": "e7_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [],
+            "text": "兼职初中数学家教，一年"
+          },
+          {
+            "id": "e7_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "兼职家教一年，锻炼了表达和沟通能力"
+          }
+        ]
+      },
+      {
+        "id": "E8",
+        "type": "certificate",
+        "header": false,
+        "title": "英语六级",
+        "period": "",
+        "relevance": {
+          "fe": "general",
+          "pm": "general"
+        },
+        "p": {
+          "short": "六级"
+        },
+        "variants": [
+          {
+            "id": "e8_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [],
+            "text": "英语六级（CET-6）"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "_note": "跳过简历关时用的默认简历：能过筛但平庸。固定弱点是小程序那段写得含糊（“获得同学广泛好评”），业务面会被追问数据。没写的岗位按规则自动生成。",
+      "fe": {
+        "order": [
+          "e1_duty",
+          "e3_empty",
+          "e4_duty",
+          "e6_duty",
+          "e5_fact",
+          "e8_fact"
+        ],
+        "skills": [
+          "html_css",
+          "js",
+          "vue",
+          "mp",
+          "git",
+          "node"
+        ]
+      }
+    }
+  }
+}

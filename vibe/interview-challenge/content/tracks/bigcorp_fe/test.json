@@ -1,0 +1,269 @@
+{
+  "id": "test",
+  "name": "笔试",
+  "company": "bigcorp",
+  "role": "fe",
+  "seconds": 120,
+  "pass_line": 60,
+  "inspire_uses": 2,
+  "bonus": {
+    "per_points": 10,
+    "max": 3
+  },
+  "time_cost": {
+    "易": 15,
+    "中": 20,
+    "难": 35
+  },
+  "trap": {
+    "label": "切到浏览器搜索",
+    "levels": [
+      "难"
+    ],
+    "lose_seconds": 10,
+    "warn_text": "本场规则禁止切屏，系统已记录一次。再次切屏判定违规。",
+    "fail_text": "本场第二次切屏，按游戏规则成绩作废。",
+    "explain": "这是游戏中的明确规则，不代表所有招聘笔试规则相同；真实笔试应以正式通知为准。"
+  },
+  "slots": [
+    {
+      "slot": "bfe_tslot1",
+      "q": "bfe_t1",
+      "swap": "odd",
+      "alternates": [
+        "bfe_t7"
+      ]
+    },
+    {
+      "slot": "bfe_tslot2",
+      "q": "bfe_t2"
+    },
+    {
+      "slot": "bfe_tslot3",
+      "q": "bfe_t3",
+      "swap": "odd",
+      "alternates": [
+        "bfe_t8"
+      ]
+    },
+    {
+      "slot": "bfe_tslot4",
+      "q": "bfe_t4"
+    },
+    {
+      "slot": "bfe_tslot5",
+      "q": "bfe_t5"
+    },
+    {
+      "slot": "bfe_tslot6",
+      "q": "bfe_t6",
+      "swap": "odd",
+      "alternates": [
+        "bfe_t9"
+      ]
+    }
+  ],
+  "questions": {
+    "bfe_t1": {
+      "level": "易",
+      "points": 10,
+      "category": "JavaScript",
+      "text": "浏览器执行下面的同步脚本，控制台输出顺序是？",
+      "options": [
+        {
+          "text": "A B C"
+        },
+        {
+          "text": "B A C"
+        },
+        {
+          "text": "A C B",
+          "correct": true
+        },
+        {
+          "text": "C A B"
+        }
+      ],
+      "explain": "同步代码先输出 A、C；已解决 Promise 的 then 回调随后在微任务检查点输出 B。",
+      "code": "console.log('A');\nPromise.resolve().then(() => console.log('B'));\nconsole.log('C');"
+    },
+    "bfe_t2": {
+      "level": "易",
+      "points": 10,
+      "category": "CSS",
+      "text": "同一文档中两个普通元素的 id 必须唯一。要给多个按钮共用样式，最合适的选择器是？",
+      "options": [
+        {
+          "text": "同一个 id 选择器"
+        },
+        {
+          "text": "共同的 class 选择器",
+          "correct": true
+        },
+        {
+          "text": "每个按钮写行内样式"
+        },
+        {
+          "text": "按按钮文字写选择器"
+        }
+      ],
+      "explain": "class 可以重复用于一组元素；id 用于唯一标识。行内样式会增加重复，CSS 也没有通用的按可见文字内容匹配元素的选择器。"
+    },
+    "bfe_t3": {
+      "level": "中",
+      "points": 15,
+      "category": "JavaScript",
+      "text": "执行代码后，fn() 返回什么？",
+      "options": [
+        {
+          "text": "0"
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "undefined"
+        }
+      ],
+      "explain": "闭包持有的是词法绑定，返回函数执行时读取更新后的 n，因此是 2。",
+      "code": "function make() {\n  let n = 0;\n  const fn = () => n;\n  n = 2;\n  return fn;\n}\nconst fn = make();"
+    },
+    "bfe_t4": {
+      "level": "中",
+      "points": 15,
+      "category": "浏览器",
+      "text": "跨域接口返回成功状态，但脚本读不到响应。下一步最合适的是？",
+      "options": [
+        {
+          "text": "检查服务端跨域允许配置与请求条件",
+          "correct": true
+        },
+        {
+          "text": "前端去掉所有异常捕获"
+        },
+        {
+          "text": "改成 no-cors 后读取返回的 JSON"
+        },
+        {
+          "text": "把接口地址编码后重新发送"
+        }
+      ],
+      "explain": "HTTP 成功状态不等于浏览器允许当前源的脚本读取响应。应检查跨域策略及凭证等请求条件；no-cors 返回的不透明响应不能按普通 JSON 响应读取。"
+    },
+    "bfe_t5": {
+      "level": "难",
+      "points": 25,
+      "category": "工程化",
+      "text": "新版页面已回退，但新版写入的本地草稿格式与旧版不兼容。最稳妥的是？",
+      "options": [
+        {
+          "text": "删除全部草稿，保证旧版打开"
+        },
+        {
+          "text": "只刷新 CDN，让浏览器自动转换"
+        },
+        {
+          "text": "保留草稿并制定兼容读取或迁移方案",
+          "correct": true
+        },
+        {
+          "text": "增加请求超时，等待旧版恢复"
+        }
+      ],
+      "explain": "页面回退不会自动逆转已经写入的数据，需保留内容并明确格式兼容或迁移方案。清空草稿可能造成用户损失，CDN 和请求超时也不能转换数据格式。"
+    },
+    "bfe_t6": {
+      "level": "难",
+      "points": 25,
+      "category": "JavaScript",
+      "text": "下面的 Promise 链最终把什么值传给最后的 then？",
+      "options": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "undefined"
+        },
+        {
+          "text": "抛出未处理异常"
+        }
+      ],
+      "explain": "前面的 then 抛出异常，catch 返回 4 后链条恢复成功；finally 的普通返回值不会把原结果替换为 9。",
+      "code": "Promise.resolve(1)\n .then(() => { throw new Error('x'); })\n .catch(() => 4)\n .finally(() => 9)\n .then(value => console.log(value));"
+    },
+    "bfe_t7": {
+      "level": "易",
+      "points": 10,
+      "category": "JavaScript",
+      "text": "数组 [1, 2, 3].map(x => x * 2) 的结果是？",
+      "options": [
+        {
+          "text": "[1, 2, 3, 2]"
+        },
+        {
+          "text": "[2, 4, 6]",
+          "correct": true
+        },
+        {
+          "text": "[2, 3, 4]"
+        },
+        {
+          "text": "6"
+        }
+      ],
+      "explain": "map 对每个元素执行映射并返回新数组，三个元素分别乘以 2 得到 [2, 4, 6]。"
+    },
+    "bfe_t8": {
+      "level": "中",
+      "points": 15,
+      "category": "浏览器",
+      "text": "页面切走后，全局订阅仍持有旧页面的回调。合理的处理是？",
+      "options": [
+        {
+          "text": "把页面局部变量都改成常量"
+        },
+        {
+          "text": "提高垃圾回收频率"
+        },
+        {
+          "text": "在页面生命周期结束时取消订阅",
+          "correct": true
+        },
+        {
+          "text": "只在回调外包一层 try/catch"
+        }
+      ],
+      "explain": "需要解除全局订阅对旧回调的持有关系。常量、回收时机或异常捕获都不会主动解除仍然可达的订阅。"
+    },
+    "bfe_t9": {
+      "level": "难",
+      "points": 25,
+      "category": "工程化",
+      "text": "新版报错次数少于旧版，但流量仅为旧版十分之一。能直接证明更稳定吗？",
+      "options": [
+        {
+          "text": "能，报错总数就是稳定性"
+        },
+        {
+          "text": "不能，应先核对覆盖和可比的失败率",
+          "correct": true
+        },
+        {
+          "text": "能，扩大流量后错误总会平均"
+        },
+        {
+          "text": "不能，必须等到两版报错次数相同"
+        }
+      ],
+      "explain": "不同流量下次数不能直接比较。还需检查采样和覆盖是否一致，再比较可用性与失败率；等到报错次数相同也不会自动产生可比条件。"
+    }
+  }
+}

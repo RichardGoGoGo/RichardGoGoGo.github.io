@@ -1,0 +1,2879 @@
+{
+  "_note": "产品岗位扩展包：业务面的题池（pools）。前端、产品的经历类型对口程度、深挖问法、技能等写在素材库的基础文件里。 题池：pm_research 用户研究的方法（访谈、问卷）；pm_collab 和研发、运营的协作冲突；pm_tradeoff 取舍和判断（老板、数据和直觉、增长和体验）；pm_growth 复盘和上手（方案被否、判断错了、怎么快速上手）。q_wrong_call 同时在 pm_collab，因为交叉面把它和 q_dev_conflict 配成一对。biz_intro、biz_reverse 是跨岗位的业务面开场、反问，这里只放产品岗的（when.role = pm）：一面的版本 50，二面、总监面的版本 40，没写 prefer 的岗位线按轮次顺序依次抽到。题都是通用的，没写公司类型、规模条件；只属于巨塔（塔塔学习的产品、数据）和交叉面电商面试官设定的题留在 tracks/bigcorp_pm 的轮次文件里。",
+  "pools": [
+    {
+      "id": "b1_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先做个自我介绍吧，一分钟就够。",
+        "options": [
+          {
+            "id": "b1i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一句话定位：{bg.major}出身，再讲两段最相关的经历。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "b1i_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间线讲：专业、实习、项目、论文，一样不落。",
+            "face": "calm",
+            "line": "嗯……重点是哪段？"
+          },
+          {
+            "id": "b1i_b",
+            "type": "bold",
+            "text": "只讲两件事：{cite.intro}，和{other.label|另一个项目}。",
+            "requires": {
+              "highlight": "research_finding"
+            },
+            "face": "probe",
+            "line": "好，那我先问一句。",
+            "fallback": {
+              "id": "b1i_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "只讲我为什么从{bg.major}转来做产品。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "你做过用研，为什么想做产品，不继续做用研？",
+              "options": [
+                {
+                  "id": "b1i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "我更想参与“怎么改”。那个发现被采纳，让我确定了这点。",
+                  "face": "pleased",
+                  "line": "嗯，想得挺清楚。"
+                },
+                {
+                  "id": "b1i_b2",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "产品经理的发展空间更大，薪资也更高一些，这是很现实的考虑。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "b1i_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "用研这个方向太窄了，做到最后也只是给产品提建议，没什么前途。",
+                  "face": "frown",
+                  "line": "我们组里的用研同事听了会怎么想？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "b1i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲我的专业：{bg.major}主要学什么、学了哪些课……",
+            "face": "calm",
+            "line": "嗯……我们直接聊你做过的事吧。"
+          }
+        ],
+        "explain": "一面的自我介绍很短，讲到的事多半会成为后面追问的起点。先一句话定位、再按重要性讲最稳；按时间线一样不落，信息多却没有重点。只讲两件事，相当于替面试官选好了追问方向，前提是你经得起问。花太多时间介绍专业，是转行的人常犯的错。"
+      }
+    },
+    {
+      "id": "b2_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "一面的同事跟我说过你的情况了。你挑一件一面没聊到的事讲讲。",
+        "options": [
+          {
+            "id": "b2i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲{cite.short}：怎么用报名数据调整场次。",
+            "requires": {
+              "highlight": "event_attendance"
+            },
+            "face": "nod",
+            "line": "嗯。",
+            "fallback": {
+              "id": "b2i_a0",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲我怎么准备这次面试：把{co.product|你们的产品}用了两周。",
+              "face": "nod",
+              "line": "哦？"
+            }
+          },
+          {
+            "id": "b2i_b",
+            "type": "bold",
+            "text": "讲{cite.short}：我怎么研究{cite.topic}。",
+            "requires": {
+              "highlight": "thesis_research"
+            },
+            "face": "probe",
+            "line": "那我问问。",
+            "fallback": {
+              "id": "b2i_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲讲我平时怎么拆解一个产品。",
+              "face": "calm",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "你这个研究，对做产品有什么用？",
+              "options": [
+                {
+                  "id": "b2i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{cite.product_use}",
+                  "face": "pleased",
+                  "line": "嗯，能落到产品上。"
+                },
+                {
+                  "id": "b2i_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "能让产品更懂用户心理，设计出来的东西会更符合人性一些。",
+                  "face": "calm",
+                  "line": "怎么个懂法？"
+                },
+                {
+                  "id": "b2i_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "主要是学术价值，和做产品关系不大，不过研究方法是通的。",
+                  "face": "frown",
+                  "line": "那为什么挑它来讲？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "b2i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "把一面讲过的那段经历，再细讲一遍。",
+            "face": "calm",
+            "line": "一面已经聊过了。"
+          }
+        ],
+        "explain": "二面让你挑一件一面没聊过的事，讲新的内容才有信息量，把一面的再讲一遍就浪费了机会。研究型的经历要讲出“对产品有什么用”，否则听起来只是学术。"
+      }
+    },
+    {
+      "id": "b1_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你有什么想问我的吗？",
+        "options": [
+          {
+            "id": "b1r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "团队现在最想解决的用户问题是什么？",
+            "face": "pleased",
+            "line": "好问题。说实话，是新用户留不住……"
+          },
+          {
+            "id": "b1r_b",
+            "type": "reverse",
+            "delta": 0,
+            "text": "新人进来，一般先负责什么样的需求？",
+            "face": "nod",
+            "line": "先从小需求做起，熟悉了再接大的。"
+          },
+          {
+            "id": "b1r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位的薪资大概是多少？",
+            "face": "calm",
+            "line": "这个你问 HR 会更准。"
+          },
+          {
+            "id": "b1r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "问团队最想解决的问题，等于提前拿到了你进去之后的考题。薪资可以问，但业务面试官多半答不了。"
+      }
+    },
+    {
+      "id": "b2_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边差不多了，你有什么想问的？",
+        "options": [
+          {
+            "id": "b2r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "如果我进组，您最希望我在前三个月做出什么？",
+            "face": "pleased",
+            "line": "嗯，我想想……"
+          },
+          {
+            "id": "b2r_b",
+            "type": "reverse",
+            "delta": 0,
+            "text": "新人入职后，前几个月一般会做些什么？",
+            "face": "nod",
+            "line": "先做小需求，熟悉业务再说。"
+          },
+          {
+            "id": "b2r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位能拿到多少？",
+            "face": "calm",
+            "line": "这个 HR 会跟你细聊。"
+          },
+          {
+            "id": "b2r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了。",
+            "face": "calm",
+            "line": "好。"
+          }
+        ],
+        "explain": "问组长对你的期待，等于提前拿到了考核标准。"
+      }
+    },
+    {
+      "id": "b3_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我问完了。你有什么想问我的？",
+        "options": [
+          {
+            "id": "b3r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "您觉得这个团队接下来一年最大的挑战是什么？",
+            "face": "pleased",
+            "line": "嗯，好问题……"
+          },
+          {
+            "id": "b3r_b",
+            "type": "reverse",
+            "delta": 0,
+            "text": "新人刚进团队的时候，您最看重他哪方面的能力？",
+            "face": "nod",
+            "line": "能把一件小事做透。"
+          },
+          {
+            "id": "b3r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "我这次面试表现得怎么样？有哪些地方还可以改进？",
+            "face": "calm",
+            "line": "结果 HR 会通知你。"
+          },
+          {
+            "id": "b3r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了。",
+            "face": "calm",
+            "line": "好。"
+          }
+        ],
+        "explain": "当面问“我表现怎么样”，会让面试官很难回答。问团队面临的挑战，能看出你在想自己进去之后的事。"
+      }
+    },
+    {
+      "id": "q_research_plan",
+      "pools": [
+        "pm_research"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "如果让你调研“大学生为什么用学习 App 坚持不下去”，你会怎么做？",
+        "options": [
+          {
+            "id": "rp_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先做十来个深度访谈找出可能的原因，再用问卷看哪个最普遍。",
+            "face": "nod",
+            "line": "嗯，标准做法。"
+          },
+          {
+            "id": "rp_b",
+            "type": "bold",
+            "text": "先看行为数据找流失节点，再挑流失用户访谈，最后用问卷量化。",
+            "face": "probe",
+            "line": "那我问个细节。",
+            "followup": {
+              "text": "访谈里用户说“太忙了”，你会直接记成原因吗？",
+              "options": [
+                {
+                  "id": "rp_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不会，“太忙”多半是托词，我会追问放弃那天发生了什么。",
+                  "face": "pleased",
+                  "line": "嗯，这是做过访谈的人。"
+                },
+                {
+                  "id": "rp_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "会先如实记下来，再统计有多少人这么说，说的人多就是主因。",
+                  "face": "calm",
+                  "line": "人多就是真原因？"
+                },
+                {
+                  "id": "rp_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "会，用户亲口说的最真实，研究者不应该带着自己的预设去解读。",
+                  "face": "frown",
+                  "line": "用户说的和做的，常常不一样。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "rp_c",
+            "type": "off",
+            "delta": -3,
+            "text": "直接发问卷，样本大、出结论快，还能按年级交叉分析。",
+            "face": "calm",
+            "line": "问卷里的选项从哪来？"
+          }
+        ],
+        "explain": "调研“为什么”，先定性找假设、再定量看规模，是基本功。访谈的难点在追问：用户说的理由常常只是表面，追问具体的那一次，才问得到真原因。"
+      }
+    },
+    {
+      "id": "q_survey_design",
+      "pools": [
+        "pm_research"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "要做一份问卷了解用户的付费意愿，你最担心什么问题？",
+        "options": [
+          {
+            "id": "sd_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "担心问法带引导，比如“你是不是觉得太贵”，所以要问具体的过去行为。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "sd_b",
+            "type": "bold",
+            "text": "最担心说的和做的不一样：嘴上说愿意付，真到付费时不付。",
+            "face": "probe",
+            "line": "那怎么办？",
+            "followup": {
+              "text": "那你怎么解决？",
+              "options": [
+                {
+                  "id": "sd_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "问卷只看态度，真实意愿放到付费页上做小流量实验去验证。",
+                  "face": "pleased",
+                  "line": "嗯，知道问卷的边界。"
+                },
+                {
+                  "id": "sd_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "在问卷里换几种问法交叉验证，剔掉前后矛盾的答卷。",
+                  "face": "calm",
+                  "line": "问法再多，也还是嘴上说。"
+                },
+                {
+                  "id": "sd_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "样本量够大，误差自然就抵消了。",
+                  "face": "frown",
+                  "line": "系统性的偏差也能抵消？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "sd_c",
+            "type": "off",
+            "delta": -1,
+            "text": "最担心回收的问卷不够多。",
+            "face": "calm",
+            "line": "嗯，那是另一个问题。"
+          }
+        ],
+        "explain": "问卷最大的坑是“说的和做的不一样”，样本再大也抵消不了这种系统性偏差。态度靠问卷，行为靠实验，各管各的。"
+      }
+    },
+    {
+      "id": "q_cut_scope",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "研发说你的需求这个版本做不完，只能做一半，你怎么办？",
+        "options": [
+          {
+            "id": "cs_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "和研发一起拆需求，先保住解决核心问题的那部分，其余放下个版本。",
+            "face": "nod",
+            "line": "嗯，务实。"
+          },
+          {
+            "id": "cs_b",
+            "type": "bold",
+            "text": "先问清楚做不完卡在哪：是工作量，还是技术难点。",
+            "face": "probe",
+            "line": "假设是技术难点。",
+            "followup": {
+              "text": "研发说是技术难点。你不懂技术，怎么判断他说得对不对？",
+              "options": [
+                {
+                  "id": "cs_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不争技术，问清难点影响哪部分体验，再看有没有简单的替代。",
+                  "face": "pleased",
+                  "line": "嗯，不懂技术也能做判断。"
+                },
+                {
+                  "id": "cs_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "相信研发的判断，砍掉就是了。",
+                  "face": "calm",
+                  "line": "砍哪部分呢？"
+                },
+                {
+                  "id": "cs_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "找技术负责人再确认一遍，看他是不是在推脱，免得以后总被糊弄。",
+                  "face": "frown",
+                  "line": "第一反应是怀疑同事？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cs_c",
+            "type": "off",
+            "delta": -3,
+            "text": "需求是评审过的，按原计划做，延期也要做完。",
+            "face": "frown",
+            "line": "那上线时间呢？"
+          },
+          {
+            "id": "cs_d",
+            "type": "off",
+            "delta": -3,
+            "text": "直接找老板，请他给研发加人。",
+            "face": "frown",
+            "line": "加人就一定能做完？"
+          }
+        ],
+        "explain": "需求砍一半，考的是取舍和协作。不懂技术不要紧，问清难点影响的是哪部分体验，就能和研发一起找替代方案。第一反应去怀疑同事，是最伤协作的做法。"
+      }
+    },
+    {
+      "id": "q_ops_popup",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "运营想在首页加一个活动弹窗，你觉得会打扰用户，怎么办？",
+        "options": [
+          {
+            "id": "op_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问清活动目标，看能不能换成不打断的形式，比如首页横幅。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "op_b",
+            "type": "bold",
+            "text": "提议先给 5% 的用户上弹窗，看活动转化和次日留存再决定。",
+            "face": "probe",
+            "line": "好，我给你数据。",
+            "followup": {
+              "text": "数据出来了：转化涨了，次日留存掉了一点。你怎么判断？",
+              "options": [
+                {
+                  "id": "op_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "把活动收益和流失用户的长期价值放一起算，再和运营定。",
+                  "face": "pleased",
+                  "line": "嗯，会算账。"
+                },
+                {
+                  "id": "op_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "转化涨了就上，留存掉一点能接受，活动本来就是短期行为。",
+                  "face": "calm",
+                  "line": "掉一点是多少？"
+                },
+                {
+                  "id": "op_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "留存掉了就不能上，用户体验永远是第一位的，短期转化不值得。",
+                  "face": "frown",
+                  "line": "那运营的目标呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "op_c",
+            "type": "off",
+            "delta": -3,
+            "text": "直接拒绝，产品要对用户体验负责。",
+            "face": "frown",
+            "line": "运营那边怎么交代？"
+          }
+        ],
+        "explain": "和运营的冲突，靠立场解决不了，要靠数据和账本。小流量试一下，再把收益和长期损失放在一起算，才能和运营坐下来谈。"
+      }
+    },
+    {
+      "id": "q_dev_conflict",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你提的需求，研发说这期排不进，下期再说。你会怎么办？",
+        "options": [
+          {
+            "id": "dv_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问清卡在技术还是排期，再看能不能拆出一个小版本先上。",
+            "face": "nod",
+            "line": "嗯，先弄清卡在哪。"
+          },
+          {
+            "id": "dv_b",
+            "type": "bold",
+            "text": "我会拿数据和用户原话，跟研发讲清这件事为什么值得做。",
+            "face": "probe",
+            "line": "那我当一回研发。",
+            "followup": {
+              "text": "数据我认，可这期真排不下了。你怎么办？",
+              "options": [
+                {
+                  "id": "dv_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "那就排下期，我先把细节和验收标准写清，再跟业务方同步时间。",
+                  "face": "pleased",
+                  "line": "嗯，这样我们好接。"
+                },
+                {
+                  "id": "dv_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那我去找你们组长，看能不能协调一下资源先插进来。",
+                  "face": "calm",
+                  "line": "第一步就找组长？"
+                },
+                {
+                  "id": "dv_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "用户这么需要，研发应该优先保证产品需求。",
+                  "face": "frown",
+                  "line": "研发听了会怎么想？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "dv_c",
+            "type": "off",
+            "delta": -3,
+            "text": "研发说排不进就算了，等下次有机会再提。",
+            "face": "frown",
+            "line": "那用户的问题呢？"
+          }
+        ],
+        "explain": "这道题考的是怎么和研发、设计这些角色打交道：先弄清对方卡在哪，再一起找能落地的办法，接受排期时把自己这边的准备做足。拿“用户需要”压人，或者一上来就找对方领导，都伤合作。"
+      }
+    },
+    {
+      "id": "q_boss_feature",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "老板想加一个你觉得没什么用的功能，你会怎么处理？",
+        "options": [
+          {
+            "id": "bf_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先弄清老板想解决什么问题，也许是我的判断漏了什么信息。",
+            "face": "nod",
+            "line": "嗯，先听。"
+          },
+          {
+            "id": "bf_b",
+            "type": "bold",
+            "text": "先做低成本验证：放个入口看点击，再拿数据和老板聊。",
+            "face": "probe",
+            "line": "假设数据出来了。",
+            "followup": {
+              "text": "点的人很少，但老板还是想做，你怎么办？",
+              "options": [
+                {
+                  "id": "bf_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "摆出数据和机会成本，说清做它要放弃什么，再由他拍板。",
+                  "face": "pleased",
+                  "line": "嗯，该讲的讲清，该拍板的交给拍板的人。"
+                },
+                {
+                  "id": "bf_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就做吧，老板说了算，我已经验证过一次，也算尽到责任了。",
+                  "face": "calm",
+                  "line": "那验证白做了？"
+                },
+                {
+                  "id": "bf_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "坚持不做，产品经理要守住自己的判断，数据已经说明问题了。",
+                  "face": "frown",
+                  "line": "嗯……"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bf_c",
+            "type": "off",
+            "delta": -3,
+            "text": "老板要做就做，执行好就行。",
+            "face": "calm",
+            "line": "那要你干嘛？"
+          }
+        ],
+        "explain": "和老板意见不同，先假设自己漏了信息；有分歧时，把数据和机会成本讲清楚，再把决定权交给该做决定的人。一味照做和一味顶撞，都不是产品经理该有的样子。"
+      }
+    },
+    {
+      "id": "q_data_vs_gut",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "数据和你的直觉冲突了，你听谁的？",
+        "options": [
+          {
+            "id": "dg_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先查数据有没有问题，再想想直觉背后是什么经验，用小实验来判断。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "dg_b",
+            "type": "bold",
+            "text": "先听数据，但会去找数据解释不了的那部分用户聊聊。",
+            "face": "probe",
+            "line": "假设聊出东西了。",
+            "followup": {
+              "text": "聊完发现，那部分用户恰好是你们最想要的高价值用户呢？",
+              "options": [
+                {
+                  "id": "dg_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "那就不能只看平均数，单独看这群人的数据，可能值得取舍。",
+                  "face": "pleased",
+                  "line": "嗯，平均数会骗人。"
+                },
+                {
+                  "id": "dg_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "还是以整体数据为准，个别群体不能代表大多数。",
+                  "face": "calm",
+                  "line": "高价值用户也不管？"
+                },
+                {
+                  "id": "dg_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "那就听直觉，数据有时候会骗人，高价值用户的感受更重要。",
+                  "face": "frown",
+                  "line": "那前面看数据干嘛？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "dg_c",
+            "type": "off",
+            "delta": -1,
+            "text": "听数据，数据不会骗人。",
+            "face": "calm",
+            "line": "数据也会有口径问题。"
+          }
+        ],
+        "explain": "数据和直觉不是二选一。先怀疑数据，再拆开看不同人群，平均数常常会把最重要的那群人藏起来。"
+      }
+    },
+    {
+      "id": "q_growth_vs_ux",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "增长和用户体验冲突的时候，你站哪边？",
+        "options": [
+          {
+            "id": "gu_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "不站边。先算清这次增长换来的是什么用户、会流失多少，再定。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "gu_b",
+            "type": "bold",
+            "text": "看阶段：留存还没稳住，就先保体验，修好留存再做增长。",
+            "face": "probe",
+            "line": "老板可不这么想。",
+            "followup": {
+              "text": "老板说这个季度的增长指标必须完成，你怎么办？",
+              "options": [
+                {
+                  "id": "gu_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "找既拉新又不伤留存的办法，比如老带新，同时把风险讲给老板。",
+                  "face": "pleased",
+                  "line": "嗯，两头都顾到了。"
+                },
+                {
+                  "id": "gu_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就先完成增长指标，留存的问题放到下个季度再说。",
+                  "face": "calm",
+                  "line": "刚才不是说先保体验？"
+                },
+                {
+                  "id": "gu_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "坚持先修留存，指标完不成也没办法，长期更重要。",
+                  "face": "frown",
+                  "line": "嗯……"
+                }
+              ]
+            }
+          },
+          {
+            "id": "gu_c",
+            "type": "off",
+            "delta": -1,
+            "text": "用户体验永远第一，增长不能以牺牲体验为代价，否则留不住人。",
+            "face": "calm",
+            "line": "公司活不下去，体验给谁？"
+          },
+          {
+            "id": "gu_d",
+            "type": "off",
+            "delta": -1,
+            "text": "增长第一，活下来才有体验可谈。",
+            "face": "calm",
+            "line": "那用户走了呢？"
+          }
+        ],
+        "explain": "“站哪边”是个陷阱。喊口号的两种答法都会被反问；先算账，或者按阶段给出判断，再能在压力下找到两头兼顾的办法，才算答到了点上。"
+      }
+    },
+    {
+      "id": "q_rejected",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "项目表达",
+        "text": "说一次你的方案或结论被否掉的经历。",
+        "options": [
+          {
+            "id": "rj_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{cite.short}被说证据太弱，我{cite.fix}，后来被采纳了。",
+            "face": "nod",
+            "line": "嗯。",
+            "requires": {
+              "highlight": "report_rework"
+            },
+            "fallback": {
+              "id": "rj_a0",
+              "type": "safe",
+              "delta": 3,
+              "text": "有一版方案被说证据太弱，我补了调研重写，后来被采纳了。",
+              "face": "nod",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "rj_b",
+            "type": "bold",
+            "text": "讲那次被否之后，我怎么改了自己做研究的方法。",
+            "face": "probe",
+            "line": "哦？这个我有兴趣。",
+            "followup": {
+              "text": "具体改了什么？",
+              "options": [
+                {
+                  "id": "rj_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "以前先下结论再找证据；现在先列假设，每条配数据或原话。",
+                  "face": "pleased",
+                  "line": "嗯，这个改变很实在。"
+                },
+                {
+                  "id": "rj_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "以后写报告会更仔细，交之前自己多检查几遍，数据都核对一遍。",
+                  "face": "calm",
+                  "line": "仔细是指？"
+                },
+                {
+                  "id": "rj_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "其实没怎么改，主要是那个产品经理比较挑剔，换个人就过了。",
+                  "face": "frown",
+                  "line": "嗯……"
+                }
+              ]
+            }
+          },
+          {
+            "id": "rj_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我的方案基本没被否过。",
+            "face": "frown",
+            "line": "一次都没有？"
+          }
+        ],
+        "explain": "讲被否的经历，重点是你从里面改了什么。说得出方法上的具体变化，比“以后更仔细”有力得多；把原因推给对方挑剔，很容易失分。"
+      }
+    },
+    {
+      "id": "q_learn_fast",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你没做过产品经理，入职后怎么快速上手？",
+        "options": [
+          {
+            "id": "lf_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先把产品用透、把数据看板看懂，再跟着资深同事做一个小需求。",
+            "face": "nod",
+            "line": "嗯，踏实。"
+          },
+          {
+            "id": "lf_b",
+            "type": "bold",
+            "text": "先读近半年的需求文档和复盘，看团队怎么做决策、踩过什么坑。",
+            "face": "probe",
+            "line": "那么多文档呢？",
+            "followup": {
+              "text": "文档那么多，你怎么挑？",
+              "options": [
+                {
+                  "id": "lf_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先挑上线后数据不及预期的几份，复盘最看得出团队的判断。",
+                  "face": "pleased",
+                  "line": "嗯，会挑。"
+                },
+                {
+                  "id": "lf_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "按时间顺序一份份往下看，先弄清产品的来龙去脉。",
+                  "face": "calm",
+                  "line": "那得看到什么时候。"
+                },
+                {
+                  "id": "lf_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "全部过一遍，看多了自然就有感觉了。",
+                  "face": "frown",
+                  "line": "嗯……"
+                }
+              ]
+            }
+          },
+          {
+            "id": "lf_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我学东西很快，相信很快就能上手。",
+            "face": "calm",
+            "line": "怎么个快法？"
+          }
+        ],
+        "explain": "转行的人很可能被问“怎么上手”。说“我学得快”没有信息量；说清先看什么、为什么先看它，才说明你知道产品经理的工作是怎么回事。"
+      }
+    },
+    {
+      "id": "q_wrong_call",
+      "pools": [
+        "pm_growth",
+        "pm_collab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "项目表达",
+        "text": "讲一个你判断错了的决定。",
+        "options": [
+          {
+            "id": "wc_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{cite.short}我急着下结论，证据不够就写了，被打了回来。",
+            "face": "nod",
+            "line": "嗯。",
+            "requires": {
+              "highlight": "report_rework"
+            },
+            "fallback": {
+              "id": "wc_a0",
+              "type": "safe",
+              "delta": 3,
+              "text": "有次方案我急着下结论，证据不够就拿出来了，被打了回来。",
+              "face": "nod",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "wc_b",
+            "type": "bold",
+            "text": "讲{cite.channel}：爆款之后我以为找到了公式，结果后面几篇再没爆过。",
+            "face": "probe",
+            "line": "后来呢？",
+            "followup": {
+              "text": "你从里面学到了什么？",
+              "options": [
+                {
+                  "id": "wc_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "能复制的是选题方向，不是单篇结果，所以做成了固定栏目。",
+                  "face": "pleased",
+                  "line": "嗯，复盘到位。"
+                },
+                {
+                  "id": "wc_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "以后就不追求爆款了，稳定更新更重要。",
+                  "face": "calm",
+                  "line": "那做内容图什么？"
+                },
+                {
+                  "id": "wc_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "主要是平台的推荐机制变了，后面几篇其实写得比那篇还好。",
+                  "face": "frown",
+                  "line": "又是外部原因？"
+                }
+              ]
+            },
+            "requires": {
+              "highlight": "viral_post"
+            },
+            "fallback": {
+              "id": "wc_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲一次我以为找到了规律，结果下一次就失灵了的事。",
+              "face": "nod",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "wc_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我做决定一般比较谨慎，没怎么判断错过。",
+            "face": "frown",
+            "line": "一次都没有？"
+          }
+        ],
+        "explain": "“判断错了”的题，要把错误讲成一次复盘。说出学到的东西比说错在哪更重要；把原因推给外部，很容易失分。"
+      }
+    },
+    {
+      "id": "pmx_metric_guard",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "视野与取舍",
+        "text": "新功能让页面停留时间上升，但用户完成任务更慢。你怎样评价这次改版？",
+        "options": [
+          {
+            "id": "pmx_metric_guard_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先核对任务完成率、耗时和失败原因。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_metric_guard_b",
+            "type": "bold",
+            "text": "先区分有价值的停留和被流程困住的等待。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "访问更久的主要是新用户，老用户变化不大，你会怎么查？",
+              "options": [
+                {
+                  "id": "pmx_metric_guard_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按新老用户拆任务路径，核验是否卡在同一步。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                },
+                {
+                  "id": "pmx_metric_guard_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先访谈新用户，用满意度补充停留指标。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_metric_guard_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "新用户需要熟悉功能，停留更久说明探索意愿强。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                }
+              ],
+              "explain": "停留时间本身没有固定好坏，要看用户任务。新用户停留增长可能是探索，也可能是迷路，应分层核对任务完成、步骤耗时和失败位置。满意度能补充解释，却不能代替行为证据；没有验证就把增长称作成功，会掩盖体验退步。"
+            }
+          },
+          {
+            "id": "pmx_metric_guard_c",
+            "type": "off",
+            "delta": -3,
+            "text": "按停留增长判断方向正确，再优化操作细节。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          }
+        ],
+        "explain": "停留时间本身没有固定好坏，要看用户任务。新用户停留增长可能是探索，也可能是迷路，应分层核对任务完成、步骤耗时和失败位置。满意度能补充解释，却不能代替行为证据；没有验证就把增长称作成功，会掩盖体验退步。"
+      }
+    },
+    {
+      "id": "pmx_sense_recovery",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "视野与取舍",
+        "text": "预约页面只能优化一处：增加推荐入口，或让预约失败后保留已填信息。你怎么选？",
+        "options": [
+          {
+            "id": "pmx_sense_recovery_c",
+            "type": "off",
+            "delta": -3,
+            "text": "优先推荐入口，覆盖所有访问者，收益面更大。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          },
+          {
+            "id": "pmx_sense_recovery_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先看两类问题的影响和现有替代办法。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_sense_recovery_b",
+            "type": "bold",
+            "text": "把失败后的重试成本和预约完成作为比较依据。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "预约失败次数不多，但受影响者要重新填长表单，怎么判断优先级？",
+              "options": [
+                {
+                  "id": "pmx_sense_recovery_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "让失败用户联系客服，研发资源优先服务多数人。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                },
+                {
+                  "id": "pmx_sense_recovery_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先按问题数量排序，失败少就等下一版本处理。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_sense_recovery_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "结合失败后果与修复成本，先保住恢复路径。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                }
+              ],
+              "explain": "产品判断要同时看发生频率、影响严重程度、替代方式和修复成本。低频失败也可能让核心任务无法完成，不能只按触达人数排序。保留输入是否值得优先，要核对数据敏感性与恢复方案，再评估投入；推荐入口覆盖广不等于解决的问题更重要。"
+            }
+          }
+        ],
+        "explain": "产品判断要同时看发生频率、影响严重程度、替代方式和修复成本。低频失败也可能让核心任务无法完成，不能只按触达人数排序。保留输入是否值得优先，要核对数据敏感性与恢复方案，再评估投入；推荐入口覆盖广不等于解决的问题更重要。"
+      }
+    },
+    {
+      "id": "pmx_soe_research",
+      "pools": [
+        "pm_research"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "内部报销系统准备改版，主管希望减少审批步骤。你先怎么调研？",
+        "options": [
+          {
+            "id": "pmx_soe_research_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "分别访谈申请人、审批人与维护人员。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_soe_research_b",
+            "type": "bold",
+            "text": "沿一笔报销追踪等待、退回和必要审核点。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "一线说重复填表，审核方说材料经常不全，怎么继续？",
+              "options": [
+                {
+                  "id": "pmx_soe_research_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "对照实际单据定位重复字段和退回原因。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                },
+                {
+                  "id": "pmx_soe_research_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先增加帮助说明，再观察投诉是否减少。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_soe_research_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "统一减少必填项，先把申请提交速度做起来。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                }
+              ],
+              "explain": "内部系统同时服务不同责任角色，审批时间长未必等于所有审核都可删除。沿实际任务核对信息重复、材料缺失和必要检查，比按职级收意见更容易找到原因。说明文档可能有用，但不能替代流程证据；减少字段也必须保留必要信息。"
+            }
+          },
+          {
+            "id": "pmx_soe_research_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先向主管征集痛点，按职级汇总需求优先级。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          }
+        ],
+        "explain": "内部系统同时服务不同责任角色，审批时间长未必等于所有审核都可删除。沿实际任务核对信息重复、材料缺失和必要检查，比按职级收意见更容易找到原因。说明文档可能有用，但不能替代流程证据；减少字段也必须保留必要信息。"
+      }
+    },
+    {
+      "id": "pmx_startup_research",
+      "pools": [
+        "pm_research"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "资源很少，只有一周判断一个新需求值不值得做。你怎么安排调研？",
+        "options": [
+          {
+            "id": "pmx_startup_research_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先发问卷收集功能偏好，按最高票做原型。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          },
+          {
+            "id": "pmx_startup_research_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先找目标用户，核对近期具体任务和替代办法。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_startup_research_b",
+            "type": "bold",
+            "text": "先验证最可能推翻方案的假设，再决定是否开发。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "访谈对象都说愿意用，但拿不出近期遇到问题的例子呢？",
+              "options": [
+                {
+                  "id": "pmx_startup_research_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "多个人都认可方向，就先把完整功能排进版本。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                },
+                {
+                  "id": "pmx_startup_research_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "再扩大访谈人数，看愿意使用的比例稳不稳定。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_startup_research_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "追问实际触发条件，用小任务试验继续核验需求。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                }
+              ],
+              "explain": "早期调研应服务有限而明确的决策。口头愿意不等于真实使用，需核对近期场景、已有替代和行动证据。围绕关键假设做小验证比堆功能偏好更有用；多收同一种假设性意见，仍不能补上行为证据。"
+            }
+          }
+        ],
+        "explain": "早期调研应服务有限而明确的决策。口头愿意不等于真实使用，需核对近期场景、已有替代和行动证据。围绕关键假设做小验证比堆功能偏好更有用；多收同一种假设性意见，仍不能补上行为证据。"
+      }
+    },
+    {
+      "id": "pmx_soe_collab",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "内部系统要加跨部门数据导出，业务催上线，权限规则还没定。你怎么推进？",
+        "options": [
+          {
+            "id": "pmx_soe_collab_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "列清数据范围，找相应负责人确认权限与验收。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_soe_collab_b",
+            "type": "bold",
+            "text": "拆出无敏感数据的演示版，待授权确认再开放。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "业务说先给主管全量权限，后面再补规则呢？",
+              "options": [
+                {
+                  "id": "pmx_soe_collab_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "说明未定风险，提供脱敏演示并约定确认节点。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                },
+                {
+                  "id": "pmx_soe_collab_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先限定主管使用，记下名单再补审批。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_soe_collab_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "先开放全量，操作留日志就能追查。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                }
+              ],
+              "explain": "页面可见、可导出与可批量获取不是同一授权。应确认范围、用途和责任人，未明确前可用脱敏演示推进规则讨论。名单和日志有助于追踪，却不能替代授权；不要为了进度先扩大数据访问，再要求后续补规则。"
+            }
+          },
+          {
+            "id": "pmx_soe_collab_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先按现有页面可见范围导出，后续再细化权限。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          }
+        ],
+        "explain": "页面可见、可导出与可批量获取不是同一授权。应确认范围、用途和责任人，未明确前可用脱敏演示推进规则讨论。名单和日志有助于追踪，却不能替代授权；不要为了进度先扩大数据访问，再要求后续补规则。"
+      }
+    },
+    {
+      "id": "pmx_startup_collab",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "两名研发只有一周，销售却已向客户演示三个尚未实现的功能。你会怎么做？",
+        "options": [
+          {
+            "id": "pmx_startup_collab_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先按演示优先级赶工，来不及的功能再隐藏。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          },
+          {
+            "id": "pmx_startup_collab_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先确认客户核心任务和真实承诺，重新对齐范围。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_startup_collab_b",
+            "type": "bold",
+            "text": "用可交付路径逐项说明实现、人工支持和暂不提供。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "客户最看重的一步短期只能人工完成，怎么沟通？",
+              "options": [
+                {
+                  "id": "pmx_startup_collab_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "界面做成自动完成，后台人工处理保持无感。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                },
+                {
+                  "id": "pmx_startup_collab_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先让客户试用，人工方式在需要时解释。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_startup_collab_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "明确人工流程与时限，再确认客户接受。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                }
+              ],
+              "explain": "小团队需要缩小范围，但必须如实说明能力和服务边界。人工支持可以成为过渡方案，只要客户知道限制、责任与时限；把人工冒充自动化会建立错误预期。先核对承诺再给可交付选择，比闷头赶工或临时隐藏更利于协作。"
+            }
+          }
+        ],
+        "explain": "小团队需要缩小范围，但必须如实说明能力和服务边界。人工支持可以成为过渡方案，只要客户知道限制、责任与时限；把人工冒充自动化会建立错误预期。先核对承诺再给可交付选择，比闷头赶工或临时隐藏更利于协作。"
+      }
+    },
+    {
+      "id": "pmx_soe_tradeoff",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "内部办理系统上线日期已定，历史审批记录迁移还没验证。你如何取舍？",
+        "options": [
+          {
+            "id": "pmx_soe_tradeoff_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先明确历史查询的必要性、风险和可用替代路径。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_soe_tradeoff_b",
+            "type": "bold",
+            "text": "把新办与历史查询拆开评估，先验证可分阶段交付。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "业务说旧系统可以只读保留，但两边记录可能不同步呢？",
+              "options": [
+                {
+                  "id": "pmx_soe_tradeoff_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "明确数据归属与切换时点，核对后再开放查询。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                },
+                {
+                  "id": "pmx_soe_tradeoff_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先两边都展示，标注旧系统数据仅供参考。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_soe_tradeoff_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "让用户按时间自行选系统，出现差异再人工修正。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                }
+              ],
+              "explain": "分阶段交付需要有清楚的数据归属、切换时间和用户路径。保留旧系统只读可能降低迁移风险，但不能让两边长期成为含糊的事实来源。上线日期不能代替迁移验证，提示仅供参考也不能解决关键记录冲突。"
+            }
+          },
+          {
+            "id": "pmx_soe_tradeoff_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先上线新界面，历史数据等用户查不到时再补。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          }
+        ],
+        "explain": "分阶段交付需要有清楚的数据归属、切换时间和用户路径。保留旧系统只读可能降低迁移风险，但不能让两边长期成为含糊的事实来源。上线日期不能代替迁移验证，提示仅供参考也不能解决关键记录冲突。"
+      }
+    },
+    {
+      "id": "pmx_startup_tradeoff",
+      "pools": [
+        "pm_tradeoff"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "试点用户希望增加自动提醒，但团队只能先做一个小改动。你怎么定范围？",
+        "options": [
+          {
+            "id": "pmx_startup_tradeoff_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先覆盖所有提醒渠道，内容和频率以后再调。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          },
+          {
+            "id": "pmx_startup_tradeoff_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先核对漏办任务的原因和现有提醒方式。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_startup_tradeoff_b",
+            "type": "bold",
+            "text": "选一段可测的提醒路径，约定停止与扩展条件。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "试点名单很小，暂时看不出留存差异，你怎么判断继续做？",
+              "options": [
+                {
+                  "id": "pmx_startup_tradeoff_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "样本小不用评估，先增加渠道把用户量做起来。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                },
+                {
+                  "id": "pmx_startup_tradeoff_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "以打开提醒的人数为主，超过一半就扩展。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_startup_tradeoff_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先看触达、任务完成与打扰，保留结论范围。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                }
+              ],
+              "explain": "最小版本应验证具体假设，而不只是少做几个按钮。小样本下可以观察任务链与反馈，说明局限，不能把触达或打开直接当留存收益。扩展与停止条件能约束投入，避免为了获得显著结果不断扩大未经验证的方案。"
+            }
+          }
+        ],
+        "explain": "最小版本应验证具体假设，而不只是少做几个按钮。小样本下可以观察任务链与反馈，说明局限，不能把触达或打开直接当留存收益。扩展与停止条件能约束投入，避免为了获得显著结果不断扩大未经验证的方案。"
+      }
+    },
+    {
+      "id": "pmx_soe_growth",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你负责的内部系统试点结束，各部门使用方式差别很大。下一轮怎样复盘？",
+        "options": [
+          {
+            "id": "pmx_soe_growth_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "按部门任务和适用条件整理差异，再定改进项。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_soe_growth_b",
+            "type": "bold",
+            "text": "把共性能力、例外规则和培训问题分开验证。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "低使用部门说自己的审批职责不同，怎么处理？",
+              "options": [
+                {
+                  "id": "pmx_soe_growth_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "核对职责与路径，区分配置和流程问题。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                },
+                {
+                  "id": "pmx_soe_growth_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "增加培训次数，先保证大家了解现有版本。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_soe_growth_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "统一流程能提升管理效率，先要求按模板执行。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                }
+              ],
+              "explain": "内部系统复盘应区分职责差异、产品问题与培训不足。使用率高的部门不能自动代表所有场景；先核验角色和任务，再决定共用能力、配置或流程调整。培训只解决不会用的问题，不能消除真实业务规则的差别。"
+            }
+          },
+          {
+            "id": "pmx_soe_growth_c",
+            "type": "off",
+            "delta": -3,
+            "text": "以使用率最高部门为模板，统一其他部门操作。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          }
+        ],
+        "explain": "内部系统复盘应区分职责差异、产品问题与培训不足。使用率高的部门不能自动代表所有场景；先核验角色和任务，再决定共用能力、配置或流程调整。培训只解决不会用的问题，不能消除真实业务规则的差别。"
+      }
+    },
+    {
+      "id": "pmx_startup_growth",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你推动的小功能上线后没达到预期，团队准备换方向。你怎么保留这次经验？",
+        "options": [
+          {
+            "id": "pmx_startup_growth_c",
+            "type": "off",
+            "delta": -3,
+            "text": "把功能下线，集中复盘排期与执行效率。",
+            "face": "calm",
+            "line": "这样会遗漏什么？"
+          },
+          {
+            "id": "pmx_startup_growth_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "记录假设、实际投入与结果，说明还不知道什么。",
+            "face": "nod",
+            "line": "嗯，可以这样推进。"
+          },
+          {
+            "id": "pmx_startup_growth_b",
+            "type": "bold",
+            "text": "先拆触达、使用和价值，找出哪一环没成立。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "只有少量用户看到了入口，多数人没使用，你能说需求不成立吗？",
+              "options": [
+                {
+                  "id": "pmx_startup_growth_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "上线后没人主动找功能，说明需求价值不够强。",
+                  "face": "frown",
+                  "line": "这个结论依据够吗？"
+                },
+                {
+                  "id": "pmx_startup_growth_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先把入口放大，下一周仍不涨就定为无需求。",
+                  "face": "calm",
+                  "line": "这个办法还漏了什么？"
+                },
+                {
+                  "id": "pmx_startup_growth_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先区分没看到与看了不用，再决定补验证。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都说清了。"
+                }
+              ],
+              "explain": "试验失败需要定位在哪一环断开。曝光不足时不能直接宣布需求不存在，也不能无限加曝光拖延决策。把假设、投入、验证缺口和下一次停止条件留下，团队才能基于证据决定补测、改方案或结束投入。"
+            }
+          }
+        ],
+        "explain": "试验失败需要定位在哪一环断开。曝光不足时不能直接宣布需求不存在，也不能无限加曝光拖延决策。把假设、投入、验证缺口和下一次停止条件留下，团队才能基于证据决定补测、改方案或结束投入。"
+      }
+    },
+    {
+      "id": "mpm_intro_problem",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "sector": "internet",
+        "scale": "mid"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先介绍一下自己，重点说你的经历与产品岗位有什么联系。",
+        "options": [
+          {
+            "id": "mpm_intro_problem_a",
+            "type": "safe",
+            "text": "先讲相关经历，再说明想参与哪些产品判断。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_intro_problem_b",
+            "type": "bold",
+            "text": "讲活动页配置化：从反复改文案找到可复用需求。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "这件事里，你做了什么，哪些不是你决定的？",
+              "options": [
+                {
+                  "id": "mpm_intro_problem_h",
+                  "type": "hold",
+                  "text": "我提出配置化，先做文案和时间，组长确认后试两期。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                },
+                {
+                  "id": "mpm_intro_problem_p",
+                  "type": "partial",
+                  "text": "我负责汇总运营诉求，开发安排和试点范围由组长确定。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_intro_problem_f",
+                  "type": "fail",
+                  "text": "运营能自己改配置，说明我已经负责了产品方向。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "开发经历可以提供发现重复工作、理解交付约束的证据。配置化的建议、试点和最终决定要分清，不能把实现一个改进说成负责整条产品线。这里的两期试点是人设档案事实。"
+            },
+            "requires": {
+              "highlight": "ops_tooling"
+            },
+            "fallback": {
+              "id": "mpm_intro_problem_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "挑一段相关经历，说清任务、我的贡献和不足。",
+              "face": "nod",
+              "line": "嗯，先听听你的经历。"
+            }
+          },
+          {
+            "id": "mpm_intro_problem_c",
+            "type": "off",
+            "text": "按开发技术栈展开，再补一句自己也关注用户。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          }
+        ],
+        "explain": "开发经历可以提供发现重复工作、理解交付约束的证据。配置化的建议、试点和最终决定要分清，不能把实现一个改进说成负责整条产品线。"
+      }
+    },
+    {
+      "id": "mpm_intro_transfer",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "sector": "internet",
+        "scale": "mid"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "一面聊过你的项目了。再说说你会怎样判断一个需求值不值得做。",
+        "options": [
+          {
+            "id": "mpm_intro_transfer_c",
+            "type": "off",
+            "text": "先看竞品有没有，再用功能完整程度评估价值。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          },
+          {
+            "id": "mpm_intro_transfer_a",
+            "type": "safe",
+            "text": "围绕用户任务、问题影响和成本说明判断步骤。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_intro_transfer_b",
+            "type": "bold",
+            "text": "先核实问题证据，再比较需求价值、实现代价和替代办法。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "销售说十位客户都想加复杂导出，你会直接排进版本吗？",
+              "options": [
+                {
+                  "id": "mpm_intro_transfer_h",
+                  "type": "hold",
+                  "text": "先核对具体任务与影响，区分共性需求和少数定制。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                },
+                {
+                  "id": "mpm_intro_transfer_p",
+                  "type": "partial",
+                  "text": "先约几位客户访谈，再看是否需要排进版本。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_intro_transfer_f",
+                  "type": "fail",
+                  "text": "十位客户足以代表方向，先排进版本再细化导出规则。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "需求数量只能提供线索，还要核对谁在什么场景遇到什么问题、影响有多大、当前替代方式是什么。比较方案时也要纳入成本和风险。业务方带来的线索有价值，但不能将一句转述当作所有用户的共同需求；先核实可以减少为少数定制拖垮主流程的风险。"
+            }
+          }
+        ],
+        "explain": "需求数量只能提供线索，还要核对谁在什么场景遇到什么问题、影响有多大、当前替代方式是什么。比较方案时也要纳入成本和风险。业务方带来的线索有价值，但不能将一句转述当作所有用户的共同需求；先核实可以减少为少数定制拖垮主流程的风险。"
+      }
+    },
+    {
+      "id": "mpm_spec_states",
+      "pools": [
+        "pm_spec"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "一个批量导入功能的需求文档，除了上传按钮和成功页面，还应写什么？",
+        "options": [
+          {
+            "id": "mpm_spec_states_a",
+            "type": "safe",
+            "text": "写清格式、校验、部分失败和重复提交规则。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_spec_states_b",
+            "type": "bold",
+            "text": "先按状态列规则，再和研发测试一起定验收样例。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "一百条记录里十条不合格，你会怎么定结果页面？",
+              "options": [
+                {
+                  "id": "mpm_spec_states_f",
+                  "type": "fail",
+                  "text": "写上整体导入失败，让用户修好后把一百条全部重传。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                },
+                {
+                  "id": "mpm_spec_states_p",
+                  "type": "partial",
+                  "text": "提示十条失败，给用户下载错误明细后重新上传。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_spec_states_h",
+                  "type": "hold",
+                  "text": "先确认是否允许部分成功，再区分成功、失败和重试范围。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                }
+              ],
+              "explain": "部分失败的处理取决于业务是否允许部分提交，不能在界面上凭空作决定。文档需先讲状态与数据结果，再定义错误明细和重试范围，避免重复导入已成功记录。验收样例帮助产品、研发和测试核对同一条规则。"
+            }
+          },
+          {
+            "id": "mpm_spec_states_c",
+            "type": "off",
+            "text": "先把正常路径交付，失败场景沿用系统通用提示。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          }
+        ],
+        "explain": "部分失败的处理取决于业务是否允许部分提交，不能在界面上凭空作决定。文档需先讲状态与数据结果，再定义错误明细和重试范围，避免重复导入已成功记录。验收样例帮助产品、研发和测试核对同一条规则。"
+      }
+    },
+    {
+      "id": "mpm_spec_changes",
+      "pools": [
+        "pm_spec"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "需求评审后新增一个字段，看着只是表单多一项。你会怎样处理？",
+        "options": [
+          {
+            "id": "mpm_spec_changes_a",
+            "type": "safe",
+            "text": "核对用途、是否必填、历史数据和下游影响。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_spec_changes_b",
+            "type": "bold",
+            "text": "把规则差异和验证成本列出来，再确认本版是否纳入。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "业务说字段必须填，历史记录里却没有这个值，怎么办？",
+              "options": [
+                {
+                  "id": "mpm_spec_changes_h",
+                  "type": "hold",
+                  "text": "先确认补齐方式，分别约定新旧记录规则。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                },
+                {
+                  "id": "mpm_spec_changes_p",
+                  "type": "partial",
+                  "text": "先给旧记录设默认值，再让业务验收时集中检查。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_spec_changes_f",
+                  "type": "fail",
+                  "text": "统一要求补填，否则不允许用户打开历史记录。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "新增字段可能影响历史数据、接口、权限和验收，工作量不能只按控件数量判断。旧记录缺值时要确认真实业务含义与补齐方式，随意填默认值会制造错误事实，一刀切阻断历史访问又可能破坏既有任务。"
+            }
+          },
+          {
+            "id": "mpm_spec_changes_c",
+            "type": "off",
+            "text": "按已有字段样式加上，保持原排期不变。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          }
+        ],
+        "explain": "新增字段可能影响历史数据、接口、权限和验收，工作量不能只按控件数量判断。旧记录缺值时要确认真实业务含义与补齐方式，随意填默认值会制造错误事实，一刀切阻断历史访问又可能破坏既有任务。"
+      }
+    },
+    {
+      "id": "mpm_metric_funnel",
+      "pools": [
+        "pm_metric"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "新版报名页访问量涨了，负责人说改版成功。你会补看什么？",
+        "options": [
+          {
+            "id": "mpm_metric_funnel_c",
+            "type": "off",
+            "text": "重点看提交总量，增长就说明新版吸引力更强。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          },
+          {
+            "id": "mpm_metric_funnel_a",
+            "type": "safe",
+            "text": "看有效提交率、失败率和用户构成是否变化。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_metric_funnel_b",
+            "type": "bold",
+            "text": "先统一漏斗口径，再按入口和人群核对变化。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "推广带来很多新用户，但提交率下降，怎样判断改版效果？",
+              "options": [
+                {
+                  "id": "mpm_metric_funnel_h",
+                  "type": "hold",
+                  "text": "分人群核对流失，把流量与页面变化分开。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                },
+                {
+                  "id": "mpm_metric_funnel_p",
+                  "type": "partial",
+                  "text": "先看新用户提交率，老用户数据暂不纳入比较。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_metric_funnel_f",
+                  "type": "fail",
+                  "text": "新用户不熟悉流程很正常，用提交总量评价更稳定。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "访问量、提交量和提交率回答不同问题。推广会改变流量组成，直接比较整体结果容易把流量变化误当页面效果。按可比人群、入口和步骤分析能够缩小原因范围；因果结论仍需相应设计与证据，不能由分层分析自动得出。"
+            }
+          }
+        ],
+        "explain": "访问量、提交量和提交率回答不同问题。推广会改变流量组成，直接比较整体结果容易把流量变化误当页面效果。按可比人群、入口和步骤分析能够缩小原因范围；因果结论仍需相应设计与证据，不能由分层分析自动得出。"
+      }
+    },
+    {
+      "id": "mpm_metric_usage",
+      "pools": [
+        "pm_metric"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "后台新功能的点击率很高，使用者却说工作没变轻松。你怎么分析？",
+        "options": [
+          {
+            "id": "mpm_metric_usage_a",
+            "type": "safe",
+            "text": "先确认用户任务是否完成，再看操作和失败情况。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_metric_usage_b",
+            "type": "bold",
+            "text": "把完成时间、返工和人工补救放进同一条任务路径。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "点击次数上涨，是不是说明大家更依赖这个功能？",
+              "options": [
+                {
+                  "id": "mpm_metric_usage_f",
+                  "type": "fail",
+                  "text": "至少证明入口设计有效，可以先把点击率作为成功指标。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                },
+                {
+                  "id": "mpm_metric_usage_p",
+                  "type": "partial",
+                  "text": "说明功能有关注度，是否依赖还要补做访谈。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_metric_usage_h",
+                  "type": "hold",
+                  "text": "也可能是反复失败重试，要结合成功任务与操作路径。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                }
+              ],
+              "explain": "高点击不必然代表价值：同一个用户可能因错误、迷路或重复提交多次点击。产品要围绕任务完成、耗时和返工解释价值，访谈帮助理解具体障碍，行为数据帮助核对范围，避免用容易增长的过程指标代替用户结果。"
+            }
+          },
+          {
+            "id": "mpm_metric_usage_c",
+            "type": "off",
+            "text": "增加入口曝光，等更多人熟悉以后再看满意度。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          }
+        ],
+        "explain": "高点击不必然代表价值：同一个用户可能因错误、迷路或重复提交多次点击。产品要围绕任务完成、耗时和返工解释价值，访谈帮助理解具体障碍，行为数据帮助核对范围，避免用容易增长的过程指标代替用户结果。"
+      }
+    },
+    {
+      "id": "mpm_delivery_gate",
+      "pools": [
+        "pm_delivery"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "功能测试通过，业务希望马上向所有客户开放。产品还应确认什么？",
+        "options": [
+          {
+            "id": "mpm_delivery_gate_a",
+            "type": "safe",
+            "text": "确认核心流程、支持说明、监控和恢复安排。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_delivery_gate_b",
+            "type": "bold",
+            "text": "列清开放条件，先用小范围验证真实任务能否完成。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "试点用户顺利完成，但只覆盖一种账号权限，能扩大吗？",
+              "options": [
+                {
+                  "id": "mpm_delivery_gate_h",
+                  "type": "hold",
+                  "text": "先核对缺失角色的关键路径，按风险补验再决定范围。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                },
+                {
+                  "id": "mpm_delivery_gate_p",
+                  "type": "partial",
+                  "text": "先扩大同类账号，其他账号的问题上线后分别跟踪。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_delivery_gate_f",
+                  "type": "fail",
+                  "text": "核心功能已验证，权限差异属于配置问题，不应影响发布。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "测试通过只覆盖实际执行过的条件。发布要核对角色、环境、数据和关键流程是否具有代表性，并安排反馈与恢复。若缺失角色涉及关键权限，应先补验；可以选择有限范围，但要明确边界，不能把未验证部分默认算作通过。"
+            }
+          },
+          {
+            "id": "mpm_delivery_gate_c",
+            "type": "off",
+            "text": "既然测试已通过，就按计划开放并收集后续问题。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          }
+        ],
+        "explain": "测试通过只覆盖实际执行过的条件。发布要核对角色、环境、数据和关键流程是否具有代表性，并安排反馈与恢复。若缺失角色涉及关键权限，应先补验；可以选择有限范围，但要明确边界，不能把未验证部分默认算作通过。"
+      }
+    },
+    {
+      "id": "mpm_delivery_follow",
+      "pools": [
+        "pm_delivery"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "上线后一周，功能使用不多。研发已经准备下个版本，你怎样跟进？",
+        "options": [
+          {
+            "id": "mpm_delivery_follow_c",
+            "type": "off",
+            "text": "先安排运营做培训和推广，用一个月养成使用习惯。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          },
+          {
+            "id": "mpm_delivery_follow_a",
+            "type": "safe",
+            "text": "先检查入口与数据，再了解目标用户是否真正需要。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_delivery_follow_b",
+            "type": "bold",
+            "text": "对照最初假设，区分发现、理解和完成三个环节。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "访谈发现用户知道入口，但习惯在表格里处理。你怎么做？",
+              "options": [
+                {
+                  "id": "mpm_delivery_follow_h",
+                  "type": "hold",
+                  "text": "观察表格的便利，验证新流程是否增加负担。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                },
+                {
+                  "id": "mpm_delivery_follow_p",
+                  "type": "partial",
+                  "text": "补一份操作指引，集中解答用户不愿切换的疑问。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_delivery_follow_f",
+                  "type": "fail",
+                  "text": "明确旧流程下线时间，减少双轨运行带来的沟通成本。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "使用少可能来自入口、价值、流程或数据问题，不能直接归咎于用户习惯。用户知道入口仍选择表格时，应该观察真实任务与切换成本，再判断补功能、改流程还是停止投入。培训与迁移都要以确认问题为前提。"
+            }
+          }
+        ],
+        "explain": "使用少可能来自入口、价值、流程或数据问题，不能直接归咎于用户习惯。用户知道入口仍选择表格时，应该观察真实任务与切换成本，再判断补功能、改流程还是停止投入。培训与迁移都要以确认问题为前提。"
+      }
+    },
+    {
+      "id": "mpm_learn_scope",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "sector": "internet",
+        "scale": "mid"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "如果入职后负责一个不熟悉的企业业务模块，你怎样开始？",
+        "options": [
+          {
+            "id": "mpm_learn_scope_a",
+            "type": "safe",
+            "text": "先走关键任务，核对已有规则和指标，再接小需求。",
+            "face": "nod",
+            "line": "嗯，先把依据说清。",
+            "delta": 3
+          },
+          {
+            "id": "mpm_learn_scope_b",
+            "type": "bold",
+            "text": "跟一次用户和支持处理问题的过程，列出待验证假设。",
+            "face": "probe",
+            "line": "那我再加一个条件。",
+            "followup": {
+              "text": "文档与用户实际操作不一致，先相信哪边？",
+              "options": [
+                {
+                  "id": "mpm_learn_scope_f",
+                  "type": "fail",
+                  "text": "用户最了解现场，先照实际操作改，文档以后同步。",
+                  "face": "frown",
+                  "line": "这个判断还缺依据。",
+                  "delta": -7
+                },
+                {
+                  "id": "mpm_learn_scope_p",
+                  "type": "partial",
+                  "text": "先按文档实现，实际操作留到需求评审时提出。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "mpm_learn_scope_h",
+                  "type": "hold",
+                  "text": "记录差异与影响，找规则负责人确认，再更新共同依据。",
+                  "face": "pleased",
+                  "line": "嗯，这样说得通。",
+                  "delta": 9
+                }
+              ],
+              "explain": "陌生业务的文档、访谈和实际操作可以互相校验。发现冲突要追溯规则负责人、有效版本与影响范围，不能默认任何一方必然正确。先处理一个有边界的小任务，比通读全部材料或立即推翻规则更容易得到有效反馈。"
+            }
+          },
+          {
+            "id": "mpm_learn_scope_c",
+            "type": "off",
+            "text": "先读完整需求文档，确认都理解后再联系业务人员。",
+            "face": "calm",
+            "line": "这里还有什么风险？",
+            "delta": -3
+          }
+        ],
+        "explain": "陌生业务的文档、访谈和实际操作可以互相校验。发现冲突要追溯规则负责人、有效版本与影响范围，不能默认任何一方必然正确。先处理一个有边界的小任务，比通读全部材料或立即推翻规则更容易得到有效反馈。"
+      }
+    },
+    {
+      "id": "upm_problem_slice",
+      "pools": [
+        "pm_startup_problem"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "用户希望写作工具支持十种导出格式，一周只能做一种。你怎样判断先做哪种？",
+        "options": [
+          {
+            "id": "upm_problem_slice_a",
+            "type": "safe",
+            "text": "先确认目标用户的交付要求，选最影响任务的一种。",
+            "face": "nod",
+            "line": "嗯，先把基础做稳。",
+            "delta": 3
+          },
+          {
+            "id": "upm_problem_slice_b",
+            "type": "bold",
+            "text": "按实际交付任务分组，比较频率、阻碍和现有替代。",
+            "face": "probe",
+            "line": "那再往下想一步。",
+            "followup": {
+              "text": "反馈最多的是少数重度用户，但首版想服务刚开始写作的人。你怎么选？",
+              "options": [
+                {
+                  "id": "upm_problem_slice_b2",
+                  "type": "partial",
+                  "text": "先满足高频反馈的人，再补访谈验证新用户是否需要。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "upm_problem_slice_b3",
+                  "type": "fail",
+                  "text": "重度用户最了解格式细节，他们的选择能代表后续需求。",
+                  "face": "frown",
+                  "line": "这个结论依据不足。",
+                  "delta": -7
+                },
+                {
+                  "id": "upm_problem_slice_b1",
+                  "type": "hold",
+                  "text": "按新用户的交付任务、阻碍和替代成本排序。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都讲清了。",
+                  "delta": 9
+                }
+              ],
+              "explain": "格式数量和反馈票数都不能单独代表价值。应先核对首版服务谁、对方需要把成果交到哪里、现有办法卡在哪，再结合任务频率与替代成本排序。先做复杂格式可能带来很多排版成本，却未必解决目标用户最急的交付问题。"
+            }
+          },
+          {
+            "id": "upm_problem_slice_c",
+            "type": "off",
+            "text": "先做支持最多高级排版的格式，后续简版可以从它裁剪。",
+            "face": "calm",
+            "line": "这个办法有什么代价？",
+            "delta": -3
+          }
+        ],
+        "explain": "格式数量和反馈票数都不能单独代表价值。应先核对首版服务谁、对方需要把成果交到哪里、现有办法卡在哪，再结合任务频率与替代成本排序。先做复杂格式可能带来很多排版成本，却未必解决目标用户最急的交付问题。"
+      }
+    },
+    {
+      "id": "upm_problem_assumption",
+      "pools": [
+        "pm_startup_problem"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "试用者说“生成太慢”，团队想换一个更快的模型。你会先确认什么？",
+        "options": [
+          {
+            "id": "upm_problem_assumption_c",
+            "type": "off",
+            "text": "先换响应最快的模型，速度问题解决后再看使用量。",
+            "face": "calm",
+            "line": "这个办法有什么代价？",
+            "delta": -3
+          },
+          {
+            "id": "upm_problem_assumption_a",
+            "type": "safe",
+            "text": "先看用户在哪一步等，确认慢的是生成还是其他环节。",
+            "face": "nod",
+            "line": "嗯，先把基础做稳。",
+            "delta": 3
+          },
+          {
+            "id": "upm_problem_assumption_b",
+            "type": "bold",
+            "text": "还原最近一次任务，核对等待、修改和最终放弃的节点。",
+            "face": "probe",
+            "line": "那再往下想一步。",
+            "followup": {
+              "text": "实际首字很快，但用户等整篇生成后仍要改很久。怎么办？",
+              "options": [
+                {
+                  "id": "upm_problem_assumption_b1",
+                  "type": "hold",
+                  "text": "分别核对等待和返工耗时，再查哪项阻碍任务完成。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都讲清了。",
+                  "delta": 9
+                },
+                {
+                  "id": "upm_problem_assumption_b2",
+                  "type": "partial",
+                  "text": "增加生成过程提示，让用户知道工具仍在工作。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "upm_problem_assumption_b3",
+                  "type": "fail",
+                  "text": "首字快说明模型没问题，主要是用户预期需要调整。",
+                  "face": "frown",
+                  "line": "这个结论依据不足。",
+                  "delta": -7
+                }
+              ],
+              "explain": "“慢”可能指等待，也可能指反复修改带来的总任务成本。不能从用户的一个形容词直接跳到换模型。先核对具体行为，再比较改动的价值、成本和风险；进度提示可以缓解等待焦虑，却不能自动减少返工。"
+            }
+          }
+        ],
+        "explain": "“慢”可能指等待，也可能指反复修改带来的总任务成本。不能从用户的一个形容词直接跳到换模型。先核对具体行为，再比较改动的价值、成本和风险；进度提示可以缓解等待焦虑，却不能自动减少返工。"
+      }
+    },
+    {
+      "id": "upm_prd_boundary",
+      "pools": [
+        "pm_startup_prd"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "给研发写一个“批量改写”需求，首版文档你先写清什么？",
+        "options": [
+          {
+            "id": "upm_prd_boundary_b",
+            "type": "bold",
+            "text": "把成功、部分失败和取消重试画成状态流。",
+            "face": "probe",
+            "line": "那再往下想一步。",
+            "followup": {
+              "text": "一批十段里两段失败，重试会不会重改成功的八段？",
+              "options": [
+                {
+                  "id": "upm_prd_boundary_b3",
+                  "type": "fail",
+                  "text": "整批重跑最简单，生成内容每次不同也属于正常现象。",
+                  "face": "frown",
+                  "line": "这个结论依据不足。",
+                  "delta": -7
+                },
+                {
+                  "id": "upm_prd_boundary_b1",
+                  "type": "hold",
+                  "text": "只重试失败项，保留成功段落并确认覆盖规则。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都讲清了。",
+                  "delta": 9
+                },
+                {
+                  "id": "upm_prd_boundary_b2",
+                  "type": "partial",
+                  "text": "先提示整批失败，让用户复制成功段落后重新操作。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                }
+              ],
+              "explain": "批量操作的关键不只是按钮位置，还包括每项结果归属、部分失败与重复操作。先明确状态和覆盖规则，研发、设计、测试才有共同验收依据。把异常留到联调会隐藏成本，整批重跑也可能破坏用户已确认的成果。"
+            }
+          },
+          {
+            "id": "upm_prd_boundary_c",
+            "type": "off",
+            "text": "先把正常路径做成高保真原型，异常交给联调补齐。",
+            "face": "calm",
+            "line": "这个办法有什么代价？",
+            "delta": -3
+          },
+          {
+            "id": "upm_prd_boundary_a",
+            "type": "safe",
+            "text": "说明使用场景、输入输出和不能改变的内容。",
+            "face": "nod",
+            "line": "嗯，先把基础做稳。",
+            "delta": 3
+          }
+        ],
+        "explain": "批量操作的关键不只是按钮位置，还包括每项结果归属、部分失败与重复操作。先明确状态和覆盖规则，研发、设计、测试才有共同验收依据。把异常留到联调会隐藏成本，整批重跑也可能破坏用户已确认的成果。"
+      }
+    },
+    {
+      "id": "upm_prd_cancel",
+      "pools": [
+        "pm_startup_prd"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "生成中的内容允许用户继续编辑，需求里最需要补哪条规则？",
+        "options": [
+          {
+            "id": "upm_prd_cancel_a",
+            "type": "safe",
+            "text": "明确生成结果回来时，怎样处理用户的新编辑。",
+            "face": "nod",
+            "line": "嗯，先把基础做稳。",
+            "delta": 3
+          },
+          {
+            "id": "upm_prd_cancel_b",
+            "type": "bold",
+            "text": "用编辑中、生成中和已确认三种状态列冲突规则。",
+            "face": "probe",
+            "line": "那再往下想一步。",
+            "followup": {
+              "text": "用户点击生成后改了第二段，旧请求随后返回，怎么办？",
+              "options": [
+                {
+                  "id": "upm_prd_cancel_b2",
+                  "type": "partial",
+                  "text": "提示内容有更新，再让用户手动找回刚才改的段落。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "upm_prd_cancel_b3",
+                  "type": "fail",
+                  "text": "点击生成已经表示接受替换，按请求完成时间覆盖即可。",
+                  "face": "frown",
+                  "line": "这个结论依据不足。",
+                  "delta": -7
+                },
+                {
+                  "id": "upm_prd_cancel_b1",
+                  "type": "hold",
+                  "text": "保留用户的新编辑，旧结果只供比较，确认后再替换。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都讲清了。",
+                  "delta": 9
+                }
+              ],
+              "explain": "异步返回与用户编辑可能交错，最后完成的请求不一定代表用户最新意图。规则应保护已编辑内容，明确候选版本、确认与恢复方式。撤销可以作为补救，却不能替代事先定义冲突行为。"
+            }
+          },
+          {
+            "id": "upm_prd_cancel_c",
+            "type": "off",
+            "text": "结果回来时替换全文，用户还能靠撤销恢复旧内容。",
+            "face": "calm",
+            "line": "这个办法有什么代价？",
+            "delta": -3
+          }
+        ],
+        "explain": "异步返回与用户编辑可能交错，最后完成的请求不一定代表用户最新意图。规则应保护已编辑内容，明确候选版本、确认与恢复方式。撤销可以作为补救，却不能替代事先定义冲突行为。"
+      }
+    },
+    {
+      "id": "upm_validate_small",
+      "pools": [
+        "pm_startup_validation"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "新功能只有几十个试用者，负责人问能不能推广。你怎么回答？",
+        "options": [
+          {
+            "id": "upm_validate_small_c",
+            "type": "off",
+            "text": "几十个人都愿意试，先推广，样本变大再判断价值。",
+            "face": "calm",
+            "line": "这个办法有什么代价？",
+            "delta": -3
+          },
+          {
+            "id": "upm_validate_small_a",
+            "type": "safe",
+            "text": "先看任务能否完成和关键风险，再说明样本有限。",
+            "face": "nod",
+            "line": "嗯，先把基础做稳。",
+            "delta": 3
+          },
+          {
+            "id": "upm_validate_small_b",
+            "type": "bold",
+            "text": "把可用性、使用意愿和长期收益分开验证。",
+            "face": "probe",
+            "line": "那再往下想一步。",
+            "followup": {
+              "text": "十个人口头说好用，只有两人完成任务，这说明什么？",
+              "options": [
+                {
+                  "id": "upm_validate_small_b1",
+                  "type": "hold",
+                  "text": "先查未完成的原因，用真实行为核验口头满意。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都讲清了。",
+                  "delta": 9
+                },
+                {
+                  "id": "upm_validate_small_b2",
+                  "type": "partial",
+                  "text": "继续访谈这十个人，让他们给每项功能打分。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                },
+                {
+                  "id": "upm_validate_small_b3",
+                  "type": "fail",
+                  "text": "愿意试代表需求成立，低完成率只需要后面再优化。",
+                  "face": "frown",
+                  "line": "这个结论依据不足。",
+                  "delta": -7
+                }
+              ],
+              "explain": "小样本能发现阻碍，不能直接证明长期留存或商业收益。口头态度与真实完成行为是不同证据，需要明确推广前必须排除的风险，再逐步扩大观察。没有完整证据时可以给出条件式建议，不能把未验证写成成功。"
+            }
+          }
+        ],
+        "explain": "小样本能发现阻碍，不能直接证明长期留存或商业收益。口头态度与真实完成行为是不同证据，需要明确推广前必须排除的风险，再逐步扩大观察。没有完整证据时可以给出条件式建议，不能把未验证写成成功。"
+      }
+    },
+    {
+      "id": "upm_validate_cost",
+      "pools": [
+        "pm_startup_validation"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "pm",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "一个新功能使用人数上涨，但算力成本也涨得很快。你先怎么看？",
+        "options": [
+          {
+            "id": "upm_validate_cost_b",
+            "type": "bold",
+            "text": "按任务与用户分层，比较完成率、成本和复用。",
+            "face": "probe",
+            "line": "那再往下想一步。",
+            "followup": {
+              "text": "调用量翻倍，导出成功数没变。你下一步查什么？",
+              "options": [
+                {
+                  "id": "upm_validate_cost_b3",
+                  "type": "fail",
+                  "text": "增加调用说明用户更投入，暂时没有必要改动。",
+                  "face": "frown",
+                  "line": "这个结论依据不足。",
+                  "delta": -7
+                },
+                {
+                  "id": "upm_validate_cost_b1",
+                  "type": "hold",
+                  "text": "查重试和重复生成，确认多出的调用是否带来价值。",
+                  "face": "pleased",
+                  "line": "嗯，依据和边界都讲清了。",
+                  "delta": 9
+                },
+                {
+                  "id": "upm_validate_cost_b2",
+                  "type": "partial",
+                  "text": "给高频用户加额度限制，先把成本压回原水平。",
+                  "face": "calm",
+                  "line": "还有一部分没解释。",
+                  "delta": 1
+                }
+              ],
+              "explain": "调用量不是用户价值本身。需要把成本对应到成功任务，分清真实增长与无效重试，再选择减少浪费、改配额或调整能力。只限制用户可能挡住有效使用，只追数量又可能让成本持续增长而任务没有改善。"
+            }
+          },
+          {
+            "id": "upm_validate_cost_c",
+            "type": "off",
+            "text": "用户量说明需求成立，先争取预算撑住使用增长。",
+            "face": "calm",
+            "line": "这个办法有什么代价？",
+            "delta": -3
+          },
+          {
+            "id": "upm_validate_cost_a",
+            "type": "safe",
+            "text": "把用户完成任务的收益和单次成功成本一起看。",
+            "face": "nod",
+            "line": "嗯，先把基础做稳。",
+            "delta": 3
+          }
+        ],
+        "explain": "调用量不是用户价值本身。需要把成本对应到成功任务，分清真实增长与无效重试，再选择减少浪费、改配额或调整能力。只限制用户可能挡住有效使用，只追数量又可能让成本持续增长而任务没有改善。"
+      }
+    }
+  ]
+}

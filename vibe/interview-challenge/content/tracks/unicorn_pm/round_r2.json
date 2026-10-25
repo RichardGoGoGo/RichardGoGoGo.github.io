@@ -1,0 +1,455 @@
+{
+  "id": "r2",
+  "name": "业务二面 · 现场方案",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A5",
+    "title": "产品负责人"
+  },
+  "scene": "S5",
+  "hello": "这一轮围绕写作助手的引用保护做方案：两周，一名前端、一名后端。中间我会补充试用进展，你随时可以修正判断。",
+  "_note": "整轮同一情节，按目标、范围、验收、发布、异常和复盘推进。现场题固定，反问从题池抽；没有 prefer。题中的数据都是练习设定。",
+  "flow": [
+    {
+      "slot": "c1",
+      "node": "upm_case_goal",
+      "swap": false
+    },
+    {
+      "slot": "c2",
+      "node": "upm_case_scope",
+      "swap": false
+    },
+    {
+      "slot": "c3",
+      "node": "upm_case_accept",
+      "swap": false
+    },
+    {
+      "slot": "c4",
+      "node": "upm_case_rollout",
+      "swap": false
+    },
+    {
+      "slot": "c5",
+      "node": "upm_case_failure",
+      "swap": false
+    },
+    {
+      "slot": "c6",
+      "node": "upm_case_review",
+      "swap": false
+    },
+    {
+      "slot": "q7",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "upm_case_goal": {
+      "tag": "项目表达",
+      "text": "这轮一起做方案。我们准备改善{co.product|写作工具}的引用改写体验，两周后给一小批用户试用。你先问什么？",
+      "options": [
+        {
+          "id": "upm_case_goal_a",
+          "type": "safe",
+          "text": "先确认用户在什么任务中遇到问题，以及这次的目标。",
+          "face": "nod",
+          "line": "嗯，先把基础做稳。",
+          "delta": 3
+        },
+        {
+          "id": "upm_case_goal_b",
+          "type": "bold",
+          "text": "把任务完成、引用风险和试用边界一起对齐，再定检查口径。",
+          "face": "probe",
+          "line": "那再往下想一步。",
+          "followup": {
+            "text": "负责人说：引用不乱就行。你怎么把这句话变成可检查的目标？",
+            "options": [
+              {
+                "id": "upm_case_goal_b2",
+                "type": "partial",
+                "text": "让用户给引用格式打分，平均达到四分再推广。",
+                "face": "calm",
+                "line": "还有一部分没解释。",
+                "delta": 1
+              },
+              {
+                "id": "upm_case_goal_b3",
+                "type": "fail",
+                "text": "统一成一种引用样式，视觉上整齐就算解决。",
+                "face": "frown",
+                "line": "这个结论依据不足。",
+                "delta": -7
+              },
+              {
+                "id": "upm_case_goal_b1",
+                "type": "hold",
+                "text": "约定编号、原文和出处的保留规则与验收。",
+                "face": "pleased",
+                "line": "嗯，依据和边界都讲清了。",
+                "delta": 9
+              }
+            ],
+            "explain": "“引用不乱”需要拆成用户任务和明确约束：编号与出处能否对应，原文含义是否被误改，结果能否恢复。样式数量或满意度不能单独证明引用可靠。先定义边界，后续范围、验收和发布才有共同依据。"
+          }
+        },
+        {
+          "id": "upm_case_goal_c",
+          "type": "off",
+          "text": "先确定要支持的引用格式，按格式数量衡量进度。",
+          "face": "calm",
+          "line": "这个办法有什么代价？",
+          "delta": -3
+        }
+      ],
+      "explain": "“引用不乱”需要拆成用户任务和明确约束：编号与出处能否对应，原文含义是否被误改，结果能否恢复。样式数量或满意度不能单独证明引用可靠。先定义边界，后续范围、验收和发布才有共同依据。"
+    },
+    "upm_case_scope": {
+      "tag": "视野与取舍",
+      "text": "现在确认：用户改写论文说明时，引用编号和原文可能被一起改掉。只有一名前端、一名后端，两周做首版。你怎么定范围？",
+      "options": [
+        {
+          "id": "upm_case_scope_c",
+          "type": "off",
+          "text": "先接入更多文献格式，让多数用户都能找到自己的格式。",
+          "face": "calm",
+          "line": "这个办法有什么代价？",
+          "delta": -3
+        },
+        {
+          "id": "upm_case_scope_a",
+          "type": "safe",
+          "text": "先保护引用区域，做预览和确认，暂缓自动重排全部格式。",
+          "face": "nod",
+          "line": "嗯，先把基础做稳。",
+          "delta": 3
+        },
+        {
+          "id": "upm_case_scope_b",
+          "type": "bold",
+          "text": "先选一个最小任务验证引用保护，再把首版不支持的情况列清。",
+          "face": "probe",
+          "line": "那再往下想一步。",
+          "followup": {
+            "text": "研发说复杂嵌套引用首版处理不了，你会怎么定边界？",
+            "options": [
+              {
+                "id": "upm_case_scope_b1",
+                "type": "hold",
+                "text": "明确提示不支持并保留原文，先覆盖可验证的简单场景。",
+                "face": "pleased",
+                "line": "嗯，依据和边界都讲清了。",
+                "delta": 9
+              },
+              {
+                "id": "upm_case_scope_b2",
+                "type": "partial",
+                "text": "复杂引用仍允许使用，在试用说明里提醒用户检查。",
+                "face": "calm",
+                "line": "还有一部分没解释。",
+                "delta": 1
+              },
+              {
+                "id": "upm_case_scope_b3",
+                "type": "fail",
+                "text": "先按普通文本处理，少见情况等用户反馈再排期。",
+                "face": "frown",
+                "line": "这个结论依据不足。",
+                "delta": -7
+              }
+            ],
+            "explain": "资源约束下应优先消除已确认的关键风险，而非扩大格式清单。对暂不能可靠处理的输入，应限制能力并保留原文，让用户知道边界。允许试用不等于可以让未提示的破坏性行为进入真实任务。"
+          }
+        }
+      ],
+      "explain": "资源约束下应优先消除已确认的关键风险，而非扩大格式清单。对暂不能可靠处理的输入，应限制能力并保留原文，让用户知道边界。允许试用不等于可以让未提示的破坏性行为进入真实任务。"
+    },
+    "upm_case_accept": {
+      "tag": "专业",
+      "text": "首版确定只处理简单引用，生成前后都能预览。你会怎样组织验收？",
+      "options": [
+        {
+          "id": "upm_case_accept_b",
+          "type": "bold",
+          "text": "把生成、编辑、确认和撤销各状态的规则写成验收清单。",
+          "face": "probe",
+          "line": "那再往下想一步。",
+          "followup": {
+            "text": "用户在等待结果时改过原文，旧结果回来要覆盖吗？",
+            "options": [
+              {
+                "id": "upm_case_accept_b3",
+                "type": "fail",
+                "text": "结果生成得更晚，应当视作最新版本直接替换。",
+                "face": "frown",
+                "line": "这个结论依据不足。",
+                "delta": -7
+              },
+              {
+                "id": "upm_case_accept_b1",
+                "type": "hold",
+                "text": "不自动覆盖，保留新编辑，让用户比较后选择。",
+                "face": "pleased",
+                "line": "嗯，依据和边界都讲清了。",
+                "delta": 9
+              },
+              {
+                "id": "upm_case_accept_b2",
+                "type": "partial",
+                "text": "默认覆盖旧结果，同时提供一次撤销方便恢复。",
+                "face": "calm",
+                "line": "还有一部分没解释。",
+                "delta": 1
+              }
+            ],
+            "explain": "验收需要覆盖异步结果与用户编辑的冲突。结果到达时间不能代表用户最新意图。保留原文与编辑、提供明确确认和恢复规则，才能避免功能看似完成却毁掉用户的工作。只检查正常路径不足以验证这类风险。"
+          }
+        },
+        {
+          "id": "upm_case_accept_c",
+          "type": "off",
+          "text": "让研发照着几个正常例子检查，产品最后统一试用。",
+          "face": "calm",
+          "line": "这个办法有什么代价？",
+          "delta": -3
+        },
+        {
+          "id": "upm_case_accept_a",
+          "type": "safe",
+          "text": "列成功和失败样例，确认编号、出处和原文能对上。",
+          "face": "nod",
+          "line": "嗯，先把基础做稳。",
+          "delta": 3
+        }
+      ],
+      "explain": "验收需要覆盖异步结果与用户编辑的冲突。结果到达时间不能代表用户最新意图。保留原文与编辑、提供明确确认和恢复规则，才能避免功能看似完成却毁掉用户的工作。只检查正常路径不足以验证这类风险。"
+    },
+    "upm_case_rollout": {
+      "tag": "视野与取舍",
+      "text": "测试环境通过了。负责人希望明天就让全部用户看到新版，你怎么建议？",
+      "options": [
+        {
+          "id": "upm_case_rollout_a",
+          "type": "safe",
+          "text": "先小范围开放，确认关键路径和恢复方式，再逐步扩大。",
+          "face": "nod",
+          "line": "嗯，先把基础做稳。",
+          "delta": 3
+        },
+        {
+          "id": "upm_case_rollout_b",
+          "type": "bold",
+          "text": "预先约定观察指标、停止条件和处理负责人。",
+          "face": "probe",
+          "line": "那再往下想一步。",
+          "followup": {
+            "text": "试用者多是熟悉产品的老用户，结果能代表新用户吗？",
+            "options": [
+              {
+                "id": "upm_case_rollout_b2",
+                "type": "partial",
+                "text": "先看总体均值，老用户和新用户差异后续再分析。",
+                "face": "calm",
+                "line": "还有一部分没解释。",
+                "delta": 1
+              },
+              {
+                "id": "upm_case_rollout_b3",
+                "type": "fail",
+                "text": "老用户要求更高，他们通过说明新用户也能用。",
+                "face": "frown",
+                "line": "这个结论依据不足。",
+                "delta": -7
+              },
+              {
+                "id": "upm_case_rollout_b1",
+                "type": "hold",
+                "text": "不能，补新用户任务测试，并分开看两类人。",
+                "face": "pleased",
+                "line": "嗯，依据和边界都讲清了。",
+                "delta": 9
+              }
+            ],
+            "explain": "发布范围需要与已验证的用户和任务匹配。保留旧入口有帮助，但不能把发现与恢复风险全部交给用户。老用户熟悉界面，可能绕过新手会卡住的地方；按人群补验证，才知道首版在哪些条件下可靠。"
+          }
+        },
+        {
+          "id": "upm_case_rollout_c",
+          "type": "off",
+          "text": "全面开放但保留旧入口，出了问题用户能自己切回。",
+          "face": "calm",
+          "line": "这个办法有什么代价？",
+          "delta": -3
+        }
+      ],
+      "explain": "发布范围需要与已验证的用户和任务匹配。保留旧入口有帮助，但不能把发现与恢复风险全部交给用户。老用户熟悉界面，可能绕过新手会卡住的地方；按人群补验证，才知道首版在哪些条件下可靠。"
+    },
+    "upm_case_failure": {
+      "tag": "视野与取舍",
+      "text": "小范围试用第二天，有人说编号没变，但引用句子的意思被改了。接下来怎么处理？",
+      "options": [
+        {
+          "id": "upm_case_failure_c",
+          "type": "off",
+          "text": "先把已收到的例子加入测试集，修好这些例子再继续推广。",
+          "face": "calm",
+          "line": "这个办法有什么代价？",
+          "delta": -3
+        },
+        {
+          "id": "upm_case_failure_a",
+          "type": "safe",
+          "text": "先限制受影响改写，保留原文，核对复现和影响范围。",
+          "face": "nod",
+          "line": "嗯，先把基础做稳。",
+          "delta": 3
+        },
+        {
+          "id": "upm_case_failure_b",
+          "type": "bold",
+          "text": "把语义变化按风险分级，验证恢复后再决定是否重开。",
+          "face": "probe",
+          "line": "那再往下想一步。",
+          "followup": {
+            "text": "修复暂时要一天，业务仍希望收集试用数据，怎么办？",
+            "options": [
+              {
+                "id": "upm_case_failure_b1",
+                "type": "hold",
+                "text": "暂停风险路径，保留安全部分测试，明确告知限制。",
+                "face": "pleased",
+                "line": "嗯，依据和边界都讲清了。",
+                "delta": 9
+              },
+              {
+                "id": "upm_case_failure_b2",
+                "type": "partial",
+                "text": "继续开放并弹出提醒，请试用者逐段核对引用的原意。",
+                "face": "calm",
+                "line": "还有一部分没解释。",
+                "delta": 1
+              },
+              {
+                "id": "upm_case_failure_b3",
+                "type": "fail",
+                "text": "试用本来就允许有问题，继续运行才有足够数据。",
+                "face": "frown",
+                "line": "这个结论依据不足。",
+                "delta": -7
+              }
+            ],
+            "explain": "引用编号完整不代表内容可靠。发现语义被误改后，应先控制风险并保护原文，再明确影响条件与修复验证。试用不构成忽略损害的理由，泛化提醒也不能代替限制已知风险；可以继续验证独立的安全部分。"
+          }
+        }
+      ],
+      "explain": "引用编号完整不代表内容可靠。发现语义被误改后，应先控制风险并保护原文，再明确影响条件与修复验证。试用不构成忽略损害的理由，泛化提醒也不能代替限制已知风险；可以继续验证独立的安全部分。"
+    },
+    "upm_case_review": {
+      "tag": "项目表达",
+      "text": "修复后重新试用，拿到下面这份记录。负责人说新版效果明显更好，可以直接推广。你怎么复盘？",
+      "options": [
+        {
+          "id": "upm_case_review_b",
+          "type": "bold",
+          "text": "同时检查获益和风险，说明数据能支持到哪一步。",
+          "face": "probe",
+          "line": "那再往下想一步。",
+          "followup": {
+            "text": "新版导出率更高，但投诉也更多。你会建议什么？",
+            "options": [
+              {
+                "id": "upm_case_review_b3",
+                "type": "fail",
+                "text": "只看开始改写的用户，新版导出率高就足以推广。",
+                "face": "frown",
+                "line": "这个结论依据不足。",
+                "delta": -7
+              },
+              {
+                "id": "upm_case_review_b1",
+                "type": "hold",
+                "text": "核对分组与投诉类型，排除严重风险后再扩样验证。",
+                "face": "pleased",
+                "line": "嗯，依据和边界都讲清了。",
+                "delta": 9
+              },
+              {
+                "id": "upm_case_review_b4",
+                "type": "bold",
+                "text": "再补一轮可比较的试用，先写清扩大和停止条件。",
+                "face": "probe",
+                "line": "那再往下想一步。",
+                "followup": {
+                  "text": "下一轮不能投入很多流量，你怎样避免把一次好看的波动当成结论？",
+                  "options": [
+                    {
+                      "id": "upm_case_review_b4a",
+                      "type": "hold",
+                      "text": "固定口径与周期，报告局限，不够就继续验证。",
+                      "face": "pleased",
+                      "line": "嗯，依据和边界都讲清了。",
+                      "delta": 12
+                    },
+                    {
+                      "id": "upm_case_review_b4b",
+                      "type": "partial",
+                      "text": "多观察几天，只要每天导出率都更高，就逐步扩大试用。",
+                      "face": "calm",
+                      "line": "还有一部分没解释。",
+                      "delta": 2
+                    },
+                    {
+                      "id": "upm_case_review_b4c",
+                      "type": "fail",
+                      "text": "每天看一次结果，达到目标的当天结束试用。",
+                      "face": "frown",
+                      "line": "这个结论依据不足。",
+                      "delta": -9
+                    }
+                  ],
+                  "explain": "先确定分析口径、观察计划和决策条件，避免反复查看后挑一个好看的时点。流量不足时需要承认结论有限，结合风险证据决定是否继续；不能保证在任意小样本下都能得出确定结论。"
+                }
+              },
+              {
+                "id": "upm_case_review_b2",
+                "type": "partial",
+                "text": "把完成率定成主指标，投诉等用户量大了再比较。",
+                "face": "calm",
+                "line": "还有一部分没解释。",
+                "delta": 1
+              }
+            ],
+            "explain": "两组各一百二十名符合条件的用户，按此分母导出率为旧版百分之三十五、新版百分之四十五；开始改写后的完成率是另一种口径。投诉增加需要分类与核实，尤其要排除引用含义被破坏。小样本一次观察不能直接证明长期收益，应同时报告获益、风险与不确定性。"
+          }
+        },
+        {
+          "id": "upm_case_review_c",
+          "type": "off",
+          "text": "新版多了十二个导出用户，优先推广，投诉再逐个修。",
+          "face": "calm",
+          "line": "这个办法有什么代价？",
+          "delta": -3
+        },
+        {
+          "id": "upm_case_review_a",
+          "type": "safe",
+          "text": "先讲导出完成的变化，再看投诉与样本口径。",
+          "face": "nod",
+          "line": "嗯，先把基础做稳。",
+          "delta": 3
+        }
+      ],
+      "explain": "两组各一百二十名符合条件的用户，按此分母导出率为旧版百分之三十五、新版百分之四十五；开始改写后的完成率是另一种口径。投诉增加需要分类与核实，尤其要排除引用含义被破坏。小样本一次观察不能直接证明长期收益，应同时报告获益、风险与不确定性。",
+      "code": "两组各 120 名符合条件的用户，均记录 7 天\n版本  开始改写  导出成功用户  投诉用户\n旧版     60          42          2\n新版     72          54          8\n每项按用户去重；投诉类型尚未分类"
+    }
+  }
+}

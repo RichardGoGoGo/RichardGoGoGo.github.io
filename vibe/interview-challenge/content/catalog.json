@@ -1,0 +1,197 @@
+{
+  "_note": "内容目录。一局 = 一家公司 × 一个人设 × 一个岗位（组合号写成 公司-岗位-人设，比如 midcorp-fe-linke）。公司底座在 companies/，岗位线（公司 × 岗位）在 tracks/，人设档案在 personas/，所有人设共用的题目素材在 library/。每条岗位线指定一个对口的基准人设，平衡只对基准组合标定，其他组合只保证能玩、不报错。公司按两个维度划分：类型（sectors）和规模（scales），初创是小厂里的一种（stages）；难度星数写在每家公司的 company.json 里，不由类型或规模推出来。",
+  "companies": [
+    "midcorp",
+    "unicorn",
+    "bigcorp",
+    "soe"
+  ],
+  "sectors": {
+    "internet": {
+      "name": "互联网",
+      "scales": [
+        "big",
+        "mid",
+        "small"
+      ],
+      "stages": [
+        "startup"
+      ]
+    },
+    "hardtech": {
+      "name": "硬科技",
+      "note": "芯片、新能源、智能硬件等",
+      "scales": [
+        "big",
+        "mid",
+        "small"
+      ],
+      "stages": [
+        "startup"
+      ]
+    },
+    "soe": {
+      "name": "国企",
+      "scales": [
+        "big",
+        "mid"
+      ],
+      "note": "央企总部、省属集团算大厂，集团下属的科技公司、数科公司多算中厂；没有小厂、初创"
+    },
+    "foreign": {
+      "name": "外企",
+      "scales": [
+        "big",
+        "mid"
+      ],
+      "note": "在华校招的外企基本是大中型公司，没有小厂、初创"
+    }
+  },
+  "scales": {
+    "big": {
+      "name": "大厂"
+    },
+    "mid": {
+      "name": "中厂"
+    },
+    "small": {
+      "name": "小厂"
+    }
+  },
+  "stages": {
+    "startup": {
+      "name": "初创",
+      "note": "小厂里的一种：成立不久、靠融资；独角兽是融资多的初创"
+    }
+  },
+  "personas": [
+    "zhouan",
+    "linke",
+    "xunuo",
+    "chengyuan"
+  ],
+  "roles": {
+    "fe": {
+      "name": "前端",
+      "full": "前端开发",
+      "note": "岗位格 G3 · 前端 / 客户端",
+      "work": "工程",
+      "switch_to": "产品",
+      "growth": "前端工程化方向走，先从团队里的构建和规范做起"
+    },
+    "pm": {
+      "name": "产品",
+      "full": "产品经理",
+      "note": "岗位格 G6 · 产品",
+      "work": "产品",
+      "switch_to": "运营",
+      "growth": "数据产品方向走，先从埋点和指标体系做起"
+    },
+    "be": {
+      "name": "后端",
+      "full": "后端开发",
+      "note": "岗位格 G1 · 后端",
+      "work": "工程",
+      "switch_to": "产品",
+      "growth": "后端架构方向走，先把高并发和稳定性这块做扎实"
+    },
+    "algo": {
+      "name": "算法",
+      "full": "算法工程师",
+      "note": "岗位格 G2 · 算法",
+      "work": "算法",
+      "switch_to": "研发",
+      "growth": "推荐或大模型应用方向走，先把一个方向做深"
+    },
+    "data": {
+      "name": "数据分析",
+      "full": "数据分析师",
+      "note": "岗位格 G5 · 数据分析",
+      "work": "数据分析",
+      "switch_to": "产品",
+      "growth": "业务分析方向走，先把指标体系和实验分析做扎实"
+    },
+    "ops": {
+      "name": "运营",
+      "full": "运营",
+      "note": "岗位格 G7 · 运营",
+      "work": "运营",
+      "switch_to": "产品",
+      "growth": "用户增长方向走，先把活动和数据复盘做扎实"
+    }
+  },
+  "tracks": [
+    {
+      "id": "midcorp_fe",
+      "company": "midcorp",
+      "role": "fe",
+      "base_persona": "linke"
+    },
+    {
+      "id": "midcorp_be",
+      "company": "midcorp",
+      "role": "be",
+      "base_persona": "chengyuan"
+    },
+    {
+      "id": "midcorp_data",
+      "company": "midcorp",
+      "role": "data",
+      "base_persona": "xunuo"
+    },
+    {
+      "id": "unicorn_fe",
+      "company": "unicorn",
+      "role": "fe",
+      "base_persona": "zhouan"
+    },
+    {
+      "id": "unicorn_algo",
+      "company": "unicorn",
+      "role": "algo",
+      "base_persona": "zhouan"
+    },
+    {
+      "id": "unicorn_ops",
+      "company": "unicorn",
+      "role": "ops",
+      "base_persona": "xunuo"
+    },
+    {
+      "id": "bigcorp_pm",
+      "company": "bigcorp",
+      "role": "pm",
+      "base_persona": "xunuo"
+    },
+    {
+      "id": "soe_be",
+      "company": "soe",
+      "role": "be",
+      "base_persona": "chengyuan"
+    },
+    {
+      "id": "soe_data",
+      "company": "soe",
+      "role": "data",
+      "base_persona": "zhouan"
+    },
+    {
+      "id": "midcorp_pm",
+      "company": "midcorp",
+      "role": "pm",
+      "base_persona": "linke"
+    },
+    {
+      "id": "unicorn_pm",
+      "company": "unicorn",
+      "role": "pm",
+      "base_persona": "xunuo"
+    },
+    {
+      "id": "bigcorp_fe",
+      "company": "bigcorp",
+      "role": "fe",
+      "base_persona": "zhouan"
+    }
+  ]
+}

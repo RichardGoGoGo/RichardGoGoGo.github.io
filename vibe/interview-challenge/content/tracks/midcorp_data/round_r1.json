@@ -1,0 +1,16 @@
+{
+  "id": "r1", "name": "业务一面", "company": "midcorp",
+  "interviewer": {"art": "A4", "title": "数据分析师"},
+  "scene": "S4",
+  "_note": "数据分析一面：未来同事来面，考 SQL、统计和指标口径，加一道简历深挖和一道“精通”追问。选项 ID 前缀 md1_。题目在 library/packs/data.json 的题池（pools）里，题位用 prefer 按原来的顺序钉住原来的题。",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["md1_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "pool", "pool": "data_sql", "prefer": ["md1_sql_join", "md1_sql_fanout"], "swap": true, "_note": "现场看 SQL：左连接加 WHERE 的坑；重打时换成一对多关联放大"},
+    {"slot": "q2", "dynamic": "deep_dive_first", "swap": false, "_note": "深挖简历第一页排第 1 的那段经历；那段用的是夸大或含糊写法时，换成对应的追问"},
+    {"slot": "q3", "dynamic": "pool", "pool": "data_metric", "prefer": ["md1_stat_mean", "md1_retention"], "swap": true, "_note": "统计和口径：均值被拉偏；重打时换成 7 日留存的口径"},
+    {"slot": "q4", "dynamic": "skill_probe", "fallback_pool": "data_ab", "prefer": ["md1_sample", "md1_interval"], "swap": true, "_note": "技能栏写了“精通 SQL”或“精通 A/B 测试设计”时换成对应追问（track.json 的 skill_probes 指定），否则问样本量；重打时换成置信区间"},
+    {"slot": "q5", "dynamic": "pool", "pool": "data_metric", "prefer": ["md1_metric_define", "md1_north_star"], "swap": true, "_note": "定指标：完课率的口径；重打时换成北极星指标"},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["md1_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

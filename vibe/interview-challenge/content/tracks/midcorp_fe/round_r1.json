@@ -1,0 +1,15 @@
+{
+  "id": "r1", "name": "业务一面", "company": "midcorp",
+  "interviewer": {"art": "A2", "title": "前端面试官"},
+  "scene": "S4",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["r1_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "pool", "pool": "fe_basics", "prefer": ["q_eventloop", "q_closure"], "swap": true},
+    {"slot": "q2", "dynamic": "deep_dive_first", "swap": false, "_note": "深挖简历第一页排第 1 的那段经历；那段用的是夸大或含糊写法时，换成对应的追问"},
+    {"slot": "q3", "dynamic": "pool", "pool": "fe_perf", "prefer": ["q_firstscreen", "q_reflow"], "swap": true},
+    {"slot": "q4", "dynamic": "skill_probe", "fallback_pool": "fe_page", "prefer": ["q_zindex"], "swap": false, "_note": "技能栏写了“精通 React”或“精通 JavaScript”时换成对应追问，否则问 CSS 题 q_zindex（资料里 CSS 是一面三大块之一）。框架原理题 q_vue_react 挪到了二面"},
+    {"slot": "q5", "dynamic": "pool", "pool": "fe_growth", "prefer": ["q_pitfall", "q_learning"], "swap": true},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["r1_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

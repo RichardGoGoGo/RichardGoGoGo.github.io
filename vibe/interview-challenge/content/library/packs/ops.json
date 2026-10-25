@@ -1,0 +1,2608 @@
+{
+  "_note": "运营岗位扩展包。relevance：各经历类型对这个岗位的默认对口程度；skills：这个岗位技能栏里的技能（已有的技能只补这个岗位的对口和关键词；文案、活动策划补了“精通”诱饵和追问）；frames：各类经历在运营面试里的深挖问法（ops_best、ops_account、ops_event、ops_user_voice 带亮点位，其余不需要亮点）；highlights：运营的亮点类型，需要的参数写在各自的 _params 里；skill_probes：opp_ 前缀；background：bgo_ 前缀。写法见 docs/面试挑战/素材补充交接.md。",
+  "relevance": {
+    "intern_dev": {
+      "ops": "none"
+    },
+    "intern_pm": {
+      "ops": "match"
+    },
+    "user_research_intern": {
+      "ops": "half"
+    },
+    "research_tool": {
+      "ops": "none"
+    },
+    "campus_team_project": {
+      "ops": "half"
+    },
+    "personal_project": {
+      "ops": "half"
+    },
+    "course_project": {
+      "ops": "none"
+    },
+    "thesis": {
+      "ops": "none"
+    },
+    "paper": {
+      "ops": "none"
+    },
+    "competition": {
+      "ops": "none"
+    },
+    "student_org": {
+      "ops": "half"
+    },
+    "media_ops": {
+      "ops": "match"
+    },
+    "event_planning": {
+      "ops": "match"
+    },
+    "part_time": {
+      "ops": "none"
+    },
+    "certificate": {
+      "ops": "general"
+    },
+    "award": {
+      "ops": "general"
+    }
+  },
+  "skills": {
+    "copywriting": {
+      "labels": {
+        "1": "能写活动文案",
+        "2": "熟悉新媒体文案写作",
+        "3": "精通新媒体文案写作"
+      },
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "文案"
+          ]
+        }
+      },
+      "master_probes": [
+        "opp_copy_master"
+      ]
+    },
+    "new_media": {
+      "labels": {
+        "1": "运营过公众号",
+        "2": "熟悉新媒体运营"
+      },
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "新媒体"
+          ]
+        }
+      }
+    },
+    "event": {
+      "labels": {
+        "1": "参与过活动策划",
+        "2": "熟悉活动策划和执行",
+        "3": "精通活动策划与执行"
+      },
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "活动策划"
+          ]
+        }
+      },
+      "master_probes": [
+        "opp_event_master"
+      ]
+    },
+    "community": {
+      "labels": {
+        "1": "了解社群运营",
+        "2": "熟悉社群运营"
+      },
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "社群"
+          ]
+        }
+      }
+    },
+    "data": {
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "excel": {
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "Excel"
+          ]
+        }
+      }
+    },
+    "research": {
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "用户研究"
+          ]
+        }
+      }
+    },
+    "design_tools": {
+      "labels": {
+        "1": "会用 Canva / 稿定设计做图",
+        "2": "熟练使用 PS 和稿定设计"
+      },
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "设计"
+          ]
+        }
+      }
+    },
+    "sql": {
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "SQL"
+          ]
+        }
+      }
+    },
+    "ab": {
+      "roles": {
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "A/B 测试"
+          ]
+        }
+      }
+    },
+    "office": {
+      "roles": {
+        "ops": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    }
+  },
+  "frames": {
+    "media_ops": [
+      {
+        "id": "ops_account",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做内容的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲日常怎么做：定选题、写稿、排版，发完第二天看数据。",
+              "face": "nod",
+              "line": "嗯，流程清楚。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲封面和排版：我统一了视觉风格，号的辨识度高了很多。",
+              "face": "calm",
+              "line": "好看了，阅读涨了吗？"
+            }
+          ],
+          "explain": "讲内容运营的经历，最好讲清你怎么判断内容好不好、怎么把好的变成能复制的。只讲流程，说明你干过；只讲视觉风格，听不到效果，这样答，面试官多半会接着问“阅读涨了吗”。"
+        }
+      }
+    ],
+    "event_planning": [
+      {
+        "id": "ops_event",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这个活动，你负责什么？结果用什么数来衡量？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块，和最后的报名人数、到场人数。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "活动是{exp.org|社团}一起办的，大家都在帮忙，很难分清谁负责哪块。",
+              "face": "calm",
+              "line": "那你最主要做了什么？"
+            }
+          ],
+          "explain": "讲活动经历，先说清自己负责哪块，再用数说结果。说“大家一起办的”听着团结，却分不清哪部分是你做的，这样答，面试官多半会接着问“那你最主要做了什么”。"
+        }
+      },
+      {
+        "id": "ops_event_measure",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}办完以后，你怎么判断它办得好不好？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "对着当初定的目标看：来了多少人、到场率、反馈怎样。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "不只看当天来了多少人，还看这些人后面有没有再参加。",
+              "face": "probe",
+              "line": "那我问一句。",
+              "followup": {
+                "text": "要是来的人很多，可后面再也没人参加，算办得好吗？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "只能算这一场热闹，人没留下；下次得先想好活动后怎么接住。",
+                    "face": "pleased",
+                    "line": "嗯，想到了后面。"
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "算办得好，一场活动能来这么多人已经很不容易了，值得照搬。",
+                    "face": "calm",
+                    "line": "那办活动是为了什么？"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "人多就是办得好，后面不来是因为大家都忙着考试，不是活动的问题。",
+                    "face": "frown",
+                    "line": "都怪大家忙？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "大家现场都挺开心的，散场时好多人来合影，我觉得办得挺成功。",
+              "face": "calm",
+              "line": "开心是怎么看出来的？"
+            }
+          ],
+          "explain": "判断一场活动办得好不好，要对着事先定的目标看，而不是看现场热不热闹。来的人多、后面一个都没留住，说明它只是一次性的热闹；运营做活动，还要想清楚活动之后怎么把人接住。"
+        }
+      }
+    ],
+    "user_research_intern": [
+      {
+        "id": "ops_user_voice",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你这段是{exp.kind|用研实习}，投的是{role.name}。它对做{role.name}有什么用？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "运营天天要判断用户要什么，访谈和问卷正好能帮上忙。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "这段主要是做研究，和运营关系不大，放上来是想多一段实习。",
+              "face": "frown",
+              "line": "那为什么放在第一页？"
+            }
+          ],
+          "explain": "跨岗位的经历，要讲清它怎么变成这个岗位的优势。用研出身做运营，最有价值的是分得清“几个人在抱怨”和“很多人卡住了”。"
+        }
+      }
+    ],
+    "intern_dev": [
+      {
+        "id": "ops_best",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做{role.name}的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：做了什么，用什么数看结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲这段让我学到了什么：沟通和执行力都提升了很多。",
+              "face": "calm",
+              "line": "嗯……具体做成了什么？"
+            }
+          ],
+          "explain": "挑代表作，讲一件有结果、有数字的事最稳。只讲学到了什么、提升了什么，听不到你做成了什么，这样答，面试官多半会接着问“具体做成了什么”。"
+        }
+      },
+      {
+        "id": "ops_off_role",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你投的是{role.name}，{exp.short}这段看着和{role.name}关系不大。是怎么考虑的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "off",
+              "delta": -3,
+              "text": "觉得多一段经历显得更完整，{role.name}相关的放在了后面。",
+              "face": "frown",
+              "line": "那我们直接看后面吧。"
+            },
+            {
+              "key": "b",
+              "type": "safe",
+              "delta": 1,
+              "text": "这段确实不是{role.name}。我更想聊后面和岗位相关的那段。",
+              "face": "calm",
+              "line": "行。"
+            },
+            {
+              "key": "c",
+              "type": "bold",
+              "text": "这段让我养成先定标准再动手的习惯，做{role.name}用得上。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "举个例子：哪件事你先定了标准，结果不一样了？",
+                "options": [
+                  {
+                    "key": "c1",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "{exp.short}那段，我会先和对方对好验收标准，少返工了几次。",
+                    "face": "nod",
+                    "line": "嗯，算一个。"
+                  },
+                  {
+                    "key": "c2",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                    "face": "frown",
+                    "line": "……好吧。"
+                  },
+                  {
+                    "key": "c3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "我做每件事都会先定好指标，每一个决定都有数据支撑。",
+                    "face": "frown",
+                    "line": "每一个？"
+                  }
+                ]
+              }
+            }
+          ],
+          "explain": "简历第一段最值钱。投{role.name}却把一段关系不大的经历放在最前面，面试官的第一个问题就花在了它上面。能说出它怎么帮到{role.name}、再拿得出一件实事最好；拿不出例子，不如老实说这段不是{role.name}，把话题引到相关的经历上。"
+        }
+      }
+    ],
+    "research_tool": [
+      {
+        "id": "ops_off_role",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你投的是{role.name}，{exp.short}这段看着和{role.name}关系不大。是怎么考虑的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "off",
+              "delta": -3,
+              "text": "觉得多一段经历显得更完整，{role.name}相关的放在了后面。",
+              "face": "frown",
+              "line": "那我们直接看后面吧。"
+            },
+            {
+              "key": "b",
+              "type": "safe",
+              "delta": 1,
+              "text": "这段确实不是{role.name}。我更想聊后面和岗位相关的那段。",
+              "face": "calm",
+              "line": "行。"
+            },
+            {
+              "key": "c",
+              "type": "bold",
+              "text": "这段让我养成先定标准再动手的习惯，做{role.name}用得上。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "举个例子：哪件事你先定了标准，结果不一样了？",
+                "options": [
+                  {
+                    "key": "c1",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "{exp.short}那段，我会先和对方对好验收标准，少返工了几次。",
+                    "face": "nod",
+                    "line": "嗯，算一个。"
+                  },
+                  {
+                    "key": "c2",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                    "face": "frown",
+                    "line": "……好吧。"
+                  },
+                  {
+                    "key": "c3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "我做每件事都会先定好指标，每一个决定都有数据支撑。",
+                    "face": "frown",
+                    "line": "每一个？"
+                  }
+                ]
+              }
+            }
+          ],
+          "explain": "简历第一段最值钱。投{role.name}却把一段关系不大的经历放在最前面，面试官的第一个问题就花在了它上面。能说出它怎么帮到{role.name}、再拿得出一件实事最好；拿不出例子，不如老实说这段不是{role.name}，把话题引到相关的经历上。"
+        }
+      }
+    ],
+    "course_project": [
+      {
+        "id": "ops_off_role",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你投的是{role.name}，{exp.short}这段看着和{role.name}关系不大。是怎么考虑的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "off",
+              "delta": -3,
+              "text": "觉得多一段经历显得更完整，{role.name}相关的放在了后面。",
+              "face": "frown",
+              "line": "那我们直接看后面吧。"
+            },
+            {
+              "key": "b",
+              "type": "safe",
+              "delta": 1,
+              "text": "这段确实不是{role.name}。我更想聊后面和岗位相关的那段。",
+              "face": "calm",
+              "line": "行。"
+            },
+            {
+              "key": "c",
+              "type": "bold",
+              "text": "这段让我养成先定标准再动手的习惯，做{role.name}用得上。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "举个例子：哪件事你先定了标准，结果不一样了？",
+                "options": [
+                  {
+                    "key": "c1",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "{exp.short}那段，我会先和对方对好验收标准，少返工了几次。",
+                    "face": "nod",
+                    "line": "嗯，算一个。"
+                  },
+                  {
+                    "key": "c2",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                    "face": "frown",
+                    "line": "……好吧。"
+                  },
+                  {
+                    "key": "c3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "我做每件事都会先定好指标，每一个决定都有数据支撑。",
+                    "face": "frown",
+                    "line": "每一个？"
+                  }
+                ]
+              }
+            }
+          ],
+          "explain": "简历第一段最值钱。投{role.name}却把一段关系不大的经历放在最前面，面试官的第一个问题就花在了它上面。能说出它怎么帮到{role.name}、再拿得出一件实事最好；拿不出例子，不如老实说这段不是{role.name}，把话题引到相关的经历上。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "ops_off_role",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你投的是{role.name}，{exp.short}这段看着和{role.name}关系不大。是怎么考虑的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "off",
+              "delta": -3,
+              "text": "觉得多一段经历显得更完整，{role.name}相关的放在了后面。",
+              "face": "frown",
+              "line": "那我们直接看后面吧。"
+            },
+            {
+              "key": "b",
+              "type": "safe",
+              "delta": 1,
+              "text": "这段确实不是{role.name}。我更想聊后面和岗位相关的那段。",
+              "face": "calm",
+              "line": "行。"
+            },
+            {
+              "key": "c",
+              "type": "bold",
+              "text": "这段让我养成先定标准再动手的习惯，做{role.name}用得上。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "举个例子：哪件事你先定了标准，结果不一样了？",
+                "options": [
+                  {
+                    "key": "c1",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "{exp.short}那段，我先定好要验证什么，问卷少改了好几版。",
+                    "face": "nod",
+                    "line": "嗯，算一个。"
+                  },
+                  {
+                    "key": "c2",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                    "face": "frown",
+                    "line": "……好吧。"
+                  },
+                  {
+                    "key": "c3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "我做每件事都先定指标，每个决定都有数据支撑。",
+                    "face": "frown",
+                    "line": "每一个？"
+                  }
+                ]
+              }
+            }
+          ],
+          "explain": "简历第一段最值钱。投{role.name}却把一段关系不大的经历放在最前面，面试官的第一个问题就花在了它上面。能说出它怎么帮到{role.name}、再拿得出一件实事最好；拿不出例子，不如老实说这段不是{role.name}，把话题引到相关的经历上。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "ops_best",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做{role.name}的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：做了什么，用什么数看结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲这段让我学到了什么：沟通和执行力都提升了很多。",
+              "face": "calm",
+              "line": "嗯……具体做成了什么？"
+            }
+          ],
+          "explain": "挑代表作，讲一件有结果、有数字的事最稳。只讲学到了什么、提升了什么，听不到你做成了什么，这样答，面试官多半会接着问“具体做成了什么”。"
+        }
+      },
+      {
+        "id": "ops_off_role",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你投的是{role.name}，{exp.short}这段看着和{role.name}关系不大。是怎么考虑的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "off",
+              "delta": -3,
+              "text": "觉得多一段经历显得更完整，{role.name}相关的放在了后面。",
+              "face": "frown",
+              "line": "那我们直接看后面吧。"
+            },
+            {
+              "key": "b",
+              "type": "safe",
+              "delta": 1,
+              "text": "这段确实不是{role.name}。我更想聊后面和岗位相关的那段。",
+              "face": "calm",
+              "line": "行。"
+            },
+            {
+              "key": "c",
+              "type": "bold",
+              "text": "这段让我养成先定标准再动手的习惯，做{role.name}用得上。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "举个例子：哪件事你先定了标准，结果不一样了？",
+                "options": [
+                  {
+                    "key": "c1",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "{exp.short}那段，我先想好给谁用、怎么算用起来了，再动手。",
+                    "face": "nod",
+                    "line": "嗯，算一个。"
+                  },
+                  {
+                    "key": "c2",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                    "face": "frown",
+                    "line": "……好吧。"
+                  },
+                  {
+                    "key": "c3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "我做每件事都先定指标，每个决定都有数据支撑。",
+                    "face": "frown",
+                    "line": "每一个？"
+                  }
+                ]
+              }
+            }
+          ],
+          "explain": "简历第一段最值钱。投{role.name}却把一段关系不大的经历放在最前面，面试官的第一个问题就花在了它上面。能说出它怎么帮到{role.name}、再拿得出一件实事最好；拿不出例子，不如老实说这段不是{role.name}，把话题引到相关的经历上。"
+        }
+      }
+    ],
+    "intern_pm": [
+      {
+        "id": "ops_best",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做{role.name}的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：做了什么，用什么数看结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲这段让我学到了什么：沟通和执行力都提升了很多。",
+              "face": "calm",
+              "line": "嗯……具体做成了什么？"
+            }
+          ],
+          "explain": "挑代表作，讲一件有结果、有数字的事最稳。只讲学到了什么、提升了什么，听不到你做成了什么，这样答，面试官多半会接着问“具体做成了什么”。"
+        }
+      },
+      {
+        "id": "ops_pm_overlap",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.kind|产品实习}这段，有哪些事其实运营也要做？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我接触用户的那部分：收反馈、分类、跟进到有结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "讲用户反馈怎么分轻重，哪些不等排期、运营先接住。",
+              "face": "probe",
+              "line": "那我出个题。",
+              "followup": {
+                "text": "产品排期要一个月，用户今天就在群里骂。运营能先做什么？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "先回应、给临时办法，把高频问题写成说明，再把量报给产品。",
+                    "face": "pleased",
+                    "line": "嗯，先接住人。"
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "先在群里安抚一下，说我们会尽快修复，请大家耐心等等。",
+                    "face": "calm",
+                    "line": "等一个月？"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "这是产品的问题，运营不用管，等他们修好了再通知大家。",
+                    "face": "frown",
+                    "line": "用户可不管是谁的问题。"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "主要是写需求文档、跟开发进度，和运营关系不大。",
+              "face": "calm",
+              "line": "产品实习里，一点和用户有关的都没有？"
+            }
+          ],
+          "explain": "产品实习投运营，可以讲两边重叠的部分：接触用户、处理反馈。产品一时改不了的时候，运营能做的是先回应、给临时办法、把问题说清楚，同时把影响面报给产品；“等他们修好”是把用户晾在那儿。"
+        }
+      }
+    ],
+    "campus_team_project": [
+      {
+        "id": "ops_best",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做{role.name}的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：做了什么，用什么数看结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲这段让我学到了什么：沟通和执行力都提升了很多。",
+              "face": "calm",
+              "line": "嗯……具体做成了什么？"
+            }
+          ],
+          "explain": "挑代表作，讲一件有结果、有数字的事最稳。只讲学到了什么、提升了什么，听不到你做成了什么，这样答，面试官多半会接着问“具体做成了什么”。"
+        }
+      },
+      {
+        "id": "ops_cold_start",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}上线以后，第一批用户是怎么来的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲上线后用户从哪来、用了多少，我在里面负责哪块。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "讲冷启动的思路：先在一个小圈子里用起来，再往外扩。",
+              "face": "probe",
+              "line": "我问一句。",
+              "followup": {
+                "text": "为什么不一上来就全校推？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "人散了谁来都觉得空；先在一个圈子里用起来，口碑和反馈都集中。",
+                    "face": "pleased",
+                    "line": "嗯，懂冷启动。"
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "全校推太费钱，先小范围试试，能省一点预算，效果好再加。",
+                    "face": "calm",
+                    "line": "只是为了省钱？"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "全校推也行，人越多越好，越早铺开越占优势，晚了就被别人抢先。",
+                    "face": "frown",
+                    "line": "铺开了没人用呢？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "没怎么推广，主要靠同学之间口口相传，自然就有人用了。",
+              "face": "calm",
+              "line": "自然是多少人？"
+            }
+          ],
+          "explain": "冷启动是运营常被问的题。先在一个小圈子里把密度做起来，用户之间互相看得见，反馈也集中；一上来全面铺开，钱花出去了，每个人打开却都觉得空。说“自然就有人用了”，等于说不清用户从哪来。"
+        }
+      }
+    ],
+    "student_org": [
+      {
+        "id": "ops_best",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做{role.name}的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：做了什么，用什么数看结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲这段让我学到了什么：沟通和执行力都提升了很多。",
+              "face": "calm",
+              "line": "嗯……具体做成了什么？"
+            }
+          ],
+          "explain": "挑代表作，讲一件有结果、有数字的事最稳。只讲学到了什么、提升了什么，听不到你做成了什么，这样答，面试官多半会接着问“具体做成了什么”。"
+        }
+      },
+      {
+        "id": "ops_org_measure",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你在{exp.short}，办过什么活动？你怎么判断办得好不好？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲一次我参与办的活动：宣传、来了多少人、反馈怎样。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "不只看当天来了多少人，还看这些人后面还有没有再来。",
+              "face": "probe",
+              "line": "那我问一句。",
+              "followup": {
+                "text": "要是来的人很多，可后面再没人参加，算办得好吗？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "只能算这一场热闹，人没留下；下次得先想好活动后怎么接住。",
+                    "face": "pleased",
+                    "line": "嗯，想到了后面。"
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "算办得好，社团活动能来这么多人已经不容易了，值得照搬。",
+                    "face": "calm",
+                    "line": "那办活动是为了什么？"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "人多就是办得好，后面不来是因为大家都忙着考试，不是活动的问题。",
+                    "face": "frown",
+                    "line": "都怪大家忙？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -1,
+              "text": "社团的活动主要是外联部和宣传部在办，我管自己那摊事。",
+              "face": "calm",
+              "line": "那你那摊事里，有和人打交道的吗？"
+            }
+          ],
+          "explain": "社团经历投运营，多半会被顺着问“办过什么活动、办得怎样”。判断一场活动，要对着事先定的目标看，而不是看现场热不热闹；来的人多、后面一个都没留住，只是一次性的热闹。说“活动不归我管”是实话，但这段经历在运营面试里就用不上了。"
+        }
+      }
+    ],
+    "part_time": [
+      {
+        "id": "ops_best",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，挑一件最能说明你会做{role.name}的事讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：做了什么，用什么数看结果。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲这段让我学到了什么：沟通和执行力都提升了很多。",
+              "face": "calm",
+              "line": "嗯……具体做成了什么？"
+            }
+          ],
+          "explain": "挑代表作，讲一件有结果、有数字的事最稳。只讲学到了什么、提升了什么，听不到你做成了什么，这样答，面试官多半会接着问“具体做成了什么”。"
+        }
+      },
+      {
+        "id": "ops_parttime",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short}这段，和做{role.name}有什么关系？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "天天和人打交道，讲一件我把一类麻烦事理顺了的经历。",
+              "face": "nod",
+              "line": "嗯，说说。"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "这是兼职赚生活费的，每周就去几个下午，和{role.name}关系不大。",
+              "face": "calm",
+              "line": "那为什么写在简历上？"
+            },
+            {
+              "key": "d",
+              "type": "off",
+              "delta": -1,
+              "text": "主要锻炼了耐心和沟通能力，碰到难缠的人也稳得住，这对{role.name}很重要。",
+              "face": "calm",
+              "line": "具体是哪件事？"
+            }
+          ],
+          "explain": "兼职经历不必硬往岗位上靠，但要讲得出一件具体的事；只说“锻炼了沟通能力”，听不到你做过什么，这样答，面试官多半会接着问“具体是哪件事”。"
+        }
+      }
+    ],
+    "paper": [
+      {
+        "id": "ops_off_role",
+        "roles": [
+          "ops"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你投的是{role.name}，{exp.short}这段看着和{role.name}关系不大。是怎么考虑的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "off",
+              "delta": -3,
+              "text": "觉得多一段经历显得更完整，{role.name}相关的放在了后面。",
+              "face": "frown",
+              "line": "那我们直接看后面吧。"
+            },
+            {
+              "key": "b",
+              "type": "safe",
+              "delta": 1,
+              "text": "这段确实不是{role.name}。我更想聊后面和岗位相关的那段。",
+              "face": "calm",
+              "line": "行。"
+            },
+            {
+              "key": "c",
+              "type": "bold",
+              "text": "这段让我养成先定标准再动手的习惯，做{role.name}用得上。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "举个例子：哪件事你先定了标准，结果不一样了？",
+                "options": [
+                  {
+                    "key": "c1",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "{exp.short}那段，我先定好对照和指标，补实验少走了弯路。",
+                    "face": "nod",
+                    "line": "嗯，算一个。"
+                  },
+                  {
+                    "key": "c2",
+                    "type": "partial",
+                    "delta": -4,
+                    "text": "具体例子一时想不起来，主要是一种思维习惯。",
+                    "face": "frown",
+                    "line": "……好吧。"
+                  },
+                  {
+                    "key": "c3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "我做每件事都先定指标，每个决定都有数据支撑。",
+                    "face": "frown",
+                    "line": "每一个？"
+                  }
+                ]
+              }
+            }
+          ],
+          "explain": "简历第一段最值钱。投{role.name}却把一段关系不大的经历放在最前面，面试官的第一个问题就花在了它上面。能说出它怎么帮到{role.name}、再拿得出一件实事最好；拿不出例子，不如老实说这段不是{role.name}，把话题引到相关的经历上。"
+        }
+      }
+    ]
+  },
+  "highlights": {
+    "content_replicate": {
+      "name": "爆款内容复盘、做成栏目",
+      "roles": [
+        "ops"
+      ],
+      "_params": "peak 最高那篇的阅读量；why 复盘出的原因（一句，能直接当回答）；after 后面几篇稳定在多少；ops_fair_lift 和同期可比的文章比高了多少（短语，粉丝在涨时不拿涨粉前的平均比，比如“比同期非栏目文章高一倍左右”）",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.peak}阅读那篇：为什么火，后来怎么复制成栏目。",
+        "face": "probe",
+        "line": "好，先说为什么火。",
+        "followup": {
+          "text": "你复盘下来，它为什么能火？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "{hl.why}",
+              "face": "probe",
+              "line": "那就照着复制呗？",
+              "followup": {
+                "text": "照这个思路做的后面几篇，复制成功了吗？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "稳定在{hl.after}，{hl.ops_fair_lift}，但没再出过{hl.peak}的。",
+                    "face": "pleased",
+                    "line": "嗯，实话。能复制的是方法，不是爆款。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "大部分都还不错，有一两篇差一点，整体算是复制成功了。",
+                    "face": "calm",
+                    "line": "还不错是多少？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "篇篇都过了万，栏目做起来以后，粉丝也跟着翻了好几倍。",
+                    "face": "frown",
+                    "line": "后台截图方便给我看看吗？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "主要是运气好，正好赶上那个时间点，换个时间就没这么火了。",
+              "face": "calm",
+              "line": "运气之外呢？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "标题写得够夸张，又有数字又有感叹号，打开率自然高。",
+              "face": "frown",
+              "line": "那后面几篇也这么写，怎么没火？"
+            }
+          ]
+        }
+      },
+      "explain": "讲一次爆款，这样答多半会被追问能不能把偶然变成可复制的东西：原因要落到选题、标题、时机这些能重复的地方，停在“运气好”或“标题够夸张”就复制不了。说栏目的效果时，粉丝一直在涨，拿涨粉前的平均阅读比，会把涨粉的功劳算给栏目；拿同一时期的其他文章比才公平。后面几篇没再爆，照实说反而可信；“篇篇过万”经不起一句“后台给我看看”，文章的阅读数往往还是公开的。"
+    },
+    "noshow_fix": {
+      "name": "用数据治“报名了不来”",
+      "roles": [
+        "ops"
+      ],
+      "_params": "from、to 改进前后的签到率；cause 找到的原因（一句）；attrib 怎么确认是这个改动起的作用（一句，有对照说对照，没对照要留余地）；rate_def 签到率的算法（一句，一面自我介绍的追问用）；short 用所在经历的",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}怎么把签到率从{hl.from}提到{hl.to}。",
+        "face": "probe",
+        "line": "好，先说问题在哪。",
+        "followup": {
+          "text": "签到率低，你判断问题出在哪一环？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "{hl.cause}",
+              "face": "probe",
+              "line": "那我追一句。",
+              "followup": {
+                "text": "签到率涨了，你怎么知道是这个调整起的作用，不是别的原因？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.attrib}",
+                    "face": "pleased",
+                    "line": "嗯，没对照就不说满，挺好。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "应该是几方面一起起的作用，具体各占多少，很难分清。",
+                    "face": "nod",
+                    "line": "嗯，至少没说满。"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "其他条件都和去年一样，唯一的变化就是这个，所以全是它的功劳。",
+                    "face": "frown",
+                    "line": "天气、考试周，也都一样？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "主要是宣传没跟上，很多人报了名以后，到了当天就忘了。",
+              "face": "calm",
+              "line": "忘了？那提醒一下就够了？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -5,
+              "text": "活动撞上了考试周，大家都来不了，这个我们控制不了。",
+              "face": "frown",
+              "line": "那今年就不撞了？"
+            }
+          ]
+        }
+      },
+      "explain": "签到率低就加大宣传，是很常见的误判；先用数据找到人在哪一环流失，再对症改。改完数字变好了，还要问一句“是不是它的功劳”：没有对照组时，把数拆到更细的单位看，再把话说得留有余地，比一口咬定“全是它的功劳”可信得多。"
+    },
+    "voice_vs_data": {
+      "name": "分清个别抱怨和普遍问题",
+      "roles": [
+        "ops"
+      ],
+      "_params": "finding 发现的问题（名词短语）；ops_evidence_scoped 支撑它普遍的比例，再带半句样本的局限、真实占比还要看什么（一句，填好不超过 35 字）；ops_move 产品改不了时运营能先做的事（一句）",
+      "pitch": {
+        "type": "bold",
+        "text": "讲“{hl.finding}”：我怎么确认它不是几个人在抱怨。",
+        "face": "probe",
+        "line": "好，你怎么确认的？",
+        "followup": {
+          "text": "你怎么确定这是普遍问题？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "{hl.ops_evidence_scoped}",
+              "face": "probe",
+              "line": "嗯，有比例。再问一句。",
+              "followup": {
+                "text": "换成运营的位置：产品一时改不了，你能先做什么？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.ops_move}",
+                    "face": "pleased",
+                    "line": "嗯，先补上，再看数。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "把问题反馈给产品，催他们尽快排期改掉，改完再通知用户。",
+                    "face": "calm",
+                    "line": "催完之前呢？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "做个活动，奖励用户去点那个入口，点的人一多，问题自然就解决了。",
+                    "face": "frown",
+                    "line": "领完奖励，下次还找得到吗？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "好几个用户说的原话都一模一样，肯定不是个别人的问题。",
+              "face": "calm",
+              "line": "好几个是几个？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -5,
+              "text": "产品经理也觉得这里有问题，大家意见一致就定了。",
+              "face": "frown",
+              "line": "那你的研究起了什么作用？"
+            }
+          ]
+        }
+      },
+      "explain": "运营每天都收到用户的声音，难的是分清个别抱怨和普遍问题：拿得出比例，比说“很多用户”有力得多。但访谈和可用性测试的人数少，只能说明问题确实存在、大概不轻，真实占比还要看埋点数据，话要说得留有余地。产品一时改不了，运营能做的是低成本地先补上，比如在用户卡住的那一步给引导，再看数据有没有变化；用奖励让人去点一次入口，数字好看了，问题还在。"
+    },
+    "ops_tooling": {
+      "name": "帮运营把重复活变成配置",
+      "roles": [
+        "ops"
+      ],
+      "_params": "pain 运营原来的麻烦（动宾短语，接在“运营”后面）；saved 改完以后省了什么（一句，以前怎样、现在怎样）",
+      "pitch": {
+        "type": "bold",
+        "text": "讲运营{hl.pain}，我是怎么帮他们省掉这一步的。",
+        "face": "probe",
+        "line": "这个我关心，说说。",
+        "followup": {
+          "text": "改完以后，运营那边具体省了什么？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "{hl.saved}",
+              "face": "pleased",
+              "line": "嗯，懂运营的痛。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "省了不少时间，运营同事都说方便多了，挺满意的。",
+              "face": "calm",
+              "line": "省了多少？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "改活动从三天缩到了十分钟，效率提升了几十倍。",
+              "face": "frown",
+              "line": "几十倍是怎么算的？"
+            }
+          ]
+        }
+      },
+      "explain": "技术背景做运营，能讲出自己帮运营省掉了哪一步，比说“我懂技术”有用。被问效果时，说清以前怎样、现在怎样就够了；没量过的倍数，一追问就站不住。"
+    },
+    "event_rescue": {
+      "name": "活动当天出状况、现场救场",
+      "roles": [
+        "ops"
+      ],
+      "_params": "incident 出了什么状况（名词短语，接在“当天”后面）；fix 第一个动作和理由（一句）；after 损失和事后补的流程（一句，照实说损失）；short 用所在经历的",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}当天{hl.incident}，我是怎么救回来的。",
+        "face": "probe",
+        "line": "说说看。",
+        "followup": {
+          "text": "当时你第一个动作是什么？为什么先做它？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "{hl.fix}",
+              "face": "probe",
+              "line": "那代价呢？",
+              "followup": {
+                "text": "救回来了。有没有损失？事后改了什么？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.after}",
+                    "face": "pleased",
+                    "line": "嗯，损失和补救都说清了。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "基本没什么损失，大家都说处理得挺好的，流程也不用改。",
+                    "face": "calm",
+                    "line": "一点损失都没有？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "没有损失，反而因为这件事，活动效果比预期还好。",
+                    "face": "frown",
+                    "line": "出了状况，效果还更好？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "先在群里道歉安抚，等大家情绪稳了再想办法。",
+              "face": "calm",
+              "line": "道歉之后呢？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "先查清是谁的责任、哪个环节出的错，免得事后说不清。",
+              "face": "frown",
+              "line": "活动还在进行呢。"
+            }
+          ]
+        }
+      },
+      "explain": "讲救场，先说止损的那个动作和为什么先做它，再说损失和事后补了什么流程。先追责是最常见的错，活动还在跑；被问代价时说“一点损失都没有”，反而不像真事。"
+    },
+    "community_activation": {
+      "name": "社群从冷清到活跃",
+      "roles": [
+        "ops"
+      ],
+      "_params": "before、after 前后的活跃情况（短语，比如“每天几个人说话”）；move 起作用的做法（一句）；short 用所在经历的",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.short}的群，怎么从{hl.before}变成{hl.after}。",
+        "face": "probe",
+        "line": "好，靠的是什么？",
+        "followup": {
+          "text": "群活跃起来，主要靠的是什么？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "delta": 9,
+              "text": "{hl.move}",
+              "face": "pleased",
+              "line": "嗯，先给价值。"
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "主要靠每天发红包和打卡，大家来领就活跃了。",
+              "face": "calm",
+              "line": "红包停了呢？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "群里人多了自然就活跃，我主要是拼命拉人进群。",
+              "face": "frown",
+              "line": "人多了就会说话？"
+            }
+          ]
+        }
+      },
+      "explain": "社群活跃靠的是群里有成员用得上的东西：固定的内容、能解决问题的人。红包和打卡能把数字拉起来，一停就回去；只顾拉人，群只会更快变成广告群。"
+    }
+  },
+  "skill_probes": {
+    "opp_copy_master": {
+      "tag": "专业",
+      "text": "你写了精通文案。现场来一条：毕业季论文润色活动的推送标题，你怎么写？",
+      "options": [
+        {
+          "id": "opp_cp_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "“论文改到第 8 版了？润色会员半价，到 6 月底。”",
+          "face": "nod",
+          "line": "嗯，痛点和期限都有。"
+        },
+        {
+          "id": "opp_cp_b",
+          "type": "bold",
+          "text": "先问发给谁：毕业生和低年级怕的东西不一样，标题也不同。",
+          "face": "probe",
+          "line": "发给毕业生。",
+          "followup": {
+            "text": "发给毕业生。写一条，再说说你怎么判断它好不好。",
+            "options": [
+              {
+                "id": "opp_cp_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "“答辩前最后改一遍？润色半价到月底”，再测两版。",
+                "face": "pleased",
+                "line": "嗯，写完知道要测。"
+              },
+              {
+                "id": "opp_cp_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "“毕业季大促！全场五折！”，简单直接，大家一眼就能看懂。",
+                "face": "calm",
+                "line": "谁的毕业季大促？"
+              },
+              {
+                "id": "opp_cp_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "“AI 一键降重，保你查重通过”，毕业生最怕的就是查重。",
+                "face": "frown",
+                "line": "这句发出去，我们要出事的。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "opp_cp_c",
+          "type": "off",
+          "delta": -1,
+          "text": "“跃迁 AI 写作助手全新升级，功能更强大。”",
+          "face": "calm",
+          "line": "用户为什么要点开？"
+        },
+        {
+          "id": "opp_cp_d",
+          "type": "off",
+          "delta": -3,
+          "text": "“全网最好用的 AI 润色，限时五折。”",
+          "face": "frown",
+          "line": "“最好用”能这么写吗？"
+        }
+      ],
+      "explain": "写了“精通文案”，面试官多半会让你当场写一条。好标题一般有三样：戳中的痛点、明确的好处、现在就点的理由；写之前先问清发给谁，写完要能测。“全网最好用”这类绝对化用语，广告法有明确限制；暗示“降重”“保过查重”，既是做不到的承诺，也会把产品往学术不端上引，对写作产品是大忌。只罗列功能的标题像产品说明书，用户找不到点开的理由。"
+    },
+    "opp_event_master": {
+      "tag": "专业",
+      "text": "你写了精通活动策划。问个细的：线下讲座只有 200 个座位，报名放多少人？",
+      "options": [
+        {
+          "id": "opp_ev_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "报名卡在 200，满了开候补，有人取消就按顺序补上。",
+          "face": "nod",
+          "line": "稳，就是可能空着一片座。"
+        },
+        {
+          "id": "opp_ev_b",
+          "type": "bold",
+          "text": "看往年的到场率，按比例多放一些名额，再备好分流。",
+          "face": "probe",
+          "line": "那我给你个意外。",
+          "followup": {
+            "text": "你放了 300 个名额，结果那天来了 250 人。怎么办？",
+            "options": [
+              {
+                "id": "opp_ev_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "按核定人数入场，多出的引到分会场或看直播，再补个福利。",
+                "face": "pleased",
+                "line": "嗯，有预案。"
+              },
+              {
+                "id": "opp_ev_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "请后来的同学先回去，下次活动给他们留优先报名的名额。",
+                "face": "calm",
+                "line": "人都到门口了。"
+              },
+              {
+                "id": "opp_ev_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "按往年的到场率不会来这么多，概率太小，现场不用备方案。",
+                "face": "frown",
+                "line": "概率小，不是不会发生。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "opp_ev_c",
+          "type": "off",
+          "delta": -3,
+          "text": "报名不设上限，人越多越热闹，过道和后排都能站人。",
+          "face": "frown",
+          "line": "两百个座，来四百人呢？"
+        }
+      ],
+      "explain": "线下活动报了名的人不会全来，按往年的到场率多放一些名额，座位才不会空着，和航班超售是一个道理。但多放就要备好“来多了”的预案：按场地核定的人数入场，多出来的引到分会场或线上直播，再补个小福利；加站位、让人挤在过道里，会超出核定人数、堵住疏散通道，不合消防要求。只按座位数放，稳是稳，常常空出一片；不设上限，是在赌现场不出事。"
+    }
+  },
+  "background": [
+    {
+      "id": "bgo_master_ops",
+      "pools": [
+        "founder",
+        "hr",
+        "director",
+        "panel"
+      ],
+      "priority": 45,
+      "when": {
+        "role": "ops",
+        "degree": "master"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你是{bg.major_degree}，来做{role.name}，不觉得可惜吗？",
+        "options": [
+          {
+            "id": "bgo_ms_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.ops_why|想清楚了：我更想对“做出来有多少人用”负责。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgo_ms_b",
+            "type": "bold",
+            "text": "不可惜：懂技术的运营少见，能自己取数、做小工具。",
+            "face": "probe",
+            "line": "那我再问一句。",
+            "followup": {
+              "text": "要是两年后你觉得还是写代码好，会不会回去？",
+              "options": [
+                {
+                  "id": "bgo_ms_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "可能会想，但我想负责的是增长这个结果，这个两年变不了。",
+                  "face": "pleased",
+                  "line": "嗯，想得挺清楚。"
+                },
+                {
+                  "id": "bgo_ms_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "说不准，到时候看哪边的机会更好、钱更多吧。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "bgo_ms_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "不会，代码我早就不想写了，以后也不会再碰，这点能保证。",
+                  "face": "frown",
+                  "line": "读了几年研，一下都不碰？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgo_ms_c",
+            "type": "off",
+            "delta": -3,
+            "text": "硕士找开发太卷了，运营的竞争小一些，机会多。",
+            "face": "frown",
+            "line": "运营竞争小？"
+          }
+        ],
+        "explain": "硕士来做运营，这个问题多半会追到两处：是不是退而求其次，会不会干两年就回去。讲清你要对什么结果负责，比讲哪边卷不卷有说服力；“以后再也不碰代码”话说得太满，和几年的投入对不上，反而不像真心话。"
+      }
+    },
+    {
+      "id": "bgo_tech_to_ops",
+      "pools": [
+        "founder",
+        "hr",
+        "director",
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "ops",
+        "major_kind": "tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你学{bg.major_short}的，为什么不做开发，来做运营？",
+        "options": [
+          {
+            "id": "bgo_tt_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.ops_why|做项目时发现，比起代码怎么写，我更在意做出来有多少人用。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgo_tt_b",
+            "type": "bold",
+            "text": "想做懂技术的运营：能自己取数、搭简单页面，不用事事排期。",
+            "face": "probe",
+            "line": "那我问个具体的。",
+            "followup": {
+              "text": "和产品、研发打交道时，你的技术背景用在哪？",
+              "options": [
+                {
+                  "id": "bgo_tt_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "提需求前先想清楚成本和边界，研发一听就知道我要什么。",
+                  "face": "pleased",
+                  "line": "嗯，研发会喜欢你。"
+                },
+                {
+                  "id": "bgo_tt_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "主要是沟通顺一点，开会时能听懂他们在说什么。",
+                  "face": "calm",
+                  "line": "能听懂只是起点。"
+                },
+                {
+                  "id": "bgo_tt_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "研发说做不了的时候，我能看代码判断他是不是在推脱。",
+                  "face": "frown",
+                  "line": "你打算去拆穿研发？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgo_tt_c",
+            "type": "off",
+            "delta": -3,
+            "text": "开发太累了，天天加班改 bug，运营相对轻松一点。",
+            "face": "frown",
+            "line": "运营轻松？活动期间你试试。"
+          }
+        ],
+        "explain": "技术背景转运营，这个问题多半会追到两处：是想清楚了才来，还是在躲写代码；技术背景能不能变成优势。能自己取数、提需求时想清成本，是实打实的长处；把它当成拆穿研发的本事，这个回答可能让面试官关注到你好不好合作。说运营“轻松”，是对这份工作最大的误解。"
+      }
+    },
+    {
+      "id": "bgo_cross_ops",
+      "pools": [
+        "founder",
+        "hr",
+        "director",
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "ops",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "学{bg.major}的，为什么来做运营？没考虑过做{role.switch_to}吗？",
+        "options": [
+          {
+            "id": "bgo_cr_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.ops_why|做过一段和运营有关的事，发现我喜欢看自己的动作变成数据。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgo_cr_b",
+            "type": "bold",
+            "text": "考虑过。但做{cite.short}那段，我发现自己更喜欢天天看反馈、马上改。",
+            "requires": {
+              "exp_type": "media_ops"
+            },
+            "face": "probe",
+            "line": "那我追问一句。",
+            "fallback": {
+              "id": "bgo_cr_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "考虑过，但我更喜欢离用户近、天天能看到反馈的活。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "产品也天天看数据。你觉得运营和产品差在哪？",
+              "options": [
+                {
+                  "id": "bgo_cr_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "产品决定做什么，运营负责让做好的东西被用起来、用下去。",
+                  "face": "pleased",
+                  "line": "嗯，分得清。"
+                },
+                {
+                  "id": "bgo_cr_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "产品偏规划，运营偏执行，运营的活要杂一些、琐碎一些。",
+                  "face": "calm",
+                  "line": "只是更杂？"
+                },
+                {
+                  "id": "bgo_cr_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "差不多，运营做两年熟悉了业务，就能转去做产品。",
+                  "face": "frown",
+                  "line": "那你是来过渡的？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgo_cr_c",
+            "type": "off",
+            "delta": -3,
+            "text": "产品岗不好进，先做运营，有机会再转过去。",
+            "face": "frown",
+            "line": "那你在这儿打算待多久？"
+          }
+        ],
+        "explain": "跨专业来做运营，要讲清的是你为什么选这个岗位，而不只是为什么离开原来的专业。拿一件真做过的事讲动机最有力；分不清运营和产品，或者把运营当成转产品的跳板，这样答，面试官多半会接着问“那你打算待多久”。"
+      }
+    },
+    {
+      "id": "bgo_why_startup",
+      "pools": [
+        "founder"
+      ],
+      "priority": 10,
+      "when": {
+        "role": "ops"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "为什么想来创业公司做运营，不去大厂？",
+        "options": [
+          {
+            "id": "bgo_ws_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "这里一个人管一整段，能更快看到自己做的事带来什么。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgo_ws_b",
+            "type": "bold",
+            "text": "大厂里多半只管一个环节，这里能从头到尾对一个数负责。",
+            "face": "probe",
+            "line": "那风险呢？",
+            "followup": {
+              "text": "创业公司可能撑不过两年，你想过吗？",
+              "options": [
+                {
+                  "id": "bgo_ws_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "想过，会先问清能撑多久；就算没成，练出的本事也带得走。",
+                  "face": "pleased",
+                  "line": "嗯，想得挺实际。"
+                },
+                {
+                  "id": "bgo_ws_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "没想那么多，我觉得你们发展得挺好的，产品我也在用。",
+                  "face": "calm",
+                  "line": "挺好是哪里好？"
+                },
+                {
+                  "id": "bgo_ws_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不担心，你们都拿到 B 轮了，账上的钱肯定够花好几年。",
+                  "face": "frown",
+                  "line": "B 轮就肯定没问题？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgo_ws_c",
+            "type": "off",
+            "delta": -3,
+            "text": "大厂没投上，创业公司门槛低一些，先进来练两年再说。",
+            "face": "frown",
+            "line": "那你待得住吗？"
+          }
+        ],
+        "explain": "问为什么选创业公司，多半会追到两处：想不想要这里的“全链路”，有没有想过风险。说清想要什么、也想过最坏的情况，最可信；“拿了 B 轮肯定没问题”，是把风险想得太轻。"
+      }
+    }
+  ],
+  "pools": [
+    {
+      "id": "uo1_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "ops"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先简单介绍一下自己吧，一分钟以内。",
+        "options": [
+          {
+            "id": "uo1_in_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一句背景，再挑两段和运营最相关的经历，各讲一个结果。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "uo1_in_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间线讲：学校、实习、社团、项目，每段都带一句。",
+            "face": "calm",
+            "line": "嗯……重点是哪段？"
+          },
+          {
+            "id": "uo1_in_b",
+            "type": "bold",
+            "text": "只讲一件事：{cite.short}的签到率是怎么提上来的。",
+            "requires": {
+              "highlight": "noshow_fix"
+            },
+            "face": "probe",
+            "line": "好，那我先问一句。",
+            "fallback": {
+              "id": "uo1_in_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "只讲两件事：做过的最像运营的一件事，和我为什么想做运营。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "签到率这个数，你是怎么算的？分母是谁？",
+              "options": [
+                {
+                  "id": "uo1_in_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{cite.rate_def}",
+                  "face": "pleased",
+                  "line": "嗯，口径清楚。"
+                },
+                {
+                  "id": "uo1_in_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "大概估的，现场看着坐了八成左右，比去年满多了。",
+                  "face": "calm",
+                  "line": "看着？"
+                },
+                {
+                  "id": "uo1_in_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "到场人数除以场地座位数，今年的场次基本都坐满了。",
+                  "face": "frown",
+                  "line": "那是上座率吧？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "uo1_in_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲专业：{bg.major}都学些什么，再讲经历。",
+            "face": "calm",
+            "line": "嗯……我们直接聊经历吧。"
+          }
+        ],
+        "explain": "自我介绍里讲到的，多半就是后面追问的起点。按重要性挑两段、各讲一个结果最稳；按时间线一样不落，信息多却没有重点。只讲一件事，等于替面试官选好了追问方向，前提是你经得起问。运营面试常从一个数的口径问起：签到率的分母是报名人数；拿到场人数除以座位数，算出来的是上座率，是另一个数。"
+      }
+    },
+    {
+      "id": "uo1_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "ops",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了。你有什么想问我的？",
+        "options": [
+          {
+            "id": "uo1_rv_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "运营组现在最想解决的是哪个数？拉新、留存还是付费？",
+            "face": "pleased",
+            "line": "留存。新用户来了用一次就走……"
+          },
+          {
+            "id": "uo1_rv_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "运营组现在几个人？各自管哪块？",
+            "face": "nod",
+            "line": "算上我两个，你进来就是第三个。"
+          },
+          {
+            "id": "uo1_rv_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "运营岗的期权大概能给多少？",
+            "face": "calm",
+            "line": "这个你问创始人吧。"
+          },
+          {
+            "id": "uo1_rv_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问团队最想解决的那个数，等于提前拿到了进去之后的考题；问团队分工也是好问题，只是信息量小一些；期权、薪资这类问题，业务面试官多半答不了，留到和创始人谈的时候再问。"
+      }
+    },
+    {
+      "id": "uo1_q_segment",
+      "pools": [
+        "ops_growth"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "我们有 20 万注册用户，做用户运营的只有一个人。你会怎么给用户分层？",
+        "options": [
+          {
+            "id": "uo1_sg_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "按活跃程度和是否付费，先分四五层，每层只配一种动作。",
+            "face": "nod",
+            "line": "嗯，一个人也做得过来。"
+          },
+          {
+            "id": "uo1_sg_b",
+            "type": "bold",
+            "text": "按离付费有多远分：新用户、活跃免费、付费、沉睡。",
+            "face": "probe",
+            "line": "那我出个题。",
+            "followup": {
+              "text": "沉睡用户有 12 万，短信预算只够发 3 万条。你发给谁？",
+              "options": [
+                {
+                  "id": "uo1_sg_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "挑以前用得多、最近一两个月才不来的，先发几千条看回流。",
+                  "face": "pleased",
+                  "line": "嗯，先挑人，再小量试。"
+                },
+                {
+                  "id": "uo1_sg_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "随机抽 3 万人发，这样最公平，回流结果也最有代表性。",
+                  "face": "calm",
+                  "line": "这是召回，不是做调查。"
+                },
+                {
+                  "id": "uo1_sg_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "发给最早注册的 3 万人，老用户感情深，最容易回来。",
+                  "face": "frown",
+                  "line": "最早注册的，可能早忘了我们。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "uo1_sg_c",
+            "type": "off",
+            "delta": -3,
+            "text": "人手不够，先不分层，所有人统一推送最省事。",
+            "face": "frown",
+            "line": "一个人也得分。"
+          },
+          {
+            "id": "uo1_sg_d",
+            "type": "off",
+            "delta": -1,
+            "text": "用 RFM 模型，按最近一次、频率、金额打分，分成八类。",
+            "face": "calm",
+            "line": "八类，一个人运营得过来？"
+          }
+        ],
+        "explain": "分层要和人手匹配：一个人运营，分四五层、每层一个动作就够了。RFM 分成八类是常用做法，可一个人配不过来八套动作。召回预算有限时，先挑“以前用得多、最近才不来”的人，他们最可能回来；再小批量试发，看回流率决定要不要加量。最早注册的用户，往往是流失最久的那批。"
+      }
+    },
+    {
+      "id": "uo1_q_channel",
+      "pools": [
+        "ops_growth"
+      ],
+      "priority": 50,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "我们拉新投了三路：某短视频平台、某图文种草平台、校园大使。下个月只够投两路，砍哪个？",
+        "options": [
+          {
+            "id": "uo1_ch_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "比每路的获客成本，再看来的人七天后还剩多少。",
+            "face": "nod",
+            "line": "嗯，不只看单价。"
+          },
+          {
+            "id": "uo1_ch_b",
+            "type": "bold",
+            "text": "看每路拉来一个付费用户花多少，不看注册单价。",
+            "face": "probe",
+            "line": "好，那我加点料。",
+            "followup": {
+              "text": "校园大使拉来的付费用户最便宜。可不少人是先刷到短视频，再被大使拉去注册的。这算谁的？",
+              "options": [
+                {
+                  "id": "uo1_ch_b1",
+                  "type": "bold",
+                  "text": "只按最后一步算，会高估大使、低估短视频，得换个算法。",
+                  "face": "probe",
+                  "line": "怎么换？",
+                  "followup": {
+                    "text": "那你怎么知道，短视频到底带来了多少人？",
+                    "options": [
+                      {
+                        "id": "uo1_ch_b1a",
+                        "type": "hold",
+                        "delta": 12,
+                        "text": "挑几个城市先停投一周短视频，看那里的新增掉了多少。",
+                        "face": "pleased",
+                        "line": "嗯，停投测增量，实打实。"
+                      },
+                      {
+                        "id": "uo1_ch_b1b",
+                        "type": "partial",
+                        "delta": 2,
+                        "text": "注册时加一题“从哪知道我们的”，按用户自己选的算。",
+                        "face": "nod",
+                        "line": "能参考，但用户记不准。"
+                      },
+                      {
+                        "id": "uo1_ch_b1c",
+                        "type": "fail",
+                        "delta": -9,
+                        "text": "三路平分功劳，每路各算三分之一，这样最公平。",
+                        "face": "frown",
+                        "line": "公平和准，是两回事。"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "uo1_ch_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "注册是在大使那一步完成的，就算大使的，规则清楚。",
+                  "face": "calm",
+                  "line": "那短视频的钱白花了？"
+                },
+                {
+                  "id": "uo1_ch_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "说明短视频没用，人最后都是大使拉的，砍短视频。",
+                  "face": "frown",
+                  "line": "没刷到短视频，他会注册吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "uo1_ch_c",
+            "type": "off",
+            "delta": -3,
+            "text": "砍掉注册单价最高的那路，最贵的肯定效果最差。",
+            "face": "frown",
+            "line": "贵的那路，来的人可能最肯付费。"
+          }
+        ],
+        "explain": "比渠道不能只看注册单价，要看拉来的人留不留得下、付不付费。归因是第二层：只按最后一步算，会高估“临门一脚”的渠道、低估先让人知道你的渠道；平分功劳听着公平，一样说明不了谁真正起了作用。要知道一个渠道到底带来多少，实在的办法是在一部分地区停投一段时间，看新增掉了多少。注册时问“从哪知道我们”可以参考，但用户自己也常记不准。"
+      }
+    },
+    {
+      "id": "ops_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "ops"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你有什么想问我的吗？",
+        "options": [
+          {
+            "id": "opsr_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "这个岗位今年最看重哪个数？怎么算达标？",
+            "face": "pleased",
+            "line": "看留存，具体的口径进来再细说……"
+          },
+          {
+            "id": "opsr_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "运营组现在几个人？内容、活动、用户是分开的吗？",
+            "face": "nod",
+            "line": "分开的，你进来先跟活动。"
+          },
+          {
+            "id": "opsr_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "运营岗平时加班多吗？周末要值班吗？",
+            "face": "calm",
+            "line": "活动期间会忙一些。"
+          },
+          {
+            "id": "opsr_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问这个岗位最看重哪个数、怎么算达标，等于提前拿到了进去之后的考题；问团队分工也是好问题，只是信息量小一些；加班和值班可以问，但放在业务面的最后一问，可能让面试官关注到你最在意的是这个，留到 HR 面问更合适。"
+      }
+    },
+    {
+      "id": "opx_intro_chain",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "ops"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "请用一段运营经历介绍自己，重点讲目标、你做的动作和结果。",
+        "options": [
+          {
+            "id": "opx_intro_chain_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先交代目标与职责，再讲动作、结果和局限。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "opx_intro_chain_b",
+            "type": "bold",
+            "text": "挑一个影响结果的判断，说明依据和复盘。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "活动效果不错，但同时增加了投放预算，如何说明自己的作用？",
+              "options": [
+                {
+                  "id": "opx_intro_chain_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按证据拆分投放与本人动作的贡献，说明局限。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "opx_intro_chain_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先讲总增长，再说明期间也有投放支持。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "opx_intro_chain_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "我负责活动执行，整体增长可以作为我的直接产出。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "运营介绍需要将目标、个人动作与结果连接，同时区分团队资源和个人贡献。增加预算可能影响结果，不能全部归因于执行。说明自己做过的判断、核对方式和归因限制，比只展示曝光规模或团队增长更便于判断能力。"
+            }
+          },
+          {
+            "id": "opx_intro_chain_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先列活动规模、曝光和参与人数，再介绍团队分工。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "运营介绍需要将目标、个人动作与结果连接，同时区分团队资源和个人贡献。增加预算可能影响结果，不能全部归因于执行。说明自己做过的判断、核对方式和归因限制，比只展示曝光规模或团队增长更便于判断能力。"
+      }
+    },
+    {
+      "id": "opx_reverse_feedback",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "ops"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "最后，你想了解这个运营岗位的哪些事情？",
+        "options": [
+          {
+            "id": "opx_reverse_feedback_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "一次活动从定目标到复盘，本岗负责哪些决策？",
+            "face": "nod",
+            "line": "可以，我们介绍实际分工。"
+          },
+          {
+            "id": "opx_reverse_feedback_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "和产品共同承担留存目标时，怎样拆责任与改进？",
+            "face": "nod",
+            "line": "我们说明协商与反馈方式。"
+          },
+          {
+            "id": "opx_reverse_feedback_2",
+            "type": "reverse",
+            "delta": 1,
+            "text": "平台有哪些资源位，历史最好活动成绩怎样？",
+            "face": "nod",
+            "line": "可以介绍，但还要看本岗位能承担什么。"
+          }
+        ],
+        "explain": "运营反问可核对职责、资源和反馈机制。共同目标不等于每个岗位拥有全部决策权，需了解分工与协商方式。预算、资源位和历史成绩能补充背景，却不能代替新人具体任务和改进路径。",
+        "kind": "reverse"
+      }
+    },
+    {
+      "id": "opx_lifecycle",
+      "pools": [
+        "ops_growth"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "准备给沉默用户发召回消息，怎么避免所有人收到同一种内容？",
+        "options": [
+          {
+            "id": "opx_lifecycle_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "按流失阶段和近期任务分组，先选有明确理由的人。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "opx_lifecycle_b",
+            "type": "bold",
+            "text": "先判断为何不再使用，再匹配触达和不打扰策略。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "一批用户已经完成一次性任务，暂时没有后续需求呢？",
+              "options": [
+                {
+                  "id": "opx_lifecycle_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "减少无关触达，保留主动订阅和真正相关的提醒。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "opx_lifecycle_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "换成低频优惠推送，等待新的使用意愿。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "opx_lifecycle_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "把优惠加大到五折，先让用户回来，再慢慢寻找新需求。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "沉默不一定等于可挽回的流失，一次性任务完成者可能没有当前需求。分层应结合任务与原因，而非只看未登录天数。触达要符合用户偏好与产品规则，同时观察回流后的价值和打扰反馈；单纯加优惠可能制造低质量回流。"
+            }
+          },
+          {
+            "id": "opx_lifecycle_c",
+            "type": "off",
+            "delta": -3,
+            "text": "按沉默 7 天、30 天、90 天设三档优惠，统一推送后看回流率。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "沉默不一定等于可挽回的流失，一次性任务完成者可能没有当前需求。分层应结合任务与原因，而非只看未登录天数。触达要符合用户偏好与产品规则，同时观察回流后的价值和打扰反馈；单纯加优惠可能制造低质量回流。"
+      }
+    },
+    {
+      "id": "opx_channel_value",
+      "pools": [
+        "ops_growth"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "两个渠道带来的注册成本相近，你会怎样决定下阶段投入？",
+        "options": [
+          {
+            "id": "opx_channel_value_c",
+            "type": "off",
+            "delta": -3,
+            "text": "选注册规模更大的渠道，规模更容易带来增长。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          },
+          {
+            "id": "opx_channel_value_b",
+            "type": "bold",
+            "text": "按同批用户和相同窗口比较有价值的后续行为。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "一个渠道用户进入更晚，还没走完七天观察期，怎么比？",
+              "options": [
+                {
+                  "id": "opx_channel_value_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先按当前留存高低分预算，后面再逐步修正。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "opx_channel_value_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "新用户没回来就算流失，统一按同一自然日统计。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                },
+                {
+                  "id": "opx_channel_value_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "用完整可比批次，未成熟数据标注并等待补齐。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                }
+              ],
+              "explain": "渠道评估要统一用户批次、观察窗口、行为口径与成本范围。进入时间不同的用户不能直接比较七天留存，未成熟数据需要标注，不能当流失。规模和低注册成本只能描述获客前段，后续激活、价值与可持续性才支持预算取舍。"
+            }
+          },
+          {
+            "id": "opx_channel_value_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "看后续激活、留存和真实成本，不只比较注册量。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          }
+        ],
+        "explain": "渠道评估要统一用户批次、观察窗口、行为口径与成本范围。进入时间不同的用户不能直接比较七天留存，未成熟数据需要标注，不能当流失。规模和低注册成本只能描述获客前段，后续激活、价值与可持续性才支持预算取舍。"
+      }
+    }
+  ]
+}

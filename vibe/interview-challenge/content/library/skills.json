@@ -1,0 +1,29 @@
+{
+  "_note": "技能表：每项技能在各岗位的技能栏里是否对口、带哪些岗位关键词（机器筛用），以及按水平写的标签（1 了解、2 熟练、3 精通）。人设档案里记的是真实水平；技能栏里的标签按真实水平给，另外对有“精通”追问的技能，多给一个“精通”标签当诱饵（同一项技能的两个标签只能选一个）。技能栏写了“精通”就会被追问（不管真实水平，这一题本来就是练真本事；真实水平是精通的人设，按水平给的标签就是“精通”，同样会被问），追问题在 probes.json，岗位线用 skill_probe_order 定先问哪项、skill_probes 定用哪道。",
+  "skills": {
+    "html_css": {"labels": {"1": "了解 HTML / CSS", "2": "熟悉 HTML / CSS", "3": "精通 HTML / CSS"}, "roles": {"fe": {"relevant": true, "keywords": ["HTML", "CSS"]}}},
+    "js": {"labels": {"1": "了解 JavaScript", "2": "熟悉 JavaScript / ES6+", "3": "精通 JavaScript"}, "roles": {"fe": {"relevant": true, "keywords": ["JavaScript"]}}, "master_probes": ["probe_js_proto", "probe_js_float"]},
+    "ts": {"labels": {"1": "了解 TypeScript", "2": "熟悉 TypeScript", "3": "精通 TypeScript"}, "roles": {"fe": {"relevant": true, "keywords": ["TypeScript"]}}},
+    "vue": {"labels": {"1": "了解 Vue", "2": "熟悉 Vue 3", "3": "精通 Vue 3 源码"}, "roles": {"fe": {"relevant": true, "keywords": ["Vue"]}}, "master_probes": ["probe_vue_source"]},
+    "react": {"labels": {"1": "了解 React", "2": "熟悉 React", "3": "精通 React"}, "roles": {"fe": {"relevant": true, "keywords": ["React"]}}, "master_probes": ["probe_react_master"]},
+    "mp": {"labels": {"1": "了解微信小程序开发", "2": "熟悉微信小程序开发"}, "roles": {"fe": {"relevant": true, "keywords": ["小程序"]}}},
+    "build": {"labels": {"1": "会用 Vite / Webpack 做基础配置", "2": "熟悉 Vite / Webpack 构建配置"}, "roles": {"fe": {"relevant": true, "keywords": ["Vite", "Webpack"]}}},
+    "node": {"labels": {"1": "了解 Node.js", "2": "熟悉 Node.js"}, "roles": {"fe": {"relevant": true, "keywords": ["Node.js"]}}},
+    "perf": {"labels": {"1": "了解前端性能优化", "2": "熟悉前端性能优化"}, "roles": {"fe": {"relevant": true, "keywords": ["性能优化"]}}},
+    "viz": {"labels": {"1": "了解 ECharts / Canvas", "2": "熟悉 ECharts / Canvas 数据可视化"}, "roles": {"fe": {"relevant": true, "keywords": ["ECharts", "Canvas"]}}},
+    "algo": {"labels": {"1": "学过数据结构与算法", "2": "扎实的数据结构与算法基础"}, "roles": {"fe": {"relevant": true, "keywords": ["算法"]}}},
+    "deploy": {"labels": {"1": "会用 Linux 和 Nginx 部署前端", "2": "熟悉 Linux 和 Nginx 部署"}, "roles": {"fe": {"relevant": true, "keywords": ["Nginx"]}}},
+    "git": {"labels": {"1": "会用 Git", "2": "熟悉 Git 团队协作"}, "roles": {"fe": {"relevant": false, "keywords": ["Git"]}}},
+    "python": {"labels": {"1": "了解 Python", "2": "熟悉 Python / PyTorch"}, "roles": {"fe": {"relevant": false, "keywords": ["Python"]}}},
+    "research": {"labels": {"1": "了解用户研究方法", "2": "熟悉用户研究：用户访谈、问卷、可用性测试"}, "roles": {"pm": {"relevant": true, "keywords": ["用户研究", "用户访谈", "问卷", "可用性测试"]}}},
+    "data": {"labels": {"1": "会用 Excel 和 Python 做基础数据分析", "2": "熟悉 Excel 和 Python 数据分析"}, "roles": {"pm": {"relevant": true, "keywords": ["数据分析"]}}},
+    "sql": {"labels": {"1": "了解 SQL 基础查询", "2": "熟悉 SQL", "3": "精通 SQL"}, "roles": {"pm": {"relevant": true, "keywords": ["SQL"]}}, "master_probes": ["probe_sql_master"]},
+    "proto": {"labels": {"1": "会用 Axure / 墨刀画原型", "2": "熟练用 Axure / 墨刀画原型"}, "roles": {"pm": {"relevant": true, "keywords": ["原型"]}}},
+    "prd": {"labels": {"1": "了解需求分析和 PRD 撰写", "2": "熟悉需求分析和 PRD 撰写"}, "roles": {"pm": {"relevant": true, "keywords": ["需求分析", "PRD"]}}},
+    "competitor": {"labels": {"1": "了解竞品分析", "2": "熟悉竞品分析"}, "roles": {"pm": {"relevant": true, "keywords": ["竞品分析"]}}},
+    "ab": {"labels": {"1": "了解 A/B 测试", "2": "熟悉 A/B 测试设计", "3": "精通 A/B 测试设计"}, "roles": {"pm": {"relevant": true, "keywords": ["A/B 测试", "实验设计"]}}, "master_probes": ["probe_ab_master"]},
+    "exp_design": {"labels": {"1": "了解实验设计和统计检验", "2": "熟悉实验设计和统计检验"}, "roles": {"pm": {"relevant": true, "keywords": ["实验设计"]}}},
+    "html_js": {"labels": {"1": "会写简单的 HTML / JS", "2": "熟悉 HTML / JS"}, "roles": {"pm": {"relevant": true, "keywords": ["前端"]}}},
+    "office": {"labels": {"1": "会用 Office", "2": "熟练使用 Office"}, "roles": {"pm": {"relevant": false, "keywords": []}}}
+  }
+}

@@ -1,0 +1,793 @@
+{
+  "_note": "背景：学校档次、学历、专业大类怎么换算成简历分，以及按背景和特殊设定触发的题。HR 面、总监面、创始人面里有一个“背景题位”（dynamic: background，pool 写在哪类面试），按 priority 从高到低挑这个人设触发、这一局还没问过的那道；通用题（when 为空）保证总有题可问。题目里的 {bg.*}、{p.*}、{role.*} 拼装时按人设和岗位填好；{cite.*} 按简历第一页填。",
+  "school_tiers": {
+    "985": "985",
+    "211": "211",
+    "double_non": "双非"
+  },
+  "degrees": {
+    "bachelor": "本科",
+    "master": "硕士"
+  },
+  "major_groups": {
+    "cs": {
+      "name": "计算机类",
+      "kind": "tech",
+      "match": [
+        "fe",
+        "be",
+        "algo"
+      ]
+    },
+    "psych": {
+      "name": "心理学",
+      "kind": "non_tech",
+      "match": []
+    }
+  },
+  "questions": [
+    {
+      "id": "bg_cross_pm_hr",
+      "pools": [
+        "hr",
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "{bg.major}为什么转来做产品？",
+        "options": [
+          {
+            "id": "ws_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.switch_reason|接触过产品的工作后发现，我更想参与“怎么改”，不只是“发现问题”。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "ws_b",
+            "type": "bold",
+            "text": "讲{cite.short}那件事：我第一次发现自己喜欢动手解决问题。",
+            "requires": {
+              "highlight_ev": "self_taught_tool"
+            },
+            "face": "probe",
+            "line": "那我问一句。",
+            "fallback": {
+              "id": "ws_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "觉得产品更有意思，发展前景也更好。",
+              "face": "calm",
+              "line": "嗯……具体是什么让你这么觉得？"
+            },
+            "followup": {
+              "text": "喜欢动手解决问题，那为什么不去做研发？",
+              "options": [
+                {
+                  "id": "ws_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "我喜欢的是解决人的问题，代码只是那次用上的工具。",
+                  "face": "pleased",
+                  "line": "嗯，想得挺明白。"
+                },
+                {
+                  "id": "ws_b2",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "研发太难了，我数学也不太好，那个{cite.short}已经写得很吃力了。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "ws_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "研发太累了，天天加班改 bug，做产品相对轻松一点。",
+                  "face": "frown",
+                  "line": "做产品轻松？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ws_c",
+            "type": "off",
+            "delta": -3,
+            "text": "{bg.major}不太好找工作，产品岗招得多，对专业的门槛也低一些。",
+            "face": "calm",
+            "line": "嗯，挺实在，但……"
+          }
+        ],
+        "explain": "转行的理由，最怕说成“这行好找工作”。拿一件真实做过的事来讲，才更像主动选择。那段经历在简历上只写了一行的话，这里就拿不出这个故事了。"
+      }
+    },
+    {
+      "id": "bg_cross_pm_director",
+      "pools": [
+        "director"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你一个学{bg.major}的，凭什么觉得自己能做好产品？",
+        "options": [
+          {
+            "id": "wp_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.major_pitch|专业练的是理解人，正是产品要的；我做过的项目就是例子。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "wp_b",
+            "type": "bold",
+            "text": "专业不决定做不做得好，{cite.short}就是我自学做出来的。",
+            "requires": {
+              "highlight_ev": "self_taught_tool"
+            },
+            "face": "probe",
+            "line": "说说看。",
+            "fallback": {
+              "id": "wp_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "我会用最快的速度把产品方法论补上来。",
+              "face": "calm",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "自学做个网页，很多人都会。这能说明什么？",
+              "options": [
+                {
+                  "id": "wp_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "说明我会自己找办法解决问题，{cite.speedup}。",
+                  "face": "pleased",
+                  "line": "嗯，这个说服我了。"
+                },
+                {
+                  "id": "wp_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "说明我的学习能力比较强，新东西上手快，这对做产品很重要。",
+                  "face": "calm",
+                  "line": "学习能力强的人很多。"
+                },
+                {
+                  "id": "wp_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "说明我技术也不错，以后可以兼顾一些研发的活，沟通也顺。",
+                  "face": "frown",
+                  "line": "我们招的是产品。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "wp_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我会努力学习，尽快补上专业上的差距。",
+            "face": "frown",
+            "line": "大家都这么说。"
+          },
+          {
+            "id": "wp_d",
+            "type": "off",
+            "delta": -1,
+            "text": "其实专业不重要，很多优秀的产品经理也不是科班出身的。",
+            "face": "calm",
+            "line": "那你的优势在哪？"
+          }
+        ],
+        "explain": "压力题不是要你辩赢，是看你被质疑时拿不拿得出硬证据。转行的人最有力的回答，是一件自己主动解决过的真事。要是简历上那段经历写得太单薄，这时就拿不出来了。"
+      }
+    },
+    {
+      "id": "bg_cross_fe",
+      "pools": [
+        "hr",
+        "founder",
+        "director",
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "fe",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "{bg.major}为什么转来做前端？",
+        "options": [
+          {
+            "id": "cf_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.switch_reason_fe|自己动手做过网页，发现我喜欢把东西做出来给人用。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "cf_b",
+            "type": "bold",
+            "text": "讲{cite.short}那件事：没人教，我自学 JS 把它写完了。",
+            "requires": {
+              "highlight_ev": "self_taught_tool"
+            },
+            "face": "probe",
+            "line": "那我问一句。",
+            "fallback": {
+              "id": "cf_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "觉得前端做出来马上能看到效果，挺有成就感。",
+              "face": "calm",
+              "line": "嗯……还有呢？"
+            },
+            "followup": {
+              "text": "和科班出身的比，你最缺什么？怎么补？",
+              "options": [
+                {
+                  "id": "cf_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "缺计算机基础，网络和数据结构正按课表补，配着项目练。",
+                  "face": "pleased",
+                  "line": "嗯，知道缺什么，也在补。"
+                },
+                {
+                  "id": "cf_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "可能缺一些系统性，入职以后边做边补应该来得及。",
+                  "face": "calm",
+                  "line": "入职以后？"
+                },
+                {
+                  "id": "cf_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "没什么缺的，现在网上资料很多，自学完全够用。",
+                  "face": "frown",
+                  "line": "是吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cf_c",
+            "type": "off",
+            "delta": -3,
+            "text": "{bg.major}不太好找工作，前端培训几个月就能入行，机会也多。",
+            "face": "calm",
+            "line": "嗯，挺实在，但……"
+          }
+        ],
+        "explain": "转行做技术，多半会被追问两件事：是不是一时兴起，基础够不够。拿一件自己主动做成的事讲动机，再坦白说出缺什么、怎么补，最可信；说“自学完全够用”或者“培训一下就能入行”，都会让人担心你低估了这份工作。"
+      }
+    },
+    {
+      "id": "bg_tech_to_pm",
+      "pools": [
+        "hr",
+        "founder",
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm",
+        "major_kind": "tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你学{bg.major_short}的，为什么不做开发，来做产品？",
+        "options": [
+          {
+            "id": "tp_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.pm_reason|做项目时发现，比起代码怎么写，我更在意做出来有没有人用。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "tp_b",
+            "type": "bold",
+            "text": "讲{cite.kind}那几个月：我发现自己更喜欢想“做什么”。",
+            "requires": {
+              "exp_type": "intern_pm"
+            },
+            "face": "probe",
+            "line": "那我追问一句。",
+            "fallback": {
+              "id": "tp_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "觉得产品能更直接地决定做什么，比写代码更有意思。",
+              "face": "calm",
+              "line": "嗯……具体是什么让你这么想？"
+            },
+            "followup": {
+              "text": "开发出身做产品，你觉得自己的优势和短板各是什么？",
+              "options": [
+                {
+                  "id": "tp_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "优势是懂实现、估得出成本；短板是用研做得少，正在补。",
+                  "face": "pleased",
+                  "line": "嗯，看得挺清楚。"
+                },
+                {
+                  "id": "tp_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "优势是懂技术，短板……暂时想不到特别明显的。",
+                  "face": "calm",
+                  "line": "想不到？"
+                },
+                {
+                  "id": "tp_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "优势是懂技术，研发糊弄不了我；不合理的需求我能直接否掉。",
+                  "face": "frown",
+                  "line": "直接否掉？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "tp_c",
+            "type": "off",
+            "delta": -3,
+            "text": "写代码太累了，天天改 bug，做产品相对轻松一些。",
+            "face": "frown",
+            "line": "做产品轻松？"
+          }
+        ],
+        "explain": "技术背景转产品，多半会被追问两点：你是想清楚了才转，还是在躲写代码；技术背景是变成了优势，还是被拿去压研发。讲一段真实接触过产品工作的经历，再说清长处和短板，最有说服力。"
+      }
+    },
+    {
+      "id": "bg_tech_to_pm_director",
+      "pools": [
+        "director"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "pm",
+        "major_kind": "tech"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "技术出身的人做产品，常常一上来就想怎么实现。你怎么避免？",
+        "options": [
+          {
+            "id": "td_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问清用户要解决什么问题、怎么算解决了，再想实现。",
+            "face": "nod",
+            "line": "嗯，道理都懂。"
+          },
+          {
+            "id": "td_b",
+            "type": "bold",
+            "text": "讲{cite.label}里，我从技术方案退回去、先把需求问清的一次。",
+            "requires": {
+              "evidence_header": true
+            },
+            "face": "probe",
+            "line": "说说看。",
+            "fallback": {
+              "id": "td_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "我会刻意先把需求写清楚，再碰技术方案。",
+              "face": "calm",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "那次要是没退回去，会发生什么？",
+              "options": [
+                {
+                  "id": "td_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "会做出用户用不上的东西，返工比当时多问一句贵得多。",
+                  "face": "pleased",
+                  "line": "嗯，吃过亏才说得出这话。"
+                },
+                {
+                  "id": "td_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "可能也没什么，技术方案好的话，用户慢慢会适应。",
+                  "face": "calm",
+                  "line": "让用户适应你？"
+                },
+                {
+                  "id": "td_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不会有问题，我当时的技术方案本来就是最优的。",
+                  "face": "frown",
+                  "line": "那为什么还要退回去？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "td_c",
+            "type": "off",
+            "delta": -3,
+            "text": "懂实现是优势，先想清楚实现，能少走弯路。",
+            "face": "frown",
+            "line": "方向错了，走得越快越远。"
+          },
+          {
+            "id": "td_d",
+            "type": "off",
+            "delta": -1,
+            "text": "我会尽量少想技术，多听用户的。",
+            "face": "calm",
+            "line": "那技术背景不就浪费了？"
+          }
+        ],
+        "explain": "技术背景做产品，最常见的坑是先想“怎么做”、后想“做什么”。能讲出一次自己从技术方案退回去、先问清需求的真事，比讲道理有说服力；完全丢掉技术视角也不对，懂实现本来就是优势。"
+      }
+    },
+    {
+      "id": "bg_intern_not_converted",
+      "pools": [
+        "hr",
+        "founder",
+        "panel"
+      ],
+      "priority": 30,
+      "when": {
+        "trait": "intern_not_converted"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你在上一家实习了{p.intern_duration}，为什么没留下来？",
+        "options": [
+          {
+            "id": "wl_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.convert_reason}",
+            "face": "nod",
+            "line": "嗯，这种情况挺常见。"
+          },
+          {
+            "id": "wl_b",
+            "type": "bold",
+            "text": "{p.convert_short}。导师愿意给我做推荐人，需要的话可以联系他。",
+            "face": "probe",
+            "line": "好，那我顺便问一句。",
+            "followup": {
+              "text": "你觉得导师会怎么评价你？说一个他可能会提的缺点。",
+              "options": [
+                {
+                  "id": "wl_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.mentor_flaw}",
+                  "face": "pleased",
+                  "line": "嗯，这个很真实。"
+                },
+                {
+                  "id": "wl_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "他应该会说我太追求细节，有时为了一个像素拖慢进度。",
+                  "face": "calm",
+                  "line": "嗯……这个答案我听过很多次。"
+                },
+                {
+                  "id": "wl_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "应该没什么缺点，他对我评价挺高的，走的时候还请我吃了饭。",
+                  "face": "frown",
+                  "line": "一个都没有？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "wl_c",
+            "type": "off",
+            "delta": -3,
+            "text": "那边技术债太多、流程也乱，我想找个规范点的团队。",
+            "face": "frown",
+            "line": "嗯。"
+          },
+          {
+            "id": "wl_d",
+            "type": "redline",
+            "text": "说实话那边管理很乱，组长也不太会带人，留下来学不到东西。",
+            "face": "disappointed",
+            "line": "……好的，我了解了。"
+          }
+        ],
+        "explain": "实习过的人常会被问“为什么没留下”。原因说实话就好；导师愿意背书，是很强的加分项。吐槽前东家哪怕句句属实，也可能让 HR 关注到：你以后会不会也这样说我们。"
+      }
+    },
+    {
+      "id": "bg_master_phd",
+      "pools": [
+        "founder",
+        "hr",
+        "panel"
+      ],
+      "priority": 20,
+      "when": {
+        "degree": "master"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你硕士读得不错，导师没劝你读博？为什么不读？",
+        "options": [
+          {
+            "id": "zp_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.phd_reason|想了挺久，发现自己更喜欢做出来马上有人用的东西。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "zp_b",
+            "type": "bold",
+            "text": "说说做{cite.label}那段，为什么让我确定了想做{role.work}。",
+            "requires": {
+              "evidence_header": true
+            },
+            "face": "probe",
+            "line": "那我再问一句。",
+            "fallback": {
+              "id": "zp_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "说说我第一次看到自己做的东西天天有人用，是什么感觉。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "要是过两年你觉得{role.work}也就那样，会不会又想回去读博？",
+              "options": [
+                {
+                  "id": "zp_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "可能会想，但我要的是做出来有人用，这个两年变不了。",
+                  "face": "pleased",
+                  "line": "嗯，想得清楚。"
+                },
+                {
+                  "id": "zp_b2",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "说不准，到时候看情况吧，也许会，也许不会。",
+                  "face": "frown",
+                  "line": "嗯……那我们这儿是你的过渡？"
+                },
+                {
+                  "id": "zp_b3",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "不会，我对学术已经完全没兴趣了，以后也不会再碰。",
+                  "face": "calm",
+                  "line": "那你读研这几年做的研究呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "zp_c",
+            "type": "off",
+            "delta": -3,
+            "text": "读博太苦了，出来也不一定好找工作。",
+            "face": "frown",
+            "line": "那来这儿就不苦了？"
+          }
+        ],
+        "explain": "“为什么不读博”的回答，看得出你是想清楚了才来，还是退而求其次。讲你想要什么，比讲读博有多苦有说服力。说“说不准，也许会回去读博”，面试官多半会接着问这里是不是你的过渡；一口咬定“对学术完全没兴趣”，话说太满，又和你读研几年的投入对不上。"
+      }
+    },
+    {
+      "id": "bg_why_role",
+      "pools": [
+        "hr",
+        "founder",
+        "panel"
+      ],
+      "priority": 0,
+      "when": {},
+      "_note": "通用兜底题：这个人设没有触发任何背景题时问。",
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你为什么想做{role.name}？",
+        "options": [
+          {
+            "id": "wr_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "做{cite.label}时发现自己喜欢这类事，后来就有意攒相关的经历。",
+            "requires": {
+              "nth_header": 1
+            },
+            "face": "nod",
+            "line": "嗯。",
+            "fallback": {
+              "id": "wr_a0",
+              "type": "safe",
+              "delta": 1,
+              "text": "上学时接触过一些，觉得挺有意思，想认真试试。",
+              "face": "calm",
+              "line": "嗯……具体是哪件事？"
+            }
+          },
+          {
+            "id": "wr_b",
+            "type": "bold",
+            "text": "讲一件让我确定方向的具体的事，和那之后我补了什么。",
+            "face": "probe",
+            "line": "好，说说。",
+            "followup": {
+              "text": "那件事之后，你具体补了什么？",
+              "options": [
+                {
+                  "id": "wr_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.why_role_action|把缺的基础按清单补了一遍，又找了个小项目从头做完，验证自己真的喜欢。}",
+                  "face": "pleased",
+                  "line": "嗯，有行动。"
+                },
+                {
+                  "id": "wr_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "看了不少相关的书和课程，还在继续学。",
+                  "face": "calm",
+                  "line": "看了哪些？"
+                },
+                {
+                  "id": "wr_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "该补的基本都补完了，现在就差一个机会。",
+                  "face": "frown",
+                  "line": "都补完了？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "wr_c",
+            "type": "off",
+            "delta": -3,
+            "text": "这个方向缺人，好找工作，薪资也不错。",
+            "face": "calm",
+            "line": "嗯，挺实在，但……"
+          },
+          {
+            "id": "wr_d",
+            "type": "off",
+            "delta": -1,
+            "text": "其实投了好几个方向，这个是回复最快的。",
+            "face": "frown",
+            "line": "那你更想做哪个？"
+          }
+        ],
+        "explain": "“为什么做这个”问的是动机：有没有想清楚，会不会干两个月就想换。讲一件具体的事，再讲你为此补了什么，最有说服力；只讲行业好、薪资高，听起来随时会走。"
+      }
+    },
+    {
+      "id": "bg_role_fit",
+      "pools": [
+        "director"
+      ],
+      "priority": 0,
+      "when": {},
+      "_note": "通用兜底题（总监面版）。",
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你觉得自己哪一点最适合做{role.name}？说一个就行。",
+        "options": [
+          {
+            "id": "rft_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "能把模糊的事拆清楚。{cite.label}就是这么推下来的。",
+            "requires": {
+              "nth_header": 1
+            },
+            "face": "nod",
+            "line": "嗯。",
+            "fallback": {
+              "id": "rft_a0",
+              "type": "safe",
+              "delta": 1,
+              "text": "能把模糊的事拆清楚，做课程作业时就是这么做的。",
+              "face": "calm",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "rft_b",
+            "type": "bold",
+            "text": "我会追问“为什么”，举一次我追问出真问题的例子。",
+            "face": "probe",
+            "line": "说说看。",
+            "followup": {
+              "text": "你追问出来的那个真问题，最后解决了吗？",
+              "options": [
+                {
+                  "id": "rft_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "解决了一半：原因找对了，我只改了自己能改的部分。",
+                  "face": "pleased",
+                  "line": "嗯，说得很实在。"
+                },
+                {
+                  "id": "rft_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "后来项目结束了，没来得及跟进。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "rft_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "完全解决了，后来大家都说多亏我问了那一句，省了很多事。",
+                  "face": "frown",
+                  "line": "大家都这么说？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "rft_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我什么都愿意学，学东西也快。",
+            "face": "frown",
+            "line": "这个每个人都会说。"
+          },
+          {
+            "id": "rft_d",
+            "type": "off",
+            "delta": -1,
+            "text": "说不上哪一点特别突出，我各方面都还算均衡，没有短板。",
+            "face": "calm",
+            "line": "嗯……"
+          }
+        ],
+        "explain": "这道题答得好不好，在于有没有自知之明、能不能拿事实撑住。说一个点、配一件事就够了；“什么都愿意学”“各方面均衡”，等于没回答。"
+      }
+    }
+  ]
+}

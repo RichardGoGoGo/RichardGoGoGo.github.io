@@ -1,0 +1,109 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（catalog.json 里的 base_persona）标定，见 tools/balance_sim.py。（2026-10-25 按基准组合标定）",
+  "id": "bigcorp_fe",
+  "company": "bigcorp",
+  "role": "fe",
+  "label": "大厂 × 前端",
+  "est_minutes": "15–18",
+  "stages": [
+    "resume",
+    "test",
+    "r1",
+    "r2",
+    "r3",
+    "cross",
+    "r4",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/bigcorp_fe/round_r1.json",
+    "tracks/bigcorp_fe/round_r2.json",
+    "tracks/bigcorp_fe/round_r3.json",
+    "tracks/bigcorp_fe/round_cross.json",
+    "companies/bigcorp/round_hr.json"
+  ],
+  "test": "tracks/bigcorp_fe/test.json",
+  "resume_screen": {
+    "screener": "机器筛 + HR",
+    "edu_weight": 1.5,
+    "page2_discount": 0.2,
+    "overflow_penalty": 0.5,
+    "machine_screen": true,
+    "machine_keywords": [
+      "JavaScript",
+      "TypeScript",
+      "Vue",
+      "React",
+      "HTML",
+      "CSS",
+      "性能优化",
+      "组件化",
+      "工程化",
+      "Webpack",
+      "小程序",
+      "Node.js",
+      "ECharts",
+      "数据可视化",
+      "表单",
+      "Git"
+    ],
+    "machine_min": 6,
+    "pass_line": 3.5,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 64,
+    "followup_depth": 2,
+    "time_multiplier": 0.85,
+    "pressure_multiplier": 0.75
+  },
+  "cross": {
+    "after": "r3",
+    "business_rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "uncertain_below": 25,
+    "ssp_above": 63,
+    "_note": "业务面（一面、二面、总监面）余量之和低于 uncertain_below 算“拿不准”，高于 ssp_above 算“冲 SSP”，两头都触发交叉面。阈值由 tools/balance_sim.py 标定。"
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、技术总监面、HR 面四轮余量之和分档（交叉面不计入）。没拿到交叉面 SSP 资格的，最高只到 SP。",
+    "thresholds": {
+      "普通": 18,
+      "SP": 34,
+      "SSP": 54
+    }
+  },
+  "skill_probe_order": [
+    "vue",
+    "js",
+    "react"
+  ],
+  "review_phrases": {
+    "_note": "面评卡用语：每轮结束时按这一轮里加分、扣分最多的诊断标签各挑一句。",
+    "专业": {
+      "plus": "基础扎实，能结合实际问题讲原理。",
+      "minus": "部分知识点有混淆，追问时没能讲清。"
+    },
+    "项目表达": {
+      "plus": "项目讲得具体，个人贡献清楚，数据经得起追问。",
+      "minus": "项目里个人做了什么，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "处理问题有分寸，会考虑风险和其他角色。",
+      "minus": "处理问题偏绝对，没考虑到协作的另一方。"
+    },
+    "动机与稳定": {
+      "plus": "求职动机清楚，和岗位匹配。",
+      "minus": "求职动机和稳定性还有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  }
+}

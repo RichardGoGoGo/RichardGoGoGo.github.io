@@ -1,0 +1,200 @@
+{
+  "id": "r4",
+  "name": "HR 面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S6",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "intro_hr",
+      "swap": false,
+      "prefer": [
+        "b4_intro"
+      ]
+    },
+    {
+      "slot": "q1",
+      "node": "q_why_juta",
+      "swap": true,
+      "alternates": [
+        "q_career_x"
+      ]
+    },
+    {
+      "slot": "q2",
+      "dynamic": "background",
+      "pool": "hr",
+      "swap": false,
+      "_note": "背景题位：按人设的背景和特殊设定挑一道（library/background.json），重打时不换"
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false,
+      "_note": "答案会带进谈薪，真假按游戏里的投递进度算，重打时不换",
+      "prefer": [
+        "q_other_offers_x"
+      ]
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "hr_misc",
+      "swap": true,
+      "prefer": [
+        "q_overtime_x"
+      ]
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false,
+      "prefer": [
+        "b4_reverse"
+      ]
+    }
+  ],
+  "nodes": {
+    "q_why_juta": {
+      "tag": "动机与稳定",
+      "text": "为什么想来巨塔集团？",
+      "options": [
+        {
+          "id": "wj_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "巨塔的学习产品用户多，能碰到真实的大规模用户问题。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "wj_b",
+          "type": "bold",
+          "text": "塔塔学习我用了两周，记了 20 多条笔记，想讲最想改的一点。",
+          "face": "probe",
+          "line": "哦？",
+          "followup": {
+            "text": "最想改的是哪一点？",
+            "options": [
+              {
+                "id": "wj_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "错题本入口太深，做完题想回看，要点好几下才找得到。",
+                "face": "pleased",
+                "line": "这个我们业务那边也在讨论。"
+              },
+              {
+                "id": "wj_b2",
+                "type": "partial",
+                "delta": -4,
+                "text": "整体都挺好的，就是有时候有点卡，加载要等一会儿。",
+                "face": "calm",
+                "line": "嗯……"
+              },
+              {
+                "id": "wj_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "好几个地方都想改，界面、内容、交互都有，一下子说不完。",
+                "face": "frown",
+                "line": "那挑一个？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wj_c",
+          "type": "off",
+          "delta": -1,
+          "text": "大厂平台大、福利好，也比较稳定。",
+          "face": "calm",
+          "line": "嗯，挺实在。"
+        },
+        {
+          "id": "wj_d",
+          "type": "off",
+          "delta": -3,
+          "text": "想先在大厂锻炼几年，学会怎么做成熟的产品，以后出去创业。",
+          "face": "frown",
+          "line": "那你打算待多久？"
+        }
+      ],
+      "explain": "“为什么选我们”的回答，既看得出你做没做功课，也会被拿来估计你会待多久。用过对方的产品、说得出一个具体问题，是最好的回答；坦白“以后要走”，HR 多半会接着问你打算待多久。"
+    },
+    "q_career_x": {
+      "tag": "动机与稳定",
+      "text": "你对未来三年有什么规划？",
+      "options": [
+        {
+          "id": "cx_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "先把{role.name}的活做扎实，三年后能独立负责一个模块。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "cx_b",
+          "type": "bold",
+          "text": "想做最懂用户的那类{role.full}，先从多和用户聊做起。",
+          "face": "probe",
+          "line": "那你打算怎么做？",
+          "followup": {
+            "text": "那你具体打算怎么往这个方向走？",
+            "options": [
+              {
+                "id": "cx_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "{p.career_user_hold|每个需求先找几个真实用户聊一聊，每月去听一次客服反馈。}",
+                "face": "pleased",
+                "line": "嗯，有具体动作。"
+              },
+              {
+                "id": "cx_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "多看书、多学方法论，把经典的用户研究方法再系统过一遍。",
+                "face": "calm",
+                "line": "嗯。"
+              },
+              {
+                "id": "cx_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "我已经很懂用户了，做过那么多访谈和问卷，主要是缺机会。",
+                "face": "frown",
+                "line": "嗯……"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cx_c",
+          "type": "off",
+          "delta": -3,
+          "text": "三年后可能会考虑换个方向，看看哪边更适合自己发展。",
+          "face": "frown",
+          "line": "那这次为什么投{role.name}？"
+        },
+        {
+          "id": "cx_d",
+          "type": "off",
+          "delta": -1,
+          "text": "还没想那么远，先找到工作再说。",
+          "face": "calm",
+          "line": "嗯，理解。"
+        }
+      ],
+      "explain": "规划题不要求你真能看清三年后，只要方向和这份工作对得上，再说得出具体打算怎么做。提前说出“以后可能换方向”，HR 多半会接着问你这次为什么投这个岗。"
+    }
+  }
+}

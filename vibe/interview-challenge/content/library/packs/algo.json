@@ -1,0 +1,2790 @@
+{
+  "_note": "算法工程师岗位扩展包。relevance：各经历类型对这个岗位的默认对口程度；skills：这个岗位技能栏里的技能（已有的技能只补这个岗位的对口和关键词）；frames：各类经历在算法面里的深挖问法；highlights：算法方向的亮点类型（追问链讲方法，具体事实走参数，各条的 _note 写了要哪些参数）；skill_probes：“精通机器学习”“精通深度学习”的追问（选项 ID 前缀 alp_）；background：算法岗的背景题（ID 前缀 bga_）；fallbacks.algo：第一页第一行是没有标题的条目（论文、竞赛、奖项）时的问法（选项 ID 前缀 alf_）。写法见 docs/面试挑战/素材补充交接.md。",
+  "relevance": {
+    "intern_dev": {
+      "algo": "half"
+    },
+    "intern_pm": {
+      "algo": "none"
+    },
+    "user_research_intern": {
+      "algo": "none"
+    },
+    "research_tool": {
+      "algo": "match"
+    },
+    "campus_team_project": {
+      "algo": "half"
+    },
+    "personal_project": {
+      "algo": "half"
+    },
+    "course_project": {
+      "algo": "half"
+    },
+    "thesis": {
+      "algo": "half"
+    },
+    "paper": {
+      "algo": "match"
+    },
+    "competition": {
+      "algo": "match"
+    },
+    "student_org": {
+      "algo": "none"
+    },
+    "media_ops": {
+      "algo": "none"
+    },
+    "event_planning": {
+      "algo": "none"
+    },
+    "part_time": {
+      "algo": "none"
+    },
+    "certificate": {
+      "algo": "general"
+    },
+    "award": {
+      "algo": "general"
+    }
+  },
+  "skills": {
+    "python": {
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "Python"
+          ]
+        }
+      }
+    },
+    "pytorch": {
+      "labels": {
+        "1": "用过 PyTorch",
+        "2": "熟悉 PyTorch"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "PyTorch"
+          ]
+        }
+      }
+    },
+    "ml": {
+      "labels": {
+        "1": "了解机器学习基础",
+        "2": "熟悉常用机器学习算法",
+        "3": "精通机器学习"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "机器学习"
+          ]
+        }
+      },
+      "master_probes": [
+        "probe_ml_master"
+      ]
+    },
+    "dl": {
+      "labels": {
+        "1": "了解深度学习",
+        "2": "熟悉深度学习常用模型",
+        "3": "精通深度学习"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "深度学习"
+          ]
+        }
+      },
+      "master_probes": [
+        "probe_dl_master"
+      ]
+    },
+    "recsys": {
+      "labels": {
+        "1": "了解推荐系统",
+        "2": "熟悉推荐系统召回和排序"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "推荐系统"
+          ]
+        }
+      }
+    },
+    "llm": {
+      "labels": {
+        "1": "了解大模型应用",
+        "2": "熟悉大模型应用和 RAG"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "大模型"
+          ]
+        }
+      }
+    },
+    "cpp": {
+      "labels": {
+        "1": "了解 C++",
+        "2": "熟悉 C++"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "C++"
+          ]
+        }
+      }
+    },
+    "algo": {
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "算法"
+          ]
+        }
+      }
+    },
+    "sql": {
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "SQL"
+          ]
+        }
+      }
+    },
+    "stats": {
+      "labels": {
+        "1": "了解概率统计",
+        "2": "熟悉概率统计和假设检验"
+      },
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "统计"
+          ]
+        }
+      }
+    },
+    "linux": {
+      "roles": {
+        "algo": {
+          "relevant": true,
+          "keywords": [
+            "Linux"
+          ]
+        }
+      }
+    },
+    "git": {
+      "roles": {
+        "algo": {
+          "relevant": false,
+          "keywords": [
+            "Git"
+          ]
+        }
+      }
+    }
+  },
+  "frames": {
+    "paper": [
+      {
+        "id": "algo_paper_mine",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short|这篇论文}里，哪部分是你自己做的？挑一块讲细一点。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的实验：基线怎么选、指标怎么定、结果怎么看。",
+              "face": "nod",
+              "line": "嗯，说得清楚。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "按论文的结构讲：动机、方法、实验、结论，讲个全貌。",
+              "face": "calm",
+              "line": "我想听你自己做的那块。"
+            }
+          ],
+          "explain": "问论文，追问多半会落到你本人做了哪块、懂到什么程度。按论文结构讲全貌，容易讲成复述摘要，面试官多半会打断，再问一遍你自己做的部分；挑自己做的一块讲细，才看得出水平。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "algo_thesis_mine",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}这个课题，挑你最有把握的一块讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "先讲要解决的问题和数据，再讲方法为什么选它。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "方法是这个领域的常用做法，大家都这么做，我就沿用了。",
+              "face": "calm",
+              "line": "常用也得知道为什么。"
+            }
+          ],
+          "explain": "毕业课题被问，重点是你为什么选这个方法、它比简单做法好在哪。只说“领域里都这么做”，等于没回答。"
+        }
+      }
+    ],
+    "research_tool": [
+      {
+        "id": "algo_tool_angle",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short|这个项目}偏工程。里面有没有用到算法上的东西？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.my_part|我负责的部分}以工程为主，算法上用到的不多。",
+              "face": "nod",
+              "line": "嗯，实话。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "讲平台的技术选型和分层，工程做扎实了也是算法的一部分。",
+              "face": "calm",
+              "line": "我问的是算法。"
+            }
+          ],
+          "explain": "工程项目放进算法简历，多半会被追问“算法在哪”。如实说以工程为主没有问题；拿“工程做扎实了也算算法”来绕，面试官多半会把问题再问一遍。能指出里面一个真正有算法取舍的地方，这段经历才对算法岗有用。"
+        }
+      }
+    ],
+    "intern_dev": [
+      {
+        "id": "algo_intern_model",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short|这段实习}里，你做的模型上线了吗？效果是怎么衡量的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲我负责的那块：数据从哪来、模型怎么训、怎么评估。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "主要在跑数据、调参数，方案是 mentor 定的，没什么可讲。",
+              "face": "calm",
+              "line": "调参里也有门道。"
+            }
+          ],
+          "explain": "实习里的模型，追问多半落在上没上线、效果怎么算，讲清数据、训练、评估各是怎么做的最稳。只说“跑数据、调参数”，很难看出你碰到过什么真问题，面试官多半会接着问调参里具体遇到了什么。"
+        }
+      },
+      {
+        "id": "algo_intern_eng",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你这段{exp.kind|实习}做的是开发，不是算法。它对你做算法有什么用？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "做过{exp.shipped}，知道代码上线要过哪些关，模型也一样。",
+              "face": "nod",
+              "line": "嗯，有工程底子。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "算法最后也要上线；这段让我知道，上线之后的事比上线难。",
+              "face": "probe",
+              "line": "哦？展开说说。",
+              "followup": {
+                "text": "那你觉得，模型上线和普通功能上线，最大的不同在哪？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "bold",
+                    "text": "模型效果会随数据变，上线不是结束，得一直盯着。",
+                    "face": "probe",
+                    "line": "那我再问一句。",
+                    "followup": {
+                      "text": "那上线以后，你会盯哪些东西？",
+                      "options": [
+                        {
+                          "key": "b1a",
+                          "type": "hold",
+                          "delta": 12,
+                          "text": "输入分布、线上指标和延迟；出了问题能马上切回旧模型。",
+                          "face": "pleased",
+                          "line": "嗯，盯的点都对。"
+                        },
+                        {
+                          "key": "b1b",
+                          "type": "partial",
+                          "delta": 1,
+                          "text": "主要看服务有没有报错、接口能不能正常返回、响应快不快。",
+                          "face": "calm",
+                          "line": "模型悄悄变差，服务可不报错。"
+                        },
+                        {
+                          "key": "b1c",
+                          "type": "fail",
+                          "delta": -9,
+                          "text": "看离线 AUC 就够了，线上有点波动是正常的。",
+                          "face": "frown",
+                          "line": "离线 AUC 上线以后还会变？"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "模型要用 GPU，部署环境比普通功能复杂。",
+                    "face": "calm",
+                    "line": "环境复杂是一方面。"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "没太大不同，都是打包发布，测试过了就行。",
+                    "face": "frown",
+                    "line": "测试过了，效果就不会变？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "这段和算法关系不大，主要是想多一段{exp.kind|实习}经历。",
+              "face": "calm",
+              "line": "那这几行有点可惜。"
+            }
+          ],
+          "explain": "开发实习投算法，答“关系不大”，这几行就白占了；把工程经验接到模型上线上，这段经历才对算法岗有用。普通功能测试通过、发布完，行为基本就定了；模型上线后，输入数据一变，效果就会悄悄变差，所以要盯输入分布、线上指标和延迟，并准备好随时切回旧模型。只看服务报不报错，发现不了模型变差。"
+        }
+      }
+    ],
+    "competition": [
+      {
+        "id": "algo_comp_plan",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short|这个比赛}你的方案是什么？分数主要是哪一步涨上来的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲方案主线：特征怎么做、模型怎么选、验证集怎么切。",
+              "face": "nod",
+              "line": "嗯，有章法。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "主要靠模型融合，融了十几个模型，分数就上去了。",
+              "face": "calm",
+              "line": "融合谁都会，你自己的东西呢？"
+            }
+          ],
+          "explain": "数据竞赛被问方案，讲清分数是从哪一步涨上来的，才看得出你自己的东西。只说“融了十几个模型”，面试官多半会接着问：不融合的时候，你自己的单模型做到多少。"
+        }
+      },
+      {
+        "id": "algo_comp_habit",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short|这个比赛}是算法竞赛，和做机器学习不太一样。它对你有什么用？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "代码写得快、边界想得全，写评测脚本不容易错。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "讲一个习惯：先写暴力解对拍，再写复杂的正解。",
+              "face": "probe",
+              "line": "那我问一句。",
+              "followup": {
+                "text": "这个习惯放到机器学习里，怎么用？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "先跑简单基线；复杂模型赢不了它，多半是哪里有问题。",
+                    "face": "pleased",
+                    "line": "嗯，迁移得好。"
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "机器学习没有标准答案，对拍对不出来，这个习惯用得不多。",
+                    "face": "calm",
+                    "line": "没有标准答案，就不用对照了？"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "直接上最强的模型，竞赛练的就是一次写对，省得来回改。",
+                    "face": "frown",
+                    "line": "最强的模型就一定写对了？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "拿过奖说明算法底子好，模型那些公式推导上手应该很快。",
+              "face": "frown",
+              "line": "竞赛算法和机器学习是两回事。"
+            }
+          ],
+          "explain": "算法竞赛和机器学习不是一回事，但有些习惯能带过来：竞赛里先写暴力解对拍，到了机器学习里就是先跑最简单的基线，复杂模型连它都赢不了，多半是哪里有问题。这不是定律：小数据、表格数据上，简单模型本来就常常不输，但值得先把数据和代码查一遍。“拿过奖所以上手快”这类话没有证据，面试官多半会接着问竞赛和机器学习到底有什么关系。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "algo_pp_eval",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.short|这个项目}的数据从哪来？效果你是怎么评估的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲数据来源、训练测试怎么切，用什么指标、和什么比。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "用的公开数据集，效果和论文里报的差不多，就没细评。",
+              "face": "calm",
+              "line": "差不多是差多少？"
+            }
+          ],
+          "explain": "个人项目最容易被问“数据哪来、怎么评估”。用公开数据集没关系，但要说清怎么切、和什么比、差多少。"
+        }
+      }
+    ],
+    "course_project": [
+      {
+        "id": "algo_course_rec",
+        "roles": [
+          "algo"
+        ],
+        "node": {
+          "tag": "专业",
+          "text": "要给{exp.short|这个项目}加一个{exp.algo_rec_feature}的功能，你会怎么做？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "先上最简单的：按热度推，再按用户的基本属性分组推。",
+              "face": "nod",
+              "line": "嗯，从简单的起步。"
+            },
+            {
+              "key": "b",
+              "type": "bold",
+              "text": "用协同过滤：和你行为相似的人用过的，推给你。",
+              "face": "probe",
+              "line": "那我挑个刺。",
+              "followup": {
+                "text": "一个新用户什么记录都没有，怎么办？",
+                "options": [
+                  {
+                    "key": "b1",
+                    "type": "bold",
+                    "text": "冷启动：先按基本属性推热门，攒够行为再切协同过滤。",
+                    "face": "probe",
+                    "line": "嗯，那再往后想一步。",
+                    "followup": {
+                      "text": "那你怎么知道推荐做得好不好？上线前后各看什么？",
+                      "options": [
+                        {
+                          "key": "b1a",
+                          "type": "hold",
+                          "delta": 12,
+                          "text": "上线前按时间留出最后一段离线评估，上线后 A/B 看点击。",
+                          "face": "pleased",
+                          "line": "嗯，前后都想到了。"
+                        },
+                        {
+                          "key": "b1b",
+                          "type": "partial",
+                          "delta": 1,
+                          "text": "上线后找十几个同学试用一周，问问他们觉得推得准不准。",
+                          "face": "calm",
+                          "line": "几个人的感觉，能当结论吗？"
+                        },
+                        {
+                          "key": "b1c",
+                          "type": "fail",
+                          "delta": -9,
+                          "text": "看训练集上的准确率，越高就说明推荐得越准，上线也一样。",
+                          "face": "frown",
+                          "line": "训练集上？"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "key": "b2",
+                    "type": "partial",
+                    "delta": 2,
+                    "text": "先让新用户勾几个感兴趣的方向，再按这个推。",
+                    "face": "nod",
+                    "line": "也行，就是多一步操作。"
+                  },
+                  {
+                    "key": "b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "用矩阵分解，新用户的向量随机初始化一个，照样能算出推荐。",
+                    "face": "frown",
+                    "line": "随机的向量，推出来的是什么？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "直接上序列模型，把用户的历史行为当序列，预测下一个。",
+              "face": "calm",
+              "line": "数据才多少，就上序列模型？"
+            }
+          ],
+          "explain": "拿自己的项目问“怎么加推荐”，从简单方案起步最稳：先按热度推，再上协同过滤；新用户没有行为时（冷启动），先靠基本属性。矩阵分解给新用户随机初始化一个向量，推出来也是随机的。评估要分上线前后：离线按时间留出最后一段数据，上线后看真实点击。数据量不大时直接上序列模型，多半是大炮打蚊子。"
+        }
+      }
+    ]
+  },
+  "highlights": {
+    "ablation_gain_source": {
+      "name": "消融发现提升另有来源",
+      "roles": [
+        "algo"
+      ],
+      "_note": "参数：label 名词短语，能接“讲{label}”（如“论文的消融实验”）；module 原以为带来提升的部分；real_source 实际带来大半提升的改动（能接“是{real_source}带来的”）；outcome_hold 发现以后怎么处理的（第二层追问接住的回答，人设卡上要写得到）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.label}：提升大半来自{hl.real_source}，不是{hl.module}。",
+        "face": "probe",
+        "line": "哦？这个有意思。",
+        "followup": {
+          "text": "你怎么确定提升是{hl.real_source}带来的，不是随机波动？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "每次只动一处、其余固定，换几个随机种子各跑几遍。",
+              "face": "probe",
+              "line": "嗯，那结论出来以后呢？",
+              "followup": {
+                "text": "这个结论对论文不太有利。你们最后怎么处理的？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.outcome_hold}",
+                    "face": "pleased",
+                    "line": "嗯，这样写反而站得住。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "我把结果交给了一作，正文怎么写是他和导师定的。",
+                    "face": "calm",
+                    "line": "嗯……那你自己怎么看？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "正文没提，模块本身也有提升，审稿人也没细问。",
+                    "face": "frown",
+                    "line": "没细问就不提？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "两组差了一个多点，这么大的差距，一般不会是波动。",
+              "face": "calm",
+              "line": "一般？跑了几次？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "看训练 loss，哪个设置降得更快，提升就是从哪来的。",
+              "face": "frown",
+              "line": "训练 loss 说明得了测试效果？"
+            }
+          ]
+        }
+      },
+      "explain": "消融实验是在拆账：总提升里，每一处改动各贡献多少。每次只动一处、其余固定，再换几个随机种子各跑几遍，才分得清是方法有效还是随机波动；训练 loss 降得快慢，说明不了测试效果。拆出来的结果对自己不利时，如实写进论文，比把功劳记在自己的模块上更站得住。"
+    },
+    "data_leakage": {
+      "name": "查出数据泄漏",
+      "roles": [
+        "algo"
+      ],
+      "_note": "参数：label 发现泄漏时在做的事，能接“{label}时”（如“复现基线”）；found 怎么发现的、泄漏在哪（一句话，第一层追问的进取回答，岗位题里也当接住的回答用）；fix 怎么改的（短，能接“改成{fix}以后”）；after_hold 改完指标掉了怎么交代（第二层追问接住的回答）。都要写得进人设卡。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.label}时查出的数据泄漏，和后来怎么改的。",
+        "face": "probe",
+        "line": "好，具体说说。",
+        "followup": {
+          "text": "泄漏在哪？你是怎么发现的？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "{hl.found}",
+              "face": "probe",
+              "line": "嗯，那改完以后呢？",
+              "followup": {
+                "text": "改成{hl.fix}以后，指标掉了。结果表你们怎么处理的？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.after_hold}",
+                    "face": "pleased",
+                    "line": "嗯，口径统一了，数字才有意义。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "我们的方法按新切分重跑，基线还用原论文报的数字。",
+                    "face": "frown",
+                    "line": "两边切分都不一样，还能比吗？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "先问导师要不要换回原来的切分，方便和别的论文比。",
+                    "face": "calm",
+                    "line": "换回去，泄漏不就回来了？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "数据处理上有个小问题，改完以后结果更合理了。",
+              "face": "calm",
+              "line": "什么小问题？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "测试集上的指标偏低，我怀疑有泄漏，一查果然是。",
+              "face": "frown",
+              "line": "泄漏会让指标偏低？"
+            }
+          ]
+        }
+      },
+      "explain": "数据泄漏会让模型在训练时“偷看答案”，离线指标虚高，所以最常见的信号是效果好得反常，而不是偏低。推荐数据随机切分，会把用户未来的行为放进训练集；按时间切分更接近上线时的情况。改完切分，所有方法都要按同一口径重跑：拿新切分下的自己，去比旧切分下的基线，这个对比就不成立了。"
+    },
+    "offline_online_gap": {
+      "name": "离线涨了线上没涨",
+      "roles": [
+        "algo"
+      ],
+      "_note": "参数：label 名词短语（如“排序模型上线”）；offline 离线指标怎么变的（如“AUC 涨了 1 个点”）；online 线上指标怎么样（如“点击率没动”）；cause_hold 最后查出的原因和解决办法（第二层追问接住的回答）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.label}：离线{hl.offline}，线上{hl.online}，我是怎么查的。",
+        "face": "probe",
+        "line": "好，这个我爱听。",
+        "followup": {
+          "text": "你第一步查的是什么？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "先拿同一条请求，比线上线下算出的特征一不一样。",
+              "face": "probe",
+              "line": "嗯，那查出来是什么？",
+              "followup": {
+                "text": "最后查出来是什么原因？怎么解决的？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.cause_hold}",
+                    "face": "pleased",
+                    "line": "嗯，查得扎实。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "有个特征两边算法不一样，先把它从模型里拿掉，线上涨了一点。",
+                    "face": "calm",
+                    "line": "去掉了，为什么不一样查了吗？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "线上流量小、波动大，多跑几周自然就涨上来了。",
+                    "face": "frown",
+                    "line": "那特征对比是白查了？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "先把离线评估重跑了一遍，确认模型没有训错。",
+              "face": "calm",
+              "line": "离线本来就是涨的。"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "离线涨了说明模型没问题，就等产品调整展示位置。",
+              "face": "frown",
+              "line": "那线上不涨算谁的？"
+            }
+          ]
+        }
+      },
+      "explain": "离线涨、线上不涨，最常见的原因是线上线下不一致：同一个特征两边算法不同、取数时间点不同，或者离线评估集和线上流量分布不一样。先拿同一条请求对比两边的特征值，比重新训一遍模型更快找到问题。查到一个对不上的特征就先去掉，指标能回来一点，但没弄清两边为什么算得不一样，换个特征还会再出。只说“流量小、再等等”，等于没查。"
+    },
+    "sampling_outliers": {
+      "name": "抽样时保住少数样本",
+      "roles": [
+        "algo"
+      ],
+      "_note": "参数：label 名词短语，能接“讲{label}”（如“大屏散点图的抽样”）；outlier_hold 离群点怎么挑、怎么保留的（第二层追问接住的回答，人设卡上要写得到）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.label}：为什么按网格抽样，不用随机抽样。",
+        "face": "probe",
+        "line": "好，我挑个刺。",
+        "followup": {
+          "text": "随机抽样是无偏的，为什么不用？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "无偏的是整体比例；稀疏处的少数点会被抽没，形状就变了。",
+              "face": "probe",
+              "line": "嗯，那少数点你怎么办？",
+              "followup": {
+                "text": "那离群点你是怎么挑出来、保下来的？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.outlier_hold}",
+                    "face": "pleased",
+                    "line": "嗯，简单，也管用。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "稀疏的区域抽样率调高一倍，密的区域照常抽。",
+                    "face": "calm",
+                    "line": "调高一倍，孤零零的点不还是可能抽没？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "离群点多半是脏数据，抽样时顺手滤掉，图还更干净。",
+                    "face": "frown",
+                    "line": "业务方要看的可能就是它们。"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "随机抽样每次结果不同，图会闪，所以换成了网格。",
+              "face": "calm",
+              "line": "这算一个原因，不是主要的。"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "随机抽样要先排序，O(n log n)，网格只要 O(n)，主要是为了快。",
+              "face": "frown",
+              "line": "随机抽样要排序吗？"
+            }
+          ]
+        }
+      },
+      "explain": "随机抽样对整体比例是无偏的，但每个点被留下的概率一样：密的地方留得多，稀疏处的少数点很容易一个不剩，而业务方往往最关心的就是这些点。按网格分桶抽样、单独保住稀疏格子里的点，本质上是分层抽样；只把稀疏区域的抽样率调高几倍，孤立的点照样可能一个不剩。随机抽样本身只要 O(n)，不慢；离群点也不等于脏数据，要滤掉得先问业务方。"
+    },
+    "leaderboard_shakeup": {
+      "name": "比赛公榜过拟合",
+      "roles": [
+        "algo"
+      ],
+      "_note": "参数：label 名词短语（如“一个推荐数据比赛”）；public_rank 公榜名次（如“前 10”）；private_rank 私榜名次（如“六十多名”）；lesson_hold 之后怎么选最终提交（第二层追问接住的回答）。",
+      "pitch": {
+        "type": "bold",
+        "text": "讲{hl.label}：公榜{hl.public_rank}，私榜掉到{hl.private_rank}，我学到了什么。",
+        "face": "probe",
+        "line": "哦？掉了多少说说。",
+        "followup": {
+          "text": "为什么会掉这么多？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "bold",
+              "text": "照着公榜调太多次，等于拿它当验证集，过拟合了。",
+              "face": "probe",
+              "line": "嗯，那下次呢？",
+              "followup": {
+                "text": "那下一次比赛，你怎么选最终提交？",
+                "options": [
+                  {
+                    "key": "b1a",
+                    "type": "hold",
+                    "delta": 12,
+                    "text": "{hl.lesson_hold}",
+                    "face": "pleased",
+                    "line": "嗯，吃过亏才会这么做。"
+                  },
+                  {
+                    "key": "b1b",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "选公榜最高的一版，再配一版保守的，两头都占。",
+                    "face": "calm",
+                    "line": "保守的那版怎么选？"
+                  },
+                  {
+                    "key": "b1c",
+                    "type": "fail",
+                    "delta": -9,
+                    "text": "多交几版，最后挑私榜上分数最高的那一版。",
+                    "face": "frown",
+                    "line": "私榜结束前看得到？"
+                  }
+                ]
+              }
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "delta": -2,
+              "text": "私榜的数据和公榜差别太大，主要是运气不好。",
+              "face": "calm",
+              "line": "全怪运气？"
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "delta": -7,
+              "text": "最后几天别人都在刷分，名次是被挤下去的，模型没问题。",
+              "face": "frown",
+              "line": "私榜上别人刷不了分。"
+            }
+          ]
+        }
+      },
+      "explain": "公榜只用了测试集的一小部分，照着它反复调参，等于把它当成了验证集，分数会虚高，私榜一公布就掉。稳妥的做法是只信本地交叉验证，选验证稳定、和公榜趋势一致的版本。私榜在比赛结束前看不到，“挑私榜最高的交”做不到。"
+    }
+  },
+  "skill_probes": {
+    "probe_ml_master": {
+      "tag": "专业",
+      "text": "你写了精通机器学习。问一个：为什么 L1 正则容易得到稀疏解，L2 不会？",
+      "options": [
+        {
+          "id": "alp_ml_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "L1 约束区域是菱形，解常落在顶点上，很多权重正好是 0。",
+          "face": "nod",
+          "line": "嗯，几何解释没问题。"
+        },
+        {
+          "id": "alp_ml_b",
+          "type": "bold",
+          "text": "从梯度看：L1 推向 0 的力是常数，L2 的力随权重变小。",
+          "face": "probe",
+          "line": "那我追一个。",
+          "followup": {
+            "text": "那用普通的梯度下降训 L1，权重会正好停在 0 上吗？",
+            "options": [
+              {
+                "id": "alp_ml_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "一般不会，会在 0 附近来回跳；要用近端梯度做软阈值。",
+                "face": "pleased",
+                "line": "对，这才算真懂。"
+              },
+              {
+                "id": "alp_ml_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "会很接近 0，训完以后把特别小的权重手动截成 0 就行了。",
+                "face": "calm",
+                "line": "能用，但没说为什么。"
+              },
+              {
+                "id": "alp_ml_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "会，梯度是常数，推到 0 以后就停在 0 上不动了。",
+                "face": "frown",
+                "line": "过了 0，梯度方向不就反了？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "alp_ml_c",
+          "type": "off",
+          "delta": -1,
+          "text": "“精通”写得有点满，我更熟的是{p.algo_strengths|几个常用模型}。",
+          "face": "frown",
+          "line": "那为什么写精通？"
+        },
+        {
+          "id": "alp_ml_d",
+          "type": "off",
+          "delta": -3,
+          "text": "L2 其实也会让权重变稀疏，只是慢一点，多训几轮就一样了。",
+          "face": "frown",
+          "line": "L2 能把权重压到正好是 0？"
+        }
+      ],
+      "explain": "L1 稀疏的直观解释是几何的：L1 的约束区域是菱形，损失的等高线最先碰到的常是顶点，顶点上有坐标为 0。换成梯度看：L1 不管权重多小，都用同样的力往 0 推；L2 的力和权重成正比，越接近 0 推得越轻，所以只会变小、不会正好变成 0。但普通（次）梯度下降也很少让权重正好停在 0，会在 0 附近来回跳；要得到真正的 0，得用近端梯度（软阈值）这类方法。能答到这一层，才配得上“精通”。L2 只会让权重按比例变小，训多少轮也不会正好变成 0，“也稀疏、只是慢”是常见的误解。答不上来时，如实说“精通”写重了扣分最少，硬答一个错的扣得更多。"
+    },
+    "probe_dl_master": {
+      "tag": "专业",
+      "text": "你写了精通深度学习。问一个：注意力打分时，为什么要除以根号 d？",
+      "options": [
+        {
+          "id": "alp_dl_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "维度大了点积的方差跟着变大，softmax 会很尖，梯度变小。",
+          "face": "nod",
+          "line": "嗯，没问题。"
+        },
+        {
+          "id": "alp_dl_b",
+          "type": "bold",
+          "text": "推一下：q、k 各分量独立、方差为 1，点积方差就是 d。",
+          "face": "probe",
+          "line": "好，那接着问。",
+          "followup": {
+            "text": "那 softmax 太尖，为什么会让训练变难？",
+            "options": [
+              {
+                "id": "alp_dl_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "接近 one-hot 时，softmax 的梯度几乎为 0，信号传不回去。",
+                "face": "pleased",
+                "line": "对。"
+              },
+              {
+                "id": "alp_dl_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "太尖了模型只盯着一个词，看到的信息太少，效果会差。",
+                "face": "calm",
+                "line": "我问的是训练为什么难。"
+              },
+              {
+                "id": "alp_dl_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "太尖会让 exp 溢出成 NaN，除以根号 d 就是为了防溢出。",
+                "face": "frown",
+                "line": "防溢出不是减最大值吗？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "alp_dl_c",
+          "type": "off",
+          "delta": -1,
+          "text": "“精通”说重了，我主要用 PyTorch 跑过推荐里的几种模型。",
+          "face": "frown",
+          "line": "那就别写精通。"
+        },
+        {
+          "id": "alp_dl_d",
+          "type": "off",
+          "delta": -3,
+          "text": "除以根号 d 是归一化，保证注意力权重加起来等于 1。",
+          "face": "frown",
+          "line": "加起来等于 1，不是 softmax 管的吗？"
+        }
+      ],
+      "explain": "假设 q、k 的各分量独立、均值 0、方差 1，点积 q·k 的方差就是 d：维度越大，打分的绝对值越大，softmax 越接近 one-hot，梯度越接近 0，训练就难。除以根号 d，正好把方差拉回 1 左右。数值溢出靠的是 softmax 实现里先减去最大值，不是这个缩放；注意力权重加起来等于 1，也是 softmax 本身保证的，和除不除根号 d 无关。答不上来时，如实说“精通”写重了扣分最少，硬答一个错的扣得更多。"
+    }
+  },
+  "background": [
+    {
+      "id": "bga_cross",
+      "pools": [
+        "hr",
+        "founder",
+        "director",
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "algo",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "{bg.major}出身做算法，数学和编程是怎么补起来的？",
+        "options": [
+          {
+            "id": "bga_cross_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.algo_cross_reason|按课表补了线代、概率和编程，再拿小项目练手。}",
+            "face": "nod",
+            "line": "嗯，有计划。"
+          },
+          {
+            "id": "bga_cross_b",
+            "type": "bold",
+            "text": "讲我在{bg.major}里练过、做算法用得上的统计底子。",
+            "face": "probe",
+            "line": "好，那我考你一个。",
+            "followup": {
+              "text": "p 值是 0.03，是什么意思？",
+              "options": [
+                {
+                  "id": "bga_cross_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "原假设成立时，看到这么极端或更极端结果的概率是 3%。",
+                  "face": "pleased",
+                  "line": "嗯，说得准。"
+                },
+                {
+                  "id": "bga_cross_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "说明结果显著，小于 0.05 就可以下结论了。",
+                  "face": "calm",
+                  "line": "我问的是它是什么意思。"
+                },
+                {
+                  "id": "bga_cross_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "说明原假设成立的概率只有 3%，备择假设成立的概率是 97%。",
+                  "face": "frown",
+                  "line": "这是最常见的误读。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bga_cross_c",
+            "type": "off",
+            "delta": -3,
+            "text": "编程和数学都能速成，跟着网课学几个月就够用了。",
+            "face": "frown",
+            "line": "几个月就够？"
+          }
+        ],
+        "explain": "跨专业做算法，这一问后面多半跟着一道基础题。p 值的意思是：假设原假设成立，看到当前或更极端结果的概率；它不是“原假设成立的概率”，这是最常见的误读。只说“看几个月网课就够”，这个回答可能让面试官关注到你低估了这一行，接着问几个月学了什么。"
+      }
+    },
+    {
+      "id": "bga_bachelor",
+      "pools": [
+        "hr",
+        "founder",
+        "director",
+        "panel"
+      ],
+      "priority": 30,
+      "when": {
+        "role": "algo",
+        "degree": "bachelor"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "算法岗里硕士很多。你本科就来做算法，觉得自己的优势在哪？",
+        "options": [
+          {
+            "id": "bga_bach_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "工程上手快，能把模型落成能跑的服务；理论底子还在补。",
+            "face": "nod",
+            "line": "嗯，挺实在。"
+          },
+          {
+            "id": "bga_bach_b",
+            "type": "bold",
+            "text": "本科也能把基础打牢。您随便挑一个基础问题问我。",
+            "face": "probe",
+            "line": "好啊。",
+            "followup": {
+              "text": "那说说，随机森林和 GBDT 有什么不同？",
+              "options": [
+                {
+                  "id": "bga_bach_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "随机森林并行训树投票，降方差；GBDT 逐棵拟合残差，降偏差。",
+                  "face": "pleased",
+                  "line": "嗯，基础确实可以。"
+                },
+                {
+                  "id": "bga_bach_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "都是集成，随机森林用的树更多也更深，所以效果一般会更好。",
+                  "face": "calm",
+                  "line": "树多就更好？"
+                },
+                {
+                  "id": "bga_bach_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "GBDT 的树之间互相独立，可以并行训，所以比随机森林快。",
+                  "face": "frown",
+                  "line": "互相独立？那残差拟合的是谁？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bga_bach_c",
+            "type": "off",
+            "delta": -3,
+            "text": "学历不重要，我自学能力强，进来一两个月就能把差距补上。",
+            "face": "frown",
+            "line": "补什么，怎么补？"
+          }
+        ],
+        "explain": "本科做算法，理论底子多半会被拿出来问。别回避，也别喊“学历不重要”；如实说清长处和短处，或者直接接一道基础题，最有说服力。随机森林是并行训很多树再投票，主要降方差；GBDT 一棵接一棵拟合前面留下的残差，主要降偏差，树和树之间不能并行训练。"
+      }
+    },
+    {
+      "id": "bga_phd",
+      "pools": [
+        "founder",
+        "hr",
+        "director",
+        "panel"
+      ],
+      "priority": 30,
+      "when": {
+        "role": "algo",
+        "degree": "master"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "做算法的，读博的人不少。你为什么硕士毕业就出来？",
+        "options": [
+          {
+            "id": "bga_phd_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.algo_phd_reason|我想做能落到产品里的算法，工业界的数据和反馈都更快。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bga_phd_b",
+            "type": "bold",
+            "text": "说说做{cite.short}那段，让我想明白了自己更想做什么。",
+            "requires": {
+              "exp_type": "paper"
+            },
+            "face": "probe",
+            "line": "那我再问一句。",
+            "fallback": {
+              "id": "bga_phd_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "说说读研时让我想明白的一件事：我更在乎做的东西有没有人用。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "工业界做算法，大半时间在洗数据、对口径、盯指标，不是做研究。你能接受吗？",
+              "options": [
+                {
+                  "id": "bga_phd_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.algo_dirty_hold|能。做实验时大半时间也在处理数据，我知道这才是常态。}",
+                  "face": "pleased",
+                  "line": "嗯，心里有数。"
+                },
+                {
+                  "id": "bga_phd_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "能接受，不过希望一两年后能转去做偏研究的方向。",
+                  "face": "calm",
+                  "line": "我们这儿可能没有那种方向。"
+                },
+                {
+                  "id": "bga_phd_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "说实话不太想，我更想做模型创新，洗数据可以交给别人。",
+                  "face": "frown",
+                  "line": "我们这儿没有“别人”。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bga_phd_c",
+            "type": "off",
+            "delta": -3,
+            "text": "博士要读五年，出来年纪大了，行情也说不准。",
+            "face": "frown",
+            "line": "那来这儿就说得准？"
+          }
+        ],
+        "explain": "“为什么不读博”，答案要能说明你是想清楚了才来，不是退而求其次。讲你想要什么，比讲读博多苦有说服力。工业界做算法，大量时间花在数据、口径和指标上，追问多半会落到你能不能接受这样的日常；说“洗数据交给别人”，在小团队里尤其减分。"
+      }
+    },
+    {
+      "id": "bga_why_algo",
+      "pools": [
+        "hr",
+        "founder",
+        "director",
+        "panel"
+      ],
+      "priority": 5,
+      "when": {
+        "role": "algo"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "算法岗竞争激烈，开发岗更好进。你为什么还想做算法？",
+        "options": [
+          {
+            "id": "bga_why_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.algo_why|我喜欢用数据把一个指标实实在在地提上去，这件事做不腻。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bga_why_b",
+            "type": "bold",
+            "text": "讲一件让我确定方向的事：第一次看到改动让指标变了。",
+            "face": "probe",
+            "line": "那我问一句。",
+            "followup": {
+              "text": "要是进来先让你做半年数据清洗和标注，你怎么想？",
+              "options": [
+                {
+                  "id": "bga_why_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "能接受。数据决定上限，先把数据摸清，后面调模型才有底。",
+                  "face": "pleased",
+                  "line": "嗯，想得明白。"
+                },
+                {
+                  "id": "bga_why_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "可以接受，但希望半年以后能开始做模型，不然成长太慢了。",
+                  "face": "calm",
+                  "line": "嗯，看情况。"
+                },
+                {
+                  "id": "bga_why_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "那有点浪费时间，这些活交给实习生或者外包来做更合适。",
+                  "face": "frown",
+                  "line": "你现在就是实习生的年纪。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bga_why_c",
+            "type": "off",
+            "delta": -3,
+            "text": "算法岗薪资高一些，以后的发展空间也更大。",
+            "face": "calm",
+            "line": "嗯，挺实在，但……"
+          }
+        ],
+        "explain": "“为什么做算法”是在问动机。讲一件让你确定方向的具体的事，再表明你知道这行的日常是什么样；只讲薪资和前景，这个回答可能让面试官关注到稳定性，接着问别家给得更多你怎么选。算法的上限往往由数据决定，愿意先把数据摸清楚，是做这行的基本态度。"
+      }
+    }
+  ],
+  "fallbacks": {
+    "algo": [
+      {
+        "when_first": [
+          "paper",
+          "thesis"
+        ],
+        "node": {
+          "id": "ddf_algo_paper",
+          "tag": "项目表达",
+          "text": "第一行是你的{first.kind_word|论文}。挑你自己做的那部分，讲讲。",
+          "options": [
+            {
+              "id": "alf_pa_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "讲{first.topic|这个}方向要解决的问题，再讲我做的那部分。",
+              "face": "nod",
+              "line": "嗯，好。"
+            },
+            {
+              "id": "alf_pa_b",
+              "type": "bold",
+              "text": "讲{cite.label}：提升大半来自{cite.real_source}，不是{cite.module}。",
+              "requires": {
+                "highlight": "ablation_gain_source"
+              },
+              "face": "probe",
+              "line": "哦？这个有意思。",
+              "fallback": {
+                "id": "alf_pa_b0",
+                "type": "safe",
+                "delta": 2,
+                "text": "讲我做的实验：基线怎么选、指标怎么定、结果怎么看。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              "followup": {
+                "text": "你怎么确定提升是{cite.real_source}带来的，不是随机波动？",
+                "options": [
+                  {
+                    "id": "alf_pa_b1",
+                    "type": "bold",
+                    "text": "每次只动一处、其余固定，换几个随机种子各跑几遍。",
+                    "face": "probe",
+                    "line": "嗯，那结论出来以后呢？",
+                    "followup": {
+                      "text": "这个结论对论文不太有利。你们最后怎么处理的？",
+                      "options": [
+                        {
+                          "id": "alf_pa_b1a",
+                          "type": "hold",
+                          "delta": 12,
+                          "text": "{cite.outcome_hold}",
+                          "face": "pleased",
+                          "line": "嗯，这样写反而站得住。"
+                        },
+                        {
+                          "id": "alf_pa_b1b",
+                          "type": "partial",
+                          "delta": 1,
+                          "text": "结果交给了一作，正文怎么写是他和导师定的。",
+                          "face": "calm",
+                          "line": "嗯……那你自己怎么看？"
+                        },
+                        {
+                          "id": "alf_pa_b1c",
+                          "type": "fail",
+                          "delta": -9,
+                          "text": "正文里没提，模块本身也有提升，审稿人也没细问。",
+                          "face": "frown",
+                          "line": "没细问就不提？"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "alf_pa_b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "两组差了一个多点，这么大的差距，一般不会是波动。",
+                    "face": "calm",
+                    "line": "一般？跑了几次？"
+                  },
+                  {
+                    "id": "alf_pa_b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "看训练 loss，哪个设置降得更快，提升就是从哪来的。",
+                    "face": "frown",
+                    "line": "训练 loss 说明得了测试效果？"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "alf_pa_c",
+              "type": "off",
+              "delta": -3,
+              "text": "按论文的结构讲：动机、方法、实验、结论，讲个全貌。",
+              "face": "calm",
+              "line": "我想听你自己做的那块。"
+            }
+          ],
+          "explain": "第一行放论文，面试官多半从这儿问起。按论文结构讲全貌，容易变成复述摘要；挑自己做的一块讲细，才看得出水平。消融实验是在拆账：每次只动一处、其余固定，再换几个随机种子各跑几遍，才分得清是方法有效还是随机波动；训练 loss 降得快慢，说明不了测试效果。拆出来的结果对自己不利时，如实写进论文，比把功劳记在自己的模块上更站得住。"
+        }
+      },
+      {
+        "when_first": [
+          "competition"
+        ],
+        "node": {
+          "id": "ddf_algo_comp",
+          "tag": "项目表达",
+          "text": "第一行是{first.short|一个比赛}。比赛里练出来的东西，做算法用得上吗？",
+          "options": [
+            {
+              "id": "alf_cp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "用得上的是基本功：代码写得快，边界和复杂度心里有数。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            {
+              "id": "alf_cp_b",
+              "type": "bold",
+              "text": "讲{cite.short}留下的习惯：先写暴力解对拍，再写正解。",
+              "requires": {
+                "exp_type": "competition"
+              },
+              "face": "probe",
+              "line": "那我问一句。",
+              "fallback": {
+                "id": "alf_cp_b0",
+                "type": "off",
+                "delta": -1,
+                "text": "讲{first.story|比赛里最难的那道题}是怎么做出来的。",
+                "face": "calm",
+                "line": "题是好题。和算法岗有什么关系？"
+              },
+              "followup": {
+                "text": "这个习惯，你在做模型的时候用上过吗？",
+                "options": [
+                  {
+                    "id": "alf_cp_b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "{cite.algo_relate}",
+                    "face": "pleased",
+                    "line": "嗯，这个习惯值钱。"
+                  },
+                  {
+                    "id": "alf_cp_b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "还没用上过，但我觉得思路是相通的，以后会用。",
+                    "face": "calm",
+                    "line": "嗯……"
+                  },
+                  {
+                    "id": "alf_cp_b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "用不上，模型结果本来就有随机性，没法对拍。",
+                    "face": "frown",
+                    "line": "评测脚本也有随机性？"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "alf_cp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "拿过奖说明算法底子好，模型这块上手应该很快。",
+              "face": "frown",
+              "line": "竞赛算法和机器学习是两回事。"
+            }
+          ],
+          "explain": "第一行放竞赛，多半会被问它和做算法有什么关系。竞赛算法和机器学习不是一回事，“拿过奖所以上手快”没有证据，接不住追问；能讲出一个带得过来的习惯，再拿一次真用上的经历作证，这一行才算没白放。先写暴力解对拍，放到机器学习里，就是拿最简单、最不容易写错的办法核对复杂的实现，比如评测指标。"
+        }
+      },
+      {
+        "when_first": [
+          "intern_dev",
+          "intern_pm",
+          "user_research_intern",
+          "research_tool",
+          "campus_team_project",
+          "personal_project",
+          "course_project"
+        ],
+        "_note": "第一行是带标题的经历时，深挖第一段不会走到这里；只有创始人面“深挖下一段”时第一页带标题的经历都聊过了，才问这一题。",
+        "node": {
+          "id": "ddf_algo_more",
+          "tag": "项目表达",
+          "text": "简历上的项目和实习，我们都聊过了。还有哪件事，最能说明你适合做算法？",
+          "options": [
+            {
+              "id": "alf_mo_a",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲我的{cite.kind_word}：{cite.topic|研究}方向，我做的那部分实验。",
+              "requires": {
+                "exp_type": "paper"
+              },
+              "face": "nod",
+              "line": "好，这个对口。"
+            },
+            {
+              "id": "alf_mo_b",
+              "type": "bold",
+              "text": "讲{cite.short}留下的习惯：先写暴力解对拍，再写正解。",
+              "requires": {
+                "exp_type": "competition"
+              },
+              "face": "probe",
+              "line": "那我问一句。",
+              "fallback": {
+                "id": "alf_mo_b0",
+                "type": "safe",
+                "delta": 1,
+                "text": "讲我为了做算法，这一年补了哪些基础。",
+                "face": "nod",
+                "line": "嗯。"
+              },
+              "followup": {
+                "text": "这个习惯，你在做模型的时候用上过吗？",
+                "options": [
+                  {
+                    "id": "alf_mo_b1",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "{cite.algo_relate}",
+                    "face": "pleased",
+                    "line": "嗯，这个习惯值钱。"
+                  },
+                  {
+                    "id": "alf_mo_b2",
+                    "type": "partial",
+                    "delta": -2,
+                    "text": "还没用上过，但我觉得思路是相通的，以后会用。",
+                    "face": "calm",
+                    "line": "嗯……"
+                  },
+                  {
+                    "id": "alf_mo_b3",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "用不上，模型结果本来就有随机性，没法对拍。",
+                    "face": "frown",
+                    "line": "评测脚本也有随机性？"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "alf_mo_c",
+              "type": "off",
+              "delta": -1,
+              "text": "简历上的都讲过了，剩下的就是课程和学生工作。",
+              "face": "calm",
+              "line": "嗯……"
+            },
+            {
+              "id": "alf_mo_d",
+              "type": "off",
+              "delta": -3,
+              "text": "讲我的学生工作：组织协调能力，做算法也用得上。",
+              "face": "calm",
+              "line": "和算法关系不大吧。"
+            }
+          ],
+          "explain": "带标题的经历都聊过了，这一问是最后一次补一件事的机会。挑和算法最相关、经得起追问的那件：论文、竞赛这些在简历上只占一行的条目，这时候正好展开。拿学生工作凑数，这个回答可能让面试官关注到你手里没有更对口的东西了。"
+        }
+      },
+      {
+        "node": {
+          "id": "ddf_algo_pick",
+          "tag": "项目表达",
+          "text": "第一行是个{first.kind_word|奖项}。挑一段最能代表你做算法的经历讲讲吧。",
+          "options": [
+            {
+              "id": "alf_pk_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 1
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "alf_pk_a0",
+                "type": "off",
+                "delta": -1,
+                "text": "讲讲我平时是怎么自学机器学习的。",
+                "face": "calm",
+                "line": "嗯……"
+              }
+            },
+            {
+              "id": "alf_pk_b",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲{cite.pitch}。",
+              "requires": {
+                "nth_header": 2
+              },
+              "face": "nod",
+              "line": "好。",
+              "fallback": {
+                "id": "alf_pk_b0",
+                "type": "off",
+                "delta": -1,
+                "text": "讲我在课上做过的一个模型。",
+                "face": "calm",
+                "line": "嗯。"
+              }
+            },
+            {
+              "id": "alf_pk_c",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲我的{cite.kind_word}：{cite.topic|研究}方向，我做的那部分实验。",
+              "requires": {
+                "exp_type": "paper"
+              },
+              "face": "nod",
+              "line": "好，这个对口。"
+            },
+            {
+              "id": "alf_pk_d",
+              "type": "off",
+              "delta": -3,
+              "text": "我觉得{first.short|这一行}就最能代表我，别的都是顺带做的。",
+              "face": "calm",
+              "line": "我们还是先聊项目。"
+            }
+          ],
+          "explain": "简历第一行放奖项、证书这类没有展开内容的条目，面试官多半会跳过它，让你自己挑一段讲。最值钱的位置给了一行字，主动权就这么让出去了；做算法，第一行最好是和岗位最相关的论文、项目或实习。"
+        }
+      }
+    ]
+  },
+  "pools": [
+    {
+      "id": "q_ua1_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "algo"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先简单介绍一下自己吧，一分钟以内。",
+        "options": [
+          {
+            "id": "ua1_in_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一句背景，再讲两段和算法最相关的经历，各做成了什么。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "ua1_in_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间线讲：本科、研究生、项目、论文，每段讲一两句。",
+            "face": "calm",
+            "line": "嗯……重点是哪段？"
+          },
+          {
+            "id": "ua1_in_b",
+            "type": "bold",
+            "text": "只讲一件事：{cite.label}时，我查出了一处数据泄漏。",
+            "requires": {
+              "highlight": "data_leakage"
+            },
+            "face": "probe",
+            "line": "好，那我先问一句。",
+            "fallback": {
+              "id": "ua1_in_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "只讲两件事：做过的一个模型，和我为什么想做算法。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "泄漏？泄漏在哪，你是怎么发现的？",
+              "options": [
+                {
+                  "id": "ua1_in_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{cite.found}",
+                  "face": "pleased",
+                  "line": "嗯，好得反常就去查，这个习惯好。"
+                },
+                {
+                  "id": "ua1_in_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "数据处理上有个小问题，具体在切分那块，改完结果更合理了。",
+                  "face": "frown",
+                  "line": "什么问题，你没说啊。"
+                },
+                {
+                  "id": "ua1_in_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "测试集上的指标偏低，我怀疑有泄漏，一查果然是。",
+                  "face": "frown",
+                  "line": "泄漏会让指标偏低？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_in_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲学过的课：机器学习、深度学习、推荐系统，再讲项目。",
+            "face": "calm",
+            "line": "课程我看简历就行。"
+          }
+        ],
+        "explain": "自我介绍里讲到的东西，多半就是后面追问的起点。按重要性讲两段经历最稳；按时间线一样不落，信息多却没有重点；把课程挨个报一遍，简历上都写着。只讲一件事，等于替面试官选好了追问方向，前提是你经得起问。数据泄漏的信号通常是效果“好得反常”，而不是偏低：模型偷看了答案，离线指标会虚高。"
+      }
+    },
+    {
+      "id": "q_ua1_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "algo",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了。你有什么想问我的？",
+        "options": [
+          {
+            "id": "ua1_rv_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "你们模型效果的瓶颈，主要在数据还是算力？",
+            "face": "pleased",
+            "line": "数据。标注跟不上，这是最头疼的……"
+          },
+          {
+            "id": "ua1_rv_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "算法组现在几个人？平时用什么框架？",
+            "face": "nod",
+            "line": "四个人，PyTorch 为主。"
+          },
+          {
+            "id": "ua1_rv_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "期权大概能给多少？",
+            "face": "calm",
+            "line": "这个你问创始人吧。"
+          },
+          {
+            "id": "ua1_rv_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问团队卡在哪，面试官多半会顺着讲团队的难处，你也能听出进去以后要做什么；问团队规模和框架也是好问题，只是信息量小一些；期权、薪资这类问题，业务面试官多半答不了，留到和创始人谈的时候再问。"
+      }
+    },
+    {
+      "id": "q_ua1_overfit",
+      "pools": [
+        "algo_ml"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "训练集的 loss 一直在降，验证集的 loss 降到一半开始往上走。你怎么办？",
+        "options": [
+          {
+            "id": "ua1_of_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "过拟合了。先早停，再试正则、Dropout 或者加数据。",
+            "face": "nod",
+            "line": "嗯，常规做法。"
+          },
+          {
+            "id": "ua1_of_b",
+            "type": "bold",
+            "text": "先别急着下结论：也可能是验证集和训练集分布不一样。",
+            "face": "probe",
+            "line": "哦？那我问你。",
+            "followup": {
+              "text": "那怎么区分是过拟合，还是分布不一样？",
+              "options": [
+                {
+                  "id": "ua1_of_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "从训练集再切一份同分布的验证集：它也变差，就是过拟合。",
+                  "face": "pleased",
+                  "line": "对，这样就分开了。"
+                },
+                {
+                  "id": "ua1_of_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "看验证集准确率，准确率也在降就是过拟合，不降就不是。",
+                  "face": "calm",
+                  "line": "这还是同一个验证集。"
+                },
+                {
+                  "id": "ua1_of_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "分布不一样的话，训练 loss 也会涨，所以只能是过拟合。",
+                  "face": "frown",
+                  "line": "训练 loss 只看训练集吧？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_of_c",
+            "type": "off",
+            "delta": -3,
+            "text": "说明模型容量不够，换个更深的网络，再多训几轮。",
+            "face": "frown",
+            "line": "更深？那不是更容易过拟合？"
+          }
+        ],
+        "explain": "训练 loss 降、验证 loss 升，最常见的原因是过拟合，早停、正则、加数据都是常规手段。但验证集和训练集分布不一样时，也会出现类似的曲线。从训练集里再切一份同分布的数据（有人叫 train-dev 集）：它也变差，是过拟合；它没变差、只有验证集变差，是分布差异，加正则解决不了。"
+      }
+    },
+    {
+      "id": "q_ua1_imbalance",
+      "pools": [
+        "algo_ml"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "点击数据里，正负样本大概 1 比 100。你会怎么训？",
+        "options": [
+          {
+            "id": "ua1_im_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "换指标看 AUC 和 PR 曲线，再试负采样或正样本加权。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "ua1_im_b",
+            "type": "bold",
+            "text": "负采样；但采完以后，模型给出的概率要校准回去。",
+            "face": "probe",
+            "line": "为什么？",
+            "followup": {
+              "text": "为什么要校准？怎么校？",
+              "options": [
+                {
+                  "id": "ua1_im_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "采样抬高了正样本占比，概率偏高；按负采样率换算回去。",
+                  "face": "pleased",
+                  "line": "对，换算的方向也对。"
+                },
+                {
+                  "id": "ua1_im_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "排序只看谁高谁低，概率偏高也不影响，不校准也行。",
+                  "face": "calm",
+                  "line": "要是拿概率去算收益呢？"
+                },
+                {
+                  "id": "ua1_im_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不用校，负采样只是少算一些负样本，不影响模型输出。",
+                  "face": "frown",
+                  "line": "训练数据的比例变了，输出不变？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_im_c",
+            "type": "off",
+            "delta": -3,
+            "text": "直接训就行，样本够多的话，模型自己能学会少数类。",
+            "face": "frown",
+            "line": "全猜负，准确率就 99% 了。"
+          }
+        ],
+        "explain": "样本极不平衡时，先换指标：准确率会被多数类撑起来。负采样能省算力、让模型多看正样本，但会把预测概率整体抬高。只用来排序时影响不大；要用概率本身（算预期收益、定阈值），就得校准：负样本按比例 w 采样时，可以用 q = p / (p + (1 − p) / w) 换算回去。"
+      }
+    },
+    {
+      "id": "q_ua1_recsys",
+      "pools": [
+        "algo_ml"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "推荐系统为什么一般要分召回和排序两段？",
+        "options": [
+          {
+            "id": "ua1_rs_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "候选太多：先用便宜的模型粗筛几百个，再用复杂模型精排。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "ua1_rs_b",
+            "type": "bold",
+            "text": "两段的目标不一样：召回要全，排序要准。",
+            "face": "probe",
+            "line": "那我问个细的。",
+            "followup": {
+              "text": "召回常用双塔，用户和物品各算一个向量。为什么双塔不适合做精排？",
+              "options": [
+                {
+                  "id": "ua1_rs_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "两塔各算各的，用户和物品特征交叉不了，表达力有限。",
+                  "face": "pleased",
+                  "line": "对，快就快在这儿，弱也弱在这儿。"
+                },
+                {
+                  "id": "ua1_rs_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "双塔也能做精排，只是效果差一点，业界一般不这么用。",
+                  "face": "calm",
+                  "line": "差在哪？"
+                },
+                {
+                  "id": "ua1_rs_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "双塔算得太慢，候选一多就扛不住，所以只能放在召回。",
+                  "face": "frown",
+                  "line": "太慢还能放召回？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_rs_c",
+            "type": "off",
+            "delta": -3,
+            "text": "主要是历史原因，算力够的话，一个大模型全量打分最好。",
+            "face": "calm",
+            "line": "几千万个物品全量打分？"
+          }
+        ],
+        "explain": "召回和排序分开，是算力和效果的折中：召回从海量物品里快速捞出几百个，要的是“别漏掉”；排序在这几百个里精细打分，要的是“排得准”。双塔把用户和物品分开编码，物品向量可以提前算好、用近邻检索，所以快；代价是两边的特征只在最后做一次内积，交叉不充分，而精排最需要交叉特征。"
+      }
+    },
+    {
+      "id": "q_ua1_norm",
+      "pools": [
+        "algo_dl"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "BatchNorm 和 LayerNorm 有什么区别？Transformer 里为什么一般用 LayerNorm？",
+        "options": [
+          {
+            "id": "ua1_nm_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "BN 跨 batch 按特征算，LN 在单个样本内算，不依赖 batch。",
+            "face": "nod",
+            "line": "嗯，对。"
+          },
+          {
+            "id": "ua1_nm_b",
+            "type": "bold",
+            "text": "再说个 BN 的坑：它在训练和推理时算的东西不一样。",
+            "face": "probe",
+            "line": "哪里不一样？",
+            "followup": {
+              "text": "具体哪里不一样？上线时可能出什么问题？",
+              "options": [
+                {
+                  "id": "ua1_nm_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "训练用本批统计量，推理用滑动平均；忘了切 eval 就会飘。",
+                  "face": "pleased",
+                  "line": "对，这个坑很多人踩过。"
+                },
+                {
+                  "id": "ua1_nm_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "推理时换成固定的均值方差，和训练时有点差别，属于正常现象。",
+                  "face": "calm",
+                  "line": "那上线会出什么问题？"
+                },
+                {
+                  "id": "ua1_nm_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "没区别，BN 训练完就固定了，推理时照样按当前 batch 算。",
+                  "face": "frown",
+                  "line": "那单条请求怎么算？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_nm_c",
+            "type": "off",
+            "delta": -3,
+            "text": "LayerNorm 是 BatchNorm 的改进版，效果更好，现在基本都用它。",
+            "face": "frown",
+            "line": "CNN 里也都换了？"
+          }
+        ],
+        "explain": "BN 在一个 batch 内、对每个特征算均值方差；LN 在每个样本内部、对它的所有特征算。序列模型的长度各不相同，batch 也常常很小，LN 不依赖 batch，更稳定；CNN 里 BN 仍然很常用，两者不是谁取代谁。BN 训练时用当前 batch 的统计量，推理时用训练中攒下的滑动平均，上线前忘了切到 eval 模式，同一条输入会因为同批的其他数据不同而结果不同。"
+      }
+    },
+    {
+      "id": "q_ua1_vanish",
+      "pools": [
+        "algo_dl"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "一个很深的网络训不动，前几层的梯度几乎是 0。你会怎么改？",
+        "options": [
+          {
+            "id": "ua1_vg_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "换 ReLU 类激活，加残差和归一化，重选初始化。",
+            "face": "nod",
+            "line": "嗯，都对。"
+          },
+          {
+            "id": "ua1_vg_b",
+            "type": "bold",
+            "text": "先查激活函数：满屏 sigmoid 的话，多半就是它。",
+            "face": "probe",
+            "line": "为什么？",
+            "followup": {
+              "text": "为什么 sigmoid 特别容易让梯度消失？",
+              "options": [
+                {
+                  "id": "ua1_vg_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "它的导数最大只有 0.25，一层层乘下去，越往前越小。",
+                  "face": "pleased",
+                  "line": "对。"
+                },
+                {
+                  "id": "ua1_vg_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "sigmoid 的输出在 0 到 1 之间，数值太小，梯度就跟着小。",
+                  "face": "calm",
+                  "line": "输出小和梯度小是两回事。"
+                },
+                {
+                  "id": "ua1_vg_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "sigmoid 里有指数运算，算得慢，梯度来不及传到前几层。",
+                  "face": "frown",
+                  "line": "梯度还有“来不及”的？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_vg_c",
+            "type": "off",
+            "delta": -3,
+            "text": "把学习率调大十倍，梯度小就用步子大来补，前几层就动了。",
+            "face": "frown",
+            "line": "后面几层不就炸了？"
+          }
+        ],
+        "explain": "反向传播时，梯度要一层层乘上激活函数的导数。sigmoid 的导数最大只有 0.25，输入一偏离 0 还会更小，层数一多，前面几层的梯度就几乎为 0。ReLU 在正半轴导数是 1，残差连接给梯度留了一条直通的路，归一化和合适的初始化让每层的数值保持在合理范围，这几样一起用最常见。整体调大学习率，后面几层会先被带飞。"
+      }
+    },
+    {
+      "id": "q_ua1_tradeoff",
+      "pools": [
+        "algo_tradeoff"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "产品下周要上“一键润色”。调大模型 API 效果好但贵；自己微调个小模型，要一个月。你怎么选？",
+        "options": [
+          {
+            "id": "ua1_to_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先接 API 上线验证需求，边用边攒数据，量大了再自己训。",
+            "face": "nod",
+            "line": "嗯，稳。"
+          },
+          {
+            "id": "ua1_to_b",
+            "type": "bold",
+            "text": "先算账：日活乘人均调用次数再乘单价，看一个月花多少。",
+            "face": "probe",
+            "line": "好，我给你个数。",
+            "followup": {
+              "text": "算下来，一个月的 API 费用比两个算法工程师的工资还高。怎么办？",
+              "options": [
+                {
+                  "id": "ua1_to_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "做缓存、截断长文；简单请求走小模型，难的才调大模型。",
+                  "face": "pleased",
+                  "line": "嗯，这才是能落地的方案。"
+                },
+                {
+                  "id": "ua1_to_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就停掉 API 先自己微调，晚一个月上线也能接受。",
+                  "face": "calm",
+                  "line": "产品可等不了一个月。"
+                },
+                {
+                  "id": "ua1_to_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "先不管成本，效果最重要，钱的问题等下一轮融资再说。",
+                  "face": "frown",
+                  "line": "我们今年要收支平衡。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_to_c",
+            "type": "off",
+            "delta": -3,
+            "text": "等一个月把小模型训好再上，第一版效果更有保证。",
+            "face": "frown",
+            "line": "产品下周就要。"
+          }
+        ],
+        "explain": "效果、成本、工期要一起看。先用现成的 API 上线、验证需求、攒数据，是创业公司常见的做法；算清账以后，用缓存、截断、按难度分流（简单请求走小模型）把成本压下来，比一刀切地“全用 API”或“全自己训”更现实。只顾效果不算成本，或者为了效果把上线拖一个月，这样答，面试官多半会接着问钱从哪来、产品等不等得起。"
+      }
+    },
+    {
+      "id": "q_ua1_vram",
+      "pools": [
+        "algo_tradeoff"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我们只有一张 24G 的卡，想微调一个 7B 的模型做润色。行得通吗？",
+        "options": [
+          {
+            "id": "ua1_vr_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "全参数不够，用 LoRA 或 QLoRA，只训一小部分参数。",
+            "face": "nod",
+            "line": "嗯，现实的做法。"
+          },
+          {
+            "id": "ua1_vr_b",
+            "type": "bold",
+            "text": "先估显存：7B 用半精度存，光权重就要 14G 左右。",
+            "face": "probe",
+            "line": "那接着算。",
+            "followup": {
+              "text": "那全参数微调、用 Adam，大概要多少显存？",
+              "options": [
+                {
+                  "id": "ua1_vr_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "每参数约 16 字节：权重、梯度加 Adam 状态，一百多 G。",
+                  "face": "pleased",
+                  "line": "对，账算得清。"
+                },
+                {
+                  "id": "ua1_vr_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "权重 14G 加梯度 14G，一共 28G 左右，挤一挤能放下。",
+                  "face": "calm",
+                  "line": "Adam 的状态呢？"
+                },
+                {
+                  "id": "ua1_vr_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "7B 是参数个数，按 INT8 一个参数 1 字节，7G 就够了。",
+                  "face": "frown",
+                  "line": "训练时梯度和 Adam 状态也按 1 字节算？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ua1_vr_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先租几张 80G 的卡做全参数微调，效果最好，钱花得值。",
+            "face": "frown",
+            "line": "卡的钱谁出？"
+          }
+        ],
+        "explain": "显存估算是大模型落地的基本功。7B 参数用半精度（每个 2 字节）存，光权重约 14G；全参数微调用 Adam 混合精度训练，半精度的权重和梯度、32 位的主权重和 Adam 的两份状态，加起来约每参数 16 字节，7B 就是一百多 G，还没算激活值。一张 24G 的卡，用 LoRA 冻住原权重、只训少量新增参数，或者用 QLoRA 把原权重量化到 4 位，才放得下。按 INT8 存，推理时每个参数确实只要 1 字节；训练时的梯度和优化器状态另算，远不止 7G。"
+      }
+    },
+    {
+      "id": "algo_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "algo"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你有什么想问我的吗？",
+        "options": [
+          {
+            "id": "algr_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "模型上线以后，效果主要看哪个线上指标？",
+            "face": "pleased",
+            "line": "看业务指标，离线涨了线上不涨的事常有……"
+          },
+          {
+            "id": "algr_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "组里现在几个人？训练平台是自己搭的吗？",
+            "face": "nod",
+            "line": "七八个人，平台是公司统一的。"
+          },
+          {
+            "id": "algr_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位能发论文吗？一年大概几篇？",
+            "face": "calm",
+            "line": "我们以业务为主，论文不考核。"
+          },
+          {
+            "id": "algr_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问上线以后看哪个指标，能听到团队怎么衡量算法的价值，也能看出你知道离线指标好看不等于有用；问团队规模和平台也正常，只是信息量小一些；业务团队的算法岗一般不以发论文为目标，开口先问论文，这个问题可能让面试官关注到你更想做研究。"
+      }
+    },
+    {
+      "id": "alx_intro_boundary",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "algo"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "请挑一个算法项目介绍：解决什么问题，你本人负责哪部分，结论验证到哪一步？",
+        "options": [
+          {
+            "id": "alx_intro_boundary_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "按任务、个人工作和验证结果介绍，标清参与边界。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "alx_intro_boundary_b",
+            "type": "bold",
+            "text": "先讲一个关键选择，再解释对照与结论的限制。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "团队效果提升了，但你只负责数据清洗，怎么说明贡献？",
+              "options": [
+                {
+                  "id": "alx_intro_boundary_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "讲清清洗规则和核对结果，团队增益不全算在自己头上。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "alx_intro_boundary_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先讲团队提升，再补一句自己主要参与数据处理。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "alx_intro_boundary_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "清洗是模型基础，团队增益可以代表我的直接成果。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "算法项目介绍需要区分个人动作、团队结果与可证明的贡献。数据清洗可以有明确价值，但不能把团队全部增益归给自己；技术名词也不能替代任务、对照和验证范围。先把责任边界说清，后续追问才能落到真实工作。"
+            }
+          },
+          {
+            "id": "alx_intro_boundary_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲完整技术栈，再介绍团队最终拿到的成绩。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "算法项目介绍需要区分个人动作、团队结果与可证明的贡献。数据清洗可以有明确价值，但不能把团队全部增益归给自己；技术名词也不能替代任务、对照和验证范围。先把责任边界说清，后续追问才能落到真实工作。"
+      }
+    },
+    {
+      "id": "alx_reverse_cycle",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "algo"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你还有什么想了解我们算法团队的？",
+        "options": [
+          {
+            "id": "alx_reverse_cycle_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "一次模型从评测到上线，谁决定继续或停止？",
+            "face": "nod",
+            "line": "可以，我们讲一个流程示例。"
+          },
+          {
+            "id": "alx_reverse_cycle_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人会负责哪段链路，谁提供评审反馈？",
+            "face": "nod",
+            "line": "我们按实际任务说明。"
+          },
+          {
+            "id": "alx_reverse_cycle_2",
+            "type": "reverse",
+            "delta": 1,
+            "text": "当前主要用哪些模型和训练框架？",
+            "face": "nod",
+            "line": "可以介绍，但具体任务更影响日常。"
+          }
+        ],
+        "explain": "算法反问可核对真实任务、责任和反馈。评测、数据与工程都可能影响模型决策，不必只按是否训练新模型排序。工具名称能补充背景，却不足以判断新人能学到什么。",
+        "kind": "reverse"
+      }
+    },
+    {
+      "id": "alx_quality_cost",
+      "pools": [
+        "algo_tradeoff"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "两个模型，一个效果更好但成本更高，一个较便宜但易漏掉少数困难样本。你怎么选？",
+        "options": [
+          {
+            "id": "alx_quality_cost_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先按场景核对错误代价、响应要求和预算。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "alx_quality_cost_b",
+            "type": "bold",
+            "text": "分层比较质量与成本，先确定不能突破的底线。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "总体差距很小，但少数高风险样本差很多呢？",
+              "options": [
+                {
+                  "id": "alx_quality_cost_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "单列关键样本门槛，达不到就保留人工或原流程。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "alx_quality_cost_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "按真实占比重新加权，总体收益高就采用。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "alx_quality_cost_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "样本少影响有限，先上线便宜方案，收集反馈再迭代。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "模型取舍不是用单一平均指标排名。先明确错误后果、关键样本门槛、响应和预算，再比较可接受方案。小群体的高代价错误不能被总体平均掩盖；人工或原流程可作兜底，但应说明覆盖和成本，不把低价当作忽略底线的理由。"
+            }
+          },
+          {
+            "id": "alx_quality_cost_c",
+            "type": "off",
+            "delta": -3,
+            "text": "按总体准确率除以单次成本，选比值更高的。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "模型取舍不是用单一平均指标排名。先明确错误后果、关键样本门槛、响应和预算，再比较可接受方案。小群体的高代价错误不能被总体平均掩盖；人工或原流程可作兜底，但应说明覆盖和成本，不把低价当作忽略底线的理由。"
+      }
+    },
+    {
+      "id": "alx_deadline_evidence",
+      "pools": [
+        "algo_tradeoff"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "只剩一周交付模型原型，新方法可能涨点，但复现还不稳定。你怎样安排？",
+        "options": [
+          {
+            "id": "alx_deadline_evidence_c",
+            "type": "off",
+            "delta": -3,
+            "text": "集中尝试新方法，最后一天再整理效果最好的权重。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          },
+          {
+            "id": "alx_deadline_evidence_b",
+            "type": "bold",
+            "text": "约定质量门槛与停止点，交付能核验的模型和报告。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "到停止点只有一次运行明显更好，其余都和基线相近呢？",
+              "options": [
+                {
+                  "id": "alx_deadline_evidence_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先交最好权重，报告里注明后续还需要多跑几次。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "alx_deadline_evidence_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "最好的结果说明方法有潜力，可以按该提升宣传。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                },
+                {
+                  "id": "alx_deadline_evidence_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "如实报告波动与限制，按已验证基线交付。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                }
+              ],
+              "explain": "工期约束下应保住可复现、可解释的交付，再限时探索。一次较好结果可能来自随机性，不能直接当稳定增益。报告波动和未完成验证可以保留研究价值，却不应把未经支持的提升写成确定成果。"
+            }
+          },
+          {
+            "id": "alx_deadline_evidence_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先保留可复现基线，把新方法验证设成限时任务。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          }
+        ],
+        "explain": "工期约束下应保住可复现、可解释的交付，再限时探索。一次较好结果可能来自随机性，不能直接当稳定增益。报告波动和未完成验证可以保留研究价值，却不应把未经支持的提升写成确定成果。"
+      }
+    },
+    {
+      "id": "alx_scale_rollout",
+      "pools": [
+        "algo_tradeoff"
+      ],
+      "priority": 60,
+      "when": {
+        "scale": "big"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "新模型离线评测更好，准备进入大量真实请求。除了平均效果，你还要确认什么？",
+        "options": [
+          {
+            "id": "alx_scale_rollout_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "核对输入分布、容量和回退条件，先做小范围验证。",
+            "face": "nod",
+            "line": "嗯，先把范围说清。"
+          },
+          {
+            "id": "alx_scale_rollout_b",
+            "type": "bold",
+            "text": "把质量、尾部耗时与资源预算放进同一次发布判断里。",
+            "face": "probe",
+            "line": "再看一个条件。",
+            "followup": {
+              "text": "小范围验证中质量变好，但慢请求明显增多，怎么办？",
+              "options": [
+                {
+                  "id": "alx_scale_rollout_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "暂停扩大，按请求分层找瓶颈，验证降级与回退。",
+                  "face": "pleased",
+                  "line": "嗯，这样有判断依据。"
+                },
+                {
+                  "id": "alx_scale_rollout_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先增加机器，再看平均响应能否降回原来水平。",
+                  "face": "calm",
+                  "line": "还有哪些条件要核对？"
+                },
+                {
+                  "id": "alx_scale_rollout_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "质量收益更重要，延迟问题可以在全量后逐步处理。",
+                  "face": "frown",
+                  "line": "这样能解决根本问题吗？"
+                }
+              ],
+              "explain": "规模上线需要同时验证质量、分层延迟、容量和回退能力。平均效果好不能抵消关键请求不可用，离线分布也不保证代表线上。先暂停扩大、定位瓶颈，再评估资源或模型调整，比只看平均响应、点击率或一次扩容更完整。"
+            }
+          },
+          {
+            "id": "alx_scale_rollout_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先扩容到压测峰值，再用线上点击率判断模型质量。",
+            "face": "calm",
+            "line": "这一步的风险呢？"
+          }
+        ],
+        "explain": "规模上线需要同时验证质量、分层延迟、容量和回退能力。平均效果好不能抵消关键请求不可用，离线分布也不保证代表线上。先暂停扩大、定位瓶颈，再评估资源或模型调整，比只看平均响应、点击率或一次扩容更完整。"
+      }
+    }
+  ]
+}

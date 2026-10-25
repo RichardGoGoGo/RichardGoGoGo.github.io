@@ -1,0 +1,284 @@
+{
+  "id": "cross",
+  "name": "交叉面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A7",
+    "title": "交叉面面试官"
+  },
+  "scene": "S6",
+  "_note": "触发式隐藏关，见策划案 4.2：业务面（一面、二面、总监面）余量之和落在“拿不准”或“冲 SSP”区间时触发，不告诉玩家原因。交叉面的余量不计入档位。",
+  "invite_text": "你被安排了一轮加面……是好事，还是坏事？",
+  "flow": [
+    {
+      "slot": "q1",
+      "node": "q_cross_domain",
+      "swap": false
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "pm_collab",
+      "prefer": [
+        "q_dev_conflict",
+        "q_wrong_call"
+      ],
+      "swap": true,
+      "_note": "交叉面看协作和跨职能沟通（资料 G6-screen-5-3）"
+    },
+    {
+      "slot": "q3",
+      "node": "q_hard_feedback",
+      "swap": true,
+      "alternates": [
+        "q_peer_compare"
+      ]
+    },
+    {
+      "slot": "reverse",
+      "node": "bc_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "q_cross_domain": {
+      "tag": "视野与取舍",
+      "text": "我是做电商业务的。如果把你放到电商，你会怎么快速上手？",
+      "options": [
+        {
+          "id": "xd_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "自己把购物流程走几十遍，再看漏斗数据、找用户聊聊。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "xd_b",
+          "type": "bold",
+          "text": "先找电商和教育的相通处：让用户从“看看”到“下决心”。",
+          "face": "probe",
+          "line": "那不同呢？",
+          "followup": {
+            "text": "那最大的不同是什么？",
+            "options": [
+              {
+                "id": "xd_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "教育要长期坚持，电商看单次决策，节奏和指标都不同。",
+                "face": "pleased",
+                "line": "嗯，看得挺准。"
+              },
+              {
+                "id": "xd_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "电商的用户量更大，流量来得快走得也快，竞争也更激烈。",
+                "face": "calm",
+                "line": "就这个？"
+              },
+              {
+                "id": "xd_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "本质都一样，都是拉新、促活、转化那一套，没什么根本不同。",
+                "face": "frown",
+                "line": "那你来电商试试？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xd_c",
+          "type": "off",
+          "delta": -3,
+          "text": "我对电商不太感兴趣，还是更想留在教育这条线上做深。",
+          "face": "frown",
+          "line": "嗯……"
+        }
+      ],
+      "explain": "交叉面的面试官来自别的业务线，可能会问“换个领域你怎么办”，这类题检验的是方法能不能迁移。先找相通之处、再说清最大的不同，比表态“不感兴趣”好得多。"
+    },
+    "q_peer_compare": {
+      "tag": "动机与稳定",
+      "text": "和今天来面试的其他候选人比，你觉得自己最大的短板是什么？",
+      "options": [
+        {
+          "id": "pc_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "没有正式的产品实习，写需求、推研发的经验比别人少。",
+          "face": "nod",
+          "line": "嗯，挺坦诚。",
+          "requires": {
+            "lacks_exp_type": "intern_pm"
+          },
+          "fallback": {
+            "id": "pc_a0",
+            "type": "safe",
+            "delta": 3,
+            "text": "实习时间短，完整跟下来的项目比别人少。",
+            "face": "nod",
+            "line": "嗯，挺坦诚。"
+          }
+        },
+        {
+          "id": "pc_b",
+          "type": "bold",
+          "text": "缺正式的产品实习。不过我想说说这段时间我是怎么补的。",
+          "face": "probe",
+          "line": "说说看。",
+          "followup": {
+            "text": "具体在补什么？",
+            "options": [
+              {
+                "id": "pc_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "把塔塔学习用了两周，记了 20 多条笔记，排成改进清单。",
+                "face": "pleased",
+                "line": "嗯，有实际动作。"
+              },
+              {
+                "id": "pc_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "在看产品经理的书和网课，入门的那几本经典已经都看完了。",
+                "face": "calm",
+                "line": "大家都在看。"
+              },
+              {
+                "id": "pc_b3",
+                "type": "fail",
+                "delta": -5,
+                "text": "其实已经补得差不多了，PRD 和原型这些我都会，就差上手。",
+                "face": "frown",
+                "line": "那还算短板吗？"
+              }
+            ]
+          },
+          "requires": {
+            "lacks_exp_type": "intern_pm"
+          },
+          "fallback": {
+            "id": "pc_b0",
+            "type": "safe",
+            "delta": 1,
+            "text": "完整跟下来的项目不多，我在有意识地补。",
+            "face": "nod",
+            "line": "嗯。"
+          }
+        },
+        {
+          "id": "pc_c",
+          "type": "off",
+          "delta": -5,
+          "text": "说不上有什么明显短板，该准备的这几个月基本都补齐了。",
+          "face": "frown",
+          "line": "嗯……"
+        }
+      ],
+      "explain": "承认短板不丢分，说清你在怎么补才加分。说“没有短板”，在交叉面里几乎是最危险的回答。"
+    },
+    "q_hard_feedback": {
+      "tag": "动机与稳定",
+      "text": "如果我说，你今天的回答有点“学生气”，你怎么看？",
+      "options": [
+        {
+          "id": "hf_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "可能我的例子多来自学校。能说说是哪个回答让您这么觉得吗？",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "hf_b",
+          "type": "bold",
+          "text": "同意一部分，我缺真实业务里的取舍。能举个例子吗？我想现在就改。",
+          "face": "probe",
+          "line": "好，举一个。",
+          "followup": {
+            "text": "比如刚才聊留存，你只讲了方法，没讲成本。",
+            "options": [
+              {
+                "id": "hf_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "对。做实验前我会先估样本量、周期和研发人力。",
+                "face": "pleased",
+                "line": "嗯，接得住。"
+              },
+              {
+                "id": "hf_b2",
+                "type": "partial",
+                "delta": -1,
+                "text": "好的，我以后会多注意成本，每个方案都先算算投入产出。",
+                "face": "calm",
+                "line": "嗯。"
+              },
+              {
+                "id": "hf_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "可是我讲的方法本身是对的，成本是落地时才需要考虑的事。",
+                "face": "frown",
+                "line": "我没说方法不对。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hf_c",
+          "type": "off",
+          "delta": -5,
+          "text": "我觉得还好吧，可能是您对应届生的要求比较高。",
+          "face": "frown",
+          "line": "……"
+        }
+      ],
+      "explain": "被直接批评时，先接住、再问具体例子、当场改，最能体现你听得进反馈；反过来指向对方，是这一题最容易失分的地方。"
+    },
+    "bc_reverse": {
+      "tag": "动机与稳定",
+      "kind": "reverse",
+      "text": "我这边就这些。你有什么想问的？",
+      "options": [
+        {
+          "id": "bcr_a",
+          "type": "reverse",
+          "delta": 3,
+          "text": "您所在的电商团队，现在最看重新人哪方面的能力？",
+          "face": "pleased",
+          "line": "嗯，好问题。"
+        },
+        {
+          "id": "bcr_b",
+          "type": "reverse",
+          "delta": -1,
+          "text": "交叉面之后，一般还有几轮？大概多久出结果？",
+          "face": "calm",
+          "line": "后面的安排 HR 会通知你。"
+        },
+        {
+          "id": "bcr_c",
+          "type": "reverse",
+          "delta": -2,
+          "text": "加面是不是说明我前面表现得很好？",
+          "face": "calm",
+          "line": "这个不好说。"
+        },
+        {
+          "id": "bcr_d",
+          "type": "reverse",
+          "delta": -3,
+          "text": "没有了。",
+          "face": "calm",
+          "line": "好。"
+        }
+      ],
+      "explain": "加面的原因面试官一般不会说，直接问只会让场面尴尬；还有几轮、多久出结果，面试官当场多半答不了，还显得着急。问对方团队看重什么，信息量大得多。"
+    }
+  }
+}

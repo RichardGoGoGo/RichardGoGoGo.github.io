@@ -1,0 +1,323 @@
+{
+  "_note": "国企综合面（结构化面试）用的背景题，只放进 panel 题位，ID 前缀 bgs_。按 priority 从高到低挑这一局还没问过的：硕士问“为什么来国企”，实习没留下的问“是不是退而求其次”，非技术专业问“怎么想到来国企做这个岗”，都不满足时问通用的“适不适合国企”。人设专属的事实用 {p.soe_*}（见 content/_staging/soe.json），都写了默认文字，没补参数的人设也能用。",
+  "background": [
+    {
+      "id": "bgs_master_soe",
+      "pools": [
+        "panel"
+      ],
+      "priority": 50,
+      "when": {
+        "degree": "master"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你是{bg.school_tier_cn}的{bg.major_degree}，去大厂的机会不少，为什么来国企？",
+        "options": [
+          {
+            "id": "bgs_ms_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "想做服务面广、能用很多年的系统，这里更对路。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgs_ms_b",
+            "type": "bold",
+            "text": "讲一件让我想清楚自己要什么的具体的事。",
+            "face": "probe",
+            "line": "好，说说。",
+            "followup": {
+              "text": "那你怎么确定，来了以后不会嫌节奏慢、待不住？",
+              "options": [
+                {
+                  "id": "bgs_ms_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.soe_master_hold|我要的是做出来能用很多年的东西，慢一点我不怕。}",
+                  "face": "pleased",
+                  "line": "嗯，想得挺清楚。"
+                },
+                {
+                  "id": "bgs_ms_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "说实话不敢打包票，先来干两年，看看适不适合。",
+                  "face": "calm",
+                  "line": "两年以后呢？"
+                },
+                {
+                  "id": "bgs_ms_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "肯定不会，我这人天生就沉得住气，做什么事都从来不着急。",
+                  "face": "frown",
+                  "line": "从来不着急？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgs_ms_c",
+            "type": "off",
+            "delta": -3,
+            "text": "大厂太卷了，师兄师姐都说过了三十五岁就很难待。",
+            "face": "frown",
+            "line": "那来这儿是为了躲？"
+          },
+          {
+            "id": "bgs_ms_d",
+            "type": "off",
+            "delta": -1,
+            "text": "家里希望我离家近一点，{co.short}正好离家近，通勤也方便。",
+            "face": "calm",
+            "line": "嗯，这也是个考虑。"
+          }
+        ],
+        "explain": "高学历来国企，多半会被追问“待不住怎么办”：觉得屈才、嫌节奏慢，过两年就走。讲一件让你想清楚自己要什么的真事，再说明这里正好对得上，最有说服力；拿大厂“太卷”当理由，听起来像在躲；“不敢打包票”是实话，但等于把这个疑问原样还了回去；“从来不着急”话说太满，一问就空。"
+      }
+    },
+    {
+      "id": "bgs_intern_soe",
+      "pools": [
+        "panel"
+      ],
+      "priority": 45,
+      "when": {
+        "trait": "intern_not_converted"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你在上一家实习了{p.intern_duration|一段时间}没留下，来国企是不是退而求其次？",
+        "options": [
+          {
+            "id": "bgs_in_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.convert_short|没留下}是实情，但报国企是我比较过以后定的。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgs_in_b",
+            "type": "bold",
+            "text": "不是退路。我说说实习那段让我想清楚的一件事。",
+            "face": "probe",
+            "line": "好，你说。",
+            "followup": {
+              "text": "想清楚了什么？跟来国企有什么关系？",
+              "options": [
+                {
+                  "id": "bgs_in_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.soe_after_intern|想清楚了自己想做能长期做下去的项目，这里正好是。}",
+                  "face": "pleased",
+                  "line": "嗯，有自己的想法。"
+                },
+                {
+                  "id": "bgs_in_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "确实有一点，国企相对稳定，不用操心转正。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "bgs_in_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "其实那边想留我，是我自己觉得不合适没去。",
+                  "face": "frown",
+                  "line": "是吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgs_in_c",
+            "type": "off",
+            "delta": -3,
+            "text": "那边节奏太快、加班也太多，我觉得自己更适合国企的环境。",
+            "face": "frown",
+            "line": "你觉得国企不加班？"
+          },
+          {
+            "id": "bgs_in_d",
+            "type": "off",
+            "delta": -1,
+            "text": "现在就业形势不好，能有份稳定的工作就不错了。",
+            "face": "calm",
+            "line": "嗯，理解。"
+          }
+        ],
+        "explain": "实习没留下又来国企，多半会被追问：这是不是退路。没留下的原因照实说，再讲清你从那段实习里想明白了什么、为什么正好是这里，就把“退路”讲成了“选择”。说“其实那边想留我”，和你前面讲的原因对不上；拿对方加班多当理由，等于在背后说前东家，还暗示你是来躲累的。"
+      }
+    },
+    {
+      "id": "bgs_cross_soe",
+      "pools": [
+        "panel"
+      ],
+      "priority": 40,
+      "when": {
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你学{bg.major}，怎么想到来国企做{role.name}？",
+        "options": [
+          {
+            "id": "bgs_cr_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.soe_cross_reason|专业里练的方法在这个岗位上用得上，基础我也在补。}",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgs_cr_b",
+            "type": "bold",
+            "text": "讲我自学做{cite.short}的经过，说明基础我补得上。",
+            "requires": {
+              "highlight_ev": "self_taught_tool"
+            },
+            "face": "probe",
+            "line": "那我问一句。",
+            "fallback": {
+              "id": "bgs_cr_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "觉得{role.name}更有前景，国企的平台也稳一些。",
+              "face": "calm",
+              "line": "嗯……具体是什么让你这么想？"
+            },
+            "followup": {
+              "text": "和科班出身的比，你缺什么？打算怎么补？",
+              "options": [
+                {
+                  "id": "bgs_cr_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.soe_cross_gap|缺的是专业基础，正在按课程补，每学一块就拿小项目练。}",
+                  "face": "pleased",
+                  "line": "嗯，清楚自己的位置。"
+                },
+                {
+                  "id": "bgs_cr_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "可能缺一些专业课，入职以后边做边学应该来得及。",
+                  "face": "calm",
+                  "line": "入职以后？"
+                },
+                {
+                  "id": "bgs_cr_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不缺什么，现在工具都很成熟了，不是科班出身也一样能做好。",
+                  "face": "frown",
+                  "line": "是吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgs_cr_c",
+            "type": "off",
+            "delta": -3,
+            "text": "{bg.major}不好找工作，国企的技术岗招人多一些。",
+            "face": "calm",
+            "line": "嗯，挺实在，但……"
+          },
+          {
+            "id": "bgs_cr_d",
+            "type": "off",
+            "delta": -1,
+            "text": "专业对口的岗位也报了，这个是顺手报的。",
+            "face": "frown",
+            "line": "顺手？"
+          }
+        ],
+        "explain": "跨专业来国企做技术或数据岗，多半会被追问两件事：是不是一时兴起，基础够不够。拿一件没人教、自己做成的事证明补得上，再坦白说出缺什么、怎么补，最可信；“不缺什么”和“入职再学”都会让人担心你低估了这份工作；“顺手报的”，等于告诉考官你没当回事。"
+      }
+    },
+    {
+      "id": "bgs_fit_soe",
+      "pools": [
+        "panel"
+      ],
+      "priority": 10,
+      "when": {},
+      "_note": "通用兜底题：上面几道都不满足时问。",
+      "node": {
+        "tag": "动机与稳定",
+        "text": "有人觉得国企讲规矩、流程多、节奏慢。你觉得自己适合吗？",
+        "options": [
+          {
+            "id": "bgs_ft_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "流程多是因为影响面大，我本来就习惯先确认再动手。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "bgs_ft_b",
+            "type": "bold",
+            "text": "适合，也说说我可能不适应的地方和打算怎么调整。",
+            "face": "probe",
+            "line": "好，说说。",
+            "followup": {
+              "text": "你觉得自己最可能不适应的是什么？",
+              "options": [
+                {
+                  "id": "bgs_ft_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "等审批时容易着急，我会把要等的事提前排好，空档做别的。",
+                  "face": "pleased",
+                  "line": "嗯，挺了解自己。"
+                },
+                {
+                  "id": "bgs_ft_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "应该没什么不适应的，刚开始可能慢一点，慢慢都会习惯。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "bgs_ft_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "可能是流程太多，我会想办法，能省的步骤先省掉。",
+                  "face": "frown",
+                  "line": "先省掉？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "bgs_ft_c",
+            "type": "off",
+            "delta": -3,
+            "text": "节奏慢正好，我本来就想找个轻松一点的工作。",
+            "face": "frown",
+            "line": "轻松？"
+          },
+          {
+            "id": "bgs_ft_d",
+            "type": "off",
+            "delta": -1,
+            "text": "说实话不太确定，得进去待一段时间才知道。",
+            "face": "calm",
+            "line": "嗯。"
+          }
+        ],
+        "explain": "这题问的是自我认知。说清流程背后的道理，再说出自己可能不适应的地方和怎么调整，比一口咬定“完全适合”可信；把流程当成可以自己先省掉的东西，在讲规矩的单位是大忌；说“节奏慢正好轻松”，等于告诉考官你是来歇着的。"
+      }
+    }
+  ]
+}

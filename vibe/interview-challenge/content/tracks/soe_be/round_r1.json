@@ -1,0 +1,16 @@
+{
+  "id": "r1", "name": "专业面", "company": "soe",
+  "interviewer": {"art": "A2", "title": "技术面试官"},
+  "scene": "S9",
+  "_note": "国企后端专业面：基础八股和数据库问得细，看重稳定、合规、可维护和踏实交付，高并发问得少。追问 1 层。选项 ID 前缀 sb1_。题目都在 library/packs/be.json 的 pools 里，题位用 prefer 钉住原来的题和顺序。",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["sb1_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "pool", "pool": "be_basics", "prefer": ["sb1_tx", "sb1_tcp"], "swap": true},
+    {"slot": "q2", "dynamic": "deep_dive_first", "swap": false, "_note": "深挖简历第一页排第 1 的那段经历；那段用的是夸大或含糊写法时，换成对应的追问"},
+    {"slot": "q3", "dynamic": "pool", "pool": "be_secops", "prefer": ["sb1_security", "sb1_disk"], "swap": true},
+    {"slot": "q4", "dynamic": "skill_probe", "fallback_pool": "be_java", "prefer": ["sb1_equals"], "swap": false, "_note": "技能栏写了“精通 MySQL”或“精通 Java”时换成对应追问，否则问 equals 和 hashCode"},
+    {"slot": "q5", "dynamic": "pool", "pool": "be_maintain", "prefer": ["sb1_legacy", "sb1_log"], "swap": true},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["sb1_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

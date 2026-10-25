@@ -1,0 +1,75 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（catalog.json 里的 base_persona）标定，见 tools/balance_sim.py。（2026-10-25 按基准组合标定）",
+  "est_minutes": "10–12",
+  "stages": [
+    "resume",
+    "test",
+    "r1",
+    "r2",
+    "neg"
+  ],
+  "resume_screen": {
+    "screener": "HR（先看学历和专业）",
+    "_note": "国企简历先过学历、专业这道硬杠：学历权重高，专业对口加分多；第二页基本不看。",
+    "edu_weight": 1.6,
+    "page2_discount": 0.2,
+    "overflow_penalty": 0.3,
+    "machine_screen": false,
+    "pass_line": 3.3,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 66,
+    "followup_depth": 1,
+    "time_multiplier": 1.0,
+    "pressure_multiplier": 0.8
+  },
+  "tiers": {
+    "_note": "按专业面、综合面两轮的余量之和分档，阈值由 tools/balance_sim.py 标定。",
+    "thresholds": {
+      "普通": 2,
+      "SP": 23,
+      "SSP": 38
+    }
+  },
+  "id": "soe_be",
+  "company": "soe",
+  "role": "be",
+  "label": "国企 × 后端",
+  "rounds": [
+    "tracks/soe_be/round_r1.json",
+    "companies/soe/round_panel.json"
+  ],
+  "test": "tracks/soe_be/test.json",
+  "skill_probe_order": [
+    "mysql",
+    "java"
+  ],
+  "skill_probes": {
+    "mysql": "probe_mysql_index"
+  },
+  "review_phrases": {
+    "专业": {
+      "plus": "基础扎实，数据库和语言的细节答得准。",
+      "minus": "部分基础知识点有混淆，追问时没能讲清。"
+    },
+    "项目表达": {
+      "plus": "项目讲得具体，个人负责哪部分、交付得怎么样，都说得清。",
+      "minus": "项目里个人做了什么，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "处理问题先想稳定、合规和影响面，做事踏实。",
+      "minus": "处理问题偏冒进，对规范和影响面考虑得少。"
+    },
+    "动机与稳定": {
+      "plus": "求职动机清楚，对岗位的工作节奏有准备。",
+      "minus": "求职动机和稳定性还有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  }
+}

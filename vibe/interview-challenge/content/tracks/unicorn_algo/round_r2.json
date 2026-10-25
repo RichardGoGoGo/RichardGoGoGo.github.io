@@ -1,0 +1,168 @@
+{
+  "id": "r2", "name": "业务二面 · 现场推导", "company": "unicorn",
+  "interviewer": {"art": "A3", "title": "算法负责人"},
+  "scene": "S5",
+  "hello": "二面我们推一推、写一写。题目：预测用户会不会采纳一条改写建议，先用逻辑回归做个基线。边写边说就行。",
+  "_note": "独角兽算法二面：现场推导和手写，整轮围绕一道题分 5 步走（问清题目 → 推梯度 → 手写评估指标 → 查训练问题 → 收尾上线），题面里的 code 字段在界面上按代码块显示。简历深挖留给创始人面。追问最多 2 层。选项 ID 前缀 ua2_。",
+  "flow": [
+    {"slot": "c1", "node": "q_ua2_clarify", "swap": false},
+    {"slot": "c2", "node": "q_ua2_grad", "swap": true, "alternates": ["q_ua2_softmax"]},
+    {"slot": "c3", "node": "q_ua2_auc", "swap": true, "alternates": ["q_ua2_topk"]},
+    {"slot": "c4", "node": "q_ua2_nan", "swap": true, "alternates": ["q_ua2_leak"]},
+    {"slot": "c5", "node": "q_ua2_wrap", "swap": true, "alternates": ["q_ua2_llm"]},
+    {"slot": "reverse", "node": "q_ua2_reverse", "swap": false}
+  ],
+  "nodes": {
+    "q_ua2_clarify": {
+      "tag": "项目表达",
+      "text": "题目就这么多。你可以先问问题，也可以直接开始。",
+      "options": [
+        {"id": "ua2_cc_a", "type": "safe", "delta": 3, "text": "先问两点：负样本怎么定义，用什么指标验收。", "face": "nod", "line": "好问题。展示了没采纳的算负样本，指标你来定。"},
+        {"id": "ua2_cc_b", "type": "bold", "text": "不问了，先写一版能跑的，边写边说思路。", "face": "probe", "line": "行，写完我们看看。",
+          "followup": {"text": "你第一版在验证集上准确率 95%。可采纳率本来就只有 5% 左右。说明什么？", "options": [
+            {"id": "ua2_cc_b1", "type": "hold", "delta": 9, "text": "全猜“不采纳”就有 95%，准确率没意义，得换 AUC。", "face": "pleased", "line": "对，指标先定对。"},
+            {"id": "ua2_cc_b2", "type": "partial", "delta": -2, "text": "说明样本不平衡，把正样本复制几份再训，准确率还能涨。", "face": "calm", "line": "涨了又说明什么？"},
+            {"id": "ua2_cc_b3", "type": "fail", "delta": -7, "text": "说明基线已经不错了，95% 的准确率够高，可以先上线看看。", "face": "frown", "line": "全猜不采纳也有 95%。"}
+          ]}},
+        {"id": "ua2_cc_c", "type": "off", "delta": -3, "text": "能先给我二十分钟，自己推完写完，再一起对着代码看吗？", "face": "frown", "line": "我想听你边写边想。"}
+      ],
+      "explain": "现场推导和写代码，思路和结果一样要讲出来。先问清负样本怎么定义、用什么指标验收最稳；直接开写也行，但要能当场看出自己的漏洞。正样本只占 5% 时，全猜“不采纳”准确率就有 95%，准确率说明不了模型好坏，要看 AUC 这类不依赖阈值的指标，正样本很少时再配合 PR 曲线一起看。闷头写二十分钟再讲，这段时间的思路面试官看不到，多半会请你边写边讲。"
+    },
+    "q_ua2_grad": {
+      "tag": "专业",
+      "text": "先推一下：逻辑回归用交叉熵损失，对 w 的梯度是什么？",
+      "code": "z = w·x + b\np = sigmoid(z)\nL = -[ y·log(p) + (1 - y)·log(1 - p) ]\n# 求 ∂L/∂w",
+      "options": [
+        {"id": "ua2_gd_a", "type": "safe", "delta": 3, "text": "(p − y)·x。sigmoid 的导数和 log 一抵消，形式很干净。", "face": "nod", "line": "对。"},
+        {"id": "ua2_gd_b", "type": "bold", "text": "(p − y)·x；顺便说说，这里为什么不用均方误差。", "face": "probe", "line": "好，说说。",
+          "followup": {"text": "换成均方误差，会怎样？", "options": [
+            {"id": "ua2_gd_b1", "type": "hold", "delta": 9, "text": "梯度多乘一个 p(1 − p)，错得越离谱梯度越小，学得慢。", "face": "pleased", "line": "对，推得出来才算懂。"},
+            {"id": "ua2_gd_b2", "type": "partial", "delta": -2, "text": "也能用，就是收敛得慢一点，训的轮数多了，结果其实差不多。", "face": "calm", "line": "为什么慢？"},
+            {"id": "ua2_gd_b3", "type": "fail", "delta": -7, "text": "均方误差只适用于回归，用在分类上，框架会直接报类型错误。", "face": "frown", "line": "报错？"}
+          ]}},
+        {"id": "ua2_gd_c", "type": "off", "delta": -3, "text": "p(1 − p)·x，也就是 sigmoid 的导数再乘上 x。", "face": "frown", "line": "log 那一层呢？"}
+      ],
+      "explain": "逻辑回归加交叉熵，链式法则算下来，sigmoid 的导数 p(1 − p) 正好和 log 求导出来的分母约掉，对 w 的梯度就是 (p − y)·x，误差越大更新越大。换成均方误差，梯度里会多乘一个 p(1 − p)：预测接近 0 而真实是 1 时，这一项接近 0，错得最离谱的样本反而几乎学不动；损失对 w 也不再是凸的。只写 p(1 − p)·x，是漏掉了损失函数那一层。"
+    },
+    "q_ua2_softmax": {
+      "tag": "专业",
+      "text": "换成多分类：softmax 加交叉熵，对 logits 的梯度是什么？",
+      "code": "p = softmax(z)          # z 是 logits\nL = -Σ y_i·log(p_i)     # y 是 one-hot\n# 求 ∂L/∂z",
+      "options": [
+        {"id": "ua2_sm_a", "type": "safe", "delta": 3, "text": "p − y：预测的概率减去 one-hot 标签，每一维都一样。", "face": "nod", "line": "对。"},
+        {"id": "ua2_sm_b", "type": "bold", "text": "p − y；实现时还得先把 logits 减掉最大值，再算 exp。", "face": "probe", "line": "为什么？",
+          "followup": {"text": "减掉最大值，为什么不会改变结果？", "options": [
+            {"id": "ua2_sm_b1", "type": "hold", "delta": 9, "text": "分子分母同乘 e 的负最大值次方，比值不变，exp 也不溢出。", "face": "pleased", "line": "嗯，说得清楚。"},
+            {"id": "ua2_sm_b2", "type": "partial", "delta": -2, "text": "会有一点偏差，但能防溢出，这点误差可以接受。", "face": "calm", "line": "真有偏差吗？"},
+            {"id": "ua2_sm_b3", "type": "fail", "delta": -7, "text": "减最大值是为了归一化，让概率加起来正好等于 1。", "face": "frown", "line": "不减就不等于 1 了？"}
+          ]}},
+        {"id": "ua2_sm_c", "type": "off", "delta": -3, "text": "每一维是 p_i(1 − p_i)，和二分类 sigmoid 的形式一样。", "face": "frown", "line": "那是 softmax 自己的导数。"}
+      ],
+      "explain": "softmax 加交叉熵对 logits 的梯度是 p − y，和逻辑回归的形式一样简洁。实现时 exp 很容易溢出，所以先把每个 logit 减掉其中的最大值：相当于分子分母同乘一个常数，结果完全不变。p_i(1 − p_i) 只是 softmax 对自己输入求导时的对角线那一项，不是交叉熵的梯度。"
+    },
+    "q_ua2_auc": {
+      "tag": "专业",
+      "text": "接着写评估：不调库，算这批预测的 AUC。",
+      "code": "def auc(scores, labels):\n    # labels：1 = 采纳，0 = 没采纳\n    # m = 正样本数，n = 负样本数\n    ...",
+      "options": [
+        {"id": "ua2_auc_a", "type": "safe", "delta": 3, "text": "两两比较正负样本，正的分数更高记 1，最后求平均。", "face": "nod", "line": "对，先写这个。"},
+        {"id": "ua2_auc_b", "type": "bold", "text": "排序后用秩：正样本秩和减去 m(m+1)/2，再除以 m·n。", "face": "probe", "line": "嗯，那有个细节。",
+          "followup": {"text": "分数有并列的时候，你这个写法要怎么改？", "options": [
+            {"id": "ua2_auc_b1", "type": "hold", "delta": 9, "text": "并列的取平均秩，相当于每对并列的正负样本算半个。", "face": "pleased", "line": "对。"},
+            {"id": "ua2_auc_b2", "type": "partial", "delta": -2, "text": "实际数据里并列很少见，排序时谁在前都行，对结果影响不大。", "face": "calm", "line": "模型只输出几档分数呢？"},
+            {"id": "ua2_auc_b3", "type": "fail", "delta": -7, "text": "并列时把正样本排在前面，这样算出来的 AUC 更准。", "face": "frown", "line": "那不是往高里算？"}
+          ]}},
+        {"id": "ua2_auc_c", "type": "off", "delta": -3, "text": "阈值取 0.5，算出 TPR 和 FPR，代进公式就是 AUC。", "face": "frown", "line": "一个阈值只是曲线上一个点。"}
+      ],
+      "explain": "AUC 等于随机挑一个正样本和一个负样本，正样本分数更高的概率。两两比较最直观，复杂度 O(m·n)；按分数排序后用秩和算，只要 O(N log N)：正样本的秩和减去 m(m+1)/2，再除以 m·n。分数并列时要取平均秩，等于每对并列算 0.5；把正样本一律排前面，会把 AUC 算高。一个阈值只得到 ROC 曲线上的一个点，算不出面积。"
+    },
+    "q_ua2_topk": {
+      "tag": "专业",
+      "text": "改写要一次给几个候选。手写一下：从 logits 里做带温度的 top-k 采样。",
+      "code": "def sample(logits, k, t):\n    # logits：词表上每个词的分数\n    # 返回采到的那个词的下标\n    ...",
+      "options": [
+        {"id": "ua2_tk_a", "type": "safe", "delta": 3, "text": "logits 先除以温度，取最大的 k 个做 softmax，再按概率抽一个。", "face": "nod", "line": "对。"},
+        {"id": "ua2_tk_b", "type": "bold", "text": "取前 k 个不用全排序，用堆或 partition，复杂度更低。", "face": "probe", "line": "嗯，那问问温度。",
+          "followup": {"text": "温度设成 0.1 和 2，生成出来的改写有什么不同？", "options": [
+            {"id": "ua2_tk_b1", "type": "hold", "delta": 9, "text": "0.1 几乎总挑最大的，稳但单调；2 更随机，也更容易跑偏。", "face": "pleased", "line": "嗯，说到点上了。"},
+            {"id": "ua2_tk_b2", "type": "partial", "delta": -2, "text": "0.1 更准确，2 更有创意，一般取中间的 0.7 左右就够用了。", "face": "calm", "line": "“更准确”是什么意思？"},
+            {"id": "ua2_tk_b3", "type": "fail", "delta": -7, "text": "温度只影响采样快慢，对生成出来的结果没有影响。", "face": "frown", "line": "那调它干什么？"}
+          ]}},
+        {"id": "ua2_tk_c", "type": "off", "delta": -3, "text": "先对全部 logits 做 softmax，再除以温度，最后取前 k 个。", "face": "frown", "line": "概率都除以同一个数，有什么用？"}
+      ],
+      "explain": "top-k 采样：logits 先除以温度，只保留最大的 k 个，在它们上面做 softmax，再按概率抽一个。找前 k 个不用全排序，用大小为 k 的堆是 O(N log k)，用 partition 平均 O(N)。温度低，分布更尖，接近每次挑最大的，稳但单调；温度高，分布更平，更多样，也更容易跑题。温度要加在 softmax 之前：先算出概率再整体除以温度，重新归一化以后什么都没变。"
+    },
+    "q_ua2_nan": {
+      "tag": "专业",
+      "text": "训练跑了几百步，loss 突然变成 NaN。看这段代码，你先查哪里？",
+      "code": "p = torch.sigmoid(model(x))\nloss = -(y * torch.log(p) + (1 - y) * torch.log(1 - p)).mean()\nloss.backward()",
+      "options": [
+        {"id": "ua2_nan_a", "type": "safe", "delta": 3, "text": "先查输入里有没有 NaN 或 inf，再把学习率调小一半试试。", "face": "nod", "line": "嗯，常规顺序。代码呢？"},
+        {"id": "ua2_nan_b", "type": "bold", "text": "先看 log：p 成了 0 或 1 就出无穷，换带 logits 的版本。", "face": "probe", "line": "为什么换了就好？",
+          "followup": {"text": "为什么换成 BCEWithLogitsLoss 就稳了？", "options": [
+            {"id": "ua2_nan_b1", "type": "hold", "delta": 9, "text": "sigmoid 和 log 合起来算，用 log-sum-exp，碰不到 log(0)。", "face": "pleased", "line": "对。"},
+            {"id": "ua2_nan_b2", "type": "partial", "delta": -2, "text": "给 p 加一个 1e-8 再取 log，效果和它完全一样。", "face": "calm", "line": "能止血，但不完全一样。"},
+            {"id": "ua2_nan_b3", "type": "fail", "delta": -7, "text": "它内部换成了 float64 来算，精度更高，所以就不会溢出了。", "face": "frown", "line": "你确定？"}
+          ]}},
+        {"id": "ua2_nan_c", "type": "off", "delta": -3, "text": "先把 batch 调大，梯度更稳，NaN 自然就没了。", "face": "frown", "line": "要是 log(0) 呢？"}
+      ],
+      "explain": "loss 变 NaN，常见原因是输入里有坏值、学习率太大导致梯度爆炸，或者数值计算本身不稳。这段代码先 sigmoid 再 log：logit 很大或很小时，p 在浮点数里会被算成正好 1 或 0，log 就成了负无穷。BCEWithLogitsLoss 把两步合在一起，用 log-sum-exp 的写法直接从 logit 算损失，从根上避开 log(0)；给 p 加个很小的数能止血，但会引入误差，并不完全等价。"
+    },
+    "q_ua2_leak": {
+      "tag": "专业",
+      "text": "你加了个特征：“该用户在这篇文档里的总采纳次数”。验证集 AUC 从 0.71 涨到 0.93。你怎么看？",
+      "options": [
+        {"id": "ua2_lk_a", "type": "safe", "delta": 3, "text": "涨太猛，先怀疑泄漏：总数里含着当前这条的结果。", "face": "nod", "line": "对。"},
+        {"id": "ua2_lk_b", "type": "bold", "text": "是标签泄漏；改成只数这条建议出现之前的采纳次数。", "face": "probe", "line": "对。那再往下想一步。",
+          "followup": {"text": "特征改完了。验证集要怎么切，才和上线时的情况一致？", "options": [
+            {"id": "ua2_lk_b1", "type": "hold", "delta": 9, "text": "按时间切：前几周训练，最后一周验证，模型只见过过去。", "face": "pleased", "line": "嗯，和线上一样。"},
+            {"id": "ua2_lk_b2", "type": "partial", "delta": -2, "text": "按用户切，同一个用户不同时出现在训练和验证里。", "face": "calm", "line": "防了一种泄漏，时间呢？"},
+            {"id": "ua2_lk_b3", "type": "fail", "delta": -7, "text": "随机打乱按 8:2 切就行，样本量够大，随机切分没有偏差。", "face": "frown", "line": "用明天的数据预测今天？"}
+          ]}},
+        {"id": "ua2_lk_c", "type": "off", "delta": -3, "text": "涨了就说明这个特征好用，采纳习惯本来就稳定，先加上。", "face": "frown", "line": "上线以后呢？"}
+      ],
+      "explain": "离线指标突然大涨，第一反应应该是查泄漏。“总采纳次数”把当前这条建议有没有被采纳也算了进去，等于把答案写进了特征；上线时这个数还没发生，效果会立刻打回原形。改成只统计这条之前的次数，再按时间切分验证集，离线评估才和上线时一样“只看得到过去”。随机切分会把未来的行为混进训练集。"
+    },
+    "q_ua2_wrap": {
+      "tag": "视野与取舍",
+      "text": "时间差不多了。这个模型要上线，你觉得还差什么？",
+      "options": [
+        {"id": "ua2_wr_a", "type": "safe", "delta": 3, "text": "先和现有规则做 A/B，看真实的采纳率。", "face": "nod", "line": "嗯，要的。"},
+        {"id": "ua2_wr_b", "type": "bold", "text": "说说上线后我会盯什么：特征缺失、分布变了怎么兜底。", "face": "probe", "line": "那我给你个情况。",
+          "followup": {"text": "上线一周，离线 AUC 更高，采纳率却没涨。你先查什么？", "options": [
+            {"id": "ua2_wr_b1", "type": "hold", "delta": 9, "text": "先查线上线下特征是否一致，再看展示位置带来的偏差。", "face": "pleased", "line": "嗯，查的顺序对。"},
+            {"id": "ua2_wr_b2", "type": "partial", "delta": -2, "text": "用户可能还没习惯这个新功能，再观察两周，看看趋势再说。", "face": "calm", "line": "两周以后还不涨呢？"},
+            {"id": "ua2_wr_b3", "type": "fail", "delta": -7, "text": "离线 AUC 高说明模型没问题，是产品展示的方式不对。", "face": "frown", "line": "先甩给产品？"}
+          ]}},
+        {"id": "ua2_wr_c", "type": "off", "delta": -3, "text": "离线 AUC 比现在的规则高不少，可以直接全量上线，省得再等。", "face": "frown", "line": "离线高，线上就一定高？"}
+      ],
+      "explain": "模型离线效果好只是开始，上线要用 A/B 实验和现有方案比真实的采纳率。离线涨、线上不涨，最常见的是线上线下不一致：同一个特征两边算法或取数时间点不同；其次是展示位置这类偏差，排在前面的本来就更容易被点。要先查清楚，再判断是模型的问题还是产品的问题。"
+    },
+    "q_ua2_llm": {
+      "tag": "视野与取舍",
+      "text": "产品问：为什么不直接让大模型判断用户会不会采纳，还训什么模型？",
+      "options": [
+        {"id": "ua2_llm_a", "type": "safe", "delta": 3, "text": "大模型可以帮忙标数据、出特征，线上判断还用小模型。", "face": "nod", "line": "嗯，分工清楚。"},
+        {"id": "ua2_llm_b", "type": "bold", "text": "先算账：每天的请求量，乘上单次调用的延迟和费用。", "face": "probe", "line": "好，那我给你个数。",
+          "followup": {"text": "每天一百万次请求，要在 200 毫秒内给出，大模型调一次要 0.8 秒。怎么办？", "options": [
+            {"id": "ua2_llm_b1", "type": "hold", "delta": 9, "text": "实时扛不住。离线批量算好存起来，线上查结果、跑小模型。", "face": "pleased", "line": "嗯，账算明白了。"},
+            {"id": "ua2_llm_b2", "type": "partial", "delta": -2, "text": "换个小一点的大模型，延迟能降一半，先凑合用着再优化。", "face": "calm", "line": "一半也要 0.4 秒。"},
+            {"id": "ua2_llm_b3", "type": "fail", "delta": -7, "text": "多加几台机器做负载均衡，机器一多，单次延迟就降下来了。", "face": "frown", "line": "加机器降得了单次延迟？"}
+          ]}},
+        {"id": "ua2_llm_c", "type": "off", "delta": -3, "text": "大模型效果肯定更好，成本的事等用户多了、摊薄了再说。", "face": "frown", "line": "用户多了，成本只会更高。"}
+      ],
+      "explain": "“直接上大模型”要先算三笔账：效果、延迟、费用。采纳预测要在用户写作时实时给出，0.8 秒的单次延迟本身就超了；加机器只能提高同时处理的请求数，降不了每一次的延迟；按次计费也不会因为用户多了就摊薄。常见做法是让大模型离线批量算好结果存起来、帮忙标数据，线上直接查结果、跑小模型。每天一百万次折合每秒十几次，压力不在吞吐，而在每一次都要在 200 毫秒内返回。"
+    },
+    "q_ua2_reverse": {
+      "tag": "动机与稳定", "kind": "reverse",
+      "text": "我这边差不多了。你有什么想问的？",
+      "options": [
+        {"id": "ua2_rv_a", "type": "reverse", "delta": 3, "text": "如果我进来，前三个月主要会做哪一块？", "face": "pleased", "line": "先接手改写建议的排序……"},
+        {"id": "ua2_rv_b", "type": "reverse", "delta": 1, "text": "你们一般怎么判断，一个模型到底能不能上线？", "face": "nod", "line": "离线过线，再小流量 A/B 一周。"},
+        {"id": "ua2_rv_c", "type": "reverse", "delta": -2, "text": "期权和薪资是怎么定的？", "face": "calm", "line": "这个得问创始人。"},
+        {"id": "ua2_rv_d", "type": "reverse", "delta": -3, "text": "没有了。", "face": "calm", "line": "好。"}
+      ],
+      "explain": "反问是最后一道题。问前三个月做什么，能听到进来以后的具体安排；问模型怎么上线也是好问题，能听出团队的规矩；待遇问题留到和创始人谈。"
+    }
+  }
+}

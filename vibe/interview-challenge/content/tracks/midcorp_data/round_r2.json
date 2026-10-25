@@ -1,0 +1,16 @@
+{
+  "id": "r2", "name": "业务二面", "company": "midcorp",
+  "interviewer": {"art": "A5", "title": "数据组长"},
+  "scene": "S4",
+  "_note": "数据分析二面：组长来面，考业务分析框架（指标异动、A/B 实验、讲结论、口径冲突），顺带验证简历的真实性。选项 ID 前缀 md2_。题目在 library/packs/data.json 的题池（pools）里，题位用 prefer 按原来的顺序钉住原来的题。",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["md2_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "probe_or_deep_dive_next", "swap": false, "_note": "简历第一页有夸大写法且还没被追问过时，优先追问夸大（按第一页从上到下）；其次是含糊写法；都没有就深挖第一页里下一段还没聊过的经历"},
+    {"slot": "q2", "dynamic": "pool", "pool": "data_case", "prefer": ["md2_anomaly", "md2_mix"], "swap": true, "_note": "指标异动归因；重打时换成“各渠道都涨、整体却降”"},
+    {"slot": "q3", "dynamic": "pool", "pool": "data_ab", "prefer": ["md2_srm", "md2_novelty"], "swap": true, "_note": "A/B 实验解读：分流比例不对；重打时换成新奇效应和护栏指标"},
+    {"slot": "q4", "dynamic": "pool", "pool": "data_deliver", "prefer": ["md2_deadline", "md2_bad_news"], "swap": true, "_note": "给业务方讲结论：数据不全也要结论；重打时换成“结论不讨老板喜欢”"},
+    {"slot": "q5", "dynamic": "pool", "pool": "data_caliber", "prefer": ["md2_caliber", "md2_reconcile"], "swap": true, "_note": "数据口径冲突：两个活跃用户数；重打时换成财务和看板的订单数对不上"},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["md2_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

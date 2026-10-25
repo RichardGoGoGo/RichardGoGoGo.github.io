@@ -1,0 +1,20 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "unicorn",
+  "interviewer": {"art": "A2", "title": "算法工程师"},
+  "scene": "S5",
+  "_note": "独角兽算法一面：机器学习、深度学习基础各一道，深挖简历第一页第一段，技能栏写了“精通”就追问，最后一道落地取舍（效果、成本、工期）。追问最多 2 层。选项 ID 前缀 ua1_。",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["q_ua1_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "pool", "pool": "algo_ml", "prefer": ["q_ua1_overfit", "q_ua1_imbalance"], "swap": true},
+    {"slot": "q2", "dynamic": "deep_dive_first", "swap": false,
+     "_note": "深挖简历第一页排第 1 的那段经历；那段是夸大或含糊写法时，换成对应的追问；第一行是论文、竞赛、奖项这类没有标题的条目时，用 algo 包里的 fallbacks"},
+    {"slot": "q3", "dynamic": "pool", "pool": "algo_dl", "prefer": ["q_ua1_norm", "q_ua1_vanish"], "swap": true},
+    {"slot": "q4", "dynamic": "skill_probe", "fallback_pool": "algo_ml", "prefer": ["q_ua1_recsys"], "swap": false,
+     "_note": "技能栏写了“精通机器学习”或“精通深度学习”时换成对应追问，否则问 q_ua1_recsys"},
+    {"slot": "q5", "dynamic": "pool", "pool": "algo_tradeoff", "prefer": ["q_ua1_tradeoff", "q_ua1_vram"], "swap": true},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["q_ua1_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

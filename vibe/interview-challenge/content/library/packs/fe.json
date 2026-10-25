@@ -1,0 +1,3133 @@
+{
+  "_note": "前端岗位扩展包：业务面的题池（pools）。前端、产品的经历类型对口程度、深挖问法、技能等写在素材库的基础文件里。题池：biz_intro / biz_reverse 业务面开场自我介绍、反问（跨岗位，这里只放 role fe 的）；fe_basics JS 与浏览器原理；fe_perf 性能；fe_page 页面实现（层叠、移动端适配、列表加载）；fe_engineering 部署与线上排查；fe_growth 踩坑、学习；fe_collab 协作与取舍（临上线改动、同事的代码、接口分歧、排期）；fe_workstyle 工作方式（小团队一人包圆、需求常变，现在只有初创版）。q_codereview 的选项 ID（cr_*）和 unicorn_fe 二面 q_code_race 的重了，所以 fe_collab 和那份现场轮不能出现在同一条岗位线里。优先级：通用题 50，偏某类公司的版本 60，同主题里次一点的 40；现有岗位线在题位上用 prefer 钉住原来的题。写法见 docs/面试挑战/任务书-业务面拆进题池.md。",
+  "pools": [
+    {
+      "id": "r1_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先简单做个自我介绍吧，两三分钟就行。",
+        "options": [
+          {
+            "id": "r1i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一句背景，再讲两三段最相关的经历做成了什么。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "r1i_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间线讲：学校、实习、项目、比赛，一样不落。",
+            "face": "calm",
+            "line": "嗯，挺完整……重点是哪一段？"
+          },
+          {
+            "id": "r1i_b",
+            "type": "bold",
+            "text": "只挑两件事讲：{cite.intro}，和{other.label|另一个项目}。",
+            "requires": {
+              "highlight": "perf_firstscreen"
+            },
+            "face": "probe",
+            "line": "好，那我先问一句。",
+            "fallback": {
+              "id": "r1i_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "只挑两件事讲：{p1.label|最相关的一个项目}，和{p2.label|最近在学的东西}。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "你说{cite.subject}优化过，怎么知道快了多少？",
+              "options": [
+                {
+                  "id": "r1i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Lighthouse 前后对比：同一台机器、无痕模式各跑五次，取中位数。",
+                  "face": "pleased",
+                  "line": "嗯，这个测法靠谱。"
+                },
+                {
+                  "id": "r1i_b2",
+                  "type": "partial",
+                  "delta": -4,
+                  "text": "主要靠体感，运营那边也反馈说{cite.subject}打开快多了。",
+                  "face": "frown",
+                  "line": "体感啊……"
+                },
+                {
+                  "id": "r1i_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "跑了一次 Lighthouse，分数从 40 涨到 80，等于快了一倍。",
+                  "face": "frown",
+                  "line": "只跑一次？分数翻倍就是快了一倍？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "r1i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "讲讲我从小爱折腾电脑，一路走到前端的经历。",
+            "face": "calm",
+            "line": "嗯……那我们直接聊项目吧。"
+          }
+        ],
+        "explain": "技术面的自我介绍，讲到的事多半会成为后面追问的起点。按重要性讲、控制在两分钟内最稳；按时间线一样不落，信息多却没有重点。只讲两件事，相当于替面试官选好了追问方向，前提是你经得起问：说性能数字，要说得清用什么工具、在什么条件下、测了几次。成长故事更适合留到 HR 面。"
+      }
+    },
+    {
+      "id": "zi_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先简单介绍一下自己吧，一分钟以内。",
+        "options": [
+          {
+            "id": "zii_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "一句背景，再讲两段最相关的经历各做成了什么。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "zii_d",
+            "type": "off",
+            "delta": -1,
+            "text": "按时间线讲：学校、项目、实习，每段各讲一两句。",
+            "face": "calm",
+            "line": "嗯……重点是哪段？"
+          },
+          {
+            "id": "zii_b",
+            "type": "bold",
+            "text": "只讲一件事：{cite.short}上那个{cite.issue}问题，我是怎么解决的。",
+            "requires": {
+              "highlight": "chart_perf"
+            },
+            "face": "probe",
+            "line": "好，那我先问一句。",
+            "fallback": {
+              "id": "zii_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "只讲两件事：做过的一个项目，和我为什么想做前端。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "{cite.issue}到流畅，这个“流畅”你是怎么衡量的？",
+              "options": [
+                {
+                  "id": "zii_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{cite.measure_hold}",
+                  "face": "pleased",
+                  "line": "嗯，有数字，也知道局限。"
+                },
+                {
+                  "id": "zii_b2",
+                  "type": "partial",
+                  "delta": -4,
+                  "text": "主要是拖起来不卡了，{cite.lead}和{cite.client}那边都说流畅多了。",
+                  "face": "frown",
+                  "line": "体感啊……"
+                },
+                {
+                  "id": "zii_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "用 Lighthouse 跑过，性能分从 40 多分提到了 90 分左右。",
+                  "face": "frown",
+                  "line": "Lighthouse 测得出拖动卡不卡？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "zii_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲研究方向：{cite.topic}，发了一篇{cite.kind}，再讲项目。",
+            "face": "calm",
+            "line": "嗯……我们直接聊项目吧。",
+            "requires": {
+              "exp_type": "paper"
+            },
+            "fallback": {
+              "id": "zii_c0",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲我的专业方向和学过的课，再讲项目。",
+              "face": "calm",
+              "line": "嗯……我们直接聊项目吧。"
+            }
+          }
+        ],
+        "explain": "自我介绍里提到的事，多半会成为后面追问的起点。按重要性讲、控制时长最稳；按时间线一样不落，信息多却没有重点。只讲一件事，等于替面试官选好了追问方向，前提是你经得起问。“流畅”最好拿得出测量方法和数字；Lighthouse 的性能分衡量的主要是加载，量不出拖动时卡不卡。"
+      }
+    },
+    {
+      "id": "r2_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "一面的同事跟我说过你的情况了。你挑一件一面没聊到的事，说说吧。",
+        "options": [
+          {
+            "id": "r2i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲讲在{cite.where}带新人的经历，怎么带他们做出第一个{cite.output}。",
+            "requires": {
+              "highlight": "mentoring"
+            },
+            "face": "nod",
+            "line": "嗯，带过人挺好。",
+            "fallback": {
+              "id": "r2i_a0",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲讲我{p.self_learn|是怎么从零做出第一个完整项目的}。",
+              "face": "nod",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "r2i_b",
+            "type": "bold",
+            "text": "讲{cite.short}：为什么做、做到哪一步、下一步打算。",
+            "requires": {
+              "highlight": "oss_library"
+            },
+            "face": "probe",
+            "line": "好，我挺好奇的。",
+            "fallback": {
+              "id": "r2i_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲讲我平时怎么学新技术。",
+              "face": "calm",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "{cite.stars}，不多不少。你觉得它离真正能给别人用，还差什么？",
+              "options": [
+                {
+                  "id": "r2i_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "差版本规范和升级说明，现在一升级就可能弄坏别人的代码。",
+                  "face": "pleased",
+                  "line": "对，这个意识很重要。"
+                },
+                {
+                  "id": "r2i_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "差宣传。功能其实够用了，主要是我还没怎么推广过。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "r2i_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "已经能用了，按钮、表单、弹窗这些常用组件都齐了。",
+                  "face": "frown",
+                  "line": "别人敢用吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "r2i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "把一面讲过的项目再展开讲一遍，补上一面没说到的细节。",
+            "face": "calm",
+            "line": "一面已经聊过了。"
+          }
+        ],
+        "explain": "二面让你挑一件一面没聊过的事，讲新的内容才有信息量。把一面的内容再讲一遍，这个回答可能让面试官关注到：除了那一段，你没有别的可讲。"
+      }
+    },
+    {
+      "id": "r1_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你有什么想问我的吗？",
+        "options": [
+          {
+            "id": "r1r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "团队现在前端最头疼的问题是什么？",
+            "face": "pleased",
+            "line": "好问题。说实话，是老项目的历史包袱……"
+          },
+          {
+            "id": "r1r_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "团队现在用的什么技术栈？之后有升级的打算吗？",
+            "face": "nod",
+            "line": "Vue 3 为主，老项目还有一些 Vue 2。"
+          },
+          {
+            "id": "r1r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位的薪资大概是多少？试用期打折吗？",
+            "face": "calm",
+            "line": "这个你问 HR 会更准。"
+          },
+          {
+            "id": "r1r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问团队的难处，说明你在想自己进去能做什么；问技术栈也是好问题，只是没有前者能看出你的思考；薪资可以问，但业务面试官多半答不了，留到 HR 面更合适。"
+      }
+    },
+    {
+      "id": "r2_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边差不多了，你有什么想问的？",
+        "options": [
+          {
+            "id": "r2r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "如果我进组，您最希望我在前三个月做到什么？",
+            "face": "pleased",
+            "line": "嗯，我想想……"
+          },
+          {
+            "id": "r2r_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "新人入职后，前三个月一般会做些什么？有导师带吗？",
+            "face": "nod",
+            "line": "说实话，面试造火箭，入职拧螺丝。前两个月主要做活动页，熟了再碰后台。"
+          },
+          {
+            "id": "r2r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "这个岗位的薪资范围大概是多少？转正后会调吗？",
+            "face": "calm",
+            "line": "这个 HR 那边会跟你细聊。"
+          },
+          {
+            "id": "r2r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，今天聊得挺清楚的。",
+            "face": "calm",
+            "line": "好。"
+          }
+        ],
+        "explain": "问组长对你的期待，等于提前拿到了考核标准。问入职做什么也正常，组长多半会实话实说。"
+      }
+    },
+    {
+      "id": "zi_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了。你有什么想问我的？",
+        "options": [
+          {
+            "id": "zir_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "你们前端现在最头疼的问题是什么？",
+            "face": "pleased",
+            "line": "说实话，是没人管的历史代码……"
+          },
+          {
+            "id": "zir_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "团队现在几个前端？用什么技术栈？",
+            "face": "nod",
+            "line": "三个，Vue 3 为主。"
+          },
+          {
+            "id": "zir_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "期权大概能给多少？",
+            "face": "calm",
+            "line": "这个你问创始人吧。"
+          },
+          {
+            "id": "zir_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那今天就到这。"
+          }
+        ],
+        "explain": "反问是最后一道题。问团队的难处，说明你在想进去之后能做什么；问团队规模和技术栈也是好问题，只是信息量小一些；期权、薪资这类问题，业务面试官多半答不了，留到和创始人谈的时候再问。"
+      }
+    },
+    {
+      "id": "q_eventloop",
+      "pools": [
+        "fe_basics"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "说说浏览器的事件循环吧。",
+        "options": [
+          {
+            "id": "el_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲宏任务、微任务的顺序，拿 Promise 和定时器举例。",
+            "face": "nod",
+            "line": "嗯，没问题。"
+          },
+          {
+            "id": "el_b",
+            "type": "bold",
+            "text": "讲完顺序，拿{cite.short}里{cite.label}的问题当例子。",
+            "requires": {
+              "highlight": "timer_drift"
+            },
+            "face": "probe",
+            "line": "有意思。",
+            "fallback": {
+              "id": "el_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲完顺序，再说说为什么 setTimeout 设了 0 也不是立刻执行。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "那个问题最后怎么修的？为什么这么修？",
+              "options": [
+                {
+                  "id": "el_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不再累加定时器，每次按服务器时间重算剩余，切回前台再校准。",
+                  "face": "pleased",
+                  "line": "对，这才是根上的修法。"
+                },
+                {
+                  "id": "el_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "改成每次用 Date.now() 算时间差，切到后台的情况当时没再细测。",
+                  "face": "nod",
+                  "line": "方向对了。"
+                },
+                {
+                  "id": "el_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "把 setInterval 换成 requestAnimationFrame，按帧刷新，计时更准。",
+                  "face": "frown",
+                  "line": "rAF 在后台标签页里也会停的，你确定？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "el_c",
+            "type": "bold",
+            "text": "讲完浏览器的，再对比一下 Node.js 的事件循环。",
+            "face": "probe",
+            "line": "那我顺着问一个。",
+            "followup": {
+              "text": "在 Node 里，process.nextTick 和 Promise.then 谁先执行？",
+              "options": [
+                {
+                  "id": "el_c1",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Promise 先，微任务里 Promise 的优先级是最高的。",
+                  "face": "frown",
+                  "line": "不太对。"
+                },
+                {
+                  "id": "el_c2",
+                  "type": "partial",
+                  "delta": 2,
+                  "text": "nextTick 先。不过 Node 我写得不多，这是看文档记住的。",
+                  "face": "nod",
+                  "line": "对，看得出来没怎么用过。"
+                },
+                {
+                  "id": "el_c3",
+                  "type": "partial",
+                  "delta": -1,
+                  "text": "Node 这块我用得少，能不能说说我更熟的浏览器这边？",
+                  "face": "calm",
+                  "line": "行吧。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "el_d",
+            "type": "off",
+            "delta": -1,
+            "text": "我平时主要用框架，底层了解得不多，先说说我理解的部分。",
+            "face": "calm",
+            "line": "嗯，你说。"
+          }
+        ],
+        "explain": "事件循环常被问到。把顺序讲清只是及格；拿自己真碰到过的问题来讲，更能说明你真懂。往自己不熟的方向延伸，就是主动递上一道追问。Node 底子薄不薄，人设卡上写着，往那个方向讲之前先看一眼。"
+      }
+    },
+    {
+      "id": "q_closure",
+      "pools": [
+        "fe_basics"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "闭包这种八股你肯定背过。换个问法：你写过的代码里，哪儿不知不觉就用到了闭包？",
+        "options": [
+          {
+            "id": "cl_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "防抖函数：返回的函数一直引用外层的定时器变量，每次触发先清掉它。",
+            "face": "nod",
+            "line": "嗯，典型。"
+          },
+          {
+            "id": "cl_b",
+            "type": "bold",
+            "text": "Vue 的组合式函数：每次调用返回一套独立状态，靠的就是闭包。",
+            "face": "probe",
+            "line": "嗯，那我追一句。",
+            "followup": {
+              "text": "闭包会不会带来内存问题？你碰到过吗？",
+              "options": [
+                {
+                  "id": "cl_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "会。给 window 加了监听却没在卸载时移除，闭包一直拽着组件的数据。",
+                  "face": "pleased",
+                  "line": "对，这个坑很常见。"
+                },
+                {
+                  "id": "cl_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "会，被引用的变量释放不掉，内存越占越多；具体场景还没碰到过。",
+                  "face": "nod",
+                  "line": "嗯。"
+                },
+                {
+                  "id": "cl_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "不会。闭包用完以后，浏览器的垃圾回收会自动清掉。",
+                  "face": "frown",
+                  "line": "一直被引用着，怎么回收？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "cl_c",
+            "type": "off",
+            "delta": -1,
+            "text": "闭包就是函数能访问它外层作用域里的变量，这个定义我是背过的。",
+            "face": "calm",
+            "line": "嗯……我想听例子。"
+          },
+          {
+            "id": "cl_d",
+            "type": "off",
+            "delta": -3,
+            "text": "平时写业务很少用到闭包，主要是面试会问。",
+            "face": "frown",
+            "line": "你没写过防抖？"
+          }
+        ],
+        "explain": "八股换个问法再问，真用过和只背过，一下就分出来了。能从自己写过的代码里举例，比背定义有说服力得多。"
+      }
+    },
+    {
+      "id": "q_firstscreen",
+      "pools": [
+        "fe_perf"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "如果用户反馈某个页面打开很慢，你会从哪里开始查？",
+        "options": [
+          {
+            "id": "fs_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先开 Network 和 Performance 面板，看是请求慢还是渲染慢。",
+            "face": "nod",
+            "line": "嗯，路子对。"
+          },
+          {
+            "id": "fs_b",
+            "type": "bold",
+            "text": "先问清是谁慢、在什么网络下慢，再看首屏的关键资源和接口。",
+            "face": "probe",
+            "line": "那我加个条件。",
+            "followup": {
+              "text": "如果只有一部分安卓用户说慢，你怎么复现？",
+              "options": [
+                {
+                  "id": "fs_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "问清机型和网络，用真机加限速复现；有监控就先看分布。",
+                  "face": "pleased",
+                  "line": "嗯，考虑得挺全。"
+                },
+                {
+                  "id": "fs_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "用 Chrome 开 CPU 降速、模拟低端安卓和 3G 网络，基本就能复现。",
+                  "face": "nod",
+                  "line": "能复现一部分。"
+                },
+                {
+                  "id": "fs_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "安卓机型太多了，根本没法一一复现，只能先整体优化一遍。",
+                  "face": "frown",
+                  "line": "没复现就开始改？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "fs_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先把图片都压一遍、上 CDN，大部分慢都是图片导致的。",
+            "face": "frown",
+            "line": "万一不是图片呢？"
+          },
+          {
+            "id": "fs_d",
+            "type": "off",
+            "delta": -1,
+            "text": "先跑一遍 Lighthouse，按报告里的建议一条条改。",
+            "face": "calm",
+            "line": "嗯，也行。"
+          }
+        ],
+        "explain": "排查题看的是顺序：先确认慢在哪、对谁慢，再动手。上来就压图片，是拿答案找问题。Lighthouse 是好工具，但它是实验室数据，测的是你这台机器、这个网络下的情况；线上监控采到的是真实用户的数据，更接近用户手里的感受。"
+      }
+    },
+    {
+      "id": "q_reflow",
+      "pools": [
+        "fe_perf"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "哪些操作会触发重排？平时怎么避免？",
+        "options": [
+          {
+            "id": "rf_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "改尺寸、位置会触发；读写交替会强制重排，我会先读后写。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "rf_b",
+            "type": "bold",
+            "text": "讲讲做动画时，为什么用 transform 而不用 top。",
+            "face": "probe",
+            "line": "好，为什么？",
+            "followup": {
+              "text": "transform 为什么能少触发重排？",
+              "options": [
+                {
+                  "id": "rf_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "它不改布局，通常只在合成阶段处理，还能交给 GPU。",
+                  "face": "pleased",
+                  "line": "对。"
+                },
+                {
+                  "id": "rf_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "大概是因为它不影响其他元素的位置？细节我说不太清。",
+                  "face": "nod",
+                  "line": "方向是对的。"
+                },
+                {
+                  "id": "rf_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "transform 是 CSS3 的新属性，浏览器专门优化过，性能天生更好。",
+                  "face": "frown",
+                  "line": "新属性就更快？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "rf_c",
+            "type": "off",
+            "delta": -3,
+            "text": "现在框架都处理好了，虚拟 DOM 会合并更新，不太需要关心重排。",
+            "face": "frown",
+            "line": "框架可管不了你的 CSS。"
+          }
+        ],
+        "explain": "重排是性能题的老面孔。说清哪些操作会触发是基本功：改了尺寸再马上读布局信息，会逼浏览器提前算一遍。能讲出 transform 为什么省，是因为它绕开了布局，通常只在合成阶段处理。"
+      }
+    },
+    {
+      "id": "q_zindex",
+      "pools": [
+        "fe_page"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "活动页上的弹窗，z-index 设到 9999 还是被底下的轮播图盖住，你怎么查？",
+        "options": [
+          {
+            "id": "zx_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先看两者各自在哪个层叠上下文里，比的是所在上下文的层级。",
+            "face": "nod",
+            "line": "嗯，对。"
+          },
+          {
+            "id": "zx_b",
+            "type": "bold",
+            "text": "讲讲 transform、opacity 这些属性会悄悄建出新的层叠上下文。",
+            "face": "probe",
+            "line": "好，那我出个难题。",
+            "followup": {
+              "text": "要是弹窗的父元素带了 transform，又不能去掉，怎么办？",
+              "options": [
+                {
+                  "id": "zx_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "把弹窗渲染到 body 下面，比如用 Vue 的 Teleport，跳出父级。",
+                  "face": "pleased",
+                  "line": "对，组件库的弹窗基本都这么做。"
+                },
+                {
+                  "id": "zx_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "给父元素也加一个更大的 z-index，让它整体压过轮播图。",
+                  "face": "nod",
+                  "line": "能用，就怕它把别的东西也压住。"
+                },
+                {
+                  "id": "zx_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "把弹窗的 z-index 再加大，设成 99999，总能盖过去。",
+                  "face": "frown",
+                  "line": "9999 不就没用吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "zx_c",
+            "type": "off",
+            "delta": -1,
+            "text": "给弹窗的 z-index 加上 !important，强行提到最上面。",
+            "face": "frown",
+            "line": "!important 管不了层叠上下文。"
+          },
+          {
+            "id": "zx_d",
+            "type": "off",
+            "delta": -3,
+            "text": "给轮播图设 z-index: -1，让它整个沉到下面去。",
+            "face": "frown",
+            "line": "那轮播图还点得动吗？"
+          }
+        ],
+        "explain": "z-index 只在同一个层叠上下文里比大小。弹窗被盖住，多半是它或它的父级被 transform、opacity、定位加 z-index 这类属性关进了层级更低的上下文，数字加得再大也出不去：要么调整父级，要么把弹窗渲染到外层（Vue 的 Teleport、React 的 Portal）。"
+      }
+    },
+    {
+      "id": "q_mobile_fit",
+      "pools": [
+        "fe_page"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "页面主要在手机上用，各种屏幕都有。你平时怎么做移动端适配？",
+        "options": [
+          {
+            "id": "mfit_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "viewport 配 rem 或 vw 缩放，媒体查询处理几种典型宽度。",
+            "face": "nod",
+            "line": "嗯，常规做法。"
+          },
+          {
+            "id": "mfit_b",
+            "type": "bold",
+            "text": "讲讲为什么现在更倾向 vw 加 clamp，而不是老的 rem 方案。",
+            "face": "probe",
+            "line": "好，那我问个细的。",
+            "followup": {
+              "text": "高清屏上 1px 的边框看起来变粗了，你怎么处理？",
+              "options": [
+                {
+                  "id": "mfit_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "用伪元素画边框再缩放 0.5，或者看兼容性直接写 0.5px。",
+                  "face": "pleased",
+                  "line": "嗯，两种都行。"
+                },
+                {
+                  "id": "mfit_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "用一张 1px 的图片做 border-image，以前常这么干。",
+                  "face": "calm",
+                  "line": "能用，就是老了点。"
+                },
+                {
+                  "id": "mfit_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "把 devicePixelRatio 设成 1，高清屏上的边框就不会变粗了。",
+                  "face": "frown",
+                  "line": "改了这个值，屏幕就变了？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "mfit_c",
+            "type": "off",
+            "delta": -3,
+            "text": "适配交给 UI 组件库就行，它的栅格会按屏宽自动排，业务不用管。",
+            "face": "frown",
+            "line": "组件库管得了你的布局吗？"
+          }
+        ],
+        "explain": "移动端适配只报方案名，多半会被接着问细节；说得出取舍，才像真做过。vw 加 clamp 能限住最大最小值，比老的 rem 方案省事；1px 边框是适配里很常见的追问。devicePixelRatio 反映的是屏幕的实际像素比，在代码里给它赋值，屏幕也不会变。"
+      }
+    },
+    {
+      "id": "q_infinite_list",
+      "pools": [
+        "fe_page"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "列表滚到底要自动加载下一页，你会怎么实现？",
+        "options": [
+          {
+            "id": "il_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "监听滚动，判断离底部还剩多少距离，加个节流再去请求。",
+            "face": "nod",
+            "line": "嗯，能用。"
+          },
+          {
+            "id": "il_b",
+            "type": "bold",
+            "text": "用 IntersectionObserver 盯住底部的哨兵元素。",
+            "face": "probe",
+            "line": "好，那再往后想一步。",
+            "followup": {
+              "text": "数据加到几千条以后，页面越来越卡，怎么办？",
+              "options": [
+                {
+                  "id": "il_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "做虚拟列表，只渲染可视区附近的几十条，其余用占位撑高。",
+                  "face": "pleased",
+                  "line": "对。"
+                },
+                {
+                  "id": "il_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "限制最多加载 500 条，再往下就提示用户去搜索。",
+                  "face": "calm",
+                  "line": "也是个办法，不过绕开了问题。"
+                },
+                {
+                  "id": "il_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "给每一项都加上 will-change，让浏览器把渲染交给 GPU 来做。",
+                  "face": "frown",
+                  "line": "几千个图层，内存受得了吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "il_c",
+            "type": "off",
+            "delta": -3,
+            "text": "做个“加载更多”按钮最简单，用户想看再点，也省流量。",
+            "face": "calm",
+            "line": "需求是自动加载。"
+          }
+        ],
+        "explain": "滚动加载有两种常见写法：监听滚动加节流，或者用 IntersectionObserver 观察底部元素，后者不用自己算距离。数据一多就要上虚拟列表；给每一项都加 will-change，反而会多出一堆图层，更占内存。"
+      }
+    },
+    {
+      "id": "q_white_screen",
+      "pools": [
+        "fe_engineering"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "线上有用户反馈，打开页面是白屏。你会怎么排查？",
+        "options": [
+          {
+            "id": "wsc_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先看影响面、是不是刚发版，必要时先回滚，再复现、看报错。",
+            "face": "nod",
+            "line": "嗯，先止损，顺序对。"
+          },
+          {
+            "id": "wsc_b",
+            "type": "bold",
+            "text": "先查前端监控里白屏前的报错；没接监控的话，先接一个上报。",
+            "face": "probe",
+            "line": "假设监控里有报错。",
+            "followup": {
+              "text": "报错是 Unexpected token '<'，你会先怀疑什么？",
+              "options": [
+                {
+                  "id": "wsc_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "JS 被返回成了 HTML，比如路由回退到了 index.html。",
+                  "face": "pleased",
+                  "line": "对，发版后很常见。"
+                },
+                {
+                  "id": "wsc_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "接口返回了 HTML 而不是 JSON，前端解析的时候就报错了。",
+                  "face": "calm",
+                  "line": "有可能，但白屏多半不是这个。"
+                },
+                {
+                  "id": "wsc_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "用户的浏览器太老，不支持 ES6 语法，要加 Babel 转译。",
+                  "face": "frown",
+                  "line": "那报错里会是“<”吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "wsc_c",
+            "type": "off",
+            "delta": -3,
+            "text": "白屏一般是后端接口挂了，我会先找后端同学看看。",
+            "face": "frown",
+            "line": "先甩给后端？"
+          }
+        ],
+        "explain": "线上白屏，先看影响面、是不是刚发版，能回滚就先止损，再复现、看报错。加载脚本时出现“Unexpected token '<'”，多半是本该返回 JS 的地方返回了 HTML：路由回退、发版后缓存错位都会这样；用 Vite 打包的模块脚本遇到同样的情况，报的多是 MIME 类型不对（服务器返回了 text/html），道理一样。浏览器不支持新语法时，报错里的符号一般不是“<”。"
+      }
+    },
+    {
+      "id": "q_deploy",
+      "pools": [
+        "fe_engineering"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "我们没有专门的运维，前端上线得自己来。你部署过前端项目吗？",
+        "options": [
+          {
+            "id": "dp_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "跟着流程发过几次，知道是打包后传到服务器或 CDN。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "dp_b",
+            "type": "bold",
+            "text": "讲{cite.where}：我自己用 Nginx 部署的，配了 gzip 和缓存。",
+            "requires": {
+              "highlight": "self_deploy"
+            },
+            "face": "probe",
+            "line": "那问个细节。",
+            "fallback": {
+              "id": "dp_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "自己在云服务器上用 Nginx 搭过个人站，配过 gzip。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "index.html 和打包出来的 JS，缓存你分别怎么设？",
+              "options": [
+                {
+                  "id": "dp_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "index.html 走协商缓存或不缓存，带哈希的 JS 设长期强缓存。",
+                  "face": "pleased",
+                  "line": "对，踩过坑才会这么设。"
+                },
+                {
+                  "id": "dp_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "都不缓存，慢一点也要保证每次拿到的是最新的。",
+                  "face": "calm",
+                  "line": "稳是稳，流量白花了。"
+                },
+                {
+                  "id": "dp_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "都设长期强缓存，发版时 CDN 会自动刷新，用户就能拿到新的。",
+                  "face": "frown",
+                  "line": "用户浏览器里的缓存呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "dp_c",
+            "type": "off",
+            "delta": -3,
+            "text": "部署是运维的事，我更想专注把页面写好。",
+            "face": "frown",
+            "line": "我们没有运维。"
+          }
+        ],
+        "explain": "小团队里，前端往往要自己上线。缓存的常规做法是：入口 index.html 不强缓存，文件名带哈希的静态资源长期缓存。全设强缓存，用户会卡在旧版本上；全不缓存，又白白浪费流量。"
+      }
+    },
+    {
+      "id": "q_pitfall",
+      "pools": [
+        "fe_growth"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "项目表达",
+        "text": "说一个你踩过的最深的坑。",
+        "options": [
+          {
+            "id": "pf_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "{p.pitfall|做项目时一个大列表一渲染页面就卡死，后来改成分批处理。}",
+            "face": "nod",
+            "line": "嗯，这个常见。"
+          },
+          {
+            "id": "pf_b",
+            "type": "bold",
+            "text": "讲一次我自己造成的线上 bug：怎么发现、怎么修、后来怎么防。",
+            "requires": {
+              "highlight": "incident"
+            },
+            "face": "probe",
+            "line": "好，说说看。",
+            "fallback": {
+              "id": "pf_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲一次项目里出的 bug：怎么发现、怎么修的。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "那次影响了多少用户？你当时的第一反应是什么？",
+              "options": [
+                {
+                  "id": "pf_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{cite.impact}。我先回滚，再报组长，最后补了测试。",
+                  "face": "pleased",
+                  "line": "嗯，先止血再查原因，对的。"
+                },
+                {
+                  "id": "pf_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "影响不大，很快就修好了，具体人数没统计。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "pf_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "主要是测试那边没覆盖到这个场景，我写的代码逻辑本身没问题。",
+                  "face": "frown",
+                  "line": "那你们后来怎么防的？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "pf_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我做事比较细，目前还没踩过特别大的坑。",
+            "face": "frown",
+            "line": "一个都没有？"
+          }
+        ],
+        "explain": "“最深的坑”这类题，重点在出了问题你怎么处理。主动讲自己闯的祸并不丢分，讲清怎么止血、怎么补救，反而加分。把锅推给测试，是这题很容易失分的地方。"
+      }
+    },
+    {
+      "id": "q_learning",
+      "pools": [
+        "fe_growth"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "专业",
+        "text": "最近在学什么新东西？学到哪了？",
+        "options": [
+          {
+            "id": "ln_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "在补 React，跟着官方文档把 Hooks 那几章过了一遍。",
+            "face": "nod",
+            "line": "嗯，挺好。"
+          },
+          {
+            "id": "ln_b",
+            "type": "bold",
+            "text": "在看 Vite 的源码，想搞明白它为什么启动这么快。",
+            "face": "probe",
+            "line": "哦？那我问问。",
+            "followup": {
+              "text": "Vite 开发环境启动快，主要快在哪？",
+              "options": [
+                {
+                  "id": "ln_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "开发时不打包，浏览器用原生 ESM 按需加载，依赖提前预构建。",
+                  "face": "pleased",
+                  "line": "对。"
+                },
+                {
+                  "id": "ln_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "主要是缓存做得好，依赖装一次以后，第二次启动就快了。",
+                  "face": "calm",
+                  "line": "只说对了一小部分。"
+                },
+                {
+                  "id": "ln_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Vite 整个是用 Go 写的，编译速度天生就比 Webpack 快很多。",
+                  "face": "frown",
+                  "line": "Vite 本身是 TypeScript 写的。Go 写的是 esbuild，新版 Vite 底层已经换成 Rust 写的 Rolldown 了。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ln_c",
+            "type": "off",
+            "delta": -1,
+            "text": "最近在准备秋招，主要在刷面试题和算法题。",
+            "face": "calm",
+            "line": "嗯，理解。"
+          }
+        ],
+        "explain": "这题问的是习惯：没人催的时候，你有没有在往前走。说出具体学到哪一步，比列一串名词可信；学得浅就别往源码上引，追问会跟上来。"
+      }
+    },
+    {
+      "id": "q_lastminute",
+      "pools": [
+        "fe_collab"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "活动上线前一小时，运营突然要改按钮颜色和一句文案，测试已经测完了。你怎么办？",
+        "options": [
+          {
+            "id": "lm_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问是不是必须今天改；必须改就只动这两处，请测试看一眼。",
+            "face": "nod",
+            "line": "嗯，稳。"
+          },
+          {
+            "id": "lm_b",
+            "type": "bold",
+            "text": "改，风险不大，但我会请测试只回归这两处再发。",
+            "face": "probe",
+            "line": "那我加个情况。",
+            "followup": {
+              "text": "要是改完正好赶上一个线上问题，大家都在查是不是你这次改的，怎么办？",
+              "options": [
+                {
+                  "id": "lm_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "所以我会单独提交、单独发布，出了事能马上回滚，排查也清楚。",
+                  "face": "pleased",
+                  "line": "嗯，想到这一步就够了。"
+                },
+                {
+                  "id": "lm_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "那就先把我的改动回滚，排除掉再说，别耽误大家查。",
+                  "face": "nod",
+                  "line": "也行。"
+                },
+                {
+                  "id": "lm_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "我改的只是样式，跟逻辑无关，排查时可以先把我排除。",
+                  "face": "frown",
+                  "line": "样式也能把按钮盖住啊。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "lm_c",
+            "type": "off",
+            "delta": -3,
+            "text": "上线前一小时不接任何改动，流程就是流程。",
+            "face": "frown",
+            "line": "这个活动可是老板盯着的。"
+          },
+          {
+            "id": "lm_d",
+            "type": "off",
+            "delta": -3,
+            "text": "运营要改就改，前端照需求实现，改完在群里同步，再截图给运营确认。",
+            "face": "frown",
+            "line": "测试那边呢？"
+          }
+        ],
+        "explain": "临上线改需求，难在规矩和业务之间找平衡。一口回绝和全盘照办都不对：改可以，但改动再小也要请测试回归，并且让这次改动单独可控。"
+      }
+    },
+    {
+      "id": "q_codereview",
+      "pools": [
+        "fe_collab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你发现同事上周的代码有问题，但已经上线了，你会怎么说？",
+        "options": [
+          {
+            "id": "crv_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "私下找他，说清问题和可能的影响，问他要不要一起改。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "crv_b",
+            "type": "bold",
+            "text": "先自己写个最小复现，确认真有问题，再拿着复现去找他。",
+            "face": "probe",
+            "line": "好，那如果……",
+            "followup": {
+              "text": "他说这是产品要求这么做的，不是 bug 呢？",
+              "options": [
+                {
+                  "id": "crv_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "那就拉上产品一起看复现，确认是需求问题还是实现问题。",
+                  "face": "pleased",
+                  "line": "嗯，对事不对人。"
+                },
+                {
+                  "id": "crv_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就听他的，需求是他对接的，他比我了解产品要什么。",
+                  "face": "calm",
+                  "line": "嗯……那这个问题呢？"
+                },
+                {
+                  "id": "crv_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "那我先按我的写法改掉，上线后再跟他和产品解释清楚原因。",
+                  "face": "frown",
+                  "line": "改别人的代码，不先打声招呼？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "crv_c",
+            "type": "off",
+            "delta": -3,
+            "text": "在群里直接指出来，大家都能看到，也免得别的同学再踩坑。",
+            "face": "frown",
+            "line": "当着全组的面？"
+          },
+          {
+            "id": "crv_d",
+            "type": "off",
+            "delta": -3,
+            "text": "已经上线了，先观察几天，真出了问题再说。",
+            "face": "frown",
+            "line": "等出了问题呢？"
+          }
+        ],
+        "explain": "指出别人的问题，难在既顾及对方的面子，又不放过问题本身。先确认、再私下说，是大多数团队里最不伤人的做法。"
+      }
+    },
+    {
+      "id": "q_api_conflict",
+      "pools": [
+        "fe_collab"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你和后端对接口格式有分歧，比如分页参数怎么传，你会怎么处理？",
+        "options": [
+          {
+            "id": "ac_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先看团队有没有接口规范，有就照着来，没有就拉上组长一起定。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "ac_b",
+            "type": "bold",
+            "text": "按前端的使用场景提个方案，写成文档发给后端，定了两边照着来。",
+            "face": "probe",
+            "line": "那我当一回后端。",
+            "followup": {
+              "text": "后端说他的方案改起来成本更低，不想按你的来呢？",
+              "options": [
+                {
+                  "id": "ac_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "那就用他的，我在前端包一层适配，把差异挡在一个地方。",
+                  "face": "pleased",
+                  "line": "嗯，务实。"
+                },
+                {
+                  "id": "ac_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "那就找组长评理，看谁的方案更合理，听组长的。",
+                  "face": "calm",
+                  "line": "组长也挺忙的。"
+                },
+                {
+                  "id": "ac_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "前端直接面对用户，体验应该优先照顾前端这边。",
+                  "face": "frown",
+                  "line": "后端听了会怎么想？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "ac_c",
+            "type": "off",
+            "delta": -1,
+            "text": "后端定什么我就接什么，字段不合适前端自己转一下就行。",
+            "face": "calm",
+            "line": "嗯，省事是省事。"
+          }
+        ],
+        "explain": "接口分歧是前端最日常的协作场景。肯写文档、讲道理是加分项；对方拿出成本更低的理由时，还能退一步、把差异包起来，才说明你在意的是事情本身。"
+      }
+    },
+    {
+      "id": "q_deadline",
+      "pools": [
+        "fe_collab"
+      ],
+      "priority": 40,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "排期很紧，你估计做不完，怎么跟组长说？",
+        "options": [
+          {
+            "id": "dl_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "尽早说，讲清卡在哪、还差多少，再给两个方案让他选。",
+            "face": "nod",
+            "line": "嗯，这样我好排。"
+          },
+          {
+            "id": "dl_b",
+            "type": "bold",
+            "text": "先自己加班试一两天，实在赶不上了再去跟组长说明情况。",
+            "face": "probe",
+            "line": "那我们快进一下。",
+            "followup": {
+              "text": "加了两天班还是不行，这时候离上线只剩一天了，怎么办？",
+              "options": [
+                {
+                  "id": "dl_b1",
+                  "type": "partial",
+                  "delta": 2,
+                  "text": "马上说，同时列出能砍掉的部分，保住核心流程。",
+                  "face": "calm",
+                  "line": "能补救，就是晚了点。"
+                },
+                {
+                  "id": "dl_b2",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "再熬一个通宵，争取把剩下的都做完。",
+                  "face": "frown",
+                  "line": "熬完质量呢？"
+                },
+                {
+                  "id": "dl_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "跟组长说需求比评审时复杂，延期是合理的。",
+                  "face": "frown",
+                  "line": "评审的时候你怎么没提？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "dl_c",
+            "type": "off",
+            "delta": -3,
+            "text": "按原计划做，最后能做多少算多少。",
+            "face": "frown",
+            "line": "那上线怎么办？"
+          },
+          {
+            "id": "dl_d",
+            "type": "off",
+            "delta": -3,
+            "text": "直接找产品商量砍掉一部分，谈妥了再把结果同步给组长。",
+            "face": "frown",
+            "line": "这事得先跟我说吧。"
+          }
+        ],
+        "explain": "做不完不可怕，晚说才可怕。早一点说、带着方案说，组长才有调整的余地。自己闷头加班硬扛，看着负责，其实是把风险藏到了最后一天。"
+      }
+    },
+    {
+      "id": "q_small_team",
+      "pools": [
+        "fe_workstyle"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我们团队小，经常一个人从需求做到上线，没人给你拆任务。你能适应吗？",
+        "options": [
+          {
+            "id": "st_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "能。做{p1.label|项目}时，我那部分都是自己拆、自己推到交付的。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "st_b",
+            "type": "bold",
+            "text": "说说我在{cite.kind}时，反而觉得流程太重的一次经历。",
+            "requires": {
+              "highlight": "bigco_process"
+            },
+            "face": "probe",
+            "line": "哦？那我问你。",
+            "fallback": {
+              "id": "st_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "说说我在{p1.label|做项目}时自己拆任务、排期的做法。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "那你觉得大厂流程重，是坏事吗？",
+              "options": [
+                {
+                  "id": "st_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不是，人多需要流程兜底，小团队可以用轻一点的办法。",
+                  "face": "pleased",
+                  "line": "嗯，看得挺明白。"
+                },
+                {
+                  "id": "st_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "对小团队来说是坏事，效率太低了，能省的流程就该省掉。",
+                  "face": "calm",
+                  "line": "能省就省？"
+                },
+                {
+                  "id": "st_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "是坏事，很多流程就是走形式，花了时间也没解决什么问题。",
+                  "face": "frown",
+                  "line": "那你来了也不想守规矩？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "st_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我更喜欢分工明确、各管一段，这样效率最高。",
+            "face": "calm",
+            "line": "我们这儿可没法分那么细。"
+          }
+        ],
+        "explain": "创业公司问“能不能适应”，最好拿得出自己把事拆清楚、往前推的例子。拿大厂流程做对比可以，但要说清流程在大团队里的价值；一味贬低大厂，这个回答可能让面试官关注到你是不是不想守规矩。"
+      }
+    },
+    {
+      "id": "q_req_change",
+      "pools": [
+        "fe_workstyle"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我们需求变得快，可能每周都在改。你怎么写代码，才不至于天天返工？",
+        "options": [
+          {
+            "id": "rc_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先做最小可用版本，把最可能变的那部分单独抽出来。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "rc_b",
+            "type": "bold",
+            "text": "讲{cite.client}改了{cite.times}次需求，我怎么只改数据层、不动图表层。",
+            "requires": {
+              "highlight": "req_change_layering"
+            },
+            "face": "probe",
+            "line": "那我加个条件。",
+            "fallback": {
+              "id": "rc_b0",
+              "type": "safe",
+              "delta": 2,
+              "text": "讲{p1.label|一个项目}里需求改了几次，我是怎么调代码结构的。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "如果改的是图表本身，比如散点图换成热力图呢？",
+              "options": [
+                {
+                  "id": "rc_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "图表只吃统一格式，换图加一个渲染器，数据层不用动。",
+                  "face": "pleased",
+                  "line": "嗯，分得干净。"
+                },
+                {
+                  "id": "rc_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就只能把这个组件重写了，好在只影响一个页面。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "rc_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "提前把所有图表类型都封装好，以后不管换成什么图都不怕。",
+                  "face": "frown",
+                  "line": "所有？那得封装到什么时候。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "rc_c",
+            "type": "off",
+            "delta": -3,
+            "text": "需求变太快没法写，我会先让产品把需求定死、确认好再动手。",
+            "face": "frown",
+            "line": "定死？那我们就不用做创业了。"
+          }
+        ],
+        "explain": "需求常变时，关键是把“会变的”和“不会变的”分开。提前把所有可能都封装好，是另一种常见的错：大部分永远用不上，维护成本却一直在。"
+      }
+    },
+    {
+      "id": "fex_release_watch",
+      "pools": [
+        "fe_engineering"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "新版先向少量用户开放，监控里的报错次数比旧版少。现在可以扩大范围吗？",
+        "options": [
+          {
+            "id": "fex_rw_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先核对访问量和采集覆盖，再看关键流程成功率。",
+            "face": "nod",
+            "line": "嗯，先确认数字能不能比。"
+          },
+          {
+            "id": "fex_rw_b",
+            "type": "bold",
+            "text": "按版本和页面比较失败率，满足约定条件再扩大。",
+            "face": "probe",
+            "line": "那我补一个现象。",
+            "followup": {
+              "text": "新版没有报错，但成功事件也几乎没有；入口访问日志仍在增长。你怎么判断？",
+              "options": [
+                {
+                  "id": "fex_rw_b1",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先延长观察时间，等成功事件积累后再比较。",
+                  "face": "calm",
+                  "line": "等之前还需要查什么？"
+                },
+                {
+                  "id": "fex_rw_b2",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "暂停扩大，核验采集覆盖并走通真实访问路径。",
+                  "face": "pleased",
+                  "line": "对，安静不代表正常。"
+                },
+                {
+                  "id": "fex_rw_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按入口日志估算成功数，用现有报错量计算失败率。",
+                  "face": "frown",
+                  "line": "入口访问就等于成功了吗？"
+                }
+              ],
+              "explain": "入口还有访问而成功、失败事件同时消失，可能是采集异常，也可能是页面在埋点启动前已经失败。应先暂停扩大，通过真实路径和独立观测确认可用性；延长等待不能修复观测缺口，也不能把入口访问直接算作成功。"
+            }
+          },
+          {
+            "id": "fex_rw_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先扩大到相同访问量，再用两版的报错次数决定去留。",
+            "face": "frown",
+            "line": "扩大之前，关键流程正常吗？"
+          }
+        ],
+        "explain": "少量用户产生的报错次数天然可能更少，不能据此判断新版更稳定。需要核对版本、访问量、采样与覆盖，并观察关键流程是否完成。扩大范围前约定观察条件和止损办法，才能让发布决策有依据；只看报错量可能把采集失效当成质量提升。"
+      }
+    },
+    {
+      "id": "fex_build_budget",
+      "pools": [
+        "fe_engineering"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "专业",
+        "text": "团队反馈构建越来越慢，影响每天联调。你会先做什么？",
+        "options": [
+          {
+            "id": "fex_bb_a",
+            "type": "off",
+            "delta": -1,
+            "text": "先启用构建缓存，用下一周的平均耗时判断效果。",
+            "face": "calm",
+            "line": "缓存会改善哪一段？"
+          },
+          {
+            "id": "fex_bb_b",
+            "type": "safe",
+            "delta": 3,
+            "text": "拆开依赖安装、检查和打包耗时，先找最慢一段。",
+            "face": "nod",
+            "line": "嗯，先定位。"
+          },
+          {
+            "id": "fex_bb_c",
+            "type": "bold",
+            "text": "做一组受控对比，再选优化项。",
+            "face": "probe",
+            "line": "具体怎么控制？",
+            "followup": {
+              "text": "有时机器空闲，有时队列很长；同一改动的耗时差很多。你怎么验证优化有效？",
+              "options": [
+                {
+                  "id": "fex_bb_c1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "固定输入和资源，分开冷暖缓存，多次测量各阶段。",
+                  "face": "pleased",
+                  "line": "嗯，比较条件说清了。"
+                },
+                {
+                  "id": "fex_bb_c2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "固定代码多跑几次，用整体平均耗时比较。",
+                  "face": "calm",
+                  "line": "排队时间也算进去了？"
+                },
+                {
+                  "id": "fex_bb_c3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "各挑一次机器空闲时的最快结果，差值就是优化收益。",
+                  "face": "frown",
+                  "line": "最快的一次能代表日常吗？"
+                }
+              ],
+              "explain": "验证需要区分排队与执行，尽量固定代码、依赖、资源和配置，并把冷缓存、暖缓存分别比较。多次阶段测量能看出优化落点与波动；只比较整体平均或最快一次，容易把机器负载与缓存差异记成代码收益。"
+            }
+          }
+        ],
+        "explain": "构建慢可能发生在安装、检查、打包或等待资源等不同环节。先量阶段耗时，再选择缓存、缩小检查范围或其他办法，避免工具改了却没碰到瓶颈。优化后还要保留必要的质量检查，并在可比条件下验证，不能只追求一个更短的总时间。"
+      }
+    },
+    {
+      "id": "fex_change_contract",
+      "pools": [
+        "fe_workstyle"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "一个筛选功能经过几轮讨论，产品、设计和测试手里的规则不一样。你准备开始开发，怎么处理？",
+        "options": [
+          {
+            "id": "fex_cc_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "整理冲突点，请相关人确认同一份当前规则。",
+            "face": "nod",
+            "line": "嗯，先统一依据。"
+          },
+          {
+            "id": "fex_cc_b",
+            "type": "bold",
+            "text": "用状态表列出默认、清空和返回行为，一起定验收。",
+            "face": "probe",
+            "line": "还有没定的细节呢？",
+            "followup": {
+              "text": "默认筛选值还没确认，但列表布局已经明确。你会怎样推进？",
+              "options": [
+                {
+                  "id": "fex_cc_b1",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按最新聊天记录做默认值，开发完成就作为验收依据。",
+                  "face": "frown",
+                  "line": "其他人知道这个决定吗？"
+                },
+                {
+                  "id": "fex_cc_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先完成布局，默认值暂留空，等联调时再一起确认。",
+                  "face": "calm",
+                  "line": "确认时间会不会太晚？"
+                },
+                {
+                  "id": "fex_cc_b3",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先做已定布局，列明待定项，约定确认人和最晚期限。",
+                  "face": "pleased",
+                  "line": "嗯，有进度，也有边界。"
+                }
+              ],
+              "explain": "已确认的部分可以推进，影响功能行为的待定项则要明确由谁、何时确认，并同步对排期的影响。留空但没有跟进安排会把分歧拖到联调；前端自行把某条聊天记录定成最终规则，也不能代替相关人的确认。"
+            }
+          },
+          {
+            "id": "fex_cc_c",
+            "type": "off",
+            "delta": -3,
+            "text": "按产品最后发的截图实现，让测试按成品补验收用例。",
+            "face": "frown",
+            "line": "截图没写的行为呢？"
+          }
+        ],
+        "explain": "这里的问题是协作依据出现分叉，不只是代码是否容易修改。把规则、异常状态和验收写到同一处，并在变化时同步更新，能减少各自按旧版本工作的返工。记录不必很重，但应分清已确认、待确认和废弃的方案，不能让最终成品反过来替代需求决策。"
+      }
+    },
+    {
+      "id": "fex_handoff_boundary",
+      "pools": [
+        "fe_workstyle"
+      ],
+      "priority": 50,
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你要休假几天，另一组同事临时接手你负责的页面。除了交代码，你还会怎么准备？",
+        "options": [
+          {
+            "id": "fex_hb_a",
+            "type": "off",
+            "delta": -1,
+            "text": "录一遍正常操作，把完整聊天记录交给接手同事查阅。",
+            "face": "calm",
+            "line": "他怎样找到当前还卡着的事？"
+          },
+          {
+            "id": "fex_hb_b",
+            "type": "bold",
+            "text": "请对方按交接单演练一次联调和问题处理。",
+            "face": "probe",
+            "line": "演练时发现依赖没到呢？",
+            "followup": {
+              "text": "一个接口只有模拟数据，后端还没确认交付时间。你会怎样写进交接？",
+              "options": [
+                {
+                  "id": "fex_hb_b1",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "标注模拟数据，附后端联系人，让接手者继续问进度。",
+                  "face": "calm",
+                  "line": "联系人有了，影响呢？"
+                },
+                {
+                  "id": "fex_hb_b2",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "列清阻塞和联调条件，约定跟进人与升级时点。",
+                  "face": "pleased",
+                  "line": "嗯，接手后知道怎么推进。"
+                },
+                {
+                  "id": "fex_hb_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "页面已通过模拟数据验收，接口作为后端待办单列即可。",
+                  "face": "frown",
+                  "line": "真实链路还没验证吧？"
+                }
+              ],
+              "explain": "模拟数据能支持局部开发，不能证明真实接口已经可用。交接需要标明阻塞、受影响任务、联调条件，以及谁跟进、何时升级协调；只留下联系人仍让接手者重新猜测优先级，把接口单列为别人的待办则切断了整体交付责任。"
+            }
+          },
+          {
+            "id": "fex_hb_c",
+            "type": "safe",
+            "delta": 3,
+            "text": "写清运行方式、当前状态、风险和待办，确认接手人。",
+            "face": "nod",
+            "line": "嗯，接手需要这些。"
+          }
+        ],
+        "explain": "交接质量看的是同事能否独立推进，而非材料数量。清楚的运行方式、当前有效规则、未验证项和责任人，比堆积历史聊天更有用。短演练能提前暴露环境与信息缺口；接手不意味着所有问题已解决，但每个未完成事项都应有可执行的下一步。"
+      }
+    },
+    {
+      "id": "bfe_async_result",
+      "pools": [
+        "fe_async"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "搜索框连续输入两次，旧请求最后返回，结果把新输入覆盖了。你怎么处理？",
+        "options": [
+          {
+            "id": "bfe_async_result_b",
+            "type": "bold",
+            "text": "把取消请求和结果归属校验分开设计。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "如果旧请求已完成，取消来不及了呢？",
+              "options": [
+                {
+                  "id": "bfe_async_result_h",
+                  "type": "hold",
+                  "text": "用递增序号核对当前请求，失效结果直接丢弃。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_async_result_p",
+                  "type": "partial",
+                  "text": "缩短超时，让旧请求尽快结束。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_async_result_f",
+                  "type": "fail",
+                  "text": "按响应时间排序，最后返回的结果一定最新。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "发出顺序和完成顺序并不相同。取消可减少无用工作，但提交状态前仍应校验结果是否属于当前输入；防抖只能减少请求，不能保证没有乱序。"
+            }
+          },
+          {
+            "id": "bfe_async_result_c",
+            "type": "off",
+            "text": "给输入加 300 毫秒防抖，请求间隔拉开后就不会乱序。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_async_result_a",
+            "type": "safe",
+            "text": "提交结果前校验请求归属，旧结果不再更新页面。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          }
+        ],
+        "explain": "发出顺序和完成顺序并不相同。取消可减少无用工作，但提交状态前仍应校验结果是否属于当前输入；防抖只能减少请求，不能保证没有乱序。"
+      }
+    },
+    {
+      "id": "bfe_async_cleanup",
+      "pools": [
+        "fe_async"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "路由切走后，旧页面的定时器和订阅还在运行。你会怎么检查？",
+        "options": [
+          {
+            "id": "bfe_async_cleanup_c",
+            "type": "off",
+            "text": "统一延迟销毁页面，等所有回调结束再离开。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_async_cleanup_a",
+            "type": "safe",
+            "text": "列出页面注册的外部资源，在离开时对应释放。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_async_cleanup_b",
+            "type": "bold",
+            "text": "沿持有关系定位残留回调，再验证反复进出。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "如果回调已排队，取消订阅后仍执行一次呢？",
+              "options": [
+                {
+                  "id": "bfe_async_cleanup_h",
+                  "type": "hold",
+                  "text": "退订后仍校验页面状态，再写结果。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_async_cleanup_p",
+                  "type": "partial",
+                  "text": "把更新操作包进异常捕获，避免页面报错。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_async_cleanup_f",
+                  "type": "fail",
+                  "text": "把页面变量置空，回调自然就不能再执行。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "资源管理要对应创建与释放，还要处理已经进入执行流程的回调。异常捕获不能替代生命周期校验；局部变量置空也不等于所有外部引用都已解除。"
+            }
+          }
+        ],
+        "explain": "资源管理要对应创建与释放，还要处理已经进入执行流程的回调。异常捕获不能替代生命周期校验；局部变量置空也不等于所有外部引用都已解除。"
+      }
+    },
+    {
+      "id": "bfe_component_contract",
+      "pools": [
+        "fe_component"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "多个业务想共用表单，但校验时机和提交规则不同。公共层怎么拆？",
+        "options": [
+          {
+            "id": "bfe_component_contract_a",
+            "type": "safe",
+            "text": "共用输入与反馈，业务规则留给调用方。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_component_contract_b",
+            "type": "bold",
+            "text": "先列共同契约和差异，用两个真实页面试接。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "第二个业务要求输入即校验，旧业务只在提交时校验呢？",
+              "options": [
+                {
+                  "id": "bfe_component_contract_h",
+                  "type": "hold",
+                  "text": "保留旧默认，显式配置新策略并验证两个入口。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_component_contract_p",
+                  "type": "partial",
+                  "text": "先把所有业务都切到即时校验，再按反馈调整提示时机。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_component_contract_f",
+                  "type": "fail",
+                  "text": "按业务名称分支，组件内部逐个适配规则。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "公共抽象应来自真实共性，交互差异通过有边界的接口表达。改变默认行为会影响存量业务，不能用技术统一代替场景判断；把业务名称写进基础层会积累隐藏耦合。"
+            }
+          },
+          {
+            "id": "bfe_component_contract_c",
+            "type": "off",
+            "text": "先把所有规则做成配置，接入时再删掉多余项。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          }
+        ],
+        "explain": "公共抽象应来自真实共性，交互差异通过有边界的接口表达。改变默认行为会影响存量业务，不能用技术统一代替场景判断；把业务名称写进基础层会积累隐藏耦合。"
+      }
+    },
+    {
+      "id": "bfe_component_upgrade",
+      "pools": [
+        "fe_component"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "公共组件要修改事件结构，十几个业务版本不一致。你怎样安排升级？",
+        "options": [
+          {
+            "id": "bfe_component_upgrade_b",
+            "type": "bold",
+            "text": "先试一个代表业务，验证兼容方案与恢复路径。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "一个业务暂时排不出人升级，怎么处理？",
+              "options": [
+                {
+                  "id": "bfe_component_upgrade_h",
+                  "type": "hold",
+                  "text": "约定兼容期限和退出条件，明确负责人。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_component_upgrade_p",
+                  "type": "partial",
+                  "text": "继续保留旧接口，等所有业务都有空再清理。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_component_upgrade_f",
+                  "type": "fail",
+                  "text": "直接改默认事件，类型检查能发现全部问题。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "发布公共能力也要管理调用方的迁移成本。分批验证、有限兼容和退出计划应结合风险制定；类型检查覆盖不了所有运行行为，无限兼容也会形成长期维护负担。"
+            }
+          },
+          {
+            "id": "bfe_component_upgrade_c",
+            "type": "off",
+            "text": "统一要求当天升级，避免维护多个版本。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_component_upgrade_a",
+            "type": "safe",
+            "text": "列清依赖、行为变化和迁移步骤，再分批灰度验证。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          }
+        ],
+        "explain": "发布公共能力也要管理调用方的迁移成本。分批验证、有限兼容和退出计划应结合风险制定；类型检查覆盖不了所有运行行为，无限兼容也会形成长期维护负担。"
+      }
+    },
+    {
+      "id": "bfe_release_gate",
+      "pools": [
+        "fe_release"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "前端新功能已开发完，但真实接口联调还没完成。发布评审时你怎么说？",
+        "options": [
+          {
+            "id": "bfe_release_gate_c",
+            "type": "off",
+            "text": "先上线再联调，线上环境更接近真实使用，问题暴露得更快。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_release_gate_a",
+            "type": "safe",
+            "text": "列出未验证项，按关键路径判断能否发布。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_release_gate_b",
+            "type": "bold",
+            "text": "把已验证、阻塞和恢复方案逐项列给负责人。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "产品说界面用模拟数据已验收，可以先开给用户呢？",
+              "options": [
+                {
+                  "id": "bfe_release_gate_h",
+                  "type": "hold",
+                  "text": "说明真实链路风险，给出缩范围或延期方案再决策。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_release_gate_p",
+                  "type": "partial",
+                  "text": "页面先开入口，接口准备好后用户就能用。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_release_gate_f",
+                  "type": "fail",
+                  "text": "把接口风险登记后按期发布，责任已有记录。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "局部页面验收不能代替真实链路验证。发布决策需要可见的风险、范围与恢复方式；登记风险不等于风险已被接受，更不能让用户替团队完成必要联调。"
+            }
+          }
+        ],
+        "explain": "局部页面验收不能代替真实链路验证。发布决策需要可见的风险、范围与恢复方式；登记风险不等于风险已被接受，更不能让用户替团队完成必要联调。"
+      }
+    },
+    {
+      "id": "bfe_release_rollback",
+      "pools": [
+        "fe_release"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "新版保存了新格式草稿，发现问题后准备回退页面。你先确认什么？",
+        "options": [
+          {
+            "id": "bfe_release_rollback_a",
+            "type": "safe",
+            "text": "确认旧版能否读取新草稿，以及恢复时的数据处理。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_release_rollback_b",
+            "type": "bold",
+            "text": "把界面回退与数据兼容分别验证。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "旧版无法读取新草稿，直接换回旧文件可以吗？",
+              "options": [
+                {
+                  "id": "bfe_release_rollback_h",
+                  "type": "hold",
+                  "text": "先保留草稿，评估兼容读取或关闭入口的方案。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_release_rollback_p",
+                  "type": "partial",
+                  "text": "先提示用户手动备份草稿，再直接回退页面文件。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_release_rollback_f",
+                  "type": "fail",
+                  "text": "重新发旧版就能把浏览器里的草稿一起恢复。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "页面文件回退不会自动逆转已写入的数据。恢复方案必须考虑草稿保存、格式兼容和用户正在进行的操作；为了避免报错直接清空用户内容，会制造新的损失。"
+            }
+          },
+          {
+            "id": "bfe_release_rollback_c",
+            "type": "off",
+            "text": "先清理草稿缓存，再回退，避免旧版解析报错。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          }
+        ],
+        "explain": "页面文件回退不会自动逆转已写入的数据。恢复方案必须考虑草稿保存、格式兼容和用户正在进行的操作；为了避免报错直接清空用户内容，会制造新的损失。"
+      }
+    },
+    {
+      "id": "bfe_observe_scope",
+      "pools": [
+        "fe_observe"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "一张性能看板显示全站平均耗时下降，但投诉变多了。你怎么查？",
+        "options": [
+          {
+            "id": "bfe_observe_scope_b",
+            "type": "bold",
+            "text": "先找投诉对应路径，再看同类访问的耗时分布。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "低端设备只占少量流量，平均值看不出退化呢？",
+              "options": [
+                {
+                  "id": "bfe_observe_scope_h",
+                  "type": "hold",
+                  "text": "单独看该层分布和失败情况，按关键体验判断。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_observe_scope_p",
+                  "type": "partial",
+                  "text": "先增加总体采样量，累计一周后再看低端设备的体验趋势。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_observe_scope_f",
+                  "type": "fail",
+                  "text": "总体均值已改善，少数投诉暂时不影响结论。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "总体平均会掩盖少数设备或关键页面的退化。应核对可比条件并按投诉路径分层，结合分布和可用性判断；增加总体样本不能消除分层结构带来的掩盖。"
+            }
+          },
+          {
+            "id": "bfe_observe_scope_c",
+            "type": "off",
+            "text": "扩大用户问卷样本到上千份，用满意度代替耗时指标。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_observe_scope_a",
+            "type": "safe",
+            "text": "按页面、设备和网络分层，核对采样和口径。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          }
+        ],
+        "explain": "总体平均会掩盖少数设备或关键页面的退化。应核对可比条件并按投诉路径分层，结合分布和可用性判断；增加总体样本不能消除分层结构带来的掩盖。"
+      }
+    },
+    {
+      "id": "bfe_observe_privacy",
+      "pools": [
+        "fe_observe"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "专业",
+        "text": "监控只能看到保存失败，定位信息不够。你会补哪些上下文？",
+        "options": [
+          {
+            "id": "bfe_observe_privacy_c",
+            "type": "off",
+            "text": "先上传全部请求内容，交给监控平台自动过滤。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_observe_privacy_a",
+            "type": "safe",
+            "text": "先补版本、错误码和操作阶段，按定位需要裁剪。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_observe_privacy_b",
+            "type": "bold",
+            "text": "列出最小诊断字段，用一次脱敏故障验证。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "有人建议把表单全文上传，复现最省事，你怎么看？",
+              "options": [
+                {
+                  "id": "bfe_observe_privacy_h",
+                  "type": "hold",
+                  "text": "先用脱敏样本复现，新增字段逐项说明用途和边界。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_observe_privacy_p",
+                  "type": "partial",
+                  "text": "先完整采一天，定位完再统一删除。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_observe_privacy_f",
+                  "type": "fail",
+                  "text": "只在报错时采集全文，就不用考虑敏感内容。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "诊断价值需要和采集成本、信息保护一起考虑。版本、阶段与错误分类常能提供有效线索；敏感内容应在采集前减少，不能把后续删除或平台过滤当作全量上报的理由。"
+            }
+          }
+        ],
+        "explain": "诊断价值需要和采集成本、信息保护一起考虑。版本、阶段与错误分类常能提供有效线索；敏感内容应在采集前减少，不能把后续删除或平台过滤当作全量上报的理由。"
+      }
+    },
+    {
+      "id": "bfe_director_rewrite",
+      "pools": [
+        "fe_strategy"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "视野与取舍",
+        "text": "老项目维护吃力，有同事建议换框架重写。你怎样判断值不值？",
+        "options": [
+          {
+            "id": "bfe_director_rewrite_a",
+            "type": "safe",
+            "text": "先列出实际瓶颈，再比较局部改造和整体重写的成本。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_director_rewrite_b",
+            "type": "bold",
+            "text": "选一个高风险模块试迁，验证收益与迁移代价。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "试迁后代码少了，但联调成本明显增加，继续吗？",
+              "options": [
+                {
+                  "id": "bfe_director_rewrite_h",
+                  "type": "bold",
+                  "text": "先缩小迁移范围，核算接入与维护总成本。",
+                  "face": "probe",
+                  "line": "那怎么决定是否继续？",
+                  "followup": {
+                    "text": "试验期间旧系统仍要交付新需求。怎样避免两边长期同时维护？",
+                    "options": [
+                      {
+                        "id": "bfe_director_rewrite_h1",
+                        "type": "hold",
+                        "delta": 12,
+                        "text": "限定试迁期限，约定继续、停止和恢复条件。",
+                        "face": "pleased",
+                        "line": "嗯，有退出办法。"
+                      },
+                      {
+                        "id": "bfe_director_rewrite_h2",
+                        "type": "partial",
+                        "delta": 1,
+                        "text": "保留两套完整维护流程，等新方案覆盖全部功能再停旧版。",
+                        "face": "calm",
+                        "line": "持续多久呢？"
+                      },
+                      {
+                        "id": "bfe_director_rewrite_h3",
+                        "type": "fail",
+                        "delta": -7,
+                        "text": "暂停旧系统所有变更，让业务等待新系统上线。",
+                        "face": "frown",
+                        "line": "业务能接受吗？"
+                      }
+                    ],
+                    "explain": "试迁需要范围、期限和退出条件，避免为验证一个假设承担长期双份维护。是否暂停业务变更需要评估并由责任人决定，不能由迁移方案单方面假定。"
+                  }
+                },
+                {
+                  "id": "bfe_director_rewrite_p",
+                  "type": "partial",
+                  "text": "先完成全量迁移，统一之后成本会下降。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_director_rewrite_f",
+                  "type": "fail",
+                  "text": "新框架代码更少，说明长期收益肯定更高。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "重写需要解决具体问题，评价包含接入、验证、迁移和维护成本。代码量或框架热度只是线索，试验结果不支持收益时应能缩小范围或停止，避免沉没成本推动决策。"
+            }
+          },
+          {
+            "id": "bfe_director_rewrite_c",
+            "type": "off",
+            "text": "选择社区热度最高的框架，减少未来招聘困难。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          }
+        ],
+        "explain": "重写需要解决具体问题，评价包含接入、验证、迁移和维护成本。代码量或框架热度只是线索，试验结果不支持收益时应能缩小范围或停止，避免沉没成本推动决策。"
+      }
+    },
+    {
+      "id": "bfe_director_value",
+      "pools": [
+        "fe_strategy"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "视野与取舍",
+        "text": "公共组件接入率很高，怎样判断这项工作确实有价值？",
+        "options": [
+          {
+            "id": "bfe_director_value_c",
+            "type": "off",
+            "text": "统计组件数和覆盖页面数，数量增加就代表收益。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_director_value_a",
+            "type": "safe",
+            "text": "结合接入成本、重复问题和业务反馈评估。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_director_value_b",
+            "type": "bold",
+            "text": "找一个任务，对照接入前后完成过程与维护负担。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "业务被要求统一接入，采用率还能证明收益吗？",
+              "options": [
+                {
+                  "id": "bfe_director_value_h",
+                  "type": "hold",
+                  "text": "不能单独证明，要看任务成本和真实反馈。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_director_value_p",
+                  "type": "partial",
+                  "text": "接入率能证明方向，收益等维护周期拉长再看。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_director_value_f",
+                  "type": "fail",
+                  "text": "统一已经减少技术分歧，采用率足够证明成功。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "采用率说明使用范围，不能独立说明使用者受益。强制接入时尤其需要看任务能否完成、升级成本和重复问题是否减少；产物数量也不能替代效果证据。"
+            }
+          }
+        ],
+        "explain": "采用率说明使用范围，不能独立说明使用者受益。强制接入时尤其需要看任务能否完成、升级成本和重复问题是否减少；产物数量也不能替代效果证据。"
+      }
+    },
+    {
+      "id": "bfe_cross_submit",
+      "pools": [
+        "fe_partner"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我是后端同事。保存按钮禁用后，还需要服务端处理重复提交吗？",
+        "options": [
+          {
+            "id": "bfe_cross_submit_b",
+            "type": "bold",
+            "text": "一起定义一次提交的标识、状态与重复请求返回。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "请求超时了，用户不知道保存是否成功，前端怎么做？",
+              "options": [
+                {
+                  "id": "bfe_cross_submit_h",
+                  "type": "hold",
+                  "text": "核对提交状态，再按约定标识重试，避免创建两份。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_cross_submit_p",
+                  "type": "partial",
+                  "text": "恢复按钮允许用户重试，等某一次返回成功就提示已保存。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_cross_submit_f",
+                  "type": "fail",
+                  "text": "超时代表没保存成功，重新提交新的请求即可。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "前端交互只能减少误操作，不能替代服务端对重复请求的处理。超时也不能证明服务端未完成，双方应约定提交标识、结果查询与重试语义。"
+            }
+          },
+          {
+            "id": "bfe_cross_submit_c",
+            "type": "off",
+            "text": "把按钮禁用时间延长，降低重复保存概率。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_cross_submit_a",
+            "type": "safe",
+            "text": "需要，按钮状态拦不住重试、多端打开和直接调接口。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          }
+        ],
+        "explain": "前端交互只能减少误操作，不能替代服务端对重复请求的处理。超时也不能证明服务端未完成，双方应约定提交标识、结果查询与重试语义。"
+      }
+    },
+    {
+      "id": "bfe_cross_permission",
+      "pools": [
+        "fe_partner"
+      ],
+      "priority": 50,
+      "when": {},
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我是产品同事。没有权限的按钮已经隐藏，权限需求是不是完成了？",
+        "options": [
+          {
+            "id": "bfe_cross_permission_c",
+            "type": "off",
+            "text": "前端缓存权限一小时，减少权限接口的调用。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "bfe_cross_permission_a",
+            "type": "safe",
+            "text": "还要核对服务端的授权校验，和无权限时页面怎么提示。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_cross_permission_b",
+            "type": "bold",
+            "text": "按页面入口、直接请求和权限变化一起验收。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "用户编辑中权限被收回，保存时该怎样处理？",
+              "options": [
+                {
+                  "id": "bfe_cross_permission_h",
+                  "type": "hold",
+                  "text": "以服务端结果为准，解释失败并按规则保护草稿。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_cross_permission_p",
+                  "type": "partial",
+                  "text": "重新加载权限后再尝试保存，失败就清空表单。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_cross_permission_f",
+                  "type": "fail",
+                  "text": "进入页面时已有权限，本次操作应继续放行。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "隐藏入口是体验控制，真正的授权仍需服务端校验。权限会变化，前端要处理拒绝结果并按规则保护未保存内容，不能把进入页面时的状态当作持续授权。"
+            }
+          }
+        ],
+        "explain": "隐藏入口是体验控制，真正的授权仍需服务端校验。权限会变化，前端要处理拒绝结果并按规则保护未保存内容，不能把进入页面时的状态当作持续授权。"
+      }
+    },
+    {
+      "id": "bfe_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "scale": "big"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "请挑一段和前端岗位最相关的经历介绍，说明你负责什么。",
+        "options": [
+          {
+            "id": "bfe_intro_a",
+            "type": "safe",
+            "text": "讲一段项目的目标、我负责的范围和怎么验证结果。",
+            "face": "nod",
+            "line": "嗯，先把边界讲清。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_intro_b",
+            "type": "bold",
+            "text": "从一个做过的取舍切入，再说贡献边界。",
+            "face": "probe",
+            "line": "那我加一个条件。",
+            "followup": {
+              "text": "如果整体方案由师兄确定，你的贡献怎么说？",
+              "options": [
+                {
+                  "id": "bfe_intro_h",
+                  "type": "hold",
+                  "text": "先说方案归属，再说实现与验证。",
+                  "face": "pleased",
+                  "line": "嗯，能落到操作上。",
+                  "delta": 9
+                },
+                {
+                  "id": "bfe_intro_p",
+                  "type": "partial",
+                  "text": "先讲团队成果，追问时再补个人分工。",
+                  "face": "calm",
+                  "line": "还差哪些条件？",
+                  "delta": 1
+                },
+                {
+                  "id": "bfe_intro_f",
+                  "type": "fail",
+                  "text": "既然负责落地，就可以说自己主导整体方案。",
+                  "face": "frown",
+                  "line": "这个风险没有消失。",
+                  "delta": -7
+                }
+              ],
+              "explain": "自我介绍应让人理解具体任务、个人贡献与证据。实现和验证本身有价值，准确区分整体决策与局部负责，比把团队成果写成个人主导更可信。"
+            }
+          },
+          {
+            "id": "bfe_intro_c",
+            "type": "off",
+            "text": "先列完整技术栈，让面试官挑感兴趣的问。",
+            "face": "calm",
+            "line": "这个判断的依据呢？",
+            "delta": -3
+          }
+        ],
+        "explain": "自我介绍应让人理解具体任务、个人贡献与证据。实现和验证本身有价值，准确区分整体决策与局部负责，比把团队成果写成个人主导更可信。"
+      }
+    },
+    {
+      "id": "bfe_reverse_1",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题问完了。你有什么想了解的？",
+        "options": [
+          {
+            "id": "bfe_reverse_1_a",
+            "type": "reverse",
+            "text": "新人会先接触哪些页面和交付环节？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_reverse_1_b",
+            "type": "reverse",
+            "text": "新人通常多久能独立负责一个完整项目？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 1
+          },
+          {
+            "id": "bfe_reverse_1_c",
+            "type": "reverse",
+            "text": "今天的表现大概能拿到哪个档位？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": -2
+          }
+        ],
+        "explain": "围绕具体任务、交付和协作机制提问，能够帮助判断岗位是否匹配，也让后续准备更有方向。成长时间取决于任务与个人情况，面试现场也未必能给出最终档位。"
+      }
+    },
+    {
+      "id": "bfe_reverse_2",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题问完了。你有什么想了解的？",
+        "options": [
+          {
+            "id": "bfe_reverse_2_a",
+            "type": "reverse",
+            "text": "公共能力升级时，业务团队怎样参与验证？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_reverse_2_b",
+            "type": "reverse",
+            "text": "新人通常多久能独立负责一个完整项目？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 1
+          },
+          {
+            "id": "bfe_reverse_2_c",
+            "type": "reverse",
+            "text": "今天的表现大概能拿到哪个档位？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": -2
+          }
+        ],
+        "explain": "围绕具体任务、交付和协作机制提问，能够帮助判断岗位是否匹配，也让后续准备更有方向。成长时间取决于任务与个人情况，面试现场也未必能给出最终档位。"
+      }
+    },
+    {
+      "id": "bfe_reverse_3",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题问完了。你有什么想了解的？",
+        "options": [
+          {
+            "id": "bfe_reverse_3_a",
+            "type": "reverse",
+            "text": "团队怎样发现并处理真实用户的体验问题？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_reverse_3_b",
+            "type": "reverse",
+            "text": "新人通常多久能独立负责一个完整项目？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 1
+          },
+          {
+            "id": "bfe_reverse_3_c",
+            "type": "reverse",
+            "text": "今天的表现大概能拿到哪个档位？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": -2
+          }
+        ],
+        "explain": "围绕具体任务、交付和协作机制提问，能够帮助判断岗位是否匹配，也让后续准备更有方向。成长时间取决于任务与个人情况，面试现场也未必能给出最终档位。"
+      }
+    },
+    {
+      "id": "bfe_reverse_4",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题问完了。你有什么想了解的？",
+        "options": [
+          {
+            "id": "bfe_reverse_4_a",
+            "type": "reverse",
+            "text": "跨组合作中，接口变更通常怎样提前协调？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 3
+          },
+          {
+            "id": "bfe_reverse_4_b",
+            "type": "reverse",
+            "text": "新人通常多久能独立负责一个完整项目？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": 1
+          },
+          {
+            "id": "bfe_reverse_4_c",
+            "type": "reverse",
+            "text": "今天的表现大概能拿到哪个档位？",
+            "face": "nod",
+            "line": "可以，具体说说。",
+            "delta": -2
+          }
+        ],
+        "explain": "围绕具体任务、交付和协作机制提问，能够帮助判断岗位是否匹配，也让后续准备更有方向。成长时间取决于任务与个人情况，面试现场也未必能给出最终档位。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "bfe_bg_scale",
+      "pools": [
+        "director"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "fe",
+        "scale": "big"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "校内项目规模有限。进入多业务协作的团队，你会怎样判断哪些经验能直接用？",
+        "options": [
+          {
+            "id": "bfe_bg_scale_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先确认用户、依赖和交付边界，再迁移已有做法。",
+            "face": "nod",
+            "line": "嗯，先看条件。"
+          },
+          {
+            "id": "bfe_bg_scale_b",
+            "type": "bold",
+            "text": "把已验证能力和未经历的规模条件分开列。",
+            "face": "probe",
+            "line": "那如果让你选方案呢？",
+            "followup": {
+              "text": "你没经历过这个量级，负责人仍希望你给出方案建议。怎么做？",
+              "options": [
+                {
+                  "id": "bfe_bg_scale_b1",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "采用团队最常用的方案，细节等实施时补齐。",
+                  "face": "calm",
+                  "line": "适用条件还要确认。"
+                },
+                {
+                  "id": "bfe_bg_scale_b2",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "写明假设，找已有数据和同事核验，再做限时验证。",
+                  "face": "pleased",
+                  "line": "嗯，能给建议，也交代了依据。"
+                },
+                {
+                  "id": "bfe_bg_scale_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按校内项目成比例放大配置，先给确定的承诺。",
+                  "face": "frown",
+                  "line": "复杂度都会等比例增长吗？"
+                }
+              ],
+              "explain": "经验不足不妨碍提出建议，但建议需要明确假设、证据和验证范围。团队惯例可以参考，也要检查适用性；简单放大配置不能证明方案在新量级成立。"
+            }
+          },
+          {
+            "id": "bfe_bg_scale_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先统一到熟悉的技术栈，避免迁移时学习成本太高。",
+            "face": "calm",
+            "line": "团队现有条件呢？"
+          }
+        ],
+        "explain": "小项目能证明局部能力，不能独立证明大规模可用。先核用户、依赖、发布和运维约束，把已经验证的结论与待核假设分开，才能迁移经验而不夸大自己的经历。"
+      }
+    }
+  ]
+}

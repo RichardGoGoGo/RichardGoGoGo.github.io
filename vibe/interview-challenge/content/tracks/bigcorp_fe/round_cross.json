@@ -1,0 +1,38 @@
+{
+  "id": "cross",
+  "name": "交叉面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A7",
+    "title": "后端与产品协作方面试官"
+  },
+  "scene": "S6",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "fe_partner",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "fe_partner",
+      "swap": true
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "fe_collab",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {},
+  "invite_text": "还有一轮加面，协作团队想和你聊聊实际交付。"
+}

@@ -1,0 +1,473 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A4",
+    "title": "产品面试官"
+  },
+  "scene": "S6",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "prefer": [
+        "b1_intro"
+      ],
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "flag_or",
+      "flag": "group_push",
+      "node_if": "q_group_push",
+      "node": "q_product_sense",
+      "swap": true,
+      "alternates": [
+        "q_feature_cut"
+      ],
+      "_note": "群面里推动进程是最高项时，面试官会提起来"
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "flag_or",
+      "flag": "test_wrong_conv",
+      "node_if": "q_test_review",
+      "node": "q_metric_drop",
+      "swap": true,
+      "alternates": [
+        "q_metric_define"
+      ],
+      "_note": "笔试那道转化率做错或没做时，面试官会追问"
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "pm_research",
+      "prefer": [
+        "q_research_plan",
+        "q_survey_design"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "pm_growth",
+      "prefer": [
+        "q_rejected",
+        "q_learn_fast"
+      ],
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "prefer": [
+        "b1_reverse"
+      ],
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "q_group_push": {
+      "tag": "项目表达",
+      "text": "我看你在群面里一直在推动进度。说说在真实项目里，你是怎么推动一件事的？",
+      "options": [
+        {
+          "id": "gp_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "讲{cite.short}：怎么用报名数据说服大家调整场次。",
+          "requires": {
+            "highlight": "event_attendance"
+          },
+          "face": "nod",
+          "line": "嗯。",
+          "fallback": {
+            "id": "gp_a0",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲{p1.label|做过的一个项目}里，我是怎么推动一件事落地的。",
+            "face": "nod",
+            "line": "嗯。"
+          }
+        },
+        {
+          "id": "gp_b",
+          "type": "bold",
+          "text": "讲{cite.short}被打回后，我怎么补证据，最后推动改版。",
+          "face": "probe",
+          "line": "那我追一句。",
+          "followup": {
+            "text": "如果补完证据，产品经理还是不认，你怎么办？",
+            "options": [
+              {
+                "id": "gp_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "把可用性测试的录屏放给他看，让他亲眼看到用户卡在哪。",
+                "face": "pleased",
+                "line": "嗯，眼见为实。"
+              },
+              {
+                "id": "gp_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "那就听他的，毕竟他是负责人，结果也是他担。",
+                "face": "calm",
+                "line": "那你的研究呢？"
+              },
+              {
+                "id": "gp_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "我会直接找他的上级反映，让上级来判断。",
+                "face": "frown",
+                "line": "第一步就越级？"
+              }
+            ]
+          },
+          "requires": {
+            "highlight": "report_rework"
+          },
+          "fallback": {
+            "id": "gp_b0",
+            "type": "safe",
+            "delta": 1,
+            "text": "讲一次方案被质疑后，我怎么补证据、继续往前推。",
+            "face": "nod",
+            "line": "嗯。"
+          }
+        },
+        {
+          "id": "gp_c",
+          "type": "off",
+          "delta": -3,
+          "text": "群面里推动容易，实际工作里主要还是听安排。",
+          "face": "frown",
+          "line": "那群面里是在演？"
+        }
+      ],
+      "explain": "群面里的表现会被带进后面的面试。在群面里推动了进度，就要准备好讲一个真实推动过的事；只会在群面里推动，这个回答可能让面试官怀疑群面里的表现是演出来的。"
+    },
+    "q_product_sense": {
+      "tag": "视野与取舍",
+      "text": "你最近用过的一个产品，哪里设计得好、哪里不好？",
+      "options": [
+        {
+          "id": "ps_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "讲塔塔学习：打卡提醒做得好，但错题本入口太深。",
+          "face": "nod",
+          "line": "哦，用过我们的产品。"
+        },
+        {
+          "id": "ps_b",
+          "type": "bold",
+          "text": "讲塔塔学习的错题本：用了两周，记了 20 多条笔记。",
+          "face": "probe",
+          "line": "那我问问你。",
+          "followup": {
+            "text": "那你会怎么改错题本？先改什么？",
+            "options": [
+              {
+                "id": "ps_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "先把入口挪到做题结束页，再看点击率和第二天的回看比例。",
+                "face": "pleased",
+                "line": "嗯，小步改、能验证。"
+              },
+              {
+                "id": "ps_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "整体重做一版错题本，再加上 AI 推荐，一步到位。",
+                "face": "calm",
+                "line": "成本呢？"
+              },
+              {
+                "id": "ps_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "把常用功能都放到首页最显眼的地方，这样用户就不会找不到了。",
+                "face": "frown",
+                "line": "首页放得下吗？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ps_c",
+          "type": "off",
+          "delta": -3,
+          "text": "讲微信：功能全、体验好，用了这么多年几乎挑不出缺点。",
+          "face": "calm",
+          "line": "嗯……几乎每个人都讲微信。"
+        },
+        {
+          "id": "ps_d",
+          "type": "off",
+          "delta": -3,
+          "text": "我平时用的都是大公司的成熟产品，真没发现什么明显问题。",
+          "face": "frown",
+          "line": "一个都没有？"
+        }
+      ],
+      "explain": "“讲一个产品”，最好讲面试公司自己的产品，而且讲得出具体问题和改法。改法要小步、能验证；“整体重做”听着大气，其实是在回避取舍。"
+    },
+    "q_feature_cut": {
+      "tag": "视野与取舍",
+      "text": "如果塔塔学习必须砍掉一个功能，你砍哪个？",
+      "options": [
+        {
+          "id": "fc_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "看使用率和对留存的贡献，砍用的人少、又不碰核心学习的。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "fc_b",
+          "type": "bold",
+          "text": "砍首页的直播入口：我用了两周一次没点过。",
+          "face": "probe",
+          "line": "就凭这个？",
+          "followup": {
+            "text": "就凭你一个人的体验？",
+            "options": [
+              {
+                "id": "fc_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "不够。先看全量数据，再找常看直播的用户聊聊为什么用。",
+                "face": "pleased",
+                "line": "嗯，知道自己的样本不够。"
+              },
+              {
+                "id": "fc_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "我身边的同学基本都不看直播，样本虽然小，但挺有代表性。",
+                "face": "calm",
+                "line": "你身边的同学是目标用户吗？"
+              },
+              {
+                "id": "fc_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "对，产品经理就是要有自己的判断，不能什么事都等数据说话。",
+                "face": "frown",
+                "line": "判断要有依据吧。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fc_c",
+          "type": "off",
+          "delta": -3,
+          "text": "哪个都不砍，每个功能都有它的用户，砍掉哪个都会有人流失。",
+          "face": "calm",
+          "line": "那这道题等于没答。"
+        }
+      ],
+      "explain": "砍功能考的是取舍和依据。拿自己一个人的体验做决定，是做产品的大忌；知道自己的样本不够，再说清你会怎么补，才答到了点上。"
+    },
+    "q_metric_drop": {
+      "tag": "专业",
+      "text": "你负责的功能上线后，核心数据跌了 10%，你会怎么排查？",
+      "options": [
+        {
+          "id": "md_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "先确认口径和统计有没有出错，再按渠道、版本、新老用户拆开看。",
+          "face": "nod",
+          "line": "嗯，顺序对。"
+        },
+        {
+          "id": "md_b",
+          "type": "bold",
+          "text": "先核对口径和埋点，再拆新老用户、渠道、版本，一路追到根因。",
+          "face": "probe",
+          "line": "好，数据没问题，我给你个结果。",
+          "followup": {
+            "text": "拆完发现只有安卓新版本在跌，下一步呢？",
+            "options": [
+              {
+                "id": "md_b1",
+                "type": "bold",
+                "text": "看安卓新版改了什么，查崩溃率和关键页面加载，再找用户复现。",
+                "face": "probe",
+                "line": "再往下一步。",
+                "followup": {
+                  "text": "确认是一个页面加载变慢了。你怎么推动修复？",
+                  "options": [
+                    {
+                      "id": "md_b1a",
+                      "type": "hold",
+                      "delta": 12,
+                      "text": "带着数据和复现步骤找研发定优先级，修完盯数据回没回来。",
+                      "face": "pleased",
+                      "line": "嗯，闭环了。"
+                    },
+                    {
+                      "id": "md_b1b",
+                      "type": "partial",
+                      "delta": 2,
+                      "text": "提个 bug 单给研发，写清楚现象和影响范围，等他们排期修。",
+                      "face": "calm",
+                      "line": "影响 10% 的数据，也排期等？"
+                    },
+                    {
+                      "id": "md_b1c",
+                      "type": "fail",
+                      "delta": -9,
+                      "text": "影响这么大，得让研发今天就加班修好，明天一早看数据恢复没。",
+                      "face": "frown",
+                      "line": "修复风险评估过吗？"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "md_b2",
+                "type": "partial",
+                "delta": 1,
+                "text": "先暂停安卓新版的灰度，能用开关关掉就先关，再慢慢查原因。",
+                "face": "nod",
+                "line": "止血可以，原因呢？"
+              },
+              {
+                "id": "md_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "可能是竞品在做活动，先观察几天。",
+                "face": "frown",
+                "line": "竞品活动只影响安卓新版本？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "md_c",
+          "type": "off",
+          "delta": -1,
+          "text": "先去问研发是不是出 bug 了。",
+          "face": "calm",
+          "line": "嗯，也是一种办法。"
+        },
+        {
+          "id": "md_d",
+          "type": "off",
+          "delta": -3,
+          "text": "马上拉上所有相关的人开会讨论。",
+          "face": "frown",
+          "line": "什么都没查就开会？"
+        }
+      ],
+      "explain": "数据下跌的排查，先确认数据本身没错，再按维度拆，缩小到具体人群和版本，最后找原因、推动修复、回头验证。跳过第一步直接拆维度，拆出来的可能是假跌。面试官可能会一层层追到“你怎么推动修复”；止血要用能马上生效的办法，装到用户手机上的客户端没法直接回滚。"
+    },
+    "q_metric_define": {
+      "tag": "专业",
+      "text": "要衡量塔塔学习的“错题本”做得好不好，你会看哪些指标？",
+      "options": [
+        {
+          "id": "mf_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "看使用率、错题回看率，以及用过的人之后正确率有没有提高。",
+          "face": "nod",
+          "line": "嗯，比较全。"
+        },
+        {
+          "id": "mf_b",
+          "type": "bold",
+          "text": "先定一个北极星：错题被真正“消灭”的比例，再拆成过程指标。",
+          "face": "probe",
+          "line": "“消灭”怎么定义？",
+          "followup": {
+            "text": "你说的“消灭”，具体怎么定义？",
+            "options": [
+              {
+                "id": "mf_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "同类题之后连续做对两次，才算这道错题被消灭了。",
+                "face": "pleased",
+                "line": "嗯，可度量。"
+              },
+              {
+                "id": "mf_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "用户自己点了“已掌握”就算，用户最清楚自己会不会。",
+                "face": "calm",
+                "line": "点一下就算掌握了？"
+              },
+              {
+                "id": "mf_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "错题本里的题被用户删掉了就算，说明他觉得不用再看了。",
+                "face": "frown",
+                "line": "删掉可能是嫌烦。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mf_c",
+          "type": "off",
+          "delta": -1,
+          "text": "看错题本的日活和点击量就够了。",
+          "face": "calm",
+          "line": "点了就说明有用？"
+        }
+      ],
+      "explain": "衡量一个功能，要看它有没有帮用户达成目标，而不只是有没有人点。北极星要能度量，“用户自己说掌握了”和“删掉了”都量不准真实效果。"
+    },
+    "q_test_review": {
+      "tag": "专业",
+      "text": "笔试那道转化率的题你没做对。现在再算一遍：1 万人点了按钮，2000 人下单，转化率多少？分母为什么是它？",
+      "options": [
+        {
+          "id": "tr_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "20%。分母是点了按钮的 1 万人，算的是这一步的转化率。",
+          "face": "nod",
+          "line": "嗯，对了。"
+        },
+        {
+          "id": "tr_b",
+          "type": "safe",
+          "delta": 4,
+          "text": "20%。笔试时我错拿 DAU 当分母，以后先写清哪一步到哪一步。",
+          "face": "pleased",
+          "line": "嗯，知道错在哪就好。"
+        },
+        {
+          "id": "tr_c",
+          "type": "off",
+          "delta": -5,
+          "text": "4%，下单人数除以 DAU，这样才能看出这个功能对整体的效果。",
+          "face": "frown",
+          "line": "那这还是“这一步的转化率”吗？"
+        }
+      ],
+      "explain": "笔试做错的题，面试官可能当场再问一遍。答对之后再说清自己当时错在哪，比只给答案加分更多。"
+    }
+  }
+}

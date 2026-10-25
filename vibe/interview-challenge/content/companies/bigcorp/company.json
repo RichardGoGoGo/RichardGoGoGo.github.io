@@ -1,0 +1,49 @@
+{
+  "_note": "公司底座：名称、风格、档位、虚构薪资表、信件、谈薪。关卡顺序、筛选设置、通过线和档位阈值跟着岗位线走（tracks/）。HR 面或创始人面这一轮放在这里，所有岗位共用。 类型（sector）、规模（scale）、阶段（stage，可选）的说法见 catalog.json；星数是这家公司自己的难度。 product 是这家公司的主打产品（可选），题里写 {co.product|你们的产品}。",
+  "id": "bigcorp",
+  "name": "巨塔集团",
+  "sector": "internet",
+  "scale": "big",
+  "short": "巨塔",
+  "product": "塔塔学习",
+  "stars": 5,
+  "style": "精致规整，统一的品牌色，人人挂工牌",
+  "logo": "LOGO_juta",
+  "disclaimer": "游戏里的公司、流程和数字都是虚构的。流程按公开的求职资料概括，实际因公司和年份而异。",
+  "tiers": {
+    "ssp_requires_cross": true
+  },
+  "salary_table": {
+    "_note": "游戏设定，不代表市场行情。",
+    "白菜": {
+      "salary": 18,
+      "months": 15,
+      "signing": "无"
+    },
+    "普通": {
+      "salary": 21,
+      "months": 15,
+      "signing": "无"
+    },
+    "SP": {
+      "salary": 24,
+      "months": 16,
+      "signing": "3 万"
+    },
+    "SSP": {
+      "salary": 28,
+      "months": 16,
+      "signing": "5 万",
+      "note": "特批"
+    }
+  },
+  "letters": {
+    "next_round": "【巨塔集团】恭喜你通过{round}！{next}的安排会通过邮件通知你。",
+    "reject": "【巨塔集团】感谢你参加巨塔集团校园招聘。很遗憾，你暂时未能进入下一环节。你的信息已进入巨塔人才库，后续有合适的岗位，我们会主动联系你。",
+    "reject_aside": "（进了人才库，一般就是没下文了。）",
+    "cross_invite": "【巨塔集团】你好，我们为你追加了一轮交叉面试，时间另行通知。",
+    "pool": "你的面试评价已进入综合排序，请耐心等待结果。",
+    "offer": "【巨塔集团】恭喜你！附件是你的正式录用通知和薪酬明细，请在一周内确认。"
+  },
+  "negotiation": "companies/bigcorp/negotiation.json"
+}

@@ -1,0 +1,405 @@
+{
+  "id": "neg",
+  "name": "谈薪",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S8b",
+  "_note": "大厂的谈法：月薪按档定，基本不能动；签字费可以谈；拿得出真实的竞争 offer 才能申请升档审批。T 谈判分从 0 开始，R 好感从 3 开始。数字均为游戏设定，不代表市场行情。",
+  "band_text": "21 到 24k",
+  "offer_terms": [
+    {
+      "id": "salary",
+      "label": "月薪",
+      "value": "{salary}k",
+      "detail": "按定级档位发放，同一档内不调整。",
+      "bad": false
+    },
+    {
+      "id": "months",
+      "label": "薪数",
+      "value": "{months} 薪",
+      "detail": "其中 {bonus_months} 个月是年终奖，按绩效发放，不保底。",
+      "bad": true
+    },
+    {
+      "id": "signing",
+      "label": "签字费",
+      "value": "{signing}",
+      "detail": "签字费单独审批，入职后一次发放；入职不满一年离职，需要全额退还。",
+      "bad": true
+    },
+    {
+      "id": "stock",
+      "label": "股票",
+      "value": "4 年归属",
+      "detail": "满 1 年才拿到第一笔，之后按月归属。",
+      "bad": true
+    },
+    {
+      "id": "fund",
+      "label": "公积金",
+      "value": "按 12% 缴纳",
+      "detail": "按实际工资缴纳。",
+      "bad": false
+    },
+    {
+      "id": "breach",
+      "label": "三方违约金",
+      "value": "见三方协议",
+      "detail": "签了三方再毁约，要按协议付违约金（这里是 6000 元）。签之前问清金额，签字费、股票这些承诺最好写进三方备注栏。",
+      "bad": true
+    },
+    {
+      "id": "start",
+      "label": "入职时间",
+      "value": "明年 7 月",
+      "detail": "可以申请提前来实习。",
+      "bad": false
+    }
+  ],
+  "open_seconds": 4,
+  "flow": [
+    "neg_ask",
+    "neg_offer",
+    "neg_counter",
+    "neg_second",
+    "neg_close"
+  ],
+  "nodes": {
+    "neg_ask": {
+      "text": "恭喜你通过了所有面试，接下来就是开奖了。先问一下，你的期望薪资是多少？",
+      "options": [
+        {
+          "id": "bna_a",
+          "T": 1,
+          "next": "neg_range",
+          "text": "我想先听听这个岗位的薪资范围？",
+          "face": "nod",
+          "line": "可以。"
+        },
+        {
+          "id": "bna_b",
+          "T": 1,
+          "text": "24k。",
+          "face": "nod",
+          "line": "嗯，在我们的范围里。"
+        },
+        {
+          "id": "bna_c",
+          "T": 0,
+          "R": -1,
+          "text": "30k。",
+          "face": "frown",
+          "line": "这个超出我们的档位了。"
+        },
+        {
+          "id": "bna_d",
+          "T": -2,
+          "flags": [
+            "low_anchor"
+          ],
+          "text": "听公司安排就好。",
+          "face": "nod",
+          "line": "好，那我按标准来。"
+        }
+      ],
+      "explain": "谁先报数，谁就定了锚点。不清楚行情时，先问范围更稳；要报就报有依据的高位。“听公司安排”听着谦虚，实际上是把锚点交给了对方。"
+    },
+    "neg_range": {
+      "text": "这个岗位一般在 21 到 24k，具体看定级。你自己的期望呢？",
+      "options": [
+        {
+          "id": "bnr_a",
+          "T": 2,
+          "text": "24k，参考的是我的{p.lev|项目经历}和面试表现。",
+          "face": "nod",
+          "line": "嗯，我记一下。"
+        },
+        {
+          "id": "bnr_b",
+          "T": 0,
+          "text": "22k 左右就可以，我更看重平台。",
+          "face": "nod",
+          "line": "好。"
+        },
+        {
+          "id": "bnr_c",
+          "T": 0,
+          "R": -1,
+          "text": "30k。我{p.lev_brag|项目经验挺多，面试表现也不错}，觉得自己值这个价。",
+          "face": "frown",
+          "line": "这个超出范围不少了。"
+        },
+        {
+          "id": "bnr_d",
+          "T": 0,
+          "R": -1,
+          "text": "您那边先报，我再考虑。",
+          "face": "calm",
+          "line": "我们一般是先听候选人的期望。"
+        }
+      ],
+      "explain": "问到区间之后，报在上沿、再给一个说得出口的依据，是比较稳的做法；也可以报一个窄区间，顺带说明更看重总包结构（比如签字费）。"
+    },
+    "neg_offer": {
+      "kind": "inspect",
+      "text": "这是给你的方案，你先看看。",
+      "explain": "大厂的 offer 条款更多：年终保不保底、签字费有没有回收、股票怎么归属、三方违约金多少，都藏在细节里。不点开就看不到，也就不知道该问什么、该谈什么。"
+    },
+    "neg_counter": {
+      "text": "方案大概就是这样，你看还有什么问题？",
+      "options": [
+        {
+          "id": "bnc_r",
+          "requires": {
+            "flag": "has_real_offer"
+          },
+          "_note": "之前用同一个人设拿到过别家 offer 才出现，替换“月薪能不能调”那项",
+          "T": 3,
+          "text": "我手上有{offer}，书面的可以发您，能申请升一档吗？",
+          "face": "nod",
+          "line": "有书面 offer 就好办，我去走升档审批。",
+          "pre_lines": [
+            {
+              "if_flag": "claimed_only_us",
+              "R": -2,
+              "face": "frown",
+              "line": "你上次不是说只投了巨塔？"
+            }
+          ],
+          "fallback": {
+            "id": "bnc_a",
+            "T": 0,
+            "R": -1,
+            "text": "月薪能不能再往上调一点？",
+            "face": "calm",
+            "line": "我们的月薪是按档定的，同一档里调不了。"
+          }
+        },
+        {
+          "id": "bnc_b",
+          "T": 2,
+          "text": "签字费能不能争取一下？我{p.lev_detail|做过的项目和岗位很对口}。",
+          "face": "nod",
+          "line": "签字费可以申请，我帮你报一下。"
+        },
+        {
+          "id": "bnc_c",
+          "T": 0,
+          "R": -1,
+          "requires": {
+            "opened": "stock"
+          },
+          "text": "股票第一年的归属能不能提前？",
+          "face": "calm",
+          "line": "股票归属是统一规则，改不了。",
+          "fallback": {
+            "id": "bnc_c0",
+            "T": 0,
+            "R": -1,
+            "text": "这边生活成本挺高的，房租就要好几千……",
+            "face": "calm",
+            "line": "嗯，理解，不过薪资是按档定的。"
+          }
+        },
+        {
+          "id": "bnc_d",
+          "requires": {
+            "flag": "has_processes"
+          },
+          "T": 1,
+          "text": "{process.company|别家}也在推进，我更想来巨塔，还有没有办法争取一下？",
+          "face": "nod",
+          "line": "明白，我会把情况报上去。",
+          "fallback": {
+            "id": "bnc_d0",
+            "next": "neg_bluff",
+            "text": "我手上还有别的 offer，能不能申请升档？",
+            "face": "probe",
+            "line": "升档需要走审批。"
+          }
+        }
+      ],
+      "explain": "谈什么比谈多少更要紧：巨塔的月薪按档定、股票按统一规则，签字费是能谈的。升档审批要看书面 offer：真拿到了，如实拿出来申请是正当的筹码；手上没有却说有，会被要求出示。"
+    },
+    "neg_bluff": {
+      "text": "升档审批需要对方的书面 offer，方便发一份过来吗？",
+      "pre_lines": [
+        {
+          "if_flag": "claimed_only_us",
+          "R": -3,
+          "face": "frown",
+          "line": "你上次不是说只投了巨塔吗？"
+        },
+        {
+          "if_flag": "bluffed_offer",
+          "face": "probe",
+          "line": "是上次说在谈薪的那家？"
+        }
+      ],
+      "options": [
+        {
+          "id": "bnb_a",
+          "T": 0,
+          "R": -1,
+          "text": "说 offer 不太准确，是{process.company}还在流程里，还没到谈薪。",
+          "face": "frown",
+          "line": "嗯……实话就好，我知道了。",
+          "requires": {
+            "flag": "has_other_process"
+          },
+          "fallback": {
+            "id": "bnb_a0",
+            "T": 0,
+            "R": -1,
+            "text": "说 offer 不太准确，其实目前没有别家的 offer。",
+            "face": "frown",
+            "line": "嗯……实话就好，我知道了。"
+          }
+        },
+        {
+          "id": "bnb_b",
+          "redline": true,
+          "text": "那家给的是 30k，书面 offer 我晚点整理好发您。",
+          "face": "disappointed",
+          "line": "好，那等收到之后我们再评估。（之后再也没有联系你。）"
+        },
+        {
+          "id": "bnb_c",
+          "T": 0,
+          "R": -2,
+          "text": "还没最终定。我更想来巨塔，所以想看看能不能争取一下。",
+          "face": "calm",
+          "line": "嗯……那我按正常流程帮你问问。"
+        }
+      ],
+      "explain": "巨塔的升档审批要看书面 offer，虚的筹码一问就穿：如实改口伤一点好感，含糊带过伤得更多，硬撑下去，手上这个 offer 也可能保不住。"
+    },
+    "neg_second": {
+      "requires_R": 1,
+      "text": "好，这些我会帮你报上去。还有别的吗？",
+      "options": [
+        {
+          "id": "bns_a",
+          "T": 1,
+          "text": "入职前能不能先来实习？寒假就可以过来。",
+          "face": "pleased",
+          "line": "这个好说，组里正缺人。"
+        },
+        {
+          "id": "bns_b",
+          "T": 0,
+          "R": 1,
+          "text": "可以，谢谢您帮忙争取。",
+          "face": "pleased",
+          "line": "不客气。"
+        },
+        {
+          "id": "bns_c",
+          "if_R_gte": 2,
+          "T": 1,
+          "else": {
+            "R": -2
+          },
+          "text": "签字费能不能再多争取一点？",
+          "face": "probe",
+          "line": "我尽量，不保证。"
+        },
+        {
+          "id": "bns_d",
+          "T": 0,
+          "R": -1,
+          "requires": {
+            "opened": "months"
+          },
+          "text": "年终能不能给个保底？",
+          "face": "calm",
+          "line": "年终是按绩效来的，没有保底。",
+          "fallback": {
+            "id": "bns_d0",
+            "T": 0,
+            "R": -1,
+            "text": "股票能不能多给一点？",
+            "face": "calm",
+            "line": "股票也是按档定的。"
+          }
+        }
+      ],
+      "explain": "第二轮议价看火候：好感还够时，签字费可以再争取一点；在巨塔，年终和股票是统一规则，这里谈不动（别家不一定）。提前来实习不涨钱，但会让对方更愿意帮你。"
+    },
+    "neg_close": {
+      "text": "那就按这个方案。我先跟你口头确认一下，这就算 OC 了，正式 offer 走邮件。",
+      "options": [
+        {
+          "id": "bncl_a",
+          "T": 1,
+          "text": "麻烦先发书面 offer，我看完条款、问清三方违约金再确认。",
+          "face": "nod",
+          "line": "可以，今天发你邮箱，违约金写在三方里。"
+        },
+        {
+          "id": "bncl_b",
+          "T": 0,
+          "text": "没问题，我现在就接受。",
+          "face": "pleased",
+          "line": "好，欢迎加入巨塔！"
+        },
+        {
+          "id": "bncl_c",
+          "T": 0,
+          "text": "我需要考虑几天，周五前答复您。",
+          "face": "nod",
+          "line": "可以，offer 有效期一周。"
+        },
+        {
+          "id": "bncl_d",
+          "T": 0,
+          "R": -1,
+          "text": "能不能等我另一家的结果出来再定？大概下周就有消息。",
+          "face": "calm",
+          "line": "我们这边也有排序，不能等太久。",
+          "pre_lines": [
+            {
+              "if_flag": "claimed_only_us",
+              "R": -2,
+              "face": "frown",
+              "line": "你不是只投了巨塔吗？"
+            }
+          ]
+        }
+      ],
+      "explain": "口头 offer（OC）不算数，签字费回收、股票归属这些条款，都以书面 offer 为准。先要书面版、看完再确认；三方协议签了再毁约要付违约金，签之前把金额问清。"
+    }
+  },
+  "breakdown": {
+    "_note": "结算页 offer 拆解卡用：选过 ids 里任一选项就算拿到，没拿到时显示 else。",
+    "wins": [
+      {
+        "ids": [
+          "bnc_b",
+          "bns_c"
+        ],
+        "text": "争取过签字费",
+        "missed": "签字费是大厂少数能谈的项"
+      },
+      {
+        "ids": [
+          "bns_a"
+        ],
+        "text": "寒假可以先来实习",
+        "missed": "入职前可以申请先来实习"
+      },
+      {
+        "ids": [
+          "bncl_a"
+        ],
+        "text": "先拿书面 offer 再确认",
+        "else": "口头确认（OC）",
+        "missed": "口头 offer 不算数，签字费回收、股票归属都以书面为准"
+      }
+    ]
+  }
+}

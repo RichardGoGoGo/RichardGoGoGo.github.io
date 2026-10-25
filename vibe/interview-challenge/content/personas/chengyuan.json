@@ -1,0 +1,633 @@
+{
+  "id": "chengyuan",
+  "name": "程远",
+  "label": "卷王",
+  "art": "P4",
+  "background": {
+    "school_tier": "211",
+    "degree": "bachelor",
+    "school": "211 高校",
+    "major": "计算机科学与技术",
+    "major_short": "计算机",
+    "major_group": "cs",
+    "year": "大四"
+  },
+  "traits": [
+    "intern_not_converted"
+  ],
+  "p": {
+    "_note": "人设级参数：题目里的 {p.*}。",
+    "intern_duration": "4 个月",
+    "convert_reason": "转正答辩被问到系统设计，没答好，没拿到名额；之后专门补了这块。",
+    "convert_short": "转正答辩没过",
+    "mentor_flaw": "大概会说我写得快，但单测写得少，后来改了。",
+    "lev": "两段后端实习",
+    "lev_brag": "在大厂做过订单接口的性能优化",
+    "lev_detail": "两段后端实习都独立负责过接口",
+    "lev_kind": "实习经历",
+    "lev_brag_short": "实习过两段",
+    "cred_brag": "有大厂后端实习，题也刷了 600 道",
+    "strengths": "Java 和 MySQL",
+    "self_learn": "怎么跟着课程自学分布式，把 Raft 实验写完的",
+    "pitfall": "实习时一条慢 SQL 拖垮了接口，补了联合索引才降下来。",
+    "algo_story": "课程设计里实现 Raft 选主，那是我第一次把算法用进系统",
+    "self_drive": "课程设计里 Raft 脑裂那个 bug，我自己查了三天日志解决的",
+    "why_role_action": "照着系统设计的经典题一道道练，又把课程里的 Raft 从头写了一遍。",
+    "be_why": "实习时发现我最在意的是接口稳不稳、数据对不对，这些都在后端。",
+    "be_prep": "转正答辩栽在系统设计上，之后照着经典题一道道补了系统设计。",
+    "be_java_truth": "Java 我是写业务写得多，集合和并发的底层看得少",
+    "be_conc_truth": "高并发我只在课程和压测里碰过",
+    "be_self_learn": "怎么跟着课程自学分布式，把 Raft 实验从头写完的",
+    "soe_agree": "讲实习时说服产品把报表导出改成异步的那次。",
+    "soe_agree_hold": "产品怕多等一步被投诉；我做了带进度和通知的小样给他试。",
+    "soe_after_intern": "实习都在别人的系统上加功能，想跟着一套系统做得更久。"
+  },
+  "skills": {
+    "java": 2,
+    "go": 1,
+    "mysql": 2,
+    "redis": 2,
+    "concurrency": 1,
+    "spring": 2,
+    "mq": 1,
+    "network": 2,
+    "linux": 2,
+    "docker": 1,
+    "algo": 2,
+    "git": 2,
+    "python": 1,
+    "sql": 2,
+    "html_css": 1,
+    "js": 1,
+    "data": 1,
+    "office": 1
+  },
+  "skill_bar": {
+    "_note": "技能栏里给哪些标签（技能 ID 是按真实水平的那个，加 _master 是“精通”诱饵）。没写的岗位按规则自动生成。",
+    "be": [
+      "java",
+      "java_master",
+      "mysql",
+      "mysql_master",
+      "redis",
+      "concurrency",
+      "concurrency_master",
+      "spring",
+      "mq",
+      "network",
+      "linux",
+      "docker",
+      "algo",
+      "git"
+    ]
+  },
+  "test_inspire": {
+    "be": [
+      "计算机基础",
+      "数量关系"
+    ],
+    "data": [
+      "判断推理",
+      "数量关系"
+    ],
+    "fe": [
+      "算法"
+    ],
+    "pm": [
+      "逻辑"
+    ]
+  },
+  "card": {
+    "_note": "人设卡：只写做过什么、强项和短板，不写标准答案。求职进度由程序按游戏里的投递记录生成。",
+    "lines": [
+      "211 高校计算机本科，大四。同学眼里的“卷王”：两段后端实习，力扣刷了 600 道。",
+      "大厂后端实习 4 个月（订单查询服务）：给两个查询接口加了 Redis 缓存，P99 大约从 300ms 降到 80ms；排查过一条慢 SQL，补了联合索引，超时告警没了。改造方案是组里定的。",
+      "转正答辩被问到系统设计（设计一个短链服务），答得不好，没拿到转正名额，之后专门补了系统设计。导师认可他的执行力，愿意做推荐人。",
+      "第一段实习在一家 SaaS 公司，3 个月，做客户后台的接口；把大报表导出改成异步任务加消息队列，十几万行的导出不再拖垮接口。",
+      "开源：给一个 Go 的 Web 框架提了 3 个 PR，合并 2 个，修的是路由匹配的边界 bug，每个都补了测试。",
+      "课程设计：用 Go 实现了 Raft 选主和日志复制，课程测试全过；压测时碰到过一次脑裂，查了三天日志才找到原因。",
+      "CCPC 省赛银牌；在学院网络中心做过学生运维，管过实验室的几台服务器。",
+      {
+        "text": "订单查询的缓存是先改库、再删缓存，另设几分钟过期兜底；P99 是看监控上线前后各一周对比的。那条慢 SQL 是按用户查订单、按时间倒序翻页，补的联合索引用户 ID 在前、时间在后，慢查询日志里找到、explain 确认过。",
+        "roles": [
+          "be"
+        ]
+      },
+      {
+        "text": "SaaS 的导出改造：点导出先拿任务号，做好了去下载列表取；任务做完才确认消息，按任务 ID 去重，重复消费也只出一份文件。",
+        "roles": [
+          "be"
+        ]
+      },
+      {
+        "text": "开源没合并的那个 PR 碰了公共接口，维护者怕不兼容，建议拆小再提，还在拆。Raft 脑裂那次：节点重启后没恢复投票记录，同一任期投了两票；改成先落盘再回投票后，同一套压测连跑几百轮没再出现。",
+        "roles": [
+          "be"
+        ]
+      },
+      {
+        "text": "SaaS 实习改导出时，产品起初担心异步导出要用户多等一步、会招来投诉；程远做了个带进度提示和完成通知的小样给产品试，产品才同意。",
+        "companies": [
+          "soe"
+        ]
+      },
+      {
+        "text": "想去国企的理由：两段实习都是在别人搭好的系统上加功能，想找一个能长期跟着一套系统、从迁移做到上线的地方。",
+        "companies": [
+          "soe"
+        ]
+      },
+      {
+        "text": "实习给订单查询加完 Redis 缓存以后，一直在补 Redis 的原理。",
+        "roles": [
+          "be"
+        ]
+      },
+      "短板：两段实习都是在别人搭好的系统上做功能，没从零设计过系统；高并发只在课程和压测里碰过；前端基本不会。"
+    ],
+    "company_notes": {
+      "midcorp": "面试方格科技前做的功课：读了他们技术博客里讲大表格卡顿的那篇，想过后端分页和导出该怎么配合。",
+      "soe": "面试恒川数科前做的功课：看了招聘公告和官网新闻。集团正把十几家下属单位的老系统迁到统一平台；公告里写着新员工先到下属单位轮岗一年，有的岗位要驻场。另外做了两套行测练习题。",
+      "unicorn": "面试跃迁智能前做的功课：用了他们的 AI 写作助手，长文改写时等了十几秒，猜后端是同步调用的。",
+      "bigcorp": "面试巨塔前做的功课：把“塔塔学习”App 用了几天，觉得错题本入口太深。"
+    }
+  },
+  "resume": {
+    "capacity_lines": 15,
+    "experiences": [
+      {
+        "id": "E1",
+        "type": "intern_dev",
+        "header": true,
+        "title": "后端开发实习生 · 某头部互联网公司",
+        "period": "大三暑假起 · 4 个月",
+        "relevance": {
+          "be": "strong",
+          "fe": "half",
+          "pm": "half",
+          "algo": "half",
+          "data": "half"
+        },
+        "p": {
+          "label": "大厂的后端实习",
+          "pitch": "大厂实习里订单查询接口的优化",
+          "short": "实习",
+          "kind": "大厂后端实习",
+          "term": "大厂实习",
+          "duration": "四个月",
+          "shipped": "订单查询服务里的两个接口",
+          "routine": "订单服务的几个查询接口：加字段、改逻辑、补单测"
+        },
+        "highlights": [
+          {
+            "type": "cache_consistency",
+            "p": {
+              "label": "订单查询接口加缓存",
+              "measure": "看监控上线前后各一周的 P99，约 300ms 降到 80ms。"
+            }
+          },
+          {
+            "type": "slow_sql_index",
+            "p": {
+              "label": "订单列表的那条慢 SQL",
+              "index_why": "按用户等值查、按时间倒序翻页，所以用户 ID 在前、时间在后。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "c1_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [
+              "高并发"
+            ],
+            "text": "参与公司核心交易系统后端研发，深入理解高并发分布式架构，工程能力扎实。",
+            "probe": {
+              "pattern": "vague",
+              "ask": "你写“参与核心交易系统研发”。具体是哪个服务？你自己做了什么？",
+              "facts": {
+                "text": "订单查询服务，我做了两个查询接口的缓存和一条慢 SQL 的优化。",
+                "line": "嗯，那就直接写清楚嘛。"
+              },
+              "dodge": {
+                "text": "交易链路的一部分，具体不太方便说，主要是写业务代码。",
+                "line": "那你具体写了什么？"
+              },
+              "inflate": {
+                "text": "下单链路的整体改造，我负责其中高并发的那部分。",
+                "line": "下单链路？那说说你们怎么防超卖。"
+              },
+              "explain": "“参与核心系统研发”是实习生最常见的写法，面试官很容易追问是哪个服务、你做了什么。做的是查询接口没关系，说清楚反而加分；往核心链路上靠，下一句追问就接不住了。"
+            }
+          },
+          {
+            "id": "c1_duty",
+            "type": "duty",
+            "lines": 2,
+            "keywords": [
+              "Java",
+              "MySQL"
+            ],
+            "text": "负责订单服务查询接口的开发和维护，参与需求评审、联调和上线。"
+          },
+          {
+            "id": "c1_evidence",
+            "type": "evidence",
+            "angle": "be",
+            "lines": 3,
+            "keywords": [
+              "Redis",
+              "MySQL",
+              "性能优化"
+            ],
+            "text": "订单查询接口加 Redis 缓存，P99 从约 300ms 降到 80ms；排查一条慢 SQL，补联合索引后接口超时告警消失。"
+          },
+          {
+            "id": "c1_exag",
+            "type": "exag",
+            "lines": 2,
+            "keywords": [
+              "高并发",
+              "架构"
+            ],
+            "text": "主导核心交易链路高并发改造，系统 QPS 提升 10 倍，支撑大促零故障。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "你写“主导交易链路改造，QPS 提升 10 倍”。改造是你主导的吗？10 倍怎么测的？",
+              "double_down": {
+                "text": "对，方案是我出的，压测从 2000 QPS 提到了 2 万。",
+                "line": "实习四个月主导交易链路……行，我知道了。"
+              },
+              "correct": {
+                "text": "“主导”不准确：方案是组里定的，我做了两个查询接口的缓存。",
+                "line": "嗯，那说说缓存那部分。",
+                "face": "nod"
+              },
+              "evade": {
+                "text": "压测数据是组里统计的，我说说我负责的接口吧。",
+                "line": "我问的是你写的 10 倍。"
+              },
+              "explain": "实习生写“主导核心链路改造”“QPS 提升 10 倍”，面试官几乎一定会追问。改口说实话会丢分，但还能接着聊；硬说是自己主导的，一问压测细节就穿了。"
+            }
+          }
+        ],
+        "frames": {
+          "be": "be_hard_problem"
+        }
+      },
+      {
+        "id": "E2",
+        "type": "intern_dev",
+        "header": true,
+        "title": "后端开发实习生 · 某 SaaS 公司",
+        "period": "大三上 · 3 个月",
+        "relevance": {
+          "be": "match",
+          "fe": "half",
+          "pm": "half"
+        },
+        "p": {
+          "label": "SaaS 公司的后端实习",
+          "pitch": "SaaS 公司里报表导出的改造",
+          "short": "第一段实习",
+          "kind": "后端实习",
+          "term": "第一段实习",
+          "duration": "三个月",
+          "shipped": "客户后台的报表导出功能",
+          "routine": "客户后台的增删改查接口，按需求一个个做完"
+        },
+        "highlights": [
+          {
+            "type": "async_export",
+            "p": {
+              "label": "大报表导出改成异步"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "c2_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "熟悉企业级应用开发流程，具备良好的团队协作能力。"
+          },
+          {
+            "id": "c2_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "Java"
+            ],
+            "text": "负责客户管理后台的接口开发。"
+          },
+          {
+            "id": "c2_evidence",
+            "type": "evidence",
+            "angle": "be",
+            "lines": 2,
+            "keywords": [
+              "消息队列",
+              "Java"
+            ],
+            "text": "把大报表导出改成异步任务加消息队列，十几万行的导出不再拖垮接口。"
+          }
+        ],
+        "frames": {
+          "be": "be_shipped",
+          "data": "dev_to_data_shipped"
+        }
+      },
+      {
+        "id": "E3",
+        "type": "personal_project",
+        "header": true,
+        "title": "开源贡献 · Go Web 框架",
+        "period": "大三至今",
+        "relevance": {
+          "be": "match",
+          "fe": "half",
+          "pm": "none"
+        },
+        "p": {
+          "label": "开源贡献",
+          "pitch": "我给开源框架提的 PR",
+          "short": "开源贡献",
+          "unit": "PR",
+          "design_point": "修路由匹配那个边界 bug 时，怎么先写出能复现的测试"
+        },
+        "highlights": [
+          {
+            "type": "oss_pr",
+            "p": {
+              "n_pr": "3",
+              "n_merged": "2",
+              "unmerged_why": "碰了公共接口，维护者怕不兼容，让我拆小再提，还在拆。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "c3_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "Go"
+            ],
+            "text": "给一个 Go 的 Web 框架提过 PR。"
+          },
+          {
+            "id": "c3_evidence",
+            "type": "evidence",
+            "angle": "be",
+            "lines": 2,
+            "keywords": [
+              "Go",
+              "开源"
+            ],
+            "text": "给一个 Go 的 Web 框架提了 3 个 PR，合并 2 个：修了路由匹配的边界 bug，补了测试。"
+          },
+          {
+            "id": "c3_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "Go",
+              "开源"
+            ],
+            "text": "开源社区核心贡献者，深度参与知名 Web 框架开发。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“开源社区核心贡献者”。你在这个项目里合并了几个 PR？",
+              "double_down": {
+                "text": "十几个吧，主要是性能优化，维护者都认识我。",
+                "line": "我刚在 GitHub 上看了一下……好，今天先到这儿。"
+              },
+              "correct": {
+                "text": "写夸张了，提了 3 个、合并了 2 个，都是修 bug。",
+                "line": "嗯，2 个也不错，写实就行。",
+                "face": "nod"
+              },
+              "evade": {
+                "text": "具体数字没细数，反正一直在参与社区讨论。",
+                "line": "自己的贡献，记不清？"
+              },
+              "explain": "开源贡献是公开记录，面试官打开 GitHub 就能对上。合并了几个、改了什么，照实写最安全；2 个真实的 PR 比“核心贡献者”有说服力。"
+            }
+          }
+        ],
+        "frames": {
+          "be": "be_design"
+        }
+      },
+      {
+        "id": "E4",
+        "type": "course_project",
+        "header": true,
+        "title": "课程设计 · 分布式键值存储",
+        "period": "大三下",
+        "relevance": {
+          "be": "match",
+          "fe": "none",
+          "pm": "none"
+        },
+        "p": {
+          "label": "课程设计里的分布式 KV",
+          "pitch": "课程设计里实现 Raft 的那部分",
+          "short": "课程设计",
+          "be_core": "Raft 选主和日志复制"
+        },
+        "highlights": [
+          {
+            "type": "distributed_bug",
+            "p": {
+              "bug": "压测时的脑裂",
+              "root_cause": "重启后没恢复投票记录，同一任期投了两票；改成先落盘再回投票。",
+              "verify": "同一套压测连跑几百轮，日志里再没出现同任期两个主。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "c4_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "分布式"
+            ],
+            "text": "课程设计：实现一个简易的分布式键值存储。"
+          },
+          {
+            "id": "c4_evidence",
+            "type": "evidence",
+            "angle": "be",
+            "lines": 2,
+            "keywords": [
+              "分布式",
+              "Go"
+            ],
+            "text": "用 Go 实现 Raft 选主和日志复制，课程测试全部通过；压测时定位过一次脑裂。"
+          },
+          {
+            "id": "c4_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "分布式",
+              "数据库"
+            ],
+            "text": "自研分布式数据库，支持高可用和强一致。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“自研分布式数据库”？讲讲你的数据库支持哪些查询。",
+              "double_down": {
+                "text": "支持增删改查和范围查询，存储引擎是我自己设计的。",
+                "line": "课程作业做成了数据库……嗯，我知道了。"
+              },
+              "correct": {
+                "text": "写大了，是课程里的键值存储，实现了 Raft 选主和日志复制。",
+                "line": "嗯，这个说清楚就挺好。",
+                "face": "nod"
+              },
+              "evade": {
+                "text": "这个说来话长，主要是想展示我对分布式的理解。",
+                "line": "我问的是它支持什么。"
+              },
+              "explain": "课程作业写成“自研数据库”，一问支持什么查询就露馅。课程里认真实现过 Raft，本身就是很好的素材，照实写更站得住。"
+            }
+          }
+        ],
+        "frames": {
+          "be": "be_course_core"
+        }
+      },
+      {
+        "id": "E5",
+        "type": "competition",
+        "header": false,
+        "title": "CCPC 省赛",
+        "period": "大二",
+        "relevance": {
+          "be": "half",
+          "fe": "half",
+          "pm": "none"
+        },
+        "p": {
+          "short": "CCPC",
+          "story": "CCPC 那道图论题",
+          "relate_example": "写分页接口时先想好了页码越界和空列表，测试一次过。"
+        },
+        "variants": [
+          {
+            "id": "c5_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "算法"
+            ],
+            "text": "CCPC 程序设计竞赛省赛银牌"
+          }
+        ]
+      },
+      {
+        "id": "E6",
+        "type": "certificate",
+        "header": false,
+        "title": "力扣刷题",
+        "period": "",
+        "relevance": {
+          "be": "half",
+          "algo": "half",
+          "fe": "none",
+          "pm": "none",
+          "data": "none",
+          "ops": "none"
+        },
+        "p": {
+          "short": "刷题",
+          "story": "我刷题的方法",
+          "kind_word": "刷题记录"
+        },
+        "variants": [
+          {
+            "id": "c6_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "算法"
+            ],
+            "text": "LeetCode 刷题 600 道"
+          }
+        ]
+      },
+      {
+        "id": "E7",
+        "type": "part_time",
+        "header": false,
+        "title": "学院网络中心 · 学生运维",
+        "period": "大二至大三",
+        "relevance": {
+          "be": "half",
+          "fe": "none",
+          "pm": "none"
+        },
+        "p": {
+          "short": "学生运维"
+        },
+        "variants": [
+          {
+            "id": "c7_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "Linux"
+            ],
+            "text": "学院网络中心学生运维，维护实验室服务器"
+          }
+        ]
+      },
+      {
+        "id": "E8",
+        "type": "certificate",
+        "header": false,
+        "title": "英语六级",
+        "period": "",
+        "relevance": {},
+        "p": {
+          "short": "六级"
+        },
+        "variants": [
+          {
+            "id": "c8_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [],
+            "text": "英语六级（CET-6）"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "_note": "跳过简历关时用的默认简历：能过筛但平庸。固定弱点：大厂实习写成“参与核心交易系统研发”，业务面一追问就要说清具体做了什么；最硬的开源和课程设计只写了一行职责。",
+      "be": {
+        "order": [
+          "c1_empty",
+          "c2_duty",
+          "c3_duty",
+          "c4_duty",
+          "c5_fact",
+          "c8_fact"
+        ],
+        "skills": [
+          "java",
+          "mysql",
+          "spring",
+          "linux",
+          "git",
+          "network"
+        ]
+      }
+    }
+  }
+}

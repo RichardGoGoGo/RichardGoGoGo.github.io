@@ -1,0 +1,16 @@
+{
+  "id": "r1", "name": "业务一面", "company": "midcorp",
+  "interviewer": {"art": "A2", "title": "后端面试官"},
+  "scene": "S4",
+  "_note": "中厂后端一面：同级工程师考语言和基础（MySQL、Redis、网络、Java 并发）加一段项目深挖。追问 1 层。选项 ID 前缀 mb1_。题目都在 library/packs/be.json 的 pools 里，题位用 prefer 钉住原来的题和顺序。",
+  "flow": [
+    {"slot": "intro", "dynamic": "pool", "pool": "biz_intro", "prefer": ["mb1_intro"], "swap": false},
+    {"slot": "q1", "dynamic": "pool", "pool": "be_db", "prefer": ["mb1_index", "mb1_deadlock"], "swap": true},
+    {"slot": "q2", "dynamic": "deep_dive_first", "swap": false, "_note": "深挖简历第一页排第 1 的那段经历；那段用的是夸大或含糊写法时，换成对应的追问"},
+    {"slot": "q3", "dynamic": "pool", "pool": "be_middleware", "prefer": ["mb1_cache", "mb1_gateway"], "swap": true},
+    {"slot": "q4", "dynamic": "skill_probe", "fallback_pool": "be_java", "prefer": ["mb1_threadpool"], "swap": false, "_note": "技能栏写了“精通 MySQL”“精通 Java”“精通高并发”时按 track.json 的顺序换成对应追问，否则问线程池"},
+    {"slot": "q5", "dynamic": "pool", "pool": "be_growth", "prefer": ["mb1_pitfall", "mb1_learning"], "swap": true},
+    {"slot": "reverse", "dynamic": "pool", "pool": "biz_reverse", "prefer": ["mb1_reverse"], "swap": false}
+  ],
+  "nodes": {}
+}

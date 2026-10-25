@@ -1,0 +1,950 @@
+{
+  "id": "xunuo",
+  "name": "许诺",
+  "label": "跨专业",
+  "art": "P3",
+  "background": {
+    "school_tier": "211",
+    "degree": "bachelor",
+    "school": "211 高校",
+    "major": "心理学",
+    "major_short": "心理学",
+    "major_group": "psych",
+    "year": "大四"
+  },
+  "traits": [],
+  "p": {
+    "lev": "用研实习",
+    "lev_brag": "有用研实习，面试表现也不错",
+    "lev_detail": "有用研实习的经验，入职就能上手",
+    "lev_kind": "用研经历",
+    "lev_brag_short": "做过用研实习",
+    "switch_reason": "用研实习时发现，我更想参与“怎么改”，不只是“发现问题”。",
+    "major_pitch": "心理学练的是理解人和做实验，正是产品要的；用研实习就是例子。",
+    "switch_reason_fe": "给课题组写实验程序时发现，自己做出来的东西马上有人用，我很喜欢。",
+    "be_switch_reason": "给课题组写实验程序时，最头疼的是数据别丢，我发现自己喜欢这类问题。",
+    "data_switch_reason": "做论文分析时发现，我最喜欢从数据里找答案、说清它多可信。",
+    "ops_why": "做公众号那一年，最上瘾的是发完就看数据，再改下一篇。",
+    "soe_agree": "讲用研报告被说证据太弱、我和产品对清分歧的那次。",
+    "soe_agree_hold": "先问清是哪几条结论站不住，只针对那几条补了 5 场访谈。",
+    "soe_cross_reason": {
+      "data": "心理学天天跟统计和实验设计打交道，做数据分析正好用得上。",
+      "be": "给课题组写实验程序时，发现自己喜欢把东西做出来给人用。"
+    },
+    "soe_cross_gap": {
+      "data": "SQL 只会基础查询，这块在补；统计和实验设计是我的长处。",
+      "be": "缺编程基础，只自学过 HTML 和 JS；先按课补数据结构和 Java。"
+    },
+    "data_cross_gap": "缺 SQL 熟练度，在按题库补；长处是实验设计和统计。",
+    "career_user_hold": "实习和论文里都做了访谈；入职后想每月固定和用户聊一次。"
+  },
+  "skills": {
+    "research": 2,
+    "data": 1,
+    "sql": 1,
+    "proto": 1,
+    "prd": 2,
+    "competitor": 2,
+    "ab": 2,
+    "exp_design": 2,
+    "html_js": 1,
+    "office": 2,
+    "html_css": 1,
+    "js": 1,
+    "python": 1,
+    "stats": 2,
+    "excel": 2,
+    "metrics": 1,
+    "copywriting": 2,
+    "new_media": 2,
+    "event": 2,
+    "community": 1,
+    "design_tools": 1
+  },
+  "skill_bar": {
+    "pm": [
+      "research",
+      "data",
+      "sql",
+      "sql_master",
+      "proto",
+      "prd",
+      "competitor",
+      "ab_master",
+      "exp_design",
+      "html_js",
+      "office"
+    ],
+    "ops": [
+      "copywriting",
+      "copywriting_master",
+      "new_media",
+      "event",
+      "event_master",
+      "community",
+      "data",
+      "excel",
+      "sql",
+      "research",
+      "ab",
+      "design_tools",
+      "office"
+    ]
+  },
+  "test_inspire": {
+    "pm": [
+      "数据",
+      "用户"
+    ],
+    "fe": [],
+    "data": [
+      "数据",
+      "资料分析"
+    ]
+  },
+  "card": {
+    "_note": "人设卡：只写做过什么、强项和短板，不写标准答案。求职进度由程序按游戏里的投递记录生成。",
+    "lines": [
+      "211 心理学本科，大四。心理学的实验设计和统计检验学得扎实。",
+      "给课题组写过网页版在线心理实验程序：自学 HTML / JS，用开源实验框架搭的。原计划线下约人，每周最多做 20 份，300 份要 15 周左右；改成线上后两周收齐。设了注意力检查题，剔掉了 40 多份无效数据。",
+      "用户研究实习 3 个月，一家做在线教育 App 的公司：12 场访谈、两份问卷共回收 1200 份、一次可用性测试。访谈里 12 个人有 7 个提到找不到课程表，可用性测试里 8 个新用户有 6 个找不到。这个发现被产品采纳，下个版本改了导航；改版上线时许诺已经离职，没跟到数据。第一版研究报告被产品说证据太弱，补了 5 场访谈才重写好。",
+      "个人作品集网站：3 个案例。一个是在线实验程序；一个是可用性测试，8 个用户、5 个任务，找出 3 个主要问题；还有一份竞品分析，两个直接竞品加一个替代方案。网站用 HTML / CSS 从零搭的，适配了手机；上线前找了几个同学试用，按反馈改过一次导航。",
+      "6 周线上产品训练营，主要学了 PRD 格式和原型工具。",
+      "毕业论文写短视频使用行为：问卷 600 份、访谈 15 人，还在写。初步发现睡前和通勤是最常见的两类场景。",
+      "心理协会公众号运营一年：粉丝从 800 涨到 3000 左右；一篇讲考试焦虑的文章读了 2 万，后来做成固定栏目，后面几篇稳定在三四千。",
+      "策划过 400 人参加的心理健康周：去年热门场次报满排不上、冷门场次报了不来，今年按报名数据调整场次，签到率从 6 成提到 8 成。",
+      {
+        "text": "在线实验的剔除规则（注意力检查题答错即剔除）是收数据前和老师定好、写进实验方案的，之后没改过；300 份的样本量是开题时做功效分析算的，效应量参考了同类研究。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "论文分析时碰到过一次分组后结论反转：合起来看，每天刷得越久的人越不焦虑；按年级拆开，每个年级里都是刷得越久越焦虑。原因是大一刷得多、焦虑普遍低，大四刷得少、焦虑普遍高。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "公众号复盘时，拿同一时期的非栏目文章做过对比，栏目文章的阅读大约高一倍。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "决定投数据分析以后开始补 SQL：在按题库练，窗口函数还没学到。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "考试焦虑那篇的栏目后面几篇稳定在三四千阅读，比同期的非栏目文章高一倍左右（粉丝一直在涨，和更早的平均数比不公平），但没再出过 2 万的。",
+        "roles": [
+          "ops"
+        ]
+      },
+      {
+        "text": "心理健康周的签到率按签到人数除以报名人数算，报了几场的按场次分别算。复盘时拆到每个场次看，涨的主要是合并后的冷门场次；没有对照组，复盘里写的是“主要和场次调整有关”。",
+        "roles": [
+          "ops",
+          "data"
+        ]
+      },
+      {
+        "text": "第一版用研报告被说证据太弱时，许诺先问清是哪几条结论站不住，只针对那几条补了 5 场访谈，没有整份推倒重来。",
+        "companies": [
+          "soe"
+        ]
+      },
+      {
+        "text": "产品面试中，用研实习的导航发现来自12场访谈与8人可用性测试；建议被采纳，但离职时改版尚未上线，没有留存提升数据。",
+        "roles": [
+          "pm"
+        ]
+      },
+      {
+        "text": "在线实验程序用开源框架搭建：线下每周最多20份，300份约15周；改到线上后两周收齐，设注意力题并剔除40多份无效数据。",
+        "roles": [
+          "pm"
+        ]
+      },
+      {
+        "text": "做分析前先验数：在线实验、论文和用研的数据，都先核口径，再抽几条原始记录从头手算对一遍。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "处理过程都留了文字：剔除规则写在实验方案里，分组口径写在论文的方法部分，用研报告写明了每条结论来自多少人。",
+        "roles": [
+          "data"
+        ]
+      },
+      "短板：没有产品经理实习；SQL 只会课上学的基础查询；没上线过自己写的 PRD；不太懂技术实现。"
+    ],
+    "company_notes": {
+      "bigcorp": "面试巨塔前做的功课：把巨塔旗下的“塔塔学习”App 用了两周，记了 20 多条使用笔记，最大的感受是错题本入口太深。",
+      "midcorp": "面试方格科技前做的功课：试用了他们运营后台的演示版，看过技术博客里讲大表格卡顿的那篇。",
+      "unicorn": "面试跃迁智能前做的功课：用他们的 AI 写作助手润色过论文的问卷说明，发现长文改写会把引用格式弄乱。",
+      "soe": "面试恒川数科前做的功课：看了招聘公告和官网新闻，集团在把十几家下属单位的老系统迁到统一平台，新员工先到下属单位轮岗一年；还查了人才公寓怎么申请。"
+    }
+  },
+  "resume": {
+    "capacity_lines": 15,
+    "experiences": [
+      {
+        "id": "E1",
+        "type": "research_tool",
+        "header": true,
+        "title": "课题组在线实验程序 · 自学开发",
+        "period": "大三",
+        "relevance": {
+          "pm": "match",
+          "fe": "match",
+          "data": "match",
+          "be": "half"
+        },
+        "p": {
+          "label": "课题组的在线实验程序",
+          "pitch": "我给课题组做的在线实验程序",
+          "short": "在线实验程序",
+          "process": "实验流程",
+          "solo_part": "怎么用开源实验框架把每一屏刺激和按键记录串起来",
+          "be_data": "数据先存在浏览器本地，做完再一次性提交，中途退出也不丢。",
+          "data_routine": "讲实验数据导出后，怎么整理成一人一行的分析表。"
+        },
+        "frames": {
+          "pm": "hardest",
+          "fe": "solo_build",
+          "data": "data_source"
+        },
+        "highlights": [
+          {
+            "type": "online_migration",
+            "p": {
+              "from": "线下",
+              "to": "线上",
+              "saved": "一个学期",
+              "calc": "线下每周最多约 20 人，300 份要 15 周；线上两周收齐。",
+              "quality_fix": "加了注意力检查题，答错的直接剔掉，剔了 40 多份。",
+              "n_total": "300",
+              "field": "心理学实验",
+              "overclaim": "线上能几百人同时做，基本一天就收齐了，所以说一学期是保守的。",
+              "overclaim_line": "一天？简历上写的是两周。"
+            }
+          },
+          {
+            "type": "self_taught_tool",
+            "p": {
+              "short": "实验程序",
+              "speedup": "一学期的活两周干完了"
+            }
+          },
+          {
+            "type": "experiment_timing",
+            "p": {}
+          },
+          {
+            "type": "exclusion_rule",
+            "p": {
+              "n_excluded": "40 多份",
+              "rule": "注意力检查题答错就剔除",
+              "intro": "在线实验里怎么定剔除规则"
+            }
+          },
+          {
+            "type": "power_analysis",
+            "p": {
+              "n_total": "300"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "x1_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [],
+            "text": "具备较强的技术学习能力，独立完成课题组实验程序开发，获得老师认可。"
+          },
+          {
+            "id": "x1_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [],
+            "text": "为课题组开发在线实验程序。"
+          },
+          {
+            "id": "x1_evidence_pm",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "实验设计"
+            ],
+            "text": "实验设计从线下约人改成线上：自学搭出网页实验程序，两周收齐 300 份数据，原本要一个学期。"
+          },
+          {
+            "id": "x1_evidence_fe",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 2,
+            "keywords": [
+              "前端"
+            ],
+            "text": "自学 HTML / JS，用开源实验框架搭出在线实验程序，处理了计时精度和中途退出时的数据保存。"
+          },
+          {
+            "id": "x1_evidence_data",
+            "type": "evidence",
+            "angle": "data",
+            "lines": 2,
+            "keywords": [
+              "实验设计",
+              "数据清洗",
+              "统计"
+            ],
+            "text": "在线实验：按功效分析定 300 份样本量，剔除规则事先写进方案（剔掉 40 多份），两周收齐数据。"
+          },
+          {
+            "id": "x1_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "产品设计"
+            ],
+            "text": "独立开发心理测评平台，服务上千名用户，获学院创新奖。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“服务上千名用户，获学院创新奖”。奖项全称是什么？上千名用户是怎么来的？",
+              "double_down": {
+                "text": "奖项叫学院创新实践奖，用户是全院同学参与测评累计的。",
+                "line": "这个奖我回头可以查一下……好，今天先到这儿。"
+              },
+              "correct": {
+                "text": "这句写夸张了：实际是给课题组收了 300 份数据，没有获奖。",
+                "line": "嗯，那就按实际的说。"
+              },
+              "evade": {
+                "text": "奖项全称记不太清了，主要是老师推荐的。",
+                "line": "自己拿的奖记不清名字？"
+              },
+              "explain": "奖项是最容易核实的一类信息，编一个奖等于埋雷。被问到时如实修正，代价最小；硬圆下去，基本就没有下文了。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "E2",
+        "type": "user_research_intern",
+        "header": true,
+        "title": "用户研究实习生 · 某在线教育公司",
+        "period": "大三暑假 · 3 个月",
+        "relevance": {
+          "pm": "strong",
+          "fe": "half"
+        },
+        "p": {
+          "label": "用研实习",
+          "pitch": "用研实习里发现课程表入口问题的过程",
+          "short": "用研实习",
+          "kind": "用研实习",
+          "modest": "第一版报告被说证据太弱，我补了 5 场访谈重写的过程",
+          "fe_story": "测试里多数新用户找不到入口；做作品集时我就先找人试用，再改导航。",
+          "ops_evidence_scoped": "12 人访谈 7 人提到，8 人测试 6 人找不到；样本小，占比要看埋点。"
+        },
+        "frames": {
+          "pm": "proud",
+          "fe": "off_role",
+          "data": "research_data",
+          "ops": "ops_user_voice"
+        },
+        "highlights": [
+          {
+            "type": "research_finding",
+            "p": {
+              "finding": "找不到课程表入口",
+              "intro": "用研实习里的一个发现",
+              "evidence": "访谈里 12 个人有 7 个提到；可用性测试里 8 个新用户有 6 个找不到。",
+              "followthrough": "离职时还没上线，没跟到；我会看新用户进课程表的比例。"
+            }
+          },
+          {
+            "type": "report_rework",
+            "p": {
+              "short": "第一版用研报告",
+              "fix": "补了 5 场访谈重写"
+            }
+          },
+          {
+            "type": "small_sample_scope",
+            "p": {
+              "finding": "找不到课程表入口",
+              "n_small": "可用性测试里 8 个新用户有 6 个找不到",
+              "intro": "用研里一个小样本发现能推多远"
+            }
+          },
+          {
+            "type": "voice_vs_data",
+            "p": {
+              "finding": "找不到课程表入口",
+              "evidence": "访谈 12 人里有 7 个提到；可用性测试 8 个新用户里 6 个找不到。",
+              "ops_move": "第一天给新用户推条引导，指出课程表在哪，再看进入率。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "x2_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [
+              "用户研究"
+            ],
+            "text": "深度参与用户研究工作，具备优秀的用户洞察力和同理心。"
+          },
+          {
+            "id": "x2_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "用户访谈",
+              "问卷",
+              "可用性测试"
+            ],
+            "text": "参与用户访谈、问卷调研和可用性测试，整理研究报告。"
+          },
+          {
+            "id": "x2_evidence",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "用户访谈",
+              "问卷",
+              "用户研究"
+            ],
+            "text": "用户研究：12 场用户访谈、回收 1200 份问卷；发现新用户找不到课程表入口，被采纳进下个版本的导航改版。"
+          },
+          {
+            "id": "x2_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "产品设计",
+              "数据分析"
+            ],
+            "text": "主导 App 导航改版，新用户次日留存提升 30%。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“主导 App 导航改版，次日留存提升 30%”。改版是你主导的吗？30% 怎么算的？",
+              "double_down": {
+                "text": "对，方案是我出的，30% 是改版前后各取一周，对比次日留存算的。",
+                "line": "用研实习生出改版方案……行，我知道了。"
+              },
+              "correct": {
+                "text": "“主导”不准确：问题是我发现的，改版是产品做的，数据没跟到。",
+                "line": "嗯，那你讲讲研究那部分。"
+              },
+              "evade": {
+                "text": "这个数据是产品同事给的，我主要说说我负责的研究部分吧。",
+                "line": "我问的是你写的 30%。"
+              },
+              "explain": "把团队的成果写成“主导”，把没见过的数据写成结果，是用研和产品简历里常见的夸大。用研发现问题本身就很有价值，照实写反而更站得住。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "E3",
+        "type": "personal_project",
+        "header": true,
+        "title": "个人作品集网站",
+        "period": "大四",
+        "relevance": {
+          "pm": "half",
+          "fe": "match"
+        },
+        "p": {
+          "label": "作品集网站",
+          "pitch": "我的作品集里的一个案例",
+          "short": "作品集",
+          "case_simple": "那次可用性测试：8 个用户、5 个任务，找出了 3 个主要问题",
+          "unit": "页面",
+          "design_point": "案例页在手机和电脑上的两套布局怎么切换"
+        },
+        "frames": {
+          "pm": "case",
+          "fe": "design"
+        },
+        "highlights": [
+          {
+            "type": "competitor_analysis",
+            "p": {}
+          },
+          {
+            "type": "responsive_layout",
+            "p": {
+              "short": "作品集网站"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "x3_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "热爱设计与产品，持续输出个人作品。"
+          },
+          {
+            "id": "x3_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [],
+            "text": "搭建个人作品集网站，展示做过的项目。"
+          },
+          {
+            "id": "x3_evidence_pm",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "可用性测试",
+              "竞品分析"
+            ],
+            "text": "整理 3 个案例：在线实验程序、一次可用性测试、一份竞品分析，每个都写清问题、过程和结论。"
+          },
+          {
+            "id": "x3_evidence_fe",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 1,
+            "keywords": [
+              "前端"
+            ],
+            "text": "用 HTML / CSS 从零搭建作品集网站，适配手机端。"
+          }
+        ]
+      },
+      {
+        "id": "E4",
+        "type": "certificate",
+        "header": false,
+        "title": "产品训练营",
+        "period": "大三",
+        "relevance": {
+          "pm": "general",
+          "fe": "none"
+        },
+        "p": {
+          "short": "训练营",
+          "story": "训练营的结课作业：一份外卖 App 的 PRD"
+        },
+        "variants": [
+          {
+            "id": "x4_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "PRD"
+            ],
+            "text": "产品经理线上训练营结业（6 周，学 PRD 和原型）"
+          },
+          {
+            "id": "x4_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [
+              "PRD",
+              "原型"
+            ],
+            "text": "系统学习产品经理全流程方法论，掌握 PRD 撰写与原型设计"
+          }
+        ]
+      },
+      {
+        "id": "E5",
+        "type": "thesis",
+        "header": true,
+        "title": "毕业论文 · 短视频用户使用行为研究",
+        "period": "大四",
+        "relevance": {
+          "pm": "half",
+          "fe": "none",
+          "data": "match"
+        },
+        "p": {
+          "label": "毕业论文",
+          "pitch": "我的毕业论文：短视频使用行为研究",
+          "short": "论文",
+          "finding": "初步发现有 4 类触发场景，最常见的是睡前和通勤。",
+          "data_method": "讲问卷怎么编码、分组比较，再说清哪些结论还只是初步的。"
+        },
+        "highlights": [
+          {
+            "type": "mixed_methods",
+            "p": {
+              "finding_short": "4 类场景"
+            }
+          },
+          {
+            "type": "thesis_research",
+            "p": {
+              "topic": "“刷短视频停不下来”",
+              "product_use": "能分清主动学和被动刷，提醒就知道该在哪个场景出现。"
+            }
+          },
+          {
+            "type": "simpson_reversal",
+            "p": {
+              "agg_view": "刷得越久越不焦虑",
+              "split_by": "年级",
+              "intro": "论文里一次分组后结论反转"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "x5_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [
+              "数据分析"
+            ],
+            "text": "具备扎实的研究方法功底和数据分析能力。"
+          },
+          {
+            "id": "x5_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "问卷",
+              "用户访谈"
+            ],
+            "text": "研究大学生短视频使用行为，用了问卷和用户访谈两种方法。"
+          },
+          {
+            "id": "x5_evidence",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "问卷",
+              "用户访谈",
+              "用户研究"
+            ],
+            "text": "用户研究：问卷回收 600 份、用户访谈 15 人，把“刷到停不下来”拆成 4 类触发场景（论文在写，结论是初步的）。"
+          },
+          {
+            "id": "x5_evidence_data",
+            "type": "evidence",
+            "angle": "data",
+            "lines": 2,
+            "keywords": [
+              "问卷",
+              "分组比较",
+              "数据分析"
+            ],
+            "text": "毕业论文：600 份问卷分组比较，发现合起来看和按年级拆开结论相反，按分层结果下结论（论文在写）。"
+          }
+        ],
+        "frames": {
+          "data": "thesis_data"
+        }
+      },
+      {
+        "id": "E6",
+        "type": "media_ops",
+        "header": true,
+        "title": "心理协会公众号运营",
+        "period": "大二至大三",
+        "relevance": {
+          "pm": "half",
+          "fe": "none",
+          "ops": "strong",
+          "data": "half"
+        },
+        "p": {
+          "label": "心理协会公众号",
+          "pitch": "心理协会公众号的运营",
+          "short": "公众号",
+          "ops_fair_lift": "比同期非栏目文章高一倍左右"
+        },
+        "highlights": [
+          {
+            "type": "viral_post",
+            "p": {
+              "channel": "公众号",
+              "peak": "2 万",
+              "why": "选题正好戳中考试周的焦虑，标题也够直接，发的时间点也对。",
+              "after": "三四千",
+              "lift": "比同期非栏目文章高一倍左右"
+            }
+          },
+          {
+            "type": "denominator_check",
+            "p": {
+              "base_grew": "粉丝一年里从 800 涨到 3000",
+              "fair_compare": "不公平。拿同期非栏目文章比，栏目篇高一倍左右。",
+              "detail": "粉丝在涨，阅读量不能直接比",
+              "miss_cost": "会把粉丝涨的功劳算给栏目，投错精力。"
+            }
+          },
+          {
+            "type": "content_replicate",
+            "p": {
+              "peak": "2 万",
+              "why": "选题正好戳中考试周的焦虑，标题也够直接，发的时间点也对。",
+              "after": "三四千",
+              "lift": "比同期非栏目文章高一倍左右"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "x6_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [],
+            "text": "负责协会公众号的选题、撰写和排版。"
+          },
+          {
+            "id": "x6_evidence",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "数据分析"
+            ],
+            "text": "一年里粉丝从 800 涨到 3000 左右；考试焦虑那篇阅读 2 万，用后台数据分析复盘，做成固定栏目。"
+          },
+          {
+            "id": "x6_evidence_ops",
+            "type": "evidence",
+            "angle": "ops",
+            "lines": 2,
+            "keywords": [
+              "新媒体运营",
+              "内容运营",
+              "数据复盘"
+            ],
+            "text": "公众号一年粉丝从 800 涨到 3000 左右；考试焦虑那篇阅读 2 万，复盘后做成固定栏目，栏目篇比同期非栏目文章高一倍左右。"
+          },
+          {
+            "id": "x6_evidence_data",
+            "type": "evidence",
+            "angle": "data",
+            "lines": 2,
+            "keywords": [
+              "数据分析",
+              "对照",
+              "复盘"
+            ],
+            "text": "公众号复盘：粉丝一年从 800 涨到 3000，阅读不能直接比；拿同期非栏目文章做对照，栏目篇阅读高一倍左右。"
+          },
+          {
+            "id": "x6_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "增长"
+            ],
+            "text": "运营公众号实现粉丝 10 倍增长，多篇文章阅读量 10 万+。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "“粉丝 10 倍增长，多篇 10 万+”。协会公众号现在多少粉丝？",
+              "double_down": {
+                "text": "现在一万多吧，那几篇都是被大号转载后爆的，后台数据能看到。",
+                "line": "我刚翻了这个号最近的文章……好，今天就到这儿。"
+              },
+              "correct": {
+                "text": "写夸张了：是从 800 涨到 3000，最高一篇 2 万阅读。",
+                "line": "嗯，3000 也不错了，写实就行。"
+              },
+              "evade": {
+                "text": "具体数字得看后台，反正这两年增长挺快的，阅读量也一直不错。",
+                "line": "自己运营的号，不知道粉丝数？"
+              },
+              "explain": "公众号文章的阅读数是公开的，面试官当场翻一翻最近的文章就能对上，“多篇 10 万+”一眼就穿。真实的数字哪怕不大，讲清怎么涨起来的，就是好素材。"
+            }
+          }
+        ],
+        "frames": {
+          "data": "media_data",
+          "ops": "ops_account"
+        }
+      },
+      {
+        "id": "E7",
+        "type": "part_time",
+        "header": false,
+        "title": "心理咨询中心助理",
+        "period": "大二",
+        "relevance": {
+          "pm": "none",
+          "fe": "none"
+        },
+        "p": {
+          "short": "咨询中心助理"
+        },
+        "variants": [
+          {
+            "id": "x7_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [],
+            "text": "校心理咨询中心助理，负责值班和预约登记"
+          }
+        ]
+      },
+      {
+        "id": "E8",
+        "type": "event_planning",
+        "header": true,
+        "title": "心理健康周 · 活动策划",
+        "period": "大三",
+        "relevance": {
+          "pm": "half",
+          "fe": "none",
+          "ops": "match"
+        },
+        "p": {
+          "label": "心理健康周",
+          "pitch": "心理健康周的策划",
+          "short": "心理健康周",
+          "org": "协会"
+        },
+        "highlights": [
+          {
+            "type": "event_attendance",
+            "p": {}
+          },
+          {
+            "type": "data_led_decision",
+            "p": {
+              "data_src": "去年的报名和签到数据",
+              "decision": "场次安排",
+              "evidence_hold": "摆出两头：热门场有人排不上，冷门场报了却不来。"
+            }
+          },
+          {
+            "type": "noshow_fix",
+            "p": {
+              "from": "6 成",
+              "to": "8 成",
+              "cause": "热门场排不上、冷门场报了不来，问题在场次安排。",
+              "attrib": "拆到场次看，涨的主要是冷门场；没对照，只能说主要靠调场次。",
+              "rate_def": "签到人数除以报名人数，报了几场的按场次分别算。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "x8_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "具备出色的活动策划与执行能力。"
+          },
+          {
+            "id": "x8_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [],
+            "text": "参与策划校园心理健康周活动。"
+          },
+          {
+            "id": "x8_evidence",
+            "type": "evidence",
+            "angle": "pm",
+            "lines": 2,
+            "keywords": [
+              "数据分析"
+            ],
+            "text": "策划 400 人参加的心理健康周：做报名数据分析、调整场次，签到率从去年的 6 成提到 8 成。"
+          },
+          {
+            "id": "x8_evidence_ops",
+            "type": "evidence",
+            "angle": "ops",
+            "lines": 2,
+            "keywords": [
+              "活动策划",
+              "活动运营",
+              "数据分析"
+            ],
+            "text": "策划 400 人参加的心理健康周：按去年报名和签到数据合并冷门场次，签到率从 6 成提到 8 成。"
+          },
+          {
+            "id": "x8_evidence_data",
+            "type": "evidence",
+            "angle": "data",
+            "lines": 2,
+            "keywords": [
+              "数据分析",
+              "指标拆解"
+            ],
+            "text": "心理健康周复盘：签到率按场次拆开看，热门场排不上、冷门场报了不来；调场次后签到率 6 成→8 成。"
+          }
+        ],
+        "frames": {
+          "data": "event_data",
+          "ops": "ops_event"
+        }
+      }
+    ],
+    "default": {
+      "_note": "跳过简历关时用的默认简历：能过筛但平庸。固定弱点：训练营证书放在第一行，实验程序一笔带过，HR 问到转行理由时拿不出硬证据。投前端的默认简历：两段证据型写法撑着，刚好能过中厂和独角兽的筛选；用研实习写成流水账，训练营也占了一行。",
+      "pm": {
+        "order": [
+          "x4_fact",
+          "x2_duty",
+          "x1_duty",
+          "x6_duty",
+          "x8_duty",
+          "x5_duty"
+        ],
+        "skills": [
+          "prd",
+          "proto",
+          "research",
+          "competitor",
+          "office",
+          "data"
+        ]
+      },
+      "fe": {
+        "order": [
+          "x1_evidence_fe",
+          "x3_evidence_fe",
+          "x2_duty",
+          "x4_fact",
+          "x5_duty"
+        ],
+        "skills": [
+          "html_css",
+          "js"
+        ]
+      },
+      "ops": {
+        "order": [
+          "x2_duty",
+          "x6_duty",
+          "x8_duty",
+          "x4_fact",
+          "x3_duty",
+          "x5_duty"
+        ],
+        "skills": [
+          "new_media",
+          "event",
+          "copywriting",
+          "research",
+          "office",
+          "excel"
+        ]
+      }
+    }
+  }
+}

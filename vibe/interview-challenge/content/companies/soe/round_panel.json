@@ -1,0 +1,224 @@
+{
+  "id": "r2",
+  "name": "综合面",
+  "company": "soe",
+  "interviewer": {
+    "art": "A10",
+    "title": "考官"
+  },
+  "scene": "S9",
+  "hello": "请坐。今天的综合面由我们几位考官一起听，题目我按顺序念，你听完再答。",
+  "_note": "恒川数科的综合面（结构化面试），所有岗位共用：和岗位有关的说法用 {role.*}。题型按结构化面试的常见维度排：自我介绍、求职动机、综合分析、计划组织（应急应变）、背景题位、人际沟通、服从调剂，最后是投递进度和反问。追问 1 层。恒川数科的公开信息（集团把下属单位的老系统迁到统一平台、新员工先轮岗一年）写在每个人设的 company_notes.soe 里，“接住”的回答只用这些；人设专属的事实用 {p.soe_*}，见 content/_staging/soe.json。选项 ID 前缀 soep_。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "intro_hr",
+      "swap": false,
+      "prefer": [
+        "soep_intro"
+      ]
+    },
+    {
+      "slot": "q1",
+      "node": "soep_why",
+      "swap": true,
+      "alternates": [
+        "soep_plan"
+      ]
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "panel_view",
+      "swap": true,
+      "prefer": [
+        "soep_view",
+        "soep_newsys"
+      ]
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "panel_plan",
+      "swap": true,
+      "prefer": [
+        "soep_train",
+        "soep_slip"
+      ]
+    },
+    {
+      "slot": "q4",
+      "dynamic": "background",
+      "pool": "panel",
+      "swap": false,
+      "_note": "背景题位：国企版的背景题在 library/packs/soe.json（bgs_），按人设的学历、专业、特殊设定挑一道，重打时不换"
+    },
+    {
+      "slot": "q6",
+      "dynamic": "pool",
+      "pool": "panel_assign",
+      "swap": true,
+      "_note": "表态能接受驻场、调剂的选项会留下 soe_ok_assign，签约前沟通里再要求免轮岗时会被提起",
+      "prefer": [
+        "soep_onsite",
+        "soep_transfer"
+      ]
+    },
+    {
+      "slot": "q7",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false,
+      "_note": "答案会带进签约前沟通，真假按游戏里的投递进度算，重打时不换",
+      "prefer": [
+        "soep_offers"
+      ]
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false,
+      "prefer": [
+        "soep_reverse"
+      ]
+    }
+  ],
+  "nodes": {
+    "soep_why": {
+      "tag": "动机与稳定",
+      "text": "请谈谈你报考恒川数科的原因。",
+      "options": [
+        {
+          "id": "soep_w_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "集团各单位在换新系统，我想参与这种长期落地的事。",
+          "face": "nod",
+          "line": "嗯。"
+        },
+        {
+          "id": "soep_w_b",
+          "type": "bold",
+          "text": "我看了招聘公告和官网新闻，说一两点具体的印象。",
+          "face": "probe",
+          "line": "哦？说说看。",
+          "followup": {
+            "text": "具体是哪一点？",
+            "options": [
+              {
+                "id": "soep_w_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "集团在把十几家下属单位的老系统迁到统一平台。",
+                "face": "pleased",
+                "line": "嗯，功课做得挺细。"
+              },
+              {
+                "id": "soep_w_b2",
+                "type": "partial",
+                "delta": -4,
+                "text": "具体记不太清了，整体感觉单位很正规，平台也大。",
+                "face": "frown",
+                "line": "嗯……"
+              },
+              {
+                "id": "soep_w_b3",
+                "type": "fail",
+                "delta": -7,
+                "text": "公告、年报、新闻都看了，各方面都很好，挑不出毛病。",
+                "face": "frown",
+                "line": "比如说呢？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "soep_w_c",
+          "type": "off",
+          "delta": -1,
+          "text": "国企稳定，工作和生活能平衡一些，这是我最看重的。",
+          "face": "calm",
+          "line": "嗯，挺实在。"
+        },
+        {
+          "id": "soep_w_d",
+          "type": "off",
+          "delta": -3,
+          "text": "家里一直希望我考编，国企也算差不多吧，都挺稳定的。",
+          "face": "frown",
+          "line": "嗯……那你自己呢？"
+        }
+      ],
+      "explain": "报考原因答得怎么样，既看得出你做没做功课，也看得出动机稳不稳。说得出单位正在做的具体事，再和自己想做的连起来，最有说服力；“稳定、平衡”是真实的考虑，可只说这个，听起来像是哪儿稳就去哪儿。把国企当成“差不多的编制”，说明没弄清单位性质：用工方式要看招聘公告和劳动合同，不能凭名头猜。"
+    },
+    "soep_plan": {
+      "tag": "动机与稳定",
+      "text": "请谈谈你入职以后三到五年的职业规划。",
+      "options": [
+        {
+          "id": "soep_pl_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "先在轮岗里把业务摸清，再把{role.name}的活做扎实，能独当一面。",
+          "face": "nod",
+          "line": "嗯，挺清楚。"
+        },
+        {
+          "id": "soep_pl_b",
+          "type": "bold",
+          "text": "想往{role.growth}。",
+          "face": "probe",
+          "line": "那我再问一句。",
+          "followup": {
+            "text": "在我们这儿，你打算怎么往这个方向走？",
+            "options": [
+              {
+                "id": "soep_pl_b1",
+                "type": "hold",
+                "delta": 9,
+                "text": "先在轮岗时把业务摸透，再争取进统一平台的迁移项目。",
+                "face": "pleased",
+                "line": "嗯，想得挺实际。"
+              },
+              {
+                "id": "soep_pl_b2",
+                "type": "partial",
+                "delta": -2,
+                "text": "看单位安排吧，组织让我做什么，我就先做好什么。",
+                "face": "calm",
+                "line": "那你自己的想法呢？"
+              },
+              {
+                "id": "soep_pl_b3",
+                "type": "fail",
+                "delta": -5,
+                "text": "都规划好了：三年当上骨干，五年带一个小组，一步都不会差。",
+                "face": "frown",
+                "line": "靠什么一步不差？"
+              }
+            ]
+          }
+        },
+        {
+          "id": "soep_pl_c",
+          "type": "off",
+          "delta": -3,
+          "text": "先稳定下来攒几年经验，有合适的机会再看看外面。",
+          "face": "frown",
+          "line": "那你打算在我们这儿待多久？"
+        },
+        {
+          "id": "soep_pl_d",
+          "type": "safe",
+          "delta": 1,
+          "text": "三年内评上中级职称，再看技术和管理哪条路更适合。",
+          "face": "nod",
+          "line": "嗯。"
+        }
+      ],
+      "explain": "规划题看的是方向和这份工作对不对得上、你想没想过怎么走。把单位正在做的事接进自己的路线里，最可信；只说评职称也行，但听不出你想做成什么。“看单位安排”听着服从，其实等于没有规划；“攒几年经验再看外面”，这个回答可能让考官关注到流失风险；把几年后的位置说得一步不差，一追问就空。"
+    }
+  }
+}

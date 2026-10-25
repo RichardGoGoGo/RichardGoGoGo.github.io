@@ -1,0 +1,313 @@
+{
+  "_note": "亮点类型：一段经历里拿得出手的具体事（首屏优化、线上排查、用研发现被采纳……）。pitch 是项目深挖里讲这件事的进取选项和追问链；lead 是以这件事开场的整道深挖题（经历类型没有合适问法时用）；只有参数、没有 pitch 和 lead 的亮点，供岗位题里“拿经历举例”的选项引用（选项写 requires.highlight，文字里用 {cite.*}）。{hl.*} 和 {cite.*} 都是这条亮点的参数加上它所在经历的参数（亮点的同名参数优先）。roles 是 pitch 和 lead 适用的岗位。",
+  "types": {
+    "perf_firstscreen": {
+      "name": "首屏性能优化", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "讲{hl.label}：怎么发现慢、怎么定位、改完怎么验证。", "face": "probe", "line": "好，展开说说。",
+        "followup": {
+          "text": "图片懒加载谁都会做。你这个场景里，最难的是哪一步？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "首屏轮播不能懒加载。我改成首张预加载、其余延后，再压尺寸。", "face": "pleased", "line": "对，很多人就是在这儿反而把首屏拖慢了。"},
+            {"key": "b2", "type": "partial", "delta": 1, "text": "最难的是说服设计同学把图片换成更小的格式。", "face": "nod", "line": "嗯，沟通确实费劲。"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "最难的是兼容老版本 IE，IntersectionObserver 在上面用不了。", "face": "frown", "line": "{hl.subject}还要兼容 IE？"}
+          ]
+        }
+      },
+      "explain": "懒加载本身不稀奇，知道首屏那张图偏偏不能懒加载，才见功夫。"
+    },
+    "timer_drift": {"name": "计时不准（切到后台变慢）", "roles": ["fe"]},
+    "incident": {"name": "自己造成的线上事故和补救", "roles": ["fe"]},
+    "mp_subpackage": {
+      "name": "小程序分包", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "我负责{hl.my_part}。重点讲讲{hl.label}。", "face": "probe", "line": "好。",
+        "followup": {
+          "text": "分包以后，用户第一次点进商品详情，会不会反而变慢？你们怎么处理的？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "会慢一点，所以首页空闲时预下载详情页分包，基本感觉不到。", "face": "pleased", "line": "嗯，想得挺周全。"},
+            {"key": "b2", "type": "partial", "delta": 1, "text": "会慢一点，但详情页本身不大，测下来几百毫秒，我们觉得能接受。", "face": "calm", "line": "嗯，也是个取舍。"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "不会，分包是并行下载的，进详情页时早就下好了。", "face": "frown", "line": "第一次进分包页面，是要现下的吧？"}
+          ]
+        }
+      },
+      "explain": "分包让首屏变快，代价挪到了第一次进分包页面的时候；能想到预下载，说明你考虑过代价落在哪里。"
+    },
+    "unit_test_bug": {
+      "name": "单元测试抓到 bug", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "讲我为什么给{hl.unit}写单元测试，测试帮我抓到过什么 bug。", "face": "probe", "line": "说说看。",
+        "followup": {
+          "text": "具体抓到过什么 bug？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "{hl.bug}", "face": "pleased", "line": "这个例子很真实。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "主要是一些边界情况，比如{hl.bug_area|空值和越界}，具体的记不太清了。", "face": "calm", "line": "嗯……"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "覆盖率做到了 100%，所有分支都测过，基本没出过 bug。", "face": "frown", "line": "覆盖率 100% 和没 bug，是两回事吧。"}
+          ]
+        }
+      },
+      "explain": "“覆盖率 100% 所以没 bug”是常见说法，也是常见的追问点：覆盖率只能说明代码被执行过，说明不了逻辑对不对。"
+    },
+    "oss_library": {"name": "开源项目的成熟度", "roles": ["fe"]},
+    "talks": {"name": "主动做分享", "roles": ["fe", "pm"]},
+    "mentoring": {
+      "name": "带新人", "roles": ["fe", "pm"],
+      "lead": {
+        "tag": "项目表达",
+        "text": "你当{hl.role}，带新人这件事是怎么做的？",
+        "options": [
+          {"key": "a", "type": "safe", "delta": 3, "text": "每学期办几次入门分享，再让新人跟着{hl.practice}。", "face": "nod", "line": "嗯。"},
+          {"key": "b", "type": "bold", "text": "讲我怎么让{hl.n}个新人从零做到{hl.goal}。", "face": "probe", "line": "好。",
+            "followup": {
+              "text": "那{hl.n_cn}个人里，有没有带不动的？你怎么办？",
+              "options": [
+                {"key": "b1", "type": "hold", "delta": 9, "text": "{hl.struggle_fix}", "face": "pleased", "line": "嗯，有耐心。"},
+                {"key": "b2", "type": "partial", "delta": -2, "text": "带不动的就让他先做别的，比如整理文档、写测试，人各有所长嘛。", "face": "calm", "line": "嗯。"},
+                {"key": "b3", "type": "fail", "delta": -5, "text": "没有，{hl.n_cn}个人都学得很快，一个月就{hl.goal}了。", "face": "frown", "line": "一个都没掉队？"}
+              ]
+            }
+          },
+          {"key": "c", "type": "off", "delta": -3, "text": "{hl.role_short}主要是组织活动，技术上还是我自己做得多。", "face": "frown", "line": "那新人呢？"}
+        ],
+        "explain": "带人的经历，多半会被追问到“带不动的人怎么办”。说“个个都学得很快”太顺了，反而不像真事。"
+      }
+    },
+    "online_migration": {
+      "name": "流程从线下改到线上", "roles": ["pm"],
+      "pitch": {"type": "bold", "text": "讲为什么要从{hl.from}改到{hl.to}：省了多少时间，代价是什么。", "face": "probe", "line": "好，我先问时间。",
+        "followup": {
+          "text": "你说省了{hl.saved}，怎么算出来的？",
+          "options": [
+            {"key": "b1", "type": "bold", "text": "{hl.calc}", "face": "probe", "line": "那代价呢？",
+              "followup": {
+                "text": "{hl.from}有人盯着做，{hl.to}没有。数据质量怎么保证？",
+                "options": [
+                  {"key": "b1a", "type": "hold", "delta": 12, "text": "{hl.quality_fix}", "face": "pleased", "line": "嗯，代价你也想到了。"},
+                  {"key": "b1b", "type": "partial", "delta": 2, "text": "提醒同学认真做，收完再人工把明显乱填的答卷检查一遍。", "face": "calm", "line": "人工检查{hl.n_total}份？"},
+                  {"key": "b1c", "type": "fail", "delta": -9, "text": "线上线下质量差不多，现在{hl.field|很多研究}都这么做，文献也支持。", "face": "frown", "line": "差不多是怎么知道的？"}
+                ]
+              }
+            },
+            {"key": "b2", "type": "partial", "delta": 1, "text": "大概估的，老师说{hl.from}做完要{hl.saved}。", "face": "calm", "line": "嗯。"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "{hl.overclaim}", "face": "frown", "line": "{hl.overclaim_line}"}
+          ]
+        }
+      },
+      "explain": "讲时间省了多少是一层，讲省时间的代价、以及你怎么补上这个代价，又是一层。大厂会一路追到第二层。"
+    },
+    "self_taught_tool": {"name": "自学做出来的工具", "roles": ["fe", "pm"]},
+    "research_finding": {
+      "name": "用研发现被采纳", "roles": ["pm"],
+      "pitch": {"type": "bold", "text": "讲“{hl.finding}”怎么被我发现、又怎么被采纳。", "face": "probe", "line": "好。",
+        "followup": {
+          "text": "你怎么确定这是普遍问题，不是个别用户的抱怨？",
+          "options": [
+            {"key": "b1", "type": "bold", "text": "{hl.evidence}", "face": "probe", "line": "那结果呢？",
+              "followup": {
+                "text": "改版之后，效果怎么样？",
+                "options": [
+                  {"key": "b1a", "type": "hold", "delta": 12, "text": "{hl.followthrough}", "face": "pleased", "line": "嗯，没跟到就说没跟到，挺好。"},
+                  {"key": "b1b", "type": "partial", "delta": -2, "text": "应该挺好的，后来也没听说有什么问题，产品经理还专门谢过我。", "face": "calm", "line": "应该？"},
+                  {"key": "b1c", "type": "fail", "delta": -9, "text": "新用户的次日留存提升了不少，产品那边说大概涨了 5 个点。", "face": "frown", "line": "5 个点？这个数你自己看到过吗？"}
+                ]
+              }
+            },
+            {"key": "b2", "type": "partial", "delta": -2, "text": "访谈里很多用户都这么说，好几个人原话一模一样，所以肯定是普遍的。", "face": "calm", "line": "很多是多少？"},
+            {"key": "b3", "type": "fail", "delta": -5, "text": "产品经理也觉得有问题，所以就定下来了。", "face": "frown", "line": "那你的研究起了什么作用？"}
+          ]
+        }
+      },
+      "explain": "用研出身的人，最有说服力的是“一个发现怎么从几个人的抱怨，变成团队愿意改的问题”。拿得出比例，比说“很多用户”有力得多。改版效果没跟到，就老实说没跟到，再讲你会怎么验证。"
+    },
+    "report_rework": {"name": "报告被打回后补证据重写", "roles": ["pm"]},
+    "competitor_analysis": {
+      "name": "竞品分析", "roles": ["pm"],
+      "pitch": {"type": "bold", "text": "讲竞品分析那个案例：竞品怎么选、从哪几个角度比。", "face": "probe", "line": "那我先问选。",
+        "followup": {
+          "text": "你选的三个竞品，为什么是这三个？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "按目标用户和核心场景选：两个直接竞品，一个替代方案。", "face": "pleased", "line": "嗯，选法有讲究。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "选的是市场上最火的三个，用户最多，最有参考价值。", "face": "calm", "line": "最火的就一定是竞品吗？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "随便选的，主要是想展示我的分析框架。", "face": "frown", "line": "那结论还能信吗？"}
+          ]
+        }
+      },
+      "explain": "竞品分析最容易被问“为什么选这几个”。按目标用户和核心场景选，结论才站得住；只挑最火的，往往比的是两个根本不同的产品。"
+    },
+    "mixed_methods": {
+      "name": "访谈加问卷", "roles": ["pm"],
+      "pitch": {"type": "bold", "text": "讲我怎么从访谈里归纳出{hl.finding_short}，再用问卷去验证。", "face": "probe", "line": "那我问个细节。",
+        "followup": {
+          "text": "问卷和访谈的结论冲突时，你信哪个？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "先查问法和样本。访谈答“为什么”，问卷答“有多少”。", "face": "pleased", "line": "嗯，分得清。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "信问卷，样本量大得多，访谈那十几个人代表不了整体情况。", "face": "calm", "line": "那访谈白做了？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "看哪个更支持我的假设就用哪个，毕竟论文要有清晰的结论。", "face": "frown", "line": "……"}
+          ]
+        }
+      },
+      "explain": "定性和定量冲突是用研的日常。各管各的问题：访谈找原因，问卷看规模。挑支持自己假设的那个用，是研究里最忌讳的事。"
+    },
+    "thesis_research": {"name": "研究课题对产品的用处", "roles": ["pm"]},
+    "viral_post": {
+      "name": "爆款内容复盘", "roles": ["pm"],
+      "lead": {
+        "tag": "项目表达",
+        "text": "{hl.channel}那篇{hl.peak}阅读的文章，为什么能火？",
+        "options": [
+          {"key": "a", "type": "safe", "delta": 3, "text": "{hl.why}", "face": "nod", "line": "嗯。"},
+          {"key": "b", "type": "bold", "text": "讲我复盘后怎么把它做成固定栏目，和后面几篇的数据。", "face": "probe", "line": "后面几篇怎么样？",
+            "followup": {
+              "text": "后面几篇的阅读量呢？",
+              "options": [
+                {"key": "b1", "type": "hold", "delta": 9, "text": "稳定在{hl.after}，{hl.lift}，但没再出过{hl.peak}的。", "face": "pleased", "line": "嗯，实话。"},
+                {"key": "b2", "type": "partial", "delta": -2, "text": "也都挺好的，大家反馈不错。", "face": "calm", "line": "挺好是多少？"},
+                {"key": "b3", "type": "fail", "delta": -7, "text": "基本篇篇都过万了，栏目做起来以后，粉丝也跟着涨得特别快。", "face": "frown", "line": "后台数据方便给我看看吗？"}
+              ]
+            }
+          },
+          {"key": "c", "type": "off", "delta": -1, "text": "主要是运气好，被几个大号转发了，后台看大部分流量来自转发。", "face": "calm", "line": "嗯。"}
+        ],
+        "explain": "讲一次爆款，接下来多半会被问：能不能把偶然变成可复制的东西。后面几篇没再爆，照实说反而可信；“篇篇过万”经不起一句“后台数据给我看看”，文章阅读数也是公开的，翻一翻就对得上。"
+      }
+    },
+    "event_attendance": {
+      "name": "用数据提活动签到率", "roles": ["pm"],
+      "lead": {
+        "tag": "项目表达",
+        "text": "{hl.short}那个活动，签到率是怎么提上去的？",
+        "options": [
+          {"key": "a", "type": "safe", "delta": 3, "text": "按报名数据，热门场次加开一场，冷门场次合并。", "face": "nod", "line": "嗯。"},
+          {"key": "b", "type": "bold", "text": "讲我怎么用去年的报名和签到数据找出问题。", "face": "probe", "line": "那你说说。",
+            "followup": {
+              "text": "去年签到率低，你判断主要原因是什么？",
+              "options": [
+                {"key": "b1", "type": "hold", "delta": 9, "text": "热门场次排不上、冷门场次报了不来，是场次安排的问题。", "face": "pleased", "line": "嗯，找对了地方。"},
+                {"key": "b2", "type": "partial", "delta": -2, "text": "大家期末都太忙了，活动又正好撞上考试周，来不了很正常。", "face": "calm", "line": "今年就不忙了？"},
+                {"key": "b3", "type": "fail", "delta": -5, "text": "宣传不够，很多人报了名又忘了，所以今年加大了宣传力度。", "face": "frown", "line": "那调整场次是为了什么？"}
+              ]
+            }
+          },
+          {"key": "c", "type": "off", "delta": -3, "text": "这个活动是{hl.org}一起做的，我负责其中一部分。", "face": "calm", "line": "哪部分？"}
+        ],
+        "explain": "一个小活动也能讲出产品思维：先用数据找到真正的原因，再对症下药。签到率低就加大宣传，是很常见的误判。"
+      }
+    },
+    "chart_perf": {
+      "name": "大数据量图表卡顿", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "讲{hl.label}：怎么发现、怎么定位，最后怎么改的。", "face": "probe", "line": "好，展开说说。",
+        "followup": {
+          "text": "{hl.n_points}个点为什么会卡？卡在哪一步？",
+          "options": [
+            {"key": "b1", "type": "bold", "text": "每次拖动都要重绘全部的点，Performance 面板里看得很清楚。", "face": "probe", "line": "那我再追一句。",
+              "followup": {
+                "text": "既然是重绘太多，为什么不换 WebGL，而是去抽样？",
+                "options": [
+                  {"key": "b1a", "type": "hold", "delta": 12, "text": "WebGL 要大改，{hl.deadline}；抽样一周能上，效果也够。", "face": "pleased", "line": "嗯，知道在约束里做选择。"},
+                  {"key": "b1b", "type": "partial", "delta": 2, "text": "WebGL 我不太熟，当时就没往那个方向考虑。", "face": "calm", "line": "嗯，至少是实话。"},
+                  {"key": "b1c", "type": "fail", "delta": -9, "text": "WebGL 在很多手机浏览器上兼容性不好，只能抽样处理。", "face": "frown", "line": "现在的手机基本都支持 WebGL 吧？"}
+                ]
+              }
+            },
+            {"key": "b2", "type": "partial", "delta": -2, "text": "数据量太大了，浏览器一下子处理不过来。", "face": "calm", "line": "处理不过来的是哪一步？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "{hl.lib}本身性能一般，换个更快的图表库，问题就解决了。", "face": "frown", "line": "换库就能解决？"}
+          ]
+        }
+      },
+      "explain": "讲具体的性能问题能加分，但要讲到“卡在哪一步”“为什么选这个方案”。工期紧的时候选抽样、不重写成 WebGL，是一次合理的取舍。"
+    },
+    "self_deploy": {"name": "自己部署上线", "roles": ["fe"]},
+    "req_change_layering": {"name": "需求反复改时分层", "roles": ["fe"]},
+    "form_rules": {
+      "name": "复杂表单联动校验", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "讲那个{hl.n_fields}个字段的表单：联动校验是怎么组织的。", "face": "probe", "line": "好，这个有意思。",
+        "followup": {
+          "text": "联动规则后来加到几十条，你怎么避免改一处坏一片？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "规则写成配置，只声明依赖哪些字段，集中计算。", "face": "pleased", "line": "嗯，这是踩过坑才会这么做的。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "每加一条规则，就把相关的字段都手动点一遍测试。", "face": "calm", "line": "几十条都手动点？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "全部挪到提交时统一校验，这样规则之间就不会再互相影响了。", "face": "frown", "line": "那实时提示就没了吧？"}
+          ]
+        }
+      },
+      "explain": "表单规则越加越多时，把“谁依赖谁”声明出来、集中计算，是最常用的组织方式；挪到提交时统一校验，等于悄悄改了需求。"
+    },
+    "bigco_process": {"name": "在大厂实习时觉得流程重", "roles": ["fe", "pm"]},
+    "overengineering": {
+      "name": "小数据量上的过度优化", "roles": ["fe"],
+      "lead": {
+        "tag": "专业",
+        "text": "{hl.short}那个{hl.feature}，你是怎么做的？",
+        "options": [
+          {"key": "a", "type": "safe", "delta": 3, "text": "{hl.simple}", "face": "nod", "line": "嗯，这样就够用了。"},
+          {"key": "b", "type": "bold", "text": "说说我当时为什么没用两两比较，复杂度是怎么降下来的。", "face": "probe", "line": "那我问一句。",
+            "followup": {
+              "text": "{hl.scale_q}",
+              "options": [
+                {"key": "b1", "type": "hold", "delta": 9, "text": "{hl.honest}", "face": "pleased", "line": "嗯，能看出自己过度设计，这点很重要。"},
+                {"key": "b2", "type": "partial", "delta": 1, "text": "现在没问题，但以后数据多了可能会变慢，所以就提前优化了。", "face": "calm", "line": "以后是多少？"},
+                {"key": "b3", "type": "fail", "delta": -7, "text": "两两比较是 O(n²)，数据一多，就会把浏览器直接卡死。", "face": "frown", "line": "{hl.scale_line}"}
+              ]
+            }
+          },
+          {"key": "c", "type": "off", "delta": -3, "text": "那部分逻辑主要是组里同学写的，我负责页面和交互。", "face": "calm", "line": "那页面上有什么难点？"}
+        ],
+        "explain": "算法好的人，容易在小数据量上过度优化。数据量小时最简单的办法完全够用，能主动说出“当时想多了”，比硬讲复杂度更显判断力。创业公司尤其看重这一点：先用最简单的办法把事做完。"
+      }
+    },
+    "paper_rebuttal": {"name": "论文审稿补实验", "roles": ["fe", "pm"]},
+    "feedback_triage": {
+      "name": "整理用户反馈、推动排期", "roles": ["pm"],
+      "pitch": {"type": "bold", "text": "讲我怎么把{hl.n_feedback}条用户反馈归成{hl.n_class}类，推动其中{hl.n_ship}类排进版本。", "face": "probe", "line": "好，我问个排期的事。",
+        "followup": {
+          "text": "研发这个版本只能接一类，你怎么定先做哪类？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "按影响人数乘严重程度排，再看实现成本，拿着数据去和研发商量。", "face": "pleased", "line": "嗯，有依据。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "先做用户抱怨最多的那一类，声音大的就是最痛的。", "face": "calm", "line": "抱怨多就一定最重要吗？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "先做我自己觉得最重要的，产品经理就要有自己的判断。", "face": "frown", "line": "判断的依据呢？"}
+          ]
+        }
+      },
+      "explain": "整理反馈是产品助理最常做的事，难的是排优先级：只看抱怨的音量会被少数人带着走，只凭感觉又说服不了研发。影响面、严重程度、实现成本放在一起看，才拿得出依据。"
+    },
+    "interview_cut_feature": {
+      "name": "访谈以后砍掉功能", "roles": ["pm"],
+      "pitch": {"type": "bold", "text": "讲访谈{hl.n}位同学以后，为什么砍掉了{hl.cut}。", "face": "probe", "line": "砍功能？说说看。",
+        "followup": {
+          "text": "砍掉之后，你怎么知道砍对了？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "{hl.verify}", "face": "pleased", "line": "嗯，不把功劳都算在一个改动上，挺好。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "大家反馈都挺好的，后来也没人再提这个功能了。", "face": "calm", "line": "没人提，就说明砍对了？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "砍掉以后成交翻了好几倍，说明这个决定完全正确。", "face": "frown", "line": "翻了好几倍，都是因为砍了它？"}
+          ]
+        }
+      },
+      "explain": "敢砍功能是产品感的体现，但“砍对了”要有依据。上线后数据变好，也可能是别的原因（换了季节、做了推广），没有对照的时候，说得保守一点反而更可信。"
+    },
+    "experiment_timing": {
+      "name": "网页实验的计时和数据保存", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "讲{hl.short}里计时精度和中途退出时的数据保存是怎么处理的。", "face": "probe", "line": "计时？这个有意思。",
+        "followup": {
+          "text": "反应时要精确到毫秒，你用什么计时？为什么？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "用 performance.now()，它单调递增、精度高，不受系统改时间影响。", "face": "pleased", "line": "对，Date.now() 在这儿不够用。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "用 Date.now() 记按键前后的时间差，毫秒级应该够了。", "face": "calm", "line": "系统时间被调了怎么办？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "用 setTimeout 每毫秒加一次计数，这样最准。", "face": "frown", "line": "setTimeout 能做到每毫秒一次？"}
+          ]
+        }
+      },
+      "explain": "网页里做精确计时，常用 performance.now()：它从页面打开开始单调递增，精度比 Date.now() 高，也不会被系统时间调整带偏；setTimeout 做不到每毫秒准时触发。中途退出时把已经做完的数据先存在本地，是这类程序的基本功。"
+    },
+    "responsive_layout": {
+      "name": "手机端适配", "roles": ["fe"],
+      "pitch": {"type": "bold", "text": "讲{hl.short}在手机上的适配：布局怎么切换、图片怎么处理。", "face": "probe", "line": "好，我问个细节。",
+        "followup": {
+          "text": "手机上图片加载出来以后，页面会往下跳一下，怎么避免？",
+          "options": [
+            {"key": "b1", "type": "hold", "delta": 9, "text": "给图片先写好宽高或宽高比，浏览器提前占好位置，加载完就不跳了。", "face": "pleased", "line": "对，这叫布局偏移，很多人没注意。"},
+            {"key": "b2", "type": "partial", "delta": -2, "text": "把图片都压小一点，加载快了，跳的时间就短了。", "face": "calm", "line": "快了还是会跳吧？"},
+            {"key": "b3", "type": "fail", "delta": -7, "text": "等所有图片都加载完，再把整个页面显示出来。", "face": "frown", "line": "那用户要盯着白屏等多久？"}
+          ]
+        }
+      },
+      "explain": "图片加载后页面往下跳，是因为浏览器事先不知道图片有多高。提前写好宽高或用 aspect-ratio 占位，就能避免这种布局偏移；只压缩图片能变快但治不了跳，等全部加载完再显示又会让首屏变慢。"
+    }
+  }
+}

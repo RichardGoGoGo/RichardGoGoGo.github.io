@@ -1,0 +1,12 @@
+{
+  "_note": "素材库的扩展包清单。基础文件（experience_types、highlights、skills、probes、background）之外，按岗位或主题各写一个包，加载时按这里的顺序合并。写法见 docs/面试挑战/素材补充交接.md。",
+  "packs": [
+    "packs/pm.json",
+    "packs/fe.json",
+    "packs/be.json",
+    "packs/algo.json",
+    "packs/data.json",
+    "packs/ops.json",
+    "packs/soe.json"
+  ]
+}

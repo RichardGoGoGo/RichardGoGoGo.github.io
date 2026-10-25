@@ -1,0 +1,841 @@
+{
+  "id": "zhouan",
+  "name": "周安",
+  "label": "名校硕士",
+  "art": "P1",
+  "background": {
+    "school_tier": "985",
+    "degree": "master",
+    "school": "985 高校",
+    "major": "计算机科学与技术",
+    "major_short": "计算机",
+    "major_group": "cs",
+    "year": "研二"
+  },
+  "traits": [],
+  "p": {
+    "lev": "可视化平台和实习",
+    "lev_brag": "做过大厂实习",
+    "lev_detail": "实验室项目和大厂实习都独立负责过一块",
+    "lev_kind": "项目经历",
+    "lev_brag_short": "做过大厂实习",
+    "cred_brag": "是 985 硕士，又有大厂实习经历",
+    "strengths": "Vue 和 ECharts",
+    "algo_story": "选课网站的课表冲突检测，那是我第一次在前端用上算法",
+    "self_drive": "ACM 备赛时，我们队是怎么自己安排训练的",
+    "phd_reason": "劝过。我想了挺久，发现自己更喜欢做出来马上有人用的东西。",
+    "pm_reason": "做可视化平台时最有成就感的是合作单位真的用上了，我想离需求更近。",
+    "algo_phd_reason": "导师劝过。我更想做马上有人用的东西，工业界的算法离用户更近。",
+    "algo_dirty_hold": "能。补实验时大半时间也在对切分、查数据，我知道这是常态。",
+    "algo_strengths": "推荐里的召回和排序",
+    "data_reason": "做可视化平台时发现，我更在意图上的数对不对、对方拿它做什么决定。",
+    "soe_agree": "讲实习时拿一张规则表和产品对需求的那次。",
+    "soe_agree_hold": "产品觉得规则没问题；我给三条矛盾的规则各举了填错的例子。",
+    "soe_master_hold": "部署时对方说平台要用好几年，我想做这种用得久的东西。"
+  },
+  "skills": {
+    "html_css": 2,
+    "js": 2,
+    "ts": 1,
+    "vue": 2,
+    "viz": 2,
+    "algo": 2,
+    "deploy": 1,
+    "python": 2,
+    "git": 2,
+    "data": 2,
+    "sql": 1,
+    "ab": 1,
+    "html_js": 2,
+    "office": 1,
+    "pytorch": 2,
+    "ml": 2,
+    "dl": 2,
+    "recsys": 2,
+    "llm": 1,
+    "cpp": 1,
+    "stats": 2,
+    "linux": 1,
+    "java": 1,
+    "mysql": 1,
+    "network": 1,
+    "excel": 1,
+    "bi": 1,
+    "metrics": 1
+  },
+  "skill_bar": {
+    "fe": [
+      "html_css",
+      "js",
+      "js_master",
+      "ts",
+      "vue",
+      "vue_master",
+      "viz",
+      "algo",
+      "deploy",
+      "python",
+      "git"
+    ]
+  },
+  "test_inspire": {
+    "fe": [
+      "JavaScript",
+      "工程化"
+    ],
+    "pm": [
+      "逻辑"
+    ],
+    "data": [
+      "数据",
+      "数量关系"
+    ],
+    "be": [
+      "数量关系",
+      "判断推理"
+    ]
+  },
+  "card": {
+    "_note": "人设卡：开局选人设时、面试中都能展开查看（倒计时不停）。只写做过什么、强项和短板，不写标准答案。求职进度由程序按游戏里的投递记录生成。",
+    "lines": [
+      "985 高校计算机硕士，研二，研究方向是推荐算法。",
+      "实验室横向项目（研一至研二）：给合作单位做数据可视化平台，Vue 3 + ECharts。整体方案是师兄定的，周安负责 3 个图表页和接口联调。",
+      "做过的最硬的一件事：大屏上 2 万个点的散点图一拖动就掉帧。周安改成按网格抽样渲染、单独保留离群点，用 Performance 面板看，帧率从十几帧到五十多帧。没做更严格的测试。",
+      "平台是周安照着教程用 Nginx 部署到合作单位服务器上的，缓存策略是后来查资料补的。",
+      "暑期实习 2 个月（某头部互联网公司内部工具组）：做了一个 40 多个字段的配置页，表单加联动校验，上线后组里每天在用。代码评审被指出“组件拆得太碎”，后来按变化频率重拆过。和交易系统没有关系。",
+      "做配置页时把 40 多个字段的联动规则整理成表和产品对，发现三条规则互相矛盾，上线前就改掉了。",
+      "论文：推荐算法方向的会议论文一篇，第二作者，补实验那部分是周安做的。",
+      "课程项目：本科 3 人做选课网站，周安负责前端，课表冲突检测是他写的。",
+      "ACM 区域赛铜牌、国家奖学金（都在本科）。",
+      {
+        "text": "论文补实验（周安负责）：按审稿意见补了消融，发现提升大半来自换了负采样，新提出的模块只贡献一小部分；导师据此把贡献改得更保守，正文写明了负采样的作用。",
+        "roles": [
+          "algo"
+        ]
+      },
+      {
+        "text": "复现基线时，基线跑得比原论文报的还高。周安查出是随机切分把用户未来的点击漏进了训练集，改成按时间切分，所有方法重跑，表里报的全是新数字。",
+        "roles": [
+          "algo"
+        ]
+      },
+      {
+        "text": "写评测脚本时先拿暴力法对拍，查出 NDCG 有一处算错（ACM 留下的习惯）。",
+        "roles": [
+          "algo"
+        ]
+      },
+      {
+        "text": "大屏抽样时，离群点按网格计数判断：点数很少的格子里的点全部保留。",
+        "roles": [
+          "algo"
+        ]
+      },
+      {
+        "text": "算法这边：机器学习、深度学习是“熟悉”，推荐的召回和排序讲得清；没有算法实习，模型都只在离线数据上跑过，没上过线。",
+        "roles": [
+          "algo"
+        ]
+      },
+      {
+        "text": "交付前，合作单位发现大屏上的“月活跃设备数”和他们自己的报表对不上。周安查下来是去重口径不同：平台按设备去重，对方按账号；最后按对方口径改，并在页面和交付文档里写明口径。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "散点图抽样只用在渲染上：图上显示的均值、总数都按全量数据算好再显示，离群点单独保留。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "平台用的是合作单位的业务数据，按约定只在对方内网服务器上处理，拷出要走审批。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "自己知道的毛病：做图表、写查询时容易埋头做，忘了先问对方拿这个数做什么决定；对口径那次以后，开始先问用途。",
+        "roles": [
+          "data"
+        ]
+      },
+      {
+        "text": "整理配置页的联动规则时，产品起初觉得规则没问题、不想再改；周安给三条矛盾的规则各举了一个会填错的例子，产品看完当场同意改。",
+        "companies": [
+          "soe"
+        ]
+      },
+      {
+        "text": "去合作单位部署平台时，对方信息科说这套平台要用好几年。周安觉得，做这种能长期用下去的东西比追新技术更让他踏实，这也是他考虑国企的原因。",
+        "companies": [
+          "soe"
+        ]
+      },
+      {
+        "text": "可视化性能只用 Performance 面板观察过拖拽帧率，约从十几帧到五十多帧；没有做严格对照实验，不能把它说成整体性能提升五倍。",
+        "roles": [
+          "fe"
+        ]
+      },
+      {
+        "text": "补消融时每次只改一处、其余设置固定，每组换 3 个随机种子各跑一遍，再比较提升。",
+        "roles": [
+          "algo"
+        ]
+      },
+      {
+        "text": "查“月活跃设备数”对不上时，先把两边的定义并排列出来，再抽了几十台设备的原始记录逐条手算，才确认是去重口径不同。",
+        "roles": [
+          "data"
+        ]
+      },
+      "短板：没在真实业务里从头写过完整的前端项目；CSS 布局常要查；打包、监控这些工程化只会照着配。",
+      "为什么不读博：导师劝过。周安想清楚的是自己更喜欢做出来马上有人用的东西，做大屏那段最有成就感。"
+    ],
+    "company_notes": {
+      "unicorn": "面试跃迁智能前做的功课：用了他们的 AI 写作助手一周，发现长文改写会把论文里的引用格式弄乱；看过创始人的一次访谈。跃迁智能是师兄内推的。",
+      "midcorp": "面试方格科技前做的功课：翻了他们的技术博客，讲大表格卡顿的那篇和自己做大屏时碰到的问题很像。",
+      "bigcorp": "面试巨塔前做的功课：把巨塔旗下的“塔塔学习”App 用了一周，记了十几条笔记，觉得错题本入口太深。",
+      "soe": "面试恒川数科前做的功课：看了招聘公告和官网新闻，知道集团在把十几家下属单位的老系统迁到统一平台，新员工先到下属单位轮岗一年；还问了在另一家国企做数据的师兄，日常主要是报表口径和数据治理。"
+    }
+  },
+  "resume": {
+    "capacity_lines": 15,
+    "experiences": [
+      {
+        "id": "E1",
+        "type": "research_tool",
+        "header": true,
+        "title": "实验室横向项目 · 数据可视化平台",
+        "period": "研一至研二",
+        "relevance": {
+          "fe": "match",
+          "pm": "half",
+          "algo": "half",
+          "data": "match",
+          "be": "half"
+        },
+        "p": {
+          "label": "实验室的可视化平台",
+          "pitch": "实验室的可视化平台，从需求到交付",
+          "short": "可视化平台",
+          "my_part": "3 个图表页和接口联调",
+          "lead": "师兄",
+          "stack": "Vue 3 加 ECharts",
+          "client": "合作单位",
+          "change_times": "三",
+          "data_routine": "讲接口返回的数据，怎么按图表的需要做聚合、补缺和排序。"
+        },
+        "frames": {
+          "fe": "my_part",
+          "pm": "needs",
+          "algo": "algo_tool_angle",
+          "data": "data_source"
+        },
+        "highlights": [
+          {
+            "type": "chart_perf",
+            "p": {
+              "label": "散点图掉帧",
+              "issue": "掉帧",
+              "subject": "大屏散点图",
+              "n_points": "2 万",
+              "client": "合作单位",
+              "deadline": "合作单位又在催",
+              "lib": "ECharts",
+              "measure_hold": "Performance 面板看过帧率，十几到五十多帧，没严格测。"
+            }
+          },
+          {
+            "type": "self_deploy",
+            "p": {
+              "where": "实验室平台"
+            }
+          },
+          {
+            "type": "req_change_layering",
+            "p": {
+              "client": "合作单位",
+              "times": "三"
+            }
+          },
+          {
+            "type": "sampling_outliers",
+            "p": {
+              "label": "大屏散点图的抽样",
+              "outlier_hold": "按网格计数，点数很少的格子里的点全部保留。"
+            }
+          },
+          {
+            "type": "caliber_mismatch",
+            "p": {
+              "metric": "“月活跃设备数”",
+              "caliber_diff": "去重口径不同：我们按设备，他们按账号；按他们的改，写明口径。",
+              "intro": "交付前和合作单位对齐口径"
+            }
+          },
+          {
+            "type": "sampling_display",
+            "p": {
+              "detail": "抽样只管画图，统计数要按全量算",
+              "miss_cost": "大屏上的均值会被抽偏，合作单位拿去汇报就错了。"
+            }
+          },
+          {
+            "type": "secure_handling",
+            "p": {
+              "rule": "数据只在内网处理，拷出要审批"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "z1_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [
+              "数据可视化"
+            ],
+            "text": "参与大型数据可视化平台研发，具备扎实的前端工程能力和复杂项目经验。"
+          },
+          {
+            "id": "z1_duty",
+            "type": "duty",
+            "lines": 2,
+            "keywords": [
+              "数据可视化",
+              "联调"
+            ],
+            "text": "负责平台中图表页面的开发和数据接口联调，参与需求对接和交付验收。"
+          },
+          {
+            "id": "z1_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 3,
+            "keywords": [
+              "数据可视化",
+              "ECharts",
+              "性能优化"
+            ],
+            "text": "负责 3 个图表页和接口联调；2 万点散点图改为按网格抽样渲染，帧率从十几帧提到五十多帧（Performance 面板实测）。"
+          },
+          {
+            "id": "z1_evidence_data",
+            "type": "evidence",
+            "angle": "data",
+            "lines": 3,
+            "keywords": [
+              "数据可视化",
+              "数据口径",
+              "数据质量"
+            ],
+            "text": "可视化平台：交付前查出“月活跃设备数”和合作单位报表去重口径不同，按对方口径改并写进交付文档；大图抽样只用于渲染，统计值按全量算。"
+          },
+          {
+            "id": "z1_exag",
+            "type": "exag",
+            "lines": 2,
+            "keywords": [
+              "架构",
+              "性能优化"
+            ],
+            "text": "主导数据可视化平台前端架构设计与开发，整体性能提升 5 倍。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "你写“主导平台架构设计，性能提升 5 倍”。架构是你定的吗？5 倍怎么算的？",
+              "double_down": {
+                "text": "对，架构是我设计的。5 倍是加载时间和帧率两项综合算出来的。",
+                "line": "综合算的……行，我心里有数了。"
+              },
+              "correct": {
+                "text": "“主导”不准确：方案是师兄定的，我做了图表页和抽样。",
+                "line": "嗯，那讲讲抽样那部分。",
+                "face": "nod"
+              },
+              "evade": {
+                "text": "这个数据是师兄那边统计的，我还是说说我负责的那部分吧。",
+                "line": "我问的是你写的这句话。"
+              },
+              "explain": "写了“主导”和“5 倍”，就要准备好被问“是不是你定的”“怎么算的”。改口说实话会丢分，但还能接着聊；硬说是自己设计的，面试官多问一句就穿了。"
+            }
+          },
+          {
+            "id": "bfe_z1_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 3,
+            "keywords": [
+              "Vue",
+              "ECharts",
+              "数据可视化",
+              "性能优化"
+            ],
+            "text": "Vue 3 + ECharts 可视化平台：负责 3 个图表页和接口联调；2 万点散点图采用网格抽样并保留离群点，用 Performance 面板观察拖拽帧率变化。"
+          }
+        ]
+      },
+      {
+        "id": "E2",
+        "type": "intern_dev",
+        "header": true,
+        "title": "前端开发实习生 · 某头部互联网公司",
+        "period": "研一暑假 · 2 个月",
+        "relevance": {
+          "fe": "match",
+          "pm": "half"
+        },
+        "p": {
+          "label": "大厂的暑期实习",
+          "pitch": "暑期实习做的配置页",
+          "short": "实习",
+          "kind": "大厂实习",
+          "term": "暑期实习",
+          "duration": "两个月",
+          "shipped": "内部工具里的一个配置页",
+          "pm_routine": "先把配置页的联动规则整理成表，和产品逐条确认",
+          "pm_story": "整理规则时发现三条互相矛盾，上线前就找产品改掉了，没等到测试。",
+          "be_link": "配置页的联动规则要和后端对校验口径，前后端各校验一遍。"
+        },
+        "frames": {
+          "fe": "shipped",
+          "pm": "dev_to_pm",
+          "algo": "algo_intern_eng",
+          "data": "dev_to_data"
+        },
+        "highlights": [
+          {
+            "type": "form_rules",
+            "p": {
+              "n_fields": "40 多"
+            }
+          },
+          {
+            "type": "bigco_process",
+            "p": {}
+          },
+          {
+            "type": "rule_conflict_table",
+            "p": {
+              "n_fields": "40 多",
+              "n_conflict": "三",
+              "intro": "实习时整理规则表、查出矛盾"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "z2_empty",
+            "type": "empty",
+            "lines": 2,
+            "keywords": [],
+            "text": "参与公司核心系统前端开发，深入了解大厂研发流程与工程规范。",
+            "probe": {
+              "pattern": "vague",
+              "ask": "你写“参与核心系统前端开发”。哪个系统？你具体做了什么？",
+              "facts": {
+                "text": "是内部的配置平台，我做了其中一个配置页的表单和校验。",
+                "line": "嗯，那就直接写清楚嘛。"
+              },
+              "dodge": {
+                "text": "公司的核心系统，具体名字不方便说，主要是做前端开发。",
+                "line": "那具体做了什么呢？"
+              },
+              "inflate": {
+                "text": "交易系统的一部分，我负责其中几个前端模块。",
+                "line": "交易系统？那说说下单链路吧。"
+              },
+              "explain": "“参与核心系统开发”是实习生很常见的写法，面试官很容易追问是哪个系统、你做了什么。做的是内部工具没关系，说清楚反而加分；含糊或往大了说，只会让人更怀疑。"
+            }
+          },
+          {
+            "id": "z2_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "表单"
+            ],
+            "text": "在内部工具组开发配置页面，负责表单和校验逻辑。"
+          },
+          {
+            "id": "z2_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 2,
+            "keywords": [
+              "表单",
+              "组件化"
+            ],
+            "text": "独立完成一个内部配置页：40 多个字段的表单和联动校验；代码评审后按变化频率重拆了组件。"
+          },
+          {
+            "id": "z2_evidence_data",
+            "type": "evidence",
+            "angle": "data",
+            "lines": 2,
+            "keywords": [
+              "规则梳理",
+              "数据校验"
+            ],
+            "text": "内部配置页：把 40 多个字段的联动规则整理成表和产品对，查出三条互相矛盾，上线前改掉。"
+          },
+          {
+            "id": "z2_exag",
+            "type": "exag",
+            "lines": 2,
+            "keywords": [
+              "高并发"
+            ],
+            "text": "参与核心交易系统前端研发，所写组件服务亿级用户。",
+            "probe": {
+              "pattern": "exag",
+              "ask": "你写“参与核心交易系统研发，组件服务亿级用户”。你的代码上到交易系统了？",
+              "double_down": {
+                "text": "对，我写的组件在下单页上用着，亿级是公司的用户量。",
+                "line": "下单页……我们有同事刚从那边过来。行，今天先到这儿。"
+              },
+              "correct": {
+                "text": "写夸张了：我做的是内部配置页，跟交易系统没有关系。",
+                "line": "嗯，那说说配置页。",
+                "face": "nod"
+              },
+              "evade": {
+                "text": "亿级是公司整体的数据，我负责的部分不太好量化。",
+                "line": "我问的不是量化。"
+              },
+              "explain": "“服务亿级用户”这种话，一问“你的代码在哪个页面”就见分晓。实习生做内部工具很正常，往交易系统上靠，是给自己挖坑。"
+            }
+          },
+          {
+            "id": "bfe_z2_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 2,
+            "keywords": [
+              "表单",
+              "组件化"
+            ],
+            "text": "内部配置页：完成 40 多字段的表单与联动校验；按评审意见按变化频率拆组件，整理规则表并在上线前澄清三处矛盾。"
+          }
+        ]
+      },
+      {
+        "id": "E3",
+        "type": "paper",
+        "header": false,
+        "title": "会议论文",
+        "period": "研二",
+        "relevance": {
+          "fe": "none",
+          "pm": "none",
+          "algo": "strong",
+          "data": "half"
+        },
+        "p": {
+          "short": "论文",
+          "kind": "会议论文",
+          "topic": "推荐算法",
+          "method": "它用的方法"
+        },
+        "highlights": [
+          {
+            "type": "paper_rebuttal",
+            "p": {
+              "author_hold": "第二作者。补实验是我做的，从搭环境到出结果。"
+            }
+          },
+          {
+            "type": "ablation_gain_source",
+            "p": {
+              "label": "论文的消融实验",
+              "module": "新提出的模块",
+              "real_source": "换了负采样",
+              "outcome_hold": "导师把贡献改得更保守，正文写明了负采样的作用。"
+            }
+          },
+          {
+            "type": "data_leakage",
+            "p": {
+              "label": "复现基线",
+              "found": "基线跑得比原论文还高，好得反常；一查，是随机切分漏了未来的点击。",
+              "fix": "按时间切分",
+              "after_hold": "所有方法都按时间切分重跑，表里报的全是新数字。"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "z3_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "推荐算法"
+            ],
+            "text": "推荐算法方向会议论文一篇（第二作者）"
+          },
+          {
+            "id": "z3_exag",
+            "type": "exag",
+            "lines": 1,
+            "keywords": [
+              "推荐算法"
+            ],
+            "text": "以第一作者身份发表推荐算法领域顶会论文",
+            "probe": {
+              "pattern": "exag",
+              "ask": "顶会第一作者？是哪个会？论文讲的什么？",
+              "double_down": {
+                "text": "是今年推荐方向的一个顶会，名字比较长，我一下想不起来。",
+                "line": "自己一作的顶会，想不起来名字？"
+              },
+              "correct": {
+                "text": "写错了，是第二作者，会议也算不上顶会，我负责补实验。",
+                "line": "嗯，写准确就好。",
+                "face": "nod"
+              },
+              "evade": {
+                "text": "具体会议名我回去确认一下，内容是推荐里的冷启动问题。",
+                "line": "这个还需要回去确认？"
+              },
+              "explain": "论文和前端岗位关系不大，夸大它几乎没有收益，却有很大风险：作者顺序和会议名，都是一问就能对上的事实。"
+            }
+          }
+        ],
+        "frames": {}
+      },
+      {
+        "id": "E4",
+        "type": "course_project",
+        "header": true,
+        "title": "课程项目 · 选课网站",
+        "period": "本科大三",
+        "relevance": {
+          "fe": "match",
+          "pm": "half"
+        },
+        "p": {
+          "label": "选课网站",
+          "pitch": "选课网站的前端",
+          "short": "选课网站",
+          "algo_rec_feature": "“猜你想选”"
+        },
+        "highlights": [
+          {
+            "type": "overengineering",
+            "p": {
+              "feature": "课表冲突检测",
+              "simple": "按星期分组、时段排好序，相邻两段有重叠就是有冲突。",
+              "scale_q": "一个学生最多选十几门课，两两比较有什么问题吗？",
+              "honest": "其实没问题，十几门课两两比也就一百多次，是我想多了。",
+              "scale_line": "十几门课会卡死？"
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": "z4_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "独立完成 Web 系统开发，熟悉前后端开发全流程。"
+          },
+          {
+            "id": "z4_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "JavaScript"
+            ],
+            "text": "3 人课程项目，负责选课网站的前端页面。"
+          },
+          {
+            "id": "z4_evidence",
+            "type": "evidence",
+            "angle": "fe",
+            "lines": 2,
+            "keywords": [
+              "JavaScript",
+              "拖拽"
+            ],
+            "text": "选课网站前端：用原生 JS 做了课表冲突检测和拖拽排课，期末约 200 名同学试用。"
+          }
+        ],
+        "frames": {
+          "algo": "algo_course_rec"
+        }
+      },
+      {
+        "id": "E5",
+        "type": "competition",
+        "header": false,
+        "title": "ACM-ICPC",
+        "period": "本科",
+        "relevance": {
+          "fe": "half",
+          "pm": "none",
+          "algo": "match"
+        },
+        "p": {
+          "short": "ACM",
+          "relate_example": "排课时先列了跨周、单双周的边界，一次测过。",
+          "algo_relate": "写评测脚本时先拿暴力法对拍，查出 NDCG 有一处算错了。"
+        },
+        "variants": [
+          {
+            "id": "z5_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [
+              "算法"
+            ],
+            "text": "ACM-ICPC 亚洲区域赛铜牌（本科）"
+          }
+        ],
+        "frames": {},
+        "highlights": []
+      },
+      {
+        "id": "E6",
+        "type": "part_time",
+        "header": false,
+        "title": "课程助教",
+        "period": "本科",
+        "relevance": {
+          "fe": "none",
+          "pm": "half"
+        },
+        "p": {
+          "short": "助教"
+        },
+        "variants": [
+          {
+            "id": "z6_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [],
+            "text": "本科《数据结构》课程助教，一学期"
+          },
+          {
+            "id": "z6_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "担任课程助教，具备出色的表达与讲解能力"
+          }
+        ]
+      },
+      {
+        "id": "E7",
+        "type": "student_org",
+        "header": false,
+        "title": "研究生会",
+        "period": "研一至研二",
+        "relevance": {
+          "fe": "none",
+          "pm": "half"
+        },
+        "p": {
+          "short": "研究生会"
+        },
+        "variants": [
+          {
+            "id": "z7_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [],
+            "text": "研究生会副主席，负责学术讲座的组织"
+          },
+          {
+            "id": "z7_empty",
+            "type": "empty",
+            "lines": 1,
+            "keywords": [],
+            "text": "研究生会副主席，领导力和组织协调能力突出"
+          }
+        ]
+      },
+      {
+        "id": "E8",
+        "type": "award",
+        "header": false,
+        "title": "国家奖学金",
+        "period": "",
+        "relevance": {
+          "fe": "general",
+          "pm": "general"
+        },
+        "p": {
+          "short": "国家奖学金"
+        },
+        "variants": [
+          {
+            "id": "z8_fact",
+            "type": "fact",
+            "lines": 1,
+            "keywords": [],
+            "text": "国家奖学金（本科）"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "_note": "跳过简历关时用的默认简历：能过筛但平庸。固定弱点：论文放在第一位（和前端无关，占了最显眼的位置），实习写成“参与核心系统开发”，业务面一追问就露馅。",
+      "fe": {
+        "order": [
+          "z3_fact",
+          "z2_empty",
+          "z1_duty",
+          "z4_duty",
+          "z5_fact",
+          "z8_fact"
+        ],
+        "skills": [
+          "html_css",
+          "js",
+          "vue",
+          "algo",
+          "python",
+          "git"
+        ]
+      },
+      "algo": {
+        "order": [
+          "z2_empty",
+          "z1_duty",
+          "z4_duty",
+          "z3_fact",
+          "z6_fact",
+          "z8_fact"
+        ],
+        "skills": [
+          "python",
+          "pytorch",
+          "ml",
+          "dl",
+          "algo",
+          "git"
+        ]
+      },
+      "data": {
+        "order": [
+          "z2_empty",
+          "z1_duty",
+          "z7_duty",
+          "z4_duty",
+          "z3_fact",
+          "z8_fact"
+        ],
+        "skills": [
+          "python",
+          "data",
+          "ml",
+          "stats",
+          "sql",
+          "ab"
+        ]
+      }
+    }
+  }
+}

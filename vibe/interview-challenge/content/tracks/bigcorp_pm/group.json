@@ -1,0 +1,547 @@
+{
+  "id": "group",
+  "name": "群面",
+  "company": "bigcorp",
+  "role": "pm",
+  "_note": "见策划案 4.6。5 人一组，观察员按四个维度给每人打分，前 3 名晋级。NPC 的分数由剧本固定，部分受玩家行为影响，结果完全确定。每个事件只有约 10 秒的插话窗口。",
+  "observer": {
+    "art": "A9s",
+    "title": "观察员"
+  },
+  "scene": "S3",
+  "case": {
+    "title": "塔塔学习 · 下个版本做什么",
+    "text": "塔塔学习要排下个版本的需求。下面 6 个只能先做 3 个，请小组在 15 分钟内排出优先级，并给出理由。",
+    "items": [
+      "A 学习打卡和连续天数徽章",
+      "B 错题本自动整理",
+      "C 学习小组（组队、排行）",
+      "D 老师端批改工具",
+      "E 夜间护眼模式",
+      "F 会员续费提醒优化"
+    ],
+    "materials": [
+      "新用户 7 日留存 18%，行业均值约 25%。",
+      "付费会员续费率 45%。",
+      "用户调研里，提到最多的抱怨是“错题不好找”。"
+    ]
+  },
+  "dims": {
+    "view": "观点贡献",
+    "push": "推动进程",
+    "collab": "倾听与协作",
+    "time": "时间意识"
+  },
+  "npcs": [
+    {
+      "id": "N1",
+      "name": "高扬",
+      "type": "抢话型",
+      "base": {
+        "view": 7,
+        "push": 5,
+        "collab": 2,
+        "time": 3
+      }
+    },
+    {
+      "id": "N2",
+      "name": "钟敏",
+      "type": "计时型",
+      "base": {
+        "view": 4,
+        "push": 5,
+        "collab": 4,
+        "time": 5
+      }
+    },
+    {
+      "id": "N3",
+      "name": "苏言",
+      "type": "沉默型",
+      "base": {
+        "view": 3,
+        "push": 1,
+        "collab": 3,
+        "time": 1
+      }
+    },
+    {
+      "id": "N4",
+      "name": "陆遥",
+      "type": "总结型",
+      "base": {
+        "view": 5,
+        "push": 4,
+        "collab": 4,
+        "time": 3
+      }
+    }
+  ],
+  "advance_top": 3,
+  "window_seconds": 10,
+  "conclusion": {
+    "need": 3,
+    "fail_penalty": 3,
+    "fail_text": "时间到了，小组没有交出结论。观察员在每个人的表上都扣了分。"
+  },
+  "miss": {
+    "streak": 3,
+    "penalty": 3
+  },
+  "summary_bonus": {
+    "npc": "N4",
+    "dims": {
+      "view": 1,
+      "push": 2
+    },
+    "progress": 1
+  },
+  "push_flag": {
+    "flag": "group_push",
+    "min_push": 6
+  },
+  "steps": [
+    {
+      "id": "g_stance",
+      "phase": "读题",
+      "speaker": "system",
+      "window": 25,
+      "text": "先读材料，再在心里定个立场：你觉得哪个需求该排第一？",
+      "options": [
+        {
+          "id": "gs_b",
+          "text": "先做错题本：调研里抱怨最多，直接解决痛点。",
+          "dims": {
+            "view": 2
+          },
+          "flags": [
+            "stance_b"
+          ]
+        },
+        {
+          "id": "gs_a",
+          "text": "先做打卡：7 日留存比行业低，打卡最直接拉留存。",
+          "dims": {
+            "view": 2
+          },
+          "flags": [
+            "stance_a"
+          ]
+        },
+        {
+          "id": "gs_c",
+          "text": "先做学习小组：组队和排行能带来增长，长期价值最大。",
+          "dims": {
+            "view": 1
+          },
+          "flags": [
+            "stance_c"
+          ]
+        }
+      ],
+      "explain": "三个立场都说得通。群面里立场本身不是关键，关键是你能不能拿材料里的数据撑住它。"
+    },
+    {
+      "id": "g_open",
+      "phase": "开场陈述",
+      "speaker": "observer",
+      "window": 15,
+      "text": "轮到你做开场陈述，一分钟。",
+      "options": [
+        {
+          "id": "go_a",
+          "text": "先亮出我的结论和排序，再一条条讲理由，开门见山最省时间。",
+          "dims": {
+            "view": 2,
+            "push": 1
+          }
+        },
+        {
+          "id": "go_b",
+          "text": "先提议一个比较标准：用户价值、实现成本、数据支撑。",
+          "dims": {
+            "push": 3,
+            "time": 1
+          },
+          "progress": 1,
+          "flags": [
+            "criteria"
+          ]
+        },
+        {
+          "id": "go_c",
+          "text": "先抛个砖：大家觉得哪个最重要？我想先听听。",
+          "dims": {
+            "collab": 1
+          },
+          "listen": 1
+        }
+      ],
+      "explain": "开场先给出比较标准，是群面里最划算的一步：后面整场讨论都会顺着你的框架走。"
+    },
+    {
+      "id": "g_e1",
+      "phase": "自由讨论 · 第 3 分钟",
+      "speaker": "N1",
+      "text": "高扬：“肯定先做学习小组啊，现在谁还一个人闷头学？”",
+      "options": [
+        {
+          "id": "ge1_a",
+          "text": "学习小组有价值，但留存数据不太支持把它排第一，我们看材料。",
+          "dims": {
+            "view": 2,
+            "push": 1
+          },
+          "reply": {
+            "speaker": "N1",
+            "line": "……那你说留存怎么看？"
+          }
+        },
+        {
+          "id": "ge1_b",
+          "text": "你这么说就是没看材料，太业余了。",
+          "redline": true,
+          "reply": {
+            "speaker": "N1",
+            "line": "……"
+          }
+        },
+        {
+          "id": "ge1_c",
+          "text": "嗯，学习小组也有道理，组队确实能互相督促，可以先放进前三。",
+          "dims": {
+            "collab": 1,
+            "view": -1
+          },
+          "flags": [
+            "conceded_social"
+          ],
+          "reply": {
+            "speaker": "N1",
+            "line": "对吧！那就这么定。"
+          }
+        },
+        {
+          "id": "ge1_d",
+          "text": "（先听他说完，把他的理由记下来）",
+          "dims": {
+            "collab": 1
+          },
+          "listen": 2,
+          "reply": {
+            "speaker": "N1",
+            "line": "……而且组队还能拉新！"
+          }
+        }
+      ],
+      "explain": "面对强势的人，有理有据地拉回材料最好；附和会被带偏；人身攻击是红线。先听完再说也不吃亏，记下来的东西最后做总结时用得上。"
+    },
+    {
+      "id": "g_e2",
+      "phase": "自由讨论 · 第 5 分钟",
+      "speaker": "N2",
+      "npc_progress": 1,
+      "text": "钟敏：“已经过了三分之一的时间了，我们要不先定个标准？”",
+      "options": [
+        {
+          "id": "ge2_a",
+          "text": "同意，我建议三个维度：用户价值、实现成本、数据支撑。",
+          "dims": {
+            "push": 2,
+            "time": 1
+          },
+          "progress": 1,
+          "flags": [
+            "criteria"
+          ],
+          "when": [
+            {
+              "flag": "criteria",
+              "dims": {
+                "push": 1,
+                "time": 1
+              },
+              "progress": 0
+            }
+          ],
+          "reply": {
+            "speaker": "N2",
+            "line": "好，就按这个来。"
+          }
+        },
+        {
+          "id": "ge2_b",
+          "text": "我来当计时员，每 5 分钟提醒大家一次，保证最后能交出结论。",
+          "dims": {
+            "time": 2
+          },
+          "reply": {
+            "speaker": "N2",
+            "line": "那标准呢？"
+          }
+        },
+        {
+          "id": "ge2_c",
+          "text": "先不急，大家再多说说想法，标准讨论中自然会出来。",
+          "dims": {
+            "push": -1,
+            "collab": 1
+          },
+          "reply": {
+            "speaker": "N2",
+            "line": "……好吧。"
+          }
+        }
+      ],
+      "explain": "抢计时员只拿得到一点时间意识的分；真正推动讨论的，是给出大家能用的标准。如果开场已经提过标准，这里接一句就够了。"
+    },
+    {
+      "id": "g_e3",
+      "phase": "自由讨论 · 第 7 分钟",
+      "speaker": "observer",
+      "text": "苏言一直没开口，低头在材料上划线。",
+      "options": [
+        {
+          "id": "ge3_a",
+          "text": "苏言，你刚才一直在材料上划线，有什么发现吗？",
+          "dims": {
+            "collab": 4
+          },
+          "listen": 1,
+          "flags": [
+            "insight"
+          ],
+          "npc": {
+            "N3": {
+              "view": 3,
+              "collab": 1
+            }
+          },
+          "reply": {
+            "speaker": "N3",
+            "line": "调研里抱怨最多的是“错题不好找”，我觉得错题本该排第一。"
+          }
+        },
+        {
+          "id": "ge3_b",
+          "text": "我再补充一点打卡那边的数据，留存那块还没人讲透。",
+          "dims": {
+            "view": 1
+          }
+        },
+        {
+          "id": "ge3_c",
+          "text": "（不打断现在的节奏，等他自己准备好了再开口）",
+          "dims": {}
+        }
+      ],
+      "explain": "邀请沉默的人发言，玩家的协作分涨得比对方多，还常常能挖出关键信息。这一课叫“群面不是零和”。"
+    },
+    {
+      "id": "g_e4",
+      "phase": "自由讨论 · 第 8 分钟",
+      "speaker": "N1",
+      "text": "高扬第三次打断了钟敏：“我还是觉得学习小组最重要！”",
+      "options": [
+        {
+          "id": "ge4_a",
+          "text": "我们先让钟敏把话说完。",
+          "dims": {
+            "push": 1,
+            "collab": 1
+          },
+          "reply": {
+            "speaker": "N1",
+            "line": "……行，你说。"
+          }
+        },
+        {
+          "id": "ge4_b",
+          "text": "等他说完，我提议按标准给每个需求打个分，再排。",
+          "dims": {
+            "push": 3
+          },
+          "progress": 1,
+          "flags": [
+            "criteria"
+          ],
+          "when": [
+            {
+              "flag": "criteria",
+              "dims": {
+                "push": 2
+              },
+              "progress": 1
+            }
+          ],
+          "reply": {
+            "speaker": "N2",
+            "line": "好，我来记分。"
+          }
+        },
+        {
+          "id": "ge4_c",
+          "text": "顺着他说：学习小组确实能拉留存，我补个数据。",
+          "dims": {
+            "view": 1
+          },
+          "progress": -1,
+          "reply": {
+            "speaker": "N1",
+            "line": "你看，他也同意！"
+          }
+        },
+        {
+          "id": "ge4_d",
+          "text": "苏言刚才那个发现，能不能再展开说说？",
+          "requires": {
+            "flag": "insight"
+          },
+          "dims": {
+            "collab": 2,
+            "view": 1
+          },
+          "reply": {
+            "speaker": "N3",
+            "line": "错题本解决的是用户最大的痛点，而且对留存也有帮助。"
+          },
+          "fallback": {
+            "id": "ge4_d0",
+            "text": "苏言，你怎么看？",
+            "dims": {
+              "collab": 4
+            },
+            "flags": [
+              "insight"
+            ],
+            "npc": {
+              "N3": {
+                "view": 3,
+                "collab": 1
+              }
+            },
+            "reply": {
+              "speaker": "N3",
+              "line": "调研里抱怨最多的是“错题不好找”……"
+            }
+          }
+        }
+      ],
+      "explain": "四种回应都说得过去，哪个最好取决于局面：小组还没有结构，就提议按标准打分；已经有标准，就推动打分；沉默的人手里有关键信息，就把话头交给他。"
+    },
+    {
+      "id": "g_e5",
+      "phase": "自由讨论 · 第 12 分钟",
+      "speaker": "N2",
+      "text": "钟敏：“只剩 3 分钟了，我们还没有结论。”",
+      "options": [
+        {
+          "id": "ge5_a",
+          "text": "按刚才的标准快速投票，少数服从多数。",
+          "dims": {
+            "push": 2,
+            "time": 2
+          },
+          "progress": 2,
+          "when": [
+            {
+              "not_flag": "criteria",
+              "dims": {
+                "push": 1,
+                "time": 2
+              },
+              "progress": 1
+            }
+          ],
+          "reply": {
+            "speaker": "N2",
+            "line": "好，开始投。"
+          }
+        },
+        {
+          "id": "ge5_b",
+          "text": "我先试着总结一下目前的共识，大家看有没有问题。",
+          "dims": {
+            "push": 2,
+            "view": 1
+          },
+          "progress": 1,
+          "reply": {
+            "speaker": "N4",
+            "line": "嗯，基本是这样。"
+          }
+        },
+        {
+          "id": "ge5_c",
+          "text": "再讨论两分钟，学习小组和打卡的顺序还没吵清楚。",
+          "dims": {
+            "time": -2
+          },
+          "progress": -1,
+          "reply": {
+            "speaker": "N1",
+            "line": "对，这个必须说清楚！"
+          }
+        }
+      ],
+      "explain": "时间快到时，能把讨论收住的人最值钱。没有标准就投票，会变成比谁嗓门大；有标准再投票，结论才站得住。"
+    },
+    {
+      "id": "g_sum",
+      "phase": "总结陈述",
+      "speaker": "N4",
+      "summary": true,
+      "text": "陆遥：“时间差不多了，我来做总结吧？”",
+      "options": [
+        {
+          "id": "gsum_a",
+          "text": "我来总结吧，我一直在记大家的观点。",
+          "take_summary": true,
+          "progress": 1,
+          "when": [
+            {
+              "listen_gte": 2,
+              "dims": {
+                "view": 3,
+                "push": 1
+              }
+            }
+          ],
+          "dims": {
+            "view": -2
+          },
+          "reply_bad": {
+            "speaker": "observer",
+            "line": "（总结漏掉了苏言提到的关键数据。）"
+          }
+        },
+        {
+          "id": "gsum_b",
+          "text": "你来总结，我补充错题本那个数据点。",
+          "requires": {
+            "flag": "insight"
+          },
+          "dims": {
+            "collab": 2,
+            "view": 1
+          },
+          "fallback": {
+            "id": "gsum_b0",
+            "text": "你来总结，我补充一点打卡的数据。",
+            "dims": {
+              "collab": 1,
+              "view": 1
+            }
+          }
+        },
+        {
+          "id": "gsum_c",
+          "text": "好，你来吧。",
+          "dims": {}
+        }
+      ],
+      "explain": "争着做总结人，前提是你前面一直在听、在记。一直抢着说话的人，最后往往总结不全。让给别人、再补一个关键点，同样加分。"
+    }
+  ]
+}

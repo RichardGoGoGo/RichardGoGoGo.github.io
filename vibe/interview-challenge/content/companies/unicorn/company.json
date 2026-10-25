@@ -1,0 +1,47 @@
+{
+  "_note": "公司底座：名称、风格、档位、虚构薪资表、信件、谈薪。关卡顺序、筛选设置、通过线和档位阈值跟着岗位线走（tracks/）。HR 面或创始人面这一轮放在这里，所有岗位共用。 类型（sector）、规模（scale）、阶段（stage，可选）的说法见 catalog.json；星数是这家公司自己的难度。 product 是这家公司的主打产品（可选），题里写 {co.product|你们的产品}。",
+  "id": "unicorn",
+  "name": "跃迁智能",
+  "sector": "internet",
+  "scale": "small",
+  "stage": "startup",
+  "short": "跃迁",
+  "product": "AI 写作助手",
+  "stars": 4,
+  "style": "年轻随性，亮色，墙上贴着便签，有白板",
+  "logo": "LOGO_yueqian",
+  "disclaimer": "游戏里的公司、流程和数字都是虚构的。流程按公开的求职资料概括，实际因公司和年份而异。",
+  "tiers": {},
+  "salary_table": {
+    "_note": "游戏设定，不代表市场行情。",
+    "_note_design": "这里是平衡方案的数，高现金、高期权按谈薪数据里的 packages 换算（月薪加减、期权乘倍数）。",
+    "白菜": {
+      "salary": 15,
+      "months": 13,
+      "options": 2000
+    },
+    "普通": {
+      "salary": 17,
+      "months": 13,
+      "options": 4000
+    },
+    "SP": {
+      "salary": 20,
+      "months": 14,
+      "options": 8000
+    },
+    "SSP": {
+      "salary": 23,
+      "months": 14,
+      "options": 15000,
+      "note": "特批"
+    }
+  },
+  "letters": {
+    "next_round": "【跃迁智能】你好！{round}通过了，{next}约在这周，具体时间 HR 会在微信上跟你对。",
+    "reject": "【跃迁智能】谢谢你来聊。我们这次决定先不往下推进，祝你找到合适的机会。",
+    "reject_aside": "（创业公司的拒信，通常就这么一句。）",
+    "offer": "【跃迁智能】欢迎加入！offer 见附件，有问题随时找我。——创始人"
+  },
+  "negotiation": "companies/unicorn/negotiation.json"
+}

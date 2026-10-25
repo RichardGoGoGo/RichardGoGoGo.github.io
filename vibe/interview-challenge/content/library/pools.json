@@ -1,0 +1,2418 @@
+{
+  "_note": "题池：公司级的一轮（HR 面、创始人面、国企综合面）里不专属于某家公司的题。轮次的题位写 {\"slot\": …, \"dynamic\": \"pool\", \"pool\": \"题池名\", \"swap\": true/false}，拼装时按条件（when）筛出这家公司能问的，按优先级从高到低排：正常打取第一道，重打这一轮（swap 为 true）换第二道。条件可以写 sector（类型）、scale（规模）、stage（阶段）、role、major_kind、degree、trait，值可以是一个或一组；不写就是通用。公司名用 {co.name}、简称用 {co.short}。扩展包可以用 pools 键追加。题池名：intro_hr 开场自我介绍、offers 手上还有别的流程吗、hr_misc HR 面的其他题（加班、缺点）、reverse 反问、panel_view / panel_plan / panel_assign / panel_people 国企综合面的综合分析、计划组织、服从安排、人际沟通。",
+  "questions": [
+    {
+      "id": "r3_intro",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": [
+          "mid",
+          "small"
+        ]
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "我们轻松聊聊。你先简单介绍一下自己？",
+        "options": [
+          {
+            "id": "r3i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "简单讲学校和专业，再讲一两段最相关的经历。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "r3i_b",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲讲我是怎么一步步决定做{role.name}的。",
+            "face": "nod",
+            "line": "挺有意思的。"
+          },
+          {
+            "id": "r3i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "重点讲专业细节，比如某个项目具体是怎么做的。",
+            "face": "calm",
+            "line": "嗯……技术那块，业务的同事已经看过了。"
+          }
+        ],
+        "explain": "同一个自我介绍，放在不同轮次效果不一样。HR 面多半围绕你这个人和你的选择来聊；技术细节业务面一般已经问过，再展开讲，HR 多半会把话题拉回来。"
+      }
+    },
+    {
+      "id": "b4_intro",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "我们轻松聊聊。你简单介绍一下自己？",
+        "options": [
+          {
+            "id": "b4i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "简单讲专业，再讲一两段最相关的经历。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "b4i_b",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲讲我是怎么一步步决定做{role.name}的。",
+            "face": "nod",
+            "line": "挺有意思的。"
+          },
+          {
+            "id": "b4i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "重点讲数据：各段经历里的数字一个个报出来。",
+            "face": "calm",
+            "line": "嗯……这些业务的同事看过了。"
+          }
+        ],
+        "explain": "HR 面多半围绕你这个人和你的选择来聊。一串数字留给业务面，到了 HR 面再报一遍，反而显得没抓住重点。"
+      }
+    },
+    {
+      "id": "soep_intro",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "请用两分钟左右，做一个自我介绍。",
+        "options": [
+          {
+            "id": "soep_i_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "按学校专业、最相关的两段经历、为什么报考来讲。",
+            "face": "nod",
+            "line": "嗯，好。"
+          },
+          {
+            "id": "soep_i_b",
+            "type": "safe",
+            "delta": 2,
+            "text": "讲我是怎么一步步决定来国企做{role.name}的。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_i_c",
+            "type": "off",
+            "delta": -3,
+            "text": "把每段经历的技术细节都展开讲清楚，讲满五分钟。",
+            "face": "frown",
+            "line": "时间到了，我们先往下进行。"
+          },
+          {
+            "id": "soep_i_d",
+            "type": "safe",
+            "delta": 1,
+            "text": "重点讲在校成绩、奖学金和担任过的学生干部。",
+            "face": "calm",
+            "line": "好的。"
+          }
+        ],
+        "explain": "结构化面试一般有时间要求，考官多是对着评分表打分。按“我是谁、做过什么、为什么来这儿”三段讲完最稳；只讲自己怎么做的决定也可以，就是少了经历撑着。技术细节留给专业面，讲超时会被打断；只报成绩和奖项，考官很难把你和这个岗位联系起来。"
+      }
+    },
+    {
+      "id": "q_other_offers",
+      "pools": [
+        "offers"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": [
+          "mid",
+          "small"
+        ]
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你现在手上还有其他公司的流程吗？",
+        "options": [
+          {
+            "id": "oo_a",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "first_company"
+            },
+            "flags": [
+              "claimed_only_us"
+            ],
+            "text": "只投了{co.name}，这是我最想去的。",
+            "face": "nod",
+            "line": "嗯，好的。",
+            "fallback": {
+              "id": "oo_a0",
+              "type": "off",
+              "delta": -1,
+              "flags": [
+                "claimed_only_us"
+              ],
+              "text": "只投了{co.name}，这是我最想去的。",
+              "face": "calm",
+              "line": "嗯，好的。"
+            }
+          },
+          {
+            "id": "oo_b",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "{process.company}那边{process.where}，{co.short}是我比较靠前的选择。",
+            "face": "nod",
+            "line": "了解，那我们这边抓紧。",
+            "fallback": {
+              "id": "oo_b0",
+              "type": "bold",
+              "text": "还有两家在走，都在早期，{co.short}是我比较靠前的选择。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "哪两家？到哪一步了？",
+                "options": [
+                  {
+                    "id": "oo_b1",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说两家不太准确，其实现在在走的就{co.short}一家。",
+                    "face": "frown",
+                    "line": "嗯，实话就好。"
+                  },
+                  {
+                    "id": "oo_b2",
+                    "type": "fail",
+                    "delta": -6,
+                    "flags": [
+                      "bluffed_process"
+                    ],
+                    "text": "一家笔试过了在等面试，一家简历还在评估，名字不太方便说。",
+                    "face": "calm",
+                    "line": "好，那我们这边会尽快。"
+                  },
+                  {
+                    "id": "oo_b3",
+                    "type": "partial",
+                    "delta": -3,
+                    "text": "具体还没定，我主要还是想听听{co.short}这边的安排。",
+                    "face": "calm",
+                    "line": "嗯。"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "oo_r",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "手上有{offer}，但我更想来{co.short}，希望能快一点。",
+            "face": "nod",
+            "line": "明白，我们这边尽快推进。",
+            "fallback": {
+              "id": "oo_c",
+              "type": "safe",
+              "delta": 1,
+              "text": "还在看几个机会，目前进展最快的就是你们。",
+              "face": "calm",
+              "line": "秋招嘛，理解。"
+            }
+          },
+          {
+            "id": "oo_d",
+            "type": "bold",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "text": "有一家已经在谈 offer 了，所以希望这边能快一点。",
+            "face": "probe",
+            "line": "哦？",
+            "followup": {
+              "text": "哪家？到哪一步了？",
+              "options": [
+                {
+                  "id": "oo_d1",
+                  "type": "partial",
+                  "delta": -2,
+                  "requires": {
+                    "flag": "has_other_process"
+                  },
+                  "flags": [
+                    "has_processes"
+                  ],
+                  "text": "说谈 offer 早了点，其实是{process.company}{process.where}。",
+                  "face": "frown",
+                  "line": "嗯，实话就好。",
+                  "fallback": {
+                    "id": "oo_d1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说谈 offer 早了点，其实现在在走的就{co.short}一家。",
+                    "face": "frown",
+                    "line": "嗯，实话就好。"
+                  }
+                },
+                {
+                  "id": "oo_d2",
+                  "type": "fail",
+                  "delta": -6,
+                  "flags": [
+                    "bluffed_offer"
+                  ],
+                  "text": "不太方便说名字，已经在谈薪了。",
+                  "face": "calm",
+                  "line": "好，那我们这边会尽快。"
+                },
+                {
+                  "id": "oo_d3",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没定，我主要还是想听听{co.short}这边的安排。",
+                  "face": "calm",
+                  "line": "嗯。"
+                }
+              ]
+            }
+          }
+        ],
+        "explain": "这题会影响后面的谈薪，真假以你在游戏里的投递进度为准。确实只投了这一家，照实说没有错，只是谈薪时少了“别家”这个筹码，要靠实习、作品这些依据去谈；有别的流程，如实说出来，HR 多半会因此加快流程；真拿到了 offer，可以如实说，这是正当的筹码。没有却说有，一追问就穿，这时如实改口比硬撑代价小。"
+      }
+    },
+    {
+      "id": "q_other_offers_x",
+      "pools": [
+        "offers"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你现在手上还有其他公司的流程吗？",
+        "options": [
+          {
+            "id": "ox_a",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "first_company"
+            },
+            "flags": [
+              "claimed_only_us"
+            ],
+            "text": "只投了{co.short}，这是我最想来的公司。",
+            "face": "nod",
+            "line": "嗯，好的。",
+            "fallback": {
+              "id": "ox_a0",
+              "type": "off",
+              "delta": -1,
+              "flags": [
+                "claimed_only_us"
+              ],
+              "text": "只投了{co.short}，这是我最想来的公司。",
+              "face": "calm",
+              "line": "嗯，好的。"
+            }
+          },
+          {
+            "id": "ox_b",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "{process.company}那边{process.where}，{role.name}岗我最想来{co.short}。",
+            "face": "nod",
+            "line": "了解，我们这边抓紧。",
+            "fallback": {
+              "id": "ox_b0",
+              "type": "bold",
+              "text": "有家中厂在等二面，{role.name}岗我最想来{co.short}。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "哪家？什么岗位？",
+                "options": [
+                  {
+                    "id": "ox_b1",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说在等二面不太准确，其实现在在走的就{co.short}一家。",
+                    "face": "frown",
+                    "line": "嗯，实话就好。"
+                  },
+                  {
+                    "id": "ox_b2",
+                    "type": "fail",
+                    "delta": -6,
+                    "flags": [
+                      "bluffed_process"
+                    ],
+                    "text": "一家中厂的{role.name}岗，名字不太方便说，二面约在下周。",
+                    "face": "calm",
+                    "line": "好，那我们这边会尽快。"
+                  },
+                  {
+                    "id": "ox_b3",
+                    "type": "partial",
+                    "delta": -3,
+                    "text": "具体还没定，我主要想听听{co.short}这边的安排。",
+                    "face": "calm",
+                    "line": "嗯。"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "ox_r",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "手上有{offer}，但{role.name}岗我最想来{co.short}。",
+            "face": "nod",
+            "line": "明白，我们这边尽快推进。",
+            "fallback": {
+              "id": "ox_c",
+              "type": "safe",
+              "delta": 1,
+              "text": "还在看几个机会，目前走得最远的就是{co.short}。",
+              "face": "calm",
+              "line": "秋招嘛，理解。"
+            }
+          },
+          {
+            "id": "ox_d",
+            "type": "bold",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "text": "有一家已经给了口头 offer，所以希望这边能快一点。",
+            "face": "probe",
+            "line": "哦？",
+            "followup": {
+              "text": "哪家？什么岗位？",
+              "options": [
+                {
+                  "id": "ox_d1",
+                  "type": "partial",
+                  "delta": -2,
+                  "requires": {
+                    "flag": "has_other_process"
+                  },
+                  "flags": [
+                    "has_processes"
+                  ],
+                  "text": "说口头 offer 不准确，其实是{process.company}{process.where}。",
+                  "face": "frown",
+                  "line": "嗯，实话就好。",
+                  "fallback": {
+                    "id": "ox_d1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说口头 offer 不准确，其实现在在走的就{co.short}一家。",
+                    "face": "frown",
+                    "line": "嗯，实话就好。"
+                  }
+                },
+                {
+                  "id": "ox_d2",
+                  "type": "fail",
+                  "delta": -6,
+                  "flags": [
+                    "bluffed_offer"
+                  ],
+                  "text": "不太方便说名字，是{role.name}岗，已经在谈薪了。",
+                  "face": "calm",
+                  "line": "好，那我们这边会尽快。"
+                },
+                {
+                  "id": "ox_d3",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没定，我主要想听听{co.short}这边的安排。",
+                  "face": "calm",
+                  "line": "嗯。"
+                }
+              ]
+            }
+          }
+        ],
+        "explain": "这题会影响后面的谈薪，真假以你在游戏里的投递进度为准。确实只投了这一家，照实说没有错，只是谈薪时少了“别家”这个筹码；如实说还有别的流程，HR 多半会因此加快流程；真拿到了 offer，可以如实说，{co.short}升档要看书面 offer，这是正当的筹码。没有却说有，谈薪时会被要求出示，被追问时如实改口比硬撑代价小。"
+      }
+    },
+    {
+      "id": "q_f_offers",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你现在还在看别的机会吗？",
+        "options": [
+          {
+            "id": "fo_a",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "{process.company}那边{process.where}，还没出结果。这边是我更想来的。",
+            "face": "nod",
+            "line": "嗯，坦白。",
+            "fallback": {
+              "id": "fo_a0",
+              "type": "bold",
+              "text": "有一家中厂在二面，还没出结果。这边是我更想来的。",
+              "face": "probe",
+              "line": "哪家？",
+              "followup": {
+                "text": "哪家？二面约的什么时候？",
+                "options": [
+                  {
+                    "id": "fo_a1",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说在二面不太准确，其实现在在走的就你们一家。",
+                    "face": "frown",
+                    "line": "嗯……"
+                  },
+                  {
+                    "id": "fo_a2",
+                    "type": "fail",
+                    "delta": -6,
+                    "flags": [
+                      "bluffed_process"
+                    ],
+                    "text": "名字不太方便说，二面约在下周。",
+                    "face": "calm",
+                    "line": "嗯。"
+                  },
+                  {
+                    "id": "fo_a3",
+                    "type": "partial",
+                    "delta": -3,
+                    "text": "具体还没定，我主要想看这边能不能定下来。",
+                    "face": "calm",
+                    "line": "嗯。"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "fo_b",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "first_company"
+            },
+            "flags": [
+              "claimed_only_us"
+            ],
+            "text": "没有，我只面了你们一家。",
+            "face": "nod",
+            "line": "只面了一家？好，那我们好好聊。",
+            "fallback": {
+              "id": "fo_b0",
+              "type": "off",
+              "delta": -1,
+              "flags": [
+                "claimed_only_us"
+              ],
+              "text": "没有，我只面了你们一家。",
+              "face": "calm",
+              "line": "只面了一家？"
+            }
+          },
+          {
+            "id": "fo_r",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "手上有{offer}，但这边是我更想来的。",
+            "face": "nod",
+            "line": "嗯，坦白。那我们得抓紧了。",
+            "fallback": {
+              "id": "fo_r0",
+              "type": "safe",
+              "delta": 1,
+              "text": "也在看几个机会，这边是我更想来的。",
+              "face": "calm",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "fo_c",
+            "type": "bold",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "flags": [
+              "bluffed_offer"
+            ],
+            "text": "有一家已经给了 offer，所以希望你们这边能尽快定下来。",
+            "face": "probe",
+            "line": "哪家？",
+            "followup": {
+              "text": "哪家？给了多少？什么时候要答复？",
+              "options": [
+                {
+                  "id": "fo_c1",
+                  "type": "partial",
+                  "delta": -2,
+                  "requires": {
+                    "flag": "has_other_process"
+                  },
+                  "text": "说 offer 不太准确，其实是{process.company}{process.where}，还没出结果。",
+                  "face": "frown",
+                  "line": "嗯……",
+                  "fallback": {
+                    "id": "fo_c1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说 offer 不太准确，其实现在在走的就你们一家。",
+                    "face": "frown",
+                    "line": "嗯……"
+                  }
+                },
+                {
+                  "id": "fo_c2",
+                  "type": "redline",
+                  "text": "那家给了 25k，下周就要答复，所以想尽快把这边定下来。",
+                  "face": "disappointed",
+                  "line": "那你先答复他们吧。"
+                },
+                {
+                  "id": "fo_c3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "具体是哪家不方便透露，反正那边催得挺急的，下周就要答复。",
+                  "face": "frown",
+                  "line": "急到不方便说？"
+                }
+              ]
+            }
+          }
+        ],
+        "explain": "问别的机会，答案多半会被拿来估计你会不会来、什么时候能定。真假以你在游戏里的投递进度为准：确实只面了这一家，照实说没有错；有真实的流程就照实说，真拿到了 offer 也可以如实说，这都是谈待遇时正当的筹码；没有却说“已经拿到 offer”，对方一追问是哪家、给多少，假的就撑不住。"
+      }
+    },
+    {
+      "id": "soep_offers",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "除了{co.name}，你目前还参加了其他单位的招聘吗？",
+        "options": [
+          {
+            "id": "soep_of_a",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "first_company"
+            },
+            "flags": [
+              "claimed_only_us"
+            ],
+            "text": "没有，{co.name}是我目前唯一在走的单位。",
+            "face": "nod",
+            "line": "好的。",
+            "fallback": {
+              "id": "soep_of_a0",
+              "type": "off",
+              "delta": -1,
+              "flags": [
+                "claimed_only_us"
+              ],
+              "text": "没有，{co.name}是我目前唯一在走的单位。",
+              "face": "calm",
+              "line": "好的。"
+            }
+          },
+          {
+            "id": "soep_of_b",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "{process.company}那边{process.where}，{co.short}是我的第一选择。",
+            "face": "nod",
+            "line": "好，了解。",
+            "fallback": {
+              "id": "soep_of_b0",
+              "type": "bold",
+              "text": "还有两家在走，都在早期，{co.short}是我的第一选择。",
+              "face": "probe",
+              "line": "哦？",
+              "followup": {
+                "text": "哪两家？到哪一步了？",
+                "options": [
+                  {
+                    "id": "soep_of_b1",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说两家不准确，其实现在在走的只有{co.short}一家。",
+                    "face": "frown",
+                    "line": "嗯，实话就好。"
+                  },
+                  {
+                    "id": "soep_of_b2",
+                    "type": "fail",
+                    "delta": -6,
+                    "flags": [
+                      "bluffed_process"
+                    ],
+                    "text": "一家过了笔试在等面试，一家在等简历结果，名字不便说。",
+                    "face": "calm",
+                    "line": "好的，我们记一下。"
+                  },
+                  {
+                    "id": "soep_of_b3",
+                    "type": "partial",
+                    "delta": -3,
+                    "text": "具体还没定，我主要想听听{co.short}这边的安排。",
+                    "face": "calm",
+                    "line": "嗯。"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "soep_of_r",
+            "type": "safe",
+            "delta": 3,
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "text": "手上有{offer}，但我更想来{co.short}，所以这边认真走完。",
+            "face": "nod",
+            "line": "好，了解。",
+            "fallback": {
+              "id": "soep_of_c",
+              "type": "safe",
+              "delta": 1,
+              "text": "还在看几个机会，有国企也有私企，还没定下来。",
+              "face": "calm",
+              "line": "秋招嘛，理解。"
+            }
+          },
+          {
+            "id": "soep_of_d",
+            "type": "bold",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "text": "有一家私企已经给了口头 offer，在等我答复。",
+            "face": "probe",
+            "line": "哦？",
+            "followup": {
+              "text": "哪家？给了你多久答复？",
+              "options": [
+                {
+                  "id": "soep_of_d1",
+                  "type": "partial",
+                  "delta": -2,
+                  "requires": {
+                    "flag": "has_other_process"
+                  },
+                  "flags": [
+                    "has_processes"
+                  ],
+                  "text": "说 offer 早了点，其实是{process.company}{process.where}。",
+                  "face": "frown",
+                  "line": "嗯，实话就好。",
+                  "fallback": {
+                    "id": "soep_of_d1b",
+                    "type": "partial",
+                    "delta": -2,
+                    "flags": [
+                      "claimed_only_us"
+                    ],
+                    "text": "说 offer 早了点，其实现在在走的只有{co.short}一家。",
+                    "face": "frown",
+                    "line": "嗯，实话就好。"
+                  }
+                },
+                {
+                  "id": "soep_of_d2",
+                  "type": "fail",
+                  "delta": -6,
+                  "flags": [
+                    "bluffed_offer"
+                  ],
+                  "text": "名字不便说，让我下周五前答复。",
+                  "face": "calm",
+                  "line": "好的，我们记一下。"
+                },
+                {
+                  "id": "soep_of_d3",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没定，我主要想听听{co.short}这边的安排。",
+                  "face": "calm",
+                  "line": "嗯。"
+                }
+              ]
+            }
+          }
+        ],
+        "explain": "这题会带进签约前的沟通，真假按你在游戏里的投递进度算。确实只在走这一家，照实说没问题；有别的流程，如实说出来，反而能让考官看到你是比较过才来的；真拿到了 offer，也可以如实说。多数国企的工资按职级和考核定档，别家 offer 一般压不了价，但能说明你的选择是主动的。没有却说有，一追问就穿，这时如实改口比硬撑代价小。"
+      }
+    },
+    {
+      "id": "q_overtime",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": [
+          "mid",
+          "small"
+        ]
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "我们忙起来会加班，你怎么看？",
+        "options": [
+          {
+            "id": "ot_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "项目需要时可以加，也想了解一下平时大概是什么节奏。",
+            "face": "nod",
+            "line": "旺季会忙一些，平时还好。"
+          },
+          {
+            "id": "ot_b",
+            "type": "safe",
+            "delta": 1,
+            "text": "希望尽量靠效率解决，非必要不加班，关键节点没问题。",
+            "face": "nod",
+            "line": "嗯，挺坦诚。"
+          },
+          {
+            "id": "ot_c",
+            "type": "safe",
+            "delta": 0,
+            "text": "加班有加班费吗？调休怎么算？",
+            "face": "calm",
+            "line": "有，入职时会跟你讲具体规则。"
+          },
+          {
+            "id": "ot_d",
+            "type": "off",
+            "delta": -1,
+            "text": "年轻就该多拼一拼，加班对我来说完全不是问题。",
+            "face": "calm",
+            "line": "我们也不提倡没意义的加班。"
+          }
+        ],
+        "explain": "问加班，关键是你的预期和团队的节奏对不对得上。表决心说“完全不是问题”，HR 多半会回一句不提倡没意义的加班；顺势问一句平时的节奏更有用，问加班费也完全正常。"
+      }
+    },
+    {
+      "id": "q_overtime_x",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "我们业务节奏比较快，忙起来会加班，你怎么看？",
+        "options": [
+          {
+            "id": "ox2_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "关键节点可以加，也想了解一下平时大概是什么节奏。",
+            "face": "nod",
+            "line": "版本前会忙一些，平时还好。"
+          },
+          {
+            "id": "ox2_b",
+            "type": "safe",
+            "delta": 1,
+            "text": "希望尽量靠效率解决，非必要不加班，关键节点没问题。",
+            "face": "nod",
+            "line": "嗯，挺坦诚。"
+          },
+          {
+            "id": "ox2_c",
+            "type": "safe",
+            "delta": 0,
+            "text": "加班有加班费或者调休吗？",
+            "face": "calm",
+            "line": "有，入职时会给你具体规则。"
+          },
+          {
+            "id": "ox2_d",
+            "type": "off",
+            "delta": -1,
+            "text": "年轻就该拼一拼，加班对我完全不是问题。",
+            "face": "calm",
+            "line": "我们也不提倡没意义的加班。"
+          }
+        ],
+        "explain": "问加班，关键是你的预期和团队的节奏对不对得上。表决心说“完全不是问题”，HR 多半会回一句不提倡没意义的加班；顺势问一句平时的节奏更有用，问加班费也完全正常。"
+      }
+    },
+    {
+      "id": "q_weakness_x",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 30,
+      "when": {
+        "role": "pm"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "说说你的一个缺点吧。",
+        "options": [
+          {
+            "id": "wx_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "容易追求完整、拖慢节奏，现在会先定好截止时间。",
+            "face": "nod",
+            "line": "嗯，挺具体。"
+          },
+          {
+            "id": "wx_b",
+            "type": "bold",
+            "text": "没有产品实习，写需求、和研发沟通的经验都少。",
+            "face": "probe",
+            "line": "那你打算怎么补？",
+            "followup": {
+              "text": "那你打算怎么补？",
+              "options": [
+                {
+                  "id": "wx_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "入职前把一个改进点写成完整需求，找学长挑毛病。",
+                  "face": "pleased",
+                  "line": "嗯，有具体计划。"
+                },
+                {
+                  "id": "wx_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "入职以后跟着同事慢慢学，在真实项目里写需求，进步才是最快的。",
+                  "face": "nod",
+                  "line": "嗯。"
+                },
+                {
+                  "id": "wx_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "这个不算什么问题，PRD 模板网上有很多，照着写上手就会了。",
+                  "face": "frown",
+                  "line": "那还算缺点吗？"
+                }
+              ]
+            },
+            "requires": {
+              "lacks_exp_type": "intern_pm"
+            },
+            "fallback": {
+              "id": "wx_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "实习时间短，写需求、和研发沟通的经验还不多。",
+              "face": "nod",
+              "line": "嗯。"
+            }
+          },
+          {
+            "id": "wx_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我太追求完美了，对自己要求太高，交东西前总要再改一遍。",
+            "face": "calm",
+            "line": "嗯……这个答案我今天已经听到好几次了。"
+          },
+          {
+            "id": "wx_d",
+            "type": "off",
+            "delta": -1,
+            "text": "我英语口语一般，开会要用英文汇报时会紧张。",
+            "face": "calm",
+            "line": "嗯，跟岗位关系不大。"
+          }
+        ],
+        "explain": "说缺点，关键是让 HR 看到你了解自己，也在改。“太追求完美”听得太多，反而像在回避。挑一个真实但不致命的，再说清怎么补。"
+      }
+    },
+    {
+      "id": "q_weakness",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 20,
+      "node": {
+        "tag": "动机与稳定",
+        "text": "说说你的一个缺点吧。",
+        "options": [
+          {
+            "id": "wk_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "刚开始不太敢问问题，喜欢自己查到底，现在会先给自己定个时限。",
+            "face": "nod",
+            "line": "嗯，挺具体。"
+          },
+          {
+            "id": "wk_b",
+            "type": "bold",
+            "text": "表达不算强，紧张时会说得很快，所以在{cite.where}里主动去做分享。",
+            "requires": {
+              "highlight": "talks"
+            },
+            "face": "probe",
+            "line": "哦？",
+            "fallback": {
+              "id": "wk_b0",
+              "type": "safe",
+              "delta": 1,
+              "text": "表达不算强，紧张时会说得很快，还在练。",
+              "face": "nod",
+              "line": "嗯。"
+            },
+            "followup": {
+              "text": "那你现在觉得好些了吗？",
+              "options": [
+                {
+                  "id": "wk_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "好多了。办了{cite.n}次分享，最后一次上台就没那么紧张了。",
+                  "face": "pleased",
+                  "line": "嗯，看得出来在改。"
+                },
+                {
+                  "id": "wk_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "还在练，偶尔还是会紧张，不过比以前好一些了。",
+                  "face": "nod",
+                  "line": "正常。"
+                },
+                {
+                  "id": "wk_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "已经完全没问题了，现在很擅长当众讲话，上台反而挺兴奋。",
+                  "face": "frown",
+                  "line": "那还算缺点吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "wk_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我太追求完美了，有时候对自己要求太高，交东西总想再改一遍。",
+            "face": "calm",
+            "line": "嗯……这个答案我今天已经听到第三次了。"
+          },
+          {
+            "id": "wk_d",
+            "type": "off",
+            "delta": -1,
+            "text": "我英语不太好，口语一般。",
+            "face": "calm",
+            "line": "嗯，跟岗位关系不大。"
+          }
+        ],
+        "explain": "说缺点，关键是让 HR 看到你了解自己，也在改。“太追求完美”听得太多，反而像在回避。挑一个真实但不致命的，再说清你在怎么改。"
+      }
+    },
+    {
+      "id": "r3_reverse",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": [
+          "mid",
+          "small"
+        ]
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边差不多了，你还有什么想了解的吗？",
+        "options": [
+          {
+            "id": "r3r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人进来会有导师吗？转正怎么考核？",
+            "face": "pleased",
+            "line": "有的，导师一对一带……"
+          },
+          {
+            "id": "r3r_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "薪资结构大概是怎样的？年终奖一般发几个月？",
+            "face": "nod",
+            "line": "这个后面谈 offer 的时候会细说。"
+          },
+          {
+            "id": "r3r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "能不能先给我定一个高一点的级别？我{p.lev_brag_short|项目经验挺多的}。",
+            "face": "calm",
+            "line": "定级是按面试评估来的。"
+          },
+          {
+            "id": "r3r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那等通知吧。"
+          }
+        ],
+        "explain": "到了 HR 面，问薪资福利完全正常。还没拿到 offer 就开口要级别，这个问题可能让 HR 觉得你在提前谈条件，多半会被一句“定级按面试评估”带过。"
+      }
+    },
+    {
+      "id": "b4_reverse",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "scale": "big"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边差不多了，你还有什么想了解的吗？",
+        "options": [
+          {
+            "id": "b4r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人进来有导师吗？转正怎么考核？",
+            "face": "pleased",
+            "line": "有的，导师一对一带……"
+          },
+          {
+            "id": "b4r_b",
+            "type": "reverse",
+            "delta": 0,
+            "text": "薪资结构是怎样的？股票怎么发？",
+            "face": "nod",
+            "line": "这个谈 offer 的时候会细说。"
+          },
+          {
+            "id": "b4r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "能不能直接给我定高一级？",
+            "face": "calm",
+            "line": "定级是按面试评估来的。"
+          },
+          {
+            "id": "b4r_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好，那等通知吧。"
+          }
+        ],
+        "explain": "到了 HR 面，问薪资和股票完全正常。还没拿到 offer 就开口要级别，这个问题可能让 HR 觉得你在提前谈条件，多半会被一句“定级按面试评估”带过。"
+      }
+    },
+    {
+      "id": "zf_reverse",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我问完了。你有什么想问我的？",
+        "options": [
+          {
+            "id": "zfr_a",
+            "type": "reverse",
+            "delta": 3,
+            "flags": [
+              "asked_runway"
+            ],
+            "text": "今年冲收支平衡，按现在的节奏，账上的钱大概够走多久？",
+            "face": "nod",
+            "line": "十八个月。今年冲收支平衡，冲不到就再融一轮。"
+          },
+          {
+            "id": "zfr_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "你们现在最缺什么样的人？{role.name}这块缺吗？",
+            "face": "nod",
+            "line": "能自己扛事的。"
+          },
+          {
+            "id": "zfr_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "期权大概能给多少？",
+            "face": "calm",
+            "line": "到谈 offer 的时候细说。"
+          },
+          {
+            "id": "zfr_d",
+            "type": "reverse",
+            "delta": -3,
+            "text": "没有了，谢谢。",
+            "face": "calm",
+            "line": "好。"
+          }
+        ],
+        "explain": "对创业公司，顺着创始人开场说的融资和目标，问一句“账上大概够走多久”不算冒犯，反而说明你在认真评估这家公司，语气是请教，不是审问；这个答案谈期权时也用得上。问“最缺什么样的人”也是好问题，只是没有前者贴着这家公司的处境。"
+      }
+    },
+    {
+      "id": "soep_reverse",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我们的问题问完了。你有什么想问考官的吗？",
+        "options": [
+          {
+            "id": "soep_r_a",
+            "type": "reverse",
+            "delta": 3,
+            "text": "轮岗结束后，定岗一般怎么定？看哪些方面？",
+            "face": "pleased",
+            "line": "会综合轮岗考核和个人意愿……"
+          },
+          {
+            "id": "soep_r_b",
+            "type": "reverse",
+            "delta": 1,
+            "text": "人才公寓和落户指标，一般到什么时候能确定下来？",
+            "face": "nod",
+            "line": "这个签约时人力资源部会细说。"
+          },
+          {
+            "id": "soep_r_c",
+            "type": "reverse",
+            "delta": -2,
+            "text": "想问一下，我今天的表现大概能排到第几名？",
+            "face": "calm",
+            "line": "成绩会统一通知。"
+          },
+          {
+            "id": "soep_r_d",
+            "type": "reverse",
+            "delta": -1,
+            "text": "没有了，谢谢各位考官。",
+            "face": "calm",
+            "line": "好，今天就到这里。"
+          }
+        ],
+        "explain": "结构化面试的反问环节，各单位做法不一样，有的不计分。问一个和入职后怎么干有关的问题，能让考官多记住你一点；福利可以问，不过签约时会专门谈；当场问排名，成绩一般统一通知，考官多半只会让你等通知，这个问题还可能让考官关注到你沉不住气。直接说没有问题不算错，只是少了一次表现的机会。"
+      }
+    },
+    {
+      "id": "soep_view",
+      "pools": [
+        "panel_view"
+      ],
+      "priority": 50,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "有人说，年轻人进国企就是图安稳、熬资历。你怎么看？",
+        "options": [
+          {
+            "id": "soep_v_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "现象有，但安稳和干事不矛盾，看自己怎么定目标。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_v_b",
+            "type": "bold",
+            "text": "我不太同意，也说说我打算怎么让自己不只是“熬”。",
+            "face": "probe",
+            "line": "好，说说。",
+            "followup": {
+              "text": "那头三年，你具体打算怎么做？",
+              "options": [
+                {
+                  "id": "soep_v_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "轮岗时把一线的问题记成清单，回来推动改掉一个。",
+                  "face": "pleased",
+                  "line": "嗯，有具体的抓手。"
+                },
+                {
+                  "id": "soep_v_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "多学习、多请教，单位组织的培训和比赛都积极报名参加。",
+                  "face": "calm",
+                  "line": "这个大家都会做。"
+                },
+                {
+                  "id": "soep_v_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "先把人际关系处好，资历够了，机会自然就有了。",
+                  "face": "frown",
+                  "line": "这不就是你说的“熬”吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_v_c",
+            "type": "off",
+            "delta": -3,
+            "text": "说得挺对，我确实也是冲着安稳来的，这也没什么不好。",
+            "face": "frown",
+            "line": "嗯……"
+          },
+          {
+            "id": "soep_v_d",
+            "type": "off",
+            "delta": -1,
+            "text": "这完全是偏见，我认识的国企年轻人，个个都特别拼。",
+            "face": "calm",
+            "line": "个个都？"
+          }
+        ],
+        "explain": "综合分析题看你看问题全不全面：先承认现象确实有，再说原因和片面在哪，最后落到自己怎么做。一口认同，等于告诉考官你就是来熬的；一口否定、说“个个都拼”，又显得没想过。能拿出一个具体的抓手，比表态有说服力；“处好关系、熬够资历”恰好是题目在批评的那种做法。"
+      }
+    },
+    {
+      "id": "soep_newsys",
+      "pools": [
+        "panel_view"
+      ],
+      "priority": 40,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "单位推了一套新系统，一线员工反映“比原来还麻烦”。你怎么看？",
+        "options": [
+          {
+            "id": "soep_ns_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先分清是流程多了，还是没培训到位，再对症改。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_ns_b",
+            "type": "bold",
+            "text": "先去一线跟着用半天，看麻烦具体出在哪一步。",
+            "face": "probe",
+            "line": "好，那我追问。",
+            "followup": {
+              "text": "如果查下来，是新系统要多录几项数据，确实省不掉呢？",
+              "options": [
+                {
+                  "id": "soep_ns_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先讲清这几项数据用在哪，能从别的系统带出的就自动带出。",
+                  "face": "pleased",
+                  "line": "嗯，两头都顾到了。"
+                },
+                {
+                  "id": "soep_ns_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那只能请一线克服一下，多培训几次，用久了也就习惯了。",
+                  "face": "calm",
+                  "line": "嗯……"
+                },
+                {
+                  "id": "soep_ns_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "先把这几项改成选填，等大家用顺了，再一项项改回必填。",
+                  "face": "frown",
+                  "line": "那这段时间的数据呢？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_ns_c",
+            "type": "off",
+            "delta": -3,
+            "text": "一线抵触新东西很正常，强制推一个月，大家自然就用顺了。",
+            "face": "frown",
+            "line": "强制？"
+          },
+          {
+            "id": "soep_ns_d",
+            "type": "off",
+            "delta": -1,
+            "text": "说明系统设计得不好，应该让供应商重新做一套。",
+            "face": "calm",
+            "line": "重做的成本谁来担？"
+          }
+        ],
+        "explain": "新系统推不动，先别急着断定是人的问题还是系统的问题，到现场看清麻烦出在哪一步。确实省不掉的录入，要讲清用途，再想办法减轻负担；为了推得快悄悄放松要求，这段时间的数据就靠不住了。强推和推倒重来，都跳过了“弄清原因”这一步。"
+      }
+    },
+    {
+      "id": "soep_train",
+      "pools": [
+        "panel_plan"
+      ],
+      "priority": 50,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "单位要在两周内，给下属单位的一线员工培训新系统，交给你负责。你怎么安排？",
+        "options": [
+          {
+            "id": "soep_t_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "摸清人数、排班和要用的功能，分批排期，留答疑。",
+            "face": "nod",
+            "line": "嗯，思路清楚。"
+          },
+          {
+            "id": "soep_t_b",
+            "type": "bold",
+            "text": "先挑两个单位试讲，按反馈把材料改好，再铺开。",
+            "face": "probe",
+            "line": "嗯，然后呢？",
+            "followup": {
+              "text": "试讲时发现，有个单位基本都是倒班，人凑不齐。怎么办？",
+              "options": [
+                {
+                  "id": "soep_t_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "录一版短视频配操作手册，请班长带着练，事后抽查。",
+                  "face": "pleased",
+                  "line": "嗯，考虑到实际情况了。"
+                },
+                {
+                  "id": "soep_t_b2",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "跟他们领导商量，请他们统一调一次班来参加。",
+                  "face": "nod",
+                  "line": "可以试试，就怕调不开。"
+                },
+                {
+                  "id": "soep_t_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按原计划来，没来的人登记下来，培训结束后统一报给领导。",
+                  "face": "frown",
+                  "line": "那这些人还是不会用。"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_t_c",
+            "type": "off",
+            "delta": -3,
+            "text": "做一份详细的操作手册发到群里，大家自学，有问题找我。",
+            "face": "frown",
+            "line": "都能自学会？"
+          },
+          {
+            "id": "soep_t_d",
+            "type": "off",
+            "delta": -1,
+            "text": "请供应商的工程师来讲，我负责订会议室、发通知、签到。",
+            "face": "calm",
+            "line": "那你负责的是什么？"
+          }
+        ],
+        "explain": "计划组织题看你能不能把一件事从头排到尾：先摸清对象和约束，再排期、准备、执行，最后检查效果。只发手册让人自学、只管会务，都没有对“学没学会”负责；碰到倒班这类现实约束，换一种能落地的形式，比硬按原计划走、事后报名单有用。"
+      }
+    },
+    {
+      "id": "soep_slip",
+      "pools": [
+        "panel_plan"
+      ],
+      "priority": 40,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "领导让你周五向集团汇报数据。周四晚上，你发现材料里一个关键数字算错了。你怎么办？",
+        "options": [
+          {
+            "id": "soep_sl_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "马上核对改正，当晚就跟领导说清错在哪、改了什么。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_sl_b",
+            "type": "bold",
+            "text": "先查清错的范围有多大，带着改好的版本去找领导。",
+            "face": "probe",
+            "line": "那我追问一句。",
+            "followup": {
+              "text": "领导说，旧版周三已经发给集团了。怎么办？",
+              "options": [
+                {
+                  "id": "soep_sl_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "请领导定要不要发更正，我把更正说明和新版本备好。",
+                  "face": "pleased",
+                  "line": "嗯，分寸对。"
+                },
+                {
+                  "id": "soep_sl_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那就在汇报时口头说一句，之前的数算错了。",
+                  "face": "calm",
+                  "line": "口头说，书面的呢？"
+                },
+                {
+                  "id": "soep_sl_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "既然已经发了，差得也不多，汇报时直接换成新数就行了。",
+                  "face": "frown",
+                  "line": "集团那边对不上怎么办？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_sl_c",
+            "type": "off",
+            "delta": -3,
+            "text": "自己悄悄改好，不惊动领导，汇报时用新版就行。",
+            "face": "frown",
+            "line": "领导不知道，到时候怎么讲？"
+          },
+          {
+            "id": "soep_sl_d",
+            "type": "off",
+            "delta": -1,
+            "text": "先不声张，明早找同事一起把全部数据再核一遍。",
+            "face": "calm",
+            "line": "那领导什么时候知道？"
+          }
+        ],
+        "explain": "应急题看两点：先控制住错误，再让该知道的人及时知道。发现了就改、改完马上说清楚，是最稳的；已经发出去的东西，发不发更正、怎么发，要请领导定，你负责把材料备好。悄悄改掉或者将错就错，等于把风险藏起来，被对方先发现时更被动；拖到第二天再说，也耽误了领导做判断的时间。"
+      }
+    },
+    {
+      "id": "soep_onsite",
+      "pools": [
+        "panel_assign"
+      ],
+      "priority": 50,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "这个岗位有时要到下属单位驻场，一去两三个月。你能接受吗？",
+        "options": [
+          {
+            "id": "soep_on_a",
+            "type": "safe",
+            "delta": 3,
+            "flags": [
+              "soe_ok_assign"
+            ],
+            "text": "能接受，想问一下驻场多久、中间能不能回来。",
+            "face": "nod",
+            "line": "看项目，一般两三个月，中间可以轮换。"
+          },
+          {
+            "id": "soep_on_b",
+            "type": "bold",
+            "flags": [
+              "soe_ok_assign"
+            ],
+            "text": "能。我觉得驻场是摸清一线业务最快的办法。",
+            "face": "probe",
+            "line": "那我问个具体的。",
+            "followup": {
+              "text": "驻场时，那边的同事总找你干本职以外的杂活。你怎么办？",
+              "options": [
+                {
+                  "id": "soep_on_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先排好本职，顺手能帮的就帮，影响进度的跟带队的人说清楚。",
+                  "face": "pleased",
+                  "line": "嗯，有分寸。"
+                },
+                {
+                  "id": "soep_on_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "都先帮着做，刚去要先把关系处好，本职晚上加班补回来。",
+                  "face": "calm",
+                  "line": "能撑多久？"
+                },
+                {
+                  "id": "soep_on_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "直接拒绝，跟他们说这不是我的活，让他们去找对口的人。",
+                  "face": "frown",
+                  "line": "以后还怎么在那边待？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_on_c",
+            "type": "safe",
+            "delta": 1,
+            "flags": [
+              "soe_ok_assign"
+            ],
+            "text": "服从安排，单位让我去哪我就去哪。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_on_d",
+            "type": "off",
+            "delta": -3,
+            "text": "驻场可能不太行，我更希望固定在总部上班。",
+            "face": "frown",
+            "line": "招聘公告里写了要驻场的。"
+          }
+        ],
+        "explain": "问能不能驻场，关键是你的预期和岗位对不对得上。能接受就说能，顺便问清期限，最实在；只表态“服从安排”也行，就是考官听不到你的想法。真有困难可以如实说出具体是什么、哪些安排能接受，但直接说“不太行”，等于拒掉了岗位的一部分。驻场时的杂活，帮忙和本职要分清主次，说清楚比硬扛或者一口回绝都好。"
+      }
+    },
+    {
+      "id": "soep_transfer",
+      "pools": [
+        "panel_assign"
+      ],
+      "priority": 40,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "如果录用以后，单位根据需要把你调到另一个岗位，和你报的不一样，你怎么看？",
+        "options": [
+          {
+            "id": "soep_tr_a",
+            "type": "safe",
+            "delta": 3,
+            "flags": [
+              "soe_ok_assign"
+            ],
+            "text": "先服从安排，再问清新岗位做什么、以后能不能调。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_tr_b",
+            "type": "bold",
+            "flags": [
+              "soe_ok_assign"
+            ],
+            "text": "能接受，{role.name}打下的底子，换到别的岗位也用得上。",
+            "face": "probe",
+            "line": "那我举个例子。",
+            "followup": {
+              "text": "比如调你去下属单位做系统的实施和运维，你打算怎么开始？",
+              "options": [
+                {
+                  "id": "soep_tr_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "跟老员工把常见问题过一遍，看哪些能做成小工具。",
+                  "face": "pleased",
+                  "line": "嗯，能把底子用上。"
+                },
+                {
+                  "id": "soep_tr_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "先干着，同时盯着内部机会，有空缺就申请调回{role.name}岗。",
+                  "face": "calm",
+                  "line": "那这段时间呢？"
+                },
+                {
+                  "id": "soep_tr_b3",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "说实话，真要那样的话，我得回去再考虑一下还来不来。",
+                  "face": "frown",
+                  "line": "你刚才不是说能接受吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_tr_c",
+            "type": "off",
+            "delta": -3,
+            "text": "那我可能不会接受，我报的是{role.name}，以后也只想做这个。",
+            "face": "frown",
+            "line": "嗯，我们知道了。"
+          },
+          {
+            "id": "soep_tr_d",
+            "type": "off",
+            "delta": -1,
+            "text": "什么岗位都行，只要能进{co.short}，干什么我都愿意。",
+            "face": "calm",
+            "line": "你自己想做什么呢？"
+          }
+        ],
+        "explain": "服从调剂是国企面试的常见题。先表态能接受，再问清新岗位做什么、有没有调整的通道，既有态度也有想法；说“只想做某个岗”很诚实，但真接受不了调剂，最好在报名时就想清楚。“什么都行”听着灵活，其实让考官看不到你的方向；嘴上说能接受、一举例就动摇，前后对不上，比一开始说实话还糟。"
+      }
+    },
+    {
+      "id": "soep_agree",
+      "pools": [
+        "panel_people"
+      ],
+      "priority": 50,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "请举一个你和别人意见不一致、最后谈拢的例子。",
+        "options": [
+          {
+            "id": "soep_a_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "从{cite.label}里挑一次分歧，按起因、做法、结果讲清楚。",
+            "requires": {
+              "nth_header": 1
+            },
+            "face": "nod",
+            "line": "嗯。",
+            "fallback": {
+              "id": "soep_a_a0",
+              "type": "safe",
+              "delta": 1,
+              "text": "讲小组作业里一次分工的分歧，最后大家是怎么谈拢的。",
+              "face": "calm",
+              "line": "嗯……具体怎么谈拢的？"
+            }
+          },
+          {
+            "id": "soep_a_b",
+            "type": "bold",
+            "text": "{p.soe_agree|讲一次我说服别人改方案的经过，先讲对方的顾虑。}",
+            "face": "probe",
+            "line": "说说看。",
+            "followup": {
+              "text": "对方一开始为什么不同意？后来是怎么谈拢的？",
+              "options": [
+                {
+                  "id": "soep_a_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "{p.soe_agree_hold|先问清对方担心什么，拿一个小范围的试用让他看到效果。}",
+                  "face": "pleased",
+                  "line": "嗯，能听进别人的顾虑。"
+                },
+                {
+                  "id": "soep_a_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "我把道理从头到尾讲了好几遍，他最后也就同意了。",
+                  "face": "calm",
+                  "line": "怎么让他同意的？"
+                },
+                {
+                  "id": "soep_a_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "实在谈不拢，就去找他的领导，领导拍板按我的方案来。",
+                  "face": "frown",
+                  "line": "那后来你们还好合作吗？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_a_c",
+            "type": "off",
+            "delta": -3,
+            "text": "我一般不跟人争，大家怎么定我就怎么做。",
+            "face": "frown",
+            "line": "一次分歧都没有过？"
+          },
+          {
+            "id": "soep_a_d",
+            "type": "off",
+            "delta": -1,
+            "text": "讲社团里一次争执，最后大家投票，按多数人的意见来。",
+            "face": "calm",
+            "line": "投票之前呢？"
+          }
+        ],
+        "explain": "行为题要的是一件真事：分歧在哪、对方顾虑什么、你做了什么让双方谈拢。说得出对方为什么不同意，说明你真的听进去了；“讲了好几遍他就同意了”、一上来就找领导拍板，考官都听不到沟通本身。说自己从不跟人争，等于没举出例子；投票能结束争论，但不等于谈拢。"
+      }
+    },
+    {
+      "id": "soep_oldhand",
+      "pools": [
+        "panel_people"
+      ],
+      "priority": 40,
+      "when": {
+        "sector": "soe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "科室一位老同事习惯用手工台账，不愿用新系统，还当众说新系统添乱。你怎么处理？",
+        "options": [
+          {
+            "id": "soep_o_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "私下请教他台账好在哪，看新系统能不能补上。",
+            "face": "nod",
+            "line": "嗯。"
+          },
+          {
+            "id": "soep_o_b",
+            "type": "bold",
+            "text": "先帮他把一个月的台账导进系统，让他看看能省哪些事。",
+            "face": "probe",
+            "line": "要是他还不用呢？",
+            "followup": {
+              "text": "他还是不用，说“老办法用了二十年，没出过错”。怎么办？",
+              "options": [
+                {
+                  "id": "soep_o_b1",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "请他帮忙核对新系统的数，先当把关的人。",
+                  "face": "pleased",
+                  "line": "嗯，这个办法好。"
+                },
+                {
+                  "id": "soep_o_b2",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "那先让他用老办法，我每月把他的数据补录进系统。",
+                  "face": "calm",
+                  "line": "你能一直替他录吗？"
+                },
+                {
+                  "id": "soep_o_b3",
+                  "type": "fail",
+                  "delta": -5,
+                  "text": "跟科长反映，请领导出面，要求他必须用新系统。",
+                  "face": "frown",
+                  "line": "这样他就服气了？"
+                }
+              ]
+            }
+          },
+          {
+            "id": "soep_o_c",
+            "type": "off",
+            "delta": -3,
+            "text": "当场把新系统的好处一条条讲清楚，免得影响其他同事。",
+            "face": "frown",
+            "line": "当着大家的面？"
+          },
+          {
+            "id": "soep_o_d",
+            "type": "off",
+            "delta": -1,
+            "text": "他不用就算了，我管好自己这一摊，月底把数对上就行。",
+            "face": "calm",
+            "line": "这套系统是全科室都要用的。"
+          }
+        ],
+        "explain": "处理老同事的抵触，先尊重，再化解：私下弄清他的顾虑，让新系统真的替他省事，再给他一个能发挥经验的位置。当众辩论容易让对方下不来台；一上来请领导施压，事情推下去了，人心没过来；绕开他自己补录，只是把问题藏起来，还给自己加了一份长期的活。"
+      }
+    },
+    {
+      "id": "cpx_foreign_intro",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "假设这轮会有一段英文交流，请简单介绍与岗位相关的经历；听不清的问题可以确认。你怎么准备开场？",
+        "options": [
+          {
+            "id": "cpx_foreign_intro_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "选真实经历，练清任务、个人职责和结果。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "cpx_foreign_intro_b",
+            "type": "bold",
+            "text": "用简短表达讲判断与限制，必要时先确认术语。",
+            "face": "probe",
+            "line": "那具体说一下。",
+            "followup": {
+              "text": "你能写英文文档，但临场讨论复杂问题经验不多，怎么说明？",
+              "options": [
+                {
+                  "id": "cpx_foreign_intro_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "说明能做的任务和待补部分，确认实际沟通要求。",
+                  "face": "pleased",
+                  "line": "嗯，这样更准确。"
+                },
+                {
+                  "id": "cpx_foreign_intro_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "说能处理一般交流，复杂讨论入职后再适应。",
+                  "face": "calm",
+                  "line": "还有什么要补充？"
+                },
+                {
+                  "id": "cpx_foreign_intro_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "先承诺全英文工作没问题，避免被认为语言不足。",
+                  "face": "frown",
+                  "line": "这个承诺有依据吗？"
+                }
+              ],
+              "explain": "这里考准确表达与岗位匹配，不按外企标签假定统一语言要求。真实任务、职责与结论应先清楚，再选择能说准确的语言；听不清可以确认。能够写文档不等于已熟练主持复杂讨论，明确能力边界并核对岗位要求，比背长稿或过度承诺可靠。"
+            }
+          },
+          {
+            "id": "cpx_foreign_intro_c",
+            "type": "off",
+            "delta": -3,
+            "text": "准备一段覆盖所有经历的长稿，确保信息完整。",
+            "face": "calm",
+            "line": "我们还需要了解你的职责边界。"
+          }
+        ],
+        "explain": "这里考准确表达与岗位匹配，不按外企标签假定统一语言要求。真实任务、职责与结论应先清楚，再选择能说准确的语言；听不清可以确认。能够写文档不等于已熟练主持复杂讨论，明确能力边界并核对岗位要求，比背长稿或过度承诺可靠。"
+      }
+    },
+    {
+      "id": "cpx_hardtech_intro",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "这个岗位可能跟随项目经历验证、交付与现场反馈。请介绍一段最相关的经历。",
+        "options": [
+          {
+            "id": "cpx_hardtech_intro_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲任务、个人职责、验证结果和未完成部分。",
+            "face": "nod",
+            "line": "嗯，清楚。"
+          },
+          {
+            "id": "cpx_hardtech_intro_b",
+            "type": "bold",
+            "text": "把做成的部分与待验证条件分开介绍。",
+            "face": "probe",
+            "line": "那具体说一下。",
+            "followup": {
+              "text": "你只完成过实验验证，没参与量产交付，怎么衔接这个岗位？",
+              "options": [
+                {
+                  "id": "cpx_hardtech_intro_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "如实划清经历，讲可迁移方法并了解交付责任。",
+                  "face": "pleased",
+                  "line": "嗯，这样更准确。"
+                },
+                {
+                  "id": "cpx_hardtech_intro_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先重点讲验证，量产经历留待对方追问。",
+                  "face": "calm",
+                  "line": "还有什么要补充？"
+                },
+                {
+                  "id": "cpx_hardtech_intro_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "实验指标达标就说明交付可用，可以按完整项目介绍。",
+                  "face": "frown",
+                  "line": "这个承诺有依据吗？"
+                }
+              ],
+              "explain": "实验验证、试点与正式交付有不同条件。介绍应准确划分自己参与的阶段，说明验证范围、未解决条件和可迁移能力；未经历量产无需冒充。团队规模不能代替个人贡献，实验达标也不能自动推导现场长期可用，岗位实际阶段仍需确认。"
+            }
+          },
+          {
+            "id": "cpx_hardtech_intro_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先讲团队最终交付规模，再讲用到的工具和技术。",
+            "face": "calm",
+            "line": "我们还需要了解你的职责边界。"
+          }
+        ],
+        "explain": "实验验证、试点与正式交付有不同条件。介绍应准确划分自己参与的阶段，说明验证范围、未解决条件和可迁移能力；未经历量产无需冒充。团队规模不能代替个人贡献，实验达标也不能自动推导现场长期可用，岗位实际阶段仍需确认。"
+      }
+    },
+    {
+      "id": "cpx_foreign_offers",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "诚信",
+        "text": "这轮之后还需协调其他同事参与，请问你目前的求职进度和时间约束？",
+        "options": [
+          {
+            "id": "cpx_foreign_offers_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "如实说明现有流程和时间约束，未确定的标清。",
+            "face": "nod",
+            "line": "了解，我们按已确认信息协调。",
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "cpx_foreign_offers_a0",
+              "type": "safe",
+              "delta": 3,
+              "text": "如实说明目前进度，未确认的日期不作承诺。",
+              "face": "nod",
+              "line": "嗯，我们再核对安排。"
+            }
+          },
+          {
+            "id": "cpx_foreign_offers_r",
+            "type": "safe",
+            "delta": 3,
+            "text": "说明已有真实 offer 和期限，再确认后续安排。",
+            "face": "nod",
+            "line": "收到，我们核对可推进的时间。",
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "cpx_foreign_offers_r0",
+              "type": "safe",
+              "delta": 2,
+              "text": "先问剩余流程与预计节点，再安排自己的选择。",
+              "face": "nod",
+              "line": "可以，我们介绍当前流程。"
+            }
+          },
+          {
+            "id": "cpx_foreign_offers_b",
+            "type": "bold",
+            "text": "说别家已经确定录用，希望这边尽快给结果。",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "face": "probe",
+            "line": "具体是哪一步确认了？",
+            "followup": {
+              "text": "你没有拿到真实 offer，刚才说确定录用，具体指什么？",
+              "options": [
+                {
+                  "id": "cpx_foreign_offers_h",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "刚才说重了，还没有真实 offer，按实际进度说明。",
+                  "face": "frown",
+                  "line": "嗯，我们以实际进度为准。"
+                },
+                {
+                  "id": "cpx_foreign_offers_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没落纸面，主要想先确认你们的时间。",
+                  "face": "calm",
+                  "line": "那就先不按录用来理解。"
+                },
+                {
+                  "id": "cpx_foreign_offers_f",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "已经确定了，只是暂时不能提供任何可核对信息。",
+                  "face": "disappointed",
+                  "line": "这个说法前后不一致。"
+                }
+              ],
+              "explain": "如实更正要承担前面夸大造成的损失，但比继续含糊或编造更能恢复可信度。尚在面试、口头意向和正式录用应准确区分，不要用不存在的结果制造时间压力。"
+            }
+          }
+        ],
+        "explain": "多方参与的流程需要协调时间，但具体步骤应以当前岗位为准。候选人可以如实说明其他面试、真实录用和回复期限，并询问剩余环节；不要把未确认的意向说成录用，也不必披露保密内容。信息准确才能安排选择，夸大不会让不确定的流程变成确定承诺。"
+      }
+    },
+    {
+      "id": "cpx_hardtech_offers",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "诚信",
+        "text": "我们正在协调项目入组时间，也可能有现场安排。你还有其他流程或必须确认的时间吗？",
+        "options": [
+          {
+            "id": "cpx_hardtech_offers_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "如实说明现有流程和时间约束，未确定的标清。",
+            "face": "nod",
+            "line": "了解，我们按已确认信息协调。",
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "cpx_hardtech_offers_a0",
+              "type": "safe",
+              "delta": 3,
+              "text": "如实说明目前进度，未确认的日期不作承诺。",
+              "face": "nod",
+              "line": "嗯，我们再核对安排。"
+            }
+          },
+          {
+            "id": "cpx_hardtech_offers_r",
+            "type": "safe",
+            "delta": 3,
+            "text": "说明已有真实 offer 和期限，再确认后续安排。",
+            "face": "nod",
+            "line": "收到，我们核对可推进的时间。",
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "cpx_hardtech_offers_r0",
+              "type": "safe",
+              "delta": 2,
+              "text": "先问剩余流程与预计节点，再安排自己的选择。",
+              "face": "nod",
+              "line": "可以，我们介绍当前流程。"
+            }
+          },
+          {
+            "id": "cpx_hardtech_offers_b",
+            "type": "bold",
+            "text": "说别家已经确定录用，希望这边尽快给结果。",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "face": "probe",
+            "line": "具体是哪一步确认了？",
+            "followup": {
+              "text": "你没有拿到真实 offer，刚才说确定录用，具体指什么？",
+              "options": [
+                {
+                  "id": "cpx_hardtech_offers_h",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "刚才说重了，还没有真实 offer，按实际进度说明。",
+                  "face": "frown",
+                  "line": "嗯，我们以实际进度为准。"
+                },
+                {
+                  "id": "cpx_hardtech_offers_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没落纸面，主要想先确认你们的时间。",
+                  "face": "calm",
+                  "line": "那就先不按录用来理解。"
+                },
+                {
+                  "id": "cpx_hardtech_offers_f",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "已经确定了，只是暂时不能提供任何可核对信息。",
+                  "face": "disappointed",
+                  "line": "这个说法前后不一致。"
+                }
+              ],
+              "explain": "如实更正要承担前面夸大造成的损失，但比继续含糊或编造更能恢复可信度。尚在面试、口头意向和正式录用应准确区分，不要用不存在的结果制造时间压力。"
+            }
+          }
+        ],
+        "explain": "项目入组、个人到岗与现场安排应分别核对。可以如实说现有流程和真实期限，同时了解项目节点、工作地点与支持条件，不因担心失去机会无条件答应。其他机会是否存在按实际进度判断；编造录用只会让后续时间协商失去依据。"
+      }
+    },
+    {
+      "id": "cpx_foreign_reverse",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "关于岗位协作、培养和后续安排，你还有哪些想确认的？",
+        "options": [
+          {
+            "id": "cpx_foreign_reverse_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人前三个月做什么，谁评审和提供反馈？",
+            "face": "pleased",
+            "line": "可以，我们按具体任务介绍。"
+          },
+          {
+            "id": "cpx_foreign_reverse_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "跨地区协作时，语言、时差和决策怎样安排？",
+            "face": "pleased",
+            "line": "我们说明本岗位的实际安排。"
+          },
+          {
+            "id": "cpx_foreign_reverse_2",
+            "type": "reverse",
+            "delta": 2,
+            "text": "公司有培训课程吗，通常有哪些学习资源？",
+            "face": "nod",
+            "line": "有些资源可介绍，也要结合岗位看。"
+          },
+          {
+            "id": "cpx_foreign_reverse_3",
+            "type": "reverse",
+            "delta": 1,
+            "text": "公司有哪些内部转岗或轮换机会？",
+            "face": "nod",
+            "line": "需要按岗位与当前制度确认。"
+          }
+        ],
+        "explain": "外企背景不能直接推出语言、工作节奏或稳定性。围绕新人任务、评审反馈和跨地区协作提问，更能了解当前岗位；培训与内部流动也可以问，但课程数量不等于培养效果，制度中存在的机会也不等于个人一定能够获得。"
+      }
+    },
+    {
+      "id": "cpx_hardtech_reverse",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "关于项目周期、现场协作和岗位安排，你还有什么想了解的？",
+        "options": [
+          {
+            "id": "cpx_hardtech_reverse_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人参与哪些验证或交付，遇到问题由谁指导？",
+            "face": "pleased",
+            "line": "我们按当前项目分工说明。"
+          },
+          {
+            "id": "cpx_hardtech_reverse_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "若需驻厂，频率、时长和支持条件怎么确认？",
+            "face": "pleased",
+            "line": "这些要按本岗位实际安排核对。"
+          },
+          {
+            "id": "cpx_hardtech_reverse_2",
+            "type": "reverse",
+            "delta": 2,
+            "text": "项目通常多久复盘一次，成果怎样被记录？",
+            "face": "nod",
+            "line": "可以介绍目前的反馈机制。"
+          },
+          {
+            "id": "cpx_hardtech_reverse_3",
+            "type": "reverse",
+            "delta": 1,
+            "text": "项目规模通常有多大，有哪些主要产品线？",
+            "face": "nod",
+            "line": "可以介绍产品背景，也要结合岗位任务看。"
+          }
+        ],
+        "explain": "硬科技项目可能涉及验证、现场与交付，但不能把所有岗位都概括为驻厂或长周期。反问应优先确认本人参与的阶段、责任、现场条件和反馈机制。产品线与项目规模能补充背景，仍需具体到个人任务，才能判断实际工作是否适合自己。"
+      }
+    }
+  ]
+}

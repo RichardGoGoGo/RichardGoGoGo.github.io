@@ -1,0 +1,464 @@
+{
+  "id": "neg",
+  "name": "谈薪",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A8",
+    "title": "创始人"
+  },
+  "scene": "S7b",
+  "_note": "独角兽的谈法：创始人亲自谈，现金和期权怎么配是重点（策划案 4.4）。期权按“决定的方式”计分，不按“将来值不值钱”计分：问没问清归属、行权价、回购条款，选择和公司阶段配不配。T 谈判分从 0 开始，R 好感从 3 开始。数字均为游戏设定，不代表市场行情。",
+  "band_text": "现金 17 到 20k，期权另算",
+  "packages": {
+    "_note": "三套方案，相对于这一档的平衡方案：salary 是月薪加减（k），options 是期权倍数。",
+    "cash": {
+      "label": "高现金",
+      "salary": 3,
+      "options": 0.5
+    },
+    "balanced": {
+      "label": "平衡",
+      "salary": 0,
+      "options": 1
+    },
+    "equity": {
+      "label": "高期权",
+      "salary": -3,
+      "options": 2
+    }
+  },
+  "offer_terms": [
+    {
+      "id": "salary",
+      "label": "月薪",
+      "value": "{salary}k",
+      "detail": "平衡方案的月薪。另外两套方案下一步再选。",
+      "bad": false
+    },
+    {
+      "id": "months",
+      "label": "薪数",
+      "value": "{months} 薪",
+      "detail": "第 13 薪起（超出 12 个月的部分）按公司业绩发，不保底。",
+      "bad": true
+    },
+    {
+      "id": "options",
+      "label": "期权",
+      "value": "{options} 股",
+      "detail": "分 4 年归属，满 1 年才拿到第一批 25%，之后按月归属。",
+      "bad": true
+    },
+    {
+      "id": "strike",
+      "label": "行权价",
+      "value": "每股 2 元",
+      "detail": "大约是上一轮融资价格的一折。行权时要自己出钱买。",
+      "bad": false
+    },
+    {
+      "id": "buyback",
+      "label": "离职条款",
+      "value": "离职时",
+      "detail": "离职后，已归属但没行权的期权要在 3 个月内行权，过期作废；行权拿到的股份，公司有权按行权价回购。",
+      "bad": true
+    },
+    {
+      "id": "breach",
+      "label": "三方违约金",
+      "value": "见三方协议",
+      "detail": "签了三方再毁约，要按协议付违约金（这里是 5000 元）。签之前问清金额，口头答应的条件最好写进备注栏。",
+      "bad": true
+    },
+    {
+      "id": "start",
+      "label": "入职时间",
+      "value": "明年 7 月",
+      "detail": "可以提前来实习。",
+      "bad": false
+    }
+  ],
+  "open_seconds": 4,
+  "flow": [
+    "neg_ask",
+    "neg_offer",
+    "neg_q",
+    "neg_choose",
+    "neg_counter",
+    "neg_close"
+  ],
+  "nodes": {
+    "neg_ask": {
+      "text": "面试都过了，聊聊待遇吧。你期望多少？",
+      "options": [
+        {
+          "id": "una_a",
+          "T": 1,
+          "next": "neg_range",
+          "text": "我想先听听范围：现金和期权分别怎么给？",
+          "face": "nod",
+          "line": "可以。"
+        },
+        {
+          "id": "una_b",
+          "T": 0,
+          "R": -1,
+          "text": "28k，我{p.cred_brag|觉得自己值这个价}。",
+          "face": "frown",
+          "line": "这个比我们的范围高不少。"
+        },
+        {
+          "id": "una_c",
+          "T": -2,
+          "flags": [
+            "low_anchor"
+          ],
+          "text": "看公司安排就好，我主要是想来学东西。",
+          "face": "nod",
+          "line": "好，那我按标准给。"
+        },
+        {
+          "id": "una_d",
+          "T": 1,
+          "text": "月薪 20k，期权按你们的标准来。",
+          "face": "nod",
+          "line": "嗯，现金在范围里。"
+        }
+      ],
+      "explain": "创业公司的待遇分现金和期权两块。先问清范围和怎么拆，比直接报一个数稳；开口太大，依据如果只有学历，很难说服创始人。"
+    },
+    "neg_range": {
+      "text": "现金 17 到 20k，期权另算。你自己的期望呢？",
+      "options": [
+        {
+          "id": "unr_a",
+          "T": 2,
+          "text": "20k，参考的是我{p.lev|项目}的产出。",
+          "face": "nod",
+          "line": "嗯，我记一下。"
+        },
+        {
+          "id": "unr_b",
+          "T": 0,
+          "text": "18k 就行，期权多给一些。",
+          "face": "nod",
+          "line": "可以考虑。"
+        },
+        {
+          "id": "unr_c",
+          "T": 0,
+          "R": -1,
+          "text": "25k，我是{bg.major_degree}，{p.lev_brag|项目经验挺多}，觉得值这个价。",
+          "face": "frown",
+          "line": "超出范围不少了。"
+        },
+        {
+          "id": "unr_d",
+          "T": 0,
+          "R": -1,
+          "text": "您先报个数，我再看看。",
+          "face": "calm",
+          "line": "我们一般先听候选人的。"
+        }
+      ],
+      "explain": "问到范围之后，报在上沿、给一个说得出口的依据，是比较稳的做法。主动让出现金换期权也可以，但最好等看清期权条款再说。"
+    },
+    "neg_offer": {
+      "kind": "inspect",
+      "text": "这是我们的方案，你先看看。",
+      "explain": "期权要拆开看：多少股、几年归属、第一年有没有门槛、行权要不要自己掏钱、离职时公司会不会按原价收回。不点开，就不知道该问什么。"
+    },
+    "neg_q": {
+      "text": "期权这块，你有什么想问的？",
+      "options": [
+        {
+          "id": "unq_a",
+          "T": 2,
+          "flags": [
+            "asked_buyback"
+          ],
+          "requires": {
+            "opened": "buyback"
+          },
+          "text": "回购按行权价太亏了，能写明按公允价格回购吗？",
+          "face": "probe",
+          "line": "计划对所有人都一样，不过回购价写明按公允价格可以，我让 HR 写进协议里。",
+          "fallback": {
+            "id": "unq_a0",
+            "T": 1,
+            "flags": [
+              "asked_buyback"
+            ],
+            "text": "离职的话，已经归属的期权会怎么处理？",
+            "face": "nod",
+            "line": "没行权的，离职后三个月内要行权；行权拿到的股份，公司可以按行权价回购。"
+          }
+        },
+        {
+          "id": "unq_b",
+          "T": 1,
+          "requires": {
+            "flag": "asked_runway"
+          },
+          "text": "账上能撑 18 个月，期权一年后才开始归属，这段风险怎么算？",
+          "face": "nod",
+          "line": "问得好。真到那一步，我们会提前跟大家说清楚。",
+          "fallback": {
+            "id": "unq_b0",
+            "T": 0,
+            "text": "归属期多久？第一年有没有门槛？",
+            "face": "nod",
+            "line": "4 年，满 1 年拿第一批。"
+          }
+        },
+        {
+          "id": "unq_c",
+          "T": 0,
+          "text": "行权要自己掏钱吗？大概要多少？",
+          "face": "nod",
+          "line": "要，每股 2 元。在职时不急；离职后只有三个月的窗口，过期就作废了。"
+        },
+        {
+          "id": "unq_d",
+          "T": 0,
+          "R": -1,
+          "text": "这些期权将来上市了，大概能值多少钱？",
+          "face": "calm",
+          "line": "这个谁也说不准，但我相信……（讲了五分钟愿景）"
+        }
+      ],
+      "explain": "期权将来值不值钱，谁也不知道，创始人也只能讲愿景。真正该问清的是规则：归属期、第一年的门槛、行权价，尤其是离职时怎么处理，要分开问三样：没归属的、已归属没行权的（离职后多久内要行权）、行权拿到的股份（公司会不会按原价收回）。回购价能争取写明按公允价格；期权计划一般人人一样，想按融资估值来算不现实，融资价是投资人买优先股的价格。前面问过账上能撑多久的，这时就能把风险问得更具体。"
+    },
+    "neg_choose": {
+      "text": "这是平衡方案。另外还有两套：高现金，月薪多 3k、期权只有一半；高期权，月薪少 3k、期权翻倍。你选哪套？",
+      "options": [
+        {
+          "id": "unc_a",
+          "T": 2,
+          "package": "balanced",
+          "text": "选平衡方案，现金够生活，期权也有一份。",
+          "face": "nod",
+          "line": "嗯，大部分人选这个。"
+        },
+        {
+          "id": "unc_b",
+          "T": 1,
+          "package": "cash",
+          "text": "选高现金，期权不确定，我更想要拿得到手的。",
+          "face": "nod",
+          "line": "可以，很实在。"
+        },
+        {
+          "id": "unc_c",
+          "T": 2,
+          "package": "equity",
+          "requires": {
+            "flag": "asked_buyback"
+          },
+          "text": "选高期权。离职的规则已经问清了，我愿意押一把。",
+          "face": "pleased",
+          "line": "好，规则清楚，也有魄力。",
+          "fallback": {
+            "id": "unc_c0",
+            "T": -1,
+            "package": "equity",
+            "text": "选高期权，长期来看期权更值钱。",
+            "face": "probe",
+            "line": "你确定？离职的情况你还没问过。"
+          }
+        }
+      ],
+      "explain": "三套方案没有对错，看的是你怎么做决定。B 轮、今年冲收支平衡，期权有价值但不确定：平衡方案最稳妥，所以分高一点；高现金也说得通。押高期权本身没错，前提是先问清离职时期权怎么处理，否则就是盲赌。"
+    },
+    "neg_counter": {
+      "text": "方案定了。还有什么想谈的？",
+      "options": [
+        {
+          "id": "unct_a",
+          "T": 1,
+          "text": "期权能不能再多给一些？我入职就能独立负责一块。",
+          "face": "nod",
+          "line": "可以，我看看能不能再加一点。"
+        },
+        {
+          "id": "unct_b",
+          "T": 0,
+          "R": -1,
+          "text": "月薪能不能再加 2k？",
+          "face": "calm",
+          "line": "现金这块确实紧，这个动不了。"
+        },
+        {
+          "id": "unct_r",
+          "T": 2,
+          "requires": {
+            "flag": "has_real_offer"
+          },
+          "_note": "之前用同一个人设拿到过别家 offer 才出现，替换签字费那项",
+          "text": "我手上有{offer}，更想来这里，期权能不能再争取一些？",
+          "face": "nod",
+          "line": "明白。真有 offer 的话，我去跟股东们争取一下。",
+          "pre_lines": [
+            {
+              "if_flag": "claimed_only_us",
+              "R": -2,
+              "face": "frown",
+              "line": "你不是说只面了我们？"
+            }
+          ],
+          "fallback": {
+            "id": "unct_c",
+            "T": 0,
+            "text": "能不能再给一笔签字费？",
+            "face": "calm",
+            "line": "我们没有签字费，期权上倒是可以想想办法。"
+          }
+        },
+        {
+          "id": "unct_d",
+          "T": 1,
+          "requires": {
+            "flag": "has_processes"
+          },
+          "text": "{process.company|另一家}也还在推进，我更想来这里，期权上能不能再争取一下？",
+          "face": "nod",
+          "line": "明白，我尽量。",
+          "fallback": {
+            "id": "unct_d0",
+            "next": "neg_bluff",
+            "text": "我手上还有别的 offer，你们得再加点。",
+            "face": "probe",
+            "line": "哦？"
+          }
+        }
+      ],
+      "explain": "创业公司现金紧，期权和职责范围往往比月薪好谈；月薪谈不动时转去问签字费、期权，都正常。拿真实的流程、真拿到的 offer 做筹码都没问题；手里没有 offer 却说有，创始人多半会当场追问。"
+    },
+    "neg_bluff": {
+      "text": "哪家？给了多少？方便发我看看吗？",
+      "pre_lines": [
+        {
+          "if_flag": "claimed_only_us",
+          "R": -3,
+          "face": "frown",
+          "line": "你刚才不是说只面了我们一家？"
+        },
+        {
+          "if_flag": "bluffed_offer",
+          "face": "probe",
+          "line": "是你说下周要答复的那家？"
+        }
+      ],
+      "options": [
+        {
+          "id": "unb_a",
+          "T": 0,
+          "R": -3,
+          "text": "说 offer 不太准确，其实是{process.company}{process.where}，还没出结果。",
+          "face": "frown",
+          "line": "嗯……我知道了。",
+          "requires": {
+            "flag": "has_other_process"
+          },
+          "fallback": {
+            "id": "unb_a0",
+            "T": 0,
+            "R": -3,
+            "text": "说 offer 不太准确，其实目前没有别家的 offer。",
+            "face": "frown",
+            "line": "嗯……我知道了。"
+          }
+        },
+        {
+          "id": "unb_b",
+          "redline": true,
+          "text": "那家给了 25k，书面的我回头发您。",
+          "face": "disappointed",
+          "line": "好，那等你发过来再说。（之后再没有下文。）"
+        },
+        {
+          "id": "unb_c",
+          "T": 0,
+          "R": -1,
+          "text": "还没最终定。我更想来这里，所以想争取一下。",
+          "face": "calm",
+          "line": "嗯，那就按正常的来。"
+        }
+      ],
+      "explain": "拿别家 offer 议价，前提是真有。创始人一句“发我看看”，虚的筹码就撑不住了：改口会伤好感，硬撑下去，连手上这份 offer 都可能保不住。"
+    },
+    "neg_close": {
+      "text": "那就这么定了，我让 HR 把 offer 发你。",
+      "options": [
+        {
+          "id": "uncl_a",
+          "T": 1,
+          "text": "好，麻烦把期权协议一起发我，我看完条款再签。",
+          "face": "nod",
+          "line": "可以，一起发。"
+        },
+        {
+          "id": "uncl_b",
+          "T": -1,
+          "text": "没问题，口头说好就行，我信得过你们，不用那么麻烦。",
+          "face": "pleased",
+          "line": "好，欢迎加入！"
+        },
+        {
+          "id": "uncl_c",
+          "T": 0,
+          "text": "我想考虑两天，周五前答复您。",
+          "face": "nod",
+          "line": "可以。"
+        },
+        {
+          "id": "uncl_d",
+          "T": 0,
+          "R": -1,
+          "text": "能等我另一家的结果出来再定吗？",
+          "face": "calm",
+          "line": "我们节奏快，等不了太久。",
+          "pre_lines": [
+            {
+              "if_flag": "claimed_only_us",
+              "R": -2,
+              "face": "frown",
+              "line": "你不是说只面了我们？"
+            }
+          ]
+        }
+      ],
+      "explain": "口头说好的期权不算数，归属、行权、回购都写在期权协议里，前面谈下来的条件也要落到书面上。签之前把协议要过来看，是最稳的收尾；三方协议签了再毁约要付违约金，签之前把金额问清。"
+    }
+  },
+  "breakdown": {
+    "_note": "结算页 offer 拆解卡用：选过 ids 里任一选项就算拿到，没拿到时显示 else。",
+    "wins": [
+      {
+        "ids": [
+          "unq_a",
+          "unq_a0"
+        ],
+        "text": "问清了离职时期权怎么处理",
+        "missed": "离职后多久内要行权、股份会不会被按原价收回，要事先问清"
+      },
+      {
+        "ids": [
+          "unct_a",
+          "unct_d",
+          "unct_r"
+        ],
+        "text": "争取过更多期权",
+        "missed": "创业公司里，期权比现金好谈"
+      },
+      {
+        "ids": [
+          "uncl_a"
+        ],
+        "text": "拿到期权协议再签",
+        "else": "口头确认",
+        "missed": "期权条款都写在协议里，口头说好不算数"
+      }
+    ]
+  }
+}
