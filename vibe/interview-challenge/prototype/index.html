@@ -6,9 +6,18 @@
   <title>面试挑战 · 试玩版</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 启动进度条：写在页面里，脚本还没下载完也能先显示；进度由 app.js 的 bootSet 推进，进标题页时整块被替换掉 */
+    .boot { box-sizing: border-box; min-height: 100vh; min-height: 100dvh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; background: #fff1d2; color: #202532; }
+    .boot-title { margin: 0; padding: 6px 14px; background: #202532; color: #fff1d2; font-size: 22px; font-weight: 700; letter-spacing: 2px; }
+    .boot-bar { box-sizing: border-box; width: min(260px, 80%); height: 18px; border: 3px solid #202532; background: #e5e7de; box-shadow: 3px 3px 0 #202532; }
+    .boot-bar > span { display: block; height: 100%; width: 0; background: #dbb869; transition: width .25s steps(5); }
+    .boot-msg { margin: 0; font-size: 13px; color: #485264; }
+    @media (prefers-reduced-motion: reduce) { .boot-bar > span { transition: none; } }
+  </style>
 </head>
 <body>
-  <div id="app" aria-live="polite"></div>
+  <div id="app" aria-live="polite"><div class="boot"><p class="boot-title">面试挑战</p><div class="boot-bar" role="progressbar" aria-label="加载进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><p class="boot-msg">正在加载……</p></div></div>
   <div id="overlay" hidden></div>
   <script type="module" src="app.js"></script>
 </body>

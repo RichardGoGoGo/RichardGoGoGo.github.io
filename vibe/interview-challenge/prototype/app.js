@@ -518,10 +518,27 @@ function dexScreen() {
 
 // ---------------------------------------------------------------- 开局：公司、人设、岗位
 
+// 启动进度条（index.html 里的 .boot）：美术清单 0–10%，基础题库、公司、人设 10–30%（按已完成的请求数推进，只增不减），
+// 12 条岗位线 30–85%（每拼好一条前进一格），封面图 85–100%。进标题页后 .boot 被替换掉，这里就不再有效果。
+const boot = { shown: 0, jsonDone: 0, jsonTotal: 0, inContent: false };
+function bootSet(pct, msg) {
+  const bar = document.querySelector(".boot-bar");
+  if (!bar) return;
+  boot.shown = Math.max(boot.shown, Math.min(100, Math.round(pct)));
+  bar.firstElementChild.style.width = `${boot.shown}%`;
+  bar.setAttribute("aria-valuenow", String(boot.shown));
+  if (msg) document.querySelector(".boot-msg").textContent = msg;
+}
 const readJson = async (p) => {
-  const r = await fetch(p.replace(/^content\//, "../content/"));
-  if (!r.ok) throw new Error(`读不到 ${p}`);
-  return r.json();
+  boot.jsonTotal++;
+  try {
+    const r = await fetch(p.replace(/^content\//, "../content/"));
+    if (!r.ok) throw new Error(`读不到 ${p}`);
+    return await r.json();
+  } finally {
+    boot.jsonDone++;
+    if (boot.inContent) bootSet(10 + 20 * (boot.jsonDone / boot.jsonTotal));
+  }
 };
 
 // 拼好一个组合（同一个组合只拼一次）
@@ -1859,7 +1876,8 @@ async function main() {
   S.settings = { relaxed: !!store.get(KEY.settings, {}).relaxed };
   // 测试用：地址后加 ?unlock=reset，清掉“已解锁完整复盘”和赠送的那次 AI 模拟面试
   if (new URLSearchParams(location.search).get("unlock") === "reset") store.del(KEY.unlock);
-  render('<div class="screen"><p class="muted">加载内容……</p></div>');
+  // 进度条已在 index.html 里显示，这里不再先渲染「加载内容……」
+  bootSet(3);
   try {
     const r = await fetch("art/manifest.json", { cache: "no-store" });
     if (r.ok) {
@@ -1876,6 +1894,8 @@ async function main() {
   // 默认像素版。颜文字版只作内部版本保留：地址后加 ?style=kaomoji 打开；没有像素美术时也退回它。
   S.settings.style = S.art.size && new URLSearchParams(location.search).get("style") !== "kaomoji" ? "pixel" : "kaomoji";
   applyStyle();
+  bootSet(10, "正在加载题目……");
+  boot.inContent = true;
   try {
     [S.catalog, S.lib] = await Promise.all([loadCatalog(readJson), loadLibrary(readJson)]);
     await Promise.all([
@@ -1886,7 +1906,11 @@ async function main() {
       ...S.catalog.personas.map(async (id) => { S.personas[id] = await readJson(`content/personas/${id}.json`); }),
     ]);
     // 各岗位线的基准组合先拼好（拼合检查页要用）；其他组合选到时再拼
-    const loaded = await Promise.allSettled(S.catalog.tracks.map((t) => comboContent(comboId(t.company, t.role, t.base_persona))));
+    boot.inContent = false;
+    bootSet(30, "正在准备岗位线……");
+    let tracksDone = 0;
+    const loaded = await Promise.allSettled(S.catalog.tracks.map((t) => comboContent(comboId(t.company, t.role, t.base_persona))
+      .finally(() => bootSet(30 + 55 * (++tracksDone / S.catalog.tracks.length)))));
     loaded.forEach((r, i) => {
       if (r.status === "fulfilled") return;
       S.unready[S.catalog.tracks[i].id] = r.reason.message;
@@ -1896,6 +1920,13 @@ async function main() {
     render(`<div class="screen"><h2>内容没加载出来</h2><p class="fine">${esc(err.message)}</p><p class="fine">需要用本地服务打开，比如在项目根目录运行：python -m http.server 8765 --directory interview-challenge，然后访问 /prototype/。</p></div>`);
     return;
   }
+  boot.inContent = false;
+  // 封面图约 1.4 MB，等它到了再进标题页，免得标题页先空一块
+  if (hasArt("COVER_title")) {
+    bootSet(85, "正在加载画面……");
+    await new Promise((res) => { const im = new Image(); im.onload = im.onerror = res; im.src = "art/COVER_title.png"; });
+  }
+  bootSet(100);
   if (new URLSearchParams(location.search).get("check") === "art") return artCheckScreen();
   titleScreen();
 }
