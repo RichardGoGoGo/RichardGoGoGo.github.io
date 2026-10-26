@@ -107,9 +107,10 @@ const ART = {
   P2f: { file: "P2f_linke", name: "林可" }, P2m: { file: "P2m_linke", name: "林可" },
   P3f: { file: "P3f_xunuo", name: "许诺" }, P3m: { file: "P3m_xunuo", name: "许诺" },
   P4f: { file: "P4f_chengyuan", name: "程远" }, P4m: { file: "P4m_chengyuan", name: "程远" },
-  // 第三批新人设（图在美术第三批里，到图前用方块脸）
-  P5f: { file: "P5f_shenhe", name: "沈禾" }, P5m: { file: "P5m_shenhe", name: "沈禾" },
-  P6f: { file: "P6f_yezhou", name: "叶舟" }, P6m: { file: "P6m_yezhou", name: "叶舟" },
+  // 第三批新人设。fit：[放大倍数, 下移 %]，以底边中点为原点放大再下移。这四张的人物在画布里画得小（只占 63%–75% 高），
+  // 底边也没到画布底，放在相框里比别人小一圈还悬空；按量图（5 种状态外框相同）放大到占 93% 高、底边贴住框沿。
+  P5f: { file: "P5f_shenhe", name: "沈禾", fit: [1.28, 25.1] }, P5m: { file: "P5m_shenhe", name: "沈禾", fit: [1.24, 19.2] },
+  P6f: { file: "P6f_yezhou", name: "叶舟", fit: [1.37, 25.4] }, P6m: { file: "P6m_yezhou", name: "叶舟", fit: [1.48, 38.1] },
   N1: { file: "N1_grabber", name: "高扬" }, N2: { file: "N2_timer", name: "钟敏" }, N3: { file: "N3_quiet", name: "苏言" }, N4: { file: "N4_summarizer", name: "陆遥" },
   // 群面角色代号；miniFile 优先选正面 _bust_ 半身像，旧全身小人仅作兼容。
   P1fs: { file: "P1fs_zhouan", name: "周安" }, P1ms: { file: "P1ms_zhouan", name: "周安" },
@@ -234,7 +235,8 @@ function sprite(code, face = "calm", cls = "") {
   const companyId = S.c?.company.id;
   const accessory = img && companyId && hasArt(`${code}_overlay_${companyId}`) && ["soe", "hardtech", "foreign", "studio"].includes(companyId)
     ? `<img class="accessory" src="art/${code}_overlay_${companyId}.png" alt="" aria-hidden="true">` : "";
-  const portrait = img ? `<img src="art/${file}" alt="" onerror="this.parentNode.classList.remove('art');this.remove()">${accessory}` : "";
+  const fit = a.fit ? ` style="transform-origin:50% 100%;transform:translateY(${a.fit[1]}%) scale(${a.fit[0]})"` : "";
+  const portrait = img ? `<img src="art/${file}"${fit} alt="" onerror="this.parentNode.classList.remove('art');this.remove()">${accessory}` : "";
   return `<div class="sprite ${cls}${img ? " art" : ""}" data-code="${code}"${img && cut ? ` style="--cut:${cut}"` : ""}>
     ${portrait}
     <div class="ph"><span class="face">${FACE[face] || ""}</span><span class="name">${esc(a.name)}</span><span class="code">${code} · ${FACE_LABEL[face] || face}</span></div>
