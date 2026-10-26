@@ -1,0 +1,70 @@
+{
+  "id": "r1",
+  "name": "人力专业面",
+  "company": "soe",
+  "interviewer": {
+    "art": "A4",
+    "title": "人力资源部主管"
+  },
+  "scene": "S9",
+  "hello": "你好，我们从真实经历、招聘方法和权限边界聊起。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": true
+    },
+    {
+      "slot": "recruit",
+      "dynamic": "pool",
+      "pool": "hr_recruit",
+      "swap": true
+    },
+    {
+      "slot": "project",
+      "dynamic": "deep_dive_first"
+    },
+    {
+      "slot": "evaluation",
+      "dynamic": "pool",
+      "pool": "hr_eval",
+      "swap": true
+    },
+    {
+      "slot": "knowledge",
+      "dynamic": "skill_probe",
+      "fallback_pool": "hr_contract",
+      "swap": true
+    },
+    {
+      "slot": "planning",
+      "dynamic": "pool",
+      "pool": "hr_program",
+      "swap": true
+    },
+    {
+      "slot": "relations",
+      "dynamic": "pool",
+      "pool": "hr_relations",
+      "swap": true
+    },
+    {
+      "slot": "records",
+      "dynamic": "pool",
+      "pool": "hr_confidential",
+      "swap": true
+    },
+    {
+      "slot": "next_project",
+      "dynamic": "probe_or_deep_dive_next"
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {}
+}

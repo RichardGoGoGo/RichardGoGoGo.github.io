@@ -7,6 +7,21 @@
     "packs/algo.json",
     "packs/data.json",
     "packs/ops.json",
-    "packs/soe.json"
+    "packs/soe.json",
+    "packs/hardtech_common.json",
+    "packs/hardtech_be.json",
+    "packs/hardtech_algo.json",
+    "packs/foreign_common.json",
+    "packs/foreign_fe.json",
+    "packs/foreign_pm.json",
+    "packs/persona_batch3.json",
+    "packs/qa.json",
+    "packs/design.json",
+    "packs/brand.json",
+    "packs/sales.json",
+    "packs/hr.json",
+    "packs/studio_common.json",
+    "packs/game.json",
+    "packs/unicorn_common.json"
   ]
 }

@@ -1,0 +1,56 @@
+{
+  "id": "r1",
+  "name": "Technical Interview",
+  "company": "foreign",
+  "lang": "en",
+  "interviewer": {
+    "art": "A2",
+    "title": "Frontend Engineer"
+  },
+  "scene": "S11",
+  "hello": "Welcome. Let's talk through your projects and the frontend decisions you've made.",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": true
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "fe_basics",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "fe_perf",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "fe_basics",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "fe_engineering",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {}
+}

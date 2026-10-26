@@ -1,0 +1,303 @@
+{
+  "id": "test",
+  "name": "Online Assessment",
+  "company": "foreign",
+  "role": "pm",
+  "lang": "en",
+  "seconds": 120,
+  "pass_line": 50,
+  "inspire_uses": 2,
+  "bonus": {
+    "per_points": 10,
+    "max": 3
+  },
+  "time_cost": {
+    "易": 15,
+    "中": 20,
+    "难": 35
+  },
+  "trap": {
+    "label": "Open a browser to look up the answer",
+    "levels": [
+      "难"
+    ],
+    "lose_seconds": 10,
+    "warn_text": "Outside lookups aren't allowed in this assessment. One more switch will void your attempt.",
+    "fail_text": "A second switch voids this attempt under the stated rules.",
+    "explain": "本场游戏测评设定不允许外查，并按已告知规则处理切屏；真实招聘应以当次考试通知为准，不将游戏规则推广所有公司。"
+  },
+  "slots": [
+    {
+      "slot": "t1",
+      "q": "fgp_t1",
+      "swap": "odd",
+      "alternates": [
+        "fgp_a1"
+      ]
+    },
+    {
+      "slot": "t2",
+      "q": "fgp_t2"
+    },
+    {
+      "slot": "t3",
+      "q": "fgp_t3",
+      "swap": "even",
+      "alternates": [
+        "fgp_a2"
+      ]
+    },
+    {
+      "slot": "t4",
+      "q": "fgp_t4"
+    },
+    {
+      "slot": "t5",
+      "q": "fgp_t5"
+    },
+    {
+      "slot": "t6",
+      "q": "fgp_t6",
+      "swap": "odd",
+      "alternates": [
+        "fgp_a3"
+      ]
+    }
+  ],
+  "questions": {
+    "fgp_t1": {
+      "level": "易",
+      "points": 10,
+      "category": "Numerical reasoning",
+      "text": "A page has 800 visitors. Of these, 200 start a request and 50 complete it. What is the start-to-completion rate?",
+      "options": [
+        {
+          "id": "fgp_t1_0",
+          "text": "6.25%"
+        },
+        {
+          "id": "fgp_t1_1",
+          "text": "25%",
+          "correct": true
+        },
+        {
+          "id": "fgp_t1_2",
+          "text": "40%"
+        },
+        {
+          "id": "fgp_t1_3",
+          "text": "50%"
+        }
+      ],
+      "explain": "开始到完成的转化率分母是开始请求的200人，50/200=25%。50/800是访问到完成的整体比例，口径不同。"
+    },
+    "fgp_t2": {
+      "level": "易",
+      "points": 10,
+      "category": "Verbal reasoning",
+      "text": "A note says: \"The pilot may expand after the access review. The review isn't complete yet.\" Which statement is supported?",
+      "options": [
+        {
+          "id": "fgp_t2_0",
+          "text": "Expansion has already been approved."
+        },
+        {
+          "id": "fgp_t2_1",
+          "text": "The pilot must end before the review."
+        },
+        {
+          "id": "fgp_t2_2",
+          "text": "Expansion remains conditional on the review.",
+          "correct": true
+        },
+        {
+          "id": "fgp_t2_3",
+          "text": "The review guarantees a successful expansion."
+        }
+      ],
+      "explain": "原文只说通过访问评审后可能扩大，而评审尚未完成。可以得出扩大仍有条件，不能把计划或条件性表述改成已批准或保证成功。"
+    },
+    "fgp_t3": {
+      "level": "中",
+      "points": 15,
+      "category": "Product metrics",
+      "text": "Which metric most directly describes whether users finish a reporting task?",
+      "options": [
+        {
+          "id": "fgp_t3_0",
+          "text": "Average time users spend on the reporting page"
+        },
+        {
+          "id": "fgp_t3_1",
+          "text": "Number of visits to the reporting page each week"
+        },
+        {
+          "id": "fgp_t3_2",
+          "text": "Total clicks on every control across all pages"
+        },
+        {
+          "id": "fgp_t3_3",
+          "text": "Completed reports out of all eligible attempts",
+          "correct": true
+        }
+      ],
+      "explain": "任务完成指标应对应符合条件的尝试与成功结果。停留、访问与点击可辅助诊断，不能单独说明用户完成了报告。"
+    },
+    "fgp_t4": {
+      "level": "中",
+      "points": 15,
+      "category": "User research",
+      "text": "You want to understand why users abandon a setup flow. What would best complement the funnel data?",
+      "options": [
+        {
+          "id": "fgp_t4_0",
+          "text": "Observe recent attempts and interview users who stopped",
+          "correct": true
+        },
+        {
+          "id": "fgp_t4_1",
+          "text": "Ask all users to rank a list of possible new features"
+        },
+        {
+          "id": "fgp_t4_2",
+          "text": "Measure the total number of marketing impressions"
+        },
+        {
+          "id": "fgp_t4_3",
+          "text": "Compare the visual style with the most popular competitor"
+        }
+      ],
+      "explain": "漏斗说明流失位置，观察具体任务并访谈近期放弃者可以补充原因。功能偏好、曝光与视觉比较回答的是不同问题，不能直接解释当前任务为何中断。"
+    },
+    "fgp_t5": {
+      "level": "难",
+      "points": 25,
+      "category": "Experiment judgment",
+      "text": "Users who adopt a feature retain more often, but they were more active before launch. Which conclusion is justified?",
+      "options": [
+        {
+          "id": "fgp_t5_0",
+          "text": "The feature caused the whole retention difference."
+        },
+        {
+          "id": "fgp_t5_1",
+          "text": "Adoption and retention go together; cause remains open.",
+          "correct": true
+        },
+        {
+          "id": "fgp_t5_2",
+          "text": "The feature has no effect, since earlier activity differs."
+        },
+        {
+          "id": "fgp_t5_3",
+          "text": "Higher retention means the feature should be mandatory."
+        }
+      ],
+      "explain": "先前活跃程度不同提示自选择或混杂。观察到相关不能直接证明有或没有因果效果，需定义比较并补适当验证。"
+    },
+    "fgp_t6": {
+      "level": "难",
+      "points": 25,
+      "category": "Requirements judgment",
+      "text": "An export includes confidential fields. The data owner hasn't defined access rules. What is the best next step?",
+      "options": [
+        {
+          "id": "fgp_t6_0",
+          "text": "Give managers access now and audit all exports afterward"
+        },
+        {
+          "id": "fgp_t6_1",
+          "text": "Copy the screen permissions over without further review"
+        },
+        {
+          "id": "fgp_t6_2",
+          "text": "Confirm scope and access using synthetic examples first",
+          "correct": true
+        },
+        {
+          "id": "fgp_t6_3",
+          "text": "Release to one customer and seek approval after feedback"
+        }
+      ],
+      "explain": "导出里有保密字段、数据负责人又没有定访问规则时，应先确认范围和授权。可以用合成示例推进讨论，但事后审计、小范围试用或照搬页面权限，都不能代替这项确认。"
+    },
+    "fgp_a1": {
+      "level": "易",
+      "points": 10,
+      "category": "Numerical reasoning",
+      "text": "A trial group has 240 users, and 60 complete a task. What share completed it?",
+      "options": [
+        {
+          "id": "fgp_a1_0",
+          "text": "25%",
+          "correct": true
+        },
+        {
+          "id": "fgp_a1_1",
+          "text": "40%"
+        },
+        {
+          "id": "fgp_a1_2",
+          "text": "60%"
+        },
+        {
+          "id": "fgp_a1_3",
+          "text": "75%"
+        }
+      ],
+      "explain": "完成比例为60/240=25%，注意分母是本题规定的试用人群。"
+    },
+    "fgp_a2": {
+      "level": "中",
+      "points": 15,
+      "category": "Verbal reasoning",
+      "text": "A status update says: \"The design is approved. Launch still depends on testing.\" What is supported?",
+      "options": [
+        {
+          "id": "fgp_a2_0",
+          "text": "Launch is approved because the design is approved."
+        },
+        {
+          "id": "fgp_a2_1",
+          "text": "Testing has already confirmed the launch date."
+        },
+        {
+          "id": "fgp_a2_2",
+          "text": "The design approval removes all remaining launch risks."
+        },
+        {
+          "id": "fgp_a2_3",
+          "text": "Design approval doesn't establish readiness to launch.",
+          "correct": true
+        }
+      ],
+      "explain": "设计批准与可以上线是不同状态。原文明示上线仍依赖测试，不能把其中一个完成条件当成全部就绪。"
+    },
+    "fgp_a3": {
+      "level": "难",
+      "points": 25,
+      "category": "Experiment judgment",
+      "text": "A planned test looks positive on day one. There is no safety issue, and the planned observation is incomplete. What should you do?",
+      "options": [
+        {
+          "id": "fgp_a3_0",
+          "text": "End the test while the observed difference is favorable"
+        },
+        {
+          "id": "fgp_a3_1",
+          "text": "Change the main metric to the largest improvement"
+        },
+        {
+          "id": "fgp_a3_2",
+          "text": "Follow the analysis plan before making the effect claim",
+          "correct": true
+        },
+        {
+          "id": "fgp_a3_3",
+          "text": "Keep only the users who used the new feature"
+        }
+      ],
+      "explain": "应按分析计划评估，不能因第一天好看就挑时点结束或更换指标。按功能使用筛人还会改变比较人群，结果不再对应原问题。"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A2",
+    "title": "设备平台后端工程师"
+  },
+  "scene": "S10",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "swap": false,
+      "pool": "biz_intro"
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "swap": true,
+      "pool": "be_db"
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "swap": true,
+      "pool": "be_middleware"
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "swap": false,
+      "fallback_pool": "be_java"
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "swap": true,
+      "pool": "be_growth"
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "swap": false,
+      "pool": "biz_reverse"
+    }
+  ],
+  "nodes": {}
+}

@@ -1,0 +1,1802 @@
+{
+  "_note": "F2：外企前端英文技术与STAR行为素材。lang=en隔离旧中文岗位线。问答全英文，复盘解析中文。",
+  "pools": [
+    {
+      "id": "fgf_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "Please introduce one frontend project and your own contribution.",
+        "options": [
+          {
+            "id": "fgf_intro_b",
+            "type": "bold",
+            "text": "I'd start with one decision and the evidence behind it.",
+            "face": "probe",
+            "line": "Okay, and how was that decided?",
+            "followup": {
+              "text": "Your team chose the overall design. How would you describe your role?",
+              "options": [
+                {
+                  "id": "fgf_intro_h",
+                  "type": "hold",
+                  "text": "I'd separate the team's design choices from the part I built.",
+                  "face": "pleased",
+                  "line": "Good, that makes sense.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_intro_p",
+                  "type": "partial",
+                  "text": "I'd describe the team result first, then my role if asked.",
+                  "face": "calm",
+                  "line": "Okay, but what's your role in it?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_intro_f",
+                  "type": "fail",
+                  "text": "Since I shipped the feature, I'd call myself its architect.",
+                  "face": "frown",
+                  "line": "Hmm, I'm not sure that follows.",
+                  "delta": -7
+                }
+              ],
+              "explain": "介绍项目时，先交代目标，再讲自己做的事和量出来的结果，比丢出一串工具更能让对方顺着往下问。团队定了整体方案时，要把“团队的决定”和“自己落地的部分”分开说：参与上线不等于主导架构，只讲团队成绩、等被问到再补职责，则让开场少了最关键的信息。"
+            }
+          },
+          {
+            "id": "fgf_intro_c",
+            "type": "off",
+            "text": "I'd list the tools I used first and let you choose what to ask.",
+            "face": "calm",
+            "line": "Let's go back to your own part.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_intro_a",
+            "type": "safe",
+            "text": "I'd tie the project goal to what I did and what I measured.",
+            "face": "nod",
+            "line": "Okay, that's a clear way in.",
+            "delta": 3
+          }
+        ],
+        "explain": "介绍项目时，先交代目标，再讲自己做的事和量出来的结果，比丢出一串工具更能让对方顺着往下问。团队定了整体方案时，要把“团队的决定”和“自己落地的部分”分开说：参与上线不等于主导架构，只讲团队成绩、等被问到再补职责，则让开场少了最关键的信息。"
+      }
+    },
+    {
+      "id": "fgf_intro_alternate",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "What would you like us to remember about your frontend experience?",
+        "options": [
+          {
+            "id": "fgf_intro_alternate_c",
+            "type": "off",
+            "text": "I'd focus on the biggest percentage in the project report.",
+            "face": "calm",
+            "line": "Hmm, one number doesn't tell me much.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_intro_alternate_a",
+            "type": "safe",
+            "text": "One real problem I solved and what I learned from it.",
+            "face": "nod",
+            "line": "Okay, a concrete case works for me.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_intro_alternate_b",
+            "type": "bold",
+            "text": "I'd give one result, then say what we measured and what we didn't.",
+            "face": "probe",
+            "line": "Interesting. Let me dig into that.",
+            "followup": {
+              "text": "A project improved after several changes. Which change caused it?",
+              "options": [
+                {
+                  "id": "fgf_intro_alternate_h",
+                  "type": "hold",
+                  "text": "I'd say what we measured, without crediting any one change.",
+                  "face": "pleased",
+                  "line": "Right, that's an honest way to put it.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_intro_alternate_p",
+                  "type": "partial",
+                  "text": "I'd list all the changes and credit the overall improvement.",
+                  "face": "calm",
+                  "line": "That's a start. Which change mattered, though?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_intro_alternate_f",
+                  "type": "fail",
+                  "text": "I'd credit my change, since it was the last one we released.",
+                  "face": "frown",
+                  "line": "Hmm, does last mean it caused it?",
+                  "delta": -7
+                }
+              ],
+              "explain": "被问到“希望我们记住什么”，一个有具体问题、有行动、有收获的例子，比报告里最大的百分比更站得住。多项改动叠加又没有对照时，不能把整体改善归到某一项上；把“最后上线的”当成“起作用的”，是拿时间先后代替了因果。"
+            }
+          }
+        ],
+        "explain": "被问到“希望我们记住什么”，一个有具体问题、有行动、有收获的例子，比报告里最大的百分比更站得住。多项改动叠加又没有对照时，不能把整体改善归到某一项上；把“最后上线的”当成“起作用的”，是拿时间先后代替了因果。"
+      }
+    },
+    {
+      "id": "fgf_async_order",
+      "pools": [
+        "fe_basics"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A search response for an old query replaces the latest result. What would you change?",
+        "options": [
+          {
+            "id": "fgf_async_order_a",
+            "type": "safe",
+            "text": "Check the response still matches the current query first.",
+            "face": "nod",
+            "line": "Okay, that's the right place to look.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_async_order_b",
+            "type": "bold",
+            "text": "Cancel stale requests, and validate each result when it arrives.",
+            "face": "probe",
+            "line": "Cancelling helps. Let me test its limit.",
+            "followup": {
+              "text": "The old response has already arrived, so cancelling is too late. What now?",
+              "options": [
+                {
+                  "id": "fgf_async_order_h",
+                  "type": "hold",
+                  "text": "Ignore any result whose request ID isn't the latest one.",
+                  "face": "pleased",
+                  "line": "Yes, a request ID check would do it.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_async_order_p",
+                  "type": "partial",
+                  "text": "Block new input until the current response has arrived.",
+                  "face": "calm",
+                  "line": "That works, but it's heavy-handed.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_async_order_f",
+                  "type": "fail",
+                  "text": "Show whichever response arrives last, since it's the newest.",
+                  "face": "frown",
+                  "line": "Hmm, is the last response always the newest?",
+                  "delta": -7
+                }
+              ],
+              "explain": "旧请求的结果盖掉新结果，是请求乱序：先发的请求不一定先返回。直接核对“这个响应是否属于当前查询”，比调长防抖更对症，因为防抖只减少请求数量。取消请求只能省下无用的工作，响应一旦到达，还得在写入界面前比对请求编号；禁用输入能避开乱序，却牺牲了连续输入的体验。"
+            }
+          },
+          {
+            "id": "fgf_async_order_c",
+            "type": "off",
+            "text": "Add a longer debounce so the responses come back in order.",
+            "face": "calm",
+            "line": "Hmm, would that guarantee the order?",
+            "delta": -3
+          }
+        ],
+        "explain": "旧请求的结果盖掉新结果，是请求乱序：先发的请求不一定先返回。直接核对“这个响应是否属于当前查询”，比调长防抖更对症，因为防抖只减少请求数量。取消请求只能省下无用的工作，响应一旦到达，还得在写入界面前比对请求编号；禁用输入能避开乱序，却牺牲了连续输入的体验。"
+      }
+    },
+    {
+      "id": "fgf_async_budget",
+      "pools": [
+        "fe_basics"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A long calculation is split into many Promise callbacks, but input still feels blocked. Why?",
+        "options": [
+          {
+            "id": "fgf_async_budget_c",
+            "type": "off",
+            "text": "Put every chunk in Promise.then and input will stay smooth.",
+            "face": "calm",
+            "line": "Hmm, would that really help?",
+            "delta": -3
+          },
+          {
+            "id": "fgf_async_budget_a",
+            "type": "safe",
+            "text": "Microtasks run to completion before the browser handles input.",
+            "face": "nod",
+            "line": "Okay, that's the key point.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_async_budget_b",
+            "type": "bold",
+            "text": "I'd check the timeline, then schedule the work in bounded chunks.",
+            "face": "probe",
+            "line": "Sounds reasonable. Let me test it.",
+            "followup": {
+              "text": "Each chunk queues another microtask. Does that guarantee a paint between chunks?",
+              "options": [
+                {
+                  "id": "fgf_async_budget_h",
+                  "type": "hold",
+                  "text": "No. A microtask chain can delay rendering for a long time.",
+                  "face": "pleased",
+                  "line": "Right, microtasks can starve rendering.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_async_budget_p",
+                  "type": "partial",
+                  "text": "Not guaranteed. I'd measure whether a paint actually happens.",
+                  "face": "calm",
+                  "line": "Fair to measure. What would you look for?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_async_budget_f",
+                  "type": "fail",
+                  "text": "Yes. Each Promise callback lets the browser start a new frame.",
+                  "face": "frown",
+                  "line": "Are you sure each callback gets its own frame?",
+                  "delta": -7
+                }
+              ],
+              "explain": "把长计算拆成很多 Promise 回调，并没有把主线程让出来：微任务队列清空之前，浏览器不会处理输入，也不会绘制，不断追加微任务的链条可能长时间挡住渲染。要让输入顺畅，需要把工作拆成有边界的块并真正让出执行权，再用时间线验证。"
+            }
+          }
+        ],
+        "explain": "把长计算拆成很多 Promise 回调，并没有把主线程让出来：微任务队列清空之前，浏览器不会处理输入，也不会绘制，不断追加微任务的链条可能长时间挡住渲染。要让输入顺畅，需要把工作拆成有边界的块并真正让出执行权，再用时间线验证。"
+      }
+    },
+    {
+      "id": "fgf_perf_measure",
+      "pools": [
+        "fe_perf"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A page feels faster after your change. How would you check the improvement?",
+        "options": [
+          {
+            "id": "fgf_perf_measure_b",
+            "type": "bold",
+            "text": "I'd pair controlled measurements with what real users experience.",
+            "face": "probe",
+            "line": "Real users, good. Here's a wrinkle.",
+            "followup": {
+              "text": "Lab results improve, but low-end devices still struggle. What next?",
+              "options": [
+                {
+                  "id": "fgf_perf_measure_h",
+                  "type": "hold",
+                  "text": "Segment the results by device group and check that interaction.",
+                  "face": "pleased",
+                  "line": "Good. Low-end devices are where it shows.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_perf_measure_p",
+                  "type": "partial",
+                  "text": "Gather more overall samples, then revisit the low-end group.",
+                  "face": "calm",
+                  "line": "Would that show the low-end problem, though?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_perf_measure_f",
+                  "type": "fail",
+                  "text": "The lab score went up, so users on every device are better off.",
+                  "face": "frown",
+                  "line": "Hmm, does one lab score cover every device?",
+                  "delta": -7
+                }
+              ],
+              "explain": "“感觉变快了”要变成可以比较的数字：先定义目标指标，再在相近条件下比较前后两个版本，凭感觉投票既没有指标，也无法复现。实验室测量和真实用户观察可以互补，整体变好可能掩盖某类设备的退化，不能把一个实验室分数推广成“所有用户都受益”。"
+            }
+          },
+          {
+            "id": "fgf_perf_measure_c",
+            "type": "off",
+            "text": "Ask the team to compare the two builds by feel and vote.",
+            "face": "calm",
+            "line": "Hmm, a vote isn't a measurement.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_perf_measure_a",
+            "type": "safe",
+            "text": "Define the target metric, then compare under the same conditions.",
+            "face": "nod",
+            "line": "Okay, that's a fair comparison.",
+            "delta": 3
+          }
+        ],
+        "explain": "“感觉变快了”要变成可以比较的数字：先定义目标指标，再在相近条件下比较前后两个版本，凭感觉投票既没有指标，也无法复现。实验室测量和真实用户观察可以互补，整体变好可能掩盖某类设备的退化，不能把一个实验室分数推广成“所有用户都受益”。"
+      }
+    },
+    {
+      "id": "fgf_perf_layout",
+      "pools": [
+        "fe_perf"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A list update repeatedly reads element sizes after changing styles. How would you investigate?",
+        "options": [
+          {
+            "id": "fgf_perf_layout_a",
+            "type": "safe",
+            "text": "Look for repeated layout work in the browser's performance timeline.",
+            "face": "nod",
+            "line": "Okay, that's where I'd start too.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_perf_layout_b",
+            "type": "bold",
+            "text": "I'd group reads and writes, then compare the real interaction.",
+            "face": "probe",
+            "line": "Okay, grouping makes sense. One more thing.",
+            "followup": {
+              "text": "A size read needs the new layout. Can caching every old size solve it?",
+              "options": [
+                {
+                  "id": "fgf_perf_layout_h",
+                  "type": "hold",
+                  "text": "No. A cached size is wrong as soon as the layout changes.",
+                  "face": "pleased",
+                  "line": "Right, stale sizes cause their own bugs.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_perf_layout_p",
+                  "type": "partial",
+                  "text": "Cache sizes briefly and fix any glitches as they show up.",
+                  "face": "calm",
+                  "line": "Hmm, glitches in production cost more.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_perf_layout_f",
+                  "type": "fail",
+                  "text": "Yes. Cached sizes stay valid until the page reloads.",
+                  "face": "frown",
+                  "line": "Hmm, is that still true once the layout changes?",
+                  "delta": -7
+                }
+              ],
+              "explain": "反复读取尺寸往往会触发强制布局，先在性能时间线里确认有没有重复布局，再决定怎么改；没测量就先换框架，是凭猜测定原因。读写分批能减少重复布局，但缓存的尺寸必须有失效条件，布局一变，旧值就不再是当前事实。"
+            }
+          },
+          {
+            "id": "fgf_perf_layout_c",
+            "type": "off",
+            "text": "Replace the list framework before looking at any measurements.",
+            "face": "calm",
+            "line": "Hmm, shouldn't we look at the data first?",
+            "delta": -3
+          }
+        ],
+        "explain": "反复读取尺寸往往会触发强制布局，先在性能时间线里确认有没有重复布局，再决定怎么改；没测量就先换框架，是凭猜测定原因。读写分批能减少重复布局，但缓存的尺寸必须有失效条件，布局一变，旧值就不再是当前事实。"
+      }
+    },
+    {
+      "id": "fgf_release",
+      "pools": [
+        "fe_engineering"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A feature works with mock data, but the real API isn't ready. Is it ready to release?",
+        "options": [
+          {
+            "id": "fgf_release_c",
+            "type": "off",
+            "text": "Release it now and finish the real integration afterward.",
+            "face": "calm",
+            "line": "Hmm, then users would be the ones testing it.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_release_a",
+            "type": "safe",
+            "text": "State the unverified paths and check them against release criteria.",
+            "face": "nod",
+            "line": "Okay, that's a fair way to frame it.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_release_b",
+            "type": "bold",
+            "text": "Map the API gap to user impact, then propose a verified scope.",
+            "face": "probe",
+            "line": "A verified scope. Let me check that.",
+            "followup": {
+              "text": "The deadline is fixed. What would you recommend to the owner?",
+              "options": [
+                {
+                  "id": "fgf_release_h",
+                  "type": "hold",
+                  "text": "A smaller verified scope, or a delay with the user risks stated.",
+                  "face": "pleased",
+                  "line": "That's a reasonable recommendation.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_release_p",
+                  "type": "partial",
+                  "text": "Release the UI and flag the API as another team's dependency.",
+                  "face": "calm",
+                  "line": "That moves the risk to the other team.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_release_f",
+                  "type": "fail",
+                  "text": "Ship it all; the mock tests passed, so the risk is small.",
+                  "face": "frown",
+                  "line": "Hmm, is a passing mock test enough?",
+                  "delta": -7
+                }
+              ],
+              "explain": "mock 数据跑通，只能说明界面这一段的逻辑，真实接口、鉴权、错误处理还没验证。回答前先说清哪些没验证、发布标准是什么。截止日期固定时，可以建议缩小到已验证的范围，或写明风险后顺延；只发界面、把接口丢给别的团队，等于让用户承担联调。"
+            }
+          }
+        ],
+        "explain": "mock 数据跑通，只能说明界面这一段的逻辑，真实接口、鉴权、错误处理还没验证。回答前先说清哪些没验证、发布标准是什么。截止日期固定时，可以建议缩小到已验证的范围，或写明风险后顺延；只发界面、把接口丢给别的团队，等于让用户承担联调。"
+      }
+    },
+    {
+      "id": "fgf_monitor",
+      "pools": [
+        "fe_engineering"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "The new version reports fewer errors than the old one. Would you expand the rollout?",
+        "options": [
+          {
+            "id": "fgf_monitor_b",
+            "type": "bold",
+            "text": "I'd check key-task completion, not just the error counter.",
+            "face": "probe",
+            "line": "Good instinct. Let me add a wrinkle.",
+            "followup": {
+              "text": "Errors and success events both vanish while entry traffic stays normal. What then?",
+              "options": [
+                {
+                  "id": "fgf_monitor_h",
+                  "type": "hold",
+                  "text": "Pause the rollout and verify the telemetry and the user journey.",
+                  "face": "pleased",
+                  "line": "Yes, check the telemetry before anything else.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_monitor_p",
+                  "type": "partial",
+                  "text": "Wait for more events before deciding whether the build is healthy.",
+                  "face": "calm",
+                  "line": "How long would you wait?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_monitor_f",
+                  "type": "fail",
+                  "text": "Fewer errors on the dashboard, so the fix seems to be working.",
+                  "face": "frown",
+                  "line": "Hmm, could the errors just not be reported?",
+                  "delta": -7
+                }
+              ],
+              "explain": "报错比旧版少，不一定是新版更好：可能是流量少了，也可能是上报坏了。先看关键任务的完成情况和采集覆盖，再比较同一路径上的失败率。成功事件和错误事件同时消失、入口流量却正常，更像监控链路出了问题，应先暂停放量、核对埋点，而不是把“没有报错”当成修复成功。"
+            }
+          },
+          {
+            "id": "fgf_monitor_c",
+            "type": "off",
+            "text": "Expand if the new version's error count stays lower.",
+            "face": "calm",
+            "line": "Hmm, is the error count enough to decide?",
+            "delta": -3
+          },
+          {
+            "id": "fgf_monitor_a",
+            "type": "safe",
+            "text": "I'd verify coverage and compare failure rates per journey.",
+            "face": "nod",
+            "line": "Okay, same journey is a fair comparison.",
+            "delta": 3
+          }
+        ],
+        "explain": "报错比旧版少，不一定是新版更好：可能是流量少了，也可能是上报坏了。先看关键任务的完成情况和采集覆盖，再比较同一路径上的失败率。成功事件和错误事件同时消失、入口流量却正常，更像监控链路出了问题，应先暂停放量、核对埋点，而不是把“没有报错”当成修复成功。"
+      }
+    },
+    {
+      "id": "fgf_failure",
+      "pools": [
+        "fe_growth"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "Tell me about a mistake you made. Walk me through what happened.",
+        "options": [
+          {
+            "id": "fgf_failure_a",
+            "type": "safe",
+            "text": "I'd explain my decision, its impact, and how I corrected it.",
+            "face": "nod",
+            "line": "Okay, that's a clear shape.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_failure_b",
+            "type": "bold",
+            "text": "I could use the incident from {cite.short} and own my part.",
+            "face": "probe",
+            "line": "Okay, let's hear it.",
+            "followup": {
+              "text": "Once the change was live and something broke, what did you do?",
+              "options": [
+                {
+                  "id": "fgf_failure_h",
+                  "type": "hold",
+                  "text": "I rolled back first, then added regression tests for that case.",
+                  "face": "pleased",
+                  "line": "Good. Rolling back first was the right call.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_failure_p",
+                  "type": "partial",
+                  "text": "I fixed the immediate problem and left prevention for later.",
+                  "face": "calm",
+                  "line": "And when does the prevention happen?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_failure_f",
+                  "type": "fail",
+                  "text": "I'd call it an API issue outside my part.",
+                  "face": "frown",
+                  "line": "Hmm, I'm not sure that follows.",
+                  "delta": -7
+                }
+              ],
+              "explain": "讲失败案例时，要交代发生了什么、你负责哪一块、做了什么、结果如何，重点是自己的决定和修正；把优点包装成缺点（比如“要求太高”），就回避了问题本身。止损之后还要说明怎样减少同类问题：回滚让用户恢复使用，补测试才是防止再发生；把责任推给别的环节，这个故事就站不住了。"
+            },
+            "requires": {
+              "highlight": "incident"
+            },
+            "fallback": {
+              "id": "fgf_failure_b0",
+              "type": "bold",
+              "text": "I'd explain a decision I got wrong and what I changed.",
+              "face": "probe",
+              "line": "Okay, go on.",
+              "followup": {
+                "text": "If you face a similar incident, what would you do first?",
+                "options": [
+                  {
+                    "id": "fgf_failure_b0h",
+                    "type": "hold",
+                    "text": "Restore the critical path, then verify and write down the cause.",
+                    "face": "pleased",
+                    "line": "Okay, that order makes sense.",
+                    "delta": 9
+                  },
+                  {
+                    "id": "fgf_failure_b0p",
+                    "type": "partial",
+                    "text": "Apply a quick fix, then ask users whether the problem is gone.",
+                    "face": "calm",
+                    "line": "Is the users' problem actually solved, though?",
+                    "delta": 1
+                  },
+                  {
+                    "id": "fgf_failure_b0f",
+                    "type": "fail",
+                    "text": "Keep the release running while I finish tracing the exact cause.",
+                    "face": "frown",
+                    "line": "Hmm, that keeps users affected for longer.",
+                    "delta": -7
+                  }
+                ],
+                "explain": "没有对应经历时，可以讲假设的处理方式，不必为了回答而编一次事故。先恢复关键路径，再验证和记录，比用户还在受影响时先去追根因更合理。"
+              }
+            }
+          },
+          {
+            "id": "fgf_failure_c",
+            "type": "off",
+            "text": "I'd describe a time my high standards slowed the team down.",
+            "face": "calm",
+            "line": "Hmm, I asked about a real mistake.",
+            "delta": -3
+          }
+        ],
+        "explain": "讲失败案例时，要交代发生了什么、你负责哪一块、做了什么、结果如何，重点是自己的决定和修正；把优点包装成缺点（比如“要求太高”），就回避了问题本身。止损之后还要说明怎样减少同类问题：回滚让用户恢复使用，补测试才是防止再发生；把责任推给别的环节，这个故事就站不住了。"
+      }
+    },
+    {
+      "id": "fgf_learning",
+      "pools": [
+        "fe_growth"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "Tell me about learning an unfamiliar tool under a deadline. How did you know you could use it?",
+        "options": [
+          {
+            "id": "fgf_learning_b",
+            "type": "bold",
+            "text": "I'd separate reading docs from shipping a real task.",
+            "face": "probe",
+            "line": "A real task, okay. Let me push on that.",
+            "followup": {
+              "text": "A demo works, but your real feature has edge cases. How do you proceed?",
+              "options": [
+                {
+                  "id": "fgf_learning_h",
+                  "type": "hold",
+                  "text": "Test the relevant failure cases before widening the scope.",
+                  "face": "pleased",
+                  "line": "Good, edge cases are where it breaks.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_learning_p",
+                  "type": "partial",
+                  "text": "Follow the demo pattern and collect edge cases after handoff.",
+                  "face": "calm",
+                  "line": "Okay, but who finds the edge cases?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_learning_f",
+                  "type": "fail",
+                  "text": "The demo works, so I'd treat it as ready for production.",
+                  "face": "frown",
+                  "line": "Hmm, does a demo cover real usage?",
+                  "delta": -7
+                }
+              ],
+              "explain": "“怎么知道自己能用”需要证据：一个具体任务、一个能跑通的小例子、踩过哪些坑。跑通教程或演示不等于能处理真实需求，要说明具体约束、用什么样例验证、哪些边界还没覆盖；学习时长只能说明投入，不能单独证明会用。"
+            }
+          },
+          {
+            "id": "fgf_learning_c",
+            "type": "off",
+            "text": "I'd list the tutorials I finished and the hours I put in.",
+            "face": "calm",
+            "line": "Hmm, hours tell me about effort, not ability.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_learning_a",
+            "type": "safe",
+            "text": "I'd describe the task and a small working example.",
+            "face": "nod",
+            "line": "Okay, a working example helps.",
+            "delta": 3
+          }
+        ],
+        "explain": "“怎么知道自己能用”需要证据：一个具体任务、一个能跑通的小例子、踩过哪些坑。跑通教程或演示不等于能处理真实需求，要说明具体约束、用什么样例验证、哪些边界还没覆盖；学习时长只能说明投入，不能单独证明会用。"
+      }
+    },
+    {
+      "id": "fgf_async_handoff",
+      "pools": [
+        "fe_collab"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "A partner team is offline in another time zone, and an API decision blocks you. What would you send?",
+        "options": [
+          {
+            "id": "fgf_async_handoff_c",
+            "type": "off",
+            "text": "Schedule a meeting in the middle of their night so we decide today.",
+            "face": "calm",
+            "line": "Hmm, that's a lot to ask of them.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_async_handoff_a",
+            "type": "safe",
+            "text": "The decision needed, the options, and a reply deadline.",
+            "face": "nod",
+            "line": "Okay, that's easy to act on.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_async_handoff_b",
+            "type": "bold",
+            "text": "A small example of the user impact, plus my recommendation.",
+            "face": "probe",
+            "line": "Concrete, I like that. What happens next?",
+            "followup": {
+              "text": "There's no reply before your planned handoff. What do you do?",
+              "options": [
+                {
+                  "id": "fgf_async_handoff_h",
+                  "type": "hold",
+                  "text": "Escalate as agreed, and keep going on what doesn't depend on them.",
+                  "face": "pleased",
+                  "line": "Yes, that's how I'd handle it too.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_async_handoff_p",
+                  "type": "partial",
+                  "text": "Pick a temporary format and ask them to adjust it later.",
+                  "face": "calm",
+                  "line": "That could mean rework for them.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_async_handoff_f",
+                  "type": "fail",
+                  "text": "I'd treat their silence as approval and publish the contract.",
+                  "face": "frown",
+                  "line": "Hmm, is silence really a yes?",
+                  "delta": -7
+                }
+              ],
+              "explain": "对方不在线时，发出去的消息应该自带决策所需的信息和回复时限，而不是约一个对方半夜的会。没回复不等于同意：超过约定时间就按升级机制处理，同时推进不依赖这项决定的工作，避免单方面改动公共接口。"
+            }
+          }
+        ],
+        "explain": "对方不在线时，发出去的消息应该自带决策所需的信息和回复时限，而不是约一个对方半夜的会。没回复不等于同意：超过约定时间就按升级机制处理，同时推进不依赖这项决定的工作，避免单方面改动公共接口。"
+      }
+    },
+    {
+      "id": "fgf_conflict",
+      "pools": [
+        "fe_collab"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "Describe a disagreement where your initial idea wasn't chosen. How did you handle it?",
+        "options": [
+          {
+            "id": "fgf_conflict_a",
+            "type": "safe",
+            "text": "I'd explain each side's constraints, the decision, and what I did.",
+            "face": "nod",
+            "line": "Okay, that's a clear outline.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_conflict_b",
+            "type": "bold",
+            "text": "I'd show the evidence that changed what I recommended.",
+            "face": "probe",
+            "line": "Evidence, okay. And the other side?",
+            "followup": {
+              "text": "What if the accepted option is less convenient for frontend work?",
+              "options": [
+                {
+                  "id": "fgf_conflict_h",
+                  "type": "hold",
+                  "text": "Weigh the whole task's cost and honor the agreed contract.",
+                  "face": "pleased",
+                  "line": "Fair. That's a mature way to look at it.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_conflict_p",
+                  "type": "partial",
+                  "text": "Accept the decision, but ask to revisit it after launch.",
+                  "face": "calm",
+                  "line": "Okay, and how would you work in the meantime?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_conflict_f",
+                  "type": "fail",
+                  "text": "Use my preferred interface and adapt the backend response later.",
+                  "face": "frown",
+                  "line": "Hmm, who maintains that adapter later?",
+                  "delta": -7
+                }
+              ],
+              "explain": "分歧题要讲清双方各自的约束、最后是怎么定的、你之后做了什么；把重点放在“为什么我的方案更好”，就成了为自己辩护。自己的方案没被采纳不等于失败，要看整个任务的总成本，并执行已经确认的约定。接受决定的同时提出上线后复盘是可以的，但还要说明眼下怎样配合；用自己偏好的接口、让后端以后再适配，是把成本推给了别人。"
+            }
+          },
+          {
+            "id": "fgf_conflict_c",
+            "type": "off",
+            "text": "Focus on why my approach was better.",
+            "face": "calm",
+            "line": "Hmm, I wanted to hear how you handled it.",
+            "delta": -3
+          }
+        ],
+        "explain": "分歧题要讲清双方各自的约束、最后是怎么定的、你之后做了什么；把重点放在“为什么我的方案更好”，就成了为自己辩护。自己的方案没被采纳不等于失败，要看整个任务的总成本，并执行已经确认的约定。接受决定的同时提出上线后复盘是可以的，但还要说明眼下怎样配合；用自己偏好的接口、让后端以后再适配，是把成本推给了别人。"
+      }
+    },
+    {
+      "id": "fgf_priority",
+      "pools": [
+        "fe_workstyle"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "Two teams both call their request urgent. How would you decide what to work on first?",
+        "options": [
+          {
+            "id": "fgf_priority_b",
+            "type": "bold",
+            "text": "I'd lay out impact and trade-offs for the owner who sets priority.",
+            "face": "probe",
+            "line": "Okay, and if they still disagree?",
+            "followup": {
+              "text": "Both owners still disagree. What would you do while they decide?",
+              "options": [
+                {
+                  "id": "fgf_priority_h",
+                  "type": "hold",
+                  "text": "Flag the blocker and keep working on the part everyone agrees on.",
+                  "face": "pleased",
+                  "line": "Good, that keeps things moving.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_priority_p",
+                  "type": "partial",
+                  "text": "Split my time equally so both teams see visible progress.",
+                  "face": "calm",
+                  "line": "Is equal time really the best split?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_priority_f",
+                  "type": "fail",
+                  "text": "Promise both teams their deadlines and sort it out privately.",
+                  "face": "frown",
+                  "line": "Hmm, what happens when both deadlines slip?",
+                  "delta": -7
+                }
+              ],
+              "explain": "排优先级要看任务的影响和依赖，冲突交给有决定权的人去解。两位负责人仍没有结论时，自己不替他们裁决，也不藏起风险：把阻塞点明确提出来，同时推进有共识的独立部分。均分时间未必保护关键路径，同时答应两边的原定期限，只是把冲突往后推。"
+            }
+          },
+          {
+            "id": "fgf_priority_c",
+            "type": "off",
+            "text": "Start with the team whose lead contacted me most recently.",
+            "face": "calm",
+            "line": "Hmm, is that how you'd decide?",
+            "delta": -3
+          },
+          {
+            "id": "fgf_priority_a",
+            "type": "safe",
+            "text": "Compare user impact, dependencies, and deadlines for both teams.",
+            "face": "nod",
+            "line": "Okay, that's a sensible start.",
+            "delta": 3
+          }
+        ],
+        "explain": "排优先级要看任务的影响和依赖，冲突交给有决定权的人去解。两位负责人仍没有结论时，自己不替他们裁决，也不藏起风险：把阻塞点明确提出来，同时推进有共识的独立部分。均分时间未必保护关键路径，同时答应两边的原定期限，只是把冲突往后推。"
+      }
+    },
+    {
+      "id": "fgf_documentation",
+      "pools": [
+        "fe_workstyle"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "A teammate must maintain your feature while you are away. What makes the handoff useful?",
+        "options": [
+          {
+            "id": "fgf_documentation_c",
+            "type": "off",
+            "text": "Send the entire chat history so no discussion gets lost.",
+            "face": "calm",
+            "line": "Hmm, they'd have to read all of it.",
+            "delta": -3
+          },
+          {
+            "id": "fgf_documentation_a",
+            "type": "safe",
+            "text": "I'd document current behavior, known gaps, and the next owner.",
+            "face": "nod",
+            "line": "Okay, that's what they'll need.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_documentation_b",
+            "type": "bold",
+            "text": "I'd have them run one real task from my handoff notes.",
+            "face": "probe",
+            "line": "A dry run. Let me follow up on that.",
+            "followup": {
+              "text": "The feature still uses a mock API. What should the notes make clear?",
+              "options": [
+                {
+                  "id": "fgf_documentation_h",
+                  "type": "hold",
+                  "text": "What's still untested, who owns it, and when to escalate.",
+                  "face": "pleased",
+                  "line": "Right, that's what the next owner needs.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgf_documentation_p",
+                  "type": "partial",
+                  "text": "Link the backend contact and ask the new owner to chase it.",
+                  "face": "calm",
+                  "line": "That hands them a chase, not a status.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgf_documentation_f",
+                  "type": "fail",
+                  "text": "Mark the API as done, since the mock response matches the spec.",
+                  "face": "frown",
+                  "line": "Hmm, is the mock the same as production?",
+                  "delta": -7
+                }
+              ],
+              "explain": "交接的目的，是让接手的人能直接继续做下去：现在是什么行为、还有什么缺口、下一步归谁；聊天记录只能当参考。功能还在用 mock 接口时，要区分“模拟通过”和“真实验证”，写明未完成的部分、负责人和跟进时点；把接口标成已完成，会让后面的人以为不用再验证。"
+            }
+          }
+        ],
+        "explain": "交接的目的，是让接手的人能直接继续做下去：现在是什么行为、还有什么缺口、下一步归谁；聊天记录只能当参考。功能还在用 mock 接口时，要区分“模拟通过”和“真实验证”，写明未完成的部分、负责人和跟进时点；把接口标成已完成，会让后面的人以为不用再验证。"
+      }
+    },
+    {
+      "id": "fgf_reverse_1",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "What would you like to ask me?",
+        "options": [
+          {
+            "id": "fgf_reverse_1_a",
+            "type": "reverse",
+            "text": "Which frontend tasks would a new engineer own first?",
+            "face": "nod",
+            "line": "Good question. Let me explain.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_reverse_1_b",
+            "type": "reverse",
+            "text": "How soon is a new hire usually promoted to the next level?",
+            "face": "nod",
+            "line": "That really depends on the person.",
+            "delta": 0
+          },
+          {
+            "id": "fgf_reverse_1_c",
+            "type": "reverse",
+            "text": "Can you estimate my offer level based on this conversation?",
+            "face": "nod",
+            "line": "I can't judge that from one conversation.",
+            "delta": -2
+          }
+        ],
+        "explain": "围绕具体任务提问，能帮你判断岗位和自己是否匹配。晋升的时间表取决于个人表现，一次面谈也给不出定级的承诺，这类问题得到的多半是客套话。"
+      }
+    },
+    {
+      "id": "fgf_reverse_2",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "What would you like to ask me?",
+        "options": [
+          {
+            "id": "fgf_reverse_2_a",
+            "type": "reverse",
+            "text": "How are API decisions documented across time zones?",
+            "face": "nod",
+            "line": "Good one. Let me walk you through it.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_reverse_2_b",
+            "type": "reverse",
+            "text": "How soon is a new hire usually promoted to the next level?",
+            "face": "nod",
+            "line": "That really depends on the person.",
+            "delta": 0
+          },
+          {
+            "id": "fgf_reverse_2_c",
+            "type": "reverse",
+            "text": "Can you estimate my offer level based on this conversation?",
+            "face": "nod",
+            "line": "I can't judge that from one conversation.",
+            "delta": -2
+          }
+        ],
+        "explain": "问跨时区的决策怎么记录，说明你已经在想怎样和不同地点的同事协作，这是对岗位的真实关切。晋升时间和定级的问题依赖更多信息，现场得不到可靠的回答。"
+      }
+    },
+    {
+      "id": "fgf_reverse_3",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "What would you like to ask me?",
+        "options": [
+          {
+            "id": "fgf_reverse_3_a",
+            "type": "reverse",
+            "text": "What does a useful code-review discussion look like here?",
+            "face": "nod",
+            "line": "Glad you asked. Here's how it works.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_reverse_3_b",
+            "type": "reverse",
+            "text": "How soon is a new hire usually promoted to the next level?",
+            "face": "nod",
+            "line": "That really depends on the person.",
+            "delta": 0
+          },
+          {
+            "id": "fgf_reverse_3_c",
+            "type": "reverse",
+            "text": "Can you estimate my offer level based on this conversation?",
+            "face": "nod",
+            "line": "I can't judge that from one conversation.",
+            "delta": -2
+          }
+        ],
+        "explain": "问代码评审长什么样，是在了解团队怎样沟通和反馈，也能看出你关心的是怎样把活做好。至于晋升的快慢和定级，不是一次面试能回答的。"
+      }
+    },
+    {
+      "id": "fgf_reverse_4",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "What would you like to ask me?",
+        "options": [
+          {
+            "id": "fgf_reverse_4_a",
+            "type": "reverse",
+            "text": "How do engineers receive feedback after their first projects?",
+            "face": "nod",
+            "line": "Good question. Let me explain.",
+            "delta": 3
+          },
+          {
+            "id": "fgf_reverse_4_b",
+            "type": "reverse",
+            "text": "How soon is a new hire usually promoted to the next level?",
+            "face": "nod",
+            "line": "That really depends on the person.",
+            "delta": 0
+          },
+          {
+            "id": "fgf_reverse_4_c",
+            "type": "reverse",
+            "text": "Can you estimate my offer level based on this conversation?",
+            "face": "nod",
+            "line": "I can't judge that from one conversation.",
+            "delta": -2
+          }
+        ],
+        "explain": "问新人头几个项目之后怎样收到反馈，能了解团队的带人方式。晋升时间和定级，更适合在拿到录用意向、HR 介绍规则时再问。"
+      }
+    }
+  ],
+  "frames": {
+    "intern_dev": [
+      {
+        "id": "fgf_frame_intern",
+        "lang": "en",
+        "roles": [
+          "fe"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "In {exp.label}, what did you personally do?",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "I mainly worked on {exp.routine}.",
+              "face": "nod",
+              "line": "Okay, tell me more about those."
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd start with the team's result, then get to my part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            }
+          ],
+          "explain": "实习经历的开场，先交代自己负责的页面或模块，再往方案和结果展开。团队的整体成绩可以作背景，但先讲团队成绩，对方就得再追问一句“哪部分是你的”。"
+        }
+      }
+    ],
+    "campus_team_project": [
+      {
+        "id": "fgf_frame_team",
+        "lang": "en",
+        "roles": [
+          "fe"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "In {exp.label}, what was your own part?",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "I mainly worked on {exp.routine}.",
+              "face": "nod",
+              "line": "Okay, so that part was yours."
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd begin with the team's overall result, then get to my part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            }
+          ],
+          "explain": "团队项目要先划清分工：自己做的是哪一块、别人负责什么。只讲团队成绩，个人贡献就变得模糊，后面再讲技术细节也缺少落脚点。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "fgf_frame_design",
+        "lang": "en",
+        "roles": [
+          "fe"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "What did you personally build in {exp.label}?",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "I mainly worked on {exp.routine}.",
+              "face": "nod",
+              "line": "Okay, and how did you test them?"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd start with how popular the library could become.",
+              "face": "calm",
+              "line": "Let's go back to what you actually built."
+            }
+          ],
+          "explain": "个人项目没有别人分担，更要讲清具体做了哪些部分、做到什么程度、有什么证据（测试、文档、使用情况），而不是把成果的规模说大。"
+        }
+      }
+    ],
+    "student_org": [
+      {
+        "id": "fgf_frame_mentoring",
+        "lang": "en",
+        "roles": [
+          "fe"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "What was your own role in {exp.label}?",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "I mainly worked on {exp.routine}.",
+              "face": "nod",
+              "line": "Okay, how did that work in practice?"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd begin with how the whole club did, then get to my part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            }
+          ],
+          "explain": "社团里带人的经历，要先说自己负责的事务和带的对象，再讲方法与结果；团队整体的成绩，替代不了“你具体做了什么”。"
+        }
+      }
+    ]
+  },
+  "highlights_en": {
+    "perf_firstscreen": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd walk through the loading work I did on {hl.subject}.",
+        "face": "probe",
+        "line": "Okay, let's dig into that one.",
+        "followup": {
+          "text": "What exactly does that improvement tell us?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "Lighthouse timings under test conditions, not what every user sees.",
+              "face": "pleased",
+              "line": "Right. Lab numbers are a fair start.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "Lighthouse showed about four seconds down to two.",
+              "face": "calm",
+              "line": "Okay, can you say more?",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "It loads twice as fast now, so conversion should roughly double.",
+              "face": "frown",
+              "line": "Hmm, I'm not sure that follows.",
+              "delta": -7
+            }
+          ],
+          "explain": "首屏耗时是用 Lighthouse 在固定条件下测得的实验室数据，能说明页面加载变快了多少，但不等于真实用户的体验，更不能直接换算成转化率。只报一个数字、不说测量条件，数字就失去了参考价值。"
+        }
+      },
+      "explain": "首屏耗时是用 Lighthouse 在固定条件下测得的实验室数据，能说明页面加载变快了多少，但不等于真实用户的体验，更不能直接换算成转化率。只报一个数字、不说测量条件，数字就失去了参考价值。"
+    },
+    "timer_drift": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd explain the timer issue in {hl.subject}.",
+        "face": "probe",
+        "line": "Okay, tell me how it recovers.",
+        "followup": {
+          "text": "A background tab delays callbacks. How should a countdown recover?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "Compute from the end time when it resumes, not from counting ticks.",
+              "face": "pleased",
+              "line": "Yes, that's how it should recover.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "Fetch the current time from the server when the page wakes up.",
+              "face": "calm",
+              "line": "That works, but it adds a server call.",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "Subtract one per tick; the browser fires timers on schedule.",
+              "face": "frown",
+              "line": "Are you sure timers fire on schedule?",
+              "delta": -7
+            }
+          ],
+          "explain": "倒计时不能靠回调的次数来代表经过的时间。后台标签页里的定时器会被延迟，所以要围绕目标时刻计算剩余时间，页面恢复时重新核对；提高回调频率弥补不了浏览器的限流。向服务器取时间也能校准，但多了一次请求，仍然需要以目标时刻为基准。"
+        }
+      },
+      "explain": "倒计时不能靠回调的次数来代表经过的时间。后台标签页里的定时器会被延迟，所以要围绕目标时刻计算剩余时间，页面恢复时重新核对；提高回调频率弥补不了浏览器的限流。向服务器取时间也能校准，但多了一次请求，仍然需要以目标时刻为基准。"
+    },
+    "incident": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd explain a release mistake and how I recovered.",
+        "face": "probe",
+        "line": "Okay, let's hear what happened.",
+        "followup": {
+          "text": "What happened, and what did you change afterward?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "The order button broke; I rolled back and added tests.",
+              "face": "pleased",
+              "line": "Good, that's the right sequence.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "I fixed the immediate problem and left the tests for later.",
+              "face": "calm",
+              "line": "And when did the tests get added?",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "It was a deployment issue, so there was nothing for me to change.",
+              "face": "frown",
+              "line": "Hmm, so whose change was it?",
+              "delta": -7
+            }
+          ],
+          "explain": "事故复盘要讲清具体影响、当时的止损动作和之后补上的防护。把问题推给部署之类的其他环节，等于放弃了自己负责的改动；只修眼前的问题、不补测试，同类错误还会再出现。"
+        }
+      },
+      "explain": "事故复盘要讲清具体影响、当时的止损动作和之后补上的防护。把问题推给部署之类的其他环节，等于放弃了自己负责的改动；只修眼前的问题、不补测试，同类错误还会再出现。"
+    },
+    "mp_subpackage": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd explain how I split up the loading in the marketplace app.",
+        "face": "probe",
+        "line": "Okay, the loading split. Go on.",
+        "followup": {
+          "text": "Did splitting the bundle make every later page load faster?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "No. It lightened the first load, but later pages fetch their own code.",
+              "face": "pleased",
+              "line": "Fair, that's an honest trade-off.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "It cut the first-load time to under a second.",
+              "face": "calm",
+              "line": "Okay, but what about the other pages?",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "Yes. The main package is small now, so every page opens fast.",
+              "face": "frown",
+              "line": "Are you sure every page gets faster?",
+              "delta": -7
+            }
+          ],
+          "explain": "分包减轻的是首次加载的负担，后面的页面可能还要另外加载自己的代码，所以不能说“所有页面都变快了”。如实的说法是：首次打开压到了 1 秒内，后续页面要看各自的加载情况。"
+        }
+      },
+      "explain": "分包减轻的是首次加载的负担，后面的页面可能还要另外加载自己的代码，所以不能说“所有页面都变快了”。如实的说法是：首次打开压到了 1 秒内，后续页面要看各自的加载情况。"
+    },
+    "unit_test_bug": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd explain a date-range bug that one of my own tests caught.",
+        "face": "probe",
+        "line": "Okay, what did the test find?",
+        "followup": {
+          "text": "What did the failing test case reveal?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "Across a month boundary, the end date could come before the start.",
+              "face": "pleased",
+              "line": "Ah, a classic boundary bug.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "An edge case in the date logic failed, so I rewrote that part.",
+              "face": "calm",
+              "line": "Which edge case, exactly?",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "The test showed the browser's calendar itself returns wrong dates.",
+              "face": "frown",
+              "line": "Hmm, I'm not sure that follows.",
+              "delta": -7
+            }
+          ],
+          "explain": "单元测试的价值在于抓住边界行为：跨月选日期时，结束日期可能早于开始日期。回答要落到具体的失败用例和修正上，而不是只说“代码更整洁了”，或把原因笼统地归给浏览器。"
+        }
+      },
+      "explain": "单元测试的价值在于抓住边界行为：跨月选日期时，结束日期可能早于开始日期。回答要落到具体的失败用例和修正上，而不是只说“代码更整洁了”，或把原因笼统地归给浏览器。"
+    },
+    "oss_library": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd explain the scope of my component library.",
+        "face": "probe",
+        "line": "Okay, how widely is it used?",
+        "followup": {
+          "text": "Who actually uses it, and what can the star count tell us?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "Mostly me and a few classmates. Stars aren't company adoption.",
+              "face": "pleased",
+              "line": "Thanks for being straight about that.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "A few people use it, but I haven't tracked who or how much.",
+              "face": "calm",
+              "line": "Okay, can you say more?",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "Over sixty stars, so over sixty teams are using it in production.",
+              "face": "frown",
+              "line": "Hmm, does one star equal one team?",
+              "delta": -7
+            }
+          ],
+          "explain": "star 数反映的是关注度，不是使用量，更不能说明有多少公司在生产环境里采用。回答要分开三件事：能核实的使用者、关注度（star）、以及没有确认过的下载或传播。"
+        }
+      },
+      "explain": "star 数反映的是关注度，不是使用量，更不能说明有多少公司在生产环境里采用。回答要分开三件事：能核实的使用者、关注度（star）、以及没有确认过的下载或传播。"
+    },
+    "mentoring": {
+      "roles": [
+        "fe"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "I'd explain how I helped new members learn to work on their own.",
+        "face": "probe",
+        "line": "Okay, how did you help them?",
+        "followup": {
+          "text": "One new member was falling behind. What did you change?",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "I broke the task down to changing one button at a time.",
+              "face": "pleased",
+              "line": "That's a smart way to help someone.",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "I took over the task so the group could still hit its deadline.",
+              "face": "calm",
+              "line": "That met the deadline, but did they learn?",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "I gave them the same task again and waited for them to catch up.",
+              "face": "frown",
+              "line": "Hmm, what would that change?",
+              "delta": -7
+            }
+          ],
+          "explain": "带新人要说明任务和反馈是怎么调整的，比如把任务拆小，让对方先在小步里做成。替对方做完能保住进度，却看不出对方学会了什么；原样重复任务、只等对方跟上，则没有改变任何条件。"
+        }
+      },
+      "explain": "带新人要说明任务和反馈是怎么调整的，比如把任务拆小，让对方先在小步里做成。替对方做完能保住进度，却看不出对方学会了什么；原样重复任务、只等对方跟上，则没有改变任何条件。"
+    }
+  },
+  "skill_probes": {
+    "probe_js_proto_en": {
+      "tag": "专业",
+      "text": "You've listed expert JavaScript. When you call a regular function with new, what happens?",
+      "options": [
+        {
+          "id": "fgf_js_a",
+          "type": "safe",
+          "text": "It creates an object, links its prototype, and runs the function.",
+          "face": "nod",
+          "line": "Okay, that's the basic sequence.",
+          "delta": 3
+        },
+        {
+          "id": "fgf_js_b",
+          "type": "bold",
+          "text": "I'd walk through creation, this binding, and the return value.",
+          "face": "probe",
+          "line": "Okay, go ahead.",
+          "followup": {
+            "text": "The constructor explicitly returns an object. What does new give back?",
+            "options": [
+              {
+                "id": "fgf_js_h",
+                "type": "hold",
+                "text": "The returned object replaces the newly created instance.",
+                "face": "nod",
+                "line": "Correct. Plenty of people miss that rule.",
+                "delta": 9
+              },
+              {
+                "id": "fgf_js_p",
+                "type": "partial",
+                "text": "Either the returned object or the new instance; I'd test which.",
+                "face": "calm",
+                "line": "Testing is fine, but what's the rule?",
+                "delta": 1
+              },
+              {
+                "id": "fgf_js_f",
+                "type": "fail",
+                "text": "It always returns the new instance and ignores an explicit return.",
+                "face": "calm",
+                "line": "Hmm, are you sure about that?",
+                "delta": -7
+              }
+            ],
+            "explain": "普通函数作为构造函数调用时，如果显式返回的是对象，new 的结果就是这个对象；只有返回原始值（或没有 return）时，才得到新创建的实例。这里只讨论普通函数，不涉及 class 派生构造器的额外规则。"
+          }
+        },
+        {
+          "id": "fgf_js_c",
+          "type": "off",
+          "text": "It calls the function and copies its methods onto a new object.",
+          "face": "calm",
+          "line": "Hmm, is that all it does?",
+          "delta": -3
+        }
+      ],
+      "explain": "用 new 调用普通函数时，会创建一个新对象，把它的原型指向构造函数的 prototype，再以这个对象为 this 执行函数，最后还要看返回值：显式返回对象时，结果就是那个对象。它不是把方法逐个复制到新对象上。"
+    },
+    "probe_vue_source_en": {
+      "tag": "专业",
+      "text": "You've listed Vue as a strength. If you destructure a primitive field out of reactive(), what gets lost?",
+      "options": [
+        {
+          "id": "fgf_vue_a",
+          "type": "safe",
+          "text": "The local value no longer reads through the original proxy.",
+          "face": "nod",
+          "line": "Okay, that's the core of it.",
+          "delta": 3
+        },
+        {
+          "id": "fgf_vue_b",
+          "type": "bold",
+          "text": "I'd separate the local binding from a nested object's value.",
+          "face": "probe",
+          "line": "Okay, local binding. Let me probe that.",
+          "followup": {
+            "text": "What if the destructured value is itself a reactive object?",
+            "options": [
+              {
+                "id": "fgf_vue_h",
+                "type": "hold",
+                "text": "Changes inside it are still tracked; the binding is what differs.",
+                "face": "nod",
+                "line": "Yes, that's the distinction that matters.",
+                "delta": 9
+              },
+              {
+                "id": "fgf_vue_p",
+                "type": "partial",
+                "text": "I'd keep reading through the proxy instead of destructuring.",
+                "face": "calm",
+                "line": "That avoids it, but why does it happen?",
+                "delta": 1
+              },
+              {
+                "id": "fgf_vue_f",
+                "type": "fail",
+                "text": "After destructuring, no nested change is reactive any more.",
+                "face": "calm",
+                "line": "Hmm, even for nested objects?",
+                "delta": -7
+              }
+            ],
+            "explain": "解构出来的值本身是对象时，它仍然是响应式代理，修改内部的属性依然可以被追踪；变化的只是那个局部变量的绑定。要把“局部绑定”和“代理对象内部的变化”分开看。"
+          }
+        },
+        {
+          "id": "fgf_vue_c",
+          "type": "off",
+          "text": "Destructuring keeps the reactive link for every kind of value.",
+          "face": "calm",
+          "line": "Hmm, is that true for every value?",
+          "delta": -3
+        }
+      ],
+      "explain": "从 reactive 对象里解构出原始值字段后，得到的只是普通的局部变量，读写不再经过原来的代理，也就不会被追踪。字段本身是对象时则不同：拿到的仍是响应式代理，修改它内部的属性依然可以触发更新，所以不能概括成“解构之后一切都失去响应”。"
+    },
+    "probe_react_master_en": {
+      "tag": "诚信",
+      "text": "You've listed expert React. How do you deal with stale values inside an effect?",
+      "options": [
+        {
+          "id": "fgf_react_truth",
+          "type": "fail",
+          "text": "Expert overstates it. I only built a small demo from a tutorial.",
+          "face": "calm",
+          "line": "Thanks for being upfront about that.",
+          "delta": -1
+        },
+        {
+          "id": "fgf_react_guess",
+          "type": "partial",
+          "text": "I'd adjust the dependencies, then re-check all the captured values.",
+          "face": "calm",
+          "line": "Okay. Do you know why they go stale?",
+          "delta": -2
+        },
+        {
+          "id": "fgf_react_wrong",
+          "type": "fail",
+          "text": "React infers missing dependencies, so no code change is needed.",
+          "face": "frown",
+          "line": "Hmm, are you sure React does that?",
+          "delta": -7
+        }
+      ],
+      "explain": "依赖没写全时，effect 会读到旧的值；React 不会替你补依赖，这是闭包里最常见的坑。被追问到“精通”时，如实说明实际水平，比含糊地讲思路、或自信地讲错损失更小；最好一开始就按真实水平来写。"
+    }
+  }
+}

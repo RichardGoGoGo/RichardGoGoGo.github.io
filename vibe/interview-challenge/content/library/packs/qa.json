@@ -1,0 +1,2011 @@
+{
+  "_note": "第三批Q：测试开发。20经历类型relevance；所有跨岗位题均role qa，原有岗位不匹配。",
+  "relevance": {
+    "intern_dev": {
+      "qa": "match"
+    },
+    "intern_pm": {
+      "qa": "half"
+    },
+    "user_research_intern": {
+      "qa": "half"
+    },
+    "research_tool": {
+      "qa": "match"
+    },
+    "campus_team_project": {
+      "qa": "half"
+    },
+    "personal_project": {
+      "qa": "match"
+    },
+    "course_project": {
+      "qa": "match"
+    },
+    "thesis": {
+      "qa": "half"
+    },
+    "paper": {
+      "qa": "half"
+    },
+    "competition": {
+      "qa": "half"
+    },
+    "student_org": {
+      "qa": "half"
+    },
+    "media_ops": {
+      "qa": "none"
+    },
+    "event_planning": {
+      "qa": "half"
+    },
+    "part_time": {
+      "qa": "none"
+    },
+    "certificate": {
+      "qa": "general"
+    },
+    "award": {
+      "qa": "general"
+    },
+    "intern_hr": {
+      "qa": "none"
+    },
+    "intern_mkt": {
+      "qa": "none"
+    },
+    "campus_ambassador": {
+      "qa": "general"
+    },
+    "game_project": {
+      "qa": "half"
+    }
+  },
+  "skills": {
+    "js": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "JavaScript"
+          ]
+        }
+      }
+    },
+    "ts": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "TypeScript"
+          ]
+        }
+      }
+    },
+    "git": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "Git"
+          ]
+        }
+      }
+    },
+    "python": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "Python"
+          ]
+        }
+      }
+    },
+    "sql": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "SQL"
+          ]
+        }
+      }
+    },
+    "linux": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "Linux"
+          ]
+        }
+      }
+    },
+    "network": {
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "网络"
+          ]
+        }
+      }
+    },
+    "html_css": {
+      "roles": {
+        "qa": {
+          "relevant": false,
+          "keywords": [
+            "HTML",
+            "CSS"
+          ]
+        }
+      }
+    },
+    "qa_case": {
+      "labels": {
+        "1": "了解测试用例设计",
+        "2": "熟悉测试用例设计",
+        "3": "精通测试用例设计"
+      },
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "等价类",
+            "边界值",
+            "用例设计"
+          ]
+        }
+      },
+      "master_probes": [
+        "qa3_probe_case"
+      ]
+    },
+    "qa_auto": {
+      "labels": {
+        "1": "了解单元测试自动化",
+        "2": "熟悉单元测试自动化",
+        "3": "精通单元测试自动化"
+      },
+      "roles": {
+        "qa": {
+          "relevant": true,
+          "keywords": [
+            "单元测试",
+            "自动化测试"
+          ]
+        }
+      },
+      "master_probes": [
+        "qa3_probe_auto"
+      ]
+    }
+  },
+  "skill_probes": {
+    "qa3_probe_auto": {
+      "tag": "专业",
+      "text": "你标了“精通单元测试自动化”。依赖都用mock替换后测试全部通过，这能说明什么、不能说明什么？",
+      "options": [
+        {
+          "id": "qa3_probe_auto_a",
+          "type": "safe",
+          "text": "我没系统验证过集成链路，先说已确认的部分。",
+          "face": "nod",
+          "line": "好，已确认的部分你说说。",
+          "delta": -1
+        },
+        {
+          "id": "qa3_probe_auto_c",
+          "type": "off",
+          "text": "mock的结构和真实接口一致，通过就证明依赖联通。",
+          "face": "calm",
+          "line": "结构一致就联通？超时也一样吗？",
+          "delta": -5
+        },
+        {
+          "id": "qa3_probe_auto_b",
+          "type": "bold",
+          "text": "先说明替代了哪些行为，再补真实依赖契约与集成验证。",
+          "face": "probe",
+          "line": "替代了什么先交代，再往下。",
+          "followup": {
+            "text": "mock把所有返回都设成成功，遗漏了什么？",
+            "options": [
+              {
+                "id": "qa3_probe_auto_h",
+                "type": "hold",
+                "text": "超时、错误返回和响应结构变化，仍要有对应的验证用例。",
+                "face": "pleased",
+                "line": "异常路径mock里没建，你想到了。",
+                "delta": 9
+              },
+              {
+                "id": "qa3_probe_auto_p",
+                "type": "partial",
+                "text": "只要调用次数断言正确，依赖返回分支可以交给对方测试。",
+                "face": "calm",
+                "line": "调用次数对就行？返回分支没看。",
+                "delta": -3
+              },
+              {
+                "id": "qa3_probe_auto_f",
+                "type": "fail",
+                "text": "真实依赖负责自己的异常，调用方只测成功能减少重复。",
+                "face": "frown",
+                "line": "只测成功路径，上线超时怎么办？",
+                "delta": -7
+              }
+            ],
+            "explain": "替代依赖有助隔离单元行为，但只覆盖已建模的条件。集成契约和真实错误路径仍需验证；如实说明只有局部经验扣分最少，不能把mock通过扩大成整条链路可靠。"
+          }
+        }
+      ],
+      "explain": "替代依赖有助隔离单元行为，但只覆盖已建模的条件。集成契约和真实错误路径仍需验证；如实说明只有局部经验扣分最少，不能把mock通过扩大成整条链路可靠。"
+    },
+    "qa3_probe_case": {
+      "tag": "专业",
+      "text": "你标了“精通用例设计”。语句覆盖率做到百分之百，对需求有没有漏测，你怎么判断？",
+      "options": [
+        {
+          "id": "qa3_probe_case_a",
+          "type": "safe",
+          "text": "我还没系统验证过覆盖指标，先说明自己会的方法。",
+          "face": "nod",
+          "line": "行，会的方法说，别往大了说。",
+          "delta": -1
+        },
+        {
+          "id": "qa3_probe_case_c",
+          "type": "off",
+          "text": "语句全执行过就是所有业务分支都走过，足以作为放行依据。",
+          "face": "calm",
+          "line": "语句走过，不等于分支都走过。",
+          "delta": -5
+        },
+        {
+          "id": "qa3_probe_case_b",
+          "type": "bold",
+          "text": "区分代码覆盖与需求风险，再检查分支、状态和边界。",
+          "face": "probe",
+          "line": "代码覆盖和需求风险分开看，行。",
+          "followup": {
+            "text": "每条语句都执行，但条件A或B只在A为真时测过，还缺什么？",
+            "options": [
+              {
+                "id": "qa3_probe_case_h",
+                "type": "hold",
+                "text": "还缺A为假时B的两种结果，以及各自对应的业务预期。",
+                "face": "pleased",
+                "line": "A为假时B的两种结果，对，缺这块。",
+                "delta": 9
+              },
+              {
+                "id": "qa3_probe_case_p",
+                "type": "partial",
+                "text": "再重复几次A为真的用例，先确认结果稳定后再补其他条件。",
+                "face": "calm",
+                "line": "重复同一条件，换不出新信息。",
+                "delta": -3
+              },
+              {
+                "id": "qa3_probe_case_f",
+                "type": "fail",
+                "text": "逻辑或有短路，B不必执行，因此不存在额外风险。",
+                "face": "frown",
+                "line": "短路是实现行为，B的规则还没验。",
+                "delta": -7
+              }
+            ],
+            "explain": "代码执行覆盖与业务规则覆盖不同。条件组合和状态可能没有被当前输入触发，需要独立预期与反例；不能用一个百分比承诺没有未知缺陷。"
+          }
+        }
+      ],
+      "explain": "代码执行覆盖与业务规则覆盖不同。条件组合和状态可能没有被当前输入触发，需要独立预期与反例；不能用一个百分比承诺没有未知缺陷。"
+    },
+    "qa3_probe_js": {
+      "tag": "专业",
+      "text": "技能栏写“精通JavaScript”。异步保存返回Promise，测试只调用保存函数就结束，会有什么风险？",
+      "options": [
+        {
+          "id": "qa3_probe_js_a",
+          "type": "safe",
+          "text": "异步测试我没系统验证过，会分清已确认的和推测的。",
+          "face": "nod",
+          "line": "分清确认和推测，总比硬答强。",
+          "delta": -1
+        },
+        {
+          "id": "qa3_probe_js_c",
+          "type": "off",
+          "text": "只要函数没有同步抛错，返回Promise就表示保存已经完成。",
+          "face": "calm",
+          "line": "返回Promise只是开始，没完成。",
+          "delta": -5
+        },
+        {
+          "id": "qa3_probe_js_b",
+          "type": "bold",
+          "text": "说明测试要等待异步完成，再断言成功或失败。",
+          "face": "probe",
+          "line": "要等异步完成，对，再给个情形。",
+          "followup": {
+            "text": "Promise稍后拒绝，但测试已显示通过，怎样修正？",
+            "options": [
+              {
+                "id": "qa3_probe_js_h",
+                "type": "hold",
+                "text": "返回或等待该Promise，并让拒绝进入测试失败判断。",
+                "face": "pleased",
+                "line": "等它完成，拒绝也算失败，对了。",
+                "delta": 9
+              },
+              {
+                "id": "qa3_probe_js_p",
+                "type": "partial",
+                "text": "增加固定等待时间，等待足够久就能保证捕获所有错误。",
+                "face": "calm",
+                "line": "固定等多久？慢一点就漏了。",
+                "delta": -3
+              },
+              {
+                "id": "qa3_probe_js_f",
+                "type": "fail",
+                "text": "拒绝捕获后只打印日志，避免偶发网络问题影响测试结果。",
+                "face": "frown",
+                "line": "拒绝吞掉只打日志，测试永远绿。",
+                "delta": -7
+              }
+            ],
+            "explain": "异步动作启动不等于完成，测试需等待目标结果并保留失败语义。固定延迟不能保证覆盖所有时序，吞掉拒绝会制造假通过；如实限定经验比自信答错损失更少。"
+          }
+        }
+      ],
+      "explain": "异步动作启动不等于完成，测试需等待目标结果并保留失败语义。固定延迟不能保证覆盖所有时序，吞掉拒绝会制造假通过；如实限定经验比自信答错损失更少。"
+    }
+  },
+  "frames": {
+    "intern_dev": [
+      {
+        "id": "qa3_frame_intern",
+        "roles": [
+          "qa"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你在{exp.qa3_focus}时，怎样把一个现象变成可复现的问题？",
+          "options": [
+            {
+              "key": "qa3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "先说前置、步骤和结果差异，再讲定位与验证。",
+              "face": "nod",
+              "line": "前置、步骤、差异，复现要素齐了。"
+            },
+            {
+              "key": "qa3_b",
+              "type": "bold",
+              "text": "讲切后台走慢：对比截止时间，再检查计时基准。",
+              "face": "probe",
+              "line": "对照截止时间，修完怎么验？",
+              "followup": {
+                "text": "修完以后，你具体验证了哪些场景？",
+                "options": [
+                  {
+                    "key": "qa3_h",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "测前后台切换、临近截止和恢复页面，都对照绝对截止时间。",
+                    "face": "pleased",
+                    "line": "三个场景对绝对时间，验证到位。"
+                  },
+                  {
+                    "key": "qa3_p",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "切到后台再切回来看倒计时，临近截止那段没单独测。",
+                    "face": "calm",
+                    "line": "切后台测了，临近截止呢？"
+                  },
+                  {
+                    "key": "qa3_f",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "算法已经改对了，前台看一遍倒计时正常就证明了。",
+                    "face": "frown",
+                    "line": "只看前台？问题明明出在后台。"
+                  }
+                ],
+                "explain": "复现与修复验证要围绕触发条件。后台调度、临近截止与恢复页面正是这个问题的关键；只切一次后台、不看临近截止，仍可能漏掉边界；改完算法只看前台，也不能覆盖原缺陷。"
+              }
+            },
+            {
+              "key": "qa3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "同事说倒计时不准，我在前台试几遍没问题，就按偶发记录。",
+              "face": "calm",
+              "line": "前台没问题就当偶发？问题在后台。"
+            }
+          ],
+          "explain": "可复现的问题要有前置、步骤和实际与预期差异。定位判断与已确认根因分开说明；只在一种环境里试几遍就判成偶发，会漏掉真正的触发条件。修复后应回到触发场景及相关边界，不用未收到投诉代替验证。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "qa3_frame_component",
+        "roles": [
+          "qa"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你在{exp.qa3_component}里补的测试，具体断言了什么？",
+          "options": [
+            {
+              "key": "qa3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "先讲组件规则，再讲输入、动作与预期。",
+              "face": "nod",
+              "line": "规则、输入、预期，次序清楚。"
+            },
+            {
+              "key": "qa3_b",
+              "type": "bold",
+              "text": "拿跨月时结束早于开始的反例，解释范围断言。",
+              "face": "probe",
+              "line": "反例很具体，断言怎么写？",
+              "followup": {
+                "text": "这个跨月反例，你的断言具体怎么写？",
+                "options": [
+                  {
+                    "key": "qa3_h",
+                    "type": "hold",
+                    "delta": 9,
+                    "text": "给跨月的起止日期，断言结束不早于开始，再补边界场景。",
+                    "face": "pleased",
+                    "line": "断言落在日期范围上，边界也补了。"
+                  },
+                  {
+                    "key": "qa3_p",
+                    "type": "partial",
+                    "delta": 1,
+                    "text": "断言选完以后起止日期都有值，先后顺序先不比较。",
+                    "face": "calm",
+                    "line": "有值断言了，先后顺序才是要害。"
+                  },
+                  {
+                    "key": "qa3_f",
+                    "type": "fail",
+                    "delta": -7,
+                    "text": "只要测试没有抛出异常，就说明输入已被正确处理。",
+                    "face": "frown",
+                    "line": "没抛异常就算对？断言在哪。"
+                  }
+                ],
+                "explain": "组件可运行与业务规则正确是两层结论。日期范围需有独立预期和边界样例；只断言选中后有值，没有比较开始结束的先后；没抛异常或文字相同，也不能证明开始结束关系合法。"
+              }
+            },
+            {
+              "key": "qa3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "组件能显示、能点击，主要用测试保证渲染过程不报错。",
+              "face": "calm",
+              "line": "渲染不报错，范围谁来看？"
+            }
+          ],
+          "explain": "单测应说明验证的规则和遗漏的边界，而不是只报用例数量。这个反例检查日期范围，与组件是否能渲染不同；没有断言实际结果的脚本容易出现假通过。"
+        }
+      }
+    ]
+  },
+  "pools": [
+    {
+      "id": "qa3_intro_quality",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先介绍一下自己，挑一件与你做测试开发最相关的事。",
+        "options": [
+          {
+            "id": "qa3_intro_quality_a",
+            "type": "safe",
+            "text": "先讲相关经历与职责，再说明用什么方法验证、结果怎样。",
+            "face": "nod",
+            "line": "职责和验证都说了，清楚。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_intro_quality_b",
+            "type": "bold",
+            "text": "讲下单按钮失灵的事故，区分止损、定位和补测。",
+            "face": "probe",
+            "line": "下单按钮那次？我顺着问一句。",
+            "followup": {
+              "text": "事故修好了，为什么还需要复盘？",
+              "options": [
+                {
+                  "id": "qa3_intro_quality_h",
+                  "type": "hold",
+                  "text": "修复当前问题，还要补触发场景和受影响链路的回归。",
+                  "face": "pleased",
+                  "line": "回滚是止血，补回归才算数。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_intro_quality_p",
+                  "type": "partial",
+                  "text": "补一条出事那个按钮的回归用例，别的链路先不动。",
+                  "face": "calm",
+                  "line": "按钮补了，旁边的链路呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_intro_quality_f",
+                  "type": "fail",
+                  "text": "当场回滚已经恢复业务，说明发布流程有效，不必加测试。",
+                  "face": "frown",
+                  "line": "回滚快就不补测试？漏测还在啊。",
+                  "delta": -7
+                }
+              ],
+              "explain": "介绍质量经历应说清本人动作与验证范围。恢复业务、修复缺陷和减少同类漏测是不同任务，回滚不能替代缺陷复盘与回归；只给出事的那个按钮补用例，受影响的关联链路仍可能漏掉。"
+            },
+            "requires": {
+              "highlight": "incident"
+            },
+            "fallback": {
+              "id": "qa3_intro_quality_b0",
+              "type": "safe",
+              "text": "挑一个真实项目，讲清自己做了什么和怎样验证。",
+              "face": "nod",
+              "line": "行，挑哪个都可以，讲你那块。",
+              "delta": 2
+            }
+          },
+          {
+            "id": "qa3_intro_quality_c",
+            "type": "off",
+            "text": "先按项目规模讲团队成果，最后补充自己用过哪些工具。",
+            "face": "calm",
+            "line": "团队成果听到了，你那份呢？",
+            "delta": -3
+          }
+        ],
+        "explain": "介绍质量经历应说清本人动作与验证范围。恢复业务、修复缺陷和减少同类漏测是不同任务，回滚不能替代缺陷复盘与回归；只给出事的那个按钮补用例，受影响的关联链路仍可能漏掉。没有对应经历时，可以准确介绍做过的项目与尚需补齐的测试方法。"
+      }
+    },
+    {
+      "id": "qa3_intro_risk",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "一面聊了基础。现在请说说，你怎样把已有经验转成测试开发能力。",
+        "options": [
+          {
+            "id": "qa3_intro_risk_c",
+            "type": "off",
+            "text": "把开发流程熟悉好，测试重点就是尽量覆盖所有页面。",
+            "face": "calm",
+            "line": "页面点一遍就叫覆盖？风险呢。",
+            "delta": -3
+          },
+          {
+            "id": "qa3_intro_risk_a",
+            "type": "safe",
+            "text": "先找关键规则和高后果路径，再选好在哪一层验证。",
+            "face": "nod",
+            "line": "先挑要紧的，再定在哪层测。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_intro_risk_b",
+            "type": "bold",
+            "text": "用失败路径检查方案，把已验证和未验证分开说明。",
+            "face": "probe",
+            "line": "已验证和未验证分开讲？细问一下。",
+            "followup": {
+              "text": "接口返回成功，但页面上的状态没有更新，你的结论怎么写？",
+              "options": [
+                {
+                  "id": "qa3_intro_risk_h",
+                  "type": "hold",
+                  "text": "接口层通过、页面状态未通过，分开记录并核对用户结果。",
+                  "face": "pleased",
+                  "line": "两层分开记，用户结果也核了。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_intro_risk_p",
+                  "type": "partial",
+                  "text": "接口层记通过，页面没更新的问题转给界面用例去验证。",
+                  "face": "calm",
+                  "line": "接口过了，页面还没有结论。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_intro_risk_f",
+                  "type": "fail",
+                  "text": "接口成功就是通过，页面没更新属于体验问题，不影响结论。",
+                  "face": "frown",
+                  "line": "用户看的是页面，不是接口返回。",
+                  "delta": -7
+                }
+              ],
+              "explain": "测试结果需要对应声明的验证范围。接口协议通过不等于用户流程通过，界面状态、持久状态和业务规则应有各自证据；转交给下一层验证时，也要注明这一项目前还没有结论。"
+            }
+          }
+        ],
+        "explain": "测试结果需要对应声明的验证范围。接口协议通过不等于用户流程通过，界面状态、持久状态和业务规则应有各自证据；也不能把全部风险都堆进页面点击。"
+      }
+    },
+    {
+      "id": "qa3_case_boundary",
+      "pools": [
+        "qa_case"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "用户名只允许6到12位字母或数字。你会怎样选第一批测试值？",
+        "options": [
+          {
+            "id": "qa3_case_boundary_a",
+            "type": "safe",
+            "text": "先按长度、字符划等价类，每类挑代表值，再补边界。",
+            "face": "nod",
+            "line": "先分类再挑代表值，方向没错。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_case_boundary_b",
+            "type": "bold",
+            "text": "把长度、字符和空值规则拆开，再选边界两侧的数据。",
+            "face": "probe",
+            "line": "规则拆开了，边界上细问一下。",
+            "followup": {
+              "text": "长度边界具体选哪些值？为什么这么选？",
+              "options": [
+                {
+                  "id": "qa3_case_boundary_f",
+                  "type": "fail",
+                  "text": "测5和13即可，非法输入被拒绝就证明边界逻辑正确。",
+                  "face": "frown",
+                  "line": "只测被拒绝的？6和12呢。",
+                  "delta": -7
+                },
+                {
+                  "id": "qa3_case_boundary_p",
+                  "type": "partial",
+                  "text": "测5、6、12、13四个点，字符和空值之后有空再补。",
+                  "face": "calm",
+                  "line": "两端碰到了，7和11这种内侧呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_case_boundary_h",
+                  "type": "hold",
+                  "text": "测5、6、7和11、12、13，非法字符与空值另外单列用例。",
+                  "face": "pleased",
+                  "line": "两侧都有，字符空值也单列了。",
+                  "delta": 9
+                }
+              ],
+              "explain": "等价类减少相似输入的重复，边界值检查规则切换位置。只测合法端点或只测非法值都可能遗漏开闭区间错误；两侧的边界点加上外侧值才能看出规则在哪切换。字符限制、空值与长度是不同规则，应分别列出。"
+            }
+          },
+          {
+            "id": "qa3_case_boundary_c",
+            "type": "off",
+            "text": "6位和12位都通过后，再抽一个9位的，边界就算测完。",
+            "face": "calm",
+            "line": "加个9位，测不出边界错在哪。",
+            "delta": -3
+          }
+        ],
+        "explain": "等价类减少相似输入的重复，边界值检查规则切换位置。只测合法端点或只测非法值都可能遗漏开闭区间错误；再取内侧一格（7、11），能多确认规则切换后一侧也持续成立。字符限制、空值与长度是不同规则，应避免混成一条无法解释的用例。"
+      }
+    },
+    {
+      "id": "qa3_case_states",
+      "pools": [
+        "qa_case"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "订单支持待付款取消、付款后申请退款。这类用例你会怎样设计？",
+        "options": [
+          {
+            "id": "qa3_case_states_a",
+            "type": "safe",
+            "text": "按订单状态列出前提，每个操作都写清预期结果和副作用。",
+            "face": "nod",
+            "line": "从状态出发，预期也写明了。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_case_states_b",
+            "type": "bold",
+            "text": "画状态转移表，检查允许、拒绝及重复操作的副作用。",
+            "face": "probe",
+            "line": "状态转移表？我给个具体情形。",
+            "followup": {
+              "text": "退款请求超时，用户又提交一次，应怎样写用例？",
+              "options": [
+                {
+                  "id": "qa3_case_states_h",
+                  "type": "hold",
+                  "text": "确认重复请求契约，再断言结果与退款记录不冲突。",
+                  "face": "pleased",
+                  "line": "返回和退款记录都对上了。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_case_states_p",
+                  "type": "partial",
+                  "text": "断言第二次返回符合约定，退款记录只抽查一两笔。",
+                  "face": "calm",
+                  "line": "返回看了，退款记录只抽查？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_case_states_f",
+                  "type": "fail",
+                  "text": "第一次超时就是失败，第二次作为新退款成功即可。",
+                  "face": "frown",
+                  "line": "超时算失败？第一笔可能已经退了。",
+                  "delta": -7
+                }
+              ],
+              "explain": "业务状态会改变同一操作是否允许。超时只表示未及时取得响应，不能据此认定业务未执行。用例需要写前提、操作、预期和可观察副作用，重复提交尤其要检查记录与结果的一致性。"
+            }
+          },
+          {
+            "id": "qa3_case_states_c",
+            "type": "off",
+            "text": "参数组合覆盖后，再走一遍正常下单流程就能确认状态。",
+            "face": "calm",
+            "line": "正常流程通了，退款限制还没碰。",
+            "delta": -3
+          }
+        ],
+        "explain": "业务状态会改变同一操作是否允许。超时只表示未及时取得响应，不能据此认定业务未执行。用例需要写前提、操作、预期和可观察副作用，重复提交尤其要检查记录与结果的一致性。"
+      }
+    },
+    {
+      "id": "qa3_auto_layers",
+      "pools": [
+        "qa_auto"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "核心交易每周回归很耗时，第一版自动化怎样分层？",
+        "options": [
+          {
+            "id": "qa3_auto_layers_c",
+            "type": "off",
+            "text": "先把现有手工步骤全部录成UI脚本，保证覆盖量不减少。",
+            "face": "calm",
+            "line": "全录成界面脚本，页面一改就挂。",
+            "delta": -3
+          },
+          {
+            "id": "qa3_auto_layers_a",
+            "type": "safe",
+            "text": "按风险排单元、接口和关键界面，说明各层测什么。",
+            "face": "nod",
+            "line": "分层有依据，各层职责也讲了。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_auto_layers_b",
+            "type": "bold",
+            "text": "规则放到稳定的层去断言，界面只保留关键交互。",
+            "face": "probe",
+            "line": "界面只留关键交互？问个取舍。",
+            "followup": {
+              "text": "单元和接口都通过后，界面这一层还留哪些用例？",
+              "options": [
+                {
+                  "id": "qa3_auto_layers_h",
+                  "type": "hold",
+                  "text": "留参数传递、按钮行为和关键流程联通这几类，规则不再重复测。",
+                  "face": "pleased",
+                  "line": "接线和交互都留了，规则没重测。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_auto_layers_p",
+                  "type": "partial",
+                  "text": "只留登录到下单这一条主流程，参数传递交给接口层去测。",
+                  "face": "calm",
+                  "line": "主流程留了，按钮行为谁盯？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_auto_layers_f",
+                  "type": "fail",
+                  "text": "界面一条不留，各层测的是同一功能，界面只增加维护成本。",
+                  "face": "frown",
+                  "line": "界面全撤了，接线出错没人发现。",
+                  "delta": -7
+                }
+              ],
+              "explain": "分层依据是风险和可观察边界，不是固定比例。低层适合稳定规则，界面仍承担真实交互与接线验证；彻底取消界面验证会漏掉参数传递和按钮行为，只留一条主流程也只覆盖其中一部分。"
+            }
+          }
+        ],
+        "explain": "分层依据是风险和可观察边界，不是固定比例。低层适合稳定规则，界面仍承担真实交互与接线验证；把所有用例录成浏览器脚本和彻底取消界面验证，都会遗漏取舍；只留一条主流程，则参数传递和按钮行为就没有界面层的证据。"
+      }
+    },
+    {
+      "id": "qa3_auto_flaky",
+      "pools": [
+        "qa_auto"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "同一提交的自动化偶尔失败，重跑又通过。你怎样处理？",
+        "options": [
+          {
+            "id": "qa3_auto_flaky_a",
+            "type": "safe",
+            "text": "保留首次失败的记录，先区分是环境、数据还是真实缺陷。",
+            "face": "nod",
+            "line": "首次失败留着，分类也有顺序。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_auto_flaky_b",
+            "type": "bold",
+            "text": "按失败证据分类，重跑设上限，隔离的用例写明恢复条件。",
+            "face": "probe",
+            "line": "重跑有上限，隔离有条件。根因呢？",
+            "followup": {
+              "text": "发现是并行用例共用账号，怎样修正？",
+              "options": [
+                {
+                  "id": "qa3_auto_flaky_f",
+                  "type": "fail",
+                  "text": "每次开始前清空共享账号数据，就能保证所有用例独立。",
+                  "face": "frown",
+                  "line": "清共享账号？别的用例正用着。",
+                  "delta": -7
+                },
+                {
+                  "id": "qa3_auto_flaky_p",
+                  "type": "partial",
+                  "text": "整套改成串行先压住互相影响，共用账号的问题后面再拆。",
+                  "face": "calm",
+                  "line": "串行能稳住，共用账号还在。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_auto_flaky_h",
+                  "type": "hold",
+                  "text": "每次运行都用独立账号和数据，清理只动本次建出来的资源。",
+                  "face": "pleased",
+                  "line": "按运行隔离，清理范围也收住了。",
+                  "delta": 9
+                }
+              ],
+              "explain": "重跑通过不能抹掉首次失败。共享可变数据会让测试顺序影响结果，应按运行隔离并限定清理范围。串行可临时缓解，但不能代替找清共享依赖；无限重跑只会隐藏不稳定风险。"
+            }
+          },
+          {
+            "id": "qa3_auto_flaky_c",
+            "type": "off",
+            "text": "最多重跑五次，只要有一次通过，就只报告那一次结果。",
+            "face": "calm",
+            "line": "五次挑一次通过的报？失败呢。",
+            "delta": -3
+          }
+        ],
+        "explain": "重跑通过不能抹掉首次失败。共享可变数据会让测试顺序影响结果，应按运行隔离并限定清理范围。串行可临时缓解，但不能代替找清共享依赖；无限重跑只会隐藏不稳定风险。"
+      }
+    },
+    {
+      "id": "qa3_perf_tail",
+      "pools": [
+        "qa_perf"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "接口平均响应正常，但少量用户持续等待很久，你会补看什么？",
+        "options": [
+          {
+            "id": "qa3_perf_tail_a",
+            "type": "safe",
+            "text": "看P95、P99与错误率，再按请求类型分层。",
+            "face": "nod",
+            "line": "分位数加错误率，路子对。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_perf_tail_b",
+            "type": "bold",
+            "text": "先统一采样口径，联看尾部延迟、吞吐和资源等待。",
+            "face": "probe",
+            "line": "口径先对齐，再看一种情况。",
+            "followup": {
+              "text": "脚本把超时请求从统计里删掉了，报告里这部分怎么处理？",
+              "options": [
+                {
+                  "id": "qa3_perf_tail_h",
+                  "type": "hold",
+                  "text": "单列超时与失败的数量，说明延迟样本覆盖了多少请求。",
+                  "face": "pleased",
+                  "line": "超时单列，样本覆盖也交代了。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_perf_tail_p",
+                  "type": "partial",
+                  "text": "成功请求的结果照常报，注明超时没算进均值。",
+                  "face": "calm",
+                  "line": "注明了，可超时占多少没数。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_perf_tail_f",
+                  "type": "fail",
+                  "text": "超时没有完整响应时间，不计入性能结果，报告里不用提。",
+                  "face": "frown",
+                  "line": "超时直接不提，这是挑好看的数。",
+                  "delta": -7
+                }
+              ],
+              "explain": "平均值会掩盖长尾，删掉失败样本又可能让剩余结果显得更好。要说明时间起止、分母、请求构成与错误统计，再联看资源和链路；超时和失败要单独交代，不能用成功样本的漂亮均值代替整体体验。"
+            }
+          },
+          {
+            "id": "qa3_perf_tail_c",
+            "type": "off",
+            "text": "先增加并发压到平均响应明显上涨，再查服务器CPU。",
+            "face": "calm",
+            "line": "平均值正常，加压未必现长尾。",
+            "delta": -3
+          }
+        ],
+        "explain": "平均值会掩盖长尾，删掉失败样本又可能让剩余结果显得更好。要说明时间起止、分母、请求构成与错误统计，再联看资源和链路；不能用成功样本的漂亮均值代替整体体验。"
+      }
+    },
+    {
+      "id": "qa3_perf_model",
+      "pools": [
+        "qa_perf"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "想验证导出服务的性能，压测的数据和负载你会怎样设计？",
+        "options": [
+          {
+            "id": "qa3_perf_model_c",
+            "type": "off",
+            "text": "先用小报表摸出最高吞吐，再按文件大小线性推算大报表。",
+            "face": "calm",
+            "line": "大文件的排队可不是线性涨。",
+            "delta": -3
+          },
+          {
+            "id": "qa3_perf_model_a",
+            "type": "safe",
+            "text": "先核对真实报表规模和异步完成口径，再定负载与指标。",
+            "face": "nod",
+            "line": "先摸清真实数据和完成口径。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_perf_model_b",
+            "type": "bold",
+            "text": "按报表大小、冷热数据和提交到完成的阶段设计负载。",
+            "face": "probe",
+            "line": "阶段都想到了，接着问个口径。",
+            "followup": {
+              "text": "接口很快返回任务号，导出性能的结论你怎么下？",
+              "options": [
+                {
+                  "id": "qa3_perf_model_h",
+                  "type": "hold",
+                  "text": "受理速度和完成耗时分开报，再看排队积压、失败数和完成率。",
+                  "face": "pleased",
+                  "line": "受理和完成分开看，积压也盯着。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_perf_model_p",
+                  "type": "partial",
+                  "text": "先确认提交接口达标，再让业务人员抽查几份导出结果。",
+                  "face": "calm",
+                  "line": "提交快了，抽查几份看不出积压。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_perf_model_f",
+                  "type": "fail",
+                  "text": "任务号返回越快就能接越多请求，可以用受理吞吐验收。",
+                  "face": "frown",
+                  "line": "受理快，不等于导出完成得快。",
+                  "delta": -7
+                }
+              ],
+              "explain": "异步服务的受理与完成是不同阶段。负载模型应反映任务大小、数据分布与到达方式，并观察积压和最终结果；小样本或单一热数据不能直接外推真实容量。"
+            }
+          }
+        ],
+        "explain": "异步服务的受理与完成是不同阶段。负载模型应反映任务大小、数据分布与到达方式，并观察积压和最终结果；小样本或单一热数据不能直接外推真实容量。"
+      }
+    },
+    {
+      "id": "qa3_ai_review",
+      "pools": [
+        "qa_ai"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "你准备让AI辅助生成接口用例。怎样使用这些产出？",
+        "options": [
+          {
+            "id": "qa3_ai_review_a",
+            "type": "safe",
+            "text": "把它当初稿，按需求、边界和断言逐项复核后再用。",
+            "face": "nod",
+            "line": "当初稿逐项核，态度对。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_ai_review_b",
+            "type": "bold",
+            "text": "先给脱敏契约，再用规则覆盖表检查遗漏和错误预期。",
+            "face": "probe",
+            "line": "脱敏和覆盖表都想到了，换个角度。",
+            "followup": {
+              "text": "AI给出二十条正常路径用例，全部通过，你怎么评价覆盖？",
+              "options": [
+                {
+                  "id": "qa3_ai_review_f",
+                  "type": "fail",
+                  "text": "用例数量和通过率都有保证，可以替代本轮手工审阅。",
+                  "face": "frown",
+                  "line": "通过率高就不审？用例本身没人看。",
+                  "delta": -7
+                },
+                {
+                  "id": "qa3_ai_review_p",
+                  "type": "partial",
+                  "text": "主流程算稳了，边界和异常另开一轮补用例再评估。",
+                  "face": "calm",
+                  "line": "主流程稳了，边界还是空的。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_ai_review_h",
+                  "type": "hold",
+                  "text": "只覆盖了正常路径，异常、权限和状态规则都还要补用例。",
+                  "face": "pleased",
+                  "line": "二十条全是正常路径，你看出来了。",
+                  "delta": 9
+                }
+              ],
+              "explain": "AI可以辅助发散和整理，但通过率只针对已经设计出的用例。规则遗漏或预期写错时，全部通过也不能证明质量。输入使用获准的脱敏资料，输出仍需由测试人员核对风险与断言。"
+            }
+          },
+          {
+            "id": "qa3_ai_review_c",
+            "type": "off",
+            "text": "AI生成的用例全部跑通后，直接收进本版回归集。",
+            "face": "calm",
+            "line": "预期没人核就入集，错的被固定了。",
+            "delta": -3
+          }
+        ],
+        "explain": "AI可以辅助发散和整理，但通过率只针对已经设计出的用例。规则遗漏或预期写错时，全部通过也不能证明质量。输入使用获准的脱敏资料，输出仍需由测试人员核对风险与断言。"
+      }
+    },
+    {
+      "id": "qa3_ai_oracle",
+      "pools": [
+        "qa_ai"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "AI生成测试时，直接调用被测函数来计算预期结果，有什么问题？",
+        "options": [
+          {
+            "id": "qa3_ai_oracle_a",
+            "type": "safe",
+            "text": "预期值来自被测实现，实现错了预期会跟着错。",
+            "face": "nod",
+            "line": "预期和实现同源，错会一起藏起来。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_ai_oracle_b",
+            "type": "bold",
+            "text": "从需求样例建立独立预期，再补反例检验断言是否有效。",
+            "face": "probe",
+            "line": "独立预期，对，那另一头呢？",
+            "followup": {
+              "text": "生成的测试代码，你怎样核对预期值是对的？",
+              "options": [
+                {
+                  "id": "qa3_ai_oracle_h",
+                  "type": "hold",
+                  "text": "对照需求逐条核对预期值，再造个反例看断言会不会失败。",
+                  "face": "pleased",
+                  "line": "回到需求核对，再拿反例验证。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_ai_oracle_p",
+                  "type": "partial",
+                  "text": "让另一个AI复核，再抽几条对照需求核对，其余先收录。",
+                  "face": "calm",
+                  "line": "抽几条核对是对的，其余怎么保证？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_ai_oracle_f",
+                  "type": "fail",
+                  "text": "独立模型相互审核就有独立预期，不必再追溯原始规则。",
+                  "face": "frown",
+                  "line": "两个模型读错同一条需求呢？",
+                  "delta": -7
+                }
+              ],
+              "explain": "断言需要独立于被测逻辑的判断依据，否则同一个错误可能同时存在于实现与预期中。第二次生成或审核可以提供线索，但不能自动证明业务规则和边界理解正确。"
+            }
+          },
+          {
+            "id": "qa3_ai_oracle_c",
+            "type": "off",
+            "text": "实现更新时预期自动同步，能减少测试因为改需求而失败。",
+            "face": "calm",
+            "line": "预期跟着实现改，测试永远是绿的。",
+            "delta": -3
+          }
+        ],
+        "explain": "断言需要独立于被测逻辑的判断依据，否则同一个错误可能同时存在于实现与预期中。第二次生成或审核可以提供线索，但不能自动证明业务规则和边界理解正确。"
+      }
+    },
+    {
+      "id": "qa3_bug_repro",
+      "pools": [
+        "qa_bug"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "开发说“我这边没有复现”。你的缺陷报告应怎样补充？",
+        "options": [
+          {
+            "id": "qa3_bug_repro_c",
+            "type": "off",
+            "text": "把完整操作录屏发过去，让开发在相同页面继续尝试。",
+            "face": "calm",
+            "line": "录屏有用，版本和数据前置呢？",
+            "delta": -3
+          },
+          {
+            "id": "qa3_bug_repro_a",
+            "type": "safe",
+            "text": "补上版本、账号和数据前置，写出最短复现路径与差异。",
+            "face": "nod",
+            "line": "前置和路径写全，开发拿去就能试。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_bug_repro_b",
+            "type": "bold",
+            "text": "缩短复现路径，记录触发次数，并把初步猜测与证据分开。",
+            "face": "probe",
+            "line": "猜测和证据分开写，这习惯好。",
+            "followup": {
+              "text": "十次操作只出现两次异常，报告里怎样写？",
+              "options": [
+                {
+                  "id": "qa3_bug_repro_h",
+                  "type": "hold",
+                  "text": "如实写2/10及运行条件，保留失败与成功的对照线索。",
+                  "face": "pleased",
+                  "line": "2/10就写2/10，开发好判断。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_bug_repro_p",
+                  "type": "partial",
+                  "text": "提交时写偶现，附上版本和时间，具体次数暂时不写。",
+                  "face": "calm",
+                  "line": "写了偶现，几次里出几次没说。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_bug_repro_f",
+                  "type": "fail",
+                  "text": "写必现更容易进入排期，具体条件可以在联调中继续找。",
+                  "face": "frown",
+                  "line": "写必现，开发一试不复现更不信你。",
+                  "delta": -7
+                }
+              ],
+              "explain": "可执行的复现材料应让他人建立相同前提并判断结果。偶现也可以报告，但要说清尝试次数与条件；猜测有助于定位，不能替代已验证根因，更不能把概率写大来争取优先级。"
+            }
+          }
+        ],
+        "explain": "可执行的复现材料应让他人建立相同前提并判断结果。偶现也可以报告，但要说清尝试次数与条件；猜测有助于定位，不能替代已验证根因，更不能把概率写大来争取优先级。"
+      }
+    },
+    {
+      "id": "qa3_bug_observe",
+      "pools": [
+        "qa_bug"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "一次提交失败，界面只有“系统异常”。怎样补定位证据？",
+        "options": [
+          {
+            "id": "qa3_bug_observe_a",
+            "type": "safe",
+            "text": "用请求标识关联前后端日志，确认失败发生在哪一段链路。",
+            "face": "nod",
+            "line": "拿请求标识串日志，是正路。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_bug_observe_b",
+            "type": "bold",
+            "text": "记录账号角色、版本与时间窗，再核对状态和脱敏日志。",
+            "face": "probe",
+            "line": "角色、版本、时间窗都记了。",
+            "followup": {
+              "text": "日志里查不到这次请求，你下一步怎样判断问题出在哪一段？",
+              "options": [
+                {
+                  "id": "qa3_bug_observe_f",
+                  "type": "fail",
+                  "text": "后端没有日志就说明没收到，可以直接让前端修请求逻辑。",
+                  "face": "frown",
+                  "line": "没日志就算没发？可能是没采到。",
+                  "delta": -7
+                },
+                {
+                  "id": "qa3_bug_observe_p",
+                  "type": "partial",
+                  "text": "先建单写明后端暂未查到记录，归属待前后端一起看。",
+                  "face": "calm",
+                  "line": "没查到如实写了，采集漏没漏没核。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_bug_observe_h",
+                  "type": "hold",
+                  "text": "先确认日志采集是否覆盖，再查入口层有没有请求记录。",
+                  "face": "pleased",
+                  "line": "先问日志本身全不全，这步稳。",
+                  "delta": 9
+                }
+              ],
+              "explain": "缺少记录可能来自采集、路由、时间窗或请求本身等原因，不能把未找到当作没有发生。关联编号与最小必要上下文能帮助缩小范围，凭证和无关用户内容不应随报告扩散。"
+            }
+          },
+          {
+            "id": "qa3_bug_observe_c",
+            "type": "off",
+            "text": "为了方便排查，把完整请求头和响应原文都贴进缺陷单。",
+            "face": "calm",
+            "line": "请求头里的令牌也贴上去了。",
+            "delta": -3
+          }
+        ],
+        "explain": "缺少记录可能来自采集、路由、时间窗或请求本身等原因，不能把未找到当作没有发生。关联编号与最小必要上下文能帮助缩小范围，凭证和无关用户内容不应随报告扩散。"
+      }
+    },
+    {
+      "id": "qa3_release_stop",
+      "pools": [
+        "qa_release"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "发布后核心按钮失灵，用户还在操作。测试先做什么？",
+        "options": [
+          {
+            "id": "qa3_release_stop_a",
+            "type": "safe",
+            "text": "先同步影响和止损建议，再保留现场、日志与复现线索。",
+            "face": "nod",
+            "line": "先报影响再留线索，次序对。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_release_stop_b",
+            "type": "bold",
+            "text": "协同负责人暂停或回退，再围绕受影响路径验证恢复。",
+            "face": "probe",
+            "line": "和负责人一起定回退，接着往下。",
+            "followup": {
+              "text": "回滚后按钮又能点了，这次事故还差哪些事才算收尾？",
+              "options": [
+                {
+                  "id": "qa3_release_stop_h",
+                  "type": "hold",
+                  "text": "核对关键流程和数据结果，记录剩余风险，再做复盘。",
+                  "face": "pleased",
+                  "line": "数据核了，风险和复盘都有。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_release_stop_p",
+                  "type": "partial",
+                  "text": "核对主链路已恢复，数据对账交给开发另外安排。",
+                  "face": "calm",
+                  "line": "链路确认了，受影响的数据谁核？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_release_stop_f",
+                  "type": "fail",
+                  "text": "按钮能点就说明功能恢复，缺陷单可以直接关闭减少积压。",
+                  "face": "frown",
+                  "line": "能点就关单？数据对不对没人看。",
+                  "delta": -7
+                }
+              ],
+              "explain": "处置顺序要兼顾止损与证据，操作按既有权限和流程执行。按钮恢复只是局部现象，还需核对关键链路与业务状态；复盘应找到漏测条件和改进动作，先追责不能替代恢复服务。"
+            }
+          },
+          {
+            "id": "qa3_release_stop_c",
+            "type": "off",
+            "text": "先查清是谁漏测并修正用例负责人，避免后续分工不清。",
+            "face": "calm",
+            "line": "用户还在受影响，这会儿追责不合适。",
+            "delta": -3
+          }
+        ],
+        "explain": "处置顺序要兼顾止损与证据，操作按既有权限和流程执行。按钮恢复只是局部现象，还需核对关键链路与业务状态；复盘应找到漏测条件和改进动作，先追责不能替代恢复服务。"
+      }
+    },
+    {
+      "id": "qa3_release_regress",
+      "pools": [
+        "qa_release"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "修复一个支付状态问题后，回归时间很紧。你怎么安排？",
+        "options": [
+          {
+            "id": "qa3_release_regress_c",
+            "type": "off",
+            "text": "先把原缺陷按步骤验证通过，其余沿用上一版测试结论。",
+            "face": "calm",
+            "line": "上一版的结论能直接套新改动？",
+            "delta": -3
+          },
+          {
+            "id": "qa3_release_regress_a",
+            "type": "safe",
+            "text": "先冒烟关键链路，按修复影响扩展回归，记下没测到的。",
+            "face": "nod",
+            "line": "先冒烟再扩展，没测的也记下。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_release_regress_b",
+            "type": "bold",
+            "text": "把修复分支、共用依赖与高后果路径列成风险清单。",
+            "face": "probe",
+            "line": "清单列出来了，我问个细节。",
+            "followup": {
+              "text": "原用例通过，但共用状态函数也被改了，怎么办？",
+              "options": [
+                {
+                  "id": "qa3_release_regress_h",
+                  "type": "hold",
+                  "text": "补受影响状态与异常路径，未覆盖的范围报给负责人定发布。",
+                  "face": "pleased",
+                  "line": "没覆盖的讲清，发布交给有权的人。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_release_regress_p",
+                  "type": "partial",
+                  "text": "补跑共用状态函数的主要用例，通过就按原计划发布。",
+                  "face": "calm",
+                  "line": "补跑是对的，没测到的谁拍板？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_release_regress_f",
+                  "type": "fail",
+                  "text": "原缺陷已验证，新增问题属于另一个版本，不影响这次判断。",
+                  "face": "frown",
+                  "line": "共用函数都改了，还算另一个版本？",
+                  "delta": -7
+                }
+              ],
+              "explain": "缺陷验证和回归测试回答不同问题。共用逻辑变化可能影响其他状态，时间有限时应按风险排序、公开剩余范围，由有权人员据证据决定发布，不能把旧版本结论直接套到新改动。"
+            }
+          }
+        ],
+        "explain": "缺陷验证和回归测试回答不同问题。共用逻辑变化可能影响其他状态，时间有限时应按风险排序、公开剩余范围，由有权人员据证据决定发布，不能把旧版本结论直接套到新改动。"
+      }
+    },
+    {
+      "id": "qa3_collab_severity",
+      "pools": [
+        "qa_collab"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你和开发对缺陷等级有分歧。你会怎样推进？",
+        "options": [
+          {
+            "id": "qa3_collab_severity_a",
+            "type": "safe",
+            "text": "先拿团队的分级标准和用户实际影响，一条条对一遍。",
+            "face": "nod",
+            "line": "先对标准和影响，不比嗓门大。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_collab_severity_b",
+            "type": "bold",
+            "text": "拿复现证据说明影响和替代路径，仍有分歧再按机制仲裁。",
+            "face": "probe",
+            "line": "证据加仲裁机制，我给个情形。",
+            "followup": {
+              "text": "缺陷出现概率很低，但会让关键数据写错，等级你怎么定？",
+              "options": [
+                {
+                  "id": "qa3_collab_severity_f",
+                  "type": "fail",
+                  "text": "偶发问题通常更难修，先按低等级可以节省双方沟通成本。",
+                  "face": "frown",
+                  "line": "为省沟通降级，数据写错谁担？",
+                  "delta": -7
+                },
+                {
+                  "id": "qa3_collab_severity_p",
+                  "type": "partial",
+                  "text": "数据写错后果重，先定高等级，出现条件之后再补。",
+                  "face": "calm",
+                  "line": "后果看到了，可出现条件没写清。",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_collab_severity_h",
+                  "type": "hold",
+                  "text": "概率和后果分开看，结合恢复代价和影响范围定等级。",
+                  "face": "pleased",
+                  "line": "概率不等于后果，分得开。",
+                  "delta": 9
+                }
+              ],
+              "explain": "严重性、发生条件与修复优先级有联系，但不是同一维度。低频不代表后果轻，应按既定标准、影响范围和恢复代价讨论。测试与开发共同解决风险，争赢或等投诉都不能替代依据。"
+            }
+          },
+          {
+            "id": "qa3_collab_severity_c",
+            "type": "off",
+            "text": "开发定了什么级就先按什么级，等用户投诉了再调整。",
+            "face": "calm",
+            "line": "等投诉再调，那时数据早错了。",
+            "delta": -3
+          }
+        ],
+        "explain": "严重性、发生条件与修复优先级有联系，但不是同一维度。低频不代表后果轻，应按既定标准、影响范围和恢复代价讨论。测试与开发共同解决风险，争赢或等投诉都不能替代依据。"
+      }
+    },
+    {
+      "id": "qa3_collab_scope",
+      "pools": [
+        "qa_collab"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "验收时产品说“这不是bug，是需求没写”。你怎么处理？",
+        "options": [
+          {
+            "id": "qa3_collab_scope_a",
+            "type": "safe",
+            "text": "先核对规则依据，再看对用户的实际影响，不先争论是不是bug。",
+            "face": "nod",
+            "line": "先看依据和影响，不急着争归类。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_collab_scope_b",
+            "type": "bold",
+            "text": "分清是实现偏差还是规则缺口，再定处理人和验收条件。",
+            "face": "probe",
+            "line": "归类分清了，我给个更难的情形。",
+            "followup": {
+              "text": "文档确实漏了规则，但现在可能写错关键数据，怎么办？",
+              "options": [
+                {
+                  "id": "qa3_collab_scope_h",
+                  "type": "hold",
+                  "text": "先同步风险与临时保护方案，再由负责人定规则和修复。",
+                  "face": "pleased",
+                  "line": "先护住数据，规则让该定的人定。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_collab_scope_p",
+                  "type": "partial",
+                  "text": "同步风险后补进规则再回归，临时保护方案不在本轮考虑。",
+                  "face": "calm",
+                  "line": "风险同步了，这几天数据谁护？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_collab_scope_f",
+                  "type": "fail",
+                  "text": "没写就不算缺陷，本轮质量结论仍按现有文档保持通过。",
+                  "face": "frown",
+                  "line": "文档没写就算过？用户不看文档。",
+                  "delta": -7
+                }
+              ],
+              "explain": "缺陷归类与风险处置要分开。文档缺口不等于可以忽略当前损失，应先明确影响、临时处理和确认责任，再更新规则与验收，不能用分类争论拖延止损。"
+            }
+          },
+          {
+            "id": "qa3_collab_scope_c",
+            "type": "off",
+            "text": "既然需求没写就退回缺陷单，让产品重新提需求后再讨论。",
+            "face": "calm",
+            "line": "退回去，问题就不存在了？",
+            "delta": -3
+          }
+        ],
+        "explain": "缺陷归类与风险处置要分开。文档缺口不等于可以忽略当前损失，应先明确影响、临时处理和确认责任，再更新规则与验收，不能用分类争论拖延止损。"
+      }
+    },
+    {
+      "id": "qa3_strategy_start",
+      "pools": [
+        "qa_strategy"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "团队让你从零搭自动化。你会先交付什么？",
+        "options": [
+          {
+            "id": "qa3_strategy_start_c",
+            "type": "off",
+            "text": "先设计统一框架和管理平台，各业务随后按规范迁入。",
+            "face": "calm",
+            "line": "平台搭一大套，第一周拿出什么？",
+            "delta": -3
+          },
+          {
+            "id": "qa3_strategy_start_a",
+            "type": "safe",
+            "text": "先挑高频稳定的核心链路，写清数据、断言和谁处理失败。",
+            "face": "nod",
+            "line": "核心链路先跑通，失败谁管也定了。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_strategy_start_b",
+            "type": "bold",
+            "text": "定义范围、数据、断言和失败处理，跑通后再接CI。",
+            "face": "probe",
+            "line": "范围到失败处理都有，下一步呢？",
+            "followup": {
+              "text": "第一批脚本已跑通，怎样判断工程化是否有用？",
+              "options": [
+                {
+                  "id": "qa3_strategy_start_h",
+                  "type": "hold",
+                  "text": "看反馈时长、失败定位难易，以及它实际拦下了多少问题。",
+                  "face": "pleased",
+                  "line": "反馈快慢和拦截效果，不是数用例。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_strategy_start_p",
+                  "type": "partial",
+                  "text": "先统计脚本总数和执行次数，后续再收集团队使用反馈。",
+                  "face": "calm",
+                  "line": "数量有了，拦没拦住问题呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_strategy_start_f",
+                  "type": "fail",
+                  "text": "只要覆盖率上涨，就说明自动化减少了质量风险和维护成本。",
+                  "face": "frown",
+                  "line": "覆盖率涨了，风险就降了？",
+                  "delta": -7
+                }
+              ],
+              "explain": "体系建设从真实重复成本与风险开始，先让一小段验证可重复、可解释、有人处理失败。用例数量和覆盖率能提供局部信息，但不能直接代表业务风险下降或维护收益。"
+            }
+          }
+        ],
+        "explain": "体系建设从真实重复成本与风险开始，先让一小段验证可重复、可解释、有人处理失败。用例数量和覆盖率能提供局部信息，但不能直接代表业务风险下降或维护收益。"
+      }
+    },
+    {
+      "id": "qa3_strategy_balance",
+      "pools": [
+        "qa_strategy"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "这个岗位既有手工探索也有工具开发。怎样安排个人投入？",
+        "options": [
+          {
+            "id": "qa3_strategy_balance_a",
+            "type": "safe",
+            "text": "围绕业务风险和重复成本，决定哪些手工做、哪些做工具。",
+            "face": "nod",
+            "line": "按风险和重复成本分，标准清楚。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_strategy_balance_b",
+            "type": "bold",
+            "text": "先识别必须探索的未知，再把稳定重复检查做成工具。",
+            "face": "probe",
+            "line": "探索和工具分开想，我给个场景。",
+            "followup": {
+              "text": "一个临时活动只上线一次，它的验证你打算怎么做？",
+              "options": [
+                {
+                  "id": "qa3_strategy_balance_f",
+                  "type": "fail",
+                  "text": "单次活动没有复用价值，可以跳过自动化和人工回归。",
+                  "face": "frown",
+                  "line": "一次性的就不测？出事算谁的。",
+                  "delta": -7
+                },
+                {
+                  "id": "qa3_strategy_balance_p",
+                  "type": "partial",
+                  "text": "只给最关键的一条流程写脚本，其余手工走一遍。",
+                  "face": "calm",
+                  "line": "关键流程有脚本了，值不值算过吗？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_strategy_balance_h",
+                  "type": "hold",
+                  "text": "关键验证先保住，再比较复用和维护成本，决定做不做脚本。",
+                  "face": "pleased",
+                  "line": "关键的先保住，脚本先算账。",
+                  "delta": 9
+                }
+              ],
+              "explain": "测试开发的价值是改善验证能力，不是每次都写框架。一次性场景仍需必要验证，只是自动化收益要与探索、实现及维护成本一起比较，任务安排也需确认岗位真实职责。"
+            }
+          },
+          {
+            "id": "qa3_strategy_balance_c",
+            "type": "off",
+            "text": "先把工具框架写出来，手工回归尽量交给业务同事去做。",
+            "face": "calm",
+            "line": "手工全推给业务，质量谁负责？",
+            "delta": -3
+          }
+        ],
+        "explain": "测试开发的价值是改善验证能力，不是每次都写框架。一次性场景仍需必要验证，只是自动化收益要与探索、实现及维护成本一起比较，任务安排也需确认岗位真实职责。"
+      }
+    },
+    {
+      "id": "qa3_reverse_tasks",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我这边问完了，你想了解团队哪些情况？",
+        "options": [
+          {
+            "id": "qa3_reverse_tasks_a",
+            "type": "reverse",
+            "text": "新人先承担哪些任务？手工、自动化和工具开发怎么分？",
+            "face": "nod",
+            "line": "问得具体，占比我如实讲。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_reverse_tasks_b",
+            "type": "reverse",
+            "text": "团队现有哪些质量工具，失败结果由谁跟进？",
+            "face": "nod",
+            "line": "工具有一套，失败有人跟，我细说。",
+            "delta": 2
+          },
+          {
+            "id": "qa3_reverse_tasks_c",
+            "type": "reverse",
+            "text": "做满半年后，有没有机会固定转到研发组？",
+            "face": "nod",
+            "line": "转岗不是这个岗位的目的。",
+            "delta": -2
+          }
+        ],
+        "explain": "反问可以确认真实任务、工程投入与指导机制。岗位名称不能直接证明日常工作结构，也不代表入职后自动转岗；获取具体交付与协作信息，更便于判断匹配。"
+      }
+    },
+    {
+      "id": "qa3_reverse_growth",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "qa"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "关于入组后的工作，你还有什么想了解的？",
+        "options": [
+          {
+            "id": "qa3_reverse_growth_a",
+            "type": "reverse",
+            "text": "新人前三个月有哪些具体交付，谁做代码与用例评审？",
+            "face": "nod",
+            "line": "前三个月有导师带，评审有人看。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_reverse_growth_b",
+            "type": "reverse",
+            "text": "临时回归和长期工程任务怎样安排优先级？",
+            "face": "nod",
+            "line": "优先级按影响面排，我举例。",
+            "delta": 2
+          },
+          {
+            "id": "qa3_reverse_growth_c",
+            "type": "reverse",
+            "text": "自动化框架能否完全由新人自由选型？",
+            "face": "nod",
+            "line": "完全自选不现实，得先熟悉现有的。",
+            "delta": -2
+          }
+        ],
+        "explain": "反问可以确认真实任务、工程投入与指导机制。岗位名称不能直接证明日常工作结构，也不代表入职后自动转岗；获取具体交付与协作信息，更便于判断匹配。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "qa3_bg_tech",
+      "pools": [
+        "hr"
+      ],
+      "priority": 65,
+      "when": {
+        "role": "qa",
+        "major_kind": "tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你有开发经历或技术基础，为什么选择测试开发？",
+        "options": [
+          {
+            "id": "qa3_bg_tech_a",
+            "type": "safe",
+            "text": "讲真实验证经历和学习计划，说明当前能力边界。",
+            "face": "nod",
+            "line": "有经历有计划，边界也讲了。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_bg_tech_b",
+            "type": "bold",
+            "text": "把想解决的质量问题说具体，再说明怎样补编码与方法。",
+            "face": "probe",
+            "line": "质量问题讲具体了，安排呢？",
+            "followup": {
+              "text": "如果近期先做手工回归，没有马上写框架，你会怎么安排？",
+              "options": [
+                {
+                  "id": "qa3_bg_tech_h",
+                  "type": "hold",
+                  "text": "先弄清高风险规则和重复成本，再挑出最适合工程化的验证。",
+                  "face": "pleased",
+                  "line": "手工阶段就在找能工程化的点。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_bg_tech_p",
+                  "type": "partial",
+                  "text": "先按安排做手工回归，记下重复步骤，再看哪些能脚本化。",
+                  "face": "calm",
+                  "line": "手工认真做，重点挑哪些呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_bg_tech_f",
+                  "type": "fail",
+                  "text": "测试开发应以框架产出为主，手工回归尽量让其他人承担。",
+                  "face": "frown",
+                  "line": "手工全推给别人，你来干什么？",
+                  "delta": -7
+                }
+              ],
+              "explain": "手工探索和工程化可以互相提供输入，关键是理解风险与重复工作。岗位是否适合仍应确认具体产出和指导，不把工作名称当作免做业务验证的理由。"
+            }
+          },
+          {
+            "id": "qa3_bg_tech_c",
+            "type": "redline",
+            "text": "先用测试岗位积累业务，熟悉以后再找机会转开发。",
+            "face": "disappointed",
+            "line": "……行，我明白你的打算了。"
+          }
+        ],
+        "explain": "动机应连接真实任务与能力准备。测试开发需要规则分析、编码和协作，不能把它描述为不写代码的退路，也不能当成日后转岗的跳板：先靠这个岗位进来、熟悉后再转开发，这个回答可能让面试官关注到，你从入职起就没打算在这个岗位上做下去。跨专业可以说明已有证据与待补内容，不需要冒认经历。"
+      }
+    },
+    {
+      "id": "qa3_bg_cross",
+      "pools": [
+        "hr"
+      ],
+      "priority": 65,
+      "when": {
+        "role": "qa",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你的专业偏非技术，怎样准备测试开发需要的规则分析和编码？",
+        "options": [
+          {
+            "id": "qa3_bg_cross_a",
+            "type": "safe",
+            "text": "讲真实验证经历和编码练习，分清已有证据与待补的部分。",
+            "face": "nod",
+            "line": "证据和缺口分得清，我认。",
+            "delta": 3
+          },
+          {
+            "id": "qa3_bg_cross_b",
+            "type": "bold",
+            "text": "把想解决的质量问题说具体，再说明怎样补编码与方法。",
+            "face": "probe",
+            "line": "问题讲具体了，你的安排呢？",
+            "followup": {
+              "text": "入职后先做手工回归，编码和规则分析你打算怎么补？",
+              "options": [
+                {
+                  "id": "qa3_bg_cross_h",
+                  "type": "hold",
+                  "text": "挑一条重复的回归步骤先写成小脚本，规则先和开发对清楚。",
+                  "face": "pleased",
+                  "line": "拿真实回归练手，规则也先对清。",
+                  "delta": 9
+                },
+                {
+                  "id": "qa3_bg_cross_p",
+                  "type": "partial",
+                  "text": "先按安排做回归，每周留出固定时间练编码，规则靠做中熟悉。",
+                  "face": "calm",
+                  "line": "固定时间是好的，练什么、怎么和回归连？",
+                  "delta": 1
+                },
+                {
+                  "id": "qa3_bg_cross_f",
+                  "type": "fail",
+                  "text": "测试开发应以框架产出为主，手工回归尽量让其他人承担。",
+                  "face": "frown",
+                  "line": "手工都外推，业务规则怎么摸清？",
+                  "delta": -7
+                }
+              ],
+              "explain": "手工探索和工程化可以互相提供输入，关键是理解风险与重复工作。岗位是否适合仍应确认具体产出和指导，不把工作名称当作免做业务验证的理由。"
+            }
+          },
+          {
+            "id": "qa3_bg_cross_c",
+            "type": "redline",
+            "text": "测试门槛相对低，我先靠这个岗位进来，之后找机会转开发。",
+            "face": "disappointed",
+            "line": "……这样啊，那你的打算我清楚了。"
+          }
+        ],
+        "explain": "动机应连接真实任务与能力准备。测试开发需要规则分析、编码和协作，不能把它描述为不写代码的退路，也不能当成日后转岗的跳板：先靠这个岗位进来、熟悉后再转开发，这个回答可能让面试官关注到，你从入职起就没打算在这个岗位上做下去。跨专业可以说明已有证据与待补内容，不需要冒认经历。"
+      }
+    }
+  ],
+  "_sources": [
+    "https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue",
+    "https://docs.python.org/3/tutorial/controlflow.html#default-argument-values",
+    "https://docs.pytest.org/en/stable/how-to/parametrize.html"
+  ]
+}

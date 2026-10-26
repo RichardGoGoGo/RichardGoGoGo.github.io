@@ -1,0 +1,50 @@
+{
+  "id": "r3",
+  "name": "HR 面",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S10",
+  "hello": "你好，我们聊聊岗位安排、你的选择和后续流程。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "intro_hr",
+      "swap": false
+    },
+    {
+      "slot": "why",
+      "dynamic": "pool",
+      "pool": "hardtech_why",
+      "swap": true
+    },
+    {
+      "slot": "background",
+      "dynamic": "background",
+      "pool": "hr",
+      "swap": false
+    },
+    {
+      "slot": "offers",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false
+    },
+    {
+      "slot": "workstyle",
+      "dynamic": "pool",
+      "pool": "hr_misc",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

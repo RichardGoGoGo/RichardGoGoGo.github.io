@@ -1,0 +1,1672 @@
+{
+  "_note": "包P：四种新经历类型、参数化方法亮点与新人设技能。所有数字是已确认草案留白处的游戏设定；不增加草案之外的实习、获奖或上线经历。",
+  "_sources": [
+    {
+      "checked": "2026-10-26",
+      "topic": "企业人力资源管理师为职业技能等级认定，区别于职称",
+      "url": "https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/zhgl/jytabl/jydf/202501/t20250121_535041.html"
+    },
+    {
+      "checked": "2026-10-26",
+      "topic": "2020年水平评价类技能人员职业资格退出目录、转为社会化技能等级认定",
+      "url": "https://www.mohrss.gov.cn/wap/xw/rsxw/202112/t20211202_429339.html"
+    }
+  ],
+  "types": {
+    "intern_hr": {
+      "name": "人力资源实习",
+      "relevance": {
+        "fe": "none",
+        "pm": "half",
+        "be": "none",
+        "algo": "none",
+        "data": "half",
+        "ops": "half"
+      },
+      "p": {
+        "kind_word": "人力实习"
+      },
+      "frames": []
+    },
+    "intern_mkt": {
+      "name": "品牌市场实习",
+      "relevance": {
+        "fe": "none",
+        "pm": "half",
+        "be": "none",
+        "algo": "none",
+        "data": "half",
+        "ops": "match"
+      },
+      "p": {
+        "kind_word": "市场实习"
+      },
+      "frames": []
+    },
+    "campus_ambassador": {
+      "name": "校园大使",
+      "relevance": {
+        "fe": "none",
+        "pm": "half",
+        "be": "none",
+        "algo": "none",
+        "data": "half",
+        "ops": "match"
+      },
+      "p": {
+        "kind_word": "校园推广"
+      },
+      "frames": []
+    },
+    "game_project": {
+      "name": "游戏原型项目",
+      "relevance": {
+        "fe": "half",
+        "pm": "match",
+        "be": "general",
+        "algo": "general",
+        "data": "general",
+        "ops": "half"
+      },
+      "p": {
+        "kind_word": "游戏原型"
+      },
+      "frames": []
+    }
+  },
+  "highlights": {
+    "p3t_recruit_scope": {
+      "name": "校招协调与决策边界",
+      "roles": [
+        "hr",
+        "sales",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.n_cv}份初筛、{hl.n_slots}场排期里我具体做了什么。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "这些数字能说明你决定录用了多少人吗？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.boundary_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "材料都经过我整理，录用结果可以算协调工作的直接成果。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "初筛名单由我整理，所以最终录用也可以按我负责来介绍。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            }
+          ],
+          "explain": "处理数量说明工作范围，不等于拥有用人决策权。初筛、排期、材料核对与最终录用应分开说明，不能把协作支持改写为独立招聘全流程。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.n_cv}份初筛、{hl.n_slots}场排期里我具体做了什么。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "这些数字能说明你决定录用了多少人吗？",
+              "options": [
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.boundary_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "材料都经过我整理，录用结果可以算协调工作的直接成果。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "初筛名单由我整理，所以最终录用也可以按我负责来介绍。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "处理数量说明工作范围，不等于拥有用人决策权。初筛、排期、材料核对与最终录用应分开说明，不能把协作支持改写为独立招聘全流程。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "处理数量说明工作范围，不等于拥有用人决策权。初筛、排期、材料核对与最终录用应分开说明，不能把协作支持改写为独立招聘全流程。"
+      },
+      "explain": "处理数量说明工作范围，不等于拥有用人决策权。初筛、排期、材料核对与最终录用应分开说明，不能把协作支持改写为独立招聘全流程。"
+    },
+    "p3t_personal_funnel": {
+      "name": "个人推广漏斗与全校口径",
+      "roles": [
+        "sales",
+        "brand",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.personal_reg}个个人注册里，{hl.personal_paid}个完成首次付款。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "后台还有全校{hl.school_reg}个注册，怎样区分你的贡献？",
+          "options": [
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "先讲全校总数，再补充自己负责的推广区域。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "全校推广都用同一款软件，所以全校数据就是我的活动成果。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.attribution_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            }
+          ],
+          "explain": "推广成果需说明来源标识、去重规则、观察期与漏斗分母。个人推广和全校合计不同，注册也不是付费。明确按个人推广码核对，才能避免把团队范围当作个人成绩。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.personal_reg}个个人注册里，{hl.personal_paid}个完成首次付款。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "后台还有全校{hl.school_reg}个注册，怎样区分你的贡献？",
+              "options": [
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "先讲全校总数，再补充自己负责的推广区域。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "全校推广都用同一款软件，所以全校数据就是我的活动成果。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.attribution_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                }
+              ],
+              "explain": "推广成果需说明来源标识、去重规则、观察期与漏斗分母。个人推广和全校合计不同，注册也不是付费。明确按个人推广码核对，才能避免把团队范围当作个人成绩。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "推广成果需说明来源标识、去重规则、观察期与漏斗分母。个人推广和全校合计不同，注册也不是付费。明确按个人推广码核对，才能避免把团队范围当作个人成绩。"
+      },
+      "explain": "推广成果需说明来源标识、去重规则、观察期与漏斗分母。个人推广和全校合计不同，注册也不是付费。明确按个人推广码核对，才能避免把团队范围当作个人成绩。"
+    },
+    "p3t_sponsor_boundary": {
+      "name": "赞助承诺与团队分工",
+      "roles": [
+        "hr",
+        "sales",
+        "brand",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.team_cash}元团队赞助中，我跟进的{hl.my_cash}元。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "赞助方临时想增加未谈好的权益，你怎样回应？",
+          "options": [
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "赞助款已到账，权益细节可以由我们单方面调整。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.promise_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "先答应额外权益保住合作，再请社团成员想办法补上。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            }
+          ],
+          "explain": "拉赞助要区分团队总额、个人跟进与实际到账，也要明确权益范围。已约定之外的承诺需负责人确认，不能为成交先越过可交付边界，再让团队承担。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.team_cash}元团队赞助中，我跟进的{hl.my_cash}元。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "赞助方临时想增加未谈好的权益，你怎样回应？",
+              "options": [
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "赞助款已到账，权益细节可以由我们单方面调整。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.promise_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "先答应额外权益保住合作，再请社团成员想办法补上。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                }
+              ],
+              "explain": "拉赞助要区分团队总额、个人跟进与实际到账，也要明确权益范围。已约定之外的承诺需负责人确认，不能为成交先越过可交付边界，再让团队承担。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "拉赞助要区分团队总额、个人跟进与实际到账，也要明确权益范围。已约定之外的承诺需负责人确认，不能为成交先越过可交付边界，再让团队承担。"
+      },
+      "explain": "拉赞助要区分团队总额、个人跟进与实际到账，也要明确权益范围。已约定之外的承诺需负责人确认，不能为成交先越过可交付边界，再让团队承担。"
+    },
+    "p3t_simulation_scope": {
+      "name": "比赛模型与实际业绩",
+      "roles": [
+        "hr",
+        "sales",
+        "pm",
+        "data"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲案例赛里{hl.scenario}的测算，说明假设条件。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "表里写节省{hl.saving}，这是真实企业已经实现的吗？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.simulation_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "虽然没有实际落地，但比赛模型严谨，可以作为企业收益参考值。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "拿到了奖说明模型有效，可以写成已经帮助企业降本。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            }
+          ],
+          "explain": "比赛模型支持分析过程和假设比较，不等于真实企业结果。奖项不会把模拟收益变成实绩；应说明输入、假设和未执行验证，保留方法价值而不领取不存在的业务收益。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲案例赛里{hl.scenario}的测算，说明假设条件。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "表里写节省{hl.saving}，这是真实企业已经实现的吗？",
+              "options": [
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.simulation_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "虽然没有实际落地，但比赛模型严谨，可以作为企业收益参考值。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "拿到了奖说明模型有效，可以写成已经帮助企业降本。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "比赛模型支持分析过程和假设比较，不等于真实企业结果。奖项不会把模拟收益变成实绩；应说明输入、假设和未执行验证，保留方法价值而不领取不存在的业务收益。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "比赛模型支持分析过程和假设比较，不等于真实企业结果。奖项不会把模拟收益变成实绩；应说明输入、假设和未执行验证，保留方法价值而不领取不存在的业务收益。"
+      },
+      "explain": "比赛模型支持分析过程和假设比较，不等于真实企业结果。奖项不会把模拟收益变成实绩；应说明输入、假设和未执行验证，保留方法价值而不领取不存在的业务收益。"
+    },
+    "p3t_survey_limits": {
+      "name": "问卷访谈的样本边界",
+      "roles": [
+        "hr",
+        "sales",
+        "pm",
+        "ops",
+        "data"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.n_survey}份有效问卷、{hl.n_interview}次访谈怎样相互补充。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "样本来自方便联系的人，能直接推到所有员工吗？",
+          "options": [
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "回收量已经不少，先按总体结论写，局限放在附录。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "问卷和访谈都支持同一方向，就能确定所有员工都一样。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.sample_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            }
+          ],
+          "explain": "不同方法可以互相补充，却不自动解决样本代表性。材料需说明招募范围和初步阶段，不把离职意愿当实际离职，也不将案例观察扩成普遍因果。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.n_survey}份有效问卷、{hl.n_interview}次访谈怎样相互补充。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "样本来自方便联系的人，能直接推到所有员工吗？",
+              "options": [
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "回收量已经不少，先按总体结论写，局限放在附录。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "问卷和访谈都支持同一方向，就能确定所有员工都一样。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.sample_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                }
+              ],
+              "explain": "不同方法可以互相补充，却不自动解决样本代表性。材料需说明招募范围和初步阶段，不把离职意愿当实际离职，也不将案例观察扩成普遍因果。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "不同方法可以互相补充，却不自动解决样本代表性。材料需说明招募范围和初步阶段，不把离职意愿当实际离职，也不将案例观察扩成普遍因果。"
+      },
+      "explain": "不同方法可以互相补充，却不自动解决样本代表性。材料需说明招募范围和初步阶段，不把离职意愿当实际离职，也不将案例观察扩成普遍因果。"
+    },
+    "p3t_retail_task": {
+      "name": "导购中的需求确认",
+      "roles": [
+        "sales",
+        "brand",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲门店导购时怎么先问{hl.need_axes}，再介绍适合的选择。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "你有能独立核对的个人销售增长数据吗？",
+          "options": [
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "接待过的顾客都在店里购买，可以把门店销售算成个人结果。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.sales_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "门店销售涨了，自己的接待也可以按相同增幅来介绍。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            }
+          ],
+          "explain": "接待与需求沟通可以有具体方法，但门店总额不是个人成交。没有可核对的个人增长就不编百分比；说明负责范围与记录限制，仍可展示客户理解。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲门店导购时怎么先问{hl.need_axes}，再介绍适合的选择。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "你有能独立核对的个人销售增长数据吗？",
+              "options": [
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "接待过的顾客都在店里购买，可以把门店销售算成个人结果。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.sales_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "门店销售涨了，自己的接待也可以按相同增幅来介绍。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                }
+              ],
+              "explain": "接待与需求沟通可以有具体方法，但门店总额不是个人成交。没有可核对的个人增长就不编百分比；说明负责范围与记录限制，仍可展示客户理解。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "接待与需求沟通可以有具体方法，但门店总额不是个人成交。没有可核对的个人增长就不编百分比；说明负责范围与记录限制，仍可展示客户理解。"
+      },
+      "explain": "接待与需求沟通可以有具体方法，但门店总额不是个人成交。没有可核对的个人增长就不编百分比；说明负责范围与记录限制，仍可展示客户理解。"
+    },
+    "p3t_certificate_scope": {
+      "name": "证书性质与能力边界",
+      "roles": [
+        "hr",
+        "sales",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.cert_name}对应的学习范围和证书性质。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "这张证书等于国家准入资格或人力职称吗？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.cert_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "证书覆盖人力模块，可以先当作独立处理全部人事工作的证明。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "证书由国家职业标准支撑，所以等于国家统一准入资格。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            }
+          ],
+          "explain": "企业人力资源管理师的职业技能等级认定与职称评价不同。2020年水平评价类技能人员职业资格退出目录后，相关评价转为社会化等级认定；不能据此保证录用、加薪或独立胜任所有人力任务。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.cert_name}对应的学习范围和证书性质。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "这张证书等于国家准入资格或人力职称吗？",
+              "options": [
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.cert_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "证书覆盖人力模块，可以先当作独立处理全部人事工作的证明。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "证书由国家职业标准支撑，所以等于国家统一准入资格。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "企业人力资源管理师的职业技能等级认定与职称评价不同。2020年水平评价类技能人员职业资格退出目录后，相关评价转为社会化等级认定；不能据此保证录用、加薪或独立胜任所有人力任务。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "企业人力资源管理师的职业技能等级认定与职称评价不同。2020年水平评价类技能人员职业资格退出目录后，相关评价转为社会化等级认定；不能据此保证录用、加薪或独立胜任所有人力任务。"
+      },
+      "explain": "企业人力资源管理师的职业技能等级认定与职称评价不同。2020年水平评价类技能人员职业资格退出目录后，相关评价转为社会化等级认定；不能据此保证录用、加薪或独立胜任所有人力任务。"
+    },
+    "p3t_campaign_execution": {
+      "name": "达人合作执行与复盘口径",
+      "roles": [
+        "brand",
+        "ops",
+        "sales",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.n_creators}位达人、{hl.n_posts}条内容的执行与复盘。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "你负责的执行工作和整场营销策略怎样区分？",
+          "options": [
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "从内容排期到数据汇总都有参与，可以直接用整场策略成果介绍。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "我跟进了所有发布节点，所以策略定位和销售转化都是我主导。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.execution_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            }
+          ],
+          "explain": "排期、素材与发布跟进是明确贡献，但不等于拥有品牌定位、预算或整场销售结果。复盘要对齐窗口和平台口径，不能把执行覆盖扩大为策略全责。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.n_creators}位达人、{hl.n_posts}条内容的执行与复盘。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "你负责的执行工作和整场营销策略怎样区分？",
+              "options": [
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "从内容排期到数据汇总都有参与，可以直接用整场策略成果介绍。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "我跟进了所有发布节点，所以策略定位和销售转化都是我主导。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.execution_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                }
+              ],
+              "explain": "排期、素材与发布跟进是明确贡献，但不等于拥有品牌定位、预算或整场销售结果。复盘要对齐窗口和平台口径，不能把执行覆盖扩大为策略全责。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "排期、素材与发布跟进是明确贡献，但不等于拥有品牌定位、预算或整场销售结果。复盘要对齐窗口和平台口径，不能把执行覆盖扩大为策略全责。"
+      },
+      "explain": "排期、素材与发布跟进是明确贡献，但不等于拥有品牌定位、预算或整场销售结果。复盘要对齐窗口和平台口径，不能把执行覆盖扩大为策略全责。"
+    },
+    "p3t_creator_denominator": {
+      "name": "粉丝与阅读量口径",
+      "roles": [
+        "brand",
+        "game",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.followers}粉丝的账号，最高一篇{hl.peak_views}阅读。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "那篇阅读远高于粉丝数，能把阅读量写成粉丝吗？",
+          "options": [
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "读过文章的人都算触达用户，所以也能写成账号粉丝。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.metric_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "阅读也代表账号影响力，简历用最大数字能更快表达规模。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            }
+          ],
+          "explain": "粉丝存量与单篇阅读不是同一指标。传播可以来自转发和非关注读者，不能互相替换；讨论内容效果时还需区分峰值与平时范围。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.followers}粉丝的账号，最高一篇{hl.peak_views}阅读。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "那篇阅读远高于粉丝数，能把阅读量写成粉丝吗？",
+              "options": [
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "读过文章的人都算触达用户，所以也能写成账号粉丝。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.metric_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "阅读也代表账号影响力，简历用最大数字能更快表达规模。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                }
+              ],
+              "explain": "粉丝存量与单篇阅读不是同一指标。传播可以来自转发和非关注读者，不能互相替换；讨论内容效果时还需区分峰值与平时范围。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "粉丝存量与单篇阅读不是同一指标。传播可以来自转发和非关注读者，不能互相替换；讨论内容效果时还需区分峰值与平时范围。"
+      },
+      "explain": "粉丝存量与单篇阅读不是同一指标。传播可以来自转发和非关注读者，不能互相替换；讨论内容效果时还需区分峰值与平时范围。"
+    },
+    "p3t_jam_contribution": {
+      "name": "Game Jam分工与原型边界",
+      "roles": [
+        "game",
+        "brand",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.team_size}人、{hl.hours}小时作品里我负责的{hl.my_part}。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "最佳叙事奖是个人奖吗？完整策划都是你做的吗？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.team_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "自己写的内容决定了故事，其他部分是同伴按方案执行。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "叙事奖说明策划都由我完成，可以写独立负责全部游戏策划。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            }
+          ],
+          "explain": "Game Jam原型、商业上线与个人作品要区分。团队奖应准确归因，说明剧情、关卡、程序和美术各自负责什么，不把短时原型包装成完整商业系统。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.team_size}人、{hl.hours}小时作品里我负责的{hl.my_part}。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "最佳叙事奖是个人奖吗？完整策划都是你做的吗？",
+              "options": [
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.team_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "自己写的内容决定了故事，其他部分是同伴按方案执行。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "叙事奖说明策划都由我完成，可以写独立负责全部游戏策划。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "Game Jam原型、商业上线与个人作品要区分。团队奖应准确归因，说明剧情、关卡、程序和美术各自负责什么，不把短时原型包装成完整商业系统。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "Game Jam原型、商业上线与个人作品要区分。团队奖应准确归因，说明剧情、关卡、程序和美术各自负责什么，不把短时原型包装成完整商业系统。"
+      },
+      "explain": "Game Jam原型、商业上线与个人作品要区分。团队奖应准确归因，说明剧情、关卡、程序和美术各自负责什么，不把短时原型包装成完整商业系统。"
+    },
+    "p3t_system_sheet": {
+      "name": "系统拆解与产消表边界",
+      "roles": [
+        "game",
+        "brand",
+        "pm",
+        "ops",
+        "data"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.n_games}款虚构游戏的拆解和{hl.n_sheets}张产出消耗表。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "这张表能证明改动会提高真实玩家付费吗？",
+          "options": [
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "表里的收益更高，真实玩家的留存与付费大概率也会同步提高。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "资源平衡算通了，就能按已经验证商业效果介绍。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.sheet_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            }
+          ],
+          "explain": "拆解与纸面推演可以展示规则表达和基础数值意识，却不是用户试验。要说明参数来源、假设和未验证结果；被读者转发也不能改写成官方采纳。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.n_games}款虚构游戏的拆解和{hl.n_sheets}张产出消耗表。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "这张表能证明改动会提高真实玩家付费吗？",
+              "options": [
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "表里的收益更高，真实玩家的留存与付费大概率也会同步提高。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "资源平衡算通了，就能按已经验证商业效果介绍。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.sheet_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                }
+              ],
+              "explain": "拆解与纸面推演可以展示规则表达和基础数值意识，却不是用户试验。要说明参数来源、假设和未验证结果；被读者转发也不能改写成官方采纳。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "拆解与纸面推演可以展示规则表达和基础数值意识，却不是用户试验。要说明参数来源、假设和未验证结果；被读者转发也不能改写成官方采纳。"
+      },
+      "explain": "拆解与纸面推演可以展示规则表达和基础数值意识，却不是用户试验。要说明参数来源、假设和未验证结果；被读者转发也不能改写成官方采纳。"
+    },
+    "p3t_script_branches": {
+      "name": "剧本分支与活动执行",
+      "roles": [
+        "game",
+        "brand",
+        "ops",
+        "pm"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲{hl.n_scripts}部原创剧本与{hl.n_sessions}场社团活动的分工。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "活动签到记了{hl.attendance}，这是独立参加人数吗？",
+          "options": [
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "签到表每行对应一个人，重复到场也应算新增参加者。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            },
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.attend_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "每场都有人签到，汇总数可以先按参加人数介绍。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            }
+          ],
+          "explain": "活动人次与去重人数不同。原创文本、社团组织和程序实现也应分清；分支设计先检查线索、条件与结局是否一致，不能仅以分支数量证明体验。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲{hl.n_scripts}部原创剧本与{hl.n_sessions}场社团活动的分工。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "活动签到记了{hl.attendance}，这是独立参加人数吗？",
+              "options": [
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "签到表每行对应一个人，重复到场也应算新增参加者。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                },
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.attend_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "每场都有人签到，汇总数可以先按参加人数介绍。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                }
+              ],
+              "explain": "活动人次与去重人数不同。原创文本、社团组织和程序实现也应分清；分支设计先检查线索、条件与结局是否一致，不能仅以分支数量证明体验。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "活动人次与去重人数不同。原创文本、社团组织和程序实现也应分清；分支设计先检查线索、条件与结局是否一致，不能仅以分支数量证明体验。"
+      },
+      "explain": "活动人次与去重人数不同。原创文本、社团组织和程序实现也应分清；分支设计先检查线索、条件与结局是否一致，不能仅以分支数量证明体验。"
+    },
+    "p3t_narrative_scope": {
+      "name": "叙事研究与玩家偏好",
+      "roles": [
+        "game",
+        "brand",
+        "pm",
+        "ops"
+      ],
+      "pitch": {
+        "key": "b",
+        "type": "bold",
+        "text": "讲毕业论文里把选择、反馈与结局做对照的过程。",
+        "face": "probe",
+        "line": "那具体核对一下。",
+        "followup": {
+          "text": "案例分析能证明所有玩家偏爱更多分支吗？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "{hl.narrative_hold}",
+              "face": "pleased",
+              "line": "嗯，口径和边界都清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "案例里多分支更丰富，可以把这种趋势作为全体玩家的偏好。",
+              "face": "calm",
+              "line": "还有什么没核对？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "文献和案例都这样写，就能确定增加分支必然提高留存。",
+              "face": "frown",
+              "line": "这个说法缺少依据。",
+              "delta": -7
+            }
+          ],
+          "explain": "文本与机制案例可以支持有限分析，不能直接代表全体玩家偏好或商业指标。论文仍在整理时应说明阶段，未做的用户验证不能说成已完成。"
+        }
+      },
+      "lead": {
+        "tag": "项目表达",
+        "text": "讲讲{exp.label}，哪件事最能说明你的个人贡献？",
+        "options": [
+          {
+            "key": "a",
+            "type": "safe",
+            "text": "{exp.routine}",
+            "face": "nod",
+            "line": "嗯，先把自己的部分说清。",
+            "delta": 3
+          },
+          {
+            "key": "b",
+            "type": "bold",
+            "text": "讲毕业论文里把选择、反馈与结局做对照的过程。",
+            "face": "probe",
+            "line": "那具体核对一下。",
+            "followup": {
+              "text": "案例分析能证明所有玩家偏爱更多分支吗？",
+              "options": [
+                {
+                  "key": "b1",
+                  "type": "hold",
+                  "text": "{hl.narrative_hold}",
+                  "face": "pleased",
+                  "line": "嗯，口径和边界都清楚。",
+                  "delta": 9
+                },
+                {
+                  "key": "b2",
+                  "type": "partial",
+                  "text": "案例里多分支更丰富，可以把这种趋势作为全体玩家的偏好。",
+                  "face": "calm",
+                  "line": "还有什么没核对？",
+                  "delta": -3
+                },
+                {
+                  "key": "b3",
+                  "type": "fail",
+                  "text": "文献和案例都这样写，就能确定增加分支必然提高留存。",
+                  "face": "frown",
+                  "line": "这个说法缺少依据。",
+                  "delta": -7
+                }
+              ],
+              "explain": "文本与机制案例可以支持有限分析，不能直接代表全体玩家偏好或商业指标。论文仍在整理时应说明阶段，未做的用户验证不能说成已完成。"
+            }
+          },
+          {
+            "key": "c",
+            "type": "off",
+            "text": "先讲团队最后的结果，再补我参与了哪些环节。",
+            "face": "calm",
+            "line": "这能说明哪部分贡献？",
+            "delta": -1
+          }
+        ],
+        "explain": "文本与机制案例可以支持有限分析，不能直接代表全体玩家偏好或商业指标。论文仍在整理时应说明阶段，未做的用户验证不能说成已完成。"
+      },
+      "explain": "文本与机制案例可以支持有限分析，不能直接代表全体玩家偏好或商业指标。论文仍在整理时应说明阶段，未做的用户验证不能说成已完成。"
+    }
+  },
+  "skills": {
+    "p3t_excel_pivot": {
+      "labels": {
+        "1": "了解Excel数据透视",
+        "2": "熟悉Excel数据透视",
+        "3": "精通Excel数据透视"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "数据透视",
+            "数据分析"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "数据透视",
+            "数据分析"
+          ]
+        },
+        "data": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "数据透视",
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "p3t_social_layout": {
+      "labels": {
+        "1": "了解社媒排版",
+        "2": "熟悉社媒排版",
+        "3": "精通社媒排版"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "新媒体排版",
+            "内容排期"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "新媒体排版",
+            "内容排期"
+          ]
+        },
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_script_writing": {
+      "labels": {
+        "1": "了解剧本写作",
+        "2": "熟悉剧本写作",
+        "3": "精通剧本写作"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "文案",
+            "剧本写作"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "文案",
+            "剧本写作"
+          ]
+        },
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_business_comms": {
+      "labels": {
+        "1": "了解商务沟通",
+        "2": "熟悉商务沟通",
+        "3": "精通商务沟通"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "客户沟通",
+            "需求确认",
+            "协作"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "客户沟通",
+            "需求确认",
+            "协作"
+          ]
+        },
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_hr_basics": {
+      "labels": {
+        "1": "了解招聘流程基础",
+        "2": "熟悉招聘流程基础",
+        "3": "精通招聘流程基础"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "招聘流程",
+            "校招协调"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "招聘流程",
+            "校招协调"
+          ]
+        },
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_game_rules": {
+      "labels": {
+        "1": "了解游戏规则拆解",
+        "2": "熟悉游戏规则拆解",
+        "3": "精通游戏规则拆解"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "游戏拆解",
+            "规则文档"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "游戏拆解",
+            "规则文档"
+          ]
+        },
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_game_balance": {
+      "labels": {
+        "1": "了解基础产出消耗表",
+        "2": "熟悉基础产出消耗表",
+        "3": "精通基础产出消耗表"
+      },
+      "roles": {
+        "pm": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "产出消耗表"
+          ]
+        },
+        "ops": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "产出消耗表"
+          ]
+        },
+        "data": {
+          "relevant": false,
+          "keywords": []
+        }
+      }
+    }
+  }
+}

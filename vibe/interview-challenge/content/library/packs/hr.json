@@ -1,0 +1,1644 @@
+{
+  "_note": "R人力资源岗位包：招聘与HRBP基础；不作具体个案法律处理。法律数字已按2026-10-26官方文本核对，题目均为自拟。",
+  "relevance": {
+    "intern_dev": {
+      "hr": "general"
+    },
+    "intern_pm": {
+      "hr": "general"
+    },
+    "user_research_intern": {
+      "hr": "half"
+    },
+    "research_tool": {
+      "hr": "general"
+    },
+    "campus_team_project": {
+      "hr": "general"
+    },
+    "personal_project": {
+      "hr": "general"
+    },
+    "course_project": {
+      "hr": "general"
+    },
+    "thesis": {
+      "hr": "match"
+    },
+    "paper": {
+      "hr": "general"
+    },
+    "competition": {
+      "hr": "half"
+    },
+    "student_org": {
+      "hr": "match"
+    },
+    "media_ops": {
+      "hr": "general"
+    },
+    "event_planning": {
+      "hr": "half"
+    },
+    "part_time": {
+      "hr": "general"
+    },
+    "certificate": {
+      "hr": "general"
+    },
+    "award": {
+      "hr": "general"
+    },
+    "intern_hr": {
+      "hr": "strong"
+    },
+    "intern_mkt": {
+      "hr": "half"
+    },
+    "campus_ambassador": {
+      "hr": "half"
+    },
+    "game_project": {
+      "hr": "general"
+    }
+  },
+  "skills": {
+    "office": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "文档记录",
+            "排期"
+          ]
+        }
+      }
+    },
+    "excel": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "数据核对"
+          ]
+        }
+      }
+    },
+    "research": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "访谈",
+            "调查设计"
+          ]
+        }
+      }
+    },
+    "data": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "指标口径"
+          ]
+        }
+      }
+    },
+    "event": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "活动协调"
+          ]
+        }
+      }
+    },
+    "community": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "沟通协作"
+          ]
+        }
+      }
+    },
+    "p3t_excel_pivot": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "数据透视",
+            "招聘台账"
+          ]
+        }
+      }
+    },
+    "p3t_business_comms": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "需求澄清",
+            "沟通纪要"
+          ]
+        }
+      }
+    },
+    "p3t_hr_basics": {
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "招聘流程",
+            "校招协调"
+          ]
+        }
+      },
+      "master_probes": [
+        "hr3_probe_recruiting"
+      ]
+    },
+    "hr3_employment": {
+      "labels": {
+        "1": "了解劳动合同基础规则",
+        "2": "熟悉劳动合同基础规则",
+        "3": "精通劳动关系处理"
+      },
+      "roles": {
+        "hr": {
+          "relevant": true,
+          "keywords": [
+            "劳动合同",
+            "适用条件"
+          ]
+        }
+      },
+      "master_probes": [
+        "hr3_probe_employment"
+      ]
+    }
+  },
+  "skill_probes": {
+    "hr3_probe_recruiting": {
+      "tag": "专业",
+      "text": "简历写了精通招聘流程。怎样保证多位评估者的评分可核对？",
+      "options": [
+        {
+          "id": "hr3_probe_recruiting_h",
+          "type": "hold",
+          "delta": 9,
+          "text": "按任务定锚点，独立记行为证据后再讨论。",
+          "face": "pleased",
+          "line": "嗯，判断顺序清楚。",
+          "requires": {
+            "skill_min": {
+              "p3t_hr_basics": 3
+            }
+          }
+        },
+        {
+          "id": "hr3_probe_recruiting_truth",
+          "type": "partial",
+          "delta": -1,
+          "text": "这项未达到精通，会先核对事实并请有权人员复核。",
+          "face": "nod",
+          "line": "按真实水平说清就好。"
+        },
+        {
+          "id": "hr3_probe_recruiting_wrong",
+          "type": "fail",
+          "delta": -4,
+          "text": "已有工作模板，保持前后一致就能代替逐项核对。",
+          "face": "frown",
+          "line": "模板不能替代适用条件。"
+        }
+      ],
+      "explain": "“精通”标签会触发对方法和边界的追问。真实水平不足时如实说明损失最少；自信地把模板当作判断依据扣分更多。专业判断仍需事实、规则与授权，不因熟悉名词就自动成立。"
+    },
+    "hr3_probe_employment": {
+      "tag": "专业",
+      "text": "简历写了精通劳动关系处理。面对解除劳动合同的问题，先判断什么？",
+      "options": [
+        {
+          "id": "hr3_probe_employment_h",
+          "type": "hold",
+          "delta": 9,
+          "text": "先核对关系、解除事由与证据，再依法判断程序和责任。",
+          "face": "pleased",
+          "line": "嗯，判断顺序清楚。",
+          "requires": {
+            "skill_min": {
+              "hr3_employment": 3
+            }
+          }
+        },
+        {
+          "id": "hr3_probe_employment_truth",
+          "type": "partial",
+          "delta": -1,
+          "text": "这项未达到精通，会先核对事实并请有权人员复核。",
+          "face": "nod",
+          "line": "按真实水平说清就好。"
+        },
+        {
+          "id": "hr3_probe_employment_wrong",
+          "type": "fail",
+          "delta": -4,
+          "text": "已有工作模板，保持前后一致就能代替逐项核对。",
+          "face": "frown",
+          "line": "模板不能替代适用条件。"
+        }
+      ],
+      "explain": "“精通”标签会触发对方法和边界的追问。真实水平不足时如实说明损失最少；自信地把模板当作判断依据扣分更多。专业判断仍需事实、规则与授权，不因熟悉名词就自动成立。"
+    }
+  },
+  "frames": {
+    "intern_hr": [
+      {
+        "id": "hr3_frame_intern_hr",
+        "roles": [
+          "hr"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "讲讲{exp.label}，你怎样划清本人职责与需要他人确认的部分？",
+          "options": [
+            {
+              "key": "hr3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "说明自己的安排、记录，以及需要他人确认的事项。",
+              "face": "nod",
+              "line": "嗯，先讲自己的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "hr3_c",
+              "type": "off",
+              "delta": -1,
+              "text": "先介绍团队最终成果，再补充自己参与的环节。",
+              "face": "calm",
+              "line": "本人做了什么还可以更清楚。"
+            }
+          ],
+          "explain": "流程协调、调研和沟通都需要清楚的职责边界。具体动作与证据有助于核对能力，团队结果不能直接改写成个人独立决定。"
+        }
+      }
+    ],
+    "student_org": [
+      {
+        "id": "hr3_frame_student_org",
+        "roles": [
+          "hr"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "讲讲{exp.label}，你怎样划清本人职责与需要他人确认的部分？",
+          "options": [
+            {
+              "key": "hr3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "说明自己的安排、记录，以及需要他人确认的事项。",
+              "face": "nod",
+              "line": "嗯，先讲自己的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "hr3_c",
+              "type": "off",
+              "delta": -1,
+              "text": "先介绍团队最终成果，再补充自己参与的环节。",
+              "face": "calm",
+              "line": "本人做了什么还可以更清楚。"
+            }
+          ],
+          "explain": "流程协调、调研和沟通都需要清楚的职责边界。具体动作与证据有助于核对能力，团队结果不能直接改写成个人独立决定。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "hr3_frame_thesis",
+        "roles": [
+          "hr"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "讲讲{exp.label}，你怎样划清本人职责与需要他人确认的部分？",
+          "options": [
+            {
+              "key": "hr3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "说明自己的安排、记录，以及需要他人确认的事项。",
+              "face": "nod",
+              "line": "嗯，先讲自己的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "hr3_c",
+              "type": "off",
+              "delta": -1,
+              "text": "先介绍团队最终成果，再补充自己参与的环节。",
+              "face": "calm",
+              "line": "本人做了什么还可以更清楚。"
+            }
+          ],
+          "explain": "流程协调、调研和沟通都需要清楚的职责边界。具体动作与证据有助于核对能力，团队结果不能直接改写成个人独立决定。"
+        }
+      }
+    ],
+    "campus_ambassador": [
+      {
+        "id": "hr3_frame_campus_ambassador",
+        "roles": [
+          "hr"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "讲讲{exp.label}，你怎样划清本人职责与需要他人确认的部分？",
+          "options": [
+            {
+              "key": "hr3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "说明自己的安排、记录，以及需要他人确认的事项。",
+              "face": "nod",
+              "line": "嗯，先讲自己的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "hr3_c",
+              "type": "off",
+              "delta": -1,
+              "text": "先介绍团队最终成果，再补充自己参与的环节。",
+              "face": "calm",
+              "line": "本人做了什么还可以更清楚。"
+            }
+          ],
+          "explain": "流程协调、调研和沟通都需要清楚的职责边界。具体动作与证据有助于核对能力，团队结果不能直接改写成个人独立决定。"
+        }
+      }
+    ]
+  },
+  "pools": [
+    {
+      "id": "hr3_intro_task",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "请介绍一段和人力工作相关的经历，说明你承担到哪一步。",
+        "options": [
+          {
+            "id": "hr3_intro_task_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先说任务和我负责的环节，再讲结果，并交代证据来源。",
+            "face": "nod",
+            "line": "好，先把分工讲清楚。"
+          },
+          {
+            "id": "hr3_intro_task_b",
+            "type": "bold",
+            "text": "挑一个影响流程的判断，讲清依据和与他人的分工边界。",
+            "face": "probe",
+            "line": "要是决定不是你做的呢？",
+            "followup": {
+              "text": "假设这段经历里你只做协调支持，怎么讲你的价值？",
+              "options": [
+                {
+                  "id": "hr3_intro_task_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "讲清我的安排、记录和处理结果，决定由有权的人做。",
+                  "face": "pleased",
+                  "line": "嗯，价值和权限都分清了。"
+                },
+                {
+                  "id": "hr3_intro_task_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先讲团队录用结果作背景，被追问后再补自己的分工。",
+                  "face": "calm",
+                  "line": "分工该你先说。"
+                },
+                {
+                  "id": "hr3_intro_task_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "协调覆盖了整个流程，录用成果都可以算自己负责。",
+                  "face": "frown",
+                  "line": "录用是你定的吗？"
+                }
+              ],
+              "explain": "人力协调可以有明确价值，但处理数量不等于招聘决策权。说明本人动作与可核对结果，能让讨论落到实际能力。团队结果提供背景，不能直接领取为个人独立招聘成果。"
+            }
+          },
+          {
+            "id": "hr3_intro_task_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先列协调过的人数，再用团队录用量证明自己的能力。",
+            "face": "calm",
+            "line": "人数多，不等于你定的。"
+          }
+        ],
+        "explain": "人力协调可以有明确价值，但处理数量不等于招聘决策权。说明本人动作与可核对结果，能让讨论落到实际能力。团队结果提供背景，不能直接领取为个人独立招聘成果。"
+      }
+    },
+    {
+      "id": "hr3_intro_learning",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "请挑一件你从反馈中改进做法的事介绍自己。",
+        "options": [
+          {
+            "id": "hr3_intro_learning_b",
+            "type": "bold",
+            "text": "先说一个被推翻的假设，再讲如何补证据。",
+            "face": "probe",
+            "line": "被推翻的是什么？",
+            "followup": {
+              "text": "假设改动只减少了流程遗漏，能说招聘质量提高了吗？",
+              "options": [
+                {
+                  "id": "hr3_intro_learning_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "只汇报遗漏减少了，招聘质量是否提高先不提。",
+                  "face": "calm",
+                  "line": "不夸大，可后面呢？"
+                },
+                {
+                  "id": "hr3_intro_learning_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "流程更顺就能证明招到的人更合适，可以合并汇报。",
+                  "face": "frown",
+                  "line": "顺不顺和合不合适是两回事。"
+                },
+                {
+                  "id": "hr3_intro_learning_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先报告遗漏减少有记录支撑，招聘质量另找后续证据。",
+                  "face": "pleased",
+                  "line": "对，两件事分开说。"
+                }
+              ],
+              "explain": "流程准确性和录用质量有关联，但不是同一指标。减少遗漏可以按记录说明，后续质量还需相应证据。经验复盘要讲动作与结论范围，不能只列培训或把不同结果混为一谈。"
+            }
+          },
+          {
+            "id": "hr3_intro_learning_c",
+            "type": "off",
+            "delta": -3,
+            "text": "重点讲自己学到了很多，再介绍参加过哪些培训。",
+            "face": "calm",
+            "line": "学到什么我知道了，改了什么呢？"
+          },
+          {
+            "id": "hr3_intro_learning_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲原来的问题、我做的改动，以及没验证的部分。",
+            "face": "nod",
+            "line": "这样讲得清楚。"
+          }
+        ],
+        "explain": "流程准确性和录用质量有关联，但不是同一指标。减少遗漏可以按记录说明，后续质量还需相应证据。经验复盘要讲动作与结论范围，不能只列培训或把不同结果混为一谈。"
+      }
+    },
+    {
+      "id": "hr3_recruit_criteria",
+      "pools": [
+        "hr_recruit"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "业务说要招“沟通好、能抗压”的新人，你会先怎么做？",
+        "options": [
+          {
+            "id": "hr3_recruit_criteria_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先沿用上次岗位说明，收到简历后再看业务偏好。",
+            "face": "calm",
+            "line": "上次的说明，就是这次要的吗？"
+          },
+          {
+            "id": "hr3_recruit_criteria_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问岗位每天要沟通什么，再定看什么证据。",
+            "face": "nod",
+            "line": "从任务说起，对。"
+          },
+          {
+            "id": "hr3_recruit_criteria_b",
+            "type": "bold",
+            "text": "把任务、必要能力和评估方式逐项对齐，再请业务确认。",
+            "face": "probe",
+            "line": "业务要是都想要呢？",
+            "followup": {
+              "text": "业务希望所有优秀品质都设成硬门槛，怎么处理？",
+              "options": [
+                {
+                  "id": "hr3_recruit_criteria_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "按负责人个人偏好筛选，比写标准更贴合实际需要。",
+                  "face": "frown",
+                  "line": "偏好换个人就变了。"
+                },
+                {
+                  "id": "hr3_recruit_criteria_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "区分入职必需与可培养项，说明筛选成本后确认。",
+                  "face": "pleased",
+                  "line": "必需和可培养，分得清。"
+                },
+                {
+                  "id": "hr3_recruit_criteria_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "只保留业务最看重的两项作硬门槛，其余不再讨论。",
+                  "face": "calm",
+                  "line": "其余的项，总得有个说法。"
+                }
+              ],
+              "explain": "抽象能力词需转成岗位任务与证据，才能支持筛选和一致评价。硬门槛应有必要性，可培养项也要有资源安排。直接沿用旧说明或按个人偏好处理，可能筛掉合适的人而不自知。只收窄到最看重的几项、不再讨论其余，还没说清可培养项怎么安排。"
+            }
+          }
+        ],
+        "explain": "抽象能力词需转成岗位任务与证据，才能支持筛选和一致评价。硬门槛应有必要性，可培养项也要有资源安排。直接沿用旧说明或按个人偏好处理，可能筛掉合适的人而不自知。只收窄到最看重的几项、不再讨论其余，还没说清可培养项怎么安排。"
+      }
+    },
+    {
+      "id": "hr3_recruit_funnel",
+      "pools": [
+        "hr_recruit"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "本轮投递量上升，但接受录用的人数没变，你会怎样分析？",
+        "options": [
+          {
+            "id": "hr3_recruit_funnel_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先统一各阶段口径和批次，再逐段查流失在哪里。",
+            "face": "nod",
+            "line": "先对口径，好。"
+          },
+          {
+            "id": "hr3_recruit_funnel_b",
+            "type": "bold",
+            "text": "按岗位和批次拆漏斗，结合候选人反馈定位问题。",
+            "face": "probe",
+            "line": "拆出来看到什么？",
+            "followup": {
+              "text": "到面率下降主要发生在改过时间的候选人中，怎么办？",
+              "options": [
+                {
+                  "id": "hr3_recruit_funnel_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "核对通知与确认记录，修正变更流程再追踪。",
+                  "face": "pleased",
+                  "line": "先查通知有没有送到，对。"
+                },
+                {
+                  "id": "hr3_recruit_funnel_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "把面试提醒再发一遍，下一轮继续观察总体到面率。",
+                  "face": "calm",
+                  "line": "提醒有用，原因查了吗？"
+                },
+                {
+                  "id": "hr3_recruit_funnel_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "改期者意愿不足，直接提高这部分候选人的筛选标准。",
+                  "face": "frown",
+                  "line": "改期，就是意愿不足？"
+                }
+              ],
+              "explain": "招聘漏斗需要统一批次和阶段定义，再看流失集中在哪些条件。改期与到面下降一起出现是线索，不能直接归因意愿。核对通知、确认与反馈，才能判断是流程问题还是其他原因；增加曝光未必解决中后段损失。"
+            }
+          },
+          {
+            "id": "hr3_recruit_funnel_c",
+            "type": "off",
+            "delta": -3,
+            "text": "优先增加曝光，投递更多自然会带来更多录用。",
+            "face": "calm",
+            "line": "投递多了，漏的还是漏。"
+          }
+        ],
+        "explain": "招聘漏斗需要统一批次和阶段定义，再看流失集中在哪些条件。改期与到面下降一起出现是线索，不能直接归因意愿。核对通知、确认与反馈，才能判断是流程问题还是其他原因；增加曝光未必解决中后段损失。"
+      }
+    },
+    {
+      "id": "hr3_eval_anchor",
+      "pools": [
+        "hr_eval"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "安排结构化面试，除了给所有人问同样的问题，还需要什么？",
+        "options": [
+          {
+            "id": "hr3_eval_anchor_b",
+            "type": "bold",
+            "text": "让问题、证据和评分标准一一对应，并事先校准评估者。",
+            "face": "probe",
+            "line": "怎么校准？",
+            "followup": {
+              "text": "两名评估者评分差很多，第一步怎么讨论？",
+              "options": [
+                {
+                  "id": "hr3_eval_anchor_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "先把两人的分数取平均，差异留到全部面完再说。",
+                  "face": "calm",
+                  "line": "平均掉的，正是该查的。"
+                },
+                {
+                  "id": "hr3_eval_anchor_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "资历高的人更了解岗位，最终按他的直觉统一。",
+                  "face": "frown",
+                  "line": "资历不是证据。"
+                },
+                {
+                  "id": "hr3_eval_anchor_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "各自回到行为证据与锚点，找出差异再复核。",
+                  "face": "pleased",
+                  "line": "回到证据，这才对。"
+                }
+              ],
+              "explain": "结构化不只统一题目，还需要岗位关联、行为证据、评分锚点和评估者校准。独立记录能减少相互带动，差异讨论应回到证据。取平均或按资历拍板，无法说明分歧来自标准还是记录遗漏。"
+            }
+          },
+          {
+            "id": "hr3_eval_anchor_c",
+            "type": "off",
+            "delta": -3,
+            "text": "请资深面试官凭经验打总分，统一问题就足够了。",
+            "face": "calm",
+            "line": "只统一问题，够吗？"
+          },
+          {
+            "id": "hr3_eval_anchor_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "设好评分锚点，先各自记行为证据，再一起讨论分歧。",
+            "face": "nod",
+            "line": "先记证据再讨论，嗯。"
+          }
+        ],
+        "explain": "结构化不只统一题目，还需要岗位关联、行为证据、评分锚点和评估者校准。独立记录能减少相互带动，差异讨论应回到证据。取平均或按资历拍板，无法说明分歧来自标准还是记录遗漏。"
+      }
+    },
+    {
+      "id": "hr3_eval_private",
+      "pools": [
+        "hr_eval"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "评估协调能力的岗位，面试官想问候选人的婚育和家人健康情况，你怎么办？",
+        "options": [
+          {
+            "id": "hr3_eval_private_c",
+            "type": "redline",
+            "delta": -9,
+            "text": "私下问完不录入表格，既了解情况又不留记录。",
+            "face": "disappointed",
+            "line": "不记录也是在问，这不行。"
+          },
+          {
+            "id": "hr3_eval_private_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "提醒回到岗位能力，用相关行为题获取证据。",
+            "face": "nod",
+            "line": "对，问和岗位有关的。"
+          },
+          {
+            "id": "hr3_eval_private_b",
+            "type": "bold",
+            "text": "说明这些信息与岗位无关，提议改用相关的行为问题。",
+            "face": "probe",
+            "line": "对方不接受呢？",
+            "followup": {
+              "text": "对方说只是想预测稳定性，怎么继续？",
+              "options": [
+                {
+                  "id": "hr3_eval_private_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "只要候选人愿意回答，就可以用私人情况决定分数。",
+                  "face": "frown",
+                  "line": "愿不愿答，不是理由。"
+                },
+                {
+                  "id": "hr3_eval_private_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "改问真实可到岗时间与任务安排，不猜家庭计划。",
+                  "face": "pleased",
+                  "line": "问到岗和任务，这就对了。"
+                },
+                {
+                  "id": "hr3_eval_private_p",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "由HR统一收集婚育信息，减少业务面试官各自提问。",
+                  "face": "disappointed",
+                  "line": "换谁来问，都不能问。"
+                }
+              ],
+              "explain": "题设信息与岗位能力无关，不能把私人情况当稳定性的替代指标。私下问了不记录、改由HR统一收集，仍然是在收集这类信息；应回到任务、实际安排和相关证据。这里考岗位关联与边界，不把所有健康信息在所有职业场景下都概括为同一规则。"
+            }
+          }
+        ],
+        "explain": "题设信息与岗位能力无关，不能把私人情况当稳定性的替代指标。私下问了不记录、改由HR统一收集，仍然是在收集这类信息；应回到任务、实际安排和相关证据。这里考岗位关联与边界，不把所有健康信息在所有职业场景下都概括为同一规则。"
+      }
+    },
+    {
+      "id": "hr3_contract_probation",
+      "pools": [
+        "hr_contract"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "一般劳动关系中，准备劳动合同的试用条款，你先核对什么？",
+        "options": [
+          {
+            "id": "hr3_contract_probation_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先核对合同期限，以及此前有没有约过试用。",
+            "face": "nod",
+            "line": "先查期限和旧约定，嗯。"
+          },
+          {
+            "id": "hr3_contract_probation_b",
+            "type": "bold",
+            "text": "把事实对照现行法条，不把试用上限当必选长度。",
+            "face": "probe",
+            "line": "对照哪一条？",
+            "followup": {
+              "text": "固定期限两年、同一双方此前未约过试用，最长能约多久？",
+              "options": [
+                {
+                  "id": "hr3_contract_probation_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "最多两个月，也不必约满，同一双方只能约一次。",
+                  "face": "pleased",
+                  "line": "对，两个月封顶。"
+                },
+                {
+                  "id": "hr3_contract_probation_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "先约一个月，到期表现不确定时再补签一次试用。",
+                  "face": "calm",
+                  "line": "试用只能约一次。"
+                },
+                {
+                  "id": "hr3_contract_probation_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "固定期限合同都可以约六个月，期限长短不影响。",
+                  "face": "frown",
+                  "line": "期限不同，档位也不同。"
+                }
+              ],
+              "explain": "按劳动合同法第19条，一年以上不满三年的合同试用上限为两个月；同一双方只能约定一次试用。先核事实再对规则，不能照抄模板或把延期当作可重复约定。法律适用还需结合实际关系与授权复核。到期后再补签一次试用，等于第二次约定，不被允许。"
+            }
+          },
+          {
+            "id": "hr3_contract_probation_c",
+            "type": "off",
+            "delta": -3,
+            "text": "沿用最近一份合同的试用期限，等入职再处理差异。",
+            "face": "calm",
+            "line": "错了再改，来得及吗？"
+          }
+        ],
+        "explain": "按劳动合同法第19条，一年以上不满三年的合同试用上限为两个月；同一双方只能约定一次试用。先核事实再对规则，不能照抄模板或把延期当作可重复约定。法律适用还需结合实际关系与授权复核。到期后再补签一次试用，等于第二次约定，不被允许。"
+      }
+    },
+    {
+      "id": "hr3_contract_scope",
+      "pools": [
+        "hr_contract"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "业务要求给所有辞职者统一约定违约金，HR新人会怎么处理？",
+        "options": [
+          {
+            "id": "hr3_contract_scope_b",
+            "type": "bold",
+            "text": "区分违约金、实际损失和其他责任，逐项找依据。",
+            "face": "probe",
+            "line": "依据在哪一条？",
+            "followup": {
+              "text": "理由只是普通入职培训，能直接套用专项培训服务期吗？",
+              "options": [
+                {
+                  "id": "hr3_contract_scope_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "把普通培训改名成专业培训，保留签到记录作证明。",
+                  "face": "calm",
+                  "line": "改了名，事实变了吗？"
+                },
+                {
+                  "id": "hr3_contract_scope_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "公司付出过培训成本，就可以要求所有离职者返还。",
+                  "face": "frown",
+                  "line": "成本不等于能这样约。"
+                },
+                {
+                  "id": "hr3_contract_scope_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不能直接套用，先核是否符合专项专业技术培训条件。",
+                  "face": "pleased",
+                  "line": "先核条件，对。"
+                }
+              ],
+              "explain": "劳动合同法第22至25条限制由劳动者承担的违约金约定，普通入职培训不能仅改名就成为专项专业技术培训。违约金与其他赔偿责任要区分，不作“签字即可”或“任何损失都不担责”的绝对结论；新人先收事实，交授权人员核对。把业务要求原样转手、不整理事实也不跟进，同样没有做完自己这一环。"
+            }
+          },
+          {
+            "id": "hr3_contract_scope_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先让员工签字认可，双方同意就可以执行。",
+            "face": "calm",
+            "line": "签了字，就都有效吗？"
+          },
+          {
+            "id": "hr3_contract_scope_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "整理拟约定内容与事实，交有权人员依法复核。",
+            "face": "nod",
+            "line": "整理好再交复核，嗯。"
+          },
+          {
+            "id": "hr3_contract_scope_d",
+            "type": "off",
+            "delta": -3,
+            "text": "把业务的要求原样转给法务，我不整理事实，也不跟进。",
+            "face": "calm",
+            "line": "原样转手，事实谁来理？"
+          }
+        ],
+        "explain": "劳动合同法第22至25条限制由劳动者承担的违约金约定，普通入职培训不能仅改名就成为专项专业技术培训。违约金与其他赔偿责任要区分，不作“签字即可”或“任何损失都不担责”的绝对结论；新人先收事实，交授权人员核对。把业务要求原样转手、不整理事实也不跟进，同样没有做完自己这一环。"
+      }
+    },
+    {
+      "id": "hr3_plan_capacity",
+      "pools": [
+        "hr_program"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "要组织一场校招，你怎样把计划写成可执行安排？",
+        "options": [
+          {
+            "id": "hr3_plan_capacity_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先把宣讲和宣传场次排满，简历来了再去协调评估资源。",
+            "face": "calm",
+            "line": "资源够不够，到时才知道？"
+          },
+          {
+            "id": "hr3_plan_capacity_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "分筹备、投递、评估、录用四段，每段定目标和责任人。",
+            "face": "nod",
+            "line": "四段分清，每段有人。"
+          },
+          {
+            "id": "hr3_plan_capacity_b",
+            "type": "bold",
+            "text": "把面试容量、候选人反馈节点和异常处理一起排清楚。",
+            "face": "probe",
+            "line": "容量不够怎么办？",
+            "followup": {
+              "text": "可用评估者工时只有预计需求的一半，怎么调整？",
+              "options": [
+                {
+                  "id": "hr3_plan_capacity_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "先把所有场次排上，让业务在当天灵活决定谁参加。",
+                  "face": "frown",
+                  "line": "当天才定，来得及吗？"
+                },
+                {
+                  "id": "hr3_plan_capacity_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "缩小或分批安排并确认支持，及时同步候选人。",
+                  "face": "pleased",
+                  "line": "缩批次，告诉候选人，行。"
+                },
+                {
+                  "id": "hr3_plan_capacity_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "保持原投递规模，把每场评估记录压缩到只写结论。",
+                  "face": "calm",
+                  "line": "记录压没了，复核靠什么？"
+                }
+              ],
+              "explain": "校招计划应让各环节处理能力与投递规模匹配，记录和反馈也占资源。容量不足时需要调整范围、节奏或支持，并向候选人同步变化；只看宣传场次或把记录时间挤掉，会把问题推到后续评估。"
+            }
+          }
+        ],
+        "explain": "校招计划应让各环节处理能力与投递规模匹配，记录和反馈也占资源。容量不足时需要调整范围、节奏或支持，并向候选人同步变化；只看宣传场次或把记录时间挤掉，会把问题推到后续评估。"
+      }
+    },
+    {
+      "id": "hr3_plan_change",
+      "pools": [
+        "hr_program"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "面试地点临时变化，部分候选人已经出发。你怎样处理？",
+        "options": [
+          {
+            "id": "hr3_plan_change_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "核对受影响的名单，发出明确变更通知并逐一确认收到。",
+            "face": "nod",
+            "line": "逐个确认，这才稳。"
+          },
+          {
+            "id": "hr3_plan_change_b",
+            "type": "bold",
+            "text": "先给可行替代和联系人，再记录未联系上的人。",
+            "face": "probe",
+            "line": "联系不上的呢？",
+            "followup": {
+              "text": "有人一直联系不上，面试时间快到了，怎么办？",
+              "options": [
+                {
+                  "id": "hr3_plan_change_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "保留联络记录、安排现场指引，并请负责人确认补救。",
+                  "face": "pleased",
+                  "line": "留了记录，找了负责人，行。"
+                },
+                {
+                  "id": "hr3_plan_change_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "标记无法联系，到点未到就自行取消其面试资格。",
+                  "face": "calm",
+                  "line": "取消资格，谁授权的？"
+                },
+                {
+                  "id": "hr3_plan_change_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "请已到场的同校候选人帮忙转告，并把对方电话发给他们。",
+                  "face": "frown",
+                  "line": "电话不能这样发出去。"
+                }
+              ],
+              "explain": "排期表更新不等于所有人收到变化。需要追踪影响、确认通知和安排替代，联系不上时也要准备补救与授权决定；不能擅自取消资格，或为了找人扩大公开个人信息。"
+            }
+          },
+          {
+            "id": "hr3_plan_change_c",
+            "type": "off",
+            "delta": -3,
+            "text": "更新自己的排期表，候选人到原地点后再由前台转告。",
+            "face": "calm",
+            "line": "人到了才转告？"
+          }
+        ],
+        "explain": "排期表更新不等于所有人收到变化。需要追踪影响、确认通知和安排替代，联系不上时也要准备补救与授权决定；不能擅自取消资格，或为了找人扩大公开个人信息。"
+      }
+    },
+    {
+      "id": "hr3_relations_conflict",
+      "pools": [
+        "hr_relations"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "两名员工互相投诉，要求你马上判断谁有错。作为协助者怎么做？",
+        "options": [
+          {
+            "id": "hr3_relations_conflict_b",
+            "type": "bold",
+            "text": "明确保密边界，整理共同问题与可核对的证据。",
+            "face": "probe",
+            "line": "私下发来的怎么办？",
+            "followup": {
+              "text": "其中一人提供私下消息，希望你原封不动发给对方呢？",
+              "options": [
+                {
+                  "id": "hr3_relations_conflict_p",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "为提高效率，隐去名字后把全部内容转给另一方。",
+                  "face": "disappointed",
+                  "line": "私下的话，不能这样转。"
+                },
+                {
+                  "id": "hr3_relations_conflict_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "既然都在同一单位，处理冲突时材料可以完全共享。",
+                  "face": "frown",
+                  "line": "同一单位，也不是都能看。"
+                },
+                {
+                  "id": "hr3_relations_conflict_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "先确认授权与必要范围，不把私下原话直接转发。",
+                  "face": "pleased",
+                  "line": "先问授权和范围，对。"
+                }
+              ],
+              "explain": "协调冲突需要听取双方和核对证据，但不等于可以无限转发私下信息。应明确用途、授权与必要范围，再决定怎样概括与沟通。把一方私下说的话转给另一方，隐去名字也改变不了它越过了保密边界；处理者同样不能只听一方就拍板。"
+            }
+          },
+          {
+            "id": "hr3_relations_conflict_c",
+            "type": "redline",
+            "delta": -9,
+            "text": "先把两人的原话互相转发，让他们面对面解释清楚。",
+            "face": "disappointed",
+            "line": "互转原话，这不行。"
+          },
+          {
+            "id": "hr3_relations_conflict_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "分别听取双方并记录各自事实，把情绪与待核信息分开。",
+            "face": "nod",
+            "line": "分开听，分开记，嗯。"
+          }
+        ],
+        "explain": "协调冲突需要听取双方和核对证据，但不等于可以无限转发私下信息。应明确用途、授权与必要范围，再决定怎样概括与沟通。把一方私下说的话转给另一方，隐去名字也改变不了它越过了保密边界；处理者同样不能只听一方就拍板。"
+      }
+    },
+    {
+      "id": "hr3_relations_transfer",
+      "pools": [
+        "hr_relations"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "业务让你通知员工调岗，并承诺“肯定没有补偿问题”。你先做什么？",
+        "options": [
+          {
+            "id": "hr3_relations_transfer_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先按业务要求传达，再让员工有疑问时找负责人。",
+            "face": "calm",
+            "line": "“肯定没问题”也要传？"
+          },
+          {
+            "id": "hr3_relations_transfer_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "核对事实、拟定方案并确认授权，明确自己只协助沟通。",
+            "face": "nod",
+            "line": "先核对，自己只协助，嗯。"
+          },
+          {
+            "id": "hr3_relations_transfer_b",
+            "type": "bold",
+            "text": "把理由、条件和待核事项列清，交有权人员确认。",
+            "face": "probe",
+            "line": "负责人不确认呢？",
+            "followup": {
+              "text": "负责人未确认条件，却希望你先保证补偿金额，怎么回应？",
+              "options": [
+                {
+                  "id": "hr3_relations_transfer_f",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "为稳定情绪先给确定承诺，后续再请负责人追认。",
+                  "face": "disappointed",
+                  "line": "先承诺再追认，不行。"
+                },
+                {
+                  "id": "hr3_relations_transfer_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不越权保证，说明待核项目并约定反馈节点。",
+                  "face": "pleased",
+                  "line": "不越权，还约了节点。"
+                },
+                {
+                  "id": "hr3_relations_transfer_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "先说原则上会妥善处理，等员工接受后再补方案。",
+                  "face": "calm",
+                  "line": "“妥善”是多少？没说啊。"
+                }
+              ],
+              "explain": "调岗或解除涉及事实、程序、协议及适用规则，新人不能用未经核对的承诺代替正式方案，先给承诺再等追认也属于越权。可以协助整理、解释已确认内容和约定反馈；既不能独立拍板，也不宜只把话原样转上去、对眼前的信息缺口不处理。"
+            }
+          },
+          {
+            "id": "hr3_relations_transfer_d",
+            "type": "off",
+            "delta": -3,
+            "text": "把业务的话原样报给上级，不核对，也不和员工沟通。",
+            "face": "calm",
+            "line": "报上去就完了？员工呢？"
+          }
+        ],
+        "explain": "调岗或解除涉及事实、程序、协议及适用规则，新人不能用未经核对的承诺代替正式方案，先给承诺再等追认也属于越权。可以协助整理、解释已确认内容和约定反馈；既不能独立拍板，也不宜只把话原样转上去、对眼前的信息缺口不处理。"
+      }
+    },
+    {
+      "id": "hr3_data_access",
+      "pools": [
+        "hr_confidential"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "熟人想知道同事离职原因，说只在私下聊。你怎样回应？",
+        "options": [
+          {
+            "id": "hr3_data_access_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "不提供个人情况，按授权渠道处理合理工作需求。",
+            "face": "nod",
+            "line": "不透露，走渠道，嗯。"
+          },
+          {
+            "id": "hr3_data_access_b",
+            "type": "bold",
+            "text": "先区分私人打听与必要任务，只用最小信息支持工作。",
+            "face": "probe",
+            "line": "工作确实需要呢？",
+            "followup": {
+              "text": "对方说需要交接，只要整份离职记录更省事，怎么办？",
+              "options": [
+                {
+                  "id": "hr3_data_access_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "核对交接所需与权限，提供必要任务信息而非整份记录。",
+                  "face": "pleased",
+                  "line": "只给必要的，对。"
+                },
+                {
+                  "id": "hr3_data_access_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "请对方承诺不外传，再发整份记录帮助交接。",
+                  "face": "calm",
+                  "line": "承诺，不等于权限。"
+                },
+                {
+                  "id": "hr3_data_access_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "整份记录加密后发给他，密码另用电话告诉他。",
+                  "face": "frown",
+                  "line": "加了密，也还是整份。"
+                }
+              ],
+              "explain": "私人关系和口头承诺不能替代工作权限。交接可能有合理信息需求，应核对必要内容与适用渠道；整份离职记录不能因为省事就转发，加密或让对方写承诺也取代不了授权。当面聊离职原因同样是泄露；反过来，一律推给主管、不核对合理需求，也没有做到自己该做的一环。"
+            }
+          },
+          {
+            "id": "hr3_data_access_c",
+            "type": "redline",
+            "delta": -9,
+            "text": "大概说一下原因，不发文件就不会造成材料外泄。",
+            "face": "disappointed",
+            "line": "离职原因，不能这样聊。"
+          },
+          {
+            "id": "hr3_data_access_d",
+            "type": "off",
+            "delta": -3,
+            "text": "不分情况，离职相关的问询一律转给主管，自己不回应。",
+            "face": "calm",
+            "line": "一律转走，工作需要呢？"
+          }
+        ],
+        "explain": "私人关系和口头承诺不能替代工作权限。交接可能有合理信息需求，应核对必要内容与适用渠道；整份离职记录不能因为省事就转发，加密或让对方写承诺也取代不了授权。当面聊离职原因同样是泄露；反过来，一律推给主管、不核对合理需求，也没有做到自己该做的一环。"
+      }
+    },
+    {
+      "id": "hr3_data_reconcile",
+      "pools": [
+        "hr_confidential"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "招聘台账的到面人数和评估表不一致，业务马上要汇总，你怎么办？",
+        "options": [
+          {
+            "id": "hr3_data_reconcile_b",
+            "type": "bold",
+            "text": "抽样追到通知与签到记录，给出当前可用范围。",
+            "face": "probe",
+            "line": "抽样看到什么？",
+            "followup": {
+              "text": "发现同一人改期后被算成两次到面，下一步呢？",
+              "options": [
+                {
+                  "id": "hr3_data_reconcile_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "先改自己的表，其他部门的汇总等他们发现再解释。",
+                  "face": "calm",
+                  "line": "别人的汇总，谁去通知？"
+                },
+                {
+                  "id": "hr3_data_reconcile_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "总量差距不大，可以用两张表的平均数先汇报。",
+                  "face": "frown",
+                  "line": "平均数，没有来源。"
+                },
+                {
+                  "id": "hr3_data_reconcile_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按既定口径去重，保留修订依据并同步所有使用方。",
+                  "face": "pleased",
+                  "line": "去重、留依据、通知用的人。"
+                }
+              ],
+              "explain": "核对台账需要统一口径并追到来源。改期重复计数应按既定定义修订、留痕，并同步依赖这份数据的人；只改自己的表或取平均，可能使错误继续传播。进度紧也应说明当前可信范围与待确认项。"
+            }
+          },
+          {
+            "id": "hr3_data_reconcile_c",
+            "type": "off",
+            "delta": -3,
+            "text": "只把自己的台账改成评估表上的数字，先保证汇总一致。",
+            "face": "calm",
+            "line": "数对上了，错的还在。"
+          },
+          {
+            "id": "hr3_data_reconcile_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先核对口径与来源，并把差异和待确认项告知使用方。",
+            "face": "nod",
+            "line": "先把差异说清，嗯。"
+          }
+        ],
+        "explain": "核对台账需要统一口径并追到来源。改期重复计数应按既定定义修订、留痕，并同步依赖这份数据的人；只改自己的表或取平均，可能使错误继续传播。进度紧也应说明当前可信范围与待确认项。"
+      }
+    },
+    {
+      "id": "hr3_reverse_work",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "kind": "reverse",
+        "text": "你还想了解这份人力岗位的什么？",
+        "options": [
+          {
+            "id": "hr3_reverse_work_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人负责哪几环，涉及哪些决定需要复核？",
+            "face": "pleased",
+            "line": "新人先做协调，决定要复核。"
+          },
+          {
+            "id": "hr3_reverse_work_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "业务与人力对标准有分歧，通常怎样确认并记录？",
+            "face": "pleased",
+            "line": "分歧会记下来，由负责人定。"
+          },
+          {
+            "id": "hr3_reverse_work_2",
+            "type": "reverse",
+            "delta": 1,
+            "text": "入职后有哪些工具和培训资源可以学习？",
+            "face": "nod",
+            "line": "有带教，也有培训。"
+          }
+        ],
+        "explain": "反问可核对真实职责、决定权限与反馈支持。工具和未来模块可以了解，但不能替代当前任务和复核机制；岗位适合与否，应从这些具体安排判断。"
+      }
+    },
+    {
+      "id": "hr3_reverse_feedback",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "kind": "reverse",
+        "text": "关于团队协作和成长，你还有什么想确认的？",
+        "options": [
+          {
+            "id": "hr3_reverse_feedback_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "第一项任务会怎样获得反馈，改进由谁跟进？",
+            "face": "pleased",
+            "line": "带教会点评，改进也跟进。"
+          },
+          {
+            "id": "hr3_reverse_feedback_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "校招高峰时，排期和候选人反馈由谁共同保障？",
+            "face": "pleased",
+            "line": "高峰期几个人一起分担。"
+          },
+          {
+            "id": "hr3_reverse_feedback_2",
+            "type": "reverse",
+            "delta": 1,
+            "text": "未来可能接触哪些人力模块？",
+            "face": "nod",
+            "line": "先从招聘做起，后面看安排。"
+          }
+        ],
+        "explain": "反问可核对真实职责、决定权限与反馈支持。工具和未来模块可以了解，但不能替代当前任务和复核机制；岗位适合与否，应从这些具体安排判断。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "hr3_bg_intern",
+      "pools": [
+        "panel",
+        "hr"
+      ],
+      "priority": 80,
+      "when": {
+        "role": "hr",
+        "has_exp_type": "intern_hr"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你的人力实习涉及候选人资料，面试时怎样展示能力又保留信息边界？",
+        "options": [
+          {
+            "id": "hr3_bg_intern_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "用真实任务说明职责，只展示获准公开的内容。",
+            "face": "nod",
+            "line": "只讲能公开的，嗯。"
+          },
+          {
+            "id": "hr3_bg_intern_b",
+            "type": "bold",
+            "text": "先讲方法与边界，必要时用清楚标注的自制样例。",
+            "face": "probe",
+            "line": "样例和真实的怎么分？",
+            "followup": {
+              "text": "对方想看你实习时的初筛记录表，手里只有真实的原表，怎么办？",
+              "options": [
+                {
+                  "id": "hr3_bg_intern_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "说明原表含候选人信息不能带出，改用标明练习的样表。",
+                  "face": "pleased",
+                  "line": "标明是练习，行。"
+                },
+                {
+                  "id": "hr3_bg_intern_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "把候选人姓名涂掉，再展示实习时的原表。",
+                  "face": "calm",
+                  "line": "涂了名字，别的信息呢？"
+                },
+                {
+                  "id": "hr3_bg_intern_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "我在实习时有权限看，现在拿原表展示也算我的成果。",
+                  "face": "frown",
+                  "line": "有权限看，不等于能带出。"
+                }
+              ],
+              "explain": "实习涉及候选人资料时，能展示的是自己的任务、方法和获准公开的内容。原表含他人信息，涂掉姓名也不等于获准展示；无法公开的材料可以用自制并标明练习的样表来展示方法，要分清练习与真实成果。有权限接触不等于可以带出。"
+            }
+          },
+          {
+            "id": "hr3_bg_intern_c",
+            "type": "off",
+            "delta": -3,
+            "text": "材料只给面试官看，不公开发布就可以直接展示。",
+            "face": "calm",
+            "line": "不公开，就算获准了吗？"
+          }
+        ],
+        "explain": "实习涉及候选人资料时，能展示的是自己的任务、方法和获准公开的内容。原表含他人信息，涂掉姓名也不等于获准展示；无法公开的材料可以用自制并标明练习的样表来展示方法，要分清练习与真实成果。有权限接触不等于可以带出。"
+      }
+    },
+    {
+      "id": "hr3_bg_switch",
+      "pools": [
+        "panel",
+        "hr"
+      ],
+      "priority": 30,
+      "when": {
+        "role": "hr"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你的专业或经历不完全对口，怎样证明自己适合人力工作？",
+        "options": [
+          {
+            "id": "hr3_bg_switch_b",
+            "type": "bold",
+            "text": "讲我为做人力做过的准备，并说明还没做过的部分。",
+            "face": "probe",
+            "line": "没做过的有哪些？",
+            "followup": {
+              "text": "如果没有企业独立决策经历，能怎么讲已有经验？",
+              "options": [
+                {
+                  "id": "hr3_bg_switch_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "先把团队结果讲完整，再等追问时说明自己的边界。",
+                  "face": "calm",
+                  "line": "边界该你先说。"
+                },
+                {
+                  "id": "hr3_bg_switch_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "了解了完整流程，就能把团队决定写成独立负责。",
+                  "face": "frown",
+                  "line": "了解流程，不等于负责。"
+                },
+                {
+                  "id": "hr3_bg_switch_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "讲完成的协助工作，说明未参与的决定与待补能力。",
+                  "face": "pleased",
+                  "line": "做了什么，缺什么，都说了。"
+                }
+              ],
+              "explain": "专业或经历不完全对口，说服力来自具体做过的事和坦承的缺口：挑最接近人力的一件事，讲清做了什么、没做什么，再交代待补的能力。协助工作有价值，不必冒认决定权；把“了解流程”说成“负责”，或只说入职后再学，都让对方无从核对。"
+            }
+          },
+          {
+            "id": "hr3_bg_switch_c",
+            "type": "off",
+            "delta": -3,
+            "text": "专业方向只是形式，人力的事入职以后都能学会。",
+            "face": "calm",
+            "line": "全靠入职以后？"
+          },
+          {
+            "id": "hr3_bg_switch_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "挑一件最接近人力的事，讲清楚我做了什么和没做什么。",
+            "face": "nod",
+            "line": "讲做过的，也讲没做的。"
+          }
+        ],
+        "explain": "专业或经历不完全对口，说服力来自具体做过的事和坦承的缺口：挑最接近人力的一件事，讲清做了什么、没做什么，再交代待补的能力。协助工作有价值，不必冒认决定权；把“了解流程”说成“负责”，或只说入职后再学，都让对方无从核对。"
+      }
+    }
+  ],
+  "_sources": [
+    {
+      "title": "劳动合同法第19、22至25、47条",
+      "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_0abfdd261c03417b949df19d869add8d.html",
+      "checked": "2026-10-26"
+    },
+    {
+      "title": "劳动争议司法解释（二）竞业限制适用边界",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/472691.html",
+      "checked": "2026-10-26"
+    }
+  ]
+}

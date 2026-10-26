@@ -1,0 +1,47 @@
+{
+  "_note": "F1：公司与产品为虚构设定，具体流程和薪酬不代表真实外企统一政策。",
+  "id": "foreign",
+  "name": "梅瑞丹",
+  "name_en": "Meridane",
+  "sector": "foreign",
+  "scale": "big",
+  "short": "梅瑞丹",
+  "short_en": "Meridane",
+  "lang": "en",
+  "stars": 4,
+  "style": "跨国软件研发中心，面向企业协作与数据产品；重视清楚的职责、异步记录和验证依据。",
+  "logo": "LOGO_meridane",
+  "disclaimer": "游戏里的公司、流程和数字都是虚构的。流程按公开的求职资料概括，实际因公司和年份而异。",
+  "tiers": {},
+  "salary_table": {
+    "_note": "虚构游戏设定，金额为税前千元/月；薪数含有条件目标奖金，股票及福利另列。",
+    "白菜": {
+      "salary": 18,
+      "months": 13,
+      "signing": "As stated in the written offer"
+    },
+    "普通": {
+      "salary": 21,
+      "months": 14,
+      "signing": "As stated in the written offer"
+    },
+    "SP": {
+      "salary": 24,
+      "months": 14,
+      "signing": "As stated in the written offer"
+    },
+    "SSP": {
+      "salary": 27,
+      "months": 15,
+      "signing": "As stated in the written offer"
+    }
+  },
+  "letters": {
+    "next_round": "[Meridane] You have passed this stage. We will confirm the next step and any preparation by email.",
+    "reject": "[Meridane] Thank you for your time and interest. We will not be moving forward with this application.",
+    "offer": "[Meridane] We are pleased to offer you a position. Please review the written terms and reply by the stated date."
+  },
+  "negotiation": "companies/foreign/negotiation.json",
+  "product": "Relay 协作与数据工作台",
+  "product_en": "Meridane Relay"
+}

@@ -1983,64 +1983,65 @@
       },
       "node": {
         "tag": "动机与稳定",
-        "text": "假设这轮会有一段英文交流，请简单介绍与岗位相关的经历；听不清的问题可以确认。你怎么准备开场？",
+        "text": "Please introduce yourself and one experience relevant to this role.",
         "options": [
           {
-            "id": "cpx_foreign_intro_a",
+            "id": "fgc_intro_a",
             "type": "safe",
             "delta": 3,
-            "text": "选真实经历，练清任务、个人职责和结果。",
+            "text": "I'd outline my role, a relevant task, and what I delivered.",
             "face": "nod",
-            "line": "嗯，清楚。"
+            "line": "Okay, that's a clear overview."
           },
           {
-            "id": "cpx_foreign_intro_b",
+            "id": "fgc_intro_b",
             "type": "bold",
-            "text": "用简短表达讲判断与限制，必要时先确认术语。",
+            "text": "I'd cover one project, and where I stand with spoken English.",
             "face": "probe",
-            "line": "那具体说一下。",
+            "line": "Okay, let me ask about that.",
             "followup": {
-              "text": "你能写英文文档，但临场讨论复杂问题经验不多，怎么说明？",
+              "text": "Your resume is in English. How comfortable are you in live discussion?",
               "options": [
                 {
-                  "id": "cpx_foreign_intro_h",
+                  "id": "fgc_intro_h",
                   "type": "hold",
                   "delta": 9,
-                  "text": "说明能做的任务和待补部分，确认实际沟通要求。",
+                  "text": "I'd say what I can do now and ask what this role needs.",
                   "face": "pleased",
-                  "line": "嗯，这样更准确。"
+                  "line": "Good, that's a straight answer."
                 },
                 {
-                  "id": "cpx_foreign_intro_p",
+                  "id": "fgc_intro_p",
                   "type": "partial",
                   "delta": 1,
-                  "text": "说能处理一般交流，复杂讨论入职后再适应。",
+                  "text": "I'd say I'm comfortable day to day and still building speed.",
                   "face": "calm",
-                  "line": "还有什么要补充？"
+                  "line": "Okay, and what if it gets complex?"
                 },
                 {
-                  "id": "cpx_foreign_intro_f",
+                  "id": "fgc_intro_f",
                   "type": "fail",
                   "delta": -7,
-                  "text": "先承诺全英文工作没问题，避免被认为语言不足。",
+                  "text": "I'd say I'm fully fluent and move on.",
                   "face": "frown",
-                  "line": "这个承诺有依据吗？"
+                  "line": "Hmm, are you sure about that?"
                 }
               ],
-              "explain": "这里考准确表达与岗位匹配，不按外企标签假定统一语言要求。真实任务、职责与结论应先清楚，再选择能说准确的语言；听不清可以确认。能够写文档不等于已熟练主持复杂讨论，明确能力边界并核对岗位要求，比背长稿或过度承诺可靠。"
+              "explain": "自我介绍先讲真实的经历、个人职责和结论。书面英文和现场讨论的流利度不是一回事：如实说明现在能做到的程度，并核对岗位实际的沟通要求，比笼统说“没问题”更稳妥，说得太满，进了团队很快就会暴露。（真实外企的简历多半是英文的，游戏里简历关保持中文只是简化。）"
             }
           },
           {
-            "id": "cpx_foreign_intro_c",
+            "id": "fgc_intro_c",
             "type": "off",
             "delta": -3,
-            "text": "准备一段覆盖所有经历的长稿，确保信息完整。",
+            "text": "I'd go through my education and projects in order.",
             "face": "calm",
-            "line": "我们还需要了解你的职责边界。"
+            "line": "Hmm, which part matters most for this role?"
           }
         ],
-        "explain": "这里考准确表达与岗位匹配，不按外企标签假定统一语言要求。真实任务、职责与结论应先清楚，再选择能说准确的语言；听不清可以确认。能够写文档不等于已熟练主持复杂讨论，明确能力边界并核对岗位要求，比背长稿或过度承诺可靠。"
-      }
+        "explain": "自我介绍先讲真实的经历、个人职责和结论。书面英文和现场讨论的流利度不是一回事：如实说明现在能做到的程度，并核对岗位实际的沟通要求，比笼统说“没问题”更稳妥，说得太满，进了团队很快就会暴露。（真实外企的简历多半是英文的，游戏里简历关保持中文只是简化。）"
+      },
+      "lang": "en"
     },
     {
       "id": "cpx_hardtech_intro",
@@ -2070,7 +2071,7 @@
             "face": "probe",
             "line": "那具体说一下。",
             "followup": {
-              "text": "你只完成过实验验证，没参与量产交付，怎么衔接这个岗位？",
+              "text": "你没参与过量产交付，怎么衔接这个岗位？",
               "options": [
                 {
                   "id": "cpx_hardtech_intro_h",
@@ -2123,37 +2124,37 @@
       },
       "node": {
         "tag": "诚信",
-        "text": "这轮之后还需协调其他同事参与，请问你目前的求职进度和时间约束？",
+        "text": "What is your current application status, and are there any confirmed deadlines?",
         "options": [
           {
-            "id": "cpx_foreign_offers_a",
+            "id": "fgc_offer_process",
             "type": "safe",
             "delta": 3,
-            "text": "如实说明现有流程和时间约束，未确定的标清。",
+            "text": "I have other interviews and can share the confirmed timeline.",
             "face": "nod",
-            "line": "了解，我们按已确认信息协调。",
-            "requires": {
-              "flag": "has_other_process"
-            },
+            "line": "Okay, that helps us plan.",
             "flags": [
               "has_processes"
             ],
+            "requires": {
+              "flag": "has_other_process"
+            },
             "fallback": {
-              "id": "cpx_foreign_offers_a0",
+              "id": "fgc_offer_process0",
               "type": "safe",
               "delta": 3,
-              "text": "如实说明目前进度，未确认的日期不作承诺。",
+              "text": "I'll tell you where things stand and only mention confirmed dates.",
               "face": "nod",
-              "line": "嗯，我们再核对安排。"
+              "line": "Okay, thanks for being clear."
             }
           },
           {
-            "id": "cpx_foreign_offers_r",
+            "id": "fgc_offer_real",
             "type": "safe",
             "delta": 3,
-            "text": "说明已有真实 offer 和期限，再确认后续安排。",
+            "text": "I have a confirmed offer, so I'd like to compare timelines.",
             "face": "nod",
-            "line": "收到，我们核对可推进的时间。",
+            "line": "Thanks for telling us. Let's look at the timing.",
             "requires": {
               "flag": "has_real_offer"
             },
@@ -2161,57 +2162,58 @@
               "has_processes"
             ],
             "fallback": {
-              "id": "cpx_foreign_offers_r0",
+              "id": "fgc_offer_real0",
               "type": "safe",
               "delta": 2,
-              "text": "先问剩余流程与预计节点，再安排自己的选择。",
+              "text": "Could you outline the remaining steps and expected timing?",
               "face": "nod",
-              "line": "可以，我们介绍当前流程。"
+              "line": "Sure. Here's what's left."
             }
           },
           {
-            "id": "cpx_foreign_offers_b",
+            "id": "fgc_offer_bluff",
             "type": "bold",
-            "text": "说别家已经确定录用，希望这边尽快给结果。",
             "requires": {
               "not_flag": "has_real_offer"
             },
+            "text": "Another company has confirmed an offer. Can you move faster?",
             "face": "probe",
-            "line": "具体是哪一步确认了？",
+            "line": "Oh, I see.",
             "followup": {
-              "text": "你没有拿到真实 offer，刚才说确定录用，具体指什么？",
+              "text": "Which company is the offer from, and when does it expire?",
               "options": [
                 {
-                  "id": "cpx_foreign_offers_h",
+                  "id": "fgc_offer_truth",
                   "type": "partial",
-                  "delta": -2,
-                  "text": "刚才说重了，还没有真实 offer，按实际进度说明。",
+                  "delta": -1,
+                  "text": "I overstated it. There's no other confirmed offer.",
                   "face": "frown",
-                  "line": "嗯，我们以实际进度为准。"
+                  "line": "Thanks for correcting that."
                 },
                 {
-                  "id": "cpx_foreign_offers_p",
+                  "id": "fgc_offer_vague",
                   "type": "partial",
-                  "delta": -3,
-                  "text": "具体还没落纸面，主要想先确认你们的时间。",
+                  "delta": -4,
+                  "text": "It isn't settled yet. I mainly want to check your timeline.",
                   "face": "calm",
-                  "line": "那就先不按录用来理解。"
+                  "line": "I'd like a clear answer to my question."
                 },
                 {
-                  "id": "cpx_foreign_offers_f",
+                  "id": "fgc_offer_fake",
                   "type": "redline",
                   "delta": -9,
-                  "text": "已经确定了，只是暂时不能提供任何可核对信息。",
+                  "text": "It's confirmed; I just can't share any details yet.",
                   "face": "disappointed",
-                  "line": "这个说法前后不一致。"
+                  "line": "That doesn't match what we've discussed. Let's stop here."
                 }
               ],
-              "explain": "如实更正要承担前面夸大造成的损失，但比继续含糊或编造更能恢复可信度。尚在面试、口头意向和正式录用应准确区分，不要用不存在的结果制造时间压力。"
+              "explain": "说明招聘的进度，以真实的状态为准：可以保留保密的细节，不必透露别家的内部资料，但还在面试不等于已有录用。拿一个并不存在的录用或期限去催流程，被问到公司和到期时间时就撑不住；如实更正损失最小，含糊带过不能恢复信息的准确性，继续编造会触发诚信红线。"
             }
           }
         ],
-        "explain": "多方参与的流程需要协调时间，但具体步骤应以当前岗位为准。候选人可以如实说明其他面试、真实录用和回复期限，并询问剩余环节；不要把未确认的意向说成录用，也不必披露保密内容。信息准确才能安排选择，夸大不会让不确定的流程变成确定承诺。"
-      }
+        "explain": "说明招聘的进度，以真实的状态为准：可以保留保密的细节，不必透露别家的内部资料，但还在面试不等于已有录用。拿一个并不存在的录用或期限去催流程，被问到公司和到期时间时就撑不住；如实更正损失最小，含糊带过不能恢复信息的准确性，继续编造会触发诚信红线。"
+      },
+      "lang": "en"
     },
     {
       "id": "cpx_hardtech_offers",
@@ -2326,43 +2328,44 @@
       "node": {
         "tag": "动机与稳定",
         "kind": "reverse",
-        "text": "关于岗位协作、培养和后续安排，你还有哪些想确认的？",
+        "text": "What would you like to know about the role or the next steps?",
         "options": [
           {
-            "id": "cpx_foreign_reverse_0",
+            "id": "fgc_reverse_tasks",
             "type": "reverse",
             "delta": 3,
-            "text": "新人前三个月做什么，谁评审和提供反馈？",
+            "text": "What would I own first, and who would review my work?",
             "face": "pleased",
-            "line": "可以，我们按具体任务介绍。"
+            "line": "Good question. Let me explain."
           },
           {
-            "id": "cpx_foreign_reverse_1",
+            "id": "fgc_reverse_zones",
             "type": "reverse",
             "delta": 3,
-            "text": "跨地区协作时，语言、时差和决策怎样安排？",
+            "text": "How do teams document decisions across time zones?",
             "face": "pleased",
-            "line": "我们说明本岗位的实际安排。"
+            "line": "Glad you asked. Here's how we do it."
           },
           {
-            "id": "cpx_foreign_reverse_2",
+            "id": "fgc_reverse_courses",
             "type": "reverse",
             "delta": 2,
-            "text": "公司有培训课程吗，通常有哪些学习资源？",
+            "text": "What learning resources are available to new team members?",
             "face": "nod",
-            "line": "有些资源可介绍，也要结合岗位看。"
+            "line": "There are a few. Let me outline them."
           },
           {
-            "id": "cpx_foreign_reverse_3",
+            "id": "fgc_reverse_moves",
             "type": "reverse",
             "delta": 1,
-            "text": "公司有哪些内部转岗或轮换机会？",
+            "text": "What internal mobility options does the company offer?",
             "face": "nod",
-            "line": "需要按岗位与当前制度确认。"
+            "line": "That depends on the role and current policy."
           }
         ],
-        "explain": "外企背景不能直接推出语言、工作节奏或稳定性。围绕新人任务、评审反馈和跨地区协作提问，更能了解当前岗位；培训与内部流动也可以问，但课程数量不等于培养效果，制度中存在的机会也不等于个人一定能够获得。"
-      }
+        "explain": "可以反问当前的责任、评审反馈和跨时区的决策方式。培训和内部流动也值得了解，但资源存在，不等于个人一定能拿到机会；也别只凭“外企”这个标签去推断工作语言、培养方式、稳定性或晋升速度。"
+      },
+      "lang": "en"
     },
     {
       "id": "cpx_hardtech_reverse",

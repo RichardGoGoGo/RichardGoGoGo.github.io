@@ -1,0 +1,308 @@
+{
+  "id": "neg",
+  "name": "Offer Discussion",
+  "company": "foreign",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S8e",
+  "hello": "Hello, congratulations again. Let's go through the offer and the practical arrangements.",
+  "_note": "虚构游戏方案；数字、归属、奖励条件仅适用于本局，不代表真实公司的制度。 引擎按neg_second/neg_bluff识别分支，保留这两个节点约定名；选项ID仍使用本包前缀。",
+  "band_text": "21–24k",
+  "offer_terms": [
+    {
+      "id": "salary",
+      "label": "Monthly base",
+      "value": "{salary}k",
+      "detail": "Amounts are in thousands before tax. Base pay is separate from bonus and equity.",
+      "bad": false
+    },
+    {
+      "id": "months",
+      "label": "Annual pay",
+      "value": "{months} months",
+      "detail": "Twelve months are fixed base pay. Bonus months on top of that: {bonus_months}. These are a target, paid under the performance rules in the written offer.",
+      "bad": true
+    },
+    {
+      "id": "stock",
+      "label": "Equity vesting",
+      "value": "Four-year schedule",
+      "detail": "Four-year vesting schedule, with the first portion after one year. Unvested awards are not cash income. Grant and departure terms need written confirmation.",
+      "bad": true
+    },
+    {
+      "id": "support",
+      "label": "Benefits and leave",
+      "value": "Confirm in writing",
+      "detail": "Confirm benefits, paid leave, work location, and any travel support for this role in writing. Don't assume them from the company's name.",
+      "bad": true
+    },
+    {
+      "id": "start",
+      "label": "Start date",
+      "value": "To be agreed",
+      "detail": "Agree the date around your graduation, your availability, and the team's needs. Don't commit to a date you can't meet.",
+      "bad": false
+    }
+  ],
+  "open_seconds": 4,
+  "flow": [
+    "fgc_n_ask",
+    "fgc_n_offer",
+    "fgc_n_counter",
+    "neg_second",
+    "fgc_n_close"
+  ],
+  "nodes": {
+    "fgc_n_ask": {
+      "text": "Congratulations on getting through the interviews. Before we talk expectations, what would you like to clarify?",
+      "options": [
+        {
+          "id": "fgc_na",
+          "text": "First, I'd like to clarify fixed pay and variable components.",
+          "T": 1,
+          "face": "nod",
+          "line": "Sure. Let me walk you through how it's structured.",
+          "next": "fgc_n_range"
+        },
+        {
+          "id": "fgc_nb",
+          "text": "I'd like to discuss the full package and the role scope.",
+          "T": 1,
+          "face": "nod",
+          "line": "Of course. Let's start with the package."
+        },
+        {
+          "id": "fgc_nc",
+          "text": "Let's settle the highest monthly salary first.",
+          "T": 0,
+          "face": "calm",
+          "line": "I'd rather look at the whole package first.",
+          "R": -1
+        },
+        {
+          "id": "fgc_nd",
+          "text": "Please use the default offer; details can wait.",
+          "T": -1,
+          "face": "calm",
+          "line": "We can, but I'd suggest going through the details."
+        }
+      ],
+      "explain": "先区分固定收入和有条件的收入，再表达期望，更容易看清方案之间的差别。只报月薪、或者直接接受默认的方案，都可能漏掉奖金的条件和长期的激励。"
+    },
+    "fgc_n_range": {
+      "text": "We set the range by level once it's confirmed, and the other components are separate. What are you expecting for base pay?",
+      "options": [
+        {
+          "id": "fgc_nr_a",
+          "text": "I'd aim for the upper end, based on my relevant work.",
+          "T": 2,
+          "face": "nod",
+          "line": "Okay, I'll note that and the reasons."
+        },
+        {
+          "id": "fgc_nr_b",
+          "text": "The stock grant is generous, so base pay matters less.",
+          "T": 0,
+          "face": "calm",
+          "line": "Hmm, the stock vests over time, though.",
+          "R": -1
+        },
+        {
+          "id": "fgc_nr_c",
+          "text": "I'd look at bonus and vesting terms after settling base pay.",
+          "T": 1,
+          "face": "nod",
+          "line": "Fair. We can go through those next."
+        }
+      ],
+      "explain": "有依据地表达期望，和核对总包可以同时进行。股票和目标奖金都有条件，不能把展示的额度当成确定到手的现金，也不能因为股票看起来多，就让固定工资无足轻重；固定工资、发放时间、浮动部分和个人偏好要分开看。"
+    },
+    "fgc_n_offer": {
+      "kind": "inspect",
+      "text": "Please open the offer details and note anything you'd like to clarify.",
+      "explain": "细项用来分清保证收入、目标奖金、股票归属和地点安排。逐条点开再比较，避免把有条件的部分都当成现在就能拿到的收入。"
+    },
+    "fgc_n_counter": {
+      "text": "What would you like us to clarify or review?",
+      "options": [
+        {
+          "id": "fgc_nc_real",
+          "text": "I have a written offer elsewhere. Could you review the range?",
+          "T": 3,
+          "face": "nod",
+          "line": "Thanks for telling me. I'll take it to the team.",
+          "requires": {
+            "flag": "has_real_offer"
+          },
+          "flags": [
+            "has_processes"
+          ],
+          "fallback": {
+            "id": "fgc_nc_base",
+            "text": "Could the range be reviewed against my relevant experience?",
+            "T": 1,
+            "face": "nod",
+            "line": "I can raise that, yes."
+          }
+        },
+        {
+          "id": "fgc_nc_terms",
+          "text": "Please confirm bonus, vesting, and location terms in writing.",
+          "T": 2,
+          "face": "nod",
+          "line": "Sure, I'll make sure they're in the written offer."
+        },
+        {
+          "id": "fgc_nc_stock",
+          "text": "Base is fine; the stock grant makes up for the difference.",
+          "T": 0,
+          "face": "calm",
+          "line": "Hmm, the stock isn't paid out until it vests.",
+          "R": -1
+        },
+        {
+          "id": "fgc_nc_bluff",
+          "text": "Another company offered more. Can you match that?",
+          "T": 0,
+          "face": "probe",
+          "line": "Oh? Let's talk about that.",
+          "next": "neg_bluff",
+          "requires": {
+            "not_flag": "has_real_offer"
+          },
+          "fallback": {
+            "id": "fgc_nc_time",
+            "text": "Could we agree on a reply date after I review the terms?",
+            "T": 1,
+            "face": "nod",
+            "line": "Of course. Let's set a date."
+          }
+        }
+      ],
+      "explain": "有书面录用时，可以作为申请复核的依据，但不保证一定调整。把奖金、股票和工作地点写进书面材料，能减少歧义；没有归属的股票不是已经到账的现金。没有别家的录用却说有，后面会被问到细节。"
+    },
+    "neg_bluff": {
+      "text": "Which company is the offer from, and when does it expire?",
+      "options": [
+        {
+          "id": "fgc_nb_truth",
+          "text": "I overstated that. I don't have another confirmed offer.",
+          "T": 0,
+          "face": "calm",
+          "line": "Thanks for being straight with me.",
+          "R": -1
+        },
+        {
+          "id": "fgc_nb_vague",
+          "text": "It's not fully settled. Let's focus on your terms first.",
+          "T": 0,
+          "face": "calm",
+          "line": "I'd like a clear answer before we continue.",
+          "R": -2
+        },
+        {
+          "id": "fgc_nb_fake",
+          "text": "It's confirmed; I'll send the document later.",
+          "T": 0,
+          "face": "disappointed",
+          "line": "That doesn't match what we've discussed. Let's stop here.",
+          "redline": true
+        }
+      ],
+      "explain": "如实更正扣分最少；含糊带过恢复不了信息的准确性；继续编造会触发诚信红线。可以不披露保密的细节，但要分清面试、意向和已经确认的录用。"
+    },
+    "neg_second": {
+      "requires_R": 1,
+      "text": "We'll review those requests under the current policy. Any practical arrangements to discuss?",
+      "options": [
+        {
+          "id": "fgc_ns_start",
+          "text": "Let's confirm the start date and handover arrangements.",
+          "T": 1,
+          "face": "nod",
+          "line": "Sure. Let's pin those down."
+        },
+        {
+          "id": "fgc_ns_site",
+          "text": "How are leave, benefits, and work location documented?",
+          "T": 1,
+          "face": "nod",
+          "line": "Good question. It'll all be in the written offer."
+        },
+        {
+          "id": "fgc_ns_bonus",
+          "text": "The bonus is nearly guaranteed, so a lower base is fine.",
+          "T": 0,
+          "face": "calm",
+          "line": "Hmm, the bonus depends on performance.",
+          "R": -1
+        },
+        {
+          "id": "fgc_ns_done",
+          "text": "The remaining points are clear. Please update the written offer.",
+          "T": 1,
+          "face": "nod",
+          "line": "Understood. I'll send the updated version."
+        }
+      ],
+      "explain": "第二轮可以核对入职时间、工作地点和配套的支持，不必把每个问题都变成加钱的请求。目标奖金和保证的工资性质不同，把它当成保底来规划，会高估到手的收入；确认发放条件，比假定一定发放更有用。"
+    },
+    "fgc_n_close": {
+      "text": "We'll send the updated written offer. How would you like to proceed?",
+      "options": [
+        {
+          "id": "fgc_ncl_written",
+          "text": "I'll review the written terms and reply by the agreed date.",
+          "T": 1,
+          "face": "nod",
+          "line": "Sounds good. I'll send it over shortly."
+        },
+        {
+          "id": "fgc_ncl_accept",
+          "text": "The main terms are clear. I'll confirm after I receive them.",
+          "T": 0,
+          "face": "nod",
+          "line": "Great. You'll have the document soon."
+        },
+        {
+          "id": "fgc_ncl_wait",
+          "text": "Please hold the offer; we can set a date after my other results.",
+          "T": 0,
+          "face": "calm",
+          "line": "We can't keep it open indefinitely.",
+          "R": -1
+        }
+      ],
+      "explain": "确认方案要基于书面的条件和明确的回复期限。口头沟通可以推进，但关键条件仍要对着文字核对。如果需要等别的结果，应当如实协调一个具体的期限，而不是让双方无限期地等下去。"
+    }
+  },
+  "breakdown": {
+    "wins": [
+      {
+        "ids": [
+          "fgc_nc_terms"
+        ],
+        "text": "Checked the conditional components",
+        "missed": "Check bonus and equity conditions separately"
+      },
+      {
+        "ids": [
+          "fgc_ns_start",
+          "fgc_ns_site"
+        ],
+        "text": "Clarified the practical arrangements",
+        "missed": "Confirm the start date and practical support"
+      },
+      {
+        "ids": [
+          "fgc_ncl_written"
+        ],
+        "text": "Reviewed the written terms before replying",
+        "missed": "Review the written terms and agree a reply date"
+      }
+    ]
+  }
+}

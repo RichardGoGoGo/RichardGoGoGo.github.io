@@ -45,20 +45,27 @@ function setProgress(c, rec) {
   all[c.persona.id] = mine;
   store.set(KEY.progress, all);
 }
+// 英文公司（lang: en）里提到别家的流程时用英文：公司用 name_en，没有就说 another company；关卡按关卡号说
+const STAGE_EN = { resume: "resume screening", test: "the online assessment", group: "the group interview", r1: "the first round", r2: "the second round", r3: "the third round", r4: "the fourth round", cross: "a cross-team round", neg: "the offer stage" };
 function startState(c) {
-  const others = Object.entries(progressOf(c.persona.id)).filter(([co]) => co !== c.company.id).map(([, r]) => r);
+  const en = c.company.lang === "en";
+  const others = Object.entries(progressOf(c.persona.id)).filter(([co]) => co !== c.company.id).map(([co, r]) => ({ ...r, co }));
+  const nameOf = (r) => (en ? (S.companies[r.co] && S.companies[r.co].name_en) || "another company" : r.name);
   const flags = [];
   const vars = {};
   if (!others.length) flags.push("first_company");
   const proc = others.filter((r) => r.status === "in_progress").sort((a, b) => b.at - a.at)[0];
   if (proc) {
     flags.push("has_other_process");
-    vars.process = { company: proc.name, stage: proc.stageName, where: proc.stage === "resume" ? "简历还在筛" : `到了${proc.stageName}` };
+    const stageEn = STAGE_EN[proc.stage] || "the interview rounds";
+    vars.process = en
+      ? { company: nameOf(proc), stage: stageEn, where: proc.stage === "resume" ? "still in resume screening" : proc.stage === "neg" ? "at the offer stage" : `in ${stageEn}` }
+      : { company: proc.name, stage: proc.stageName, where: proc.stage === "resume" ? "简历还在筛" : `到了${proc.stageName}` };
   }
   const offer = others.filter((r) => r.status === "offer").sort((a, b) => b.rank - a.rank)[0];
   if (offer) {
     flags.push("has_real_offer");
-    vars.offer = `${offer.name}的 offer`;
+    vars.offer = en ? `an offer from ${nameOf(offer)}` : `${offer.name}的 offer`;
   }
   return { flags, vars };
 }
@@ -95,16 +102,22 @@ const ART = {
   A8: { file: "A8_founder", name: "创始人", cut: 90 },
   A9s: { file: "A9s_observer", name: "观察员" },
   A10: { file: "A10_soe_examiner", name: "考官", cut: 86 },
+  A12: { file: "A12_hiring_manager", name: "Hiring Manager", cut: 86 },
   P1f: { file: "P1f_zhouan", name: "周安" }, P1m: { file: "P1m_zhouan", name: "周安" },
   P2f: { file: "P2f_linke", name: "林可" }, P2m: { file: "P2m_linke", name: "林可" },
   P3f: { file: "P3f_xunuo", name: "许诺" }, P3m: { file: "P3m_xunuo", name: "许诺" },
   P4f: { file: "P4f_chengyuan", name: "程远" }, P4m: { file: "P4m_chengyuan", name: "程远" },
+  // 第三批新人设（图在美术第三批里，到图前用方块脸）
+  P5f: { file: "P5f_shenhe", name: "沈禾" }, P5m: { file: "P5m_shenhe", name: "沈禾" },
+  P6f: { file: "P6f_yezhou", name: "叶舟" }, P6m: { file: "P6m_yezhou", name: "叶舟" },
   N1: { file: "N1_grabber", name: "高扬" }, N2: { file: "N2_timer", name: "钟敏" }, N3: { file: "N3_quiet", name: "苏言" }, N4: { file: "N4_summarizer", name: "陆遥" },
   // 群面角色代号；miniFile 优先选正面 _bust_ 半身像，旧全身小人仅作兼容。
   P1fs: { file: "P1fs_zhouan", name: "周安" }, P1ms: { file: "P1ms_zhouan", name: "周安" },
   P2fs: { file: "P2fs_linke", name: "林可" }, P2ms: { file: "P2ms_linke", name: "林可" },
   P3fs: { file: "P3fs_xunuo", name: "许诺" }, P3ms: { file: "P3ms_xunuo", name: "许诺" },
   P4fs: { file: "P4fs_chengyuan", name: "程远" }, P4ms: { file: "P4ms_chengyuan", name: "程远" },
+  P5fs: { file: "P5fs_shenhe", name: "沈禾" }, P5ms: { file: "P5ms_shenhe", name: "沈禾" },
+  P6fs: { file: "P6fs_yezhou", name: "叶舟" }, P6ms: { file: "P6ms_yezhou", name: "叶舟" },
 };
 // 群面画面（2026-10-25 改）：正面视角，五位候选人坐成一排在长桌后，桌子挡住腰以下，名字写在桌沿的名牌上，
 // 阶段写在背后的白板上；观察员不坐桌边，在右上角的小窗里。原来的俯视会议室（S3）里椅子是侧着朝向桌子的，
@@ -140,6 +153,14 @@ const SCENES = {
   // 国企源图已接入，按桌沿332行做整数画布平移，文件本身没有缩小。
   S9: { label: "S9 · 国企面试会议室", file: "S9_soe_panel_room", desk: true, bg: "linear-gradient(#e6e1dc 0 72%, #7d5a52 72% 100%)", v6: { desk: 332, floor: "#485264" } },
   S8c: { label: "S8c · 国企签约沟通室", file: "S8c_soe_sign_room", desk: true, bg: "linear-gradient(#e4e0da 0 72%, #8c7a6e 72% 100%)", v6: { desk: 332, floor: "#485264" } },
+  // 第二批完整原图；按实际桌沿对齐，文件不缩小。
+  S10: { label: "S10 · 磐岳面试间", file: "S10_panyue_room", desk: true, bg: "linear-gradient(#dfe3e8 0 72%, #4f5a66 72% 100%)", v6: { desk: 331, floor: "#485264" } },
+  S8d: { label: "S8d · 磐岳谈薪室", file: "S8d_panyue_hr_room", desk: true, bg: "linear-gradient(#e2e4e7 0 72%, #5f6873 72% 100%)", v6: { desk: 331, floor: "#485264" } },
+  S11: { label: "S11 · 梅瑞丹面试间", file: "S11_meridane_room", desk: true, bg: "linear-gradient(#f2efe8 0 72%, #b49b7a 72% 100%)", v6: { desk: 328, floor: "#D8C8AA" } },
+  S8e: { label: "S8e · 梅瑞丹谈薪室", file: "S8e_meridane_hr_room", desk: true, bg: "linear-gradient(#f0ede6 0 72%, #a68d6c 72% 100%)", v6: { desk: 328, floor: "#D8C8AA" } },
+  // 游戏公司（青梧游戏）：图在美术第三批里，到图前用色块
+  S12: { label: "S12 · 青梧面试间", file: "S12_qingwu_room", desk: true, bg: "linear-gradient(#e8e4f0 0 72%, #5b5470 72% 100%)", v6: { desk: 332, floor: "#8B7059" } },
+  S8f: { label: "S8f · 青梧谈薪室", file: "S8f_qingwu_hr_room", desk: true, bg: "linear-gradient(#ebe7f1 0 72%, #6a6280 72% 100%)", v6: { desk: 332, floor: "#8B7059" } },
 };
 // UI_page_meter_frame（8×144）里 11 个格子的上沿，量图得来（底图像素）。
 const METER_CELLS = [6, 18, 31, 43, 55, 68, 80, 93, 105, 117, 130];
@@ -189,7 +210,7 @@ function applyStyle() {
 // 立绘文件名：A1–A5 有当前公司的配色版就用配色版
 function spriteFile(code, face, c = S.c) {
   const a = ART[code] || { file: code };
-  const tinted = TINTED.has(code) && c && `${a.file}_${face}__${c.company.id}.png`;
+  const tinted = (TINTED.has(code) || (code === "A6" && c?.company.id === "studio")) && c && `${a.file}_${face}__${c.company.id}.png`;
   return tinted && S.art.has(tinted) ? tinted : `${a.file}_${face}.png`;
 }
 // 选定公司后，把这家公司面试官的 7 种表情先拉进缓存，免得每轮开场人像晚一拍才出来
@@ -210,10 +231,12 @@ function sprite(code, face = "calm", cls = "") {
   const file = spriteFile(code, face);
   const img = pixel() && S.art.has(file);
   const cut = a.cut && (isV6() ? V6_CUT : a.cut);
-  const accessory = img && S.c?.company.id === "soe" && hasArt(`${code}_overlay_soe`)
-    ? `<img class="accessory" src="art/${code}_overlay_soe.png" alt="" aria-hidden="true">` : "";
+  const companyId = S.c?.company.id;
+  const accessory = img && companyId && hasArt(`${code}_overlay_${companyId}`) && ["soe", "hardtech", "foreign", "studio"].includes(companyId)
+    ? `<img class="accessory" src="art/${code}_overlay_${companyId}.png" alt="" aria-hidden="true">` : "";
+  const portrait = img ? `<img src="art/${file}" alt="" onerror="this.parentNode.classList.remove('art');this.remove()">${accessory}` : "";
   return `<div class="sprite ${cls}${img ? " art" : ""}" data-code="${code}"${img && cut ? ` style="--cut:${cut}"` : ""}>
-    ${img ? `<img src="art/${file}" alt="" onerror="this.parentNode.classList.remove('art');this.remove()">${accessory}` : ""}
+    ${portrait}
     <div class="ph"><span class="face">${FACE[face] || ""}</span><span class="name">${esc(a.name)}</span><span class="code">${code} · ${FACE_LABEL[face] || face}</span></div>
   </div>`;
 }
@@ -399,6 +422,21 @@ function ask(ctx, { text, code = "", options, pre = [], thinkAvailable = false, 
   });
 }
 
+// 面试官的几句固定台词。台词跟公司语言走（英文公司说英文），按钮和提示这些界面文字还是中文
+const LINES = {
+  cross: ["你好，我是另一个业务线的，今天给你加一轮。放轻松，随便聊聊。", "Hi, I'm from another team. We've added one more round for you today. Relax, let's just chat."],
+  pressure: ["我后面还有个会，我们抓紧时间。", "I have another meeting right after this, so let's keep it quick."],
+  hello: [(name) => spaced(`你好，我是今天${name}的面试官。我们开始吧。`), () => "Hi, thanks for coming in today. Let's get started."],
+  stuck: ["没关系，你先说说想到的……好，我们看下一题。", "That's okay, just tell me what comes to mind... All right, let's move to the next one."],
+  stuck_followup: ["嗯……那我们先往下走。", "Hmm... okay, let's move on."],
+  neg_standard: ["那我们就按标准方案来。", "Then let's go with the standard package."],
+  neg_final: ["这样吧，这已经是我们能给的最终方案了。", "Look, this is the final offer we can make."],
+};
+function say(key, ...args) {
+  const v = LINES[key][S.c && S.c.company.lang === "en" ? 1 : 0];
+  return typeof v === "function" ? v(...args) : v;
+}
+
 function react(ctx, { face, line, pre = [], button = "继续" }) {
   return new Promise((resolve) => {
     render(stageHtml({ ...ctx, face, pre, text: line, body: `<div class="spacer"></div><button class="primary block" data-act="next">${esc(button)}</button>` }));
@@ -519,7 +557,7 @@ function dexScreen() {
 // ---------------------------------------------------------------- 开局：公司、人设、岗位
 
 // 启动进度条（index.html 里的 .boot）：美术清单 0–10%，基础题库、公司、人设 10–30%（按已完成的请求数推进，只增不减），
-// 12 条岗位线 30–85%（每拼好一条前进一格），封面图 85–100%。进标题页后 .boot 被替换掉，这里就不再有效果。
+// 各岗位线 30–85%（每拼好一条前进一格），封面图 85–100%。进标题页后 .boot 被替换掉，这里就不再有效果。
 const boot = { shown: 0, jsonDone: 0, jsonTotal: 0, inContent: false };
 function bootSet(pct, msg) {
   const bar = document.querySelector(".boot-bar");
@@ -551,6 +589,18 @@ async function comboContent(id) {
 const tracksOf = (companyId) => S.catalog.tracks.filter((t) => t.company === companyId && !S.unready[t.id]);
 const openCompanies = () => S.catalog.companies.map((id) => S.companies[id]).filter((co) => tracksOf(co.id).length);
 
+const COMPANY_MAP_POS = { hardtech: [73,274], bigcorp: [195,274], foreign: [306,274], midcorp: [73,445], unicorn: [180,445], soe: [291,445], studio: [57.58,133.01] };
+const COMPANY_LOGO = { soe: "LOGO_hengchuan", hardtech: "LOGO_panyue", foreign: "LOGO_meridane", studio: "LOGO_qingwu" };
+function companyMapHtml() {
+  if (!hasArt("S0_city_map")) return "";
+  return `<div class="company-map"><img src="art/S0_city_map.png" alt="七家公司：磐岳、巨塔、梅瑞丹、方格、跃迁、恒川与青梧">${Object.entries(COMPANY_MAP_POS).map(([id,[x,y]]) => {
+    const co = S.companies[id];
+    if (!co) return "";
+    const ready = tracksOf(id).length;
+    return `<button class="map-company" style="left:${x}px;top:${y}px${id === "studio" ? ";transform:translate(-50%,-50%)" : ""}" data-company="${id}" ${ready ? "" : "disabled"} aria-label="${esc(co.name)}${ready ? "" : "，内容准备中"}">${esc(co.name.replace(/ Meridane$/, ""))}</button>`;
+  }).join("")}</div>`;
+}
+
 function companyScreen() {
   const locked = [
     ...S.catalog.companies.map((id) => S.companies[id]).filter((co) => !tracksOf(co.id).length)
@@ -562,11 +612,11 @@ function companyScreen() {
   const map = sceneVars("S0");
   const companies = S.catalog.companies.map((id) => S.companies[id]);
   render(`<div class="screen">
-    ${map ? `<div class="scene-banner" style="${map}"></div>` : ""}
+    ${map ? companyMapHtml() : ""}
     <h2>选公司</h2>
     <p class="muted">${map ? "" : "S0 公司选择地图（占位）。"}公司按类型和规模分，星星越多越难，面法也各不一样。</p>
     ${companies.filter((co) => tracksOf(co.id).length).map((co) => `<button class="card block" data-company="${co.id}">
-      <span class="row">${co.id === "soe" && hasArt("LOGO_hengchuan") ? '<img src="art/LOGO_hengchuan.png" width="32" height="32" alt="">' : ""}<b>${esc(co.name)}</b><span class="tag">${esc(co.type_label)}</span><span class="spacer"></span>${"★".repeat(co.stars)}</span>
+      <span class="row">${COMPANY_LOGO[co.id] && hasArt(COMPANY_LOGO[co.id]) ? `<img src="art/${COMPANY_LOGO[co.id]}.png" width="32" height="32" alt="">` : ""}<b>${esc(co.name)}</b><span class="tag">${esc(co.type_label)}</span><span class="spacer"></span>${"★".repeat(co.stars)}</span>
       <span class="fine">招：${tracksOf(co.id).map((t) => S.catalog.roles[t.role].full).join("、")}</span>
     </button>`).join("")}
     ${locked.map((l) => `<div class="card locked"><span class="row"><b>${l.name}</b>${l.type ? `<span class="tag">${l.type}</span>` : ""}<span class="spacer"></span>${"★".repeat(l.stars)}</span><span class="lock">${lockIcon()} ${l.note}</span></div>`).join("")}
@@ -1167,8 +1217,7 @@ async function playRound(stageIdx, rid) {
   const rows = [];
 
   // 轮次数据里写了 hello 就用它（比如二面要先把编程题说清楚）
-  const hello = rnd.hello || (rid === "cross" ? "你好，我是另一个业务线的，今天给你加一轮。放轻松，随便聊聊。"
-    : rnd.pressure ? "我后面还有个会，我们抓紧时间。" : spaced(`你好，我是今天${rnd.name}的面试官。我们开始吧。`));
+  const hello = rnd.hello || (rid === "cross" ? say("cross") : rnd.pressure ? say("pressure") : say("hello", rnd.name));
   await react(ctx, { face: rnd.pressure ? "frown" : "calm", line: hello, pre: rnd.pressure && !relaxed() ? ["（这一轮答题时间更短）"] : [], button: "开始" });
 
   for (const slot of rnd.flow) {
@@ -1188,7 +1237,7 @@ async function playRound(stageIdx, rid) {
       entry.delta += ans.penalty;
       if (!ans.option) {
         entry.chain.push({ q: text, a: "（卡壳了，时间到）" });
-        await react(ctx, { face: "frown", line: level ? "嗯……那我们先往下走。" : "没关系，你先说说想到的……好，我们看下一题。" });
+        await react(ctx, { face: "frown", line: level ? say("stuck_followup") : say("stuck") });
         break;
       }
       const o = ans.option;
@@ -1428,7 +1477,7 @@ async function playNegotiation(stageIdx) {
     if (!ans.option) {
       neg.timeout();
       run.log.push({ round: negName(c), q: step.node.text, choice: "（冷场了，时间到）", explain: step.node.explain, regret: (Math.max(...step.options.map(negValue)) + 1) * 3 });
-      await react(ctx, { face: "calm", line: "那我们就按标准方案来。" });
+      await react(ctx, { face: "calm", line: say("neg_standard") });
       continue;
     }
     const o = ans.option;
@@ -1441,7 +1490,7 @@ async function playNegotiation(stageIdx) {
     await react(ctx, { face: o.face, line: o.line, pre: res.pre.map((p) => p.line) });
     if (neg.finalOffer && !finalShown) {
       finalShown = true;
-      await react(ctx, { face: "frown", line: "这样吧，这已经是我们能给的最终方案了。" });
+      await react(ctx, { face: "frown", line: say("neg_final") });
     }
   }
   resultScreen(base, neg.finish(), neg);
@@ -1516,11 +1565,14 @@ function negValue(o) {
 const unlockState = () => store.get(KEY.unlock, null);
 function unlockReview(method) { store.set(KEY.unlock, { method, at: new Date().toISOString(), voucher: 1, used: false }); }
 function lostPoints(l) { return l.best !== undefined ? l.best - l.delta : (l.regret || 0); }
+// 扣分：面试题就是揭晓页上这一题的得分（含时间扣分）低于 0 的部分；笔试、群面、谈薪没有逐题得分，用各自折算过的失误量
+function deducted(l) { return l.best !== undefined ? Math.max(0, -l.delta) : (l.regret || 0); }
 
 function topReview(log, n = 3) {
-  const ranked = log.map((l, i) => ({ l, i, lost: lostPoints(l) })).filter((x) => x.l.explain);
-  const top = ranked.filter((x) => x.lost > 0).sort((a, b) => b.lost - a.lost || a.i - b.i).slice(0, n);
-  // 几乎没失分时，用得分最多的几题补足
+  const ranked = log.map((l, i) => ({ l, i, cut: deducted(l), lost: lostPoints(l) })).filter((x) => x.l.explain);
+  const top = ranked.filter((x) => x.cut > 0).sort((a, b) => b.cut - a.cut || b.lost - a.lost || a.i - b.i).slice(0, n);
+  // 扣分的不到 3 条：先用没扣分、但离最好的答法差得最多的题补，再用得分最多的题补（标“做得好”）
+  if (top.length < n) top.push(...ranked.filter((x) => !top.includes(x) && x.lost > 0).sort((a, b) => b.lost - a.lost || a.i - b.i).slice(0, n - top.length));
   if (top.length < n) top.push(...ranked.filter((x) => !top.includes(x)).sort((a, b) => (b.l.delta || 0) - (a.l.delta || 0)).slice(0, n - top.length));
   return top;
 }
@@ -1835,6 +1887,23 @@ function artCheckScreen(face = "calm") {
       }
     }
   }
+  // 题目尚未齐的公司也能先查美术；不改变岗位线的开放状态。
+  const previousCombo = S.c;
+  for (const [companyId, scene, arts] of [
+    ["hardtech", "S10", ["A1", "A2", "A3"]], ["hardtech", "S8d", ["A1"]],
+    ["foreign", "S11", ["A1", "A2", "A4", "A12"]], ["foreign", "S8e", ["A1"]],
+  ]) {
+    const company = S.companies[companyId];
+    if (!company || !hasArt(SCENES[scene].file)) continue;
+    S.c = { company };
+    for (const art of arts) {
+      const key = `${companyId}:${scene}:${art}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      tiles.push(`<p class="fine">${esc(company.name)} · 美术预览 · ${scene} × ${art}</p><div class="check-crop">${stageHtml({ scene, roundLabel: "美术预览", art, face, nameplate: ART[art].name, text: "（拼合检查）" })}</div>`);
+    }
+  }
+  S.c = previousCombo;
   for (const f of ["UI_offer_letter", "UI_rejection_letter"]) {
     if (hasArt(f)) tiles.push(`<p class="fine">${f}</p><img class="letter-art" src="art/${f}.png" alt=""><div class="letter">（信的正文）</div>`);
   }
@@ -1921,7 +1990,7 @@ async function main() {
     return;
   }
   boot.inContent = false;
-  // 封面图约 1.4 MB，等它到了再进标题页，免得标题页先空一块
+  // 等封面图到了再进标题页，免得标题页先空一块
   if (hasArt("COVER_title")) {
     bootSet(85, "正在加载画面……");
     await new Promise((res) => { const im = new Image(); im.onload = im.onerror = res; im.src = "art/COVER_title.png"; });

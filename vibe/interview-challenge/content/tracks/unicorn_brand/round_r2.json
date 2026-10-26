@@ -1,0 +1,415 @@
+{
+  "id": "r2",
+  "name": "业务二面 · 新版发布",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A5",
+    "title": "市场负责人"
+  },
+  "scene": "S5",
+  "hello": "这一轮围绕{co.product}新版发布。先澄清目标，再讨论传播、预算变化和用户反馈；不需要假装已有完整数据。",
+  "flow": [
+    {
+      "slot": "c1",
+      "node": "br3_launch_target",
+      "swap": false
+    },
+    {
+      "slot": "c2",
+      "node": "br3_launch_route",
+      "swap": false
+    },
+    {
+      "slot": "c3",
+      "node": "br3_launch_budget",
+      "swap": false
+    },
+    {
+      "slot": "c4",
+      "node": "br3_launch_crisis",
+      "swap": false
+    },
+    {
+      "slot": "c5",
+      "node": "br3_launch_repair",
+      "swap": false
+    },
+    {
+      "slot": "c6",
+      "node": "br3_launch_review",
+      "swap": false
+    },
+    {
+      "slot": "q7",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "br3_launch_target": {
+      "tag": "专业",
+      "text": "{co.product}准备发新版。你会先澄清什么？",
+      "options": [
+        {
+          "id": "br3_launch_target_a",
+          "type": "safe",
+          "text": "先问清三件事：这版给谁用、比上一版多了什么、这次要达成什么。",
+          "face": "nod",
+          "line": "三件事都问了，好。",
+          "delta": 3
+        },
+        {
+          "id": "br3_launch_target_b",
+          "type": "bold",
+          "text": "我先假设这版主打职场写初稿，再核对产品有没有做到、怎么算成功。",
+          "face": "probe",
+          "line": "好，你往下说。",
+          "followup": {
+            "text": "目标定了：让职场写作者愿意试写初稿。你怎么落地？",
+            "options": [
+              {
+                "id": "br3_launch_target_h",
+                "type": "hold",
+                "text": "先自己走通试用路径；再分开看多少人看懂了、多少人真去试写了。",
+                "face": "pleased",
+                "line": "看懂和试写分开，好。",
+                "delta": 9
+              },
+              {
+                "id": "br3_launch_target_p",
+                "type": "partial",
+                "text": "点进来的人都算愿意试用，先把曝光和点击做成一张大报表。",
+                "face": "calm",
+                "line": "点进来，就是愿意试了？",
+                "delta": -3
+              },
+              {
+                "id": "br3_launch_target_f",
+                "type": "fail",
+                "text": "职场写作者太窄，宣传里把学生和自媒体也一起带上，覆盖先放宽再收窄。",
+                "face": "frown",
+                "line": "目标都散了，还怎么落地？",
+                "delta": -7
+              }
+            ],
+            "explain": "本轮给定目标是职场初稿任务。先核对能力、用户与路径，分别看信息是否理解、是否试写。触达是前置指标，不能把点击直接称为意愿或把泛曝光当成目标完成。"
+          }
+        },
+        {
+          "id": "br3_launch_target_c",
+          "type": "off",
+          "text": "先在各平台把声量做大，人来了再看哪类用户留得住。",
+          "face": "calm",
+          "line": "预算就这么多，先撒出去？",
+          "delta": -3
+        }
+      ],
+      "explain": "本轮给定目标是职场初稿任务。先核对能力、用户与路径，分别看信息是否理解、是否试写。触达是前置指标，不能把点击直接称为意愿或把泛曝光当成目标完成。"
+    },
+    "br3_launch_route": {
+      "tag": "专业",
+      "text": "目标确认后，发布方案怎样排？",
+      "options": [
+        {
+          "id": "br3_launch_route_a",
+          "type": "safe",
+          "text": "先把演示和试用入口备好，再选发布渠道。",
+          "face": "nod",
+          "line": "先备好承接，对。",
+          "delta": 3
+        },
+        {
+          "id": "br3_launch_route_b",
+          "type": "bold",
+          "text": "拿真实写作任务做演示，附上用户的试用反馈，渠道按人群和人手挑。",
+          "face": "probe",
+          "line": "渠道怎么取舍？",
+          "followup": {
+            "text": "有个渠道报价很低，但看的人大多是来刷娱乐内容的，用不用？",
+            "options": [
+              {
+                "id": "br3_launch_route_h",
+                "type": "hold",
+                "text": "算每个真去试写的人花多少钱，先小投一批再定。",
+                "face": "pleased",
+                "line": "按试写成本算，这个口径对。",
+                "delta": 9
+              },
+              {
+                "id": "br3_launch_route_p",
+                "type": "partial",
+                "text": "价格低、曝光多，先投满，看不懂的人之后再用解释内容补回来。",
+                "face": "calm",
+                "line": "来的人不对，补得回来吗？",
+                "delta": -3
+              },
+              {
+                "id": "br3_launch_route_f",
+                "type": "fail",
+                "text": "曝光数最大的就是效率最高的渠道，按曝光数排名来选。",
+                "face": "frown",
+                "line": "曝光多，和试写有关系吗？",
+                "delta": -7
+              }
+            ],
+            "explain": "方案需要用户任务、内容证据、渠道和承接连在一起。便宜曝光不必然带来相关用户，先定义有效行为再试验；内部制作与沟通也有成本，不能把所有平台都做当作零成本保险。"
+          }
+        },
+        {
+          "id": "br3_launch_route_c",
+          "type": "off",
+          "text": "各平台同一天都发，先看哪个阅读高，再回头决定我们的定位，省得提前纠结。",
+          "face": "calm",
+          "line": "定位还没定就先发？",
+          "delta": -3
+        }
+      ],
+      "explain": "方案需要用户任务、内容证据、渠道和承接连在一起。便宜曝光不必然带来相关用户，先定义有效行为再试验；内部制作与沟通也有成本，不能把所有平台都做当作零成本保险。"
+    },
+    "br3_launch_budget": {
+      "tag": "视野与取舍",
+      "text": "发布前预算减半，已有部分款项签约，你怎样调整？",
+      "options": [
+        {
+          "id": "br3_launch_budget_a",
+          "type": "safe",
+          "text": "先把预算分三块：已经花掉的、签了合同的、还能取消的，各自摆清楚。",
+          "face": "nod",
+          "line": "三块分开，对。",
+          "delta": 3
+        },
+        {
+          "id": "br3_launch_budget_b",
+          "type": "bold",
+          "text": "按这次发布的目标重新排优先级，每项取消要赔多少也列出来。",
+          "face": "probe",
+          "line": "取消要赔的怎么处理？",
+          "followup": {
+            "text": "有个大曝光合作已付了定金，但看的人和我们的用户对不上。继续吗？",
+            "options": [
+              {
+                "id": "br3_launch_budget_h",
+                "type": "hold",
+                "text": "定金先别算，只比剩下的钱花下去值不值，不值就停。",
+                "face": "pleased",
+                "line": "沉没的钱不算，对。",
+                "delta": 9
+              },
+              {
+                "id": "br3_launch_budget_p",
+                "type": "partial",
+                "text": "先停掉还没签约的部分，已付定金的这个合作先放着，之后再看。",
+                "face": "calm",
+                "line": "没签的先停，对；这个已付的呢？",
+                "delta": 1
+              },
+              {
+                "id": "br3_launch_budget_f",
+                "type": "fail",
+                "text": "已经投了这么多，更要加钱把效果做出来，不然整个项目都白亏了，拖不起。",
+                "face": "frown",
+                "line": "越亏越加，怎么收场？",
+                "delta": -7
+              }
+            ],
+            "explain": "先分已花、已承诺和可调整预算，核取消费用及内部工时。沉没成本不能单独决定继续投入；应比较后续成本、目标贡献和可替代方案，说明删减对触达与验证的影响。先停没签约的部分没错，但已付定金的合作不能一直放着不决定。"
+          }
+        },
+        {
+          "id": "br3_launch_budget_c",
+          "type": "off",
+          "text": "每个项目都砍一半，大家一样，最公平，也最好执行。",
+          "face": "calm",
+          "line": "低效和核心的，一样砍？",
+          "delta": -3
+        }
+      ],
+      "explain": "先分已花、已承诺和可调整预算，核取消费用及内部工时。沉没成本不能单独决定继续投入；应比较后续成本、目标贡献和可替代方案，说明删减对触达与验证的影响。先停没签约的部分没错，但已付定金的合作不能一直放着不决定。"
+    },
+    "br3_launch_crisis": {
+      "tag": "专业",
+      "text": "上线后用户称AI生成内容含错引，截图扩散。你先做什么？",
+      "options": [
+        {
+          "id": "br3_launch_crisis_a",
+          "type": "safe",
+          "text": "先找产品核实：错在哪、多少人遇到；同时开个用户能反馈的入口。",
+          "face": "nod",
+          "line": "核实和用户入口，一起来。",
+          "delta": 3
+        },
+        {
+          "id": "br3_launch_crisis_b",
+          "type": "bold",
+          "text": "边核实边请产品加提示，再安排人回复受影响用户。",
+          "face": "probe",
+          "line": "好，对外第一条怎么说？",
+          "followup": {
+            "text": "事情还没查清，对外第一条说明写什么？",
+            "options": [
+              {
+                "id": "br3_launch_crisis_h",
+                "type": "hold",
+                "text": "写我们已经确认了什么、还在查什么、受影响的人去哪里找我们。",
+                "face": "pleased",
+                "line": "已知未知都写，这样稳。",
+                "delta": 9
+              },
+              {
+                "id": "br3_launch_crisis_p",
+                "type": "partial",
+                "text": "先说“系统没有问题”稳住大家，查清原因后再改措辞。",
+                "face": "calm",
+                "line": "还没查完，就说没问题？",
+                "delta": -3
+              },
+              {
+                "id": "br3_launch_crisis_f",
+                "type": "redline",
+                "text": "安排几条“用得很好”的评论顶上去，再说发截图的账号是恶意带节奏。",
+                "face": "frown",
+                "line": "这种做法，我们公司不能做。"
+              }
+            ],
+            "explain": "核实与风险控制应并行。初步说明可以承认未知，提供实际处理与求助入口，并按核实进展更新；不能无证定性用户或编造好评。品牌回应要与产品纠正、客服支持等实际动作一致。"
+          }
+        },
+        {
+          "id": "br3_launch_crisis_c",
+          "type": "off",
+          "text": "等调查有了完整结论再发声明，现在先不回应，免得说错，反而被动。",
+          "face": "calm",
+          "line": "截图还在扩散，你不回？",
+          "delta": -3
+        }
+      ],
+      "explain": "核实与风险控制应并行。初步说明可以承认未知，提供实际处理与求助入口，并按核实进展更新；不能无证定性用户或编造好评。品牌回应要与产品纠正、客服支持等实际动作一致。"
+    },
+    "br3_launch_repair": {
+      "tag": "专业",
+      "text": "产品确认部分引用不可靠，已加提示，品牌团队怎样跟进？",
+      "options": [
+        {
+          "id": "br3_launch_repair_a",
+          "type": "safe",
+          "text": "先问产品这次到底修了什么，再把演示和帮助页里的说法改对。",
+          "face": "nod",
+          "line": "先问清修了什么，对。",
+          "delta": 3
+        },
+        {
+          "id": "br3_launch_repair_b",
+          "type": "bold",
+          "text": "对外把话说清：哪些已修好，哪些还没解决。",
+          "face": "probe",
+          "line": "好，那宣传稿里写的呢？",
+          "followup": {
+            "text": "宣传稿里已经写了“彻底解决”，但产品只修了其中一种触发情况。怎么办？",
+            "options": [
+              {
+                "id": "br3_launch_repair_h",
+                "type": "hold",
+                "text": "把“彻底解决”改掉，写清修好了哪种情况、还有哪些没修，进展继续更新。",
+                "face": "pleased",
+                "line": "自己改回来，这点很重要。",
+                "delta": 9
+              },
+              {
+                "id": "br3_launch_repair_p",
+                "type": "partial",
+                "text": "对外先不改，保持信心，内部抓紧把剩下的修完。",
+                "face": "calm",
+                "line": "用户发现没修完呢？",
+                "delta": -3
+              },
+              {
+                "id": "br3_launch_repair_f",
+                "type": "fail",
+                "text": "页面上已经有“请核对引用”的提示，用户自己核实，风险就在他们那边。",
+                "face": "frown",
+                "line": "提示一行字，就推干净了？",
+                "delta": -7
+              }
+            ],
+            "explain": "提示不等于消除所有产品风险。对外表述必须与验证范围一致，错误承诺应更正；实际用户支持、材料更新和后续验证共同构成修复，不能只靠情绪化致歉或转移责任。"
+          }
+        },
+        {
+          "id": "br3_launch_repair_c",
+          "type": "off",
+          "text": "发一篇道歉信，下周的促销照常上，把话题带回去。",
+          "face": "calm",
+          "line": "道歉完马上促销？",
+          "delta": -3
+        }
+      ],
+      "explain": "提示不等于消除所有产品风险。对外表述必须与验证范围一致，错误承诺应更正；实际用户支持、材料更新和后续验证共同构成修复，不能只靠情绪化致歉或转移责任。"
+    },
+    "br3_launch_review": {
+      "tag": "视野与取舍",
+      "text": "发布期结束，曝光上升但试写完成不明显。怎样复盘？",
+      "options": [
+        {
+          "id": "br3_launch_review_a",
+          "type": "safe",
+          "text": "先把数据拆开：多少人看到、多少人看懂、多少人真去试写，再逐段看。",
+          "face": "nod",
+          "line": "拆开看，好。",
+          "delta": 3
+        },
+        {
+          "id": "br3_launch_review_b",
+          "type": "bold",
+          "text": "看用户做了什么，和他们记住了什么，是两件事；做不到的归因也列出来。",
+          "face": "probe",
+          "line": "哪些做不到？",
+          "followup": {
+            "text": "后台只能看到最后一次点击来自哪里，增量就都算给最后那一条吗？",
+            "options": [
+              {
+                "id": "br3_launch_review_h",
+                "type": "hold",
+                "text": "不能。先记下路径和缺的数据，下次留出对照组，再谈增量，不急着下结论。",
+                "face": "pleased",
+                "line": "留对照组，这是正路。",
+                "delta": 9
+              },
+              {
+                "id": "br3_launch_review_p",
+                "type": "partial",
+                "text": "最后一次点击就是临门一脚，增量全算给它最合理。",
+                "face": "calm",
+                "line": "前面几次接触呢，不算数？",
+                "delta": -3
+              },
+              {
+                "id": "br3_launch_review_f",
+                "type": "fail",
+                "text": "归因本来就算不准，这些点击数据别记了，复盘靠感觉。",
+                "face": "frown",
+                "line": "那下次拿什么复盘？",
+                "delta": -7
+              }
+            ],
+            "explain": "末次点击是记录规则，不是因果证明。可先排查承接、任务难度和人群失配，再设可比较验证；信息记忆与长期信任另需观察。承认当前无法精确分摊增量，比给品牌虚构精确ROI更可用。"
+          }
+        },
+        {
+          "id": "br3_launch_review_c",
+          "type": "off",
+          "text": "品牌见效慢，曝光涨了就说明这次发布成功，试写慢慢会跟上。",
+          "face": "calm",
+          "line": "试写不涨，也算成功？",
+          "delta": -3
+        }
+      ],
+      "explain": "末次点击是记录规则，不是因果证明。可先排查承接、任务难度和人群失配，再设可比较验证；信息记忆与长期信任另需观察。承认当前无法精确分摊增量，比给品牌虚构精确ROI更可用。"
+    }
+  }
+}

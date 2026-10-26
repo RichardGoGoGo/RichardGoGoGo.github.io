@@ -1,0 +1,44 @@
+{
+  "_note": "H1公司底座；产品、薪酬与流程均为游戏虚构，不代表行业统一做法。",
+  "id": "hardtech",
+  "name": "磐岳科技",
+  "name_en": "Panyue Technology",
+  "sector": "hardtech",
+  "scale": "big",
+  "short": "磐岳",
+  "stars": 4,
+  "style": "工程师文化，务实严谨；自研芯片与智能终端协同开发，样机验证、现场联调和量产交付各有确认节点。",
+  "logo": "LOGO_panyue",
+  "disclaimer": "游戏里的公司、流程和数字都是虚构的。流程按公开的求职资料概括，实际因公司和年份而异。",
+  "tiers": {},
+  "salary_table": {
+    "_note": "单位为税前千元/月；月份含目标年终，非保证收入。股票和驻外支持另列，不折入固定工资。全部为游戏设定。",
+    "白菜": {
+      "salary": 17,
+      "months": 15,
+      "signing": "按书面方案确认"
+    },
+    "普通": {
+      "salary": 20,
+      "months": 15,
+      "signing": "按书面方案确认"
+    },
+    "SP": {
+      "salary": 23,
+      "months": 16,
+      "signing": "按书面方案确认"
+    },
+    "SSP": {
+      "salary": 26,
+      "months": 16,
+      "signing": "按书面方案确认"
+    }
+  },
+  "letters": {
+    "next_round": "【磐岳科技】你已通过{round}，{next}的时间和准备事项将另行通知。",
+    "reject": "【磐岳科技】感谢你参加校园招聘。本次未进入下一环节，感谢你的时间与准备。",
+    "offer": "【磐岳科技】恭喜你通过面试。请阅读正式录用文件，核对岗位、地点、薪酬和回复期限后确认。"
+  },
+  "negotiation": "companies/hardtech/negotiation.json",
+  "product": "岳衡边缘计算平台"
+}

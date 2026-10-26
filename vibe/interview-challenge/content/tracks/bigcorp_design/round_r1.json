@@ -1,0 +1,54 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A4",
+    "title": "交互设计师"
+  },
+  "scene": "S6",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": true
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "design_principles",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "design_system",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "design_principles",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "design_ethics",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {}
+}

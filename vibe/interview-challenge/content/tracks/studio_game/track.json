@@ -1,0 +1,96 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（骨架，2026-10-26 建：题由写题的 agent 按 docs/面试挑战/任务书-第三批岗位.md 补；通过线和档位阈值是占位，等基准组合标定）",
+  "id": "studio_game",
+  "company": "studio",
+  "role": "game",
+  "label": "游戏公司 × 游戏策划",
+  "est_minutes": "12–15",
+  "stages": [
+    "resume",
+    "test",
+    "r1",
+    "r2",
+    "r3",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/studio_game/round_r1.json",
+    "tracks/studio_game/round_r2.json",
+    "companies/studio/round_hr.json"
+  ],
+  "test": "tracks/studio_game/test.json",
+  "resume_screen": {
+    "screener": "机器筛 + HR",
+    "edu_weight": 1.5,
+    "page2_discount": 0.2,
+    "overflow_penalty": 0.5,
+    "machine_screen": true,
+    "machine_keywords": [
+      "游戏原型",
+      "Game Jam",
+      "剧情",
+      "关卡",
+      "游戏拆解",
+      "规则文档",
+      "系统设计",
+      "养成系统",
+      "付费系统",
+      "产出消耗表",
+      "Excel",
+      "文案",
+      "剧本写作",
+      "协作",
+      "案例分析",
+      "游戏评论"
+    ],
+    "machine_min": 6,
+    "pass_line": 2.4,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 54,
+    "followup_depth": 2,
+    "time_multiplier": 0.85,
+    "pressure_multiplier": 0.75
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、HR 面三轮的余量之和分档，阈值由 tools/balance_sim.py 标定。",
+    "thresholds": {
+      "普通": 44,
+      "SP": 68,
+      "SSP": 82
+    }
+  },
+  "skill_probe_order": [
+    "p3t_game_rules",
+    "p3t_game_balance"
+  ],
+  "review_phrases": {
+    "专业": {
+      "plus": "能把规则、状态与数值条件讲清，计算和验证范围明确。",
+      "minus": "部分概念或边界没有核对，结论超出了当前证据。"
+    },
+    "项目表达": {
+      "plus": "项目讲得具体，个人做了哪部分、效果怎么量，都说得清。",
+      "minus": "项目里个人做了什么，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "能对照目标、玩家差异与制作依赖提出可验证取舍。",
+      "minus": "方案偏重创意或单个指标，遗漏了副作用与实现条件。"
+    },
+    "动机与稳定": {
+      "plus": "求职动机清楚，和岗位匹配。",
+      "minus": "求职动机和稳定性还有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  },
+  "skill_probes": {
+    "p3t_game_rules": "gm3_probe_rules",
+    "p3t_game_balance": "gm3_probe_balance"
+  }
+}

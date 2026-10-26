@@ -1,0 +1,107 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（骨架，2026-10-26 建：题由写题的 agent 按 docs/面试挑战/任务书-第三批岗位.md 补；通过线和档位阈值是占位，等基准组合标定）",
+  "id": "bigcorp_design",
+  "company": "bigcorp",
+  "role": "design",
+  "label": "互联网大厂 × 交互设计",
+  "est_minutes": "15–18",
+  "stages": [
+    "resume",
+    "test",
+    "r1",
+    "r2",
+    "r3",
+    "cross",
+    "r4",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/bigcorp_design/round_r1.json",
+    "tracks/bigcorp_design/round_r2.json",
+    "tracks/bigcorp_design/round_r3.json",
+    "tracks/bigcorp_design/round_cross.json",
+    "companies/bigcorp/round_hr.json"
+  ],
+  "test": "tracks/bigcorp_design/test.json",
+  "resume_screen": {
+    "screener": "机器筛 + HR",
+    "edu_weight": 1.5,
+    "page2_discount": 0.2,
+    "overflow_penalty": 0.5,
+    "machine_screen": true,
+    "machine_keywords": [
+      "交互设计",
+      "用户研究",
+      "用户访谈",
+      "可用性测试",
+      "任务流程",
+      "信息架构",
+      "状态设计",
+      "原型",
+      "竞品分析",
+      "设计说明",
+      "设计系统",
+      "交付走查",
+      "用户体验",
+      "作品集"
+    ],
+    "machine_min": 6,
+    "pass_line": 3.5,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 64,
+    "followup_depth": 2,
+    "time_multiplier": 0.85,
+    "pressure_multiplier": 0.75
+  },
+  "cross": {
+    "after": "r3",
+    "business_rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "uncertain_below": 26,
+    "ssp_above": 66,
+    "_note": "业务面（一面、二面、总监面）余量之和低于 uncertain_below 算“拿不准”，高于 ssp_above 算“冲 SSP”，两头都触发交叉面。阈值由 tools/balance_sim.py 标定。"
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、技术总监面、HR 面四轮余量之和分档（交叉面不计入）。没拿到交叉面 SSP 资格的，最高只到 SP。",
+    "thresholds": {
+      "普通": 9,
+      "SP": 31,
+      "SSP": 47
+    }
+  },
+  "skill_probe_order": [
+    "ds3_system"
+  ],
+  "review_phrases": {
+    "专业": {
+      "plus": "能从任务、层级和状态说明设计依据。",
+      "minus": "部分方案缺少适用条件和关键状态。"
+    },
+    "项目表达": {
+      "plus": "项目讲得具体，个人做了哪部分、效果怎么量，都说得清。",
+      "minus": "项目里个人做了什么，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "能说明方案代价，愿意按证据调整并确认交付。",
+      "minus": "方案取舍忽略了验证范围或协作条件。"
+    },
+    "动机与稳定": {
+      "plus": "求职动机清楚，和岗位匹配。",
+      "minus": "求职动机和稳定性还有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  },
+  "skill_probes": {
+    "ds3_system": "ds3_probe_system"
+  }
+}

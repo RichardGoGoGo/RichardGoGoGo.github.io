@@ -1,0 +1,54 @@
+{
+  "id": "r2",
+  "name": "销售总监面",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A6",
+    "title": "销售总监"
+  },
+  "scene": "S10",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": true
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "sales_objection",
+      "swap": true
+    },
+    {
+      "slot": "deep",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "sales_window",
+      "swap": true
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "sales_boundary",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "sales_trade",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {}
+}

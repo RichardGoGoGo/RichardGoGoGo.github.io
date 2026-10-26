@@ -52,12 +52,25 @@ export function applyStaging(P0, staged) {
     if (s.skill_bar) Object.assign(P.skill_bar ||= {}, s.skill_bar);
     if (s.test_inspire) Object.assign(P.test_inspire ||= {}, s.test_inspire);
     if (s.default) Object.assign(P.resume.default ||= {}, s.default);
+    // 英文版参数（问答用英文的公司用）
+    if (s.p_en) Object.assign(P.p_en ||= {}, s.p_en);
+    if (s.background_en) Object.assign(P.background_en ||= {}, s.background_en);
     for (const [eid, add] of Object.entries(s.experiences || {})) {
       const e = P.resume.experiences.find((x) => x.id === eid);
       if (!e) continue;
       Object.assign(e.p ||= {}, add.p || {});
       Object.assign(e.frames ||= {}, add.frames || {});
       Object.assign(e.relevance ||= {}, add.relevance || {});
+      for (const k of ["p_en", "frames_en", "probes_en"]) if (add[k]) Object.assign(e[k] ||= {}, add[k]);
+      for (const k of ["title_en", "period_en"]) if (add[k]) e[k] = add[k];
+      // 让没有标题的经历也能被深挖：true 是所有岗位，列表是这几个岗位（和已有的合在一起）
+      if (add.deep_dive === true || e.deep_dive === true) { if (add.deep_dive) e.deep_dive = true; }
+      else if (Array.isArray(add.deep_dive)) e.deep_dive = [...new Set([...(e.deep_dive || []), ...add.deep_dive])];
+      // 已有亮点的英文参数：按亮点类型对上
+      for (const [t, pe] of Object.entries(add.highlights_p_en || {})) {
+        const h = (e.highlights || []).find((x) => x.type === t);
+        if (h) Object.assign(h.p_en ||= {}, pe);
+      }
       e.highlights = [...(e.highlights || []), ...(add.highlights || [])];
       // 新写法（比如给新岗位的证据型写法）：ID 不能和已有的重复，重复的跳过
       const ids = new Set(e.variants.map((v) => v.id));
@@ -99,6 +112,25 @@ export function mergePack(lib, pack) {
   Object.assign(lib.probes.skill_probes, pack.skill_probes || {});
   lib.background.questions = [...lib.background.questions, ...(pack.background || [])];
   lib.pools.questions = [...lib.pools.questions, ...(pack.pools || [])];
+  // 英文版（问答用英文的公司用，见 docs/面试挑战/任务书-外企.md）
+  for (const [t, en] of Object.entries(pack.highlights_en || {})) {
+    if (lib.highlights.types[t]) lib.highlights.types[t].en = { ...(lib.highlights.types[t].en || {}), ...en };
+  }
+  if (pack.generic_frame_en) lib.types.generic_frame_en = pack.generic_frame_en;
+  for (const [r, list] of Object.entries(pack.fallbacks_en || {})) (lib.types.fallbacks_en ||= {})[r] = list;
+}
+
+// 这一局用中文还是英文：英文公司（company.json 写 lang: "en"）只用标了英文的素材，中文公司只用没标的
+function languageView(lib, en) {
+  const pick = (f) => ((f.lang || "zh") === "en") === en;
+  const types = {};
+  for (const [k, t] of Object.entries(lib.types.types)) types[k] = { ...t, frames: (t.frames || []).filter(pick) };
+  if (!en) return { types, generic: lib.types.generic_frame, fallbacks: lib.types.fallbacks, highlights: lib.highlights.types };
+  const highlights = {};
+  for (const [k, h] of Object.entries(lib.highlights.types)) {
+    if (h.en) highlights[k] = { ...h, pitch: h.en.pitch, lead: h.en.lead, explain: h.en.explain ?? h.explain, roles: h.en.roles || h.roles };
+  }
+  return { types, generic: lib.types.generic_frame_en, fallbacks: lib.types.fallbacks_en || {}, highlights };
 }
 
 export async function loadContent(readJson, id, shared = {}) {
@@ -116,7 +148,8 @@ export async function loadContent(readJson, id, shared = {}) {
   try { staged = await Promise.all(((await p("_staging/index.json")).files || []).map((f) => p(`_staging/${f}`))); } catch { /* 没有暂存区 */ }
   const personaData = applyStaging(personaRaw, staged);
   const rounds = await Promise.all(trackData.rounds.map(p));
-  const neg = await p(companyData.negotiation);
+  // 谈薪按公司配一份；销售、游戏策划这类谈法不一样的岗位，岗位线可以自带一份（track.json 的 negotiation）
+  const neg = await p(trackData.negotiation || companyData.negotiation);
   const test = trackData.test ? await p(trackData.test) : null;
   const group = trackData.group ? await p(trackData.group) : null;
   return assemble({ catalog, lib, track, trackData, companyData, personaData, rounds, neg, test, group });
@@ -238,7 +271,19 @@ export function assemble(raw) {
   const bg = P.background;
   const mg = bgCfg.major_groups[bg.major_group] || { kind: "non_tech", match: [] };
   const degreeCn = bgCfg.degrees[bg.degree] || "";
-  const statics = {
+  const en = (companyData.lang || "zh") === "en";
+  const L = languageView(lib, en);
+  // 英文公司：人设参数、背景、岗位说法、公司名都只取英文的，没有就空着（模板里的默认文字或通用问法兜底），不退回中文
+  const bgEn = P.background_en || {};
+  const degreeEn = (bgCfg.degrees_en || {})[bg.degree] || "";
+  const majorEn = bgEn.major_short || bgEn.major;
+  const statics = en ? {
+    p: roleKeyed(P.p_en, role),
+    bg: { ...bgEn, school_tier_cn: (bgCfg.school_tiers_en || {})[bg.school_tier] || "", degree_cn: degreeEn,
+      major_degree: bgEn.major_degree || (degreeEn && majorEn ? `${degreeEn} in ${majorEn}` : "") },
+    role: (catalog.roles[role] || {}).en || {},
+    co: { name: companyData.name_en || "", short: companyData.short_en || companyData.name_en || "", product: companyData.product_en },
+  } : {
     p: roleKeyed(P.p, role),
     bg: { ...bg, school_tier_cn: bgCfg.school_tiers[bg.school_tier] || "", degree_cn: degreeCn, major_degree: `${bg.major_short || bg.major}${degreeCn}` },
     role: catalog.roles[role],
@@ -251,9 +296,10 @@ export function assemble(raw) {
   const pick = (o, keys) => Object.fromEntries(keys.filter((k) => k in o).map((k) => [k, o[k]]));
   c.company = {
     ...companyData,
-    ...pick(trackData, ["est_minutes", "stages", "resume_screen", "interview", "cross", "review_phrases"]),
+    ...pick(trackData, ["est_minutes", "stages", "resume_screen", "interview", "cross", "review_phrases", "salary_table", "letters"]),
     tiers: { ...companyData.tiers, ...trackData.tiers },
     type_label: companyLabel(catalog, companyData),
+    lang: en ? "en" : "zh",
     role,
   };
   c.stages = c.company.stages;
@@ -269,7 +315,7 @@ export function assemble(raw) {
   };
 
   // 经历：类型给默认对口程度和参数，实例覆盖；亮点的参数叠在所在经历的参数上
-  const types = lib.types.types;
+  const types = L.types;
   c.capacity = P.resume.capacity_lines;
   c.experiences = {};
   c.variants = {};
@@ -277,21 +323,29 @@ export function assemble(raw) {
   for (const e of P.resume.experiences) {
     const t = types[e.type];
     if (!t) { issues.push(`${P.id}/${e.id}: 没有经历类型 ${e.type}`); continue; }
-    const scope = { ...(t.p || {}), label: e.title, ...(e.p || {}), title: e.title, period: e.period, _id: e.id };
-    const highlights = (e.highlights || []).map((h) => ({ type: h.type, scope: { ...scope, ...(h.p || {}) } }));
-    const exp = { id: e.id, type: e.type, header: e.header, title: e.title, period: e.period, relevance: { ...t.relevance, ...(e.relevance || {}) }, scope, highlights, variants: e.variants };
+    const scope = en
+      ? { ...(t.p_en || {}), ...(e.title_en ? { label: e.title_en } : {}), ...(e.p_en || {}), title: e.title_en || "", period: e.period_en || "", _id: e.id }
+      : { ...(t.p || {}), label: e.title, ...(e.p || {}), title: e.title, period: e.period, _id: e.id };
+    const highlights = (e.highlights || []).map((h) => ({ type: h.type, scope: { ...scope, ...((en ? h.p_en : h.p) || {}) } }));
+    // divable：能被项目深挖。带标题的经历都能；没标题的（论文、竞赛这种一行的）要人设档案写 deep_dive: true 或岗位列表才能
+    const divable = !!(e.header || e.deep_dive === true || (Array.isArray(e.deep_dive) && e.deep_dive.includes(role)));
+    const exp = { id: e.id, type: e.type, header: e.header, divable, title: e.title, period: e.period, relevance: { ...t.relevance, ...(e.relevance || {}) }, scope, highlights, variants: e.variants };
     c.experiences[e.id] = exp;
     for (const v0 of e.variants) {
       const v = { ...v0 };
-      if (v0.probe) {
+      const spec = en ? (e.probes_en || {})[v0.id] : v0.probe;
+      if (!spec) delete v.probe;
+      else {
         v.probe = `probe_${v0.id}`;
-        c.followups.probes[v.probe] = buildProbe(lib, v0, statics, scope);
+        c.followups.probes[v.probe] = buildProbe(lib, { ...v0, probe: spec }, statics, scope);
       }
       c.variants[v.id] = { exp, v };
     }
-    if (e.header) c.followups.deep_dives[e.id] = buildDeepDive(lib, exp, role, statics, e.frames, issues);
+    const dd = divable && buildDeepDive(L, exp, role, statics, en ? e.frames_en : e.frames, issues);
+    if (dd) c.followups.deep_dives[e.id] = dd;
+    else exp.divable = false;
   }
-  c.followups.fallbacks = (lib.types.fallbacks[role] || lib.types.fallbacks.any || []).map((f) => ({ when_first: f.when_first, node: S(f.node) }));
+  c.followups.fallbacks = (L.fallbacks[role] || L.fallbacks.any || []).map((f) => ({ when_first: f.when_first, node: S(f.node) }));
 
   // 技能栏标签
   c.skills = {};
@@ -307,8 +361,9 @@ export function assemble(raw) {
     const chip = { id, skill: sid, label: master ? sk.labels["3"] : labelFor(sk, level), keywords: rc.keywords, relevant: rc.relevant, group: sid, master, level };
     // 写了“精通”就会被追问（诱饵标签，或者真实水平就是精通时的标签），不看真实水平：这一题本来就是练真本事
     if ((master || level >= 3) && sk.master_probes) {
-      const pid = (trackData.skill_probes || {})[sid] || sk.master_probes[0];
-      if (lib.probes.skill_probes[pid]) {
+      const pid0 = (trackData.skill_probes || {})[sid] || sk.master_probes[0];
+      const pid = en ? `${pid0}_en` : pid0;
+      if (en && !lib.probes.skill_probes[pid]) { /* 没写英文版：英文公司里不追问这项 */ } else if (lib.probes.skill_probes[pid]) {
         chip.probe = pid;
         c.followups.probes[pid] = { ...S(lib.probes.skill_probes[pid]), id: pid, source: id };
       } else issues.push(`技能 ${sid} 的“精通”追问 ${pid} 还没写`);
@@ -319,11 +374,11 @@ export function assemble(raw) {
   c.defaultResume = (P.resume.default && P.resume.default[role]) || autoDefault(c, lib.scoring);
 
   // 背景题、题池：按背景、特殊设定和公司的类型、规模，静态地筛出这一局能问的，按优先级排好
-  const ctx = { role, mg, bg, traits: c.persona.traits, co: companyData };
+  const ctx = { role, mg, bg, traits: c.persona.traits, co: companyData, expTypes: new Set(P.resume.experiences.map((e) => e.type)), lang: en ? "en" : "zh" };
   const byPool = (questions) => {
     const out = {};
     for (const q of [...questions].sort((a, b) => b.priority - a.priority)) {
-      if (!whenOk(q.when, ctx)) continue;
+      if (!whenOk(q.when, ctx, q.lang)) continue;
       for (const pool of q.pools) (out[pool] ||= []).push({ id: q.id, node: { ...S(q.node), id: q.id } });
     }
     return out;
@@ -358,7 +413,8 @@ export function assemble(raw) {
 
 // 背景题、题池的条件：每个键的值可以是一个或一组，写了的键都要满足
 const inWhen = (v, x) => (Array.isArray(v) ? v.includes(x) : v === x);
-function whenOk(w, { role, mg, bg, traits, co }) {
+function whenOk(w, { role, mg, bg, traits, co, expTypes, lang }, qlang) {
+  if ((qlang || "zh") !== (lang || "zh")) return false;
   if (!w) return true;
   if (w.role && !inWhen(w.role, role)) return false;
   if (w.major_kind && !inWhen(w.major_kind, mg.kind)) return false;
@@ -367,6 +423,8 @@ function whenOk(w, { role, mg, bg, traits, co }) {
   if (w.sector && !inWhen(w.sector, co.sector)) return false;
   if (w.scale && !inWhen(w.scale, co.scale)) return false;
   if (w.stage && !inWhen(w.stage, co.stage)) return false;
+  if (w.has_exp_type && ![].concat(w.has_exp_type).some((t) => expTypes.has(t))) return false;
+  if (w.lacks_exp_type && [].concat(w.lacks_exp_type).some((t) => expTypes.has(t))) return false;
   return true;
 }
 
@@ -411,9 +469,9 @@ function buildProbe(lib, v, statics, scope) {
 }
 
 // 项目深挖：先用指定的问法，再按类型里的问法顺序找参数够用的；都不行看主亮点有没有自带整题，最后用通用深挖
-function buildDeepDive(lib, exp, role, statics, frames, issues) {
-  const t = lib.types.types[exp.type];
-  const hls = lib.highlights.types;
+function buildDeepDive(L, exp, role, statics, frames, issues) {
+  const t = L.types[exp.type];
+  const hls = L.highlights;
   const list = (t.frames || []).filter((f) => f.roles.includes(role));
   const want = frames && frames[role];
   if (want) list.sort((a, b) => (b.id === want) - (a.id === want));
@@ -444,7 +502,8 @@ function buildDeepDive(lib, exp, role, statics, frames, issues) {
     const out = { id: `dd_${exp.id}`, tag: lead.tag, text: lead.text, options: keyed(lead.options, exp.id), explain: lead.explain };
     return markNeeds(fillDeep(out, { ...statics, exp: exp.scope, hl: leadHl.scope }));
   }
-  const g = lib.types.generic_frame.node;
+  if (!L.generic) { issues.push(`${exp.id}: 没有这个语言的通用深挖`); return null; }
+  const g = L.generic.node;
   if (!hasAll(exp.scope, scanNeeds(g, "exp"))) issues.push(`${exp.id}: 通用深挖缺参数`);
   const out = { id: `dd_${exp.id}`, tag: g.tag, text: g.text, options: keyed(g.options, exp.id), explain: g.explain, generic: true };
   return markNeeds(fillDeep(out, { ...statics, exp: exp.scope }));
@@ -592,6 +651,7 @@ export class Interview {
     this.page1 = layout(c, this.order).page1;
     this.page1Items = this.page1.map((vid) => c.variants[vid]);
     this.headers = this.page1Items.filter((x) => x.exp.header);
+    this.divable = this.page1Items.filter((x) => x.exp.divable);
     this.flags = flags || new Set();
     this.vars = vars;
     this.probesUsed = new Set();
@@ -665,7 +725,7 @@ export class Interview {
         this.ddUsed.add(exp.id);
         return this.useProbe(v.probe);
       }
-      if (!exp.header) return this.fallbackDive();
+      if (!exp.divable) return this.fallbackDive();
       return this.deepDive(exp.id);
     }
     if (dyn === "skill_probe") {
@@ -678,7 +738,7 @@ export class Interview {
     if (dyn === "probe_or_deep_dive_next") {
       for (const { v } of this.page1Items) if (v.type === "exag" && v.probe && this.probeOk(v.probe)) return this.useProbe(v.probe);
       for (const { v } of this.page1Items) if (v.type === "empty" && v.probe && this.probeOk(v.probe)) return this.useProbe(v.probe);
-      for (const { exp } of this.headers) if (!this.ddUsed.has(exp.id)) return this.deepDive(exp.id);
+      for (const { exp } of this.divable) if (!this.ddUsed.has(exp.id)) return this.deepDive(exp.id);
       return this.fallbackDive();
     }
     if (dyn === "pool") return this.poolPick(rnd, slot, useAlt);
@@ -703,11 +763,14 @@ export class Interview {
     if (req.lacks_exp_type && Object.values(this.c.experiences).some((e) => e.type === req.lacks_exp_type)) return null;
     let cands = null;
     if (req.highlight || req.highlight_ev) {
+      // 写一串亮点时按列表顺序：先找列表里的第一种，第一页上有就用它；没有再找下一种
       const want = [].concat(req.highlight || req.highlight_ev);
       cands = [];
-      for (const { exp, v } of this.page1Items) {
-        if (req.highlight_ev && v.type !== "evidence") continue;
-        for (const h of exp.highlights) if (want.includes(h.type)) cands.push(h.scope);
+      for (const type of want) {
+        for (const { exp, v } of this.page1Items) {
+          if (req.highlight_ev && v.type !== "evidence") continue;
+          for (const h of exp.highlights) if (h.type === type) cands.push(h.scope);
+        }
       }
     } else if (req.exp_type) {
       cands = this.page1Items.filter((x) => x.exp.type === req.exp_type).map((x) => x.exp.scope);
@@ -756,7 +819,7 @@ export class Interview {
       }
       if (o.type === "bold" && level >= maxDepth) {
         // 到了这家公司的追问层数上限：不再往下追，这个回答本身就算答到了（最多按一次“接住”算）
-        put(cappedBold(o), b.cite ? b : bound);
+        put(cappedBold(o, this.c.company.lang), b.cite ? b : bound);
         continue;
       }
       put(o, b.cite ? b : bound);
@@ -765,11 +828,15 @@ export class Interview {
   }
 }
 
-export function cappedBold(o) {
+// 面试官接一句：英文公司用英文
+const CAPPED_LINES = { zh: { hold: "嗯，说到点子上了。", partial: "嗯。" }, en: { hold: "Right, that's the key point.", partial: "I see." } };
+
+export function cappedBold(o, lang = "zh") {
   const ev = Math.min(optionEv(o), 9);
   const hold = ev >= 9;
   const { followup, ...rest } = o;
-  return { ...rest, type: hold ? "hold" : "partial", delta: ev, face: hold ? "pleased" : "nod", line: hold ? "嗯，说到点子上了。" : "嗯。" };
+  const lines = CAPPED_LINES[lang] || CAPPED_LINES.zh;
+  return { ...rest, type: hold ? "hold" : "partial", delta: ev, face: hold ? "pleased" : "nod", line: hold ? lines.hold : lines.partial };
 }
 
 // 答题限时：按字数估算阅读时间，再加思考时间。

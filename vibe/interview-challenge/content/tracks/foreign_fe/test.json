@@ -1,0 +1,267 @@
+{
+  "id": "test",
+  "name": "Online Assessment",
+  "company": "foreign",
+  "role": "fe",
+  "lang": "en",
+  "seconds": 150,
+  "pass_line": 60,
+  "inspire_uses": 2,
+  "bonus": {
+    "per_points": 10,
+    "max": 3
+  },
+  "time_cost": {
+    "易": 15,
+    "中": 20,
+    "难": 30
+  },
+  "trap": {
+    "label": "Search in another browser tab",
+    "levels": [
+      "难"
+    ],
+    "lose_seconds": 10,
+    "warn_text": "Switching tabs isn't allowed in this assessment. One event has been recorded.",
+    "fail_text": "A second tab switch breaks the assessment rules, so this attempt is void.",
+    "explain": "切屏限制是本场游戏规则，真实在线测评以当次通知为准。未经允许的搜索不能替代独立完成。"
+  },
+  "slots": [
+    {
+      "slot": "fgf_slot1",
+      "q": "fgf_t1",
+      "swap": "odd",
+      "alternates": [
+        "fgf_t7"
+      ]
+    },
+    {
+      "slot": "fgf_slot2",
+      "q": "fgf_t2"
+    },
+    {
+      "slot": "fgf_slot3",
+      "q": "fgf_t3"
+    },
+    {
+      "slot": "fgf_slot4",
+      "q": "fgf_t4",
+      "swap": "odd",
+      "alternates": [
+        "fgf_t8"
+      ]
+    },
+    {
+      "slot": "fgf_slot5",
+      "q": "fgf_t5"
+    },
+    {
+      "slot": "fgf_slot6",
+      "q": "fgf_t6",
+      "swap": "odd",
+      "alternates": [
+        "fgf_t9"
+      ]
+    }
+  ],
+  "questions": {
+    "fgf_t1": {
+      "level": "易",
+      "points": 10,
+      "category": "Numerical reasoning",
+      "text": "A task took 80 seconds before a change and 60 seconds after it. What was the percentage reduction?",
+      "options": [
+        {
+          "text": "20%"
+        },
+        {
+          "text": "25%",
+          "correct": true
+        },
+        {
+          "text": "33.3%"
+        },
+        {
+          "text": "75%"
+        }
+      ],
+      "explain": "减少20秒，以原来的80秒为分母，20/80=25%。33.3%用的是新值60作分母，表示另一个比较口径。"
+    },
+    "fgf_t2": {
+      "level": "易",
+      "points": 10,
+      "category": "Verbal reasoning",
+      "text": "A team note says: \"All critical fixes need review. Some reviewed changes are optional.\" Which conclusion must follow?",
+      "options": [
+        {
+          "text": "Every reviewed change is critical."
+        },
+        {
+          "text": "Some critical fixes are optional."
+        },
+        {
+          "text": "Every critical fix must be reviewed.",
+          "correct": true
+        },
+        {
+          "text": "Optional changes never need to be reviewed."
+        }
+      ],
+      "explain": "第一句直接说明所有关键修复需要评审。第二句没有说明关键修复与可选改动的交集，不能反推所有已评审改动都是关键修复。"
+    },
+    "fgf_t3": {
+      "level": "中",
+      "points": 15,
+      "category": "Frontend",
+      "text": "In a browser, what is the output order of this ordinary script?\nconsole.log('A');\nPromise.resolve().then(() => console.log('B'));\nconsole.log('C');",
+      "options": [
+        {
+          "text": "A B C"
+        },
+        {
+          "text": "B A C"
+        },
+        {
+          "text": "A C B",
+          "correct": true
+        },
+        {
+          "text": "C A B"
+        }
+      ],
+      "explain": "同步脚本先输出A、C，已解决Promise的回调随后在微任务检查点输出B。"
+    },
+    "fgf_t4": {
+      "level": "中",
+      "points": 15,
+      "category": "Verbal reasoning",
+      "text": "Release note: \"The pilot covers desktop users only. Mobile support is planned, but no date is confirmed.\" Which statement does the note support?",
+      "options": [
+        {
+          "text": "The pilot includes every device."
+        },
+        {
+          "text": "Mobile support has a fixed release date."
+        },
+        {
+          "text": "Desktop pilot results prove mobile readiness."
+        },
+        {
+          "text": "Mobile support has no confirmed date yet.",
+          "correct": true
+        }
+      ],
+      "explain": "文本只确认桌面试点和移动支持尚无明确日期。不能把计划当作已确认交付，也不能把桌面验证推广成移动可用。"
+    },
+    "fgf_t5": {
+      "level": "难",
+      "points": 25,
+      "category": "Frontend",
+      "text": "A user clicks Save, the request times out, and the server may have completed it. What is the safest next step?",
+      "options": [
+        {
+          "text": "Resend the same request again right away."
+        },
+        {
+          "text": "Check the status, then retry with an idempotency key.",
+          "correct": true
+        },
+        {
+          "text": "Assume the timeout means nothing was saved and show an error."
+        },
+        {
+          "text": "Disable the Save button until the next page reload."
+        }
+      ],
+      "explain": "超时只说明客户端没有等到响应，不能证明服务端没有完成。应先查询状态，或者带上幂等键重试，这样同一个操作不会被创建成两份；原样重发可能造成重复，禁用保存按钮也解决不了状态不明。"
+    },
+    "fgf_t6": {
+      "level": "难",
+      "points": 25,
+      "category": "Numerical reasoning",
+      "text": "A pilot has 30 failures in 1,000 attempts. The old version has 80 in 4,000. Which statement is accurate?",
+      "options": [
+        {
+          "text": "The pilot's failure rate is 1 percentage point higher.",
+          "correct": true
+        },
+        {
+          "text": "The pilot is better because 30 is fewer than 80."
+        },
+        {
+          "text": "Both versions fail at the same rate, about 2 percent."
+        },
+        {
+          "text": "The pilot's failure rate is 1 percent lower than before."
+        }
+      ],
+      "explain": "试点失败率是 30/1000=3%，旧版是 80/4000=2%，高出 1 个百分点。失败次数不能跨不同的流量直接比较；这个差异本身也不能单独说明原因。"
+    },
+    "fgf_t7": {
+      "level": "易",
+      "points": 10,
+      "category": "Numerical reasoning",
+      "text": "A job processes 240 rows in 4 minutes at a constant rate. How many rows does it process in 7 minutes?",
+      "options": [
+        {
+          "text": "360"
+        },
+        {
+          "text": "420",
+          "correct": true
+        },
+        {
+          "text": "480"
+        },
+        {
+          "text": "840"
+        }
+      ],
+      "explain": "每分钟60行，7分钟为420行。题目明确固定速率，不需额外假定并发或机器变化。"
+    },
+    "fgf_t8": {
+      "level": "中",
+      "points": 15,
+      "category": "Verbal reasoning",
+      "text": "A handoff says: \"UI tests passed with mock data. The production API has not been verified.\" What can you conclude?",
+      "options": [
+        {
+          "text": "The complete user journey is already verified."
+        },
+        {
+          "text": "Only the mock-backed UI was tested so far.",
+          "correct": true
+        },
+        {
+          "text": "The production API definitely fails."
+        },
+        {
+          "text": "The API requires no further testing."
+        }
+      ],
+      "explain": "可确认的是模拟数据界面测试通过，真实接口未验证。未验证既不代表失败，也不代表整条链路已经通过。"
+    },
+    "fgf_t9": {
+      "level": "难",
+      "points": 25,
+      "category": "Frontend",
+      "text": "A monitoring SDK sends no events after a release, but entry traffic remains normal. What should you do first?",
+      "options": [
+        {
+          "text": "Declare the release stable because errors disappeared."
+        },
+        {
+          "text": "Check telemetry coverage and the actual user journey.",
+          "correct": true
+        },
+        {
+          "text": "Increase rollout until the event counts match."
+        },
+        {
+          "text": "Use entry traffic as a stand-in for successes."
+        }
+      ],
+      "explain": "没有事件，可能是监控本身失效，也可能是页面在更早的步骤就失败了，所以先核对采集覆盖和真实的关键路径。不能用入口访问量去代替成功事件，也不能把“没有报错”当成发布稳定。"
+    }
+  }
+}

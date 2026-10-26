@@ -1,0 +1,1752 @@
+{
+  "_note": "第三批B品牌市场，跨岗题严格role brand；所有效果归因和经历分工按证据限定。2026-10-26 改稿：部分接住分数与解析一致（被解析否定的做法给负分）；copy_promise 的绝对承诺项改红线；brand_copy 增加比较广告题 br3_copy_compare（重打备选，br3_copy_select 退为第三，正常对局不再抽到）；创始人面第一题 unicorn_vision 的品牌版 br3_vision_remember / br3_vision_carry；个人专栏、毕业论文的深挖问法不再问“个人贡献/团队结果”。",
+  "relevance": {
+    "intern_dev": {
+      "brand": "none"
+    },
+    "intern_pm": {
+      "brand": "half"
+    },
+    "user_research_intern": {
+      "brand": "half"
+    },
+    "research_tool": {
+      "brand": "none"
+    },
+    "campus_team_project": {
+      "brand": "half"
+    },
+    "personal_project": {
+      "brand": "half"
+    },
+    "course_project": {
+      "brand": "half"
+    },
+    "thesis": {
+      "brand": "half"
+    },
+    "paper": {
+      "brand": "half"
+    },
+    "competition": {
+      "brand": "half"
+    },
+    "student_org": {
+      "brand": "half"
+    },
+    "media_ops": {
+      "brand": "match"
+    },
+    "event_planning": {
+      "brand": "match"
+    },
+    "part_time": {
+      "brand": "half"
+    },
+    "certificate": {
+      "brand": "general"
+    },
+    "award": {
+      "brand": "general"
+    },
+    "intern_hr": {
+      "brand": "half"
+    },
+    "intern_mkt": {
+      "brand": "match"
+    },
+    "campus_ambassador": {
+      "brand": "match"
+    },
+    "game_project": {
+      "brand": "half"
+    }
+  },
+  "skills": {
+    "copywriting": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "new_media": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "event": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "community": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "competitor": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "office": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "excel": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "data": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "research": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_social_layout": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "p3t_script_writing": {
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": []
+        }
+      }
+    },
+    "br3_brand_measure": {
+      "labels": {
+        "1": "了解品牌效果评估",
+        "2": "熟悉品牌效果评估",
+        "3": "精通品牌效果评估"
+      },
+      "roles": {
+        "brand": {
+          "relevant": true,
+          "keywords": [
+            "品牌评估",
+            "指标口径"
+          ]
+        }
+      },
+      "master_probes": [
+        "br3_probe_measure"
+      ]
+    }
+  },
+  "skill_probes": {
+    "br3_probe_measure": {
+      "tag": "专业",
+      "text": "你标了“精通品牌效果评估”。投放期搜索量上涨，能证明品牌资产增加吗？",
+      "options": [
+        {
+          "id": "br3_probe_measure_a",
+          "type": "safe",
+          "text": "我没做过完整的归因，只能讲已经确认的几个指标。",
+          "face": "nod",
+          "line": "先说你确认过的。",
+          "delta": -1
+        },
+        {
+          "id": "br3_probe_measure_b",
+          "type": "bold",
+          "text": "搜索量只是其中一个信号，认知和品牌资产要分开看。",
+          "face": "probe",
+          "line": "怎么分开看？",
+          "followup": {
+            "text": "同期还有促销，也碰上自然热点，搜索量涨有多少算投放的？",
+            "options": [
+              {
+                "id": "br3_probe_measure_h",
+                "type": "hold",
+                "text": "标出促销和热点的时段，找没投放的时段做对照；找不到就只说相关。",
+                "face": "pleased",
+                "line": "找不到对照，就只说相关，行。",
+                "delta": 9
+              },
+              {
+                "id": "br3_probe_measure_p",
+                "type": "partial",
+                "text": "跟去年同期比，涨的部分就都是这次传播带来的。",
+                "face": "calm",
+                "line": "去年没有促销和热点？",
+                "delta": -3
+              },
+              {
+                "id": "br3_probe_measure_f",
+                "type": "fail",
+                "text": "活动期的样本这么大，促销和热点的影响自然抵消，不用单独处理。",
+                "face": "frown",
+                "line": "样本大，就能抵消？",
+                "delta": -7
+              }
+            ],
+            "explain": "搜索变化只是一个信号。促销、新闻和自然流量都可能改变搜索；认知、记忆与长期信任需要相应研究和持续观察。没有合适对照时可以报告相关变化，不可宣称净因果效果。"
+          }
+        },
+        {
+          "id": "br3_probe_measure_c",
+          "type": "off",
+          "text": "搜索是用户主动做的，涨了就是品牌资产增加。",
+          "face": "calm",
+          "line": "涨了多少是促销带的？",
+          "delta": -5
+        }
+      ],
+      "explain": "搜索变化只是一个信号。促销、新闻和自然流量都可能改变搜索；认知、记忆与长期信任需要相应研究和持续观察。没有合适对照时可以报告相关变化，不可宣称净因果效果。"
+    }
+  },
+  "frames": {
+    "intern_mkt": [
+      {
+        "id": "br3_frame_campaign",
+        "roles": [
+          "brand"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "在{exp.br3_campaign}里，你本人做了哪些工作？",
+          "options": [
+            {
+              "type": "safe",
+              "text": "按我的环节讲：追素材、跟发布、做复盘，各交了什么。",
+              "face": "nod",
+              "line": "先说你的环节，好。",
+              "delta": 3,
+              "key": "br3_frame_campaign_a"
+            },
+            {
+              "type": "bold",
+              "text": "用6位达人、12篇内容讲协作，数据只说我按七天窗口记的。",
+              "face": "probe",
+              "line": "那具体核对一下。",
+              "followup": {
+                "text": "定位和预算是负责人定的，你不管。那你的复盘能讲什么？",
+                "options": [
+                  {
+                    "type": "hold",
+                    "text": "讲七天内曝光、点击、注册各是多少；全渠道销售没数据，不往上靠。",
+                    "face": "pleased",
+                    "line": "没数据就不往上靠，行。",
+                    "delta": 9,
+                    "key": "br3_frame_campaign_h"
+                  },
+                  {
+                    "type": "partial",
+                    "text": "先把活动整体结果讲出来，我具体负责哪段，等你问了再说。",
+                    "face": "calm",
+                    "line": "整体先放一边，你的那段呢？",
+                    "delta": -2,
+                    "key": "br3_frame_campaign_p"
+                  },
+                  {
+                    "type": "fail",
+                    "text": "我跟了每个发布节点，策略、定位、销售结果，还有预算，都算我主导。",
+                    "face": "frown",
+                    "line": "定位和预算，也是你定的？",
+                    "delta": -7,
+                    "key": "br3_frame_campaign_f"
+                  }
+                ],
+                "explain": "该经历的事实是跟进6位达人、12篇内容的素材发布与七天复盘。定位和预算由负责人决定，没有全渠道销售数据；执行贡献可具体展示，不能扩大成全年策略或销售因果。先报整体结果、把分工留到被问时再说，等于把边界交给对方去挖，不如自己先划清。"
+              },
+              "key": "br3_frame_campaign_b"
+            },
+            {
+              "type": "off",
+              "text": "活动是我们这组做的，我就把它整个当成自己的项目来讲，还算清楚。",
+              "face": "calm",
+              "line": "这个“我们”里，有你几成？",
+              "delta": -3,
+              "key": "br3_frame_campaign_c"
+            }
+          ],
+          "explain": "该经历的事实是跟进6位达人、12篇内容的素材发布与七天复盘。定位和预算由负责人决定，没有全渠道销售数据；执行贡献可具体展示，不能扩大成全年策略或销售因果。先报整体结果、把分工留到被问时再说，等于把边界交给对方去挖，不如自己先划清。"
+        }
+      }
+    ],
+    "media_ops": [
+      {
+        "id": "br3_frame_creator",
+        "roles": [
+          "brand"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你经营{exp.br3_account}，怎样解释最亮眼的数据？",
+          "options": [
+            {
+              "type": "safe",
+              "text": "粉丝数、最高那篇的阅读、普通篇的阅读，三个数分开说，各自口径讲清楚。",
+              "face": "nod",
+              "line": "三个数分开，行。",
+              "delta": 3,
+              "key": "br3_frame_creator_a"
+            },
+            {
+              "type": "bold",
+              "text": "先把粉丝和阅读量分清，再讲那篇为什么读的人多。",
+              "face": "probe",
+              "line": "好，分清了再说。",
+              "followup": {
+                "text": "那篇2.8万阅读，比你的粉丝总数还多。这是不是说明涨了很多粉？",
+                "options": [
+                  {
+                    "type": "hold",
+                    "text": "不能。阅读里有转发来的非粉丝；涨了多少粉，得看后台的新增关注。",
+                    "face": "pleased",
+                    "line": "看后台，这个对。",
+                    "delta": 9,
+                    "key": "br3_frame_creator_h"
+                  },
+                  {
+                    "type": "partial",
+                    "text": "阅读比粉丝多出来的部分，多半是新读者，大概就是新增的关注。",
+                    "face": "calm",
+                    "line": "多出来的，都关注了？",
+                    "delta": -3,
+                    "key": "br3_frame_creator_p"
+                  },
+                  {
+                    "type": "fail",
+                    "text": "阅读超过粉丝数，就是账号粉丝涨到2.8万了，简历上可以这样写。",
+                    "face": "frown",
+                    "line": "粉丝是2.8万？后台我能看到吗？",
+                    "delta": -7,
+                    "key": "br3_frame_creator_f"
+                  }
+                ],
+                "explain": "粉丝约4500是存量；峰值单篇2.8万阅读，普通篇800至1500。阅读包含非粉丝和转发等来源，不等于去重关注人数。可讲选题与内容复盘，不把峰值当稳定表现或商业转化。"
+              },
+              "key": "br3_frame_creator_b"
+            },
+            {
+              "type": "off",
+              "text": "就拿阅读最高的那篇说账号的实力，它最能代表我。",
+              "face": "calm",
+              "line": "就这一篇？普通篇呢？",
+              "delta": -3,
+              "key": "br3_frame_creator_c"
+            }
+          ],
+          "explain": "粉丝约4500是存量；峰值单篇2.8万阅读，普通篇800至1500。阅读包含非粉丝和转发等来源，不等于去重关注人数。可讲选题与内容复盘，不把峰值当稳定表现或商业转化。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "br3_frame_column",
+        "roles": [
+          "brand"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.br3_column}是你自己一个人在写的。你想让我们先看哪一块？",
+          "options": [
+            {
+              "type": "safe",
+              "text": "讲我怎么做的：选游戏、拆系统、做产消表，每一步我自己定。",
+              "face": "nod",
+              "line": "一个人做的，那每一步怎么定的？",
+              "delta": 3,
+              "key": "br3_frame_column_a"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "type": "off",
+              "text": "先讲有读者转发了文章，说明专栏有人认可，再补我做了什么。",
+              "face": "calm",
+              "line": "转发一次，就算认可？",
+              "delta": -3,
+              "key": "br3_frame_column_c"
+            }
+          ],
+          "explain": "这段经历的事实是3款虚构游戏的拆解和1张基础产出消耗表，只做了纸面推演，文章仅被普通读者转发过一次。一个人做的专栏，贡献可以直接说是自己做的；但被转发一次不等于被认可，纸面推演也不是玩家验证。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "br3_frame_thesis",
+        "roles": [
+          "brand"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.br3_thesis}还没写完。现在做到哪一步，哪些结论已经能讲？",
+          "options": [
+            {
+              "type": "safe",
+              "text": "说进度：案例已经按选择、反馈、结局对照，结论还在整理。",
+              "face": "nod",
+              "line": "进度说得实在。",
+              "delta": 3,
+              "key": "br3_frame_thesis_a"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "type": "off",
+              "text": "题目就是玩家选择，写完就等于做过玩家研究，可以这样介绍。",
+              "face": "calm",
+              "line": "案例分析，算玩家研究吗？",
+              "delta": -3,
+              "key": "br3_frame_thesis_c"
+            }
+          ],
+          "explain": "毕业论文还在整理，目前是选择、反馈与结局的案例对照，没有做玩家实验。个人研究直接说进度和边界就好；案例分析的结论只在案例范围内成立，不能说成玩家都这样。"
+        }
+      }
+    ]
+  },
+  "pools": [
+    {
+      "id": "br3_metrics_window",
+      "pools": [
+        "brand_metrics"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "达人内容带来2万曝光、600点击、90注册。怎样汇报？",
+        "options": [
+          {
+            "id": "br3_metrics_window_a",
+            "type": "safe",
+            "text": "先问清三个数各自怎么算的：谁的曝光、几天窗口、有没有去重。",
+            "face": "nod",
+            "line": "先问口径，对。",
+            "delta": 3
+          },
+          {
+            "id": "br3_metrics_window_b",
+            "type": "bold",
+            "text": "先统一三个数的口径，再摆成曝光、点击、注册的漏斗。",
+            "face": "probe",
+            "line": "行，接着说。",
+            "followup": {
+              "text": "三个数来自三张表：窗口分别是当天、七天和累计。怎么办？",
+              "options": [
+                {
+                  "id": "br3_metrics_window_h",
+                  "type": "hold",
+                  "text": "能重算的按七天重算；重算不了的分开列，注明窗口不一样。",
+                  "face": "pleased",
+                  "line": "分开列，不硬凑，好。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_metrics_window_p",
+                  "type": "partial",
+                  "text": "能重算的按七天重算，重算不了的那张表先不放进对比里。",
+                  "face": "calm",
+                  "line": "那张表的数据，就当没有了？",
+                  "delta": 1
+                },
+                {
+                  "id": "br3_metrics_window_f",
+                  "type": "fail",
+                  "text": "累计那张表的数最大，就按它给三个渠道排名次。",
+                  "face": "frown",
+                  "line": "累计和当天，能放一起排？",
+                  "delta": -7
+                }
+              ],
+              "explain": "曝光、点击、注册的统计对象、窗口和来源必须可比。注册可能重复且未必由该次曝光促成；原表不可重算时应分列并说明限制，不能靠改标题制造一致。只把重算不了的那张表拿掉，会丢掉信息，也该分列注明。"
+            }
+          },
+          {
+            "id": "br3_metrics_window_c",
+            "type": "off",
+            "text": "90个注册除以2万曝光，得0.45%，这就是这次活动的转化率，直接汇报。",
+            "face": "calm",
+            "line": "这90个注册，都是点击来的？",
+            "delta": -3
+          }
+        ],
+        "explain": "曝光、点击、注册的统计对象、窗口和来源必须可比。注册可能重复且未必由该次曝光促成；原表不可重算时应分列并说明限制，不能靠改标题制造一致。只把重算不了的那张表拿掉，会丢掉信息，也该分列注明。"
+      }
+    },
+    {
+      "id": "br3_metrics_return",
+      "pools": [
+        "brand_metrics"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "投放费1万元，关联订单收入3万元。能写ROI为200%吗？",
+        "options": [
+          {
+            "id": "br3_metrics_return_a",
+            "type": "safe",
+            "text": "先问这3万怎么关联的、退款扣了没、成本全不全。",
+            "face": "nod",
+            "line": "三件事都问到了。",
+            "delta": 3
+          },
+          {
+            "id": "br3_metrics_return_b",
+            "type": "bold",
+            "text": "收入除以广告费是3倍，这是一回事；利润回报要再扣成本，是另一回事。",
+            "face": "probe",
+            "line": "对，往下说。",
+            "followup": {
+              "text": "没有毛利、退款和制作成本的数据，复盘怎么写？",
+              "options": [
+                {
+                  "id": "br3_metrics_return_h",
+                  "type": "hold",
+                  "text": "只写“关联收入是广告费的3倍”，注明不是利润，也不是净增量。",
+                  "face": "pleased",
+                  "line": "这么写，没人能挑你的错。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_metrics_return_p",
+                  "type": "partial",
+                  "text": "毛利先按行业平均估一个，补上去算个利润回报。",
+                  "face": "calm",
+                  "line": "平均数，不是咱们的数。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_metrics_return_f",
+                  "type": "fail",
+                  "text": "这3万都是点了投放链接下的单，全算这次投放带来的。",
+                  "face": "frown",
+                  "line": "老客户回购的也算进去？",
+                  "delta": -7
+                }
+              ],
+              "explain": "收入/广告费与利润型ROI不是同一指标。本题可算关联收入为广告费3倍，但缺成本、退款和因果归因条件；不能冒称200%利润ROI，更不能把关联订单全算成增量。"
+            }
+          },
+          {
+            "id": "br3_metrics_return_c",
+            "type": "off",
+            "text": "(3万-1万)÷1万，写成利润回报200%，汇报就这么报。",
+            "face": "calm",
+            "line": "成本只有投放费吗？",
+            "delta": -3
+          }
+        ],
+        "explain": "收入/广告费与利润型ROI不是同一指标。本题可算关联收入为广告费3倍，但缺成本、退款和因果归因条件；不能冒称200%利润ROI，更不能把关联订单全算成增量。"
+      }
+    },
+    {
+      "id": "br3_copy_promise",
+      "pools": [
+        "brand_copy"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "给{co.product}写主张前，先确定什么？",
+        "options": [
+          {
+            "id": "br3_copy_promise_a",
+            "type": "safe",
+            "text": "先问清写给谁、让他做什么事，产品现在到底能做到哪一步。",
+            "face": "nod",
+            "line": "嗯，先弄清产品能做到什么。",
+            "delta": 3
+          },
+          {
+            "id": "br3_copy_promise_b",
+            "type": "bold",
+            "text": "先挑一个产品兑现得了的任务，主张只围着它写。",
+            "face": "probe",
+            "line": "挑哪个任务？",
+            "followup": {
+              "text": "负责人想用“一键写出所有爆款”，醒目，能用吗？",
+              "options": [
+                {
+                  "id": "br3_copy_promise_h",
+                  "type": "hold",
+                  "text": "不用。爆款没人保证得了，改成演示里看得到的能力。",
+                  "face": "pleased",
+                  "line": "这句我敢放上页面。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_copy_promise_p",
+                  "type": "partial",
+                  "text": "主张留着，角落小字加一行“效果因人而异”，就算把承诺的问题解决了。",
+                  "face": "calm",
+                  "line": "小字救不了大字写的话。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_copy_promise_f",
+                  "type": "redline",
+                  "text": "同行都写“全网第一”“保证爆款”，我们也写，不写吃亏。",
+                  "face": "disappointed",
+                  "line": "这种话发出去，我们要被处罚的。"
+                }
+              ],
+              "explain": "主张要对得上用户任务和产品当下的能力。广告法限制“最”“第一”这类绝对化用语，也不许对没有依据的效果作承诺，“一键写出所有爆款”两样都沾。同行都这么写不能当理由，小字免责声明也改不掉正文里的承诺。稳妥的写法是只放演示里看得到、对得上的能力，再用试用和反馈检验大家有没有看懂。"
+            }
+          },
+          {
+            "id": "br3_copy_promise_c",
+            "type": "off",
+            "text": "先想一句押韵的，传播开了再回头解释产品是干什么的。",
+            "face": "calm",
+            "line": "押韵之后呢，产品是什么？",
+            "delta": -3
+          }
+        ],
+        "explain": "主张要对得上用户任务和产品当下的能力。广告法限制“最”“第一”这类绝对化用语，也不许对没有依据的效果作承诺，“一键写出所有爆款”两样都沾。同行都这么写不能当理由，小字免责声明也改不掉正文里的承诺。稳妥的写法是只放演示里看得到、对得上的能力，再用试用和反馈检验大家有没有看懂。"
+      }
+    },
+    {
+      "id": "br3_copy_compare",
+      "pools": [
+        "brand_copy"
+      ],
+      "priority": 58,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "负责人想在发布稿里写“比同类产品更好用”。你来写，怎么写？",
+        "options": [
+          {
+            "id": "br3_copy_compare_a",
+            "type": "safe",
+            "text": "先问“好用”拿什么比：有没有同样任务下的对照结果，再决定写不写。",
+            "face": "nod",
+            "line": "先要对照结果，这点对。",
+            "delta": 3
+          },
+          {
+            "id": "br3_copy_compare_b",
+            "type": "bold",
+            "text": "不写“更好用”，改写我们自己测过的事，把测试条件写在旁边。",
+            "face": "probe",
+            "line": "测试条件怎么写？",
+            "followup": {
+              "text": "负责人坚持点名那一款，还要写“它写不了长文”。怎么办？",
+              "options": [
+                {
+                  "id": "br3_copy_compare_h",
+                  "type": "hold",
+                  "text": "不点名，不说对方缺点；只放自己测过的结果，条件写明，被查也站得住。",
+                  "face": "pleased",
+                  "line": "这样写，对方来函我们也不慌。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_copy_compare_p",
+                  "type": "partial",
+                  "text": "可以点名，但只比对方公开写明的功能，不碰他们的缺点。",
+                  "face": "calm",
+                  "line": "只比公开的，稍微稳点。",
+                  "delta": 1
+                },
+                {
+                  "id": "br3_copy_compare_f",
+                  "type": "redline",
+                  "text": "先写上“它写不了长文”，没测过也没关系，对方来函再改。",
+                  "face": "disappointed",
+                  "line": "没测过就写，这种稿子不能发。"
+                }
+              ],
+              "explain": "比较广告不是不能做：前提是在同样条件下比出来的，写明测试范围和时间，别人来核对也站得住。广告法限制“最”“第一”这类绝对化用语，也不许贬低其他经营者的商品或服务；没测过就写“它写不了长文”，属于没有依据的比较，稿子发出去之前就该被拦下。只比对方公开写明的功能，比编造缺点稳，但点名比较仍要有测试依据和日期，并请法务或合规过目。把“更好用”换成“更聪明”“更懂你”，只是把比较藏起来，仍然没法对照。"
+            }
+          },
+          {
+            "id": "br3_copy_compare_c",
+            "type": "off",
+            "text": "“更好用”太虚，换成“更聪明”“更懂你”，没法对照。",
+            "face": "calm",
+            "line": "换个词，还是在比较吧？",
+            "delta": -3
+          }
+        ],
+        "explain": "比较广告不是不能做：前提是在同样条件下比出来的，写明测试范围和时间，别人来核对也站得住。广告法限制“最”“第一”这类绝对化用语，也不许贬低其他经营者的商品或服务；没测过就写“它写不了长文”，属于没有依据的比较，稿子发出去之前就该被拦下。只比对方公开写明的功能，比编造缺点稳，但点名比较仍要有测试依据和日期，并请法务或合规过目。把“更好用”换成“更聪明”“更懂你”，只是把比较藏起来，仍然没法对照。"
+      }
+    },
+    {
+      "id": "br3_copy_select",
+      "pools": [
+        "brand_copy"
+      ],
+      "priority": 56,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "面向职场写作者，两句文案怎么选：“灵感无限”或“把提纲变成初稿”？",
+        "options": [
+          {
+            "id": "br3_copy_select_a",
+            "type": "safe",
+            "text": "对照职场写作者要做的事和产品真能做的事，再找人测看不看得懂。",
+            "face": "nod",
+            "line": "先对照产品，好。",
+            "delta": 3
+          },
+          {
+            "id": "br3_copy_select_b",
+            "type": "bold",
+            "text": "两句都拿给目标用户看，问他们觉得产品能干什么。",
+            "face": "probe",
+            "line": "怎么测？",
+            "followup": {
+              "text": "十几个人里多数更喜欢“灵感无限”，能马上全量换成这句吗？",
+              "options": [
+                {
+                  "id": "br3_copy_select_h",
+                  "type": "hold",
+                  "text": "先看这十几个人是谁、看懂没有，再小流量试，不直接全换。",
+                  "face": "pleased",
+                  "line": "小流量先试，稳妥。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_copy_select_p",
+                  "type": "partial",
+                  "text": "大家更喜欢它，就说明受众认同了，不用再看试写数据。",
+                  "face": "calm",
+                  "line": "喜欢，不代表会用吧。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_copy_select_f",
+                  "type": "fail",
+                  "text": "文案本来没法验证，按团队里审美最好的那位的意见定，省得吵起来。",
+                  "face": "frown",
+                  "line": "没法验证？测一下很难吗？",
+                  "delta": -7
+                }
+              ],
+              "explain": "本题第二句更便于对照任务与演示，但仍是待验证假设。样本喜欢不等于准确理解或使用意愿；应观察目标人群解释主张和完成任务的表现，再决定规模。"
+            }
+          },
+          {
+            "id": "br3_copy_select_c",
+            "type": "off",
+            "text": "品牌要有余味，越抽象越好，测了反而把味道测没，直接选“灵感无限”。",
+            "face": "calm",
+            "line": "抽象到不知道产品干什么？",
+            "delta": -3
+          }
+        ],
+        "explain": "本题第二句更便于对照任务与演示，但仍是待验证假设。样本喜欢不等于准确理解或使用意愿；应观察目标人群解释主张和完成任务的表现，再决定规模。"
+      }
+    },
+    {
+      "id": "br3_media_calendar",
+      "pools": [
+        "brand_media"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "新版本同时有功能教程、用户故事和热点，怎样排期？",
+        "options": [
+          {
+            "id": "br3_media_calendar_a",
+            "type": "safe",
+            "text": "先排功能教程，让用户知道新版能干什么；故事和热点往后接。",
+            "face": "nod",
+            "line": "先排教程，有道理。",
+            "delta": 3
+          },
+          {
+            "id": "br3_media_calendar_b",
+            "type": "bold",
+            "text": "第一周先发教程和演示，故事紧跟着，热点沾得上边才蹭，沾不上就不蹭。",
+            "face": "probe",
+            "line": "热点怎么取舍？",
+            "followup": {
+              "text": "热点素材赶上了，但产品演示还没核对完，怎么处理？",
+              "options": [
+                {
+                  "id": "br3_media_calendar_h",
+                  "type": "hold",
+                  "text": "先把演示和授权核对完；热点不沾边，宁可不蹭。",
+                  "face": "pleased",
+                  "line": "宁可不蹭，对。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_media_calendar_p",
+                  "type": "partial",
+                  "text": "热点先发出去占位，演示里有错的地方之后再改。",
+                  "face": "calm",
+                  "line": "错的东西先发出去了？",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_media_calendar_f",
+                  "type": "fail",
+                  "text": "热点配图加一句“AI 帮你写”，不提具体功能就不会错，发。",
+                  "face": "frown",
+                  "line": "不提功能，用户为什么点？",
+                  "delta": -7
+                }
+              ],
+              "explain": "内容排期服务于用户任务与发布目标。热点相关、事实与授权均需核对；借势不是必选动作。核心演示出错会损害理解和信任，不能用短时曝光抵消。"
+            }
+          },
+          {
+            "id": "br3_media_calendar_c",
+            "type": "off",
+            "text": "热点这周流量大，教程晚两周发，等热度过了。",
+            "face": "calm",
+            "line": "新版上线两周没教程？",
+            "delta": -3
+          }
+        ],
+        "explain": "内容排期服务于用户任务与发布目标。热点相关、事实与授权均需核对；借势不是必选动作。核心演示出错会损害理解和信任，不能用短时曝光抵消。"
+      }
+    },
+    {
+      "id": "br3_media_creator",
+      "pools": [
+        "brand_media"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "预算有限，达人怎么选？",
+        "options": [
+          {
+            "id": "br3_media_creator_a",
+            "type": "safe",
+            "text": "先看他的粉丝是不是我们要的人，内容质量怎样，报价合不合算。",
+            "face": "nod",
+            "line": "三样都看了。",
+            "delta": 3
+          },
+          {
+            "id": "br3_media_creator_b",
+            "type": "bold",
+            "text": "先按人群挑，再看评论是不是真人在聊。",
+            "face": "probe",
+            "line": "评论怎么看真假？",
+            "followup": {
+              "text": "有位达人粉丝不多，但评论区聊得很具体。他合作就更有效吗？",
+              "options": [
+                {
+                  "id": "br3_media_creator_h",
+                  "type": "hold",
+                  "text": "不一定，评论具体是个好信号，还得核粉丝是不是我们的人群。",
+                  "face": "pleased",
+                  "line": "好信号，但还不到结论。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_media_creator_p",
+                  "type": "partial",
+                  "text": "评论这么具体，说明需求都是真的，预算可以多放给他。",
+                  "face": "calm",
+                  "line": "几十条评论，能代表多少人？",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_media_creator_f",
+                  "type": "fail",
+                  "text": "他愿意签保底曝光数，人群对不对不重要，先拿保底。",
+                  "face": "frown",
+                  "line": "保底的曝光，是谁在看？",
+                  "delta": -7
+                }
+              ],
+              "explain": "粉丝量和评论都只是线索，不能直接证明转化或真实性。选择应结合目标受众、交付内容、授权和可核对数据，小规模试投也应预先写清观察口径及停止条件。"
+            }
+          },
+          {
+            "id": "br3_media_creator_c",
+            "type": "off",
+            "text": "直接从粉丝最多的开始约，头部的省沟通，也最稳妥。",
+            "face": "calm",
+            "line": "预算有限，头部报价多少？",
+            "delta": -3
+          }
+        ],
+        "explain": "粉丝量和评论都只是线索，不能直接证明转化或真实性。选择应结合目标受众、交付内容、授权和可核对数据，小规模试投也应预先写清观察口径及停止条件。"
+      }
+    },
+    {
+      "id": "br3_collab_credit",
+      "pools": [
+        "brand_collab"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "活动由策划、设计、达人和你共同执行，怎样讲贡献？",
+        "options": [
+          {
+            "id": "br3_collab_credit_a",
+            "type": "safe",
+            "text": "团队和我自己的事分开讲，决策归谁也说清。",
+            "face": "nod",
+            "line": "分得清，好。",
+            "delta": 3
+          },
+          {
+            "id": "br3_collab_credit_b",
+            "type": "bold",
+            "text": "顺着活动流程讲：我接哪一环、跟谁对接、哪些决定不归我。",
+            "face": "probe",
+            "line": "你负责哪一环？",
+            "followup": {
+              "text": "策略是领导定的，你主要追素材、做复盘。这样讲得出价值吗？",
+              "options": [
+                {
+                  "id": "br3_collab_credit_h",
+                  "type": "hold",
+                  "text": "讲我追素材、做复盘具体做了什么；策略是负责人定的。",
+                  "face": "pleased",
+                  "line": "不抢功，这样讲有分量。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_collab_credit_p",
+                  "type": "partial",
+                  "text": "策略会上我也发过言，就说成“我们一起定的”，显得参与得深。",
+                  "face": "calm",
+                  "line": "发言和拍板，不是一回事。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_collab_credit_f",
+                  "type": "fail",
+                  "text": "执行也是我的价值，这场活动能办成，主要靠我追得紧，别人只是配合。",
+                  "face": "frown",
+                  "line": "主要靠你？领导和设计呢？",
+                  "delta": -7
+                }
+              ],
+              "explain": "执行贡献可以通过排期、素材质量、沟通和复盘证据展示；无需冒认定位或预算决策。团队结果与个人职责要分列，夸大责任会让后续证据无法相互支持。"
+            }
+          },
+          {
+            "id": "br3_collab_credit_c",
+            "type": "redline",
+            "text": "策划、设计我都参与过，就说整场活动是我独立完成的，不用提别人。",
+            "face": "calm",
+            "line": "整场都是你？这个要去核实。"
+          }
+        ],
+        "explain": "执行贡献可以通过排期、素材质量、沟通和复盘证据展示；无需冒认定位或预算决策。团队结果与个人职责要分列，夸大责任会让后续证据无法相互支持。"
+      }
+    },
+    {
+      "id": "br3_collab_review",
+      "pools": [
+        "brand_collab"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "销售说线索不准，内容说曝光不错，怎么开复盘？",
+        "options": [
+          {
+            "id": "br3_collab_review_a",
+            "type": "safe",
+            "text": "先把两边叫到一起，把“有效线索”到底指什么，定成一句大家都认的话。",
+            "face": "nod",
+            "line": "先对齐定义，对。",
+            "delta": 3
+          },
+          {
+            "id": "br3_collab_review_b",
+            "type": "bold",
+            "text": "把线索来源、统计时间和交接记录摆一张表上，找哪一环对不上。",
+            "face": "probe",
+            "line": "摆出来看，行。",
+            "followup": {
+              "text": "两边统计的时间窗口不一样，交接也没留记录，怎么复盘？",
+              "options": [
+                {
+                  "id": "br3_collab_review_h",
+                  "type": "hold",
+                  "text": "先标出能确认的和缺数据的，补上交接记录，下批线索按新口径试。",
+                  "face": "pleased",
+                  "line": "缺的就说缺，行。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_collab_review_p",
+                  "type": "partial",
+                  "text": "两边各报一份数字，谁的转化更好看，就按谁的口径来复盘，免得吵。",
+                  "face": "calm",
+                  "line": "谁数字好看谁说了算？",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_collab_review_f",
+                  "type": "fail",
+                  "text": "曝光量是我这边的事，已经达标，线索的复盘我就不去了。",
+                  "face": "frown",
+                  "line": "线索不准，你不想知道原因？",
+                  "delta": -7
+                }
+              ],
+              "explain": "跨团队复盘需要共同定义目标、窗口与交接责任。数据缺口时先承认未知，不能按谁数字好看来定标准；品牌不必独占成交责任，也不能完全回避用户从理解到行动的衔接。"
+            }
+          },
+          {
+            "id": "br3_collab_review_c",
+            "type": "off",
+            "text": "先查销售的跟进记录，是不是回得太慢。",
+            "face": "calm",
+            "line": "你先怪销售？",
+            "delta": -3
+          }
+        ],
+        "explain": "跨团队复盘需要共同定义目标、窗口与交接责任。数据缺口时先承认未知，不能按谁数字好看来定标准；品牌不必独占成交责任，也不能完全回避用户从理解到行动的衔接。"
+      }
+    },
+    {
+      "id": "br3_strategy_asset",
+      "pools": [
+        "brand_strategy"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "短期点击下降，就该停掉品牌内容吗？",
+        "options": [
+          {
+            "id": "br3_strategy_asset_a",
+            "type": "safe",
+            "text": "先别停，看这些内容的目标和花了多少。",
+            "face": "nod",
+            "line": "先别急着停，嗯。",
+            "delta": 3
+          },
+          {
+            "id": "br3_strategy_asset_b",
+            "type": "bold",
+            "text": "把内容分成拉新、让人记住、长期积累三类，每类给个验证期限，到期复盘。",
+            "face": "probe",
+            "line": "期限怎么定？",
+            "followup": {
+              "text": "投了三个月，没看到理解度提升，回访也没变多，还继续吗？",
+              "options": [
+                {
+                  "id": "br3_strategy_asset_h",
+                  "type": "hold",
+                  "text": "先补测理解度和回访，再定一条到期没起色就改的线。",
+                  "face": "pleased",
+                  "line": "有停改线，我放心。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_strategy_asset_p",
+                  "type": "partial",
+                  "text": "继续投，品牌资产是时间堆出来的，投得久了就会慢慢形成。",
+                  "face": "calm",
+                  "line": "投多久算够？",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_strategy_asset_f",
+                  "type": "fail",
+                  "text": "点击跌了就说明品牌这套没用，下个月全改成促销拉新。",
+                  "face": "frown",
+                  "line": "点击就是全部依据？",
+                  "delta": -7
+                }
+              ],
+              "explain": "品牌效果可能滞后，但滞后不是免于验证。短期触达和行为、中期信息记忆、长期信任资产需要不同证据。根据成本、受众和阶段目标设观察期限及停改条件，不靠单一点击率或投入时长裁定成败。"
+            }
+          },
+          {
+            "id": "br3_strategy_asset_c",
+            "type": "off",
+            "text": "品牌本来就见效慢，现在不用看点击、注册这些短期数。",
+            "face": "calm",
+            "line": "那怎么知道在往前走？",
+            "delta": -3
+          }
+        ],
+        "explain": "品牌效果可能滞后，但滞后不是免于验证。短期触达和行为、中期信息记忆、长期信任资产需要不同证据。根据成本、受众和阶段目标设观察期限及停改条件，不靠单一点击率或投入时长裁定成败。"
+      }
+    },
+    {
+      "id": "br3_strategy_focus",
+      "pools": [
+        "brand_strategy"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "小团队想同时服务学生、职场人和创作者，你怎么建议？",
+        "options": [
+          {
+            "id": "br3_strategy_focus_a",
+            "type": "safe",
+            "text": "先看现有用户里哪一类用得最多，团队的人手够照顾几类。",
+            "face": "nod",
+            "line": "先看数据，对。",
+            "delta": 3
+          },
+          {
+            "id": "br3_strategy_focus_b",
+            "type": "bold",
+            "text": "先押职场写初稿这个场景，说清放掉另外两类的代价。",
+            "face": "probe",
+            "line": "代价是什么？",
+            "followup": {
+              "text": "我们选了职场人，但学生一直在用。要把他们劝退吗？",
+              "options": [
+                {
+                  "id": "br3_strategy_focus_h",
+                  "type": "hold",
+                  "text": "不赶，他们照用；只是宣传和功能的资源先压在职场这一个场景上。",
+                  "face": "pleased",
+                  "line": "资源集中，不赶人，行。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_strategy_focus_p",
+                  "type": "partial",
+                  "text": "怕老用户流失，三类人的宣传各占三分之一，一视同仁。",
+                  "face": "calm",
+                  "line": "三分之一，哪个也打不透。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_strategy_focus_f",
+                  "type": "fail",
+                  "text": "定位定了职场人，学生的购买入口就该关掉。",
+                  "face": "frown",
+                  "line": "有人想付钱，你还拦着？",
+                  "delta": -7
+                }
+              ],
+              "explain": "聚焦是资源与信息选择，不是禁止其他用户使用。应说明优先场景、证据和机会成本，同时监测自然需求；若证据变化可以调整，不把“覆盖所有人”当成没有成本的选择。"
+            }
+          },
+          {
+            "id": "br3_strategy_focus_c",
+            "type": "off",
+            "text": "一句文案把学生、职场人、创作者都点到，名字多写几个，获客更容易。",
+            "face": "calm",
+            "line": "三类都点，谁觉得是说他？",
+            "delta": -3
+          }
+        ],
+        "explain": "聚焦是资源与信息选择，不是禁止其他用户使用。应说明优先场景、证据和机会成本，同时监测自然需求；若证据变化可以调整，不把“覆盖所有人”当成没有成本的选择。"
+      }
+    },
+    {
+      "id": "br3_intro_evidence",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先介绍你和品牌市场岗位相关的准备。",
+        "options": [
+          {
+            "id": "br3_intro_evidence_a",
+            "type": "safe",
+            "text": "挑最相关的一段：任务、我做了什么、有什么记录。",
+            "face": "nod",
+            "line": "有任务有证据，行，往下说。",
+            "delta": 3
+          },
+          {
+            "id": "br3_intro_evidence_b",
+            "type": "bold",
+            "text": "先讲我实际交付过的内容，再说哪些能带过来、哪些还欠着。",
+            "face": "probe",
+            "line": "好，讲讲看。",
+            "followup": {
+              "text": "你手上只有阅读和点击，没有成交记录，这个成果怎么讲？",
+              "options": [
+                {
+                  "id": "br3_intro_evidence_h",
+                  "type": "hold",
+                  "text": "阅读和点击照实列，各自怎么统计的说清；成交没拿到。",
+                  "face": "pleased",
+                  "line": "对，没有的就别往里算。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_intro_evidence_p",
+                  "type": "partial",
+                  "text": "按常见转化率估个销售额报上去，再补一句数据不全，免得被问住。",
+                  "face": "calm",
+                  "line": "估的数，我们会当成你的结果。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_intro_evidence_f",
+                  "type": "fail",
+                  "text": "那篇阅读最高的有好几万，我写成“带来好几万潜在客户”。",
+                  "face": "frown",
+                  "line": "阅读和客户，是一回事吗？",
+                  "delta": -7
+                }
+              ],
+              "explain": "开场应连接岗位与可核对的个人交付。阅读、点击可以说明内容触达或行为，不能自动推成成交和净增量；缺数据时说清范围，仍可用作品与执行过程展示能力。"
+            }
+          },
+          {
+            "id": "br3_intro_evidence_c",
+            "type": "off",
+            "text": "先聊聊我对热点的敏感和平时的积累，交付的细节你们问了我再讲。",
+            "face": "calm",
+            "line": "热点谁都会追，你交付过什么？",
+            "delta": -3
+          }
+        ],
+        "explain": "开场应连接岗位与可核对的个人交付。阅读、点击可以说明内容触达或行为，不能自动推成成交和净增量；缺数据时说清范围，仍可用作品与执行过程展示能力。"
+      }
+    },
+    {
+      "id": "br3_intro_scope",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "你想让我们先了解哪段内容经历？",
+        "options": [
+          {
+            "id": "br3_intro_scope_a",
+            "type": "safe",
+            "text": "挑最对口的一段，团队拿的成绩和我自己做的，分开讲。",
+            "face": "nod",
+            "line": "分开讲，我听着清楚。",
+            "delta": 3
+          },
+          {
+            "id": "br3_intro_scope_b",
+            "type": "bold",
+            "text": "挑一个带数据的任务，讲清数据从哪来、统计到哪一步、哪些没统计。",
+            "face": "probe",
+            "line": "好，哪个任务？",
+            "followup": {
+              "text": "手上只有阅读和点击，没有成交记录，成果怎么介绍？",
+              "options": [
+                {
+                  "id": "br3_intro_scope_h",
+                  "type": "hold",
+                  "text": "已有的口径和变化我列出来；增量没验证过，直说没验证。",
+                  "face": "pleased",
+                  "line": "没验证的直说，行。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_intro_scope_p",
+                  "type": "partial",
+                  "text": "按阅读涨幅折个销量出来，标一句“仅供参考”。",
+                  "face": "calm",
+                  "line": "标了参考，数字也会被记住。",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_intro_scope_f",
+                  "type": "fail",
+                  "text": "点击涨了三倍，就说生意涨了三倍，数据明摆着。",
+                  "face": "frown",
+                  "line": "点击和生意，隔着好几步呢。",
+                  "delta": -7
+                }
+              ],
+              "explain": "开场应连接岗位与可核对的个人交付。阅读、点击可以说明内容触达或行为，不能自动推成成交和净增量；缺数据时说清范围，仍可用作品与执行过程展示能力。"
+            }
+          },
+          {
+            "id": "br3_intro_scope_c",
+            "type": "off",
+            "text": "先报最亮眼的总数，人数和次数等被问了再说。",
+            "face": "calm",
+            "line": "这总数是人数还是次数？",
+            "delta": -3
+          }
+        ],
+        "explain": "开场应连接岗位与可核对的个人交付。阅读、点击可以说明内容触达或行为，不能自动推成成交和净增量；缺数据时说清范围，仍可用作品与执行过程展示能力。"
+      }
+    },
+    {
+      "id": "br3_reverse_tasks",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "你想进一步了解这个品牌岗位什么？",
+        "options": [
+          {
+            "id": "br3_reverse_tasks_a",
+            "type": "reverse",
+            "text": "新人前三个月，你们希望我交出什么？品牌和增长怎么分工？",
+            "face": "nod",
+            "line": "先跟一场发布，素材和复盘归你。品牌管认知，增长盯转化。",
+            "delta": 3
+          },
+          {
+            "id": "br3_reverse_tasks_b",
+            "type": "reverse",
+            "text": "现在内容做完之后怎么复盘？是谁给我反馈？",
+            "face": "nod",
+            "line": "每次发布后两周复盘一次，负责人当面给反馈。",
+            "delta": 2
+          },
+          {
+            "id": "br3_reverse_tasks_c",
+            "type": "reverse",
+            "text": "岗位叫品牌，是不是不用天天盯数据，主要做创意就行？",
+            "face": "nod",
+            "line": "数据要看的，品牌也要对结果负责。",
+            "delta": -2
+          }
+        ],
+        "explain": "反问确认真实任务、资源和反馈机制，比仅凭岗位名称推断日常职责更有效。创意与效果需要共同目标，预算和审批权限也应以实际安排为准。"
+      }
+    },
+    {
+      "id": "br3_reverse_resources",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "brand"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "关于团队资源，你还有什么想了解？",
+        "options": [
+          {
+            "id": "br3_reverse_resources_a",
+            "type": "reverse",
+            "text": "内容、设计、投放现在是怎么配合的？哪些要外包？",
+            "face": "nod",
+            "line": "内容和设计在内部，投放有一部分外包。",
+            "delta": 3
+          },
+          {
+            "id": "br3_reverse_resources_b",
+            "type": "reverse",
+            "text": "现在最想打透的是哪类用户？你们怎么判断他们看懂了？",
+            "face": "nod",
+            "line": "先是职场写作者。看懂没有，看试写完成率。",
+            "delta": 2
+          },
+          {
+            "id": "br3_reverse_resources_c",
+            "type": "reverse",
+            "text": "创意预算，新人自己就能定吗？",
+            "face": "nod",
+            "line": "不能，预算要负责人批。",
+            "delta": -2
+          }
+        ],
+        "explain": "反问确认真实任务、资源和反馈机制，比仅凭岗位名称推断日常职责更有效。创意与效果需要共同目标，预算和审批权限也应以实际安排为准。"
+      }
+    },
+    {
+      "id": "br3_vision_remember",
+      "pools": [
+        "unicorn_vision"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "brand",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "AI 写作这块，大厂都在做，功能也差不多。用户凭什么记住我们，而不是随手点开别家？",
+        "options": [
+          {
+            "id": "br3_vision_remember_a",
+            "type": "safe",
+            "text": "只打一个具体场景，比如赶论文，每次出现只说这一件事。",
+            "face": "nod",
+            "line": "嗯，窄一点倒是有可能。",
+            "delta": 3
+          },
+          {
+            "id": "br3_vision_remember_b",
+            "type": "bold",
+            "text": "拿{cite.short}说：读者看到了，和记住了，是两件事。",
+            "face": "probe",
+            "line": "怎么分？",
+            "requires": {
+              "highlight": "p3t_creator_denominator"
+            },
+            "fallback": {
+              "id": "br3_vision_remember_b0",
+              "type": "safe",
+              "text": "先用一周你们的产品，找出哪句话是只有你们能说的。",
+              "face": "nod",
+              "line": "嗯，先用起来再说。",
+              "delta": 1
+            },
+            "followup": {
+              "text": "看到和记住，你怎么分？拿什么证明用户记住了？",
+              "options": [
+                {
+                  "id": "br3_vision_remember_h",
+                  "type": "hold",
+                  "text": "我的2.8万阅读含转发，证明不了记住；得不给提示地问人，看他想得起谁。",
+                  "face": "pleased",
+                  "line": "不给提示……这个测法我们没做过。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_vision_remember_p",
+                  "type": "partial",
+                  "text": "看回头搜我们名字的人涨没涨，再看有没有人主动转发。",
+                  "face": "calm",
+                  "line": "搜索会涨，也可能是我们投了广告。",
+                  "delta": 1
+                },
+                {
+                  "id": "br3_vision_remember_f",
+                  "type": "fail",
+                  "text": "我那篇2.8万阅读的文章，说明读者很容易记住我写的东西。",
+                  "face": "frown",
+                  "line": "阅读和记住，是一回事吗？",
+                  "delta": -7
+                }
+              ],
+              "explain": "这道题把“被看见”和“被记住”分开。功能相近时，用户记住的多半是一个具体场景加一句只属于自己的话；讲自己的账号经验时，阅读和转发是触达数据，证明不了品牌被记住，要证明得靠不给提示的回忆测试、回访、主动搜索这类信号，并说清它们各自的局限。把峰值阅读说成记忆，创始人多半会当场追问数据口径；只靠砸钱堆声量，对预算有限的创业公司也不现实。"
+            }
+          },
+          {
+            "id": "br3_vision_remember_c",
+            "type": "off",
+            "text": "多请几个大号发一轮，先把声量堆起来，记不记得住后面再看。",
+            "face": "frown",
+            "line": "钱不多，这么堆行吗？",
+            "delta": -3
+          }
+        ],
+        "explain": "这道题把“被看见”和“被记住”分开。功能相近时，用户记住的多半是一个具体场景加一句只属于自己的话；讲自己的账号经验时，阅读和转发是触达数据，证明不了品牌被记住，要证明得靠不给提示的回忆测试、回访、主动搜索这类信号，并说清它们各自的局限。把峰值阅读说成记忆，创始人多半会当场追问数据口径；只靠砸钱堆声量，对预算有限的创业公司也不现实。"
+      }
+    },
+    {
+      "id": "br3_vision_carry",
+      "pools": [
+        "unicorn_vision"
+      ],
+      "priority": 40,
+      "when": {
+        "role": "brand",
+        "stage": "startup"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我们这儿品牌就你一个人，没人教你。有没有一件事，是没人带、你自己扛下来的？",
+        "options": [
+          {
+            "id": "br3_vision_carry_a",
+            "type": "safe",
+            "text": "讲{p.self_drive|一次没人带、我自己摸索着做完的事}。",
+            "face": "nod",
+            "line": "嗯，一个人做的。",
+            "delta": 3
+          },
+          {
+            "id": "br3_vision_carry_b",
+            "type": "bold",
+            "text": "讲{cite.short}：选题、写作、发布，两年都是我一个人。",
+            "face": "probe",
+            "line": "一个人做两年，具体怎么做？",
+            "requires": {
+              "highlight": "p3t_creator_denominator"
+            },
+            "fallback": {
+              "id": "br3_vision_carry_b0",
+              "type": "safe",
+              "text": "讲一次临时要学新东西，我是怎么几天里补上的。",
+              "face": "nod",
+              "line": "嗯。",
+              "delta": 1
+            },
+            "followup": {
+              "text": "一个人做了两年，你怎么知道哪些内容是做对了的？",
+              "options": [
+                {
+                  "id": "br3_vision_carry_h",
+                  "type": "hold",
+                  "text": "普通篇稳定在800到1500，我拿它当常态；2.8万那篇含转发，单独标出来。",
+                  "face": "pleased",
+                  "line": "单独标出来，这个习惯好。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_vision_carry_p",
+                  "type": "partial",
+                  "text": "哪篇阅读高，就多写同一类；低的就少写。",
+                  "face": "calm",
+                  "line": "高的那篇，是怎么高起来的？",
+                  "delta": 1
+                },
+                {
+                  "id": "br3_vision_carry_f",
+                  "type": "fail",
+                  "text": "阅读最高的那篇2.8万，就是我做对了的证明。",
+                  "face": "frown",
+                  "line": "一篇的数，能证明什么？",
+                  "delta": -7
+                }
+              ],
+              "explain": "这道题落在没人管的时候会不会自己往前推。说一件真事最稳；被追问“怎么知道做对了”时，用常态数据做判断、把峰值单独标注，比拿一篇爆款证明自己更可信。按阅读高低调整选题可以当起点，但峰值篇含转发，还要结合普通篇和读者留言。创业公司的品牌岗常常是一个人做很多事，判断好坏的依据得自己有。"
+            }
+          },
+          {
+            "id": "br3_vision_carry_c",
+            "type": "off",
+            "text": "一个人从零做品牌我没把握，想先跟着有经验的人学。",
+            "face": "frown",
+            "line": "在我们这儿，方向得你自己找。",
+            "delta": -3
+          }
+        ],
+        "explain": "这道题落在没人管的时候会不会自己往前推。说一件真事最稳；被追问“怎么知道做对了”时，用常态数据做判断、把峰值单独标注，比拿一篇爆款证明自己更可信。按阅读高低调整选题可以当起点，但峰值篇含转发，还要结合普通篇和读者留言。创业公司的品牌岗常常是一个人做很多事，判断好坏的依据得自己有。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "br3_bg_cross",
+      "pools": [
+        "founder"
+      ],
+      "priority": 65,
+      "when": {
+        "role": "brand",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你的专业和品牌市场并不完全对应，准备了哪些可核对的作品？",
+        "options": [
+          {
+            "id": "br3_bg_cross_a",
+            "type": "safe",
+            "text": "拿真作品说话，讲清哪部分是我做的，也说还差什么、打算怎么补。",
+            "face": "nod",
+            "line": "嗯，缺什么你自己清楚。",
+            "delta": 3
+          },
+          {
+            "id": "br3_bg_cross_b",
+            "type": "bold",
+            "text": "把岗位要求列出来，我的作品对上哪几条、缺哪几条，一条条说。",
+            "face": "probe",
+            "line": "一条条说，好。",
+            "followup": {
+              "text": "入职前几个月可能主要是追素材、排期。你能接受吗？",
+              "options": [
+                {
+                  "id": "br3_bg_cross_h",
+                  "type": "hold",
+                  "text": "能。先把交付复盘做扎实，有记录再争取参与方案。",
+                  "face": "pleased",
+                  "line": "有记录再谈方案，实在。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_bg_cross_p",
+                  "type": "partial",
+                  "text": "能接受，先做着，熬到时间够了，自然会让我做战略。",
+                  "face": "calm",
+                  "line": "时间够了就会轮到你？",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_bg_cross_f",
+                  "type": "fail",
+                  "text": "追素材不是品牌岗该做的事，我更想直接做创意和策略，不想一直盯排期。",
+                  "face": "frown",
+                  "line": "那我们这儿可能不合适。",
+                  "delta": -7
+                }
+              ],
+              "explain": "跨专业可用作品、用户观察和协作交付证明准备，但不能把兴趣直接当成熟练能力。排期与素材跟进可积累真实反馈，能否参与决策仍取决于证据、任务与组织安排。"
+            }
+          },
+          {
+            "id": "br3_bg_cross_c",
+            "type": "off",
+            "text": "品牌这行靠感觉和审美，专业不对口问题不大，来了再学。",
+            "face": "calm",
+            "line": "感觉，拿什么证明？",
+            "delta": -3
+          }
+        ],
+        "explain": "跨专业可用作品、用户观察和协作交付证明准备，但不能把兴趣直接当成熟练能力。排期与素材跟进可积累真实反馈，能否参与决策仍取决于证据、任务与组织安排。"
+      }
+    },
+    {
+      "id": "br3_bg_tech",
+      "pools": [
+        "founder"
+      ],
+      "priority": 65,
+      "when": {
+        "role": "brand",
+        "major_kind": "tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你有技术背景，为什么想做品牌市场，准备怎样补用户表达？",
+        "options": [
+          {
+            "id": "br3_bg_tech_a",
+            "type": "safe",
+            "text": "讲技术经历怎么帮我把产品讲明白，拿作品证明，也说还缺什么。",
+            "face": "nod",
+            "line": "嗯，缺什么你自己清楚。",
+            "delta": 3
+          },
+          {
+            "id": "br3_bg_tech_b",
+            "type": "bold",
+            "text": "把岗位要求列出来，我的作品对上哪几条、缺哪几条，一条条说，再说怎么补。",
+            "face": "probe",
+            "line": "一条条说，好。",
+            "followup": {
+              "text": "入职前几个月可能主要是追素材、排期。你能接受吗？",
+              "options": [
+                {
+                  "id": "br3_bg_tech_h",
+                  "type": "hold",
+                  "text": "能。先把交付和复盘做扎实，有了记录，再争取参与方案。",
+                  "face": "pleased",
+                  "line": "有记录再谈方案，实在。",
+                  "delta": 9
+                },
+                {
+                  "id": "br3_bg_tech_p",
+                  "type": "partial",
+                  "text": "能接受，先做着，熬到时间够了，自然会让我做战略，不用急着争取。",
+                  "face": "calm",
+                  "line": "时间够了就会轮到你？",
+                  "delta": -3
+                },
+                {
+                  "id": "br3_bg_tech_f",
+                  "type": "fail",
+                  "text": "追素材不是品牌岗的活儿，我更想做创意。",
+                  "face": "frown",
+                  "line": "那我们这儿可能不合适。",
+                  "delta": -7
+                }
+              ],
+              "explain": "跨专业可用作品、用户观察和协作交付证明准备，但不能把兴趣直接当成熟练能力。排期与素材跟进可积累真实反馈，能否参与决策仍取决于证据、任务与组织安排。"
+            }
+          },
+          {
+            "id": "br3_bg_tech_c",
+            "type": "off",
+            "text": "品牌靠感觉和审美，专业不对口问题不大。",
+            "face": "calm",
+            "line": "感觉，拿什么证明？",
+            "delta": -3
+          }
+        ],
+        "explain": "跨专业可用作品、用户观察和协作交付证明准备，但不能把兴趣直接当成熟练能力。排期与素材跟进可积累真实反馈，能否参与决策仍取决于证据、任务与组织安排。"
+      }
+    }
+  ],
+  "_sources": [
+    "reference/content/05-正文/G8-know-1-L3-1",
+    "reference/content/05-正文/G8-screen-5-1",
+    "reference/content/05-正文/G8-qa-2-2",
+    "reference/content/05-正文/G8-qa-3-1",
+    "reference/content/05-正文/G8-qa-3-2",
+    "reference/content/05-正文/G8-qa-4-1",
+    "reference/content/05-正文/G8-close-2-2"
+  ]
+}

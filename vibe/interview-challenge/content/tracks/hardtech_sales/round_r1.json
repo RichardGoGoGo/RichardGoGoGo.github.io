@@ -1,0 +1,54 @@
+{
+  "id": "r1",
+  "name": "销售经理面",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A4",
+    "title": "销售经理"
+  },
+  "scene": "S10",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": true
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "sales_pipeline",
+      "swap": true
+    },
+    {
+      "slot": "deep",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "sales_discovery",
+      "swap": true
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "sales_solution",
+      "swap": true
+    },
+    {
+      "slot": "skill",
+      "dynamic": "skill_probe",
+      "fallback_pool": "sales_pipeline",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {}
+}

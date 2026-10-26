@@ -1,0 +1,54 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "unicorn",
+  "interviewer": {
+    "art": "A4",
+    "title": "品牌经理"
+  },
+  "scene": "S5",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "brand_metrics",
+      "swap": true
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "brand_copy",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "brand_media",
+      "swap": false
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "brand_collab",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

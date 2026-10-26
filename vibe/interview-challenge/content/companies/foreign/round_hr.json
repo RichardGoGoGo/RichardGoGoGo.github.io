@@ -1,0 +1,173 @@
+{
+  "id": "r3",
+  "name": "HR Interview",
+  "company": "foreign",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR Partner"
+  },
+  "scene": "S11",
+  "hello": "Hello, thanks for coming in. Let's talk about what you're looking for and what comes next.",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "intro_hr",
+      "swap": false
+    },
+    {
+      "slot": "why",
+      "node": "fgc_why",
+      "swap": true,
+      "alternates": [
+        "fgc_career"
+      ]
+    },
+    {
+      "slot": "background",
+      "dynamic": "background",
+      "pool": "hr",
+      "swap": false
+    },
+    {
+      "slot": "offers",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false
+    },
+    {
+      "slot": "workstyle",
+      "dynamic": "pool",
+      "pool": "hr_misc",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "fgc_why": {
+      "tag": "动机与稳定",
+      "text": "Why Meridane, and what interests you about {co.product}?",
+      "options": [
+        {
+          "id": "fgc_why_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "I want to build collaboration tools grounded in real user needs.",
+          "face": "nod",
+          "line": "Okay, that's a clear motivation."
+        },
+        {
+          "id": "fgc_why_b",
+          "type": "bold",
+          "text": "I'd explore a workflow and check its trade-offs with users.",
+          "face": "probe",
+          "line": "Interesting. Let me ask about that.",
+          "followup": {
+            "text": "Suppose one customer requests a special approval rule. What would you clarify first?",
+            "options": [
+              {
+                "id": "fgc_why_h",
+                "type": "hold",
+                "delta": 9,
+                "text": "Who needs it, what the risk is, and whether current controls help.",
+                "face": "pleased",
+                "line": "Good. That's how I'd clarify it too."
+              },
+              {
+                "id": "fgc_why_p",
+                "type": "partial",
+                "delta": 1,
+                "text": "I'd ask how soon they need it, then plan a dedicated feature.",
+                "face": "calm",
+                "line": "Okay, but who asked for it, and why?"
+              },
+              {
+                "id": "fgc_why_f",
+                "type": "fail",
+                "delta": -7,
+                "text": "I'd ask how fast we can add it, then make it the default for all.",
+                "face": "frown",
+                "line": "Hmm, would that suit every customer?"
+              }
+            ],
+            "explain": "谈动机，要从真实的岗位和产品问题说起，别把国际品牌当成成长的保证。企业协作功能涉及使用者、管理者和权限，遇到定制请求应先澄清谁需要、有什么风险，再比较用配置还是做开发；不必声称自己用过并不存在的产品。"
+          }
+        },
+        {
+          "id": "fgc_why_c",
+          "type": "off",
+          "delta": -3,
+          "text": "The international brand should give me faster career progression.",
+          "face": "calm",
+          "line": "Hmm, I'd like to hear about the work itself."
+        }
+      ],
+      "explain": "谈动机，要从真实的岗位和产品问题说起，别把国际品牌当成成长的保证。企业协作功能涉及使用者、管理者和权限，遇到定制请求应先澄清谁需要、有什么风险，再比较用配置还是做开发；不必声称自己用过并不存在的产品。"
+    },
+    "fgc_career": {
+      "tag": "动机与稳定",
+      "text": "What would you aim to learn during your first year here?",
+      "options": [
+        {
+          "id": "fgc_career_b",
+          "type": "bold",
+          "text": "I'd agree on milestones, ask for feedback, and adjust my plan.",
+          "face": "probe",
+          "line": "Milestones, okay. Let me press on that.",
+          "followup": {
+            "text": "Your first assignment is smaller than you expected. How would you respond?",
+            "options": [
+              {
+                "id": "fgc_career_p",
+                "type": "partial",
+                "delta": 1,
+                "text": "Finish it quickly and ask when a larger assignment will appear.",
+                "face": "calm",
+                "line": "Okay, but is the first task done well?"
+              },
+              {
+                "id": "fgc_career_f",
+                "type": "fail",
+                "delta": -7,
+                "text": "I'd push for a bigger project, since small tasks limit visibility.",
+                "face": "frown",
+                "line": "Hmm, small tasks still count."
+              },
+              {
+                "id": "fgc_career_h",
+                "type": "hold",
+                "delta": 9,
+                "text": "Clarify its value and success criteria, then ask for feedback.",
+                "face": "pleased",
+                "line": "Good, that shows some maturity."
+              }
+            ],
+            "explain": "谈发展的计划，要和当前的任务、成功条件和反馈连起来。第一个任务比预期小，也可能有完整的责任，先弄清它的价值，再争取下一步，比按项目大小判断成长更具体。可以表达长期的方向，但别把入职时间或熟悉工具当成自动晋升的依据。"
+          }
+        },
+        {
+          "id": "fgc_career_c",
+          "type": "off",
+          "delta": -3,
+          "text": "I'd move into a lead role quickly once I learn the tools.",
+          "face": "calm",
+          "line": "Hmm, that's quite a fast timeline."
+        },
+        {
+          "id": "fgc_career_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "I'd learn the product and deliver one well-scoped task.",
+          "face": "nod",
+          "line": "Okay, that's a sensible start."
+        }
+      ],
+      "explain": "谈发展的计划，要和当前的任务、成功条件和反馈连起来。第一个任务比预期小，也可能有完整的责任，先弄清它的价值，再争取下一步，比按项目大小判断成长更具体。可以表达长期的方向，但别把入职时间或熟悉工具当成自动晋升的依据。"
+    }
+  }
+}

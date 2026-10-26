@@ -4,7 +4,10 @@
     "midcorp",
     "unicorn",
     "bigcorp",
-    "soe"
+    "soe",
+    "hardtech",
+    "foreign",
+    "studio"
   ],
   "sectors": {
     "internet": {
@@ -45,6 +48,18 @@
         "mid"
       ],
       "note": "在华校招的外企基本是大中型公司，没有小厂、初创"
+    },
+    "game": {
+      "name": "游戏",
+      "note": "游戏研发、发行公司；大厂分工细，中小工作室一人多岗",
+      "scales": [
+        "big",
+        "mid",
+        "small"
+      ],
+      "stages": [
+        "startup"
+      ]
     }
   },
   "scales": {
@@ -68,7 +83,9 @@
     "zhouan",
     "linke",
     "xunuo",
-    "chengyuan"
+    "chengyuan",
+    "shenhe",
+    "yezhou"
   ],
   "roles": {
     "fe": {
@@ -77,7 +94,14 @@
       "note": "岗位格 G3 · 前端 / 客户端",
       "work": "工程",
       "switch_to": "产品",
-      "growth": "前端工程化方向走，先从团队里的构建和规范做起"
+      "growth": "前端工程化方向走，先从团队里的构建和规范做起",
+      "en": {
+        "name": "frontend",
+        "full": "Frontend Engineer",
+        "work": "engineering",
+        "switch_to": "product",
+        "growth": "frontend infra, starting with build tooling"
+      }
     },
     "pm": {
       "name": "产品",
@@ -85,7 +109,14 @@
       "note": "岗位格 G6 · 产品",
       "work": "产品",
       "switch_to": "运营",
-      "growth": "数据产品方向走，先从埋点和指标体系做起"
+      "growth": "数据产品方向走，先从埋点和指标体系做起",
+      "en": {
+        "name": "product",
+        "full": "Product Manager",
+        "work": "product",
+        "switch_to": "operations",
+        "growth": "data products, starting with metrics"
+      }
     },
     "be": {
       "name": "后端",
@@ -93,7 +124,14 @@
       "note": "岗位格 G1 · 后端",
       "work": "工程",
       "switch_to": "产品",
-      "growth": "后端架构方向走，先把高并发和稳定性这块做扎实"
+      "growth": "后端架构方向走，先把高并发和稳定性这块做扎实",
+      "en": {
+        "name": "backend",
+        "full": "Backend Engineer",
+        "work": "engineering",
+        "switch_to": "product",
+        "growth": "backend systems, starting with reliability"
+      }
     },
     "algo": {
       "name": "算法",
@@ -101,7 +139,14 @@
       "note": "岗位格 G2 · 算法",
       "work": "算法",
       "switch_to": "研发",
-      "growth": "推荐或大模型应用方向走，先把一个方向做深"
+      "growth": "推荐或大模型应用方向走，先把一个方向做深",
+      "en": {
+        "name": "machine learning",
+        "full": "Machine Learning Engineer",
+        "work": "machine learning",
+        "switch_to": "engineering",
+        "growth": "recsys or LLM apps, going deep on one first"
+      }
     },
     "data": {
       "name": "数据分析",
@@ -109,7 +154,14 @@
       "note": "岗位格 G5 · 数据分析",
       "work": "数据分析",
       "switch_to": "产品",
-      "growth": "业务分析方向走，先把指标体系和实验分析做扎实"
+      "growth": "业务分析方向走，先把指标体系和实验分析做扎实",
+      "en": {
+        "name": "data analytics",
+        "full": "Data Analyst",
+        "work": "data analytics",
+        "switch_to": "product",
+        "growth": "business analytics, starting with metrics"
+      }
     },
     "ops": {
       "name": "运营",
@@ -117,7 +169,104 @@
       "note": "岗位格 G7 · 运营",
       "work": "运营",
       "switch_to": "产品",
-      "growth": "用户增长方向走，先把活动和数据复盘做扎实"
+      "growth": "用户增长方向走，先把活动和数据复盘做扎实",
+      "en": {
+        "name": "operations",
+        "full": "Operations Specialist",
+        "work": "operations",
+        "switch_to": "product",
+        "growth": "user growth, starting with campaigns"
+      }
+    },
+    "qa": {
+      "name": "测试",
+      "full": "测试开发工程师",
+      "note": "岗位格 G4 · 测试",
+      "work": "测试",
+      "switch_to": "开发",
+      "growth": "测试开发方向走，先把自动化和质量体系做扎实",
+      "en": {
+        "name": "QA",
+        "full": "Software Development Engineer in Test",
+        "work": "quality engineering",
+        "switch_to": "development",
+        "growth": "test automation, starting with CI pipelines"
+      }
+    },
+    "design": {
+      "name": "设计",
+      "full": "交互设计师",
+      "note": "岗位格 G9 · 设计",
+      "work": "设计",
+      "switch_to": "产品",
+      "growth": "体验设计方向走，先把交互规范和用户研究结合起来",
+      "en": {
+        "name": "design",
+        "full": "UX Designer",
+        "work": "design",
+        "switch_to": "product",
+        "growth": "UX design, starting with research-led flows"
+      }
+    },
+    "brand": {
+      "name": "品牌市场",
+      "full": "品牌市场专员",
+      "note": "岗位格 G8 · 品牌市场",
+      "work": "市场",
+      "switch_to": "运营",
+      "growth": "品牌方向走，先把内容和投放的效果复盘做扎实",
+      "en": {
+        "name": "marketing",
+        "full": "Brand Marketing Specialist",
+        "work": "marketing",
+        "switch_to": "operations",
+        "growth": "brand marketing, starting with campaign reviews"
+      }
+    },
+    "sales": {
+      "name": "销售",
+      "full": "大客户销售",
+      "note": "岗位格 G10 · 销售",
+      "work": "销售",
+      "switch_to": "售前",
+      "growth": "大客户方向走，先把行业客户和方案打法摸清楚",
+      "en": {
+        "name": "sales",
+        "full": "Account Executive",
+        "work": "sales",
+        "switch_to": "presales",
+        "growth": "enterprise sales, starting with one industry"
+      }
+    },
+    "hr": {
+      "name": "人力",
+      "full": "人力资源专员",
+      "note": "岗位格 G11 · 职能",
+      "work": "人力",
+      "switch_to": "业务",
+      "growth": "HRBP 方向走，先把招聘和员工关系做扎实",
+      "en": {
+        "name": "HR",
+        "full": "HR Specialist",
+        "work": "people operations",
+        "switch_to": "business roles",
+        "growth": "HR business partnering, starting with recruiting"
+      }
+    },
+    "game": {
+      "name": "游戏策划",
+      "full": "游戏策划",
+      "note": "岗位格 G12 · 游戏策划",
+      "work": "策划",
+      "switch_to": "制作",
+      "growth": "系统策划方向走，先把一个玩法从设计到上线跟完整",
+      "en": {
+        "name": "game design",
+        "full": "Game Designer",
+        "work": "game design",
+        "switch_to": "production",
+        "growth": "systems design, shipping one feature end to end"
+      }
     }
   },
   "tracks": [
@@ -192,6 +341,66 @@
       "company": "bigcorp",
       "role": "fe",
       "base_persona": "zhouan"
+    },
+    {
+      "id": "hardtech_be",
+      "company": "hardtech",
+      "role": "be",
+      "base_persona": "chengyuan"
+    },
+    {
+      "id": "hardtech_algo",
+      "company": "hardtech",
+      "role": "algo",
+      "base_persona": "zhouan"
+    },
+    {
+      "id": "foreign_fe",
+      "company": "foreign",
+      "role": "fe",
+      "base_persona": "linke"
+    },
+    {
+      "id": "foreign_pm",
+      "company": "foreign",
+      "role": "pm",
+      "base_persona": "xunuo"
+    },
+    {
+      "id": "midcorp_qa",
+      "company": "midcorp",
+      "role": "qa",
+      "base_persona": "linke"
+    },
+    {
+      "id": "bigcorp_design",
+      "company": "bigcorp",
+      "role": "design",
+      "base_persona": "xunuo"
+    },
+    {
+      "id": "unicorn_brand",
+      "company": "unicorn",
+      "role": "brand",
+      "base_persona": "yezhou"
+    },
+    {
+      "id": "hardtech_sales",
+      "company": "hardtech",
+      "role": "sales",
+      "base_persona": "shenhe"
+    },
+    {
+      "id": "soe_hr",
+      "company": "soe",
+      "role": "hr",
+      "base_persona": "shenhe"
+    },
+    {
+      "id": "studio_game",
+      "company": "studio",
+      "role": "game",
+      "base_persona": "yezhou"
     }
   ]
 }

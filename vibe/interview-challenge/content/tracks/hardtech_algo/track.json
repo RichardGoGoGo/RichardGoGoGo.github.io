@@ -1,0 +1,101 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（骨架，2026-10-25 建：题由写题的 agent 按任务书补；通过线和档位阈值是占位，等基准组合标定）",
+  "id": "hardtech_algo",
+  "company": "hardtech",
+  "role": "algo",
+  "label": "硬科技大厂 × 算法",
+  "est_minutes": "12–15",
+  "stages": [
+    "resume",
+    "test",
+    "r1",
+    "r2",
+    "r3",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/hardtech_algo/round_r1.json",
+    "tracks/hardtech_algo/round_r2.json",
+    "companies/hardtech/round_hr.json"
+  ],
+  "test": "tracks/hardtech_algo/test.json",
+  "resume_screen": {
+    "screener": "机器筛 + HR",
+    "edu_weight": 1.5,
+    "page2_discount": 0.2,
+    "overflow_penalty": 0.5,
+    "machine_screen": true,
+    "machine_keywords": [
+      "Python",
+      "PyTorch",
+      "机器学习",
+      "深度学习",
+      "C++",
+      "模型部署",
+      "模型压缩",
+      "计算机视觉",
+      "推荐算法",
+      "推荐系统",
+      "大模型",
+      "算法",
+      "消融实验",
+      "实验评测",
+      "数据切分",
+      "统计",
+      "数据质量",
+      "SQL",
+      "Linux",
+      "Git"
+    ],
+    "machine_min": 6,
+    "pass_line": 2.8,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 63,
+    "followup_depth": 2,
+    "time_multiplier": 0.85,
+    "pressure_multiplier": 0.75
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、HR 面三轮的余量之和分档，阈值由 tools/balance_sim.py 标定。",
+    "thresholds": {
+      "普通": 12,
+      "SP": 37,
+      "SSP": 56
+    }
+  },
+  "skill_probe_order": [
+    "ml",
+    "dl"
+  ],
+  "review_phrases": {
+    "_note": "面评卡用语：每轮结束时按这一轮里加分、扣分最多的诊断标签各挑一句。",
+    "专业": {
+      "plus": "基础概念清楚，能把评测与目标设备的约束联系起来。",
+      "minus": "部分概念或验证条件没有讲清，方案还需补充证据。"
+    },
+    "项目表达": {
+      "plus": "个人贡献和离线验证范围讲得清楚，能解释实验中的取舍。",
+      "minus": "个人工作与团队结果混在一起，部分结论超出已有验证。"
+    },
+    "视野与取舍": {
+      "plus": "知道在效果、成本和工期之间做取舍。",
+      "minus": "方案偏理想化，没算落地的成本和延迟。"
+    },
+    "动机与稳定": {
+      "plus": "想清楚了为什么来，和团队的方向对得上。",
+      "minus": "来这里的理由还不够清楚，稳定性有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  },
+  "skill_probes": {
+    "ml": "hta_probe_ml",
+    "dl": "hta_probe_dl"
+  }
+}

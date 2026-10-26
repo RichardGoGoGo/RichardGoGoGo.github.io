@@ -1,0 +1,74 @@
+{
+  "_note": "岗位线：这家公司这个岗位的关卡顺序、简历筛选设置、面试参数、档位阈值和面评用语。通过线和阈值按基准人设（骨架，2026-10-26 建：题由写题的 agent 按 docs/面试挑战/任务书-第三批岗位.md 补；通过线和档位阈值是占位，等基准组合标定）",
+  "id": "unicorn_brand",
+  "company": "unicorn",
+  "role": "brand",
+  "label": "互联网初创 × 品牌市场",
+  "est_minutes": "8–10",
+  "stages": [
+    "resume",
+    "r1",
+    "r2",
+    "r3",
+    "neg"
+  ],
+  "rounds": [
+    "tracks/unicorn_brand/round_r1.json",
+    "tracks/unicorn_brand/round_r2.json",
+    "companies/unicorn/round_founder.json"
+  ],
+  "resume_screen": {
+    "screener": "业务负责人",
+    "_note": "业务负责人直接看，不过机器：学历权重低，夸大写法不加分（0.6），证据型略有加成，第二页也会看（策划案 4.1）。",
+    "edu_weight": 0.5,
+    "page2_discount": 0.5,
+    "overflow_penalty": 0.1,
+    "machine_screen": false,
+    "pass_line": 2.0,
+    "deadline_seconds": 240
+  },
+  "interview": {
+    "start": 50,
+    "carry": 0.3,
+    "pass_line": 65,
+    "followup_depth": 2,
+    "time_multiplier": 0.9,
+    "pressure_multiplier": 0.75
+  },
+  "tiers": {
+    "_note": "按业务一面、业务二面、创始人面三轮的余量之和分档，阈值由 tools/balance_sim.py 标定。",
+    "thresholds": {
+      "普通": 8,
+      "SP": 30,
+      "SSP": 52
+    }
+  },
+  "skill_probe_order": [
+    "br3_brand_measure"
+  ],
+  "review_phrases": {
+    "专业": {
+      "plus": "能把用户任务、内容证据和效果口径连起来。",
+      "minus": "主张与能力证据、数据口径的连接仍不清楚。"
+    },
+    "项目表达": {
+      "plus": "项目讲得具体，个人做了哪部分、效果怎么量，都说得清。",
+      "minus": "项目里个人做了什么，讲得不够清楚。"
+    },
+    "视野与取舍": {
+      "plus": "预算与风险变化时能说明取舍和验证条件。",
+      "minus": "资源、影响范围和归因限制考虑不足。"
+    },
+    "动机与稳定": {
+      "plus": "求职动机清楚，和岗位匹配。",
+      "minus": "求职动机和稳定性还有疑问。"
+    },
+    "诚信": {
+      "plus": "",
+      "minus": "简历部分内容和实际经历有出入。"
+    }
+  },
+  "skill_probes": {
+    "br3_brand_measure": "br3_probe_measure"
+  }
+}

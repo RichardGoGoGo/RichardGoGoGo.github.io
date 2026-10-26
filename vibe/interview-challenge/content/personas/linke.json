@@ -60,7 +60,9 @@
     "community": 1,
     "excel": 1,
     "data": 1,
-    "design_tools": 1
+    "design_tools": 1,
+    "qa_case": 1,
+    "qa_auto": 2
   },
   "skill_bar": {
     "_note": "技能栏里给哪些标签（标签 ID：技能 ID 是按真实水平的那个，加 _master 是“精通”诱饵）。没写的岗位按规则自动生成。",
@@ -71,6 +73,7 @@
       "ts",
       "vue",
       "react_master",
+      "react",
       "mp",
       "build",
       "node",
@@ -118,6 +121,48 @@
           "pm"
         ]
       },
+      {
+        "text": "Vue 组件库的单元测试抓到过一个日期选择的 bug：跨月选范围时，结束日期可以早于开始日期。",
+        "roles": [
+          "fe"
+        ],
+        "companies": [
+          "foreign"
+        ]
+      },
+      {
+        "text": "校计算机协会技术部部长：带 8 人维护协会网站，办过 6 次前端入门分享；有同学跟不上时，把任务拆到一次只改一个按钮，让他先做成一小步。",
+        "roles": [
+          "fe"
+        ],
+        "companies": [
+          "foreign"
+        ]
+      },
+      {
+        "text": "测试开发角度：倒计时问题用同一活动页前后台切换复现，并对照绝对截止时间；修复后检查前后台切换、临近截止和恢复页面三个场景。",
+        "roles": [
+          "qa"
+        ]
+      },
+      {
+        "text": "组件库的日期选择单测发现过跨月时结束早于开始；测试既检查组件可运行，也断言日期范围是否合法。",
+        "roles": [
+          "qa"
+        ]
+      },
+      {
+        "text": "下单按钮事故回滚后补了触发场景及关联链路的回归；做过组件单元测试，没有搭过完整CI流水线或服务压测体系。",
+        "roles": [
+          "qa"
+        ]
+      },
+      {
+        "text": "导师评价过的不足：刚开始不敢问，闷头查太久，后来改了；现在会先给自己定个时限，卡住就去问。",
+        "roles": [
+          "qa"
+        ]
+      },
       "短板：React 只跟着官方教程做过一个小 demo；Node.js 只写过简单的接口和脚本。"
     ],
     "company_notes": {
@@ -142,7 +187,8 @@
           "be": "half",
           "algo": "none",
           "data": "none",
-          "ops": "none"
+          "ops": "none",
+          "qa": "strong"
         },
         "p": {
           "label": "电商公司的前端实习",
@@ -152,11 +198,13 @@
           "routine": "运营后台的列表页：筛选、分页、导出",
           "pm_routine": "先和运营过一遍活动页需求，列出常改的地方",
           "pm_story": "运营每次改文案都要找开发，我提议做成配置，后来改活动不用再排期。",
-          "be_link": "做运营后台时常和后端对分页、导出接口，知道接口怎么设计才好用。"
+          "be_link": "做运营后台时常和后端对分页、导出接口，知道接口怎么设计才好用。",
+          "qa3_focus": "定位倒计时切后台走慢的问题"
         },
         "frames": {
           "fe": "best_work",
-          "pm": "dev_to_pm"
+          "pm": "dev_to_pm",
+          "qa": "qa3_frame_intern"
         },
         "highlights": [
           {
@@ -165,19 +213,26 @@
               "label": "活动页首屏优化",
               "intro": "实习里的活动页优化",
               "subject": "活动页"
+            },
+            "p_en": {
+              "subject": "campaign pages"
             }
           },
           {
             "type": "timer_drift",
             "p": {
               "label": "倒计时切到后台就走慢"
+            },
+            "p_en": {
+              "subject": "a campaign page"
             }
           },
           {
             "type": "incident",
             "p": {
               "impact": "下单按钮失灵十几分钟"
-            }
+            },
+            "p_en": {}
           },
           {
             "type": "ops_tooling",
@@ -254,8 +309,61 @@
               "验收"
             ],
             "text": "发现活动文案反复占用研发排期，提出配置化建议；先将文案与时间两项做成配置，试用两期活动后推广。"
+          },
+          {
+            "id": "qa3_l1_duty",
+            "type": "duty",
+            "lines": 2,
+            "keywords": [
+              "问题复现",
+              "回归测试"
+            ],
+            "text": "参与活动页联调与验证，定位倒计时后台走慢问题；上线按钮事故回滚后补测试。"
+          },
+          {
+            "id": "qa3_l1_evidence",
+            "type": "evidence",
+            "angle": "qa",
+            "lines": 3,
+            "keywords": [
+              "缺陷复现",
+              "边界验证",
+              "回归测试"
+            ],
+            "text": "定位倒计时切后台走慢问题，对照截止时间复现并修复；下单按钮故障回滚后补触发场景回归，说明验证范围。"
           }
-        ]
+        ],
+        "p_en": {
+          "label": "your frontend internship",
+          "pitch": "campaign pages from requirements to release",
+          "short": "my internship",
+          "routine": "campaign pages and admin screens"
+        },
+        "frames_en": {
+          "fe": "fgf_frame_intern"
+        },
+        "probes_en": {
+          "e1_exag": {
+            "pattern": "exag",
+            "ask": "You wrote that you led the architecture work and improved performance by 300%. What was your own part?",
+            "explain": "“主导架构重构”“性能提升 300%”这类说法，最怕被问“你具体做了哪一块”。方案是组长定的、自己做了列表页和表单，就如实说出来；把团队统计的数字说成自己的成果，或者编一个口径去解释 300%，都会让后面的回答失去可信度。",
+            "double_down": {
+              "text": "I designed it; the 300% combines API and rendering results.",
+              "line": "I see. I might check that with your team lead. Let's stop here for today."
+            },
+            "correct": {
+              "text": "The lead chose the design; I rebuilt the list and form pages.",
+              "line": "Thanks for being straight. Tell me about that part.",
+              "face": "calm"
+            },
+            "evade": {
+              "text": "The team reported that figure; I'd rather talk about my own tasks.",
+              "line": "I asked how the 300% was worked out."
+            }
+          }
+        },
+        "title_en": "Frontend Internship at an E-commerce SaaS Company",
+        "period_en": "Six months"
       },
       {
         "id": "E2",
@@ -315,7 +423,15 @@
               "n_ship": "2"
             }
           }
-        ]
+        ],
+        "p_en": {
+          "label": "your product assistant internship",
+          "pitch": "organizing user feedback",
+          "short": "the product internship",
+          "routine": "a feedback list"
+        },
+        "title_en": "Product Assistant Internship",
+        "period_en": "Three months"
       },
       {
         "id": "E3",
@@ -345,7 +461,8 @@
             "type": "mp_subpackage",
             "p": {
               "label": "分包为什么能把首次打开压到 1 秒内"
-            }
+            },
+            "p_en": {}
           },
           {
             "type": "interview_cut_feature",
@@ -442,7 +559,57 @@
             }
           }
         ],
-        "frames": {}
+        "frames": {},
+        "p_en": {
+          "label": "your campus marketplace app",
+          "pitch": "the frontend of our student marketplace",
+          "short": "the marketplace app",
+          "routine": "the frontend; classmates did the rest"
+        },
+        "frames_en": {
+          "fe": "fgf_frame_team"
+        },
+        "probes_en": {
+          "e3_empty": {
+            "pattern": "vague",
+            "ask": "Your resume says the app was widely praised. How many people actually used it?",
+            "explain": "“广受好评”这类词没有数字撑着，对方会顺手问一句“具体多少人”。手里有真实数字（约 600 人使用、300 多单成交）就直接说；说不出数、含糊带过，会让人怀疑根本没有数据；凭空报一个更大的日活，一旦被问到后台记录就无法支撑。",
+            "facts": {
+              "text": "About 600 people used it, with over 300 completed trades.",
+              "line": "Good. Those numbers belong on the resume.",
+              "face": "nod"
+            },
+            "dodge": {
+              "text": "People around me used it, but I never kept a precise count.",
+              "line": "How many is \"people around me\"?"
+            },
+            "inflate": {
+              "text": "It had over a thousand daily users during launch week.",
+              "line": "A thousand a day? Can you pull that from the logs?",
+              "delta": -9
+            }
+          },
+          "e3_exag": {
+            "pattern": "exag",
+            "ask": "Your resume says over ten thousand users. How was that count established?",
+            "explain": "“用户破万”很容易核实：对照学校人数或后台记录就能看出来。被问到时直接改口为实际的约 600 人，损失最小；含糊带过会引来“那为什么还写这个数”的追问，拿“包含外校”之类的说法硬圆，则会被要求出示数据。",
+            "double_down": {
+              "text": "The dashboard showed ten thousand, including other campuses.",
+              "line": "Could I see that dashboard? Never mind, let's stop here."
+            },
+            "correct": {
+              "text": "That was overstated; around 600 people used it in one term.",
+              "line": "Thanks. Let's go with 600.",
+              "face": "calm"
+            },
+            "evade": {
+              "text": "I don't remember the exact count, but adoption was strong.",
+              "line": "You don't remember a number you put on your resume?"
+            }
+          }
+        },
+        "title_en": "Campus Marketplace Mini App",
+        "period_en": "A four-person student project"
       },
       {
         "id": "E4",
@@ -455,17 +622,20 @@
           "pm": "none",
           "be": "half",
           "ops": "none",
-          "data": "none"
+          "data": "none",
+          "qa": "match"
         },
         "p": {
           "label": "Vue 3 组件库",
           "pitch": "我的 Vue 3 组件库",
           "short": "组件库",
           "unit": "组件",
-          "design_point": "日期选择组件：props 和事件怎么定，怎么同时支持单选和范围"
+          "design_point": "日期选择组件：props 和事件怎么定，怎么同时支持单选和范围",
+          "qa3_component": "日期选择组件"
         },
         "frames": {
-          "fe": "design"
+          "fe": "design",
+          "qa": "qa3_frame_component"
         },
         "highlights": [
           {
@@ -473,13 +643,15 @@
             "p": {
               "bug": "跨月选日期时，结束能早于开始，测试一跑就红了。",
               "bug_area": "日期和时区"
-            }
+            },
+            "p_en": {}
           },
           {
             "type": "oss_library",
             "p": {
               "stars": "60 多个 star"
-            }
+            },
+            "p_en": {}
           }
         ],
         "variants": [
@@ -538,8 +710,60 @@
               },
               "explain": "“被多家企业采用”是很多人会往开源项目上添的一句。问题在于，一旦被问到是哪家，你给不出名字。"
             }
+          },
+          {
+            "id": "qa3_l4_duty",
+            "type": "duty",
+            "lines": 1,
+            "keywords": [
+              "单元测试"
+            ],
+            "text": "维护组件库，给日期选择等组件编写单元测试。"
+          },
+          {
+            "id": "qa3_l4_evidence",
+            "type": "evidence",
+            "angle": "qa",
+            "lines": 2,
+            "keywords": [
+              "单元测试",
+              "边界值",
+              "断言"
+            ],
+            "text": "为12个组件配单元测试和文档；用跨月日期反例发现结束早于开始的问题，补范围断言与边界场景。"
           }
-        ]
+        ],
+        "p_en": {
+          "label": "your Vue component library",
+          "pitch": "a small library with tests and documentation",
+          "short": "the component library",
+          "routine": "twelve Vue components, with tests and docs"
+        },
+        "frames_en": {
+          "fe": "fgf_frame_design"
+        },
+        "probes_en": {
+          "e4_exag": {
+            "pattern": "exag",
+            "ask": "Which companies adopted your component library?",
+            "explain": "开源项目的使用情况通常能在仓库里查到。被问“哪些公司在用”时，如实说明目前只有自己和同学在用，最稳妥；用下载量去推测使用者并不可靠，下载里可能有大量自动化请求；搬出“保密”也难以自证。",
+            "double_down": {
+              "text": "A few startups use it, but their names are confidential.",
+              "line": "Confidential, for an open-source library? Let's stop here."
+            },
+            "correct": {
+              "text": "Only classmates and I use it; I overstated company adoption.",
+              "line": "Thanks, I appreciate the straight answer.",
+              "face": "calm"
+            },
+            "evade": {
+              "text": "I inferred adoption from downloads, without confirming users.",
+              "line": "Downloads don't tell us who is using it."
+            }
+          }
+        },
+        "title_en": "Personal Vue Component Library",
+        "period_en": "An ongoing student project"
       },
       {
         "id": "E5",
@@ -565,7 +789,15 @@
             ],
             "text": "蓝桥杯软件类省赛二等奖（Java 组）"
           }
-        ]
+        ],
+        "frames": {},
+        "p_en": {
+          "label": "a programming competition",
+          "short": "a programming competition",
+          "pitch": "a programming competition"
+        },
+        "title_en": "Programming Competition",
+        "highlights": []
       },
       {
         "id": "E6",
@@ -597,7 +829,8 @@
               "goal": "能独立改页面",
               "output": "页面",
               "struggle_fix": "有个同学跟不上，我把任务拆到一次只改一个按钮，后来跟上了。"
-            }
+            },
+            "p_en": {}
           },
           {
             "type": "talks",
@@ -632,7 +865,19 @@
             ],
             "text": "带 8 人的技术部维护协会网站；办了 6 次前端入门分享，带出 3 个能独立改页面的新成员。"
           }
-        ]
+        ],
+        "frames": {},
+        "p_en": {
+          "label": "your club technical team",
+          "pitch": "helping new members edit pages",
+          "short": "the club team",
+          "routine": "website maintenance and new-member practice"
+        },
+        "frames_en": {
+          "fe": "fgf_frame_mentoring"
+        },
+        "title_en": "Computing Club Technical Team",
+        "period_en": "Two academic years"
       },
       {
         "id": "E7",
@@ -662,7 +907,15 @@
             "keywords": [],
             "text": "兼职家教一年，锻炼了表达和沟通能力"
           }
-        ]
+        ],
+        "frames": {},
+        "p_en": {
+          "label": "mathematics tutoring",
+          "short": "mathematics tutoring",
+          "pitch": "mathematics tutoring"
+        },
+        "title_en": "Part-time Mathematics Tutoring",
+        "highlights": []
       },
       {
         "id": "E8",
@@ -685,7 +938,15 @@
             "keywords": [],
             "text": "英语六级（CET-6）"
           }
-        ]
+        ],
+        "frames": {},
+        "p_en": {
+          "label": "an English certificate",
+          "short": "an English certificate",
+          "pitch": "an English certificate"
+        },
+        "title_en": "College English Test Certificate",
+        "highlights": []
       }
     ],
     "default": {
@@ -707,7 +968,44 @@
           "git",
           "node"
         ]
+      },
+      "qa": {
+        "order": [
+          "qa3_l1_duty",
+          "qa3_l4_duty",
+          "e3_duty",
+          "e6_duty",
+          "e8_fact"
+        ],
+        "skills": [
+          "js",
+          "ts",
+          "git",
+          "qa_case",
+          "qa_auto",
+          "sql"
+        ]
       }
     }
+  },
+  "p_en": {
+    "intern_duration": "six months",
+    "convert_reason": "The company had no graduate frontend opening that year.",
+    "convert_short": "There was no graduate opening.",
+    "mentor_flaw": "I waited too long before asking focused questions.",
+    "react_truth": "built a small demo from the official tutorial",
+    "strengths": "Vue and TypeScript",
+    "lev": "a six-month frontend internship",
+    "lev_brag": "independent ownership of campaign pages",
+    "lev_detail": "I built campaign pages during a six-month internship.",
+    "lev_kind": "internship experience",
+    "lev_brag_short": "six months of internship experience",
+    "self_learn": "learning TypeScript during my internship",
+    "pitfall": "A large export blocked the page; I moved it into batches."
+  },
+  "background_en": {
+    "school": "a public university",
+    "major": "Software Engineering",
+    "major_short": "Software Engineering"
   }
 }

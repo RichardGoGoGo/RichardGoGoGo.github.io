@@ -1,0 +1,1694 @@
+{
+  "_note": "包G：系统策划，数值只考明确定义的教学模型。所有专业题与背景题有role game条件；不改旧题。概率题列完整机制和可复算步骤，不作付费建议。",
+  "relevance": {
+    "intern_dev": {
+      "game": "half"
+    },
+    "intern_pm": {
+      "game": "half"
+    },
+    "user_research_intern": {
+      "game": "half"
+    },
+    "research_tool": {
+      "game": "general"
+    },
+    "campus_team_project": {
+      "game": "half"
+    },
+    "personal_project": {
+      "game": "match"
+    },
+    "course_project": {
+      "game": "half"
+    },
+    "thesis": {
+      "game": "half"
+    },
+    "paper": {
+      "game": "general"
+    },
+    "competition": {
+      "game": "half"
+    },
+    "student_org": {
+      "game": "general"
+    },
+    "media_ops": {
+      "game": "half"
+    },
+    "event_planning": {
+      "game": "half"
+    },
+    "part_time": {
+      "game": "general"
+    },
+    "certificate": {
+      "game": "general"
+    },
+    "award": {
+      "game": "general"
+    },
+    "intern_hr": {
+      "game": "none"
+    },
+    "intern_mkt": {
+      "game": "general"
+    },
+    "campus_ambassador": {
+      "game": "half"
+    },
+    "game_project": {
+      "game": "strong"
+    }
+  },
+  "skills": {
+    "p3t_game_rules": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "系统设计",
+            "游戏拆解",
+            "规则文档"
+          ]
+        }
+      },
+      "master_probes": [
+        "gm3_probe_rules"
+      ]
+    },
+    "p3t_game_balance": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "产出消耗表",
+            "Excel",
+            "数值基础"
+          ]
+        }
+      },
+      "master_probes": [
+        "gm3_probe_balance"
+      ]
+    },
+    "p3t_script_writing": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "剧情",
+            "文案",
+            "剧本写作"
+          ]
+        }
+      }
+    },
+    "competitor": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "游戏拆解",
+            "案例分析"
+          ]
+        }
+      }
+    },
+    "excel": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "表格"
+          ]
+        }
+      }
+    },
+    "prd": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "规则文档",
+            "需求分析"
+          ]
+        }
+      }
+    },
+    "copywriting": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "文案"
+          ]
+        }
+      }
+    },
+    "event": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "活动策划"
+          ]
+        }
+      }
+    },
+    "research": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "用户研究"
+          ]
+        }
+      }
+    },
+    "data": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "office": {
+      "roles": {
+        "game": {
+          "relevant": true,
+          "keywords": [
+            "办公工具"
+          ]
+        }
+      }
+    }
+  },
+  "pools": [
+    {
+      "id": "gm3_intro_work",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先挑一份能代表你的策划产出，简单介绍。",
+        "options": [
+          {
+            "id": "gm3_intro_work_a",
+            "type": "safe",
+            "text": "先说目标、我负责的部分和做到哪一步。",
+            "face": "nod",
+            "line": "好，先说你自己做的那块。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_intro_work_b",
+            "type": "bold",
+            "text": "挑一个规则取舍，讲证据与未验证的部分。",
+            "face": "probe",
+            "line": "行，我顺着这个问一句。",
+            "followup": {
+              "text": "作品只在比赛中做成原型，能说明哪些能力？",
+              "options": [
+                {
+                  "id": "gm3_intro_work_h",
+                  "type": "hold",
+                  "text": "能证明原型协作，商业与长期运营尚未验证。",
+                  "face": "pleased",
+                  "line": "对，做到哪一步就说哪一步。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_intro_work_p",
+                  "type": "partial",
+                  "text": "先介绍完整玩法，将比赛阶段放在最后补充。",
+                  "face": "calm",
+                  "line": "比赛这个背景，放最后说不太合适吧。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_intro_work_f",
+                  "type": "fail",
+                  "text": "原型能运行就说明系统成立，可以按商业项目介绍。",
+                  "face": "frown",
+                  "line": "能跑起来和能上线，差得远。",
+                  "delta": -7
+                }
+              ],
+              "explain": "作品可以证明完成的设计与协作，不能自动证明商业上线或长期效果。讲清个人分工、规则选择和验证范围，比用游玩时长或团队规模替代工作证据更准确。"
+            }
+          },
+          {
+            "id": "gm3_intro_work_c",
+            "type": "off",
+            "text": "先讲玩了多少游戏、玩了多久，再介绍最喜欢的作品。",
+            "face": "calm",
+            "line": "时长不算产出，我问的是你做的东西。",
+            "delta": -3
+          }
+        ],
+        "explain": "作品可以证明完成的设计与协作，不能自动证明商业上线或长期效果。讲清个人分工、规则选择和验证范围，比用游玩时长或团队规模替代工作证据更准确。"
+      }
+    },
+    {
+      "id": "gm3_intro_choice",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "介绍一次你从玩家体验转成设计分析的过程。",
+        "options": [
+          {
+            "id": "gm3_intro_choice_a",
+            "type": "safe",
+            "text": "讲一个具体片段：看到什么问题，整理出什么规则。",
+            "face": "nod",
+            "line": "好，有片段有规则，继续。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_intro_choice_b",
+            "type": "bold",
+            "text": "把个人感受、规则事实与候选改动分开说明。",
+            "face": "probe",
+            "line": "分开说，那我问个具体的。",
+            "followup": {
+              "text": "你认为某规则不好，但暂时没有其他玩家反馈，怎么办？",
+              "options": [
+                {
+                  "id": "gm3_intro_choice_h",
+                  "type": "hold",
+                  "text": "给出能验证的假设，并标明这是个人观察。",
+                  "face": "pleased",
+                  "line": "对，先说清这只是你的观察。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_intro_choice_p",
+                  "type": "partial",
+                  "text": "先按自己的判断改，再找熟悉该品类的朋友支持。",
+                  "face": "calm",
+                  "line": "朋友支持，不算玩家数据吧。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_intro_choice_f",
+                  "type": "fail",
+                  "text": "玩得多就能代表核心玩家，先按个人偏好做结论。",
+                  "face": "frown",
+                  "line": "你玩得多，不等于玩家都这样。",
+                  "delta": -7
+                }
+              ],
+              "explain": "个人体验是发现问题的入口，不能直接代表全部玩家。把规则、观察与假设分开，能保留分析价值；只有真正完成的验证才写成结果，不能用热爱扩大主张。"
+            }
+          },
+          {
+            "id": "gm3_intro_choice_c",
+            "type": "off",
+            "text": "用喜欢的品类和游戏数量说明自己理解玩家。",
+            "face": "calm",
+            "line": "游戏数量说明不了你懂玩家。",
+            "delta": -3
+          }
+        ],
+        "explain": "个人体验是发现问题的入口，不能直接代表全部玩家。把规则、观察与假设分开，能保留分析价值；只有真正完成的验证才写成结果，不能用热爱扩大主张。"
+      }
+    },
+    {
+      "id": "gm3_loop_resource",
+      "pools": [
+        "game_loop"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "拆一套采集、制作、探索的玩法，你会先画出什么？",
+        "options": [
+          {
+            "id": "gm3_loop_resource_a",
+            "type": "safe",
+            "text": "画出目标、行动、资源变化，以及回到下一次行动的路径。",
+            "face": "nod",
+            "line": "嗯，先看循环转不转得起来。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_loop_resource_b",
+            "type": "bold",
+            "text": "说明资源怎样影响选择，再列出失败与退出的路径。",
+            "face": "probe",
+            "line": "再往下问一层。",
+            "followup": {
+              "text": "材料越攒越多，但玩家很少再去探索，你先查什么？",
+              "options": [
+                {
+                  "id": "gm3_loop_resource_h",
+                  "type": "hold",
+                  "text": "查用途、目标和机会成本，再找断点。",
+                  "face": "pleased",
+                  "line": "对，先看材料还有没有去处。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_loop_resource_p",
+                  "type": "partial",
+                  "text": "增加材料稀有度，让玩家为相同资源投入更多时间。",
+                  "face": "calm",
+                  "line": "稀有了，用途还是没变啊。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_loop_resource_f",
+                  "type": "fail",
+                  "text": "继续增加奖励数量，资源多自然会提高长期留存。",
+                  "face": "frown",
+                  "line": "材料堆着没处用，奖励再多也没用。",
+                  "delta": -7
+                }
+              ],
+              "explain": "循环不是功能清单，资源需要连接目标和可理解的选择。积累增加而探索减少可能有多种原因，应核对用途、需求和其他路径；堆奖励或提高稀缺性不能自动证明体验改善。"
+            }
+          },
+          {
+            "id": "gm3_loop_resource_c",
+            "type": "off",
+            "text": "先列功能按钮和奖励种类，数量齐了再安排循环。",
+            "face": "calm",
+            "line": "功能清单不是循环，先说目标。",
+            "delta": -3
+          }
+        ],
+        "explain": "循环不是功能清单，资源需要连接目标和可理解的选择。积累增加而探索减少可能有多种原因，应核对用途、需求和其他路径；堆奖励或提高稀缺性不能自动证明体验改善。"
+      }
+    },
+    {
+      "id": "gm3_loop_feedback",
+      "pools": [
+        "game_loop"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "新手每次失败都立即重试，但很少通过。你怎样分析难度与反馈？",
+        "options": [
+          {
+            "id": "gm3_loop_feedback_a",
+            "type": "safe",
+            "text": "先看失败位置、提示，玩家懂不懂规则。",
+            "face": "nod",
+            "line": "嗯，先找卡在哪。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_loop_feedback_b",
+            "type": "bold",
+            "text": "把没理解、操作失误和数值不足分开核对。",
+            "face": "probe",
+            "line": "分三类，我给个具体情况。",
+            "followup": {
+              "text": "玩家根本没看到关键机关提示，降低敌人血量够吗？",
+              "options": [
+                {
+                  "id": "gm3_loop_feedback_h",
+                  "type": "hold",
+                  "text": "先验证提示和教学路径，保留挑战目标再调整数值。",
+                  "face": "pleased",
+                  "line": "对，先让他们看得到。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_loop_feedback_p",
+                  "type": "partial",
+                  "text": "把失败惩罚先清零，玩家多试几次就能自己学会。",
+                  "face": "calm",
+                  "line": "惩罚清零，他们还是没看到机关。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_loop_feedback_f",
+                  "type": "fail",
+                  "text": "重试次数很多说明心流形成，继续保留现状即可。",
+                  "face": "frown",
+                  "line": "一直重试，也可能只是卡住了。",
+                  "delta": -7
+                }
+              ],
+              "explain": "重复尝试不等于已经进入心流，也可能是不知道失败原因。应看目标、反馈与能力是否匹配；信息问题要先在信息层验证，数值或惩罚调整不一定触及阻碍。"
+            }
+          },
+          {
+            "id": "gm3_loop_feedback_c",
+            "type": "off",
+            "text": "先给新手统一降敌人生命，避免挫败影响留存。",
+            "face": "calm",
+            "line": "原因还没查，就先降血量？",
+            "delta": -3
+          }
+        ],
+        "explain": "重复尝试不等于已经进入心流，也可能是不知道失败原因。应看目标、反馈与能力是否匹配；信息问题要先在信息层验证，数值或惩罚调整不一定触及阻碍。"
+      }
+    },
+    {
+      "id": "gm3_rule_disconnect",
+      "pools": [
+        "game_rules"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "两人合作任务中，一人中途离开。策划案应先补什么？",
+        "options": [
+          {
+            "id": "gm3_rule_disconnect_a",
+            "type": "safe",
+            "text": "补离开后的进度、奖励、重连与退出规则。",
+            "face": "nod",
+            "line": "嗯，这几种状态都要写清。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_rule_disconnect_b",
+            "type": "bold",
+            "text": "按状态列张表：在线、离开、重连、退出各怎么处理。",
+            "face": "probe",
+            "line": "那我给个具体情况。",
+            "followup": {
+              "text": "重连前奖励已经发过，重连后任务又显示可领取，规则怎么写？",
+              "options": [
+                {
+                  "id": "gm3_rule_disconnect_h",
+                  "type": "hold",
+                  "text": "规则写明每人只领一次，验收时用反复重连来测。",
+                  "face": "pleased",
+                  "line": "对，重连几次都不能多发。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_rule_disconnect_p",
+                  "type": "partial",
+                  "text": "每次重连都重置任务，让双方重新完成后再发奖励。",
+                  "face": "calm",
+                  "line": "重置了，已经做完的人不干吧。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_rule_disconnect_f",
+                  "type": "fail",
+                  "text": "领奖界面把按钮隐藏就行，规则里不用另外写。",
+                  "face": "frown",
+                  "line": "按钮藏了，换个入口还能领。",
+                  "delta": -7
+                }
+              ],
+              "explain": "系统规则要定义正常和异常状态，进度与奖励不能靠临时解释。重连前后奖励只发一次，要写进规则，并在验收条件里用反复重连来测；只在界面上隐藏按钮，换个入口还能再领，不能算规则。"
+            }
+          },
+          {
+            "id": "gm3_rule_disconnect_c",
+            "type": "off",
+            "text": "先让另一人继续，奖励差异交给客服逐单处理。",
+            "face": "calm",
+            "line": "客服逐单处理，这成本谁来担？",
+            "delta": -3
+          }
+        ],
+        "explain": "系统规则要定义正常和异常状态，进度与奖励不能靠临时解释。重连前后奖励只发一次，要写进规则，并在验收条件里用反复重连来测；只在界面上隐藏按钮，换个入口还能再领，不能算规则。"
+      }
+    },
+    {
+      "id": "gm3_rule_conditions",
+      "pools": [
+        "game_rules"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "剧情、关卡和任务系统对同一条支线的解锁条件写得不同。你怎样推进？",
+        "options": [
+          {
+            "id": "gm3_rule_conditions_a",
+            "type": "safe",
+            "text": "列出冲突条件，约相关人对出同一个规则版本。",
+            "face": "nod",
+            "line": "对，先统一出一版。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_rule_conditions_b",
+            "type": "bold",
+            "text": "用状态和反例走一遍，把文本、配置与验收一起对齐。",
+            "face": "probe",
+            "line": "具体一点，我问个情况。",
+            "followup": {
+              "text": "主策决定改条件，但程序已经开始实现。你怎么办？",
+              "options": [
+                {
+                  "id": "gm3_rule_conditions_h",
+                  "type": "hold",
+                  "text": "同步变更、影响与确认人，补回归路径再约定范围。",
+                  "face": "pleased",
+                  "line": "对，改了就得让大家都知道。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_rule_conditions_p",
+                  "type": "partial",
+                  "text": "只更新策划文档，并在下次例会提醒大家自行查看。",
+                  "face": "calm",
+                  "line": "程序今天就在写，等例会来不及。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_rule_conditions_f",
+                  "type": "fail",
+                  "text": "按最后收到的消息覆盖旧规则，文档等上线后补。",
+                  "face": "frown",
+                  "line": "文档补不上，下一个人又踩坑。",
+                  "delta": -7
+                }
+              ],
+              "explain": "规则跨文档、配置和表现，需要统一依据并同步影响。确认变更不意味着依赖自动更新，应明确受影响产物、负责人和验收路径；只改自己的文件会留下不一致。"
+            }
+          },
+          {
+            "id": "gm3_rule_conditions_c",
+            "type": "off",
+            "text": "先按剧情稿实现，程序配置后续再与文本统一。",
+            "face": "calm",
+            "line": "三边各写各的，后面怎么对上？",
+            "delta": -3
+          }
+        ],
+        "explain": "规则跨文档、配置和表现，需要统一依据并同步影响。确认变更不意味着依赖自动更新，应明确受影响产物、负责人和验收路径；只改自己的文件会留下不一致。"
+      }
+    },
+    {
+      "id": "gm3_math_pity",
+      "pools": [
+        "game_math"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "教学机制：前两次各有一半概率成功；都失败则第三次必成。第一次成功所需的尝试次数，平均怎么算？",
+        "options": [
+          {
+            "id": "gm3_math_pity_a",
+            "type": "safe",
+            "text": "把第一、二、三次成功的概率列出来，逐项加权。",
+            "face": "nod",
+            "line": "对，一项项加权就行。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_math_pity_b",
+            "type": "bold",
+            "text": "再验算一遍：第1次必试，加上还要继续试的概率。",
+            "face": "probe",
+            "line": "验算的思路，说来听听。",
+            "followup": {
+              "text": "成功落在第1、2、3次的概率分别是1/2、1/4、1/4。平均试几次？",
+              "options": [
+                {
+                  "id": "gm3_math_pity_h",
+                  "type": "hold",
+                  "text": "1乘1/2加2乘1/4加3乘1/4，等于1.75次。",
+                  "face": "pleased",
+                  "line": "对，就是1.75。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_math_pity_deep",
+                  "type": "bold",
+                  "text": "再分开说平均次数和最晚保证，不能把两者混用。",
+                  "face": "probe",
+                  "line": "分开说，那我换个问法。",
+                  "followup": {
+                    "text": "平均1.75次能解释为每个人两次以内必得吗？",
+                    "options": [
+                      {
+                        "id": "gm3_math_pity_deep_h",
+                        "type": "hold",
+                        "text": "不能；前两次全失败仍有1/4概率，第三次才保证。",
+                        "face": "pleased",
+                        "line": "对，还有四分之一的人要等到第三次。",
+                        "delta": 12
+                      },
+                      {
+                        "id": "gm3_math_pity_deep_p",
+                        "type": "partial",
+                        "text": "平均不到两次，说明大多数人两次内拿到，可以这样介绍。",
+                        "face": "calm",
+                        "line": "多数不假，可别漏了剩下的四分之一。",
+                        "delta": -2
+                      },
+                      {
+                        "id": "gm3_math_pity_deep_f",
+                        "type": "fail",
+                        "text": "可以，1.75已经小于2，文案写“两次内必出”也不算错。",
+                        "face": "frown",
+                        "line": "这句文案发出去，玩家会投诉。",
+                        "delta": -9
+                      }
+                    ],
+                    "explain": "题设里第一次成功只可能落在第1、2、3次，对应概率1/2、1/4、1/4，平均尝试次数为0.5+0.5+0.75=1.75。没有保底时才能用成功概率的倒数。平均数、最多试几次和某一个人的结果是三回事；前两次全失败的人仍有1/4，不能写成“两次内必得”。只讨论教学机制，不提供付费建议。"
+                  }
+                },
+                {
+                  "id": "gm3_math_pity_p",
+                  "type": "partial",
+                  "text": "第三次保证成功，所以平均就是三次以内的中间值2次。",
+                  "face": "calm",
+                  "line": "保证第三次，不等于平均就是2。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_math_pity_f",
+                  "type": "fail",
+                  "text": "前两次成功率一半，长期平均仍是两次，保底不改均值。",
+                  "face": "frown",
+                  "line": "保底把均值拉下来了，不是还停在2。",
+                  "delta": -7
+                }
+              ],
+              "explain": "题设里第一次成功只可能落在第1、2、3次，对应概率1/2、1/4、1/4，平均尝试次数为0.5+0.5+0.75=1.75。没有保底时才能用成功概率的倒数。平均数、最多试几次和某一个人的结果是三回事；前两次全失败的人仍有1/4，不能写成“两次内必得”。只讨论教学机制，不提供付费建议。"
+            }
+          },
+          {
+            "id": "gm3_math_pity_c",
+            "type": "off",
+            "text": "直接用成功概率的倒数，保底只影响最晚次数。",
+            "face": "calm",
+            "line": "倒数是没有保底时的算法。",
+            "delta": -3
+          }
+        ],
+        "explain": "题设里第一次成功只可能落在第1、2、3次，对应概率1/2、1/4、1/4，平均尝试次数为0.5+0.5+0.75=1.75。没有保底时才能用成功概率的倒数。平均数、最多试几次和某一个人的结果是三回事；前两次全失败的人仍有1/4，不能写成“两次内必得”。只讨论教学机制，不提供付费建议。"
+      }
+    },
+    {
+      "id": "gm3_math_flow",
+      "pools": [
+        "game_math"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "纸面资源表里，每次任务产出6单位材料、固定消耗4单位。还需先确认哪些条件？",
+        "options": [
+          {
+            "id": "gm3_math_flow_a",
+            "type": "safe",
+            "text": "先问清做几次、什么时候结算、材料能不能再用。",
+            "face": "nod",
+            "line": "对，这几个口径先定。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_math_flow_b",
+            "type": "bold",
+            "text": "把净变化和余额分开，查失败、上限和停止条件。",
+            "face": "probe",
+            "line": "那我给个有上限的情况。",
+            "followup": {
+              "text": "库存上限为10，任务前已有9，先加产出再扣消耗会怎样？",
+              "options": [
+                {
+                  "id": "gm3_math_flow_h",
+                  "type": "hold",
+                  "text": "先截到10再扣4，结果6；顺序影响结果。",
+                  "face": "pleased",
+                  "line": "对，顺序一换，结果就不同。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_math_flow_p",
+                  "type": "partial",
+                  "text": "上限只影响展示，仍按9加2记为11再下一次修正。",
+                  "face": "calm",
+                  "line": "显示和实际对不上，玩家会困惑。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_math_flow_f",
+                  "type": "fail",
+                  "text": "每次净值固定为2，结算顺序怎样都不影响结果。",
+                  "face": "frown",
+                  "line": "有上限，就不是简单加减了。",
+                  "delta": -7
+                }
+              ],
+              "explain": "净产出不代表任何结算顺序都等价。题设先加6并按上限截到10，再扣4，余额为6；若改成先扣后加或只截最终值，规则不同。文档、表格与实现应使用同一顺序和边界。"
+            }
+          },
+          {
+            "id": "gm3_math_flow_c",
+            "type": "off",
+            "text": "每次净赚2单位，成长曲线就是平稳向上的。",
+            "face": "calm",
+            "line": "净赚2单位，不等于成长顺畅。",
+            "delta": -3
+          }
+        ],
+        "explain": "净产出不代表任何结算顺序都等价。题设先加6并按上限截到10，再扣4，余额为6；若改成先扣后加或只截最终值，规则不同。文档、表格与实现应使用同一顺序和边界。"
+      }
+    },
+    {
+      "id": "gm3_balance_segments",
+      "pools": [
+        "game_balance"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "某角色总胜率58%，有人要求立刻削弱。你先看什么？",
+        "options": [
+          {
+            "id": "gm3_balance_segments_a",
+            "type": "safe",
+            "text": "一起看出场率、分段胜率、对位与样本。",
+            "face": "nod",
+            "line": "对，削之前先把情况看全。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_balance_segments_b",
+            "type": "bold",
+            "text": "分清强度、熟练度和环境变化，再定验证方案。",
+            "face": "probe",
+            "line": "分清楚了，再问个具体的。",
+            "followup": {
+              "text": "高分段很强，低分段却很弱，统一减伤可能怎样？",
+              "options": [
+                {
+                  "id": "gm3_balance_segments_h",
+                  "type": "hold",
+                  "text": "可能扩大低分段问题，先找机制与熟练度差异。",
+                  "face": "pleased",
+                  "line": "对，弱的那头会被削得更弱。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_balance_segments_p",
+                  "type": "partial",
+                  "text": "先把总胜率压回一半，个别分段下一轮再处理。",
+                  "face": "calm",
+                  "line": "那低分段这一轮就白挨削了。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_balance_segments_f",
+                  "type": "fail",
+                  "text": "总胜率已经把各段玩家加在一起，分段差异不用单列。",
+                  "face": "frown",
+                  "line": "分段都反着来了，总数会骗人。",
+                  "delta": -7
+                }
+              ],
+              "explain": "总胜率受玩家构成、出场选择、对位与样本影响。分段表现相反时，一刀切可能伤害本来偏弱的人群。先定位原因和适用范围，再小步改动并检查副作用，不能只追单个总数。"
+            }
+          },
+          {
+            "id": "gm3_balance_segments_c",
+            "type": "off",
+            "text": "总胜率超过一半就先减伤害，之后观察投诉。",
+            "face": "calm",
+            "line": "等投诉来了再看，太晚了。",
+            "delta": -3
+          }
+        ],
+        "explain": "总胜率受玩家构成、出场选择、对位与样本影响。分段表现相反时，一刀切可能伤害本来偏弱的人群。先定位原因和适用范围，再小步改动并检查副作用，不能只追单个总数。"
+      }
+    },
+    {
+      "id": "gm3_balance_formula",
+      "pools": [
+        "game_balance"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "教学战斗公式Dmg=max(攻击-防御,1)。把它用于成长跨度很大的系统前，你会检查什么？",
+        "options": [
+          {
+            "id": "gm3_balance_formula_a",
+            "type": "safe",
+            "text": "查攻防差很小、跨档很大两种情况下的伤害和击杀时间。",
+            "face": "nod",
+            "line": "嗯，两头的情况都要看。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_balance_formula_b",
+            "type": "bold",
+            "text": "用多个属性档推演压制区间，再对照目标体验。",
+            "face": "probe",
+            "line": "那你算一个给我看。",
+            "followup": {
+              "text": "攻击100、防御95，攻击增加10后，伤害从多少变到多少？",
+              "options": [
+                {
+                  "id": "gm3_balance_formula_h",
+                  "type": "hold",
+                  "text": "从5到15，伤害变三倍；成长幅度不等于攻击增幅。",
+                  "face": "pleased",
+                  "line": "对，差值小的时候涨幅会被放大。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_balance_formula_p",
+                  "type": "partial",
+                  "text": "攻击增加10%，所以伤害从5按相同比例变成5.5。",
+                  "face": "calm",
+                  "line": "10%是攻击的涨幅，不是伤害的。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_balance_formula_f",
+                  "type": "fail",
+                  "text": "保底为1说明防御影响很小，伤害近似增加10%。",
+                  "face": "frown",
+                  "line": "保底1在这里用不上。",
+                  "delta": -7
+                }
+              ],
+              "explain": "在题设公式下，100-95=5，110-95=15。相同绝对属性改动在不同区间可能带来不同相对收益，需要对照成长、收费与体验目标验证；不能仅凭公式名字断言适合所有品类。"
+            }
+          },
+          {
+            "id": "gm3_balance_formula_c",
+            "type": "off",
+            "text": "减法公式简单直观，属性越高越适合直接沿用。",
+            "face": "calm",
+            "line": "简单是简单，跨度大了会出问题。",
+            "delta": -3
+          }
+        ],
+        "explain": "在题设公式下，100-95=5，110-95=15。相同绝对属性改动在不同区间可能带来不同相对收益，需要对照成长、收费与体验目标验证；不能仅凭公式名字断言适合所有品类。"
+      }
+    },
+    {
+      "id": "gm3_retention_path",
+      "pools": [
+        "game_retention"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "首周留存下降，团队想立即做召回活动。你先怎样拆问题？",
+        "options": [
+          {
+            "id": "gm3_retention_path_a",
+            "type": "safe",
+            "text": "先看是哪批用户、哪个渠道，流失前卡在哪个任务。",
+            "face": "nod",
+            "line": "嗯，召回之前先看人是在哪走的。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_retention_path_b",
+            "type": "bold",
+            "text": "区分没看到、没理解、过不去和缺少后续目标。",
+            "face": "probe",
+            "line": "分四类，我问个具体的。",
+            "followup": {
+              "text": "下降主要在新手教程退出，而老玩家稳定。下一步？",
+              "options": [
+                {
+                  "id": "gm3_retention_path_h",
+                  "type": "hold",
+                  "text": "还原新手路径和退出条件，再验证针对性改动。",
+                  "face": "pleased",
+                  "line": "对，先把新手这一段看清楚。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_retention_path_p",
+                  "type": "partial",
+                  "text": "先给新用户普遍多发些资源，排除成长速度不足。",
+                  "face": "calm",
+                  "line": "全员发资源，查不出问题在哪。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_retention_path_f",
+                  "type": "fail",
+                  "text": "老玩家稳定就说明玩法没问题，主要加大获客即可。",
+                  "face": "frown",
+                  "line": "新人一进来就走，获客越多越亏。",
+                  "delta": -7
+                }
+              ],
+              "explain": "留存下降需要先核对人群和观察窗口，再定位任务节点。新手教程退出不一定是奖励不足，也可能是信息、操作或技术问题；普遍补资源与召回不能替代针对性排查。"
+            }
+          },
+          {
+            "id": "gm3_retention_path_c",
+            "type": "off",
+            "text": "先推限时奖励召回，数据回来后再补流失分析。",
+            "face": "calm",
+            "line": "召回完才分析？顺序反了。",
+            "delta": -3
+          }
+        ],
+        "explain": "留存下降需要先核对人群和观察窗口，再定位任务节点。新手教程退出不一定是奖励不足，也可能是信息、操作或技术问题；普遍补资源与召回不能替代针对性排查。"
+      }
+    },
+    {
+      "id": "gm3_retention_window",
+      "pools": [
+        "game_retention"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "新版上线后三天，团队拿新用户七日留存和旧版完整七天数据比较。你怎么处理？",
+        "options": [
+          {
+            "id": "gm3_retention_window_a",
+            "type": "safe",
+            "text": "新批次没满七天，先等到能比的窗口。",
+            "face": "nod",
+            "line": "对，没满七天的不能拿来比。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_retention_window_b",
+            "type": "bold",
+            "text": "分开报告早期行为和成熟留存，不把缺失算流失。",
+            "face": "probe",
+            "line": "那再问一步。",
+            "followup": {
+              "text": "负责人今天就要决定能否扩大，七日结果还没有，怎么办？",
+              "options": [
+                {
+                  "id": "gm3_retention_window_h",
+                  "type": "hold",
+                  "text": "拿已有的早期证据先判断，并写明七日结果还没出。",
+                  "face": "pleased",
+                  "line": "对，没出的部分要说清楚。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_retention_window_p",
+                  "type": "partial",
+                  "text": "按前三天走势线性推算七日留存，给出确定结论。",
+                  "face": "calm",
+                  "line": "三天推七天，走势不会变吗？",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_retention_window_f",
+                  "type": "fail",
+                  "text": "前三天没有事故就说明留存可靠，可以全量后再验证。",
+                  "face": "frown",
+                  "line": "没事故，不等于留得住。",
+                  "delta": -7
+                }
+              ],
+              "explain": "尚未经历七天的用户不能当作七日流失。决策若必须提前，应分开使用可得的运行、早期行为与质量证据，说明未知和停止条件，不能把短窗口外推成已确认长期结果。"
+            }
+          },
+          {
+            "id": "gm3_retention_window_c",
+            "type": "off",
+            "text": "统一以当前自然日为准，先把未回来的算流失。",
+            "face": "calm",
+            "line": "还没到时间的，怎么算流失？",
+            "delta": -3
+          }
+        ],
+        "explain": "尚未经历七天的用户不能当作七日流失。决策若必须提前，应分开使用可得的运行、早期行为与质量证据，说明未知和停止条件，不能把短窗口外推成已确认长期结果。"
+      }
+    },
+    {
+      "id": "gm3_scope_dependency",
+      "pools": [
+        "game_scope"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "要加一个两人合作机关，程序和美术都说本版资源紧。你怎样定首版？",
+        "options": [
+          {
+            "id": "gm3_scope_dependency_a",
+            "type": "safe",
+            "text": "先定目标和关键交互，列出依赖与可缩减的范围。",
+            "face": "nod",
+            "line": "嗯，先看哪些能砍。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_scope_dependency_b",
+            "type": "bold",
+            "text": "比较两套可做方案，把舍弃内容与验证口径写清。",
+            "face": "probe",
+            "line": "写清楚了，我给个条件。",
+            "followup": {
+              "text": "程序能做依次触发，做不了同步触发。你如何取舍？",
+              "options": [
+                {
+                  "id": "gm3_scope_dependency_h",
+                  "type": "hold",
+                  "text": "先看目标是否必须同步，能替代就验证代价与体验。",
+                  "face": "pleased",
+                  "line": "对，先别认死同步。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_scope_dependency_p",
+                  "type": "partial",
+                  "text": "同步更有合作感，坚持原案，暂靠加班补齐实现。",
+                  "face": "calm",
+                  "line": "靠加班补，下个版本还会这样。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_scope_dependency_f",
+                  "type": "fail",
+                  "text": "先做单人操作，宣传仍按两人配合，后续再补机制。",
+                  "face": "frown",
+                  "line": "做的和说的不一样，玩家会发现。",
+                  "delta": -7
+                }
+              ],
+              "explain": "方案要围绕体验目标与可实现条件选择，不能只报创意。依次与同步触发会改变等待、配合和反馈，需要明确舍弃与验证；承认资源约束不等于随意删掉核心承诺，更不能用宣传掩盖缺失。"
+            }
+          },
+          {
+            "id": "gm3_scope_dependency_c",
+            "type": "off",
+            "text": "先把完整创意写进策划案，资源问题让负责人协调。",
+            "face": "calm",
+            "line": "资源问题不能只丢给别人。",
+            "delta": -3
+          }
+        ],
+        "explain": "方案要围绕体验目标与可实现条件选择，不能只报创意。依次与同步触发会改变等待、配合和反馈，需要明确舍弃与验证；承认资源约束不等于随意删掉核心承诺，更不能用宣传掩盖缺失。"
+      }
+    },
+    {
+      "id": "gm3_scope_taste",
+      "pools": [
+        "game_scope"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你觉得某段教学设计得好，怎样把“好”讲具体？",
+        "options": [
+          {
+            "id": "gm3_scope_taste_a",
+            "type": "safe",
+            "text": "挑一个片段，讲信息、行动、反馈的衔接。",
+            "face": "nod",
+            "line": "好，指着具体片段说。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_scope_taste_b",
+            "type": "bold",
+            "text": "给一个取舍和适用条件，再说怎样检查理解。",
+            "face": "probe",
+            "line": "适用条件，我追问一下。",
+            "followup": {
+              "text": "同伴理解了规则却不喜欢这段体验，怎么解释？",
+              "options": [
+                {
+                  "id": "gm3_scope_taste_h",
+                  "type": "hold",
+                  "text": "区分理解问题和偏好差异，回到目标人群再核验。",
+                  "face": "pleased",
+                  "line": "对，懂规则不等于喜欢。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_scope_taste_p",
+                  "type": "partial",
+                  "text": "再讲一遍设计意图，让对方接受这段体验的价值。",
+                  "face": "calm",
+                  "line": "他已经懂了，再讲也没用。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_scope_taste_f",
+                  "type": "fail",
+                  "text": "他理解了规则还不喜欢，说明他不是我们的目标玩家。",
+                  "face": "frown",
+                  "line": "不喜欢的人就都算在目标之外了？",
+                  "delta": -7
+                }
+              ],
+              "explain": "审美和品味可以从具体结构与取舍说明，评分、销量或个人偏好不能替代解释。理解规则与喜欢体验不同，需要区分信息问题、机制问题与偏好，再按目标人群验证。"
+            }
+          },
+          {
+            "id": "gm3_scope_taste_c",
+            "type": "off",
+            "text": "先讲画面和氛围，再用评分与销量证明设计正确。",
+            "face": "calm",
+            "line": "评分高，不等于这段教学做得好。",
+            "delta": -3
+          }
+        ],
+        "explain": "审美和品味可以从具体结构与取舍说明，评分、销量或个人偏好不能替代解释。理解规则与喜欢体验不同，需要区分信息问题、机制问题与偏好，再按目标人群验证。"
+      }
+    },
+    {
+      "id": "gm3_reverse_task",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "关于系统策划这个岗位，你还想了解什么？",
+        "options": [
+          {
+            "id": "gm3_reverse_task_0",
+            "type": "reverse",
+            "text": "新人先维护哪段规则，交付后由谁评审和验收？",
+            "face": "nod",
+            "line": "新人先从一小块规则做起，评审会写清楚。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_reverse_task_1",
+            "type": "reverse",
+            "text": "策划、程序和美术对范围有分歧时怎样做决定？",
+            "face": "nod",
+            "line": "先把依赖摆出来，再由主策划拍板。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_reverse_task_2",
+            "type": "reverse",
+            "text": "团队平时用哪些文档和配置工具，新人要先学哪些？",
+            "face": "nod",
+            "line": "文档和表格都有，到岗后给你一份说明。",
+            "delta": 1
+          }
+        ],
+        "explain": "反问应帮助确认本人任务、接口与反馈。工具信息有用，但不能单凭工具或项目名判断新人会承担什么；具体分工应以当前团队说明为准。"
+      }
+    },
+    {
+      "id": "gm3_reverse_review",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "这一轮结束前，你还想问什么？",
+        "options": [
+          {
+            "id": "gm3_reverse_review_0",
+            "type": "reverse",
+            "text": "一次数值调整后，团队怎样复查目标和副作用？",
+            "face": "nod",
+            "line": "每次调整后都会复查，我们有清单。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_reverse_review_1",
+            "type": "reverse",
+            "text": "现场问题怎样回到规则、配置和回归样例里？",
+            "face": "nod",
+            "line": "现场问题会进规则文档，也会留回归样例。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_reverse_review_2",
+            "type": "reverse",
+            "text": "项目通常多久举行一次阶段交流，新人要不要参加？",
+            "face": "nod",
+            "line": "每个里程碑前后各一次，新人也参加。",
+            "delta": 1
+          }
+        ],
+        "explain": "复盘、变更和质量反馈能帮助理解项目工作方式。阶段节奏可以问，但频率不自动代表培养或质量；核对真实流程比用行业印象推断更有信息。"
+      }
+    }
+  ],
+  "skill_probes": {
+    "gm3_probe_balance": {
+      "tag": "专业",
+      "text": "你写了精通基础产出消耗表。固定平均奖励相同，玩家体验就一样吗？",
+      "options": [
+        {
+          "id": "gm3_probe_balance_a",
+          "type": "safe",
+          "text": "均值相同，波动与达到目标的等待仍可能不同。",
+          "face": "nod",
+          "line": "对，平均数只是一面。",
+          "delta": 3
+        },
+        {
+          "id": "gm3_probe_balance_b",
+          "type": "bold",
+          "text": "先列分布、累计规则和停止条件，再比较体验目标。",
+          "face": "probe",
+          "line": "那给你个具体的例子。",
+          "followup": {
+            "text": "甲每次固定得10，乙一半得0、一半得20。一次期望同为10，差异在哪？",
+            "options": [
+              {
+                "id": "gm3_probe_balance_h",
+                "type": "hold",
+                "text": "甲没有单次波动，乙可能连续空手；还要看尾部与规则。",
+                "face": "pleased",
+                "line": "对，连着空手的玩家会走。",
+                "delta": 9
+              },
+              {
+                "id": "gm3_probe_balance_p",
+                "type": "partial",
+                "text": "两者多玩几次平均就一样，因此不用比较短期反馈。",
+                "face": "calm",
+                "line": "短期反馈也是体验的一部分。",
+                "delta": -2
+              },
+              {
+                "id": "gm3_probe_balance_f",
+                "type": "fail",
+                "text": "乙一次能拿20，成长速度就是甲的两倍。",
+                "face": "frown",
+                "line": "期望都是10，哪来的两倍？",
+                "delta": -7
+              }
+            ],
+            "explain": "均值相同不代表分布、长尾与达到目标的过程相同。甲每次固定10，乙均值10但有波动；设计判断仍需明确目标、停止和反馈条件。不熟悉时应如实承认只会基础，不能用自信替代验证。"
+          }
+        },
+        {
+          "id": "gm3_probe_balance_c",
+          "type": "off",
+          "text": "平均收益相同就是同等成长，区别主要在表现包装。",
+          "face": "calm",
+          "line": "只差包装？那留存差异怎么解释。",
+          "delta": -3
+        },
+        {
+          "id": "gm3_probe_balance_honest",
+          "type": "off",
+          "text": "“精通”写得满了，我只做过基础拆解和一张表。",
+          "face": "calm",
+          "line": "好，实话实说，那就按基础来聊。",
+          "delta": -1
+        }
+      ],
+      "explain": "均值相同不代表分布、长尾与达到目标的过程相同。甲每次固定10，乙均值10但有波动；设计判断仍需明确目标、停止和反馈条件。不熟悉时应如实承认只会基础，不能用自信替代验证。"
+    },
+    "gm3_probe_rules": {
+      "tag": "专业",
+      "text": "你写了精通游戏规则拆解。两个描述看起来相同的功能，怎样确认规则一致？",
+      "options": [
+        {
+          "id": "gm3_probe_rules_a",
+          "type": "safe",
+          "text": "列出状态、触发条件和结果，再拿边界情况走一遍。",
+          "face": "nod",
+          "line": "对，边界情况最能看出差别。",
+          "delta": 3
+        },
+        {
+          "id": "gm3_probe_rules_b",
+          "type": "bold",
+          "text": "用同一组操作，把两套规则各走一遍，找第一个不同点。",
+          "face": "probe",
+          "line": "那给你个具体的。",
+          "followup": {
+            "text": "同样叫“重试”，一套清空资源，一套保留资源，该怎样记录？",
+            "options": [
+              {
+                "id": "gm3_probe_rules_h",
+                "type": "hold",
+                "text": "分开写：重试后资源和进度各怎么处理，别只写按钮名。",
+                "face": "pleased",
+                "line": "对，后果不同就得分开写。",
+                "delta": 9
+              },
+              {
+                "id": "gm3_probe_rules_p",
+                "type": "partial",
+                "text": "先把两套都叫重试，差异放进后续文案说明即可。",
+                "face": "calm",
+                "line": "名字一样，玩家会以为是一回事。",
+                "delta": -2
+              },
+              {
+                "id": "gm3_probe_rules_f",
+                "type": "fail",
+                "text": "按钮名称相同已经表达同一意图，资源差异不影响规则。",
+                "face": "frown",
+                "line": "清空和保留，后果差远了。",
+                "delta": -7
+              }
+            ],
+            "explain": "规则一致性要看状态与后果，不只看界面名称。重试对资源、进度和已读信息的处理需要明确，才能和程序、美术、测试共同核对。不了解部分应承认边界，不能自信把不同后果当作同一规则。"
+          }
+        },
+        {
+          "id": "gm3_probe_rules_c",
+          "type": "off",
+          "text": "先统一名称和界面文案，玩家看到相同就算一致。",
+          "face": "calm",
+          "line": "界面一样，规则可以完全不同。",
+          "delta": -3
+        },
+        {
+          "id": "gm3_probe_rules_honest",
+          "type": "off",
+          "text": "“精通”写得满了，我只做过基础拆解和一张表。",
+          "face": "calm",
+          "line": "好，实话实说，那就按基础来聊。",
+          "delta": -1
+        }
+      ],
+      "explain": "规则一致性要看状态与后果，不只看界面名称。重试对资源、进度和已读信息的处理需要明确，才能和程序、美术、测试共同核对。不了解部分应承认边界，不能自信把不同后果当作同一规则。"
+    }
+  },
+  "frames": {
+    "game_project": [
+      {
+        "id": "gm3_frame_jam",
+        "roles": [
+          "game"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "这段{exp.label}里，你负责哪部分设计？",
+          "options": [
+            {
+              "key": "gm3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.gm3_summary}",
+              "face": "nod",
+              "line": "好，先说你自己做的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "gm3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲这个游戏的主题和好玩的地方，再带一句我也参与了。",
+              "face": "calm",
+              "line": "我问的是你负责哪一部分。"
+            }
+          ],
+          "explain": "Game Jam 的团队奖不等于个人奖。剧情、关卡流程和文案是自己做的，程序和美术由谁完成，规则怎样商量出来，这几点讲清楚，比介绍作品主题更能说明个人工作；比赛原型也不是商业上线。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "gm3_frame_sheet",
+        "roles": [
+          "game"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "你做的系统拆解，怎样体现规则判断而不只是复述攻略？",
+          "options": [
+            {
+              "key": "gm3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.gm3_summary}",
+              "face": "nod",
+              "line": "好，先说你做了什么。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "gm3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "按攻略的顺序，把几款游戏的养成路线讲一遍。",
+              "face": "calm",
+              "line": "复述攻略我也会，说说你的判断。"
+            }
+          ],
+          "explain": "拆解的价值在于做出了哪些判断：目标是什么，资源怎么流动，哪里有取舍。按攻略顺序复述只是整理信息；产出消耗表这类纸面推演，也要说清参数从哪来、哪些没有验证。"
+        }
+      }
+    ],
+    "media_ops": [
+      {
+        "id": "gm3_frame_review",
+        "roles": [
+          "game"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "游戏评论与系统策划不同，你怎样说明这段经历能迁移什么？",
+          "options": [
+            {
+              "key": "gm3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.gm3_summary}",
+              "face": "nod",
+              "line": "好，先说你怎么分析的。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "gm3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲粉丝涨了多少、哪篇阅读量最高。",
+              "face": "calm",
+              "line": "数字之外，你是怎么分析的？"
+            }
+          ],
+          "explain": "评论能迁移的是把玩法问题说清的能力：看到什么现象，归到哪条规则。粉丝和阅读量是传播数据，口径不同，也不能当作策划能力的证据。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "gm3_frame_thesis",
+        "roles": [
+          "game"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "这段叙事研究对系统策划有什么帮助，哪些还没验证？",
+          "options": [
+            {
+              "key": "gm3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.gm3_summary}",
+              "face": "nod",
+              "line": "好，先说做完的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "gm3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲论文选题多有意思，再说我读了多少文献。",
+              "face": "calm",
+              "line": "读了多少不重要，你得出了什么？"
+            }
+          ],
+          "explain": "论文可以支持有限的案例分析：选择条件、反馈和结局怎样对应。样本是案例，不是玩家，不能直接推到全体玩家的偏好；论文还没写完时，也要说明现在做到哪一步。"
+        }
+      }
+    ],
+    "event_planning": [
+      {
+        "id": "gm3_frame_script",
+        "roles": [
+          "game"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "剧本杀社团里你既写剧本也参与办活动，哪部分是你本人的产出？",
+          "options": [
+            {
+              "key": "gm3_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.gm3_summary}",
+              "face": "nod",
+              "line": "好，先说你自己写的部分。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "gm3_c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲社团活动办得多热闹、来了多少人，再补我写的剧本。",
+              "face": "calm",
+              "line": "热闹是社团的，你自己写了什么？"
+            }
+          ],
+          "explain": "社团活动是集体的成果，来了多少人说明不了个人贡献。剧本是自己的产出，可以讲怎样检查分支条件、线索和结局是否一致；活动里自己负责了哪一环，也要单独说清。"
+        }
+      }
+    ]
+  },
+  "background": [
+    {
+      "id": "gm3_bg_humanities",
+      "pools": [
+        "hr"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "game",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "文科背景投系统策划，你怎样说明已有基础与短板？",
+        "options": [
+          {
+            "id": "gm3_bg_humanities_a",
+            "type": "safe",
+            "text": "拿原型和规则材料说明准备，再列出还要补的能力。",
+            "face": "nod",
+            "line": "嗯，有东西可看，也有缺口。",
+            "delta": 3
+          },
+          {
+            "id": "gm3_bg_humanities_b",
+            "type": "bold",
+            "text": "分开讲文本优势、规则产出和数值实现的边界。",
+            "face": "probe",
+            "line": "边界这块，我问个具体的。",
+            "followup": {
+              "text": "只有一张基础产消表，能直接说精通复杂数值吗？",
+              "options": [
+                {
+                  "id": "gm3_bg_humanities_h",
+                  "type": "hold",
+                  "text": "不能，我能拿出表格和假设，复杂的概率还要学。",
+                  "face": "pleased",
+                  "line": "对，别把一张表说成精通。",
+                  "delta": 9
+                },
+                {
+                  "id": "gm3_bg_humanities_p",
+                  "type": "partial",
+                  "text": "先强调叙事优势，数值细节在入职后再补充说明。",
+                  "face": "calm",
+                  "line": "数值的事，不能留到入职后再说。",
+                  "delta": -2
+                },
+                {
+                  "id": "gm3_bg_humanities_f",
+                  "type": "fail",
+                  "text": "表格算通就掌握了系统数值，可以把程度写高一点。",
+                  "face": "frown",
+                  "line": "写高一点？差多少你自己清楚。",
+                  "delta": -7
+                }
+              ],
+              "explain": "专业背景提供部分经验，但不能替代岗位证据。文科候选人可以展示叙事、规则和协作产物，同时如实说明基础数值与实现缺口，不把自己的偏好推广成全部玩家心理。"
+            }
+          },
+          {
+            "id": "gm3_bg_humanities_c",
+            "type": "off",
+            "text": "文科更理解玩家心理，数值和实现由团队其他人负责。",
+            "face": "calm",
+            "line": "别人做数值，那你做什么？",
+            "delta": -3
+          }
+        ],
+        "explain": "专业背景提供部分经验，但不能替代岗位证据。文科候选人可以展示叙事、规则和协作产物，同时如实说明基础数值与实现缺口，不把自己的偏好推广成全部玩家心理。"
+      }
+    }
+  ]
+}

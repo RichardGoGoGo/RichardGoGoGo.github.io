@@ -1,0 +1,49 @@
+{
+  "id": "r2",
+  "name": "主策面",
+  "company": "studio",
+  "interviewer": {
+    "art": "A6",
+    "title": "主策划"
+  },
+  "scene": "S12",
+  "hello": "这一轮看你怎样在目标、玩家差异和制作条件之间做取舍。请把证据、假设和待验证的部分分开。",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "game_retention",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "game_scope",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "game_balance",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "game_rules",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

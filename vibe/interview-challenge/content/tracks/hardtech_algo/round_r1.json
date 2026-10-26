@@ -1,0 +1,55 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A2",
+    "title": "算法工程师"
+  },
+  "scene": "S10",
+  "hello": "你好，先聊聊基础和你做过的实验，再看看算法放到设备端会碰到什么。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "algo_ml",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "algo_sensor",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "algo_edge",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "algo_device_perf",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

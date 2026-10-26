@@ -1,0 +1,55 @@
+{
+  "id": "r1",
+  "name": "业务一面",
+  "company": "studio",
+  "interviewer": {
+    "art": "A2",
+    "title": "系统策划"
+  },
+  "scene": "S12",
+  "hello": "先聊你的作品，再把规则和数值条件拆清楚。不要求把没有做过的商业经历补成故事。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "biz_intro",
+      "swap": false
+    },
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "game_loop",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "deep_dive_first",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "game_math",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "skill_probe",
+      "fallback_pool": "game_rules",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "game_balance",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

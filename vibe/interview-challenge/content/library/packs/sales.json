@@ -1,0 +1,2099 @@
+{
+  "_note": "S：客户型销售；全部新增题池限定sales，不改变旧岗位的专业题。",
+  "relevance": {
+    "intern_dev": {
+      "sales": "none"
+    },
+    "intern_pm": {
+      "sales": "half"
+    },
+    "user_research_intern": {
+      "sales": "half"
+    },
+    "research_tool": {
+      "sales": "none"
+    },
+    "campus_team_project": {
+      "sales": "half"
+    },
+    "personal_project": {
+      "sales": "general"
+    },
+    "course_project": {
+      "sales": "half"
+    },
+    "thesis": {
+      "sales": "general"
+    },
+    "paper": {
+      "sales": "none"
+    },
+    "competition": {
+      "sales": "half"
+    },
+    "student_org": {
+      "sales": "match"
+    },
+    "media_ops": {
+      "sales": "half"
+    },
+    "event_planning": {
+      "sales": "match"
+    },
+    "part_time": {
+      "sales": "match"
+    },
+    "certificate": {
+      "sales": "general"
+    },
+    "award": {
+      "sales": "general"
+    },
+    "intern_hr": {
+      "sales": "general"
+    },
+    "intern_mkt": {
+      "sales": "match"
+    },
+    "campus_ambassador": {
+      "sales": "strong"
+    },
+    "game_project": {
+      "sales": "general"
+    }
+  },
+  "skills": {
+    "p3t_business_comms": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "客户沟通",
+            "需求确认",
+            "商务协作"
+          ]
+        }
+      }
+    },
+    "research": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "客户访谈",
+            "需求调研"
+          ]
+        }
+      }
+    },
+    "excel": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "office": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "方案文档"
+          ]
+        }
+      }
+    },
+    "competitor": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "竞品分析"
+          ]
+        }
+      }
+    },
+    "event": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "活动跟进"
+          ]
+        }
+      }
+    },
+    "data": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "p3t_excel_pivot": {
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "Excel",
+            "数据分析"
+          ]
+        }
+      }
+    },
+    "sl3_pipeline": {
+      "labels": {
+        "1": "了解客户阶段与跟进记录",
+        "2": "能按证据整理客户阶段",
+        "3": "精通销售机会管理"
+      },
+      "roles": {
+        "sales": {
+          "relevant": true,
+          "keywords": [
+            "漏斗分析",
+            "客户跟进"
+          ]
+        }
+      },
+      "master_probes": [
+        "sl3_probe_pipeline"
+      ]
+    }
+  },
+  "pools": [
+    {
+      "id": "sl3_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "介绍一段你把一次沟通推进到具体行动的经历。",
+        "options": [
+          {
+            "id": "sl3_intro_a",
+            "type": "safe",
+            "text": "先讲对方想要什么、我做了哪几步，以及对方认下来的结果。",
+            "face": "nod",
+            "line": "嗯，有头有尾。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_intro_b",
+            "type": "bold",
+            "text": "挑沟通卡住的那一环讲，再讲我怎么把下一步定下来。",
+            "face": "probe",
+            "line": "好，卡在哪一环？",
+            "followup": {
+              "text": "结果是团队一起拿到的，怎么看出哪些是你推动的？",
+              "options": [
+                {
+                  "id": "sl3_intro_h",
+                  "type": "hold",
+                  "text": "拿我自己的跟进记录和对方回的消息来对，只算我这条线上的。",
+                  "face": "pleased",
+                  "line": "嗯，记录和回复能对上。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_intro_p",
+                  "type": "partial",
+                  "text": "我能讲清自己做了哪几步，对方有没有确认就没留记录了。",
+                  "face": "calm",
+                  "line": "做的我听明白了，对方认了吗？",
+                  "delta": 1
+                },
+                {
+                  "id": "sl3_intro_f",
+                  "type": "fail",
+                  "text": "按小组人数把总成绩平分，其中一份算在我头上。",
+                  "face": "frown",
+                  "line": "平分出来的，也算你推动的？",
+                  "delta": -7
+                }
+              ],
+              "explain": "讲沟通经历，要把团队结果、本人动作和对方已经认可的进展分开。没有独立成交统计也能讲清贡献：用自己的跟进记录和对方的回复划出个人范围。只报总量、先讲规模，会让人接着追问你具体做了什么；把团队总数平分后认领没有依据；有动作却没留下对方的确认，只能算讲了一半。"
+            }
+          },
+          {
+            "id": "sl3_intro_c",
+            "type": "off",
+            "text": "先说这场活动来了几百人、拉了几家赞助，我自己的部分回头补。",
+            "face": "calm",
+            "line": "规模我记下了，你做了哪块？",
+            "delta": -3
+          }
+        ],
+        "explain": "讲沟通经历，要把团队结果、本人动作和对方已经认可的进展分开。没有独立成交统计也能讲清贡献：用自己的跟进记录和对方的回复划出个人范围。只报总量、先讲规模，会让人接着追问你具体做了什么；把团队总数平分后认领没有依据；有动作却没留下对方的确认，只能算讲了一半。"
+      }
+    },
+    {
+      "id": "sl3_intro2",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "没有正式企业销售经历，你准备怎样说明岗位匹配？",
+        "options": [
+          {
+            "id": "sl3_intro2_b",
+            "type": "bold",
+            "text": "拿校园推广和实习里的沟通举例，分开说哪些能迁移、哪些还缺。",
+            "face": "probe",
+            "line": "好，我顺着问一句。",
+            "followup": {
+              "text": "校园推广做得不错，这能说明你会做复杂的企业采购吗？",
+              "options": [
+                {
+                  "id": "sl3_intro2_h",
+                  "type": "hold",
+                  "text": "不能：校园里一人拍板，企业采购多人把关，这块要学。",
+                  "face": "pleased",
+                  "line": "对，这两件事不一样。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_intro2_p",
+                  "type": "partial",
+                  "text": "能说明我会沟通和跟进，采购流程怎么走、要谁签字，入职后慢慢补。",
+                  "face": "calm",
+                  "line": "沟通看出来了，流程呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "sl3_intro2_f",
+                  "type": "fail",
+                  "text": "校园推广也是找决策人谈、拿订单，企业采购照这个套路走。",
+                  "face": "frown",
+                  "line": "校园里谁给你审过合同？",
+                  "delta": -7
+                }
+              ],
+              "explain": "校园推广和门店接待能证明需求确认、记录、跟进这类动作，证明不了独立完成复杂的企业交易：企业采购有使用部门、采购、财务和技术多方把关，周期也长。说清哪些动作可以迁移、哪些环节还没经历，便于安排培养；把校园活动包装成大客户项目，往下问两句就会露出破绽。"
+            }
+          },
+          {
+            "id": "sl3_intro2_c",
+            "type": "off",
+            "text": "把校园大使说成带队做大客户项目，更贴近岗位。",
+            "face": "calm",
+            "line": "带团队？这个我得再核实。",
+            "delta": -3
+          },
+          {
+            "id": "sl3_intro2_a",
+            "type": "safe",
+            "text": "挑一次真实的需求沟通来讲，哪些能迁移、哪些没碰过都说清。",
+            "face": "nod",
+            "line": "嗯，边界划得清。",
+            "delta": 3
+          }
+        ],
+        "explain": "校园推广和门店接待能证明需求确认、记录、跟进这类动作，证明不了独立完成复杂的企业交易：企业采购有使用部门、采购、财务和技术多方把关，周期也长。说清哪些动作可以迁移、哪些环节还没经历，便于安排培养；把校园活动包装成大客户项目，往下问两句就会露出破绽。"
+      }
+    },
+    {
+      "id": "sl3_pipeline",
+      "pools": [
+        "sales_pipeline"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "客户说方案不错，销售准备把机会标成即将签约。你怎么看？",
+        "options": [
+          {
+            "id": "sl3_pipeline_c",
+            "type": "off",
+            "text": "方案发了两轮，先标即将签约，采购信息后面补。",
+            "face": "calm",
+            "line": "发了两轮，客户的预算呢？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_pipeline_a",
+            "type": "safe",
+            "text": "先查预算批没批、谁拍板、下次双方各约了什么，再决定标哪个阶段。",
+            "face": "nod",
+            "line": "嗯，按证据来。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_pipeline_b",
+            "type": "bold",
+            "text": "把客户的好评和采购证据分开看，缺哪块就约哪块。",
+            "face": "probe",
+            "line": "好，缺的怎么补？",
+            "followup": {
+              "text": "客户愿意见第二次，但预算还没批，你怎样更新阶段？",
+              "options": [
+                {
+                  "id": "sl3_pipeline_h",
+                  "type": "hold",
+                  "text": "留在需求验证阶段，备注预算和拍板人待定。",
+                  "face": "pleased",
+                  "line": "对，客户那边还没点头。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_pipeline_p",
+                  "type": "partial",
+                  "text": "升到报价阶段，备注一句预算未批，月底再看。",
+                  "face": "calm",
+                  "line": "备注归备注，阶段怎么能升？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_pipeline_f",
+                  "type": "fail",
+                  "text": "见了两次面算六成把握，就计入本季度的签约预测。",
+                  "face": "frown",
+                  "line": "按见面次数算概率？",
+                  "delta": -7
+                }
+              ],
+              "explain": "阶段要由客户侧的证据支撑：预算是否批准、谁拍板、下一次双方各自要做什么。客户说方案不错、愿意再见一次，只是兴趣，不是采购承诺。预算未批还升阶段、只在备注里写一句，预测会虚胖；按见面次数套概率，是把销售自己的动作当成了客户的决定。"
+            }
+          }
+        ],
+        "explain": "阶段要由客户侧的证据支撑：预算是否批准、谁拍板、下一次双方各自要做什么。客户说方案不错、愿意再见一次，只是兴趣，不是采购承诺。预算未批还升阶段、只在备注里写一句，预测会虚胖；按见面次数套概率，是把销售自己的动作当成了客户的决定。"
+      }
+    },
+    {
+      "id": "sl3_pipeline2",
+      "pools": [
+        "sales_pipeline"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "月底机会很多，你如何决定下一周先跟哪些？",
+        "options": [
+          {
+            "id": "sl3_pipeline2_a",
+            "type": "safe",
+            "text": "按阶段证据和采购窗口排先后，窗口快关的先跟。",
+            "face": "nod",
+            "line": "嗯，窗口优先。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_pipeline2_b",
+            "type": "bold",
+            "text": "给每个机会列下一步、负责人和失效条件，再看本周能推进的。",
+            "face": "probe",
+            "line": "好，失效条件怎么定？",
+            "followup": {
+              "text": "一个大单预算未定，小单的采购窗口下周就关，怎么排？",
+              "options": [
+                {
+                  "id": "sl3_pipeline2_h",
+                  "type": "hold",
+                  "text": "小单先保住窗口，大单约一次预算确认，两边各排一个动作。",
+                  "face": "pleased",
+                  "line": "两头都安排了，不错。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_pipeline2_p",
+                  "type": "partial",
+                  "text": "先全力保住小单窗口，大单等预算批了再回头跟。",
+                  "face": "calm",
+                  "line": "小单稳了，大单就先搁着？",
+                  "delta": 1
+                },
+                {
+                  "id": "sl3_pipeline2_f",
+                  "type": "fail",
+                  "text": "大单金额高，本周时间全给它，小单窗口关了也没办法。",
+                  "face": "frown",
+                  "line": "小单就这么丢了？",
+                  "delta": -7
+                }
+              ],
+              "explain": "排优先级要同时看金额、采购窗口、推进证据和要投入的时间。窗口快关的小单要先保住，这一步是对的；预算未定的大单还要安排一个具体的预算确认动作，只等预算批了再跟，等于晾着。只看金额，会把时间压在最不确定的单子上；只按联系次数排，则把热闹当成了进展。预计金额不等于已实现收入，管道里也要及时标出暂停或失效的机会。"
+            }
+          },
+          {
+            "id": "sl3_pipeline2_c",
+            "type": "off",
+            "text": "先按历史联系次数排序，联系最多的最有希望。",
+            "face": "calm",
+            "line": "联系多就等于有希望？",
+            "delta": -3
+          }
+        ],
+        "explain": "排优先级要同时看金额、采购窗口、推进证据和要投入的时间。窗口快关的小单要先保住，这一步是对的；预算未定的大单还要安排一个具体的预算确认动作，只等预算批了再跟，等于晾着。只看金额，会把时间压在最不确定的单子上；只按联系次数排，则把热闹当成了进展。预计金额不等于已实现收入，管道里也要及时标出暂停或失效的机会。"
+      }
+    },
+    {
+      "id": "sl3_discovery",
+      "pools": [
+        "sales_discovery"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "首次拜访客户，对方让你直接介绍设备。你怎样开场？",
+        "options": [
+          {
+            "id": "sl3_discovery_b",
+            "type": "bold",
+            "text": "先问几个问题弄清业务损失和验收方式，再决定讲什么。",
+            "face": "probe",
+            "line": "好，你会先问哪些？",
+            "followup": {
+              "text": "客户只给十五分钟，也不愿说预算，怎么办？",
+              "options": [
+                {
+                  "id": "sl3_discovery_h",
+                  "type": "hold",
+                  "text": "先问哪条产线最头疼，再问谁会参与评估。",
+                  "face": "pleased",
+                  "line": "嗯，十五分钟够问这两件。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_discovery_p",
+                  "type": "partial",
+                  "text": "预算不说就先讲产品，演示快一点，需求下次再问。",
+                  "face": "calm",
+                  "line": "产品是讲了，客户听进去没有？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_discovery_f",
+                  "type": "fail",
+                  "text": "没有预算就改约时间，等客户备好数字再谈。",
+                  "face": "frown",
+                  "line": "好不容易的十五分钟，就放了？",
+                  "delta": -7
+                }
+              ],
+              "explain": "首次拜访不要求客户一次交出全部采购信息。时间有限时，先弄清场景、痛点和后续会参与评估的人；预算没问出来，记下来再安排核实。拿整套功能宣讲代替需求理解，或因为客户暂时不说预算就放弃这次沟通，都会浪费难得的十五分钟。"
+            }
+          },
+          {
+            "id": "sl3_discovery_c",
+            "type": "off",
+            "text": "按产品手册的目录从头讲，把功能都过一遍。",
+            "face": "calm",
+            "line": "功能都过一遍，客户的问题呢？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_discovery_a",
+            "type": "safe",
+            "text": "先问使用场景、眼前的问题和这次想谈成什么，再讲对方关心的部分。",
+            "face": "nod",
+            "line": "嗯，先问后讲。",
+            "delta": 3
+          }
+        ],
+        "explain": "首次拜访不要求客户一次交出全部采购信息。时间有限时，先弄清场景、痛点和后续会参与评估的人；预算没问出来，记下来再安排核实。拿整套功能宣讲代替需求理解，或因为客户暂时不说预算就放弃这次沟通，都会浪费难得的十五分钟。"
+      }
+    },
+    {
+      "id": "sl3_discovery2",
+      "pools": [
+        "sales_discovery"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "使用部门喜欢方案，采购却没参加。下一步怎么做？",
+        "options": [
+          {
+            "id": "sl3_discovery2_c",
+            "type": "off",
+            "text": "让使用部门先口头答应下来，采购那边最后补个流程就行。",
+            "face": "calm",
+            "line": "口头答应，采购认吗？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_discovery2_a",
+            "type": "safe",
+            "text": "请使用部门说说采购归谁管、要看哪些材料。",
+            "face": "nod",
+            "line": "嗯，先摸清流程。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_discovery2_b",
+            "type": "bold",
+            "text": "梳理这单涉及的采购角色，再约一次大家都在的会。",
+            "face": "probe",
+            "line": "好，打算怎么约？",
+            "followup": {
+              "text": "客户不方便直接引荐审批人，你如何继续？",
+              "options": [
+                {
+                  "id": "sl3_discovery2_h",
+                  "type": "hold",
+                  "text": "尊重联系人安排，先问清审批流程要哪些材料。",
+                  "face": "pleased",
+                  "line": "嗯，没有越过他。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_discovery2_p",
+                  "type": "partial",
+                  "text": "请联系人把方案转给采购，有问题再让他来问我们。",
+                  "face": "calm",
+                  "line": "转过去之后，谁来盯？",
+                  "delta": 1
+                },
+                {
+                  "id": "sl3_discovery2_f",
+                  "type": "fail",
+                  "text": "给对方采购总监发邮件，抄送联系人的领导，请他们尽快表态。",
+                  "face": "frown",
+                  "line": "绕开联系人，他以后还帮你吗？",
+                  "delta": -7
+                }
+              ],
+              "explain": "企业采购有使用部门、采购、财务等不同角色，使用部门喜欢方案不等于预算和审批已经落实。应尊重现有联系人的安排，通过材料、会议和明确的问题去验证关键条件。请联系人转发方案是尊重他的安排，但转发后要有人盯着审批要哪些材料，只等对方来问就留下了缺口；只靠口头答应代替不了采购流程，绕开联系人向上施压则会损伤关系。"
+            }
+          }
+        ],
+        "explain": "企业采购有使用部门、采购、财务等不同角色，使用部门喜欢方案不等于预算和审批已经落实。应尊重现有联系人的安排，通过材料、会议和明确的问题去验证关键条件。请联系人转发方案是尊重他的安排，但转发后要有人盯着审批要哪些材料，只等对方来问就留下了缺口；只靠口头答应代替不了采购流程，绕开联系人向上施压则会损伤关系。"
+      }
+    },
+    {
+      "id": "sl3_solution",
+      "pools": [
+        "sales_solution"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "客户问你为什么选择这套组合，而不是只买便宜设备。",
+        "options": [
+          {
+            "id": "sl3_solution_a",
+            "type": "safe",
+            "text": "先讲客户的问题，再讲这套组合怎么解决、需要哪些实施条件。",
+            "face": "nod",
+            "line": "嗯，从问题出发。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_solution_b",
+            "type": "bold",
+            "text": "按问题、方案、收益假设、落地条件四块，比较两种买法。",
+            "face": "probe",
+            "line": "好，收益怎么算？",
+            "followup": {
+              "text": "收益还没经过现场验证，方案里怎样写？",
+              "options": [
+                {
+                  "id": "sl3_solution_h",
+                  "type": "hold",
+                  "text": "写明测算用了哪些假设、缺哪些数据、怎样验证，不当保证值。",
+                  "face": "pleased",
+                  "line": "对，假设写明白才站得住。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_solution_p",
+                  "type": "partial",
+                  "text": "先展示别的客户的效果，旁边标注“仅供参考”。",
+                  "face": "calm",
+                  "line": "标了参考，客户也会当预期吧？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_solution_f",
+                  "type": "fail",
+                  "text": "把别家工厂的节省比例写进合同附件当保证。",
+                  "face": "frown",
+                  "line": "别家的数，能保证这家？",
+                  "delta": -7
+                }
+              ],
+              "explain": "方案应从客户场景出发，把事实、假设和待验证条件分开写。收益测算不是保证值，其他客户的效果不能替代这家客户的现场验证、实施范围和验收条件；标注“仅供参考”也挡不住客户把它当成预期。功能列得最多的组合，不等于最适合的组合。"
+            }
+          },
+          {
+            "id": "sl3_solution_c",
+            "type": "off",
+            "text": "把功能最全的组合放在第一页，其余方案附在后面。",
+            "face": "calm",
+            "line": "功能多，就更适合他？",
+            "delta": -3
+          }
+        ],
+        "explain": "方案应从客户场景出发，把事实、假设和待验证条件分开写。收益测算不是保证值，其他客户的效果不能替代这家客户的现场验证、实施范围和验收条件；标注“仅供参考”也挡不住客户把它当成预期。功能列得最多的组合，不等于最适合的组合。"
+      }
+    },
+    {
+      "id": "sl3_solution2",
+      "pools": [
+        "sales_solution"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "报价前发现现场实施范围还没对齐，你怎么推进？",
+        "options": [
+          {
+            "id": "sl3_solution2_b",
+            "type": "bold",
+            "text": "先对齐实施和验收边界，变更怎么处理也一并说好。",
+            "face": "probe",
+            "line": "好，变更怎么写？",
+            "followup": {
+              "text": "客户急着拿预算数，现场核验要下周才能做。",
+              "options": [
+                {
+                  "id": "sl3_solution2_h",
+                  "type": "hold",
+                  "text": "给带条件的预算区间，写明实施假设和待做的核验。",
+                  "face": "pleased",
+                  "line": "嗯，区间加条件。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_solution2_p",
+                  "type": "partial",
+                  "text": "按最顺利的情况报总价，核验后有出入再向客户追加费用。",
+                  "face": "calm",
+                  "line": "客户知道还会加钱吗？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_solution2_f",
+                  "type": "fail",
+                  "text": "报成固定价写进预算申请，现场有出入公司自己消化。",
+                  "face": "frown",
+                  "line": "公司答应消化了吗？",
+                  "delta": -7
+                }
+              ],
+              "explain": "预算测算可以先给，但要标明假设、有效范围和待核验的条件。实施范围没对齐就报成固定价，或先报低价、事后追加费用，都会让客户低估总成本，后续容易在验收和付款上起争执；写进预算申请的数字，公司也未必认账。"
+            }
+          },
+          {
+            "id": "sl3_solution2_c",
+            "type": "off",
+            "text": "先报一个最低总价把客户留住，实施细节等签约再说。",
+            "face": "calm",
+            "line": "低价进来，后面怎么补？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_solution2_a",
+            "type": "safe",
+            "text": "列出包含项、不含项和待核实的条件再报价。",
+            "face": "nod",
+            "line": "嗯，边界列清了。",
+            "delta": 3
+          }
+        ],
+        "explain": "预算测算可以先给，但要标明假设、有效范围和待核验的条件。实施范围没对齐就报成固定价，或先报低价、事后追加费用，都会让客户低估总成本，后续容易在验收和付款上起争执；写进预算申请的数字，公司也未必认账。"
+      }
+    },
+    {
+      "id": "sl3_price",
+      "pools": [
+        "sales_objection"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "客户说太贵，你先做什么？",
+        "options": [
+          {
+            "id": "sl3_price_c",
+            "type": "off",
+            "text": "先申请最低折扣，价格低下来后再问客户理由。",
+            "face": "calm",
+            "line": "折扣先给了，筹码呢？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_price_a",
+            "type": "safe",
+            "text": "问清是在比预算、竞品报价还是预期收益。",
+            "face": "nod",
+            "line": "嗯，先搞清楚贵在哪。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_price_b",
+            "type": "bold",
+            "text": "先拆比较口径和采购阻塞，再讨论可调整项。",
+            "face": "probe",
+            "line": "好，接着说。",
+            "followup": {
+              "text": "同口径比较后仍超预算，哪些让步可以谈？",
+              "options": [
+                {
+                  "id": "sl3_price_h",
+                  "type": "hold",
+                  "text": "用付款节奏、实施范围换价格，约好下一步。",
+                  "face": "pleased",
+                  "line": "嗯，让步都换了东西。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_price_p",
+                  "type": "partial",
+                  "text": "为表诚意先给折扣，等客户满意再谈其他条件。",
+                  "face": "calm",
+                  "line": "满意之后，他还肯换条件吗？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_price_f",
+                  "type": "fail",
+                  "text": "报价单上把差额改成赠送三年免费升级，先让客户顺利过预算。",
+                  "face": "frown",
+                  "line": "三年免费升级，谁批的？",
+                  "delta": -7
+                }
+              ],
+              "explain": "客户说贵，可能指总成本、预算，也可能指收益不确定。先同口径问清，再在授权内拿付款节奏、实施范围这类条件去换价格；先降价没有解决采购上真正卡住的地方，还丢了筹码。未经审批的免费升级是公司没有同意的承诺，会增加后续纠纷。"
+            }
+          }
+        ],
+        "explain": "客户说贵，可能指总成本、预算，也可能指收益不确定。先同口径问清，再在授权内拿付款节奏、实施范围这类条件去换价格；先降价没有解决采购上真正卡住的地方，还丢了筹码。未经审批的免费升级是公司没有同意的承诺，会增加后续纠纷。"
+      }
+    },
+    {
+      "id": "sl3_price2",
+      "pools": [
+        "sales_objection"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "客户称竞品更便宜，还愿意给你一次说明机会。",
+        "options": [
+          {
+            "id": "sl3_price2_a",
+            "type": "safe",
+            "text": "核对配置、服务、实施与付款范围再谈差异。",
+            "face": "nod",
+            "line": "嗯，先对齐口径。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_price2_b",
+            "type": "bold",
+            "text": "承认对方适配的优势，用客户场景说明不同取舍。",
+            "face": "probe",
+            "line": "好，具体怎么讲？",
+            "followup": {
+              "text": "竞品在客户重视的一项功能上确实更强，怎么说？",
+              "options": [
+                {
+                  "id": "sl3_price2_h",
+                  "type": "hold",
+                  "text": "承认差距，请客户说这项有多关键，再看有没有可验证的替代办法。",
+                  "face": "pleased",
+                  "line": "对，先认账再谈。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_price2_p",
+                  "type": "partial",
+                  "text": "那项功能少提，多讲我们的强项，转移注意力。",
+                  "face": "calm",
+                  "line": "客户就是冲那一项来的。",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_price2_f",
+                  "type": "redline",
+                  "text": "跟客户说那家的参数是虚标的，他们的客户都在投诉。",
+                  "face": "disappointed",
+                  "line": "没有证据，这话不能说。",
+                  "delta": -9
+                }
+              ],
+              "explain": "和竞品比价要先对齐配置、服务、实施和付款范围。承认对方真实的优势并不等于放弃机会，要判断那项差距对客户目标是否关键；回避不谈，客户迟早会在别处发现。没有依据地贬低竞品，既不诚实，也可能带来法律风险，是红线。"
+            }
+          },
+          {
+            "id": "sl3_price2_c",
+            "type": "redline",
+            "text": "跟客户说便宜没好货，那家的设备用不了两年就出问题。",
+            "face": "disappointed",
+            "line": "这话没有依据，不能这么讲。",
+            "delta": -9
+          }
+        ],
+        "explain": "和竞品比价要先对齐配置、服务、实施和付款范围。承认对方真实的优势并不等于放弃机会，要判断那项差距对客户目标是否关键；回避不谈，客户迟早会在别处发现。没有依据地贬低竞品，既不诚实，也可能带来法律风险，是红线。"
+      }
+    },
+    {
+      "id": "sl3_window",
+      "pools": [
+        "sales_window"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "得知客户已与竞品签约，你还怎样跟进？",
+        "options": [
+          {
+            "id": "sl3_window_b",
+            "type": "bold",
+            "text": "问清客户愿意聊哪些议题、什么时候会评估，不催他毁约。",
+            "face": "probe",
+            "line": "好，不催的话怎么跟？",
+            "followup": {
+              "text": "客户暂时满意，但希望年底了解新方案。",
+              "options": [
+                {
+                  "id": "sl3_window_h",
+                  "type": "hold",
+                  "text": "约好年底评估的议题，征得同意后留联系方式，现在不推销。",
+                  "face": "pleased",
+                  "line": "嗯，既没打扰又留了口子。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_window_p",
+                  "type": "partial",
+                  "text": "每周发消息问一次他对现在的供应商满不满意，顺便保持存在感。",
+                  "face": "calm",
+                  "line": "每周问，客户烦不烦？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_window_f",
+                  "type": "fail",
+                  "text": "跟客户说违约金公司承担，让他先解约再签我们。",
+                  "face": "frown",
+                  "line": "违约金？这个谁批的？",
+                  "delta": -7
+                }
+              ],
+              "explain": "已签约客户仍可能有未来的评估窗口，但眼下要尊重合同、使用满意度和联系许可。跟进不等于逼客户切换：每周追问、用低价撬合同都会消耗信任，替客户承担违约成本更是自己无权作出的承诺。约好年底评估的议题，才是在留口子。"
+            }
+          },
+          {
+            "id": "sl3_window_c",
+            "type": "off",
+            "text": "马上给更低的价格，争取让客户撤掉已经签好的合同。",
+            "face": "calm",
+            "line": "撤合同？他为什么要这样做？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_window_a",
+            "type": "safe",
+            "text": "先问现有合同的期限和使用反馈，在客户同意的范围内约下次联系。",
+            "face": "nod",
+            "line": "嗯，先摸清窗口。",
+            "delta": 3
+          }
+        ],
+        "explain": "已签约客户仍可能有未来的评估窗口，但眼下要尊重合同、使用满意度和联系许可。跟进不等于逼客户切换：每周追问、用低价撬合同都会消耗信任，替客户承担违约成本更是自己无权作出的承诺。约好年底评估的议题，才是在留口子。"
+      }
+    },
+    {
+      "id": "sl3_window2",
+      "pools": [
+        "sales_window"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "客户连续两次推迟会议，却没明确拒绝。怎么处理？",
+        "options": [
+          {
+            "id": "sl3_window2_c",
+            "type": "off",
+            "text": "只要客户没拒绝，就继续标成本月签约机会。",
+            "face": "calm",
+            "line": "推迟两次了，还算本月？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_window2_a",
+            "type": "safe",
+            "text": "问清这个项目现在排第几，什么时候方便再联系。",
+            "face": "nod",
+            "line": "嗯，先问清优先级。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_window2_b",
+            "type": "bold",
+            "text": "弄清项目是延期还是搁置，约好恢复要满足的条件。",
+            "face": "probe",
+            "line": "好，怎么问？",
+            "followup": {
+              "text": "客户说项目暂停且没有恢复日期，预测如何处理？",
+              "options": [
+                {
+                  "id": "sl3_window2_h",
+                  "type": "hold",
+                  "text": "退出近期预测，记下恢复条件和联系时间。",
+                  "face": "pleased",
+                  "line": "对，预测要如实。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_window2_p",
+                  "type": "partial",
+                  "text": "仍留在本月预测里，概率从七成调到三成。",
+                  "face": "calm",
+                  "line": "暂停了，还留在本月？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_window2_f",
+                  "type": "fail",
+                  "text": "暂停也算需求还在，金额和回款时间都不动，月底再看。",
+                  "face": "frown",
+                  "line": "没有日期的回款，也算预测？",
+                  "delta": -7
+                }
+              ],
+              "explain": "沉默和推迟不是采购进展。没有恢复日期的暂停项目应退出近期签约预测，记录恢复条件和约定的联系方式；仍放在本月预测里，哪怕概率调低，也会让预测虚胖。联系频率要和客户约定，不能用重复跟进掩盖机会状态不明。"
+            }
+          }
+        ],
+        "explain": "沉默和推迟不是采购进展。没有恢复日期的暂停项目应退出近期签约预测，记录恢复条件和约定的联系方式；仍放在本月预测里，哪怕概率调低，也会让预测虚胖。联系频率要和客户约定，不能用重复跟进掩盖机会状态不明。"
+      }
+    },
+    {
+      "id": "sl3_technical",
+      "pools": [
+        "sales_boundary"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "客户问设备能否在特殊环境连续运行，你不知道。",
+        "options": [
+          {
+            "id": "sl3_technical_a",
+            "type": "safe",
+            "text": "请售前按客户环境核验，约好回复时间。",
+            "face": "nod",
+            "line": "嗯，先找售前。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_technical_b",
+            "type": "bold",
+            "text": "把已知和不知道的分开，拉售前对这个环境做专项核验。",
+            "face": "probe",
+            "line": "好，核验怎么安排？",
+            "followup": {
+              "text": "客户要求今天邮件确认可行，售前还没给结果。",
+              "options": [
+                {
+                  "id": "sl3_technical_h",
+                  "type": "hold",
+                  "text": "邮件写明哪些事项在核验、什么时候更新，结论等售前给了再写。",
+                  "face": "pleased",
+                  "line": "对，没结论就别写结论。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_technical_p",
+                  "type": "partial",
+                  "text": "邮件附上以往类似环境的客户案例，请客户先参考。",
+                  "face": "calm",
+                  "line": "别家的案例，不是这家的结论。",
+                  "delta": -4
+                },
+                {
+                  "id": "sl3_technical_f",
+                  "type": "redline",
+                  "text": "为不丢单先在邮件里保证运行，限制让技术解释。",
+                  "face": "disappointed",
+                  "line": "还没核验就保证，这不行。",
+                  "delta": -9
+                }
+              ],
+              "explain": "客户型销售负责推动问题闭环，不替技术作未经验证的保证。设备在特殊环境的表现取决于版本、环境和测试证据；“原则上可行”“先保证运行”都可能被客户当成答应。没有结论时，邮件写明核验事项和更新时间；以往客户的案例只能作参考，不是这家客户的结论。"
+            }
+          },
+          {
+            "id": "sl3_technical_c",
+            "type": "redline",
+            "text": "先说原则上可行，让售前随后补充具体注意事项。",
+            "face": "disappointed",
+            "line": "“原则上可行”，客户会当成答应。",
+            "delta": -9
+          }
+        ],
+        "explain": "客户型销售负责推动问题闭环，不替技术作未经验证的保证。设备在特殊环境的表现取决于版本、环境和测试证据；“原则上可行”“先保证运行”都可能被客户当成答应。没有结论时，邮件写明核验事项和更新时间；以往客户的案例只能作参考，不是这家客户的结论。"
+      }
+    },
+    {
+      "id": "sl3_technical2",
+      "pools": [
+        "sales_boundary"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "演示发现产品缺少客户指定接口，如何推进？",
+        "options": [
+          {
+            "id": "sl3_technical2_b",
+            "type": "bold",
+            "text": "把必需项和可协商项分开，再决定值不值得继续核验。",
+            "face": "probe",
+            "line": "好，必需项怎么判断？",
+            "followup": {
+              "text": "研发只说可以研究，没有排期，你怎么写纪要？",
+              "options": [
+                {
+                  "id": "sl3_technical2_h",
+                  "type": "hold",
+                  "text": "写明评估中、不承诺交付，定好负责人和回复时间。",
+                  "face": "pleased",
+                  "line": "对，状态写准最重要。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_technical2_p",
+                  "type": "fail",
+                  "text": "纪要里只写研发正在评估，不提还没有排期，免得客户担心。",
+                  "face": "frown",
+                  "line": "不提排期，客户会怎么理解？",
+                  "delta": -5
+                },
+                {
+                  "id": "sl3_technical2_f",
+                  "type": "redline",
+                  "text": "客户愿意买，就先在纪要里写已支持，后面再补开发。",
+                  "face": "disappointed",
+                  "line": "没做出来的功能，不能写已支持。",
+                  "delta": -9
+                }
+              ],
+              "explain": "研究意愿不等于交付计划，计划也不等于已上线。纪要要如实写状态、负责人和回复时间；说成“规划中”“已支持”，是把没有依据的状态说成事实，写进纪要后可能成为日后追责的依据；省略“没有排期”这类关键事实，同样会让客户误判。"
+            }
+          },
+          {
+            "id": "sl3_technical2_c",
+            "type": "redline",
+            "text": "先跟客户说接口在规划中，签约后再推动研发排期。",
+            "face": "disappointed",
+            "line": "没有排期，就不能说规划中。",
+            "delta": -9
+          },
+          {
+            "id": "sl3_technical2_a",
+            "type": "safe",
+            "text": "如实说明缺口，请技术评估替代方案和它的限制。",
+            "face": "nod",
+            "line": "嗯，如实说最稳。",
+            "delta": 3
+          }
+        ],
+        "explain": "研究意愿不等于交付计划，计划也不等于已上线。纪要要如实写状态、负责人和回复时间；说成“规划中”“已支持”，是把没有依据的状态说成事实，写进纪要后可能成为日后追责的依据；省略“没有排期”这类关键事实，同样会让客户误判。"
+      }
+    },
+    {
+      "id": "sl3_reverse",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "销售经理问：你还有什么想了解的？",
+        "options": [
+          {
+            "id": "sl3_reverse_c",
+            "type": "off",
+            "text": "想知道多加班，是不是就能更快分到高价值客户。",
+            "face": "calm",
+            "line": "客户不是按加班来分的。",
+            "delta": -3
+          },
+          {
+            "id": "sl3_reverse_a",
+            "type": "safe",
+            "text": "想了解新人实际负责哪些客户、怎么安排培养，遇到问题找谁支持。",
+            "face": "nod",
+            "line": "好，这个我可以细讲。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_reverse_b",
+            "type": "bold",
+            "text": "想了解客户阶段在这里怎么定义，新人怎样拿到售前支持。",
+            "face": "probe",
+            "line": "好问题，先说后一个。",
+            "followup": {
+              "text": "如果业绩目标还没定，你会继续问什么？",
+              "options": [
+                {
+                  "id": "sl3_reverse_h",
+                  "type": "hold",
+                  "text": "问目标怎么定、爬坡多久、有无过程反馈。",
+                  "face": "pleased",
+                  "line": "嗯，这几项问得具体。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_reverse_p",
+                  "type": "partial",
+                  "text": "先问能不能口头保证最低提成，规则以后再看。",
+                  "face": "calm",
+                  "line": "口头的话，作不了数。",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_reverse_f",
+                  "type": "fail",
+                  "text": "问现在团队里业绩最高的人拿多少，当作我自己的收入预期。",
+                  "face": "frown",
+                  "line": "他是干了好几年的老销售。",
+                  "delta": -7
+                }
+              ],
+              "explain": "反问可以用来核实客户分配、培养和支持方式、目标规则。保护期和保底可以问，但要先确认是否存在、条件是什么；口头的最低保证不作数，拿团队里业绩最高的人当自己的预期，则混淆了新人和老销售的差别。"
+            }
+          }
+        ],
+        "explain": "反问可以用来核实客户分配、培养和支持方式、目标规则。保护期和保底可以问，但要先确认是否存在、条件是什么；口头的最低保证不作数，拿团队里业绩最高的人当自己的预期，则混淆了新人和老销售的差别。"
+      }
+    },
+    {
+      "id": "sl3_reverse2",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "销售总监让你提一个问题。",
+        "options": [
+          {
+            "id": "sl3_reverse2_a",
+            "type": "safe",
+            "text": "想了解客户问题要跨部门推进时，怎么分工、升级和同步。",
+            "face": "nod",
+            "line": "好，这个我们有流程。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_reverse2_b",
+            "type": "bold",
+            "text": "想了解长周期的客户怎样复盘失单，不适合我们的需求又怎么处理。",
+            "face": "probe",
+            "line": "有意思，你想知道哪块？",
+            "followup": {
+              "text": "对方说重视客户关系，你怎样继续核实？",
+              "options": [
+                {
+                  "id": "sl3_reverse2_h",
+                  "type": "hold",
+                  "text": "请他讲一次关系和承诺边界冲突时，最后是怎么处理的。",
+                  "face": "pleased",
+                  "line": "这个例子我正好有。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_reverse2_p",
+                  "type": "partial",
+                  "text": "只问维护客户的费用额度，投入够关系就好。",
+                  "face": "calm",
+                  "line": "费用和关系，不是一回事吧？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_reverse2_f",
+                  "type": "fail",
+                  "text": "问公司给不给销售机动额度，客户要什么当场答应。",
+                  "face": "frown",
+                  "line": "当场答应？谁来兑现？",
+                  "delta": -7
+                }
+              ],
+              "explain": "这类反问可以了解跨部门协作和复盘方式。客户关系重要，但它不替代授权、产品边界和履约能力；问费用额度、问能不能当场答应客户条件，都把关系当成了可以用钱或承诺买到的东西。请对方讲一次关系和边界冲突的真实处理，更能看出这家公司怎么划边界。"
+            }
+          },
+          {
+            "id": "sl3_reverse2_c",
+            "type": "off",
+            "text": "想确认客户关系维护得好的话，季度没达标能不能不算。",
+            "face": "calm",
+            "line": "指标是指标，关系是关系。",
+            "delta": -3
+          }
+        ],
+        "explain": "这类反问可以了解跨部门协作和复盘方式。客户关系重要，但它不替代授权、产品边界和履约能力；问费用额度、问能不能当场答应客户条件，都把关系当成了可以用钱或承诺买到的东西。请对方讲一次关系和边界冲突的真实处理，更能看出这家公司怎么划边界。"
+      }
+    },
+    {
+      "id": "sl3_hr_quota",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 70,
+      "when": {
+        "role": "sales",
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "销售要按季度背指标，有的季度会很难。你怎么看自己能不能扛？",
+        "options": [
+          {
+            "id": "sl3_quota_a",
+            "type": "safe",
+            "text": "指标压力是真的，我会把它拆成每周要约的客户和要做的动作。",
+            "face": "nod",
+            "line": "嗯，拆到动作上了。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_quota_b",
+            "type": "bold",
+            "text": "讲我怎么把一个大目标，拆成每天能做完的小动作。",
+            "face": "probe",
+            "line": "好，举个例子。",
+            "followup": {
+              "text": "每天的动作都做了，月底还是差一截，你怎么办？",
+              "options": [
+                {
+                  "id": "sl3_quota_h",
+                  "type": "hold",
+                  "text": "先查差在哪一环，约经理复盘，再调下周的动作和重点客户。",
+                  "face": "pleased",
+                  "line": "嗯，先找是哪一环出了问题。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_quota_p",
+                  "type": "partial",
+                  "text": "先去找经理申请把本季度的目标降一点，等状态好了再补回来。",
+                  "face": "calm",
+                  "line": "还没复盘，就先谈降目标？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_quota_f",
+                  "type": "fail",
+                  "text": "把下个月可能签的单提前报进本月，先把数字做平。",
+                  "face": "frown",
+                  "line": "没签的单，也能报进来？",
+                  "delta": -7
+                }
+              ],
+              "explain": "销售按季度背指标是岗位常态，这个问题可能让面试官接着追问你的做法，而不是态度。可核对的做法是：把季度指标拆成每周、每天可控的客户动作，差距出现时先定位在哪一环，请经理复盘，再调整动作和重点客户。没复盘就先申请降目标、把没签的单提前报进本月，都绕过了定位问题这一步，后者还会让预测失真；只说自己抗压强，没有做法可以核对。"
+            }
+          },
+          {
+            "id": "sl3_quota_c",
+            "type": "off",
+            "text": "学生会三年都是硬扛过来的，指标压力我不怕。",
+            "face": "calm",
+            "line": "硬扛……具体是怎么扛的？",
+            "delta": -3
+          }
+        ],
+        "explain": "销售按季度背指标是岗位常态，这个问题可能让面试官接着追问你的做法，而不是态度。可核对的做法是：把季度指标拆成每周、每天可控的客户动作，差距出现时先定位在哪一环，请经理复盘，再调整动作和重点客户。没复盘就先申请降目标、把没签的单提前报进本月，都绕过了定位问题这一步，后者还会让预测失真；只说自己抗压强，没有做法可以核对。"
+      }
+    },
+    {
+      "id": "sl3_target",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 65,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "如果季度目标有压力，你准备怎样拆解行动？",
+        "options": [
+          {
+            "id": "sl3_target_b",
+            "type": "bold",
+            "text": "用机会缺口倒推要做的动作和需要谁配合。",
+            "face": "probe",
+            "line": "好，缺口怎么算？",
+            "followup": {
+              "text": "前两周拜访量达标，但没有机会进入下一阶段，怎么办？",
+              "options": [
+                {
+                  "id": "sl3_target_h",
+                  "type": "hold",
+                  "text": "查是约错了人还是问得不对，用阶段证据调整下周的动作。",
+                  "face": "pleased",
+                  "line": "嗯，看的是推进，不是次数。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_target_p",
+                  "type": "partial",
+                  "text": "把每天的拜访量翻一倍，周末也排上，先把量堆起来。",
+                  "face": "calm",
+                  "line": "量翻倍了，质量呢？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_target_f",
+                  "type": "fail",
+                  "text": "先把有兴趣的客户都升一档阶段，让周报上的进度赶上季度目标。",
+                  "face": "frown",
+                  "line": "阶段是拿来凑进度的？",
+                  "delta": -7
+                }
+              ],
+              "explain": "目标要先对齐口径（签约、收入还是回款），再拆客户窗口、阶段进展和可控动作。拜访量是活动量，不是结果；前两周量达标却没有机会往下走，说明要回头查约的人对不对、问法对不对。把兴趣客户都升一档，会让进度看起来跟得上，实际预测已经失真。只喊“保证超额”，没有可核对的做法。"
+            }
+          },
+          {
+            "id": "sl3_target_c",
+            "type": "off",
+            "text": "我保证不管条件怎样都能超额完成，这也体现我抗压。",
+            "face": "calm",
+            "line": "保证？能说说依据吗？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_target_a",
+            "type": "safe",
+            "text": "先问清目标按签约、收入还是回款算。",
+            "face": "nod",
+            "line": "嗯，口径先对齐。",
+            "delta": 3
+          }
+        ],
+        "explain": "目标要先对齐口径（签约、收入还是回款），再拆客户窗口、阶段进展和可控动作。拜访量是活动量，不是结果；前两周量达标却没有机会往下走，说明要回头查约的人对不对、问法对不对。把兴趣客户都升一档，会让进度看起来跟得上，实际预测已经失真。只喊“保证超额”，没有可核对的做法。"
+      }
+    },
+    {
+      "id": "sl3_pressure",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 64,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "被客户拒绝后，你如何安排复盘？",
+        "options": [
+          {
+            "id": "sl3_pressure_c",
+            "type": "off",
+            "text": "把失单归因为关系不够，下次多请客户吃几顿饭。",
+            "face": "calm",
+            "line": "吃饭解决不了适配问题。",
+            "delta": -3
+          },
+          {
+            "id": "sl3_pressure_a",
+            "type": "safe",
+            "text": "按拒绝的原因，分成适配问题和我跟进的问题来看。",
+            "face": "nod",
+            "line": "嗯，分开看。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_pressure_b",
+            "type": "bold",
+            "text": "找出我能改的动作，也接受有些客户本来就不适合我们。",
+            "face": "probe",
+            "line": "好，怎么区分？",
+            "followup": {
+              "text": "客户说暂时不需要，你还继续追问吗？",
+              "options": [
+                {
+                  "id": "sl3_pressure_h",
+                  "type": "hold",
+                  "text": "征得客户许可再问原因和未来窗口，他要求不再联系就照办。",
+                  "face": "pleased",
+                  "line": "尊重对方，也没放弃。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_pressure_p",
+                  "type": "partial",
+                  "text": "每天发一条问候消息，态度礼貌，就能让客户看到我们的诚意。",
+                  "face": "calm",
+                  "line": "每天一条，客户收到会怎么想？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_pressure_f",
+                  "type": "fail",
+                  "text": "客户说不需要多半是在压价，继续约见面谈条件。",
+                  "face": "frown",
+                  "line": "他说不需要，你就当压价？",
+                  "delta": -7
+                }
+              ],
+              "explain": "复盘围绕事实和可改进的动作，不必把每次拒绝都归为个人失败，也不能归为“关系不够”。客户的联系许可和真实适配度应决定下一步：每天发问候、把“不需要”当成压价，都是用打扰代替对需求的判断。征得许可再核实原因和未来窗口，客户要求不再联系就照办，才留得住长期信任。"
+            }
+          }
+        ],
+        "explain": "复盘围绕事实和可改进的动作，不必把每次拒绝都归为个人失败，也不能归为“关系不够”。客户的联系许可和真实适配度应决定下一步：每天发问候、把“不需要”当成压价，都是用打扰代替对需求的判断。征得许可再核实原因和未来窗口，客户要求不再联系就照办，才留得住长期信任。"
+      }
+    },
+    {
+      "id": "sl3_trade",
+      "pools": [
+        "sales_trade"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "从零接触一家园区客户，你怎样争取第一次有效推进？",
+        "options": [
+          {
+            "id": "sl3_trade_a",
+            "type": "safe",
+            "text": "先弄清园区里哪些角色管这件事，再约一次有议题的沟通。",
+            "face": "nod",
+            "line": "嗯，先找对人。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_trade_b",
+            "type": "bold",
+            "text": "先做一个园区现有设备的问题假设，带着这个假设去约客户。",
+            "face": "probe",
+            "line": "好，假设从哪来？",
+            "followup": {
+              "text": "客户愿意看演示，但要你先答应独家低价和免费长期服务。",
+              "options": [
+                {
+                  "id": "sl3_trade_h",
+                  "type": "hold",
+                  "text": "问清必需条件，权限外的不答应，换一个可执行的下一步。",
+                  "face": "pleased",
+                  "line": "嗯，底线划得清。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_trade_p",
+                  "type": "partial",
+                  "text": "演示可以安排，独家低价和长期服务我回去请示领导，明天给您答复。",
+                  "face": "calm",
+                  "line": "没当场答应，下一步换到了吗？",
+                  "delta": 1
+                },
+                {
+                  "id": "sl3_trade_f",
+                  "type": "redline",
+                  "text": "当场答应独家低价，写进邀请函，细节回头再商量。",
+                  "face": "disappointed",
+                  "line": "还没授权，不能当场答应。",
+                  "delta": -9
+                }
+              ],
+              "explain": "从零拓客要先选对象、形成问题假设，拿到具体的下一步。客户提条件时，让步必须在授权内：先弄清必需条件，划清不能答应的，再用范围、条件和行动互换。请示后再回复，不会丢掉机会；当场答应独家低价，是替公司作了没有授权的承诺。一次演示不等于采购承诺。"
+            }
+          },
+          {
+            "id": "sl3_trade_c",
+            "type": "off",
+            "text": "先要到负责人的联系方式，见了面再想聊什么。",
+            "face": "calm",
+            "line": "见面聊什么，想好了吗？",
+            "delta": -3
+          }
+        ],
+        "explain": "从零拓客要先选对象、形成问题假设，拿到具体的下一步。客户提条件时，让步必须在授权内：先弄清必需条件，划清不能答应的，再用范围、条件和行动互换。请示后再回复，不会丢掉机会；当场答应独家低价，是替公司作了没有授权的承诺。一次演示不等于采购承诺。"
+      }
+    },
+    {
+      "id": "sl3_trade2",
+      "pools": [
+        "sales_trade"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "客户每次得到优惠后又提出新条件，你怎样继续谈？",
+        "options": [
+          {
+            "id": "sl3_trade2_b",
+            "type": "bold",
+            "text": "先定好底线和可交换的东西，剩下的让步分步给，幅度递减。",
+            "face": "probe",
+            "line": "好，递减是什么意思？",
+            "followup": {
+              "text": "客户接受缩小实施范围，却要你保持原方案全部效果保证。",
+              "options": [
+                {
+                  "id": "sl3_trade2_h",
+                  "type": "hold",
+                  "text": "重新核验缩小后的范围和效果条件，不沿用已不成立的承诺。",
+                  "face": "pleased",
+                  "line": "对，范围变了保证也得变。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_trade2_p",
+                  "type": "fail",
+                  "text": "效果保证改成“以现场验收为准”，范围缩小口头带一句。",
+                  "face": "frown",
+                  "line": "范围变了只口头说，回头谁认？",
+                  "delta": -5
+                },
+                {
+                  "id": "sl3_trade2_f",
+                  "type": "redline",
+                  "text": "范围缩小省的是客户的成本，所以效果保证照原样签也没问题。",
+                  "face": "disappointed",
+                  "line": "范围都变了，保证怎么能照旧？",
+                  "delta": -9
+                }
+              ],
+              "explain": "谈判先有授权和底线，让步要交换可执行的条件，后续幅度递减，让客户看到剩余空间。范围缩小，效果保证的依据也变了；保留原来的保证，或只在口头上带一句，都会在验收时出问题。要重新核验范围和效果条件，再决定保证怎么写。"
+            }
+          },
+          {
+            "id": "sl3_trade2_c",
+            "type": "off",
+            "text": "客户提一条我就让一点，让到他不再提为止。",
+            "face": "calm",
+            "line": "让到最后，你还剩什么？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_trade2_a",
+            "type": "safe",
+            "text": "先把没定的条件都列出来，说明我的授权边界再一起谈。",
+            "face": "nod",
+            "line": "嗯，边界先说在前面。",
+            "delta": 3
+          }
+        ],
+        "explain": "谈判先有授权和底线，让步要交换可执行的条件，后续幅度递减，让客户看到剩余空间。范围缩小，效果保证的依据也变了；保留原来的保证，或只在口头上带一句，都会在验收时出问题。要重新核验范围和效果条件，再决定保证怎么写。"
+      }
+    },
+    {
+      "id": "sl3_hr_intro",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 70,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "请介绍一段最能体现客户沟通或协作推进的经历。",
+        "options": [
+          {
+            "id": "sl3_hr_intro_c",
+            "type": "off",
+            "text": "先讲整场项目的金额和规模，再补充我个人的职责。",
+            "face": "calm",
+            "line": "规模挺大，你负责哪块？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_hr_intro_a",
+            "type": "safe",
+            "text": "讲对方需要什么、我做了哪些动作和真实结果，再说还没验证的部分。",
+            "face": "nod",
+            "line": "嗯，实在。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_hr_intro_b",
+            "type": "bold",
+            "text": "从沟通里卡住的一次讲起，说清当时谁有权决定、我做了什么。",
+            "face": "probe",
+            "line": "好，卡在哪一环？",
+            "followup": {
+              "text": "如果只有校园或接待经历，没有正式的大客户成交呢？",
+              "options": [
+                {
+                  "id": "sl3_hr_intro_h",
+                  "type": "hold",
+                  "text": "拿真实动作说明方法，也承认采购和履约我还要学。",
+                  "face": "pleased",
+                  "line": "嗯，这样说比较实在。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_hr_intro_p",
+                  "type": "partial",
+                  "text": "校园赞助讲得细一点，没有正式成交这件事就不主动提。",
+                  "face": "calm",
+                  "line": "没有成交，这个要讲清楚。",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_hr_intro_f",
+                  "type": "fail",
+                  "text": "把校园赞助当企业大客户成交来讲，金额按全校总数来报。",
+                  "face": "frown",
+                  "line": "全校总数，是你个人的吗？",
+                  "delta": -7
+                }
+              ],
+              "explain": "客户沟通的经历可以来自校园、接待和协作，要说清本人的动作和可核对的范围；没有正式的大客户成交，不必虚构，也不要回避。团队成交额、全校总数都不是个人业绩，企业采购和履约的缺口如实说，更便于安排培养。"
+            }
+          }
+        ],
+        "explain": "客户沟通的经历可以来自校园、接待和协作，要说清本人的动作和可核对的范围；没有正式的大客户成交，不必虚构，也不要回避。团队成交额、全校总数都不是个人业绩，企业采购和履约的缺口如实说，更便于安排培养。"
+      }
+    },
+    {
+      "id": "sl3_hr_intro2",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 69,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "围绕{co.product}的客户工作，你有哪些能迁移的经历？",
+        "options": [
+          {
+            "id": "sl3_hr_intro2_a",
+            "type": "safe",
+            "text": "用一次真实的需求沟通，说清动作和没碰过的环节。",
+            "face": "nod",
+            "line": "嗯，没有夸大。",
+            "delta": 3
+          },
+          {
+            "id": "sl3_hr_intro2_b",
+            "type": "bold",
+            "text": "挑一次需求有冲突的沟通，讲我的处理顺序。",
+            "face": "probe",
+            "line": "好，冲突在哪？",
+            "followup": {
+              "text": "没有独立成交记录，你还能拿出什么证据？",
+              "options": [
+                {
+                  "id": "sl3_hr_intro2_h",
+                  "type": "hold",
+                  "text": "拿具体的沟通和跟进记录，标出哪些步骤是我做的。",
+                  "face": "pleased",
+                  "line": "嗯，记录看得到。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_hr_intro2_p",
+                  "type": "partial",
+                  "text": "先讲团队最终成果，客户一般不会追问到个人负责哪一块。",
+                  "face": "calm",
+                  "line": "我们会问的。",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_hr_intro2_f",
+                  "type": "fail",
+                  "text": "把团队的成交额写成个人业绩，好说明我匹配。",
+                  "face": "frown",
+                  "line": "那是团队的数。",
+                  "delta": -7
+                }
+              ],
+              "explain": "没有独立成交记录时，可以用需求确认、权限核对和跟进记录展示方法，并标明哪些步骤是本人做的。团队成交不等于个人业绩，也不要指望对方不追问职责；技术能力和复杂采购经验的缺口，要如实说明。"
+            }
+          },
+          {
+            "id": "sl3_hr_intro2_c",
+            "type": "off",
+            "text": "把参与过的项目总规模放在最前面，细节以后再慢慢讲。",
+            "face": "calm",
+            "line": "规模先放一边，说你做的。",
+            "delta": -3
+          }
+        ],
+        "explain": "没有独立成交记录时，可以用需求确认、权限核对和跟进记录展示方法，并标明哪些步骤是本人做的。团队成交不等于个人业绩，也不要指望对方不追问职责；技术能力和复杂采购经验的缺口，要如实说明。"
+      }
+    }
+  ],
+  "frames": {
+    "campus_ambassador": [
+      {
+        "id": "sl3_frame_funnel",
+        "roles": [
+          "sales"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}这段，你个人带来的结果是按什么口径算的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.sl3_summary}",
+              "face": "nod",
+              "line": "嗯，口径说清了。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先报全校的总注册和总付费，让对方看到这次推广的规模。",
+              "face": "calm",
+              "line": "全校的数，是你一个人带来的？"
+            }
+          ],
+          "explain": "问“按什么口径算”，先说清是个人推广码还是全校合计、怎么去重、看哪段时间，后面的追问才站得住；先报全校总数，容易让人以为这些都是你个人的成果。"
+        }
+      }
+    ],
+    "student_org": [
+      {
+        "id": "sl3_frame_sponsor",
+        "roles": [
+          "sales"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}里拉赞助那件事，你本人具体跟进了哪一块？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.sl3_summary}",
+              "face": "nod",
+              "line": "嗯，你那份很清楚。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲团队一共拉到多少赞助，我自己跟的那部分带过去。",
+              "face": "calm",
+              "line": "团队的总数，不是你的部分吧？"
+            }
+          ],
+          "explain": "问“本人跟进了哪一块”，要分清团队总额、本人跟进的金额和实际到账。只报团队总额，会让人分不清哪些是你做的，往下追问几句就得补。"
+        }
+      }
+    ],
+    "part_time": [
+      {
+        "id": "sl3_frame_retail",
+        "roles": [
+          "sales"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}那段，你是怎么了解顾客真正想要什么的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.sl3_summary}",
+              "face": "nod",
+              "line": "嗯，先问后讲。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲门店那段时间整体销售额涨了多少，我个人的接待放后面。",
+              "face": "calm",
+              "line": "门店的数，不等于你的。"
+            }
+          ],
+          "explain": "问“怎么了解顾客想要什么”，先问用途和预算再介绍商品，是能讲清的具体动作。先讲门店整体销售额，是把门店的结果放在了自己前面，也会引来个人成果的追问。"
+        }
+      }
+    ],
+    "intern_hr": [
+      {
+        "id": "sl3_frame_coordination",
+        "roles": [
+          "sales"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "{exp.label}里，哪几项是你本人经手的？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.sl3_summary}",
+              "face": "nod",
+              "line": "嗯，范围划得清。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "招聘全流程我都跟着走过，讲整体收获，比讲具体环节更全面。",
+              "face": "calm",
+              "line": "具体做了哪一环呢？"
+            }
+          ],
+          "explain": "问“哪几项是本人经手的”，要把初筛、排期、材料核对和最终录用分开说。只讲整体收获、不说具体环节，会让人分不清哪些是你做的。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "sl3_frame_thesis",
+        "roles": [
+          "sales"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "说说{exp.label}里的问卷和访谈：怎么做的，结论能推到多大范围？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.sl3_summary}",
+              "face": "nod",
+              "line": "嗯，先把方法说清。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲论文的结论对企业留人有什么价值，样本怎么来的不细说。",
+              "face": "calm",
+              "line": "样本怎么来的，还是要说。"
+            }
+          ],
+          "explain": "论文是个人完成的研究，追问多落在方法和结论边界上：问卷和访谈各自回答什么、样本怎么招募、结论能推到多大范围。先讲价值、回避样本，容易被接着追问样本。"
+        }
+      }
+    ]
+  },
+  "highlights": {},
+  "skill_probes": {
+    "sl3_probe_pipeline": {
+      "tag": "专业",
+      "text": "你写了精通销售机会管理。月底盘点，一个机会已经三周没有客户侧动作，系统里怎么处理？",
+      "options": [
+        {
+          "id": "sl3_master_a",
+          "type": "safe",
+          "text": "查最后一次客户侧动作和原定的下一步，过了期限就降阶段。",
+          "face": "nod",
+          "line": "嗯，按证据降。",
+          "delta": 3
+        },
+        {
+          "id": "sl3_master_b",
+          "type": "bold",
+          "text": "按停滞天数设规则：先联系确认，再决定是否移出预测。",
+          "face": "probe",
+          "line": "好，那我再问一个。",
+          "followup": {
+            "text": "联系后客户说年底前不会动，这个机会在预测里放哪？",
+            "options": [
+              {
+                "id": "sl3_master_h",
+                "type": "hold",
+                "text": "移出本季预测，记下恢复条件和下次联系的时间。",
+                "face": "pleased",
+                "line": "对，该移就移。",
+                "delta": 9
+              },
+              {
+                "id": "sl3_master_p",
+                "type": "partial",
+                "text": "留在本季预测里，成交概率从六成调到三成。",
+                "face": "calm",
+                "line": "客户说年底才动，还留在本季？",
+                "delta": -3
+              },
+              {
+                "id": "sl3_master_f",
+                "type": "fail",
+                "text": "金额和概率都不动，客户年底一动就是我的单。",
+                "face": "frown",
+                "line": "没有日期的单，也算预测？",
+                "delta": -7
+              }
+            ],
+            "explain": "写了“精通销售机会管理”，追问会按能管企业机会的标准来。一个机会长时间没有客户侧动作，要先弄清是客户在走内部流程，还是已经搁置；仍留在预测里会让预测虚胖。客户确认到年底才动的机会，应移出本季预测，记下恢复条件和联系约定。写满了又答不上来，如实改口比硬答一个错的损失小。"
+          }
+        },
+        {
+          "id": "sl3_master_truth",
+          "type": "off",
+          "text": "“精通”写重了，我只管过校园推广的记录，没管过企业机会。",
+          "face": "calm",
+          "line": "写重了就改，别写精通。",
+          "delta": -1
+        },
+        {
+          "id": "sl3_master_wrong",
+          "type": "off",
+          "text": "三周不算久，大单周期长，先不动，等客户主动联系。",
+          "face": "calm",
+          "line": "三周没动静，也不降？",
+          "delta": -3
+        }
+      ],
+      "explain": "写了“精通销售机会管理”，追问会按能管企业机会的标准来。一个机会长时间没有客户侧动作，要先弄清是客户在走内部流程，还是已经搁置；仍留在预测里会让预测虚胖。客户确认到年底才动的机会，应移出本季预测，记下恢复条件和联系约定。写满了又答不上来，如实改口比硬答一个错的损失小。"
+    }
+  },
+  "background": [
+    {
+      "id": "sl3_hr_bg",
+      "pools": [
+        "hr"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "sales"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你过往的学习与经历，哪些能支持客户型销售，哪些还要补？",
+        "options": [
+          {
+            "id": "sl3_hr_bg_b",
+            "type": "bold",
+            "text": "拿真实沟通证明方法，同时划出采购和技术经验的边界。",
+            "face": "probe",
+            "line": "好，边界在哪？",
+            "followup": {
+              "text": "客户提出你不懂的性能问题，怎样证明自己仍能推进？",
+              "options": [
+                {
+                  "id": "sl3_hr_bg_h",
+                  "type": "hold",
+                  "text": "说明我不确定，约售前核验并定好回复时间，不替技术保证结果。",
+                  "face": "pleased",
+                  "line": "嗯，知道该找谁。",
+                  "delta": 9
+                },
+                {
+                  "id": "sl3_hr_bg_p",
+                  "type": "partial",
+                  "text": "先安抚客户，说这类问题技术通常能解决，再补验证过程。",
+                  "face": "calm",
+                  "line": "能解决？谁说的？",
+                  "delta": -3
+                },
+                {
+                  "id": "sl3_hr_bg_f",
+                  "type": "fail",
+                  "text": "销售得有底气，不懂也先给客户一个准话。",
+                  "face": "frown",
+                  "line": "答错了，谁来负责？",
+                  "delta": -7
+                }
+              ],
+              "explain": "客户型销售负责理解场景、准确传递信息、组织协作。非技术背景不必伪装技术能力：不懂时说明未知，约售前核验和回复时间，比安抚式的空话、硬给肯定答复都更可信。专业里的管理课能支持沟通和协调，却覆盖不了具体的技术环境。"
+            }
+          },
+          {
+            "id": "sl3_hr_bg_c",
+            "type": "off",
+            "text": "专业里学过管理，客户销售的各种问题应该都能应付。",
+            "face": "calm",
+            "line": "管理课能应付技术问题吗？",
+            "delta": -3
+          },
+          {
+            "id": "sl3_hr_bg_a",
+            "type": "safe",
+            "text": "举一次需求确认的例子，也说明遇到技术问题要和售前协作。",
+            "face": "nod",
+            "line": "嗯，分得清。",
+            "delta": 3
+          }
+        ],
+        "explain": "客户型销售负责理解场景、准确传递信息、组织协作。非技术背景不必伪装技术能力：不懂时说明未知，约售前核验和回复时间，比安抚式的空话、硬给肯定答复都更可信。专业里的管理课能支持沟通和协调，却覆盖不了具体的技术环境。"
+      }
+    }
+  ]
+}

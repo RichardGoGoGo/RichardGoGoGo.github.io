@@ -1,0 +1,621 @@
+{
+  "_note": "F1英文通用库；英文问答配中文解析，所有参数缺失均有英文默认。",
+  "pools": [
+    {
+      "id": "fgc_async",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "A decision involves several time zones. How would you keep work moving?",
+        "options": [
+          {
+            "id": "fgc_async_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "Write down the open question, the owner, and a decision deadline.",
+            "face": "nod",
+            "line": "Okay, that's easy to act on."
+          },
+          {
+            "id": "fgc_async_b",
+            "type": "bold",
+            "text": "I'd separate reversible tasks from work that needs clear approval.",
+            "face": "probe",
+            "line": "Reversible versus approval. Let me test that.",
+            "followup": {
+              "text": "One team misses the deadline, and the choice affects permissions. What would you do?",
+              "options": [
+                {
+                  "id": "fgc_async_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Escalate to the agreed owner; don't assume permission.",
+                  "face": "pleased",
+                  "line": "Yes, don't assume permission."
+                },
+                {
+                  "id": "fgc_async_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "Keep sending reminders while all implementation stays paused.",
+                  "face": "calm",
+                  "line": "Waiting with everything paused is costly."
+                },
+                {
+                  "id": "fgc_async_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Treat silence as approval and document the decision afterward.",
+                  "face": "frown",
+                  "line": "Hmm, is silence really approval?"
+                }
+              ],
+              "explain": "跨时区协作要写清问题、责任人和期限。可以撤回的工作可以继续，涉及权限的决定则不能把沉默当成授权；按约定升级协调，比无限等会或自行默认更有边界。"
+            }
+          },
+          {
+            "id": "fgc_async_c",
+            "type": "off",
+            "delta": -3,
+            "text": "Schedule a daily call and wait for everyone before proceeding.",
+            "face": "calm",
+            "line": "Hmm, that could stall everything."
+          }
+        ],
+        "explain": "跨时区协作要写清问题、责任人和期限。可以撤回的工作可以继续，涉及权限的决定则不能把沉默当成授权；按约定升级协调，比无限等会或自行默认更有边界。"
+      }
+    },
+    {
+      "id": "fgc_scope",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "Two stakeholders request conflicting changes. What would you do first?",
+        "options": [
+          {
+            "id": "fgc_scope_b",
+            "type": "bold",
+            "text": "I'd compare impact and cost, then document the agreed scope.",
+            "face": "probe",
+            "line": "Okay, document it. And if they push back?",
+            "followup": {
+              "text": "The more senior stakeholder disagrees with the evidence. How would you respond?",
+              "options": [
+                {
+                  "id": "fgc_scope_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "Accept the request now, and note the risks in the ticket.",
+                  "face": "calm",
+                  "line": "Is a note in the ticket enough?"
+                },
+                {
+                  "id": "fgc_scope_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Go with the data and proceed without further stakeholder agreement.",
+                  "face": "frown",
+                  "line": "Hmm, the data alone doesn't decide it."
+                },
+                {
+                  "id": "fgc_scope_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Explain the trade-offs and evidence; record who decides.",
+                  "face": "pleased",
+                  "line": "Good, and record who decides."
+                }
+              ],
+              "explain": "协作分歧要分清证据、业务取舍和决策权限。可以把不同意见和代价说清楚，但不能因为数据支持就越过有权限的人，也不该把已知的风险留到交付后才说。记下最后的决定，便于之后验证和复盘。"
+            }
+          },
+          {
+            "id": "fgc_scope_c",
+            "type": "off",
+            "delta": -3,
+            "text": "Do the easier request first to show visible progress.",
+            "face": "calm",
+            "line": "Hmm, is that the priority, though?"
+          },
+          {
+            "id": "fgc_scope_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "Clarify the shared goal and agree who decides the priority.",
+            "face": "nod",
+            "line": "Okay, that's a sensible first step."
+          }
+        ],
+        "explain": "协作分歧要分清证据、业务取舍和决策权限。可以把不同意见和代价说清楚，但不能因为数据支持就越过有权限的人，也不该把已知的风险留到交付后才说。记下最后的决定，便于之后验证和复盘。"
+      }
+    },
+    {
+      "id": "fgc_intro2",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "foreign"
+      },
+      "lang": "en",
+      "node": {
+        "tag": "项目表达",
+        "text": "Give us a brief overview of your work, and tell us one lesson you took from it.",
+        "options": [
+          {
+            "id": "fgc_intro2_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "I'd outline a relevant task, what I contributed, and a lesson.",
+            "face": "nod",
+            "line": "Okay, that's a clear overview."
+          },
+          {
+            "id": "fgc_intro2_b",
+            "type": "bold",
+            "text": "I'd explain a decision, its outcome, and what's still unclear.",
+            "face": "probe",
+            "line": "A decision and its limits. Go on.",
+            "followup": {
+              "text": "If the outcome was a team effort, how would you describe your contribution?",
+              "options": [
+                {
+                  "id": "fgc_intro2_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Name my own actions and separate them from the team outcome.",
+                  "face": "pleased",
+                  "line": "Clear. That separates you from the team."
+                },
+                {
+                  "id": "fgc_intro2_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "Start with the team result and mention my role if asked.",
+                  "face": "calm",
+                  "line": "Could you say your role now?"
+                },
+                {
+                  "id": "fgc_intro2_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Use the team's improvement as a direct measure of my impact.",
+                  "face": "frown",
+                  "line": "Hmm, team results aren't your results."
+                }
+              ],
+              "explain": "简短介绍围绕相关的任务、个人的动作和有依据的收获展开。罗列工具、或把团队成绩当成自己的，都证明不了个人贡献；如果结果是团队合力，就把自己做的事和团队的成果分开说，不要等被问到才补。"
+            }
+          },
+          {
+            "id": "fgc_intro2_c",
+            "type": "off",
+            "delta": -1,
+            "text": "I'd start with every tool and leave the results for questions.",
+            "face": "calm",
+            "line": "Let's start with what you actually did."
+          }
+        ],
+        "explain": "简短介绍围绕相关的任务、个人的动作和有依据的收获展开。罗列工具、或把团队成绩当成自己的，都证明不了个人贡献；如果结果是团队合力，就把自己做的事和团队的成果分开说，不要等被问到才补。"
+      }
+    },
+    {
+      "id": "fgc_dates",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "foreign"
+      },
+      "lang": "en",
+      "node": {
+        "tag": "诚信",
+        "text": "Some start dates are still uncertain. How would you discuss your availability?",
+        "options": [
+          {
+            "id": "fgc_dates_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "State confirmed constraints and agree when to reconfirm dates.",
+            "face": "nod",
+            "line": "Okay, that gives us something firm."
+          },
+          {
+            "id": "fgc_dates_b",
+            "type": "safe",
+            "delta": 2,
+            "text": "Ask about the planned start and explain what isn't settled.",
+            "face": "nod",
+            "line": "Okay, that's a fair way to start."
+          },
+          {
+            "id": "fgc_dates_c",
+            "type": "bold",
+            "text": "Promise an early start now and resolve the constraints later.",
+            "face": "probe",
+            "line": "Hold on. You mentioned another commitment earlier.",
+            "followup": {
+              "text": "Suppose a prior commitment makes that date impossible. How would you correct your promise?",
+              "options": [
+                {
+                  "id": "fgc_dates_truth",
+                  "type": "partial",
+                  "delta": -1,
+                  "text": "I need to correct that. A prior commitment rules out that date.",
+                  "face": "frown",
+                  "line": "Thanks for flagging it. Let's work out a date that does work."
+                },
+                {
+                  "id": "fgc_dates_vague",
+                  "type": "partial",
+                  "delta": -4,
+                  "text": "I'd say the date is tentative and we can firm it up later.",
+                  "face": "calm",
+                  "line": "I'd like a dependable plan, not a tentative one."
+                },
+                {
+                  "id": "fgc_dates_fake",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "I'll still make that date; the other commitment won't be a problem.",
+                  "face": "disappointed",
+                  "line": "That doesn't match what we've discussed. Let's stop here."
+                }
+              ],
+              "explain": "已知做不到的日期，就不要答应。发现后及时更正，损失最小；含糊地保留，会让对方继续按错误的假设排期；再次确认并回避冲突，则触发诚信红线。到岗安排要区分已确认的限制和未定的计划，询问对方的预期并约好复核时间即可。"
+            }
+          }
+        ],
+        "explain": "已知做不到的日期，就不要答应。发现后及时更正，损失最小；含糊地保留，会让对方继续按错误的假设排期；再次确认并回避冲突，则触发诚信红线。到岗安排要区分已确认的限制和未定的计划，询问对方的预期并约好复核时间即可。"
+      }
+    },
+    {
+      "id": "fgc_reverse2",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "foreign"
+      },
+      "lang": "en",
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "Before we finish, what would help you understand how this role works?",
+        "options": [
+          {
+            "id": "fgc_reverse2_feedback",
+            "type": "reverse",
+            "delta": 3,
+            "text": "How is feedback on a first assignment shared and followed up?",
+            "face": "pleased",
+            "line": "Good question. Let me explain."
+          },
+          {
+            "id": "fgc_reverse2_owners",
+            "type": "reverse",
+            "delta": 3,
+            "text": "When priorities conflict, who helps decide and record the scope?",
+            "face": "pleased",
+            "line": "Glad you asked. Here's how we handle it."
+          },
+          {
+            "id": "fgc_reverse2_tools",
+            "type": "reverse",
+            "delta": 1,
+            "text": "Which tools does the team currently use for day-to-day work?",
+            "face": "nod",
+            "line": "Sure, I can give you a quick overview."
+          }
+        ],
+        "explain": "可以反问反馈怎样落到改进上、冲突由谁决定并留下记录。工具链也有参考价值，但只知道工具名，仍然不足以理解新人的责任和支持机制。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "fgc_bg_role",
+      "pools": [
+        "hr"
+      ],
+      "priority": 40,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "Why are you interested in this role?",
+        "options": [
+          {
+            "id": "fgc_bg_role_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "I'd connect relevant work to the actual responsibilities.",
+            "face": "nod",
+            "line": "Okay, that's a good place to start."
+          },
+          {
+            "id": "fgc_bg_role_b",
+            "type": "bold",
+            "text": "I'd explain what transfers, what doesn't, and how I'd learn.",
+            "face": "probe",
+            "line": "What transfers? Let me press on that.",
+            "followup": {
+              "text": "You haven't done every task in the job description. How would you explain the gap?",
+              "options": [
+                {
+                  "id": "fgc_bg_role_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Separate proven skills from gaps, then agree on a learning plan.",
+                  "face": "pleased",
+                  "line": "That's a straightforward way to put it."
+                },
+                {
+                  "id": "fgc_bg_role_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "Emphasize transferable skills and say I'd close the gaps.",
+                  "face": "calm",
+                  "line": "Okay, how would you close them?"
+                },
+                {
+                  "id": "fgc_bg_role_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Present similar coursework as equivalent professional delivery.",
+                  "face": "frown",
+                  "line": "Hmm, is coursework the same as delivery?"
+                }
+              ],
+              "explain": "谈动机与岗位的匹配，可以从相关的证据和学习的缺口说起，不要把国际品牌当成自己成长的保证。相近的课程不是完整的职业交付，分开说清已验证的能力和待补的部分更准确；品牌和未来机会，只能当背景。"
+            }
+          },
+          {
+            "id": "fgc_bg_role_c",
+            "type": "off",
+            "delta": -3,
+            "text": "I'd focus on the company brand and its broad career options.",
+            "face": "calm",
+            "line": "Hmm, I'd like to hear about the work itself."
+          }
+        ],
+        "explain": "谈动机与岗位的匹配，可以从相关的证据和学习的缺口说起，不要把国际品牌当成自己成长的保证。相近的课程不是完整的职业交付，分开说清已验证的能力和待补的部分更准确；品牌和未来机会，只能当背景。"
+      }
+    },
+    {
+      "id": "fgc_bg_cross",
+      "pools": [
+        "hr"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "How does your background connect to the work you're applying for?",
+        "options": [
+          {
+            "id": "fgc_bg_cross_b",
+            "type": "bold",
+            "text": "I'd use a real example and separate domain from job skills.",
+            "face": "probe",
+            "line": "A real example would help. Go on.",
+            "followup": {
+              "text": "What would you do if your previous method didn't fit this task?",
+              "options": [
+                {
+                  "id": "fgc_bg_cross_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "Use the familiar method first, then explain the differences later.",
+                  "face": "calm",
+                  "line": "Hmm, and if the differences matter?"
+                },
+                {
+                  "id": "fgc_bg_cross_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Keep the method unchanged so the work stays internally consistent.",
+                  "face": "frown",
+                  "line": "Hmm, consistent with what, though?"
+                },
+                {
+                  "id": "fgc_bg_cross_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Check the task requirements and adapt the method with review feedback.",
+                  "face": "pleased",
+                  "line": "Good, adapting is the point."
+                }
+              ],
+              "explain": "跨专业的经历可以带来可迁移的方法，但要用实际任务检验，不能把“背景不同”直接当成能力优势。方法不适配时，应当调整并取得反馈，而不是为了保持熟悉或一致就忽略当前的条件。"
+            }
+          },
+          {
+            "id": "fgc_bg_cross_c",
+            "type": "off",
+            "delta": -3,
+            "text": "I'd explain why a different background makes me more creative.",
+            "face": "calm",
+            "line": "Hmm, can you give a real example?"
+          },
+          {
+            "id": "fgc_bg_cross_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "I'd explain a relevant method, its limits, and how I applied it.",
+            "face": "nod",
+            "line": "Okay, that's a solid way in."
+          }
+        ],
+        "explain": "跨专业的经历可以带来可迁移的方法，但要用实际任务检验，不能把“背景不同”直接当成能力优势。方法不适配时，应当调整并取得反馈，而不是为了保持熟悉或一致就忽略当前的条件。"
+      }
+    },
+    {
+      "id": "fgc_bg_learning",
+      "pools": [
+        "hr"
+      ],
+      "priority": 50,
+      "lang": "en",
+      "when": {
+        "sector": "foreign",
+        "lacks_exp_type": "intern_dev",
+        "role": "fe"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "Without a development internship, how would you show relevant experience?",
+        "options": [
+          {
+            "id": "fgc_bg_learning_c",
+            "type": "off",
+            "delta": -3,
+            "text": "Lead with the project size and list the tools the team used.",
+            "face": "calm",
+            "line": "Hmm, what did you build yourself?"
+          },
+          {
+            "id": "fgc_bg_learning_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "Describe a real project, my role, and the tests I completed.",
+            "face": "nod",
+            "line": "Okay, that's concrete."
+          },
+          {
+            "id": "fgc_bg_learning_b",
+            "type": "bold",
+            "text": "I'd distinguish my own work from the help the team gave.",
+            "face": "probe",
+            "line": "Your work versus theirs. Go on.",
+            "followup": {
+              "text": "The project was never used by real customers. What can you claim?",
+              "options": [
+                {
+                  "id": "fgc_bg_learning_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "Use the intended benefits as evidence of actual business impact.",
+                  "face": "frown",
+                  "line": "Hmm, intended benefits aren't results."
+                },
+                {
+                  "id": "fgc_bg_learning_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "Only claim the work and tests completed, not real customer outcomes.",
+                  "face": "pleased",
+                  "line": "Fair. That's an honest scope."
+                },
+                {
+                  "id": "fgc_bg_learning_p",
+                  "type": "partial",
+                  "delta": 1,
+                  "text": "Describe the project's goal and who it was built for.",
+                  "face": "calm",
+                  "line": "Okay, but what did you build yourself?"
+                }
+              ],
+              "explain": "没有开发实习，也可以用真实的项目说明能力，但要分清做完了实现、做过测试和有真实用户的结果这几层。没有客户用过，就不要领取业务收益；团队的规模和工具清单，也代替不了本人做的工作。"
+            }
+          }
+        ],
+        "explain": "没有开发实习，也可以用真实的项目说明能力，但要分清做完了实现、做过测试和有真实用户的结果这几层。没有客户用过，就不要领取业务收益；团队的规模和工具清单，也代替不了本人做的工作。"
+      }
+    }
+  ],
+  "generic_frame_en": {
+    "node": {
+      "tag": "项目表达",
+      "text": "For {exp.label|that project}, what did you personally contribute?",
+      "options": [
+        {
+          "key": "fgc_a",
+          "type": "safe",
+          "delta": 1,
+          "text": "I'd describe my own task, what I did, and the result I can verify.",
+          "face": "nod",
+          "line": "Okay, go ahead."
+        },
+        {
+          "key": "fgc_b",
+          "type": "off",
+          "delta": -1,
+          "text": "I'd start with what I learned, then get to the concrete work.",
+          "face": "calm",
+          "line": "What did you actually do, though?"
+        },
+        {
+          "key": "fgc_c",
+          "type": "off",
+          "delta": -3,
+          "text": "I'd use the team's outcome as a measure of my contribution.",
+          "face": "frown",
+          "line": "Which part was yours?"
+        }
+      ],
+      "explain": "通用的深挖，要讲清自己负责的任务、做了什么、能核实的结果。先讲感悟再补事实，或者拿团队成绩代替个人贡献，都让对方抓不到你具体做了什么。"
+    }
+  },
+  "fallbacks_en": {
+    "any": [
+      {
+        "node": {
+          "id": "fgc_pick",
+          "tag": "项目表达",
+          "text": "Pick the project that best shows what you contributed.",
+          "options": [
+            {
+              "id": "fgc_pick_a",
+              "type": "safe",
+              "delta": 1,
+              "text": "I'd pick a relevant project and explain what I did myself.",
+              "face": "nod",
+              "line": "Okay, go ahead."
+            },
+            {
+              "id": "fgc_pick_b",
+              "type": "off",
+              "delta": -1,
+              "text": "I'd talk about what the award taught me about motivation.",
+              "face": "calm",
+              "line": "Can you tie that to a concrete task?"
+            },
+            {
+              "id": "fgc_pick_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd talk about how prestigious the award and the team are.",
+              "face": "frown",
+              "line": "What did you personally contribute?"
+            }
+          ],
+          "explain": "奖项和证书只能提供背景，深挖还是要落到真实的工作上。选一个相关的项目，说明自己的贡献，比只讲荣誉、动机或团队的名气更有依据。"
+        }
+      }
+    ]
+  }
+}

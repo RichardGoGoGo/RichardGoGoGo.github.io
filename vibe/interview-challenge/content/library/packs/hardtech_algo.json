@@ -1,0 +1,1076 @@
+{
+  "_note": "H3硬科技算法。新增题均以sector hardtech限定；不改已有题或默认简历。量化与性能事实核对ONNX Runtime官方文档，数据隔离核对scikit-learn官方交叉验证文档。",
+  "_sources": [
+    "https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html",
+    "https://onnxruntime.ai/docs/performance/tune-performance/profiling-tools.html",
+    "https://scikit-learn.org/stable/modules/cross_validation.html"
+  ],
+  "pools": [
+    {
+      "id": "hta_sensor_split",
+      "pools": [
+        "algo_sensor"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "同一工件拍了多个角度，数据要用于评估下一批工件。训练与测试怎么划分？",
+        "options": [
+          {
+            "id": "hta_sensor_split_a",
+            "type": "safe",
+            "text": "先按工件隔离训练和测试，再按目标部署批次留出验证数据。",
+            "face": "nod",
+            "line": "同一个工件不跨集合，对。",
+            "delta": 3
+          },
+          {
+            "id": "hta_sensor_split_b",
+            "type": "bold",
+            "text": "按工件、批次核对隔离，说明要验证哪种泛化。",
+            "face": "probe",
+            "line": "按工件、批次隔离，评估上还有一层。",
+            "followup": {
+              "text": "随机切分的指标很高，按后续批次测试却明显下降，先怎么看？",
+              "options": [
+                {
+                  "id": "hta_sensor_split_p",
+                  "type": "partial",
+                  "text": "每个工件留一张图，再随机切分重算一次。",
+                  "face": "calm",
+                  "line": "去重是对的，批次差异看了吗？",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_sensor_split_f",
+                  "type": "fail",
+                  "text": "后续批次更难，先把这批并入训练再验收旧测试集。",
+                  "face": "frown",
+                  "line": "拿旧测试集验收，问题不就被盖住了？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_sensor_split_h",
+                  "type": "hold",
+                  "text": "查近重复样本与批次差异，先确认旧评估有没有数据泄漏。",
+                  "face": "pleased",
+                  "line": "对，先排除泄漏，再谈模型。",
+                  "delta": 9
+                }
+              ],
+              "explain": "同一工件的多视角可能高度相似，随机按图片划分会让关联样本进入两边。切分要对应将来的部署对象：新工件与新批次需适当隔离；要验证新产线还需单列产线。指标下降可能暴露泄漏或分布变化，不能用旧测试集掩盖未覆盖的条件。"
+            }
+          },
+          {
+            "id": "hta_sensor_split_c",
+            "type": "off",
+            "text": "按图片随机分层，保证两边的缺陷比例相同。",
+            "face": "calm",
+            "line": "同一个工件的几张图，会被分到两边吧？",
+            "delta": -3
+          }
+        ],
+        "explain": "同一工件的多视角可能高度相似，随机按图片划分会让关联样本进入两边。切分要对应将来的部署对象：新工件与新批次需适当隔离；要验证新产线还需单列产线。指标下降可能暴露泄漏或分布变化，不能用旧测试集掩盖未覆盖的条件。"
+      }
+    },
+    {
+      "id": "hta_sensor_labels",
+      "pools": [
+        "algo_sensor"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "不同班组对同一种表面纹理标注不同，模型误报集中在这类样本。你先怎么处理？",
+        "options": [
+          {
+            "id": "hta_sensor_labels_c",
+            "type": "off",
+            "text": "按多数班组的标签重标，尽快增加一致样本。",
+            "face": "calm",
+            "line": "多数的就算对？规范还没确认呢。",
+            "delta": -3
+          },
+          {
+            "id": "hta_sensor_labels_a",
+            "type": "safe",
+            "text": "整理争议样本，请质量负责人确认判定规则。",
+            "face": "nod",
+            "line": "嗯，先把判定标准定下来。",
+            "delta": 3
+          },
+          {
+            "id": "hta_sensor_labels_b",
+            "type": "bold",
+            "text": "把标注分歧与模型错误分开，追溯规范版本。",
+            "face": "probe",
+            "line": "分歧和错误分开，嗯。再看更难的一种。",
+            "followup": {
+              "text": "专家暂时也不能确定是缺陷还是可接受纹理，怎么办？",
+              "options": [
+                {
+                  "id": "hta_sensor_labels_h",
+                  "type": "hold",
+                  "text": "单列待复核样本，保留分歧记录，先限定自动处理范围。",
+                  "face": "pleased",
+                  "line": "拿不准的先留出来，行。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_sensor_labels_p",
+                  "type": "partial",
+                  "text": "选经验最多的专家意见作为临时标签，之后再抽查。",
+                  "face": "calm",
+                  "line": "临时标签，后面用的人知道吗？",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_sensor_labels_f",
+                  "type": "fail",
+                  "text": "把争议样本从评测里删掉，剩下的数据拿来验收。",
+                  "face": "frown",
+                  "line": "删掉最难的，指标当然好看。",
+                  "delta": -7
+                }
+              ],
+              "explain": "模型无法替团队决定质量标准。标签冲突时应确认规范和责任，区分可判定与待复核样本，并报告覆盖范围。多数投票不一定解决规范歧义；删除争议后只报更好指标会掩盖实际使用边界。"
+            }
+          }
+        ],
+        "explain": "模型无法替团队决定质量标准。标签冲突时应确认规范和责任，区分可判定与待复核样本，并报告覆盖范围。多数投票不一定解决规范歧义；删除争议后只报更好指标会掩盖实际使用边界。"
+      }
+    },
+    {
+      "id": "hta_edge_calibrate",
+      "pools": [
+        "algo_edge"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "浮点模型在验证集达标，转成低精度后某类缺陷召回下降。你先查什么？",
+        "options": [
+          {
+            "id": "hta_edge_calibrate_b",
+            "type": "bold",
+            "text": "核对校准样本覆盖与算子实现，再定位质量损失。",
+            "face": "probe",
+            "line": "校准样本覆盖，咱们就从这儿往下聊。",
+            "followup": {
+              "text": "校准样本大多是均匀光照，现场有大量暗光，你怎么办？",
+              "options": [
+                {
+                  "id": "hta_edge_calibrate_f",
+                  "type": "fail",
+                  "text": "校准样本光照均匀也无妨，暗光表现靠增加训练标签解决。",
+                  "face": "frown",
+                  "line": "校准没见过暗光，训练标签补得回来？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_edge_calibrate_h",
+                  "type": "hold",
+                  "text": "补暗光的代表性校准样本，单列暗光召回，再上真机复测。",
+                  "face": "pleased",
+                  "line": "样本、指标、真机，三样都想到了。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_edge_calibrate_p",
+                  "type": "partial",
+                  "text": "补一批暗光图片重新校准，整体指标回升就收工。",
+                  "face": "calm",
+                  "line": "整体回升了，暗光那部分单独看了吗？",
+                  "delta": 1
+                }
+              ],
+              "explain": "量化可能引入质量损失，静态校准样本也需要代表实际输入。要在固定输入与评测口径下定位误差，再比较校准、局部精度等方案；能否采用还要看目标设备的算子支持与实测结果。提高检测阈值通常不能补救漏检，不能用总体准确率遮住关键缺陷。"
+            }
+          },
+          {
+            "id": "hta_edge_calibrate_c",
+            "type": "off",
+            "text": "提高检测阈值，压低误报后再看总体准确率。",
+            "face": "calm",
+            "line": "阈值提高，漏检不是更多了？",
+            "delta": -3
+          },
+          {
+            "id": "hta_edge_calibrate_a",
+            "type": "safe",
+            "text": "固定评测输入，对齐量化前后的逐层差异。",
+            "face": "nod",
+            "line": "逐层对一下，思路对。",
+            "delta": 3
+          }
+        ],
+        "explain": "量化可能引入质量损失，静态校准样本也需要代表实际输入。要在固定输入与评测口径下定位误差，再比较校准、局部精度等方案；能否采用还要看目标设备的算子支持与实测结果。提高检测阈值通常不能补救漏检，不能用总体准确率遮住关键缺陷。"
+      }
+    },
+    {
+      "id": "hta_edge_contract",
+      "pools": [
+        "algo_edge"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "模型导出后本地样例正常，设备端对同一张图的结果却明显不同。你怎么排查？",
+        "options": [
+          {
+            "id": "hta_edge_contract_a",
+            "type": "safe",
+            "text": "先核对两端预处理后的输入与运行版本，再检查输出解码规则。",
+            "face": "nod",
+            "line": "先对输入和版本，好。",
+            "delta": 3
+          },
+          {
+            "id": "hta_edge_contract_b",
+            "type": "bold",
+            "text": "逐步比较预处理、中间结果与后处理，找首个差异。",
+            "face": "probe",
+            "line": "逐段比较，思路清楚。来个具体情形。",
+            "followup": {
+              "text": "确认一端按颜色通道归一化，另一端把通道顺序换了，怎么修？",
+              "options": [
+                {
+                  "id": "hta_edge_contract_p",
+                  "type": "partial",
+                  "text": "在设备端加一个结果修正系数，先让标签数量一致。",
+                  "face": "calm",
+                  "line": "数量对上了，每张图的判断也对吗？",
+                  "delta": -3
+                },
+                {
+                  "id": "hta_edge_contract_f",
+                  "type": "fail",
+                  "text": "两边各训练一个模型，对比结果相近就交付。",
+                  "face": "frown",
+                  "line": "两个模型各说各话，谁来保证一致？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_edge_contract_h",
+                  "type": "hold",
+                  "text": "统一预处理契约，保存已知输入输出，作为两端的回归样例。",
+                  "face": "pleased",
+                  "line": "对，契约写死，再留回归样例。",
+                  "delta": 9
+                }
+              ],
+              "explain": "部署一致性包括颜色顺序、缩放、归一化、张量布局与输出解码。相同原图不保证相同模型输入。先定位首个差异再修契约，比盲目微调更有解释力；用一个系数强行对齐数量，不能保证逐样本判断正确。"
+            }
+          },
+          {
+            "id": "hta_edge_contract_c",
+            "type": "off",
+            "text": "先用现场图片微调模型，让它适应设备输出。",
+            "face": "calm",
+            "line": "输入不一样，就拿模型去迁就？",
+            "delta": -3
+          }
+        ],
+        "explain": "部署一致性包括颜色顺序、缩放、归一化、张量布局与输出解码。相同原图不保证相同模型输入。先定位首个差异再修契约，比盲目微调更有解释力；用一个系数强行对齐数量，不能保证逐样本判断正确。"
+      }
+    },
+    {
+      "id": "hta_perf_chain",
+      "pools": [
+        "algo_device_perf"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "模型计算只用十毫秒，设备从取图到给结果却要五十毫秒。你怎样优化？",
+        "options": [
+          {
+            "id": "hta_perf_chain_c",
+            "type": "off",
+            "text": "先继续压缩网络层数，模型越小整条链越快。",
+            "face": "calm",
+            "line": "剩下的四十毫秒，砍层数省得掉吗？",
+            "delta": -3
+          },
+          {
+            "id": "hta_perf_chain_a",
+            "type": "safe",
+            "text": "分开测取图、预处理、推理和后处理。",
+            "face": "nod",
+            "line": "先分段计时，对。",
+            "delta": 3
+          },
+          {
+            "id": "hta_perf_chain_b",
+            "type": "bold",
+            "text": "用同一输入沿链路计时，核对等待与数据搬运。",
+            "face": "probe",
+            "line": "沿链路计时，嗯。测完之后呢？",
+            "followup": {
+              "text": "测到预处理和拷贝占大头，换更小模型收益有限。下一步？",
+              "options": [
+                {
+                  "id": "hta_perf_chain_h",
+                  "type": "hold",
+                  "text": "先定位拷贝与格式转换，验证端到端收益。",
+                  "face": "pleased",
+                  "line": "嗯，改在占时间的地方。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_perf_chain_p",
+                  "type": "partial",
+                  "text": "把取图、预处理和推理做成流水线并行，摊薄等待。",
+                  "face": "calm",
+                  "line": "流水线提吞吐，单张的延迟呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_perf_chain_f",
+                  "type": "fail",
+                  "text": "按纯推理耗时验收，取图与拷贝应归其他团队处理。",
+                  "face": "frown",
+                  "line": "用户等的是整条链，不是推理那一段。",
+                  "delta": -7
+                }
+              ],
+              "explain": "端到端时延包含取图、排队、预处理、推理和后处理等部分。优化要落在实测瓶颈，并复核同一输入条件。模型体积或理论运算量不直接等于整条链路速度；跨团队责任可以拆分，但用户感受到的总等待仍需共同验证。"
+            }
+          }
+        ],
+        "explain": "端到端时延包含取图、排队、预处理、推理和后处理等部分。优化要落在实测瓶颈，并复核同一输入条件。模型体积或理论运算量不直接等于整条链路速度；跨团队责任可以拆分，但用户感受到的总等待仍需共同验证。"
+      }
+    },
+    {
+      "id": "hta_perf_soak",
+      "pools": [
+        "algo_device_perf"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "样机刚开机推理达标，连续运行后越来越慢，离线质量没有变化。你先怎样联调？",
+        "options": [
+          {
+            "id": "hta_perf_soak_b",
+            "type": "bold",
+            "text": "固定负载和版本，联看时延分布、内存与设备状态。",
+            "face": "probe",
+            "line": "条件固定住了，下一步你打算怎么推？",
+            "followup": {
+              "text": "怀疑是持续高负载触发了降频，下一步怎么确认？",
+              "options": [
+                {
+                  "id": "hta_perf_soak_f",
+                  "type": "fail",
+                  "text": "模型没改说明算法无关，让硬件组更换设备再试。",
+                  "face": "frown",
+                  "line": "没换模型，就和算法无关了？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_perf_soak_h",
+                  "type": "hold",
+                  "text": "同步记录频率、温度和时延的时间曲线，并在可比条件下复测。",
+                  "face": "pleased",
+                  "line": "对，要有曲线才对得上。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_perf_soak_p",
+                  "type": "partial",
+                  "text": "先降低模型调用频率，看时延能否恢复，当作温度的线索。",
+                  "face": "calm",
+                  "line": "恢复了只是线索，别的因素也得排除。",
+                  "delta": 1
+                }
+              ],
+              "explain": "启动时的短测不能代表持续运行。温度、频率、内存增长、排队等都可能影响时延，需要同步记录并在可比条件下复测。降低负载后恢复只是线索，还要排除并发、资源泄漏等因素；联调应基于共同数据划清责任。"
+            }
+          },
+          {
+            "id": "hta_perf_soak_c",
+            "type": "off",
+            "text": "按启动后前一分钟结果验收，长期性能后面再优化。",
+            "face": "calm",
+            "line": "刚开机达标，连着跑一小时呢？",
+            "delta": -3
+          },
+          {
+            "id": "hta_perf_soak_a",
+            "type": "safe",
+            "text": "固定负载记录温度、频率和资源变化，用持续运行复现问题。",
+            "face": "nod",
+            "line": "持续跑着复现，思路对。",
+            "delta": 3
+          }
+        ],
+        "explain": "启动时的短测不能代表持续运行。温度、频率、内存增长、排队等都可能影响时延，需要同步记录并在可比条件下复测。降低负载后恢复只是线索，还要排除并发、资源泄漏等因素；联调应基于共同数据划清责任。"
+      }
+    },
+    {
+      "id": "hta_field_raw",
+      "pools": [
+        "algo_field_debug"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "客户现场误报上升，远程只有结果截图。你怎样和现场同事协作？",
+        "options": [
+          {
+            "id": "hta_field_raw_a",
+            "type": "safe",
+            "text": "先收集允许保留的输入样本、版本和复现步骤。",
+            "face": "nod",
+            "line": "样本、版本、步骤先收齐，行。",
+            "delta": 3
+          },
+          {
+            "id": "hta_field_raw_b",
+            "type": "bold",
+            "text": "列最小排查清单，关联设备、输入与处理链。",
+            "face": "probe",
+            "line": "清单列出来了，现场有难处怎么办？",
+            "followup": {
+              "text": "原始图像不能拷出客户内网，但需要继续定位，怎么办？",
+              "options": [
+                {
+                  "id": "hta_field_raw_p",
+                  "type": "partial",
+                  "text": "在内网补运行日志，先定位版本和输入类型，暂不导出。",
+                  "face": "calm",
+                  "line": "日志先补上，导出的事怎么办？",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_field_raw_f",
+                  "type": "fail",
+                  "text": "把图片裁成小块传回实验室，裁过就不算原始数据。",
+                  "face": "frown",
+                  "line": "裁成小块，也是客户的数据吧？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_field_raw_h",
+                  "type": "hold",
+                  "text": "按授权在内网复现，输出脱敏统计与差异记录。",
+                  "face": "pleased",
+                  "line": "对，在内网里复现，出统计结果。",
+                  "delta": 9
+                }
+              ],
+              "explain": "现场截图缺少输入与版本上下文，不能仅据它调整模型。应按授权建立最小复现链，数据不能外传时可在允许环境运行对照。裁剪或改成数值并不自动消除敏感性，仍须核对处理与共享边界。"
+            }
+          },
+          {
+            "id": "hta_field_raw_c",
+            "type": "off",
+            "text": "先按截图提高阈值，减少误报后再等现场反馈。",
+            "face": "calm",
+            "line": "一张截图就去调阈值？",
+            "delta": -3
+          }
+        ],
+        "explain": "现场截图缺少输入与版本上下文，不能仅据它调整模型。应按授权建立最小复现链，数据不能外传时可在允许环境运行对照。裁剪或改成数值并不自动消除敏感性，仍须核对处理与共享边界。"
+      }
+    },
+    {
+      "id": "hta_field_drift",
+      "pools": [
+        "algo_field_debug"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "更换相机后，某条产线的识别效果下降，其他产线正常。你先怎样定位？",
+        "options": [
+          {
+            "id": "hta_field_drift_c",
+            "type": "off",
+            "text": "把新相机的数据混进训练集，先做一次全量更新。",
+            "face": "calm",
+            "line": "没弄清差在哪，就整体更新？",
+            "delta": -3
+          },
+          {
+            "id": "hta_field_drift_a",
+            "type": "safe",
+            "text": "核对相机参数、采集条件和输入预处理。",
+            "face": "nod",
+            "line": "相机参数先对一遍，嗯。",
+            "delta": 3
+          },
+          {
+            "id": "hta_field_drift_b",
+            "type": "bold",
+            "text": "按设备与材料分层，区分采集变化和模型失效。",
+            "face": "probe",
+            "line": "按设备分层，行。问个更具体的。",
+            "followup": {
+              "text": "同一工件在新相机下明显偏暗，现场想先改模型，怎么办？",
+              "options": [
+                {
+                  "id": "hta_field_drift_h",
+                  "type": "hold",
+                  "text": "先验证采集配置与代表样本，再比较模型补偿方案。",
+                  "face": "pleased",
+                  "line": "对，先分清是采集还是模型。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_field_drift_p",
+                  "type": "partial",
+                  "text": "加暗光增强重新训练，看新相机样本的指标有没有回升。",
+                  "face": "calm",
+                  "line": "能试，采集配置也得一起查。",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_field_drift_f",
+                  "type": "fail",
+                  "text": "新相机像素更高，模型理应更准，先归因标注错误。",
+                  "face": "frown",
+                  "line": "像素高就更准？偏暗的问题呢？",
+                  "delta": -7
+                }
+              ],
+              "explain": "更换采集设备可能改变曝光、视角、色彩和图像处理，问题不一定在网络结构。沿采集到判断的链路分层对照，能先找到变化位置。是否改采集或模型需要比较验证；像素更高并不保证目标输入更适合已有模型。"
+            }
+          }
+        ],
+        "explain": "更换采集设备可能改变曝光、视角、色彩和图像处理，问题不一定在网络结构。沿采集到判断的链路分层对照，能先找到变化位置。是否改采集或模型需要比较验证；像素更高并不保证目标输入更适合已有模型。"
+      }
+    },
+    {
+      "id": "hta_release_bundle",
+      "pools": [
+        "algo_release"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "一批设备固件不同，模型更新还带了新的预处理。你怎样安排发布？",
+        "options": [
+          {
+            "id": "hta_release_bundle_b",
+            "type": "bold",
+            "text": "把模型、预处理与运行环境作为配套版本验证。",
+            "face": "probe",
+            "line": "配套版本，嗯。回退的时候呢？",
+            "followup": {
+              "text": "新版要回退，但旧模型不支持新预处理输出。怎么准备？",
+              "options": [
+                {
+                  "id": "hta_release_bundle_f",
+                  "type": "fail",
+                  "text": "将新版输出乘固定比例，先让旧模型继续接受输入。",
+                  "face": "frown",
+                  "line": "乘个比例，输出语义就对了？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_release_bundle_h",
+                  "type": "hold",
+                  "text": "验证整套兼容版本的回退，并保留可用旧路径。",
+                  "face": "pleased",
+                  "line": "对，整套回退才算数。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_release_bundle_p",
+                  "type": "partial",
+                  "text": "先暂停继续升级，确认受影响设备，再安排人工恢复。",
+                  "face": "calm",
+                  "line": "先停下来是对的，恢复靠人手慢了点。",
+                  "delta": 1
+                }
+              ],
+              "explain": "权重、预处理、后处理和运行环境共同构成行为版本。回退不能只替换一个文件而留下不兼容契约。发布前应核对设备矩阵、配套产物、验证样本和恢复路径；具体回退策略要以设备能力与实际兼容条件为准。"
+            }
+          },
+          {
+            "id": "hta_release_bundle_c",
+            "type": "off",
+            "text": "模型文件相同就统一下发，固件差异由设备兼容层处理。",
+            "face": "calm",
+            "line": "固件不一样，兼容层都接得住吗？",
+            "delta": -3
+          },
+          {
+            "id": "hta_release_bundle_a",
+            "type": "safe",
+            "text": "先整理设备与固件兼容表，明确各版本可用的模型和恢复路径。",
+            "face": "nod",
+            "line": "兼容表先整理出来，行。",
+            "delta": 3
+          }
+        ],
+        "explain": "权重、预处理、后处理和运行环境共同构成行为版本。回退不能只替换一个文件而留下不兼容契约。发布前应核对设备矩阵、配套产物、验证样本和恢复路径；具体回退策略要以设备能力与实际兼容条件为准。"
+      }
+    },
+    {
+      "id": "hta_release_shadow",
+      "pools": [
+        "algo_release"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "质检模型准备替代部分人工判断，你会怎样先验证真实运行效果？",
+        "options": [
+          {
+            "id": "hta_release_shadow_a",
+            "type": "safe",
+            "text": "先以建议模式运行，核对质量与人工复核负担。",
+            "face": "nod",
+            "line": "建议模式起步，稳。",
+            "delta": 3
+          },
+          {
+            "id": "hta_release_shadow_b",
+            "type": "bold",
+            "text": "约定漏检、误报、复核容量和停止条件，再分阶段验证。",
+            "face": "probe",
+            "line": "停止条件有了，试运行里怎么观察？",
+            "followup": {
+              "text": "标签要几天后复核才知道，试运行当天怎么观察？",
+              "options": [
+                {
+                  "id": "hta_release_shadow_p",
+                  "type": "partial",
+                  "text": "当天先看置信分数和人工抽检，等标签回填后再下结论。",
+                  "face": "calm",
+                  "line": "抽检加回填，这样说得过去。",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_release_shadow_f",
+                  "type": "fail",
+                  "text": "接口成功率和时延都达标，就可以结束质量验收。",
+                  "face": "frown",
+                  "line": "接口通了，质量就没问题？",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_release_shadow_h",
+                  "type": "hold",
+                  "text": "先盯运行与输入质量，等标签回填确认后，再分开报告。",
+                  "face": "pleased",
+                  "line": "运行和质量分开报，对。",
+                  "delta": 9
+                }
+              ],
+              "explain": "标签延迟时，运行状态和模型质量需要分开观察。接口正常不代表缺陷判断正确，置信分数稳定也不是确认标签。先在可控范围积累复核证据，再按错误代价和人工容量决定扩大，不能把尚未确认的结果当成正式验收。"
+            }
+          },
+          {
+            "id": "hta_release_shadow_c",
+            "type": "off",
+            "text": "先自动处理全部高置信结果，出了错再回调阈值。",
+            "face": "calm",
+            "line": "出了错再回调，漏出去的怎么办？",
+            "delta": -3
+          }
+        ],
+        "explain": "标签延迟时，运行状态和模型质量需要分开观察。接口正常不代表缺陷判断正确，置信分数稳定也不是确认标签。先在可控范围积累复核证据，再按错误代价和人工容量决定扩大，不能把尚未确认的结果当成正式验收。"
+      }
+    },
+    {
+      "id": "hta_intro_research",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech",
+        "role": "algo"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "先介绍一段最相关的算法经历，说明你负责什么、验证到哪一步。",
+        "options": [
+          {
+            "id": "hta_intro_research_c",
+            "type": "off",
+            "text": "先介绍完整模型结构，再汇总论文的最终成绩。",
+            "face": "calm",
+            "line": "结构和成绩论文里有，说说你具体做了什么。",
+            "delta": -3
+          },
+          {
+            "id": "hta_intro_research_a",
+            "type": "safe",
+            "text": "按任务、个人贡献与验证范围介绍。",
+            "face": "nod",
+            "line": "按这个顺序讲，行。",
+            "delta": 3
+          },
+          {
+            "id": "hta_intro_research_b",
+            "type": "bold",
+            "text": "挑一个影响结论的实验，说清对照和局限。",
+            "face": "probe",
+            "line": "挑实验来讲，行，往设备端上靠一靠。",
+            "followup": {
+              "text": "你的模型只在离线数据上跑过，怎么衔接设备端岗位？",
+              "options": [
+                {
+                  "id": "hta_intro_research_h",
+                  "type": "hold",
+                  "text": "如实讲离线结论，再说明真机验证需要补哪些条件。",
+                  "face": "pleased",
+                  "line": "离线的说离线，真机的缺口也说了。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_intro_research_p",
+                  "type": "partial",
+                  "text": "重点讲离线指标，部署经验等入职后边做边补。",
+                  "face": "calm",
+                  "line": "边做边补，入职前一点准备都没有吗？",
+                  "delta": 1
+                },
+                {
+                  "id": "hta_intro_research_f",
+                  "type": "fail",
+                  "text": "离线数据量够大，结论等同现场效果，可以按部署效果介绍。",
+                  "face": "frown",
+                  "line": "离线再多，也不是真机上跑出来的。",
+                  "delta": -7
+                }
+              ],
+              "explain": "离线研究可以证明实验与分析能力，但不能自动证明设备端运行。准确说明个人工作与验证范围，再讨论输入、算子、资源与现场条件，能让研究经验与岗位要求建立可核对的联系；无需把没做过的量产经历包装出来。"
+            }
+          }
+        ],
+        "explain": "离线研究可以证明实验与分析能力，但不能自动证明设备端运行。准确说明个人工作与验证范围，再讨论输入、算子、资源与现场条件，能让研究经验与岗位要求建立可核对的联系；无需把没做过的量产经历包装出来。"
+      }
+    },
+    {
+      "id": "hta_intro_debug",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech",
+        "role": "algo"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "请挑一次你发现评测或实现有问题的经历，介绍排查过程。",
+        "options": [
+          {
+            "id": "hta_intro_debug_b",
+            "type": "bold",
+            "text": "讲一个被证据推翻的判断，说明怎样修正。",
+            "face": "probe",
+            "line": "被推翻的判断，好，讲到汇报这一步。",
+            "followup": {
+              "text": "排查发现原来的好成绩来自评测错误，你怎么汇报？",
+              "options": [
+                {
+                  "id": "hta_intro_debug_f",
+                  "type": "fail",
+                  "text": "错误对所有方法影响相同，相对排序没变就不用改。",
+                  "face": "frown",
+                  "line": "排序没变就不改？表里的数还是错的。",
+                  "delta": -7
+                },
+                {
+                  "id": "hta_intro_debug_h",
+                  "type": "hold",
+                  "text": "先更正结果，列受影响实验，再按统一口径重跑。",
+                  "face": "pleased",
+                  "line": "先更正，再重跑，这个顺序对。",
+                  "delta": 9
+                },
+                {
+                  "id": "hta_intro_debug_p",
+                  "type": "partial",
+                  "text": "先更正我负责的那部分结果，其余等合作者确认后再统一重跑。",
+                  "face": "calm",
+                  "line": "其他人的部分，能等到什么时候？",
+                  "delta": 1
+                }
+              ],
+              "explain": "排错价值在于让结论更可信。发现评测错误应说明影响范围、修正方法与尚未完成的验证，不把错误带来的高分作为成果。相对排序是否保持也需要核对，不能用假定一致来替代重新验证。"
+            }
+          },
+          {
+            "id": "hta_intro_debug_c",
+            "type": "off",
+            "text": "先讲最终提升幅度，再说明过程中查过哪些问题。",
+            "face": "calm",
+            "line": "提升幅度我先不看，说说你查了什么。",
+            "delta": -3
+          },
+          {
+            "id": "hta_intro_debug_a",
+            "type": "safe",
+            "text": "交代异常、自己查的部分和最后验证的结果。",
+            "face": "nod",
+            "line": "异常、自己查的、怎么验证的，讲清楚了。",
+            "delta": 3
+          }
+        ],
+        "explain": "排错价值在于让结论更可信。发现评测错误应说明影响范围、修正方法与尚未完成的验证，不把错误带来的高分作为成果。相对排序是否保持也需要核对，不能用假定一致来替代重新验证。"
+      }
+    },
+    {
+      "id": "hta_reverse_scope",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech",
+        "role": "algo"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "你还有什么想了解算法岗位的？",
+        "options": [
+          {
+            "id": "hta_reverse_scope_0",
+            "type": "reverse",
+            "text": "新人参与离线评测、真机适配和现场联调的哪一段？",
+            "face": "nod",
+            "line": "新人一般先从评测做起，真机适配有人带着。",
+            "delta": 3
+          },
+          {
+            "id": "hta_reverse_scope_1",
+            "type": "reverse",
+            "text": "遇到采集与模型结果冲突，团队怎样协作定位？",
+            "face": "nod",
+            "line": "先把输入留下来，大家一起比对。",
+            "delta": 3
+          },
+          {
+            "id": "hta_reverse_scope_2",
+            "type": "reverse",
+            "text": "现在主要用哪些训练框架和推理工具？",
+            "face": "nod",
+            "line": "可以说一下，不过更看具体任务。",
+            "delta": 1
+          }
+        ],
+        "explain": "算法岗位的研究、部署与现场责任可能不同。问清新人负责哪一段、怎样获得评审与协作，比仅看工具清单更能判断日常工作。工具信息仍有价值，但不能替代实际任务与支持条件。"
+      }
+    },
+    {
+      "id": "hta_reverse_quality",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "hardtech",
+        "role": "algo"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "今天先到这里，你还想确认什么？",
+        "options": [
+          {
+            "id": "hta_reverse_quality_1",
+            "type": "reverse",
+            "text": "现场问题怎样变成回归样例，由谁给新人反馈？",
+            "face": "nod",
+            "line": "现场问题会整理成样例，同组有人带着反馈。",
+            "delta": 3
+          },
+          {
+            "id": "hta_reverse_quality_2",
+            "type": "reverse",
+            "text": "项目通常多久组织一次阶段汇报？",
+            "face": "nod",
+            "line": "阶段汇报按项目走，节奏不固定。",
+            "delta": 1
+          },
+          {
+            "id": "hta_reverse_quality_0",
+            "type": "reverse",
+            "text": "模型发布前后，哪些质量条件决定扩大或回退？",
+            "face": "nod",
+            "line": "有一套验证清单，达标才放量。",
+            "delta": 3
+          }
+        ],
+        "explain": "反问可以核对验收、回退与经验沉淀机制。阶段汇报频率能说明节奏，却不能单独说明新人是否得到指导。具体做法按岗位实际确认，不把硬科技标签推成统一的交付或培养制度。"
+      }
+    }
+  ],
+  "skill_probes": {
+    "hta_probe_ml": {
+      "tag": "专业",
+      "text": "你写了精通机器学习。缺陷只占很小一部分，为什么总体准确率可能误导？",
+      "options": [
+        {
+          "id": "hta_probe_ml_c",
+          "type": "off",
+          "text": "训练时把缺陷样本过采样了，测试准确率已经能反映真实效果。",
+          "face": "calm",
+          "line": "测试集里缺陷还是那么少，准确率照样虚高。",
+          "delta": -3
+        },
+        {
+          "id": "hta_probe_ml_honest",
+          "type": "off",
+          "text": "“精通”写得过满了，我熟悉离线训练评测，这类口径还要补。",
+          "face": "calm",
+          "line": "好，按真实掌握的程度来写。",
+          "delta": -1
+        },
+        {
+          "id": "hta_probe_ml_a",
+          "type": "safe",
+          "text": "多数类占比高时，准确率会被主导，应另查缺陷召回与误报。",
+          "face": "nod",
+          "line": "召回和误报单独看，对。",
+          "delta": 3
+        },
+        {
+          "id": "hta_probe_ml_b",
+          "type": "bold",
+          "text": "把混淆矩阵和业务动作对应起来，检查阈值取舍。",
+          "face": "probe",
+          "line": "混淆矩阵对到业务动作，嗯。阈值再往下呢？",
+          "followup": {
+            "text": "阈值下降后召回提高，复核台却开始积压，该怎样处理？",
+            "options": [
+              {
+                "id": "hta_probe_ml_h",
+                "type": "hold",
+                "text": "把漏检的后果和复核容量放在一起算，按两边的承受力定阈值。",
+                "face": "pleased",
+                "line": "召回和人力得一起算，对。",
+                "delta": 9
+              },
+              {
+                "id": "hta_probe_ml_p",
+                "type": "partial",
+                "text": "先维持高召回，等复核积压明显后再安排扩人。",
+                "face": "calm",
+                "line": "积压起来才扩人，来得及吗？",
+                "delta": -3
+              },
+              {
+                "id": "hta_probe_ml_f",
+                "type": "fail",
+                "text": "调高阈值能减少误报，缺陷召回基本不受影响。",
+                "face": "frown",
+                "line": "阈值高了，漏掉的缺陷呢？",
+                "delta": -7
+              }
+            ],
+            "explain": "类别不均衡时，总体准确率可能被多数类主导。验收应把检出、误报、阈值和后续处理能力放在同一任务里。过采样是训练选择，不能替代真实分布测试；不熟悉时如实承认边界损失较小，自信混淆概念会影响判断。"
+          }
+        }
+      ],
+      "explain": "类别不均衡时，总体准确率可能被多数类主导。验收应把检出、误报、阈值和后续处理能力放在同一任务里：等复核积压了才安排扩人，是把容量问题留到了事后。过采样是训练选择，不能替代真实分布测试；不熟悉时如实承认边界损失较小，自信混淆概念会影响判断。"
+    },
+    "hta_probe_dl": {
+      "tag": "专业",
+      "text": "你写了精通深度学习。模型参数量减少，为什么设备端未必更快？",
+      "options": [
+        {
+          "id": "hta_probe_dl_a",
+          "type": "safe",
+          "text": "算子实现和访存也会影响速度，需在目标设备测量。",
+          "face": "nod",
+          "line": "在目标设备上测，对。",
+          "delta": 3
+        },
+        {
+          "id": "hta_probe_dl_b",
+          "type": "bold",
+          "text": "分开看计算、访存和调度，核对实际算子执行路径。",
+          "face": "probe",
+          "line": "算子执行路径，对。再具体点。",
+          "followup": {
+            "text": "剪掉很多零权重，设备却仍执行稠密算子，为什么不快？",
+            "options": [
+              {
+                "id": "hta_probe_dl_f",
+                "type": "fail",
+                "text": "权重为零时处理器会自动跳过，说明测量方法有问题。",
+                "face": "frown",
+                "line": "零乘出来也是要算的，跳不跳看实现。",
+                "delta": -7
+              },
+              {
+                "id": "hta_probe_dl_h",
+                "type": "hold",
+                "text": "没用到可加速的稀疏执行路径，零值本身不省运算。",
+                "face": "pleased",
+                "line": "对，零值还是照样算。",
+                "delta": 9
+              },
+              {
+                "id": "hta_probe_dl_p",
+                "type": "partial",
+                "text": "零值乘法本来就快，加大并发以后压缩收益会体现出来。",
+                "face": "calm",
+                "line": "并发加大了，稠密算子还是那么多。",
+                "delta": -3
+              }
+            ],
+            "explain": "参数量、模型存储与实际运行时延不同。稀疏权重能否加速依赖执行格式与硬件实现，不能只凭零值比例推断收益。需要目标设备与输入条件下的实测；不会的部分应准确承认，不能用未经验证的性能承诺补足。"
+          }
+        },
+        {
+          "id": "hta_probe_dl_c",
+          "type": "off",
+          "text": "参数少了总内存就按比例下降，速度自然能按比例提高。",
+          "face": "calm",
+          "line": "内存降了，速度也降同样的比例？",
+          "delta": -3
+        },
+        {
+          "id": "hta_probe_dl_honest",
+          "type": "off",
+          "text": "“精通”写得过满，我更熟悉离线训练评测，端侧还在学。",
+          "face": "calm",
+          "line": "好，实话比硬撑强，接着聊你熟的。",
+          "delta": -1
+        }
+      ],
+      "explain": "参数量、模型存储与实际运行时延不同。稀疏权重能否加速依赖执行格式与硬件实现，不能只凭零值比例推断收益；设备仍执行稠密算子时，加大并发也不会让运算量变少。需要目标设备与输入条件下的实测；不会的部分应准确承认，不能用未经验证的性能承诺补足。"
+    }
+  }
+}

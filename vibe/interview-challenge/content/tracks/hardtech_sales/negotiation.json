@@ -1,0 +1,304 @@
+{
+  "id": "neg",
+  "name": "谈薪",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S8d",
+  "hello": "你好，我们核对录用方案和到岗安排。",
+  "_note": "S客户型销售。金额由公司展示表提供；此处只核对固定与条件收入。neg_second、neg_bluff为引擎约定节点名。",
+  "offer_terms": [
+    {
+      "id": "salary",
+      "label": "固定月薪",
+      "value": "{salary}k",
+      "detail": "税前固定月薪；固定年收入与提成分开核对。",
+      "bad": false
+    },
+    {
+      "id": "basis",
+      "label": "提成基数与阶梯",
+      "value": "待书面确认",
+      "detail": "确认按签约、回款或毛利计算，比例、阶梯是分段还是跨档全额，以及口径调整与退单处理。",
+      "bad": true
+    },
+    {
+      "id": "settlement",
+      "label": "结算与分单",
+      "value": "待书面确认",
+      "detail": "核对结算周期、回款前提、封顶、跨团队分单和客户归属变化，未满足条件的提成不算已到账收入。",
+      "bad": true
+    },
+    {
+      "id": "newcomer",
+      "label": "新人目标与保护",
+      "value": "待书面确认",
+      "detail": "询问爬坡期目标、客户分配和保护安排是否存在；若有保底，核对期限、条件及是否需要抵扣后续提成。",
+      "bad": true
+    },
+    {
+      "id": "cost",
+      "label": "驻场与费用",
+      "value": "按实际安排",
+      "detail": "差旅、驻场与业务费用的审批和承担方式另行确认，不自动计入可支配收入。",
+      "bad": true
+    }
+  ],
+  "open_seconds": 4,
+  "flow": [
+    "sl3_ask",
+    "sl3_offer",
+    "sl3_counter",
+    "neg_second",
+    "sl3_close"
+  ],
+  "nodes": {
+    "sl3_ask": {
+      "text": "销售收入含固定工资与条件提成。你先想核对什么？",
+      "options": [
+        {
+          "id": "sl3_ask_terms",
+          "text": "先分开固定部分与条件提成，核实计算口径。",
+          "T": 1,
+          "face": "nod",
+          "line": "对，先把固定和提成分开看。",
+          "next": "sl3_basis"
+        },
+        {
+          "id": "sl3_ask_scope",
+          "text": "先了解负责范围与新人目标，再谈收入方案。",
+          "T": 1,
+          "face": "nod",
+          "line": "负责的客户和新人目标，我先给你讲讲。"
+        },
+        {
+          "id": "sl3_ask_total",
+          "text": "先按招聘页的综合收入理解，细项入职后再看。",
+          "T": -1,
+          "face": "calm",
+          "line": "那个综合数只是参考，细项要看规则。"
+        },
+        {
+          "id": "sl3_ask_cash",
+          "text": "希望提高固定部分，能否一起核对相应目标？",
+          "T": 1,
+          "face": "probe",
+          "line": "固定部分要看定级，先对一下目标。"
+        }
+      ],
+      "explain": "可以提出提高固定部分、保底或目标安排的协商。比较收入前应分开固定与条件项，招聘展示的综合收入不能当作保证到账。"
+    },
+    "sl3_basis": {
+      "text": "首年提成估算，需要先确认哪些条件？",
+      "options": [
+        {
+          "id": "sl3_basis_full",
+          "text": "基数、阶梯、回款结算、封顶分单确认后，再列情景。",
+          "T": 2,
+          "face": "pleased",
+          "line": "好，几项你都想到了。"
+        },
+        {
+          "id": "sl3_basis_contract",
+          "text": "拿目标签约额乘最高档比例，算出我首年大概能拿多少提成。",
+          "T": 0,
+          "face": "frown",
+          "line": "最高档是上限，不是人人都能拿到。",
+          "R": -1
+        },
+        {
+          "id": "sl3_basis_fixed",
+          "text": "先列固定年收入，提成按条件另算。",
+          "T": 1,
+          "face": "nod",
+          "line": "固定的先算清，提成另说。"
+        }
+      ],
+      "explain": "签约、回款与毛利口径不能混算。还需核对阶梯算法、周期、封顶与分单。未给出概率和可靠分布时，只能列情景估算，不能把乐观情景称为统计期望或保底。"
+    },
+    "sl3_offer": {
+      "kind": "inspect",
+      "text": "请逐项展开方案，核对提成和新人安排。",
+      "explain": "固定工资与条件提成分别核对。未写明的提成基数、阶梯、结算、分单和新人保护都应确认；保护是否存在也不能自行假定。"
+    },
+    "sl3_counter": {
+      "text": "这些条件中，你希望进一步讨论哪一项？",
+      "options": [
+        {
+          "id": "sl3_counter_terms",
+          "text": "请把提成规则和新人安排写进书面方案，再来比较固定部分。",
+          "T": 2,
+          "face": "pleased",
+          "line": "可以，书面规则会一并发你。"
+        },
+        {
+          "id": "sl3_counter_real",
+          "text": "我有一个真实的其他录用，能否按同口径复核这套方案？",
+          "T": 3,
+          "face": "nod",
+          "line": "可以，把口径对一下我们再看。",
+          "requires": {
+            "flag": "has_real_offer"
+          },
+          "fallback": {
+            "id": "sl3_counter_scope",
+            "text": "能否按职责范围复核固定部分？",
+            "T": 1,
+            "face": "nod",
+            "line": "职责范围这块，我再核一下。"
+          }
+        },
+        {
+          "id": "sl3_counter_bluff",
+          "text": "我手上有更高的录用，就照那边的总收入给我。",
+          "T": 0,
+          "face": "probe",
+          "line": "更高的？是哪一家，什么口径？",
+          "next": "neg_bluff",
+          "requires": {
+            "not_flag": "has_real_offer"
+          },
+          "fallback": {
+            "id": "sl3_counter_time",
+            "text": "能否协调回复期限，便于按同口径比较？",
+            "T": 1,
+            "face": "nod",
+            "line": "回复期限，我跟用人部门商量。"
+          }
+        },
+        {
+          "id": "sl3_counter_clients",
+          "text": "校园和实习认识的企业，我入职就能带成订单，保底给高些。",
+          "T": 0,
+          "face": "disappointed",
+          "line": "没有依据的订单，不能拿来当筹码。",
+          "redline": true
+        }
+      ],
+      "explain": "真实录用可按固定与条件部分比较。要求协商保障是合理议题，但不能编造其他录用，也不能把实习和校园活动里认识的企业说成能兑现的订单，用来换取待遇。"
+    },
+    "neg_bluff": {
+      "text": "目前没有真实其他录用信息。刚才说有，你怎样澄清？",
+      "options": [
+        {
+          "id": "sl3_bluff_truth",
+          "text": "刚才说重了，我目前还没有其他正式录用。",
+          "T": 0,
+          "face": "calm",
+          "line": "好，那我们按实际情况往下谈。",
+          "R": -1
+        },
+        {
+          "id": "sl3_bluff_vague",
+          "text": "只是在推进中，但可以先当成已经拿到。",
+          "T": 0,
+          "face": "frown",
+          "line": "没拿到的，不能当拿到的算。",
+          "R": -2
+        },
+        {
+          "id": "sl3_bluff_fake",
+          "text": "已经确定了，书面材料之后再补。",
+          "T": 0,
+          "face": "disappointed",
+          "line": "前后对不上，这一轮先到这里。",
+          "redline": true
+        }
+      ],
+      "explain": "正在推进的流程不是正式录用。如实改正损失较少；继续编造属于诚信红线。可以保留隐私，但不能把不存在的录用作为事实。"
+    },
+    "neg_second": {
+      "requires_R": 1,
+      "text": "还有什么影响你首年收入与入职判断的条件？",
+      "options": [
+        {
+          "id": "sl3_second_protect",
+          "text": "新人保护若存在，期限、目标与抵扣方式如何确认？",
+          "T": 1,
+          "face": "nod",
+          "line": "保护期有没有，以书面方案为准。"
+        },
+        {
+          "id": "sl3_second_scenario",
+          "text": "固定部分和不同回款情景能否分开列清？",
+          "T": 1,
+          "face": "pleased",
+          "line": "可以，我们按几种情景给你列。"
+        },
+        {
+          "id": "sl3_second_guarantee",
+          "text": "我按目标额乘最高档提成，把这笔算进首年收入里。",
+          "T": 0,
+          "face": "frown",
+          "line": "目标额和最高档，都不是保证。",
+          "R": -1
+        },
+        {
+          "id": "sl3_second_earnings",
+          "text": "为多谈保底，说全校110个付费都是我带来的。",
+          "T": 0,
+          "face": "disappointed",
+          "line": "和你说的个人数据对不上，今天到这里。",
+          "redline": true
+        }
+      ],
+      "explain": "新人保护需核实有无和具体规则，不能假设必有。首年情景要考虑爬坡、回款及结算延迟；目标达成情景不是保证收入。把全校的付费数说成个人业绩，既是编造，也经不起入职后的业绩核对。"
+    },
+    "sl3_close": {
+      "text": "我们将发出书面方案。你怎样确认？",
+      "options": [
+        {
+          "id": "sl3_close_written",
+          "text": "核对固定、提成与目标规则，按约定期限回复。",
+          "T": 1,
+          "face": "pleased",
+          "line": "好，书面方案很快发给你。"
+        },
+        {
+          "id": "sl3_close_accept",
+          "text": "先接收文件，按已确认条件决定是否接受。",
+          "T": 0,
+          "face": "nod",
+          "line": "好，看完有问题随时联系。"
+        },
+        {
+          "id": "sl3_close_assume",
+          "text": "先口头接受，没写明的地方等入职后再商量。",
+          "T": 0,
+          "face": "frown",
+          "line": "没写明的，入职后再谈就被动了。",
+          "R": -1
+        }
+      ],
+      "explain": "重要条件应在书面方案中核对并确认回复期限。未写明并不等于自动按候选人最有利口径执行；需要协商可继续提出具体修改。"
+    }
+  },
+  "breakdown": {
+    "wins": [
+      {
+        "ids": [
+          "sl3_basis_full"
+        ],
+        "text": "核对提成计算与结算口径",
+        "missed": "补齐提成口径再列收入情景"
+      },
+      {
+        "ids": [
+          "sl3_counter_terms",
+          "sl3_second_protect"
+        ],
+        "text": "确认新人安排与收入条件",
+        "missed": "核实保护是否存在及具体条件"
+      },
+      {
+        "ids": [
+          "sl3_close_written"
+        ],
+        "text": "核对书面规则并约定回复",
+        "missed": "书面核对后按期回复"
+      }
+    ]
+  }
+}

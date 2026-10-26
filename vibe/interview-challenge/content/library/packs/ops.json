@@ -1616,7 +1616,7 @@
           "id": "opp_cp_c",
           "type": "off",
           "delta": -1,
-          "text": "“跃迁 AI 写作助手全新升级，功能更强大。”",
+          "text": "“{co.product|我们的产品}全新升级，功能更强大。”",
           "face": "calm",
           "line": "用户为什么要点开？"
         },

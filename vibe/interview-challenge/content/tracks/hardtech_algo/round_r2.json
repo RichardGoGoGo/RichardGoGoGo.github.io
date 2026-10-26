@@ -1,0 +1,55 @@
+{
+  "id": "r2",
+  "name": "业务二面 · 方案与现场联调",
+  "company": "hardtech",
+  "interviewer": {
+    "art": "A3",
+    "title": "算法主管"
+  },
+  "scene": "S10",
+  "hello": "这一轮聊聊模型放到设备和现场以后的事，从排查、发布到回退，我们一个个过。",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "algo_field_debug",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "algo_edge",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "algo_release",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "algo_tradeoff",
+      "swap": true
+    },
+    {
+      "slot": "q6",
+      "dynamic": "pool",
+      "pool": "algo_device_perf",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

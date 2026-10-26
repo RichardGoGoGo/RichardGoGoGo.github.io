@@ -1,0 +1,1668 @@
+{
+  "_note": "F3：产品英文题池、六类英文深挖及亮点、SQL/A-B精通追问。英文事实与许诺中文人设一致，解析保持中文，不改旧中文题。",
+  "pools": [
+    {
+      "id": "fgp_intro_scope",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign",
+        "role": "pm"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "Please introduce one project relevant to product work.",
+        "options": [
+          {
+            "id": "fgp_intro_scope_a",
+            "type": "safe",
+            "text": "I'd explain the task, my role, and the outcome I can verify.",
+            "face": "nod",
+            "line": "Okay, that gives me a clear starting point.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_intro_scope_b",
+            "type": "bold",
+            "text": "I'd focus on one decision and what changed my view.",
+            "face": "probe",
+            "line": "A decision that changed your view. Go on.",
+            "followup": {
+              "text": "The team shipped a change after you left. What can you claim?",
+              "options": [
+                {
+                  "id": "fgp_intro_scope_p",
+                  "type": "partial",
+                  "text": "My finding was adopted, and the team shipped a change.",
+                  "face": "calm",
+                  "line": "Okay, but what did you actually measure?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_intro_scope_f",
+                  "type": "fail",
+                  "text": "The team adopted my finding, so its later growth is my outcome.",
+                  "face": "frown",
+                  "line": "Hmm, I'm not sure that follows.",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_intro_scope_h",
+                  "type": "hold",
+                  "text": "My finding was adopted; I can't claim an impact nobody measured.",
+                  "face": "pleased",
+                  "line": "Good. That's a clear boundary.",
+                  "delta": 9
+                }
+              ],
+              "explain": "介绍一个与产品相关的项目，先交代目标、自己的角色和能核实的结果，比从完整时间线和工具讲起更能抓住重点。要把三件事分开：自己的动作、建议被采纳、上线之后的业务结果。离职前没跟到数据，就不能领取后续的增长；可以准确地讲发现和被采纳的过程，并说明本应怎样验证效果。"
+            }
+          },
+          {
+            "id": "fgp_intro_scope_c",
+            "type": "off",
+            "text": "I'd start with the full timeline and every tool we used.",
+            "face": "calm",
+            "line": "Let's go back to your own part.",
+            "delta": -3
+          }
+        ],
+        "explain": "介绍一个与产品相关的项目，先交代目标、自己的角色和能核实的结果，比从完整时间线和工具讲起更能抓住重点。要把三件事分开：自己的动作、建议被采纳、上线之后的业务结果。离职前没跟到数据，就不能领取后续的增长；可以准确地讲发现和被采纳的过程，并说明本应怎样验证效果。"
+      }
+    },
+    {
+      "id": "fgp_intro_tradeoff",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign",
+        "role": "pm"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "Choose an example that shows how you made a product decision.",
+        "options": [
+          {
+            "id": "fgp_intro_tradeoff_c",
+            "type": "off",
+            "text": "I'd open with the final outcome and mention alternatives if asked.",
+            "face": "calm",
+            "line": "Hmm, the options are what I'm interested in.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_intro_tradeoff_a",
+            "type": "safe",
+            "text": "I'd state the goal, the constraints, and the choice I helped make.",
+            "face": "nod",
+            "line": "Okay, that's a clear structure.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_intro_tradeoff_b",
+            "type": "bold",
+            "text": "I'd compare the options and explain the evidence I used.",
+            "face": "probe",
+            "line": "Comparing options, okay. Go on.",
+            "followup": {
+              "text": "You helped analyze the options, but someone else decided. How would you describe your role?",
+              "options": [
+                {
+                  "id": "fgp_intro_tradeoff_h",
+                  "type": "hold",
+                  "text": "I informed the choice, and I'd name who made the decision.",
+                  "face": "pleased",
+                  "line": "Fair. That gives credit where it's due.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_intro_tradeoff_p",
+                  "type": "partial",
+                  "text": "I'd describe the team's decision first, then clarify my role.",
+                  "face": "calm",
+                  "line": "Okay, but what was your part?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_intro_tradeoff_f",
+                  "type": "fail",
+                  "text": "I prepared the analysis, so I effectively owned the decision.",
+                  "face": "frown",
+                  "line": "Hmm, is analysis the same as deciding?",
+                  "delta": -7
+                }
+              ],
+              "explain": "举产品决策的例子，先讲目标和约束，再讲备选方案和你用的证据；只讲最终结果，对方看不到你是怎么权衡的。参与分析、提出建议和拥有最终决定权是三件不同的事，要准确说明自己的作用：提供了什么信息、谁拍的板。把信息支持包装成独自决策，追问时会站不住。"
+            }
+          }
+        ],
+        "explain": "举产品决策的例子，先讲目标和约束，再讲备选方案和你用的证据；只讲最终结果，对方看不到你是怎么权衡的。参与分析、提出建议和拥有最终决定权是三件不同的事，要准确说明自己的作用：提供了什么信息、谁拍的板。把信息支持包装成独自决策，追问时会站不住。"
+      }
+    },
+    {
+      "id": "fgp_research_behavior",
+      "pools": [
+        "pm_research"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "Users say a collaboration feature is confusing. How would you investigate?",
+        "options": [
+          {
+            "id": "fgp_research_behavior_b",
+            "type": "bold",
+            "text": "I'd compare recent completed and abandoned tasks, then test ideas.",
+            "face": "probe",
+            "line": "Behavior first, okay. Here's a wrinkle.",
+            "followup": {
+              "text": "Several users say they want more notifications. What would you ask next?",
+              "options": [
+                {
+                  "id": "fgp_research_behavior_f",
+                  "type": "fail",
+                  "text": "Count the requests and treat the most common wording as the cause.",
+                  "face": "frown",
+                  "line": "Hmm, is the common wording the cause?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_research_behavior_h",
+                  "type": "hold",
+                  "text": "Ask about a missed task, what it cost them, and their workaround.",
+                  "face": "pleased",
+                  "line": "Good, that gets at the real problem.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_research_behavior_p",
+                  "type": "partial",
+                  "text": "Ask which notifications they get now and which ones they ignore.",
+                  "face": "calm",
+                  "line": "That's closer. What did it cost them?",
+                  "delta": 1
+                }
+              ],
+              "explain": "用户说“想要更多通知”，是调查的入口，不直接等于原因。还原最近一次任务、它带来的影响和现有的替代办法，再对比成功与放弃的路径，才可能发现通知之外的原因。只问现在收到哪些、忽略哪些，已经靠近行为，却没有对应到具体的错过和后果；直接统计愿望的多少，仍然停留在假设层。"
+            }
+          },
+          {
+            "id": "fgp_research_behavior_c",
+            "type": "off",
+            "text": "Ask users to rank proposed features and build the top choice.",
+            "face": "calm",
+            "line": "Hmm, that leaves the cause open.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_research_behavior_a",
+            "type": "safe",
+            "text": "Watch recent tasks, noting goals, steps, and existing workarounds.",
+            "face": "nod",
+            "line": "Okay, that's a sensible way in.",
+            "delta": 3
+          }
+        ],
+        "explain": "用户说“想要更多通知”，是调查的入口，不直接等于原因。还原最近一次任务、它带来的影响和现有的替代办法，再对比成功与放弃的路径，才可能发现通知之外的原因。只问现在收到哪些、忽略哪些，已经靠近行为，却没有对应到具体的错过和后果；直接统计愿望的多少，仍然停留在假设层。"
+      }
+    },
+    {
+      "id": "fgp_research_sample",
+      "pools": [
+        "pm_research"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "Six of eight test users failed the same step. How far can you generalize?",
+        "options": [
+          {
+            "id": "fgp_research_sample_a",
+            "type": "safe",
+            "text": "Treat it as a signal and say who the test covered.",
+            "face": "nod",
+            "line": "Okay, that's a fair way to put it.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_research_sample_b",
+            "type": "bold",
+            "text": "I'd use the failures to form a hypothesis and test it further.",
+            "face": "probe",
+            "line": "Hypotheses are fine. Let me push on that.",
+            "followup": {
+              "text": "Most participants are new users. What would you do before changing the workflow for everyone?",
+              "options": [
+                {
+                  "id": "fgp_research_sample_p",
+                  "type": "partial",
+                  "text": "Run the same test with more new users to refine the percentage.",
+                  "face": "calm",
+                  "line": "More of the same group, though?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_research_sample_f",
+                  "type": "fail",
+                  "text": "New users find the most issues, so their results apply to everyone.",
+                  "face": "frown",
+                  "line": "Hmm, do new users stand for everyone?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_research_sample_h",
+                  "type": "hold",
+                  "text": "Test other user groups and look at the specific failing step.",
+                  "face": "pleased",
+                  "line": "Right, you'd want more than new users.",
+                  "delta": 9
+                }
+              ],
+              "explain": "小规模可用性测试适合发现具体的阻碍，不能把样本里的比例直接推广到全体用户。要说明测试覆盖了哪些人；参与者以新用户为主时，改动前应补测其他用户群和具体失败的步骤。多找同类的新用户只能让比例更精确，补不了代表性的缺口。"
+            }
+          },
+          {
+            "id": "fgp_research_sample_c",
+            "type": "off",
+            "text": "Turn the failure rate into an estimate for all customers.",
+            "face": "calm",
+            "line": "Hmm, eight people is a small base for that.",
+            "delta": -3
+          }
+        ],
+        "explain": "小规模可用性测试适合发现具体的阻碍，不能把样本里的比例直接推广到全体用户。要说明测试覆盖了哪些人；参与者以新用户为主时，改动前应补测其他用户群和具体失败的步骤。多找同类的新用户只能让比例更精确，补不了代表性的缺口。"
+      }
+    },
+    {
+      "id": "fgp_metric_completion",
+      "pools": [
+        "pm_metric"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "Time spent in a reporting tool rises, but report completion falls. How would you assess the change?",
+        "options": [
+          {
+            "id": "fgp_metric_completion_c",
+            "type": "off",
+            "text": "Treat longer sessions as engagement and refine the layout later.",
+            "face": "calm",
+            "line": "Hmm, completion is falling though.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_metric_completion_a",
+            "type": "safe",
+            "text": "Check completion and delays for new and existing users.",
+            "face": "nod",
+            "line": "Okay, that's a sensible split.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_metric_completion_b",
+            "type": "bold",
+            "text": "I'd separate time spent usefully from time lost to friction.",
+            "face": "probe",
+            "line": "Friction versus value. Go on.",
+            "followup": {
+              "text": "The decline appears only for first-time users. What would you inspect?",
+              "options": [
+                {
+                  "id": "fgp_metric_completion_h",
+                  "type": "hold",
+                  "text": "Trace the steps where they fail, and check the entry conditions.",
+                  "face": "pleased",
+                  "line": "Yes, start with where they fail.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_metric_completion_p",
+                  "type": "partial",
+                  "text": "Collect satisfaction scores to explain the longer sessions.",
+                  "face": "calm",
+                  "line": "Scores help, but what do the logs show?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_metric_completion_f",
+                  "type": "fail",
+                  "text": "First-time users naturally need longer, so the change is positive.",
+                  "face": "frown",
+                  "line": "Hmm, does longer mean better here?",
+                  "delta": -7
+                }
+              ],
+              "explain": "停留时间变长，可能来自价值，也可能是卡住了。任务完成率下降时，应检查新用户的入口条件、失败的步骤和等待时间；满意度评分可以补充，但替代不了行为证据，也不能把更长的停留直接解释成成功。"
+            }
+          }
+        ],
+        "explain": "停留时间变长，可能来自价值，也可能是卡住了。任务完成率下降时，应检查新用户的入口条件、失败的步骤和等待时间；满意度评分可以补充，但替代不了行为证据，也不能把更长的停留直接解释成成功。"
+      }
+    },
+    {
+      "id": "fgp_metric_compare",
+      "pools": [
+        "pm_metric"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A feature has a higher usage rate among paying customers. What does that tell you?",
+        "options": [
+          {
+            "id": "fgp_metric_compare_b",
+            "type": "bold",
+            "text": "I'd check who chooses to use it and define the outcome first.",
+            "face": "probe",
+            "line": "Selection matters here. Let me add a wrinkle.",
+            "followup": {
+              "text": "Paying customers were already more active before the feature existed. What next?",
+              "options": [
+                {
+                  "id": "fgp_metric_compare_f",
+                  "type": "fail",
+                  "text": "Control for current usage; earlier activity no longer matters.",
+                  "face": "frown",
+                  "line": "Hmm, why would earlier activity not matter?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_metric_compare_h",
+                  "type": "hold",
+                  "text": "Compare like-for-like groups, or run a properly controlled test.",
+                  "face": "pleased",
+                  "line": "Right, like-for-like is the key.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_metric_compare_p",
+                  "type": "partial",
+                  "text": "Compare total usage again after another month of observation.",
+                  "face": "calm",
+                  "line": "Would waiting change the comparison?",
+                  "delta": 1
+                }
+              ],
+              "explain": "付费用户更常使用某个功能，可能只是他们本来就更活跃、需求更强。要识别用户的自我选择，明确比较的目标，可行时再用合适的对照；再多观察一个月，或只控制当前的使用量，都不能自动说明因果。"
+            }
+          },
+          {
+            "id": "fgp_metric_compare_c",
+            "type": "off",
+            "text": "It means wider access to the feature should lead to more payments.",
+            "face": "calm",
+            "line": "Hmm, that's a big jump from a usage rate.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_metric_compare_a",
+            "type": "safe",
+            "text": "It shows an association, not the effect of the feature.",
+            "face": "nod",
+            "line": "Right, that's a careful reading.",
+            "delta": 3
+          }
+        ],
+        "explain": "付费用户更常使用某个功能，可能只是他们本来就更活跃、需求更强。要识别用户的自我选择，明确比较的目标，可行时再用合适的对照；再多观察一个月，或只控制当前的使用量，都不能自动说明因果。"
+      }
+    },
+    {
+      "id": "fgp_spec_rollback",
+      "pools": [
+        "pm_spec"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A workflow change alters how pending requests are handled. What belongs in the product specification?",
+        "options": [
+          {
+            "id": "fgp_spec_rollback_a",
+            "type": "safe",
+            "text": "How pending, failed, and conflicting requests should be handled.",
+            "face": "nod",
+            "line": "Okay, that covers the edge cases.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_spec_rollback_b",
+            "type": "bold",
+            "text": "I'd define failure and recovery rules before implementation.",
+            "face": "probe",
+            "line": "Explicit rules, okay. Let me test them.",
+            "followup": {
+              "text": "A user edits a request while an older save is still pending. Which result should win?",
+              "options": [
+                {
+                  "id": "fgp_spec_rollback_p",
+                  "type": "partial",
+                  "text": "Lock the form while any earlier save is still pending.",
+                  "face": "calm",
+                  "line": "Okay, but what about the user's edits?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_spec_rollback_f",
+                  "type": "fail",
+                  "text": "The last response to arrive wins; it reflects the latest intent.",
+                  "face": "frown",
+                  "line": "Hmm, does arrival order match intent?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_spec_rollback_h",
+                  "type": "hold",
+                  "text": "Define conflict handling so a new edit isn't silently lost.",
+                  "face": "pleased",
+                  "line": "Good, that's the behavior I'd want.",
+                  "delta": 9
+                }
+              ],
+              "explain": "异步完成的顺序不等于用户操作的顺序。需求要定义待处理状态、编辑冲突、失败后的处理和恢复，避免旧请求盖掉新编辑；锁住表单也能避开冲突，却牺牲了连续编辑的体验。只写顺利的流程、把异常留给测试去补，会把实现和验收的成本藏起来。"
+            }
+          },
+          {
+            "id": "fgp_spec_rollback_c",
+            "type": "off",
+            "text": "Describe the successful flow and let testing define edge cases.",
+            "face": "calm",
+            "line": "Hmm, who owns the edge cases then?",
+            "delta": -3
+          }
+        ],
+        "explain": "异步完成的顺序不等于用户操作的顺序。需求要定义待处理状态、编辑冲突、失败后的处理和恢复，避免旧请求盖掉新编辑；锁住表单也能避开冲突，却牺牲了连续编辑的体验。只写顺利的流程、把异常留给测试去补，会把实现和验收的成本藏起来。"
+      }
+    },
+    {
+      "id": "fgp_spec_permissions",
+      "pools": [
+        "pm_spec"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "A customer asks for an export feature. What would you clarify first?",
+        "options": [
+          {
+            "id": "fgp_spec_permissions_c",
+            "type": "off",
+            "text": "Match the export to the existing screen and review access later.",
+            "face": "calm",
+            "line": "Hmm, that puts the access question last.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_spec_permissions_a",
+            "type": "safe",
+            "text": "The task, data scope, access rules, and acceptance criteria.",
+            "face": "nod",
+            "line": "Okay, that's a solid checklist.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_spec_permissions_b",
+            "type": "bold",
+            "text": "I'd separate viewing, exporting, and bulk access first.",
+            "face": "probe",
+            "line": "Three separate things. Let me test that.",
+            "followup": {
+              "text": "A manager wants all records, but the access policy isn't agreed. How would you proceed?",
+              "options": [
+                {
+                  "id": "fgp_spec_permissions_h",
+                  "type": "hold",
+                  "text": "Use synthetic examples while the data owner confirms the scope.",
+                  "face": "pleased",
+                  "line": "Sensible. Synthetic data keeps things moving.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_spec_permissions_p",
+                  "type": "partial",
+                  "text": "Ask the manager which fields they need and why, then decide.",
+                  "face": "calm",
+                  "line": "Okay, but who owns the access decision?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_spec_permissions_f",
+                  "type": "fail",
+                  "text": "Add an audit log, since traceability is enough to grant access.",
+                  "face": "frown",
+                  "line": "Hmm, does tracing equal permission?",
+                  "delta": -7
+                }
+              ],
+              "explain": "页面上能看到，不等于有批量导出的权限。要先明确用途、数据范围和谁来授权；规则没定时，可以先用合成数据推进讨论。先弄清经理要哪些字段、为什么要，有助于缩小范围，但授权还得由数据负责人确认；限定试用人数、加审计日志，也替代不了授权。"
+            }
+          }
+        ],
+        "explain": "页面上能看到，不等于有批量导出的权限。要先明确用途、数据范围和谁来授权；规则没定时，可以先用合成数据推进讨论。先弄清经理要哪些字段、为什么要，有助于缩小范围，但授权还得由数据负责人确认；限定试用人数、加审计日志，也替代不了授权。"
+      }
+    },
+    {
+      "id": "fgp_priority_recovery",
+      "pools": [
+        "pm_priorities"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "You can improve either a new entry point or recovery after a failed submission. How would you prioritize?",
+        "options": [
+          {
+            "id": "fgp_priority_recovery_b",
+            "type": "bold",
+            "text": "I'd estimate what failed recovery costs before comparing reach.",
+            "face": "probe",
+            "line": "Cost of recovery. Let me add a wrinkle.",
+            "followup": {
+              "text": "Few users hit the error, but each loses a long draft. What changes?",
+              "options": [
+                {
+                  "id": "fgp_priority_recovery_f",
+                  "type": "fail",
+                  "text": "Leave rare errors to customer support and prioritize broad reach.",
+                  "face": "frown",
+                  "line": "Hmm, rare for whom?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_priority_recovery_h",
+                  "type": "hold",
+                  "text": "Weigh severity and recovery cost, not just how many people hit it.",
+                  "face": "pleased",
+                  "line": "Right, severity matters here.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_priority_recovery_p",
+                  "type": "partial",
+                  "text": "Keep the frequency ranking and put recovery in the next cycle.",
+                  "face": "calm",
+                  "line": "Users would keep losing drafts meanwhile.",
+                  "delta": 1
+                }
+              ],
+              "explain": "优先级要同时看频率、严重程度、替代办法和成本。低频的问题也可能毁掉核心任务，不能只按覆盖的人数排序；恢复方案还要核对涉及的数据、保存的边界和可行的投入，再比较具体的选择。"
+            }
+          },
+          {
+            "id": "fgp_priority_recovery_c",
+            "type": "off",
+            "text": "Choose the entry point because every visitor can see the benefit.",
+            "face": "calm",
+            "line": "Hmm, what about the people who lose work?",
+            "delta": -3
+          },
+          {
+            "id": "fgp_priority_recovery_a",
+            "type": "safe",
+            "text": "Compare affected tasks, consequences, and implementation cost.",
+            "face": "nod",
+            "line": "Okay, that's a fair set of criteria.",
+            "delta": 3
+          }
+        ],
+        "explain": "优先级要同时看频率、严重程度、替代办法和成本。低频的问题也可能毁掉核心任务，不能只按覆盖的人数排序；恢复方案还要核对涉及的数据、保存的边界和可行的投入，再比较具体的选择。"
+      }
+    },
+    {
+      "id": "fgp_priority_commitment",
+      "pools": [
+        "pm_priorities"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "Sales has promised a customer three features the team can't deliver this month. What would you do?",
+        "options": [
+          {
+            "id": "fgp_priority_commitment_a",
+            "type": "safe",
+            "text": "Clarify the commitments and agree a realistic customer path.",
+            "face": "nod",
+            "line": "Okay, that's a sensible first step.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_priority_commitment_b",
+            "type": "bold",
+            "text": "I'd split what's available now, manual support, and deferred scope.",
+            "face": "probe",
+            "line": "Three buckets. Let me test that.",
+            "followup": {
+              "text": "One important step can only be done manually for now. How would you position it?",
+              "options": [
+                {
+                  "id": "fgp_priority_commitment_p",
+                  "type": "partial",
+                  "text": "Mention that part is manual, and give timing once it's clear.",
+                  "face": "calm",
+                  "line": "And when would you give them that timing?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_priority_commitment_f",
+                  "type": "fail",
+                  "text": "Show it as automatic and do the work by hand behind the scenes.",
+                  "face": "frown",
+                  "line": "Hmm, is that fair to the customer?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_priority_commitment_h",
+                  "type": "hold",
+                  "text": "State the manual step, its limits, and service expectations upfront.",
+                  "face": "pleased",
+                  "line": "Good. Customers can plan around that.",
+                  "delta": 9
+                }
+              ],
+              "explain": "人工支持可以是过渡方案，但要如实说明能力、限制、时限和责任。先核对销售的承诺，再给客户一个能交付的选择；把人工操作包装成自动化、或等上线时才解释，都不可靠；只提一句“这部分是人工”、时间稍后再说，信息也不完整。缩小范围也要和客户一起确认。"
+            }
+          },
+          {
+            "id": "fgp_priority_commitment_c",
+            "type": "off",
+            "text": "Build the easiest promised feature and explain the rest at launch.",
+            "face": "calm",
+            "line": "Hmm, the customer would hear it last.",
+            "delta": -3
+          }
+        ],
+        "explain": "人工支持可以是过渡方案，但要如实说明能力、限制、时限和责任。先核对销售的承诺，再给客户一个能交付的选择；把人工操作包装成自动化、或等上线时才解释，都不可靠；只提一句“这部分是人工”、时间稍后再说，信息也不完整。缩小范围也要和客户一起确认。"
+      }
+    },
+    {
+      "id": "fgp_collab_evidence",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "Tell me about a time someone challenged your proposal.",
+        "options": [
+          {
+            "id": "fgp_collab_evidence_c",
+            "type": "off",
+            "text": "I'd explain why my proposal was right and theirs was not.",
+            "face": "calm",
+            "line": "Hmm, I wanted to hear how you handled it.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_collab_evidence_a",
+            "type": "safe",
+            "text": "I'd explain the disagreement, what I did, and the verified result.",
+            "face": "nod",
+            "line": "Okay, that's a clear outline.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_collab_evidence_b",
+            "type": "bold",
+            "text": "I'd focus on the evidence that changed the discussion.",
+            "face": "probe",
+            "line": "Evidence is good. Let me ask about that.",
+            "followup": {
+              "text": "Suppose the reviewer rejects only two conclusions, not the whole report. What's a proportionate response?",
+              "options": [
+                {
+                  "id": "fgp_collab_evidence_h",
+                  "type": "hold",
+                  "text": "Check the disputed evidence and repair those parts first.",
+                  "face": "pleased",
+                  "line": "That's proportionate.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_collab_evidence_p",
+                  "type": "partial",
+                  "text": "Restart the full study to show commitment to a stronger result.",
+                  "face": "calm",
+                  "line": "That's a big response to a narrow objection.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_collab_evidence_f",
+                  "type": "fail",
+                  "text": "Keep the conclusions and improve how the report is presented.",
+                  "face": "frown",
+                  "line": "Hmm, does polish answer the objection?",
+                  "delta": -7
+                }
+              ],
+              "explain": "讲被质疑的经历，要说明对方具体质疑什么、你怎么判断、有什么证据，而不是把分歧写成“对方不理解”。只有部分结论被质疑时，先核对争议的证据并补强这些部分最有针对性；整个重做或只美化报告，都可能错过真正的问题。"
+            }
+          }
+        ],
+        "explain": "讲被质疑的经历，要说明对方具体质疑什么、你怎么判断、有什么证据，而不是把分歧写成“对方不理解”。只有部分结论被质疑时，先核对争议的证据并补强这些部分最有针对性；整个重做或只美化报告，都可能错过真正的问题。"
+      }
+    },
+    {
+      "id": "fgp_collab_async",
+      "pools": [
+        "pm_collab"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "How would you coordinate a decision across teams in different time zones?",
+        "options": [
+          {
+            "id": "fgp_collab_async_b",
+            "type": "bold",
+            "text": "I'd keep reversible tasks moving while owners review the trade-offs.",
+            "face": "probe",
+            "line": "Reversible work, okay. Here's a wrinkle.",
+            "followup": {
+              "text": "The owner hasn't replied, and the choice changes customer permissions. What would you do?",
+              "options": [
+                {
+                  "id": "fgp_collab_async_f",
+                  "type": "fail",
+                  "text": "Treat a missed deadline as consent and document it after release.",
+                  "face": "frown",
+                  "line": "Hmm, is a missed deadline consent?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_collab_async_h",
+                  "type": "hold",
+                  "text": "Escalate as agreed and keep permission changes on hold.",
+                  "face": "pleased",
+                  "line": "Yes, permissions shouldn't wait on silence.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_collab_async_p",
+                  "type": "partial",
+                  "text": "Repeat the request and pause every unrelated task as well.",
+                  "face": "calm",
+                  "line": "Pausing everything seems like a lot.",
+                  "delta": 1
+                }
+              ],
+              "explain": "跨时区协作要写明责任人、选项和期限，并把可以撤回的工作与需要授权的决定分开。涉及权限变化时，不能把沉默当成同意；按约定升级，同时让不相关的工作继续，比自行默认或冻结所有工作更有边界。"
+            }
+          },
+          {
+            "id": "fgp_collab_async_c",
+            "type": "off",
+            "text": "Schedule a daily call and wait for every stakeholder to attend.",
+            "face": "calm",
+            "line": "Hmm, that could stall everything.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_collab_async_a",
+            "type": "safe",
+            "text": "Write down the open question, the owner, the options, and a deadline.",
+            "face": "nod",
+            "line": "Okay, that's easy to act on.",
+            "delta": 3
+          }
+        ],
+        "explain": "跨时区协作要写明责任人、选项和期限，并把可以撤回的工作与需要授权的决定分开。涉及权限变化时，不能把沉默当成同意；按约定升级，同时让不相关的工作继续，比自行默认或冻结所有工作更有边界。"
+      }
+    },
+    {
+      "id": "fgp_growth_failure",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "Tell me about a product decision that didn't work as planned.",
+        "options": [
+          {
+            "id": "fgp_growth_failure_a",
+            "type": "safe",
+            "text": "I'd state my decision, its impact, and what I changed afterward.",
+            "face": "nod",
+            "line": "Okay, that's a clear shape.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_growth_failure_b",
+            "type": "bold",
+            "text": "I'd explain which assumption failed and what the evidence supports.",
+            "face": "probe",
+            "line": "A failed assumption. Let me press on that.",
+            "followup": {
+              "text": "You changed the process but haven't used it on another project. What result can you claim?",
+              "options": [
+                {
+                  "id": "fgp_growth_failure_p",
+                  "type": "partial",
+                  "text": "The change is in place, and I expect it to help next time.",
+                  "face": "calm",
+                  "line": "Expect? What would tell you it worked?",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_growth_failure_f",
+                  "type": "fail",
+                  "text": "With a clearer process, the same failure won't happen again.",
+                  "face": "frown",
+                  "line": "Hmm, how would you know that?",
+                  "delta": -7
+                },
+                {
+                  "id": "fgp_growth_failure_h",
+                  "type": "hold",
+                  "text": "The change is in place; its longer-term effect hasn't been tested.",
+                  "face": "pleased",
+                  "line": "Fair. That's an honest answer.",
+                  "delta": 9
+                }
+              ],
+              "explain": "复盘失败要区分已经采取的改进和尚未验证的效果。没有下一轮使用记录，就不能保证以后不再发生；“预期会有帮助”可以说，但要讲清用什么来验证。具体承担自己的判断、说明修正了什么和观察的范围，比把原因全推给外部依赖更可信。"
+            }
+          },
+          {
+            "id": "fgp_growth_failure_c",
+            "type": "off",
+            "text": "I'd choose a failure caused mainly by external dependencies.",
+            "face": "calm",
+            "line": "Hmm, I'd rather hear about your own call.",
+            "delta": -3
+          }
+        ],
+        "explain": "复盘失败要区分已经采取的改进和尚未验证的效果。没有下一轮使用记录，就不能保证以后不再发生；“预期会有帮助”可以说，但要讲清用什么来验证。具体承担自己的判断、说明修正了什么和观察的范围，比把原因全推给外部依赖更可信。"
+      }
+    },
+    {
+      "id": "fgp_growth_learning",
+      "pools": [
+        "pm_growth"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "A new product area is unfamiliar to you. How would you learn enough to contribute?",
+        "options": [
+          {
+            "id": "fgp_growth_learning_c",
+            "type": "off",
+            "text": "Read all the documentation before discussing any draft with others.",
+            "face": "calm",
+            "line": "Hmm, that delays all the feedback.",
+            "delta": -3
+          },
+          {
+            "id": "fgp_growth_learning_a",
+            "type": "safe",
+            "text": "Map a real user task and review a small deliverable with a mentor.",
+            "face": "nod",
+            "line": "Okay, that's a practical start.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_growth_learning_b",
+            "type": "bold",
+            "text": "I'd set a narrow learning goal and adjust it using task feedback.",
+            "face": "probe",
+            "line": "A narrow goal. Let me test that.",
+            "followup": {
+              "text": "Your first draft follows a familiar template but misses a local requirement. What next?",
+              "options": [
+                {
+                  "id": "fgp_growth_learning_h",
+                  "type": "hold",
+                  "text": "Check the requirement, revise, and verify the draft with reviewers.",
+                  "face": "pleased",
+                  "line": "Good, that closes the loop.",
+                  "delta": 9
+                },
+                {
+                  "id": "fgp_growth_learning_p",
+                  "type": "partial",
+                  "text": "Add the missing point to an appendix and keep the main flow intact.",
+                  "face": "calm",
+                  "line": "An appendix is easy to miss.",
+                  "delta": 1
+                },
+                {
+                  "id": "fgp_growth_learning_f",
+                  "type": "fail",
+                  "text": "Keep the usual template as it is so the process stays consistent.",
+                  "face": "frown",
+                  "line": "Hmm, consistent with what, though?",
+                  "delta": -7
+                }
+              ],
+              "explain": "学习应围绕真实任务和反馈，模板不能替代当前场景的要求。先做一个边界清楚的小交付，再核对不足并修正，比读完全部资料才行动更可验证；为了保持格式一致而忽略适用条件，不成立。"
+            }
+          }
+        ],
+        "explain": "学习应围绕真实任务和反馈，模板不能替代当前场景的要求。先做一个边界清楚的小交付，再核对不足并修正，比读完全部资料才行动更可验证；为了保持格式一致而忽略适用条件，不成立。"
+      }
+    },
+    {
+      "id": "fgp_reverse_work",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign",
+        "role": "pm"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "What would you like to ask about this product role?",
+        "options": [
+          {
+            "id": "fgp_reverse_work_1",
+            "type": "reverse",
+            "text": "How do research and engineering share decisions on this team?",
+            "face": "nod",
+            "line": "Good question. Let me explain.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_reverse_work_2",
+            "type": "reverse",
+            "text": "Which tools does the team currently use for planning?",
+            "face": "nod",
+            "line": "Sure, I can list them for you.",
+            "delta": 1
+          },
+          {
+            "id": "fgp_reverse_work_0",
+            "type": "reverse",
+            "text": "Which user problem would I own first, and how is success reviewed?",
+            "face": "nod",
+            "line": "Glad you asked. Here's how it works.",
+            "delta": 3
+          }
+        ],
+        "explain": "反问可以核对具体的用户问题、责任和评审协作。工具清单有背景价值，却代替不了“新人会做什么、怎样得到反馈”；问题应按这个岗位的实际情况确认，不要凭“外企”二字预设统一的做法。"
+      }
+    },
+    {
+      "id": "fgp_reverse_growth",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 60,
+      "lang": "en",
+      "when": {
+        "sector": "foreign",
+        "role": "pm"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "Before we finish, what else would you like to understand?",
+        "options": [
+          {
+            "id": "fgp_reverse_growth_2",
+            "type": "reverse",
+            "text": "How often does the team hold product planning meetings?",
+            "face": "nod",
+            "line": "Sure, I can walk you through the rhythm.",
+            "delta": 1
+          },
+          {
+            "id": "fgp_reverse_growth_0",
+            "type": "reverse",
+            "text": "What feedback helps a new product manager become more independent?",
+            "face": "nod",
+            "line": "Good question. Let me explain.",
+            "delta": 3
+          },
+          {
+            "id": "fgp_reverse_growth_1",
+            "type": "reverse",
+            "text": "How does the team review a decision that didn't reach its goal?",
+            "face": "nod",
+            "line": "That's a fair question. Let me explain.",
+            "delta": 3
+          }
+        ],
+        "explain": "成长靠实际任务、反馈和对决策的复盘。会议频率能说明节奏，但不能说明培养质量；问具体的反馈方式和失败后的处理，更容易了解这个岗位的工作方式。"
+      }
+    }
+  ],
+  "frames": {
+    "user_research_intern": [
+      {
+        "id": "fgp_frame_research",
+        "roles": [
+          "pm"
+        ],
+        "lang": "en",
+        "node": {
+          "tag": "项目表达",
+          "text": "What did you contribute during {exp.label}?",
+          "options": [
+            {
+              "key": "fgp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.pm_summary}",
+              "face": "nod",
+              "line": "Okay, tell me more about that part."
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "fgp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd start with the team's outcome, then get to my own part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            }
+          ],
+          "explain": "用研实习里，先讲自己做的环节（访谈、测试、整理报告），再讲发现和证据；团队的整体结果只能作背景。"
+        }
+      }
+    ],
+    "research_tool": [
+      {
+        "id": "fgp_frame_tool",
+        "roles": [
+          "pm"
+        ],
+        "lang": "en",
+        "node": {
+          "tag": "项目表达",
+          "text": "What decisions did you make in {exp.label}?",
+          "options": [
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "fgp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd start with what the lab achieved, then get to my own part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            },
+            {
+              "key": "fgp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.pm_summary}",
+              "face": "nod",
+              "line": "Okay, walk me through it."
+            }
+          ],
+          "explain": "自己搭建的工具类项目，重点讲你做过的决定：为什么这样设计、取舍了什么，而不只是用了什么技术、最后做成了什么。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "fgp_frame_portfolio",
+        "roles": [
+          "pm"
+        ],
+        "lang": "en",
+        "node": {
+          "tag": "项目表达",
+          "text": "Pick one case from {exp.label} and walk me through your part.",
+          "options": [
+            {
+              "key": "fgp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd summarize all three cases instead of picking one.",
+              "face": "calm",
+              "line": "Please pick one and walk me through it."
+            },
+            {
+              "key": "fgp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.pm_summary}",
+              "face": "nod",
+              "line": "Okay, which case is the strongest?"
+            },
+            {
+              "slot": "highlight"
+            }
+          ],
+          "explain": "作品集里挑案例时，要说明这个案例中哪些是自己做的、过程怎样、有哪些限制，而不是笼统地展示成果。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "fgp_frame_thesis",
+        "roles": [
+          "pm"
+        ],
+        "lang": "en",
+        "node": {
+          "tag": "项目表达",
+          "text": "What have you learned from {exp.label}, and what is still uncertain?",
+          "options": [
+            {
+              "key": "fgp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.pm_summary}",
+              "face": "nod",
+              "line": "Okay, what did the data show?"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "fgp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd state the conclusion I expect, then talk about the methods.",
+              "face": "calm",
+              "line": "Let's stick to what you've found so far."
+            }
+          ],
+          "explain": "毕业论文是自己独立完成的研究，要讲清自己做了哪些环节（设计问卷、做访谈、整理和分析），以及方法的局限。"
+        }
+      }
+    ],
+    "media_ops": [
+      {
+        "id": "fgp_frame_media",
+        "roles": [
+          "pm"
+        ],
+        "lang": "en",
+        "node": {
+          "tag": "项目表达",
+          "text": "What decision did you make while running {exp.label}?",
+          "options": [
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "fgp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd start with the account's overall growth, then my part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            },
+            {
+              "key": "fgp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.pm_summary}",
+              "face": "nod",
+              "line": "Okay, what drove those choices?"
+            }
+          ],
+          "explain": "运营账号的经历，重点是你做过的具体决定（选题、排期、复盘）和依据，不是把账号整体的涨幅归到自己名下。"
+        }
+      }
+    ],
+    "event_planning": [
+      {
+        "id": "fgp_frame_event",
+        "roles": [
+          "pm"
+        ],
+        "lang": "en",
+        "node": {
+          "tag": "项目表达",
+          "text": "What did you change in {exp.label}, and why?",
+          "options": [
+            {
+              "key": "fgp_c",
+              "type": "off",
+              "delta": -3,
+              "text": "I'd start with how well the event went, then my part.",
+              "face": "calm",
+              "line": "Let's go back to your own part."
+            },
+            {
+              "key": "fgp_a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.pm_summary}",
+              "face": "nod",
+              "line": "Okay, what did the records say?"
+            },
+            {
+              "slot": "highlight"
+            }
+          ],
+          "explain": "策划活动时，要说清调整了什么、依据是什么数据、结果怎样，并如实交代没有对照的部分。"
+        }
+      }
+    ]
+  },
+  "highlights_en": {
+    "research_finding": {
+      "name": "Research finding adopted",
+      "roles": [
+        "pm"
+      ],
+      "pitch": {
+        "key": "fgp_research_finding_b",
+        "type": "bold",
+        "text": "I'd show how I found {hl.finding_short}.",
+        "face": "probe",
+        "line": "Okay, show me how you found it.",
+        "followup": {
+          "text": "What evidence supported that finding?",
+          "options": [
+            {
+              "key": "fgp_research_finding_h",
+              "type": "hold",
+              "text": "{hl.evidence_short}",
+              "face": "pleased",
+              "line": "Good, those are solid numbers.",
+              "delta": 9
+            },
+            {
+              "key": "fgp_research_finding_p",
+              "type": "partial",
+              "text": "Interviews pointed to it, and a task test showed the same thing.",
+              "face": "calm",
+              "line": "Okay, can you say more?",
+              "delta": 1
+            },
+            {
+              "key": "fgp_research_finding_f",
+              "type": "fail",
+              "text": "The product manager agreed, which settled the conclusion.",
+              "face": "frown",
+              "line": "Hmm, does agreement count as evidence?",
+              "delta": -7
+            }
+          ],
+          "explain": "访谈和任务测试能共同支持对某个具体问题的判断，但要交代样本范围；建议被采纳，也不等于已经验证了业务收益。负责人的同意说明建议被接受了，却不能代替证据。"
+        }
+      },
+      "explain": "访谈和任务测试能共同支持对某个具体问题的判断，但要交代样本范围；建议被采纳，也不等于已经验证了业务收益。负责人的同意说明建议被接受了，却不能代替证据。"
+    },
+    "online_migration": {
+      "name": "Moving a study online",
+      "roles": [
+        "pm"
+      ],
+      "pitch": {
+        "key": "fgp_online_migration_b",
+        "type": "bold",
+        "text": "I'd explain how I moved the study online and the time it saved.",
+        "face": "probe",
+        "line": "Okay, how much time did it save?",
+        "followup": {
+          "text": "How did you estimate the time saved?",
+          "options": [
+            {
+              "key": "fgp_online_migration_p",
+              "type": "partial",
+              "text": "Offline would have taken about a semester; online took two weeks.",
+              "face": "calm",
+              "line": "Roughly right, but how was it worked out?",
+              "delta": 1
+            },
+            {
+              "key": "fgp_online_migration_f",
+              "type": "fail",
+              "text": "Participants could join at once, so it effectively took one day.",
+              "face": "frown",
+              "line": "Hmm, one day for the whole study?",
+              "delta": -7
+            },
+            {
+              "key": "fgp_online_migration_h",
+              "type": "hold",
+              "text": "{hl.calc_short}",
+              "face": "pleased",
+              "line": "Fair. That's a clear calculation.",
+              "delta": 9
+            }
+          ],
+          "explain": "估算省下多少时间，要用同一个任务、同一口径来对比：线下的速度乘上所需的总量，对比线上实际花的时间。把并发能力说成“一天就完成”，或只转述别人的估计，都缺少依据；同时要说明怎样检查线上数据的质量。"
+        }
+      },
+      "explain": "估算省下多少时间，要用同一个任务、同一口径来对比：线下的速度乘上所需的总量，对比线上实际花的时间。把并发能力说成“一天就完成”，或只转述别人的估计，都缺少依据；同时要说明怎样检查线上数据的质量。"
+    },
+    "competitor_analysis": {
+      "name": "Competitor selection",
+      "roles": [
+        "pm"
+      ],
+      "pitch": {
+        "key": "fgp_competitor_b",
+        "type": "bold",
+        "text": "I'd explain how I chose the competitors and compared them.",
+        "face": "probe",
+        "line": "Okay, go on. I have a question.",
+        "followup": {
+          "text": "Why did you choose those competitors?",
+          "options": [
+            {
+              "key": "fgp_competitor_f",
+              "type": "fail",
+              "text": "I picked familiar products to demonstrate the analysis framework.",
+              "face": "frown",
+              "line": "Hmm, did the choice follow the framework?",
+              "delta": -7
+            },
+            {
+              "key": "fgp_competitor_h",
+              "type": "hold",
+              "text": "{hl.choice_short}",
+              "face": "pleased",
+              "line": "Good, that's a sensible choice.",
+              "delta": 9
+            },
+            {
+              "key": "fgp_competitor_p",
+              "type": "partial",
+              "text": "I chose the three most popular products in the market.",
+              "face": "calm",
+              "line": "Popular for whom, though?",
+              "delta": 1
+            }
+          ],
+          "explain": "选竞品要对应目标用户和要完成的任务：直接竞品与替代方案能回答不同的问题。市场热度只能当线索，不能保证选中的是用户真实的替代关系；分析框架也不能代替选择的依据。"
+        }
+      },
+      "explain": "选竞品要对应目标用户和要完成的任务：直接竞品与替代方案能回答不同的问题。市场热度只能当线索，不能保证选中的是用户真实的替代关系；分析框架也不能代替选择的依据。"
+    },
+    "mixed_methods": {
+      "name": "Using surveys and interviews",
+      "roles": [
+        "pm"
+      ],
+      "pitch": {
+        "key": "fgp_mixed_b",
+        "type": "bold",
+        "text": "I'd connect the survey patterns to the interview examples.",
+        "face": "probe",
+        "line": "Okay, let me dig into that.",
+        "followup": {
+          "text": "Your thesis isn't finished yet. What can you conclude now?",
+          "options": [
+            {
+              "key": "fgp_mixed_h",
+              "type": "hold",
+              "text": "{hl.limit_short}",
+              "face": "pleased",
+              "line": "Good. Calling it preliminary is right.",
+              "delta": 9
+            },
+            {
+              "key": "fgp_mixed_p",
+              "type": "partial",
+              "text": "The survey and interviews point the same way so far.",
+              "face": "calm",
+              "line": "So far, yes. What would change that?",
+              "delta": 1
+            },
+            {
+              "key": "fgp_mixed_f",
+              "type": "fail",
+              "text": "The survey is large enough to treat the main pattern as final.",
+              "face": "frown",
+              "line": "Hmm, is it final if it isn't finished?",
+              "delta": -7
+            }
+          ],
+          "explain": "论文还没写完，就应把结果称为初步发现，并说明还不确定什么。问卷和访谈可以相互补充，但样本量本身不能证明代表性或因果；两种方法目前指向一致，也不等于可以当成最终结论。"
+        }
+      },
+      "explain": "论文还没写完，就应把结果称为初步发现，并说明还不确定什么。问卷和访谈可以相互补充，但样本量本身不能证明代表性或因果；两种方法目前指向一致，也不等于可以当成最终结论。"
+    },
+    "viral_post": {
+      "name": "Learning from a popular article",
+      "roles": [
+        "pm"
+      ],
+      "pitch": {
+        "key": "fgp_viral_b",
+        "type": "bold",
+        "text": "I'd explain what I repeated after the popular article.",
+        "face": "probe",
+        "line": "Okay, what did you repeat?",
+        "followup": {
+          "text": "Did the later articles reproduce the same peak?",
+          "options": [
+            {
+              "key": "fgp_viral_p",
+              "type": "partial",
+              "text": "Later posts did well as a series, but I'd need to check the numbers.",
+              "face": "calm",
+              "line": "Okay, can you be more specific?",
+              "delta": 1
+            },
+            {
+              "key": "fgp_viral_f",
+              "type": "fail",
+              "text": "Each later article reached about as many people as the first one.",
+              "face": "frown",
+              "line": "Hmm, as many as the first one?",
+              "delta": -7
+            },
+            {
+              "key": "fgp_viral_h",
+              "type": "hold",
+              "text": "{hl.after_short}",
+              "face": "pleased",
+              "line": "Those are the real numbers, thanks.",
+              "delta": 9
+            }
+          ],
+          "explain": "首篇约 2 万阅读、后续只有三四千，是两件不同的事实。可以把选题的方法沉淀成固定栏目，但不能说后续持续复现了峰值；说“比平均好”还要考虑粉丝在增长，并找同期的文章做对照。"
+        }
+      },
+      "explain": "首篇约 2 万阅读、后续只有三四千，是两件不同的事实。可以把选题的方法沉淀成固定栏目，但不能说后续持续复现了峰值；说“比平均好”还要考虑粉丝在增长，并找同期的文章做对照。"
+    },
+    "event_attendance": {
+      "name": "Adjusting event sessions",
+      "roles": [
+        "pm"
+      ],
+      "pitch": {
+        "key": "fgp_event_b",
+        "type": "bold",
+        "text": "I'd explain the session change and the attendance result.",
+        "face": "probe",
+        "line": "Okay, what changed in the sessions?",
+        "followup": {
+          "text": "Can you attribute the whole attendance increase to that change?",
+          "options": [
+            {
+              "key": "fgp_event_f",
+              "type": "fail",
+              "text": "Attendance went up right after the change, so the change caused it.",
+              "face": "frown",
+              "line": "Hmm, could anything else explain it?",
+              "delta": -7
+            },
+            {
+              "key": "fgp_event_h",
+              "type": "hold",
+              "text": "{hl.attrib_short}",
+              "face": "pleased",
+              "line": "Honest. Thanks for flagging that.",
+              "delta": 9
+            },
+            {
+              "key": "fgp_event_p",
+              "type": "partial",
+              "text": "The change likely helped, though other things may have changed too.",
+              "face": "calm",
+              "line": "Okay, can you say more?",
+              "delta": 1
+            }
+          ],
+          "explain": "签到率从六成到八成是观察到的结果，没有对照组，就不能把全部的提升确定地归到某个改动。按场次拆开看、说明同期的其他条件，能判断这个改动可能贡献了多少。"
+        }
+      },
+      "explain": "签到率从六成到八成是观察到的结果，没有对照组，就不能把全部的提升确定地归到某个改动。按场次拆开看、说明同期的其他条件，能判断这个改动可能贡献了多少。"
+    }
+  },
+  "skill_probes": {
+    "fgp_probe_sql_en": {
+      "tag": "专业",
+      "text": "You've listed expert SQL. How would you count users who have no completed orders?",
+      "options": [
+        {
+          "id": "fgp_probe_sql_c",
+          "type": "fail",
+          "text": "Join orders, filter completed ones in WHERE, and count the rows.",
+          "face": "frown",
+          "line": "Hmm, does that find users with no orders?",
+          "delta": -7
+        },
+        {
+          "id": "fgp_probe_sql_en_honest",
+          "type": "fail",
+          "text": "Expert overstates it. I only know basic queries from class.",
+          "face": "calm",
+          "line": "Thanks for being upfront about that.",
+          "delta": -1
+        },
+        {
+          "id": "fgp_probe_sql_a",
+          "type": "partial",
+          "text": "Start from all users and look for missing orders; I'd check syntax.",
+          "face": "calm",
+          "line": "Okay. Can you write that out?",
+          "delta": -2
+        }
+      ],
+      "explain": "统计“没有已完成订单的用户”，要先保留全部用户，再判断是否存在已完成的订单（反连接或 NOT EXISTS），并且数的是用户而不是订单行。把条件写进 WHERE 做内连接，找到的恰恰是有已完成订单的用户。被问到“精通”却只会基础查询时，如实说明水平，比自信地写出一个不对的查询丢分更少。"
+    },
+    "fgp_probe_ab_en": {
+      "tag": "专业",
+      "text": "You've listed expert A/B testing. What would you define before starting a test?",
+      "options": [
+        {
+          "id": "fgp_probe_ab_a",
+          "type": "safe",
+          "text": "Fix the target users, the metric, and the analysis plan first.",
+          "face": "nod",
+          "line": "Okay, that's the right order.",
+          "delta": 3
+        },
+        {
+          "id": "fgp_probe_ab_b",
+          "type": "bold",
+          "text": "I'd set the comparison and guardrails before looking at any results.",
+          "face": "probe",
+          "line": "Guardrails first. Let me press on that.",
+          "followup": {
+            "text": "The result looks positive on day one, but the planned observation period isn't over. What next?",
+            "options": [
+              {
+                "id": "fgp_probe_ab_h",
+                "type": "hold",
+                "text": "Follow the analysis plan and check safety; don't cherry-pick a day.",
+                "face": "pleased",
+                "line": "Right, that's disciplined.",
+                "delta": 9
+              },
+              {
+                "id": "fgp_probe_ab_p",
+                "type": "partial",
+                "text": "Let the test keep running, and call day one an early signal.",
+                "face": "calm",
+                "line": "An early signal, sure. Then what?",
+                "delta": 1
+              },
+              {
+                "id": "fgp_probe_ab_f",
+                "type": "fail",
+                "text": "A positive first day is enough if both groups have equal traffic.",
+                "face": "frown",
+                "line": "Hmm, is equal traffic enough?",
+                "delta": -7
+              }
+            ],
+            "explain": "试验前要先定好对象、指标、护栏和分析计划，不能看到结果后再挑有利的口径或日期。第一天看起来好，不代表可以提前结束：提前停止要符合所用方法和预设规则，而不是看着数字稳定了就停。对细节不熟悉时，如实承认边界也是一种选择。"
+          }
+        },
+        {
+          "id": "fgp_probe_ab_c",
+          "type": "off",
+          "text": "Launch both versions and pick the metrics after the first day.",
+          "face": "calm",
+          "line": "Hmm, shouldn't the metrics come first?",
+          "delta": -3
+        },
+        {
+          "id": "fgp_probe_ab_en_honest",
+          "type": "off",
+          "text": "Expert is too strong; I can explain the parts I've practiced.",
+          "face": "calm",
+          "line": "Thanks. Tell me what you have practiced.",
+          "delta": -1
+        }
+      ],
+      "explain": "试验前要先定好对象、指标、护栏和分析计划，不能看到结果后再挑有利的口径或日期。第一天看起来好，不代表可以提前结束：提前停止要符合所用方法和预设规则，而不是看着数字稳定了就停。对细节不熟悉时，如实承认边界也是一种选择。"
+    }
+  }
+}

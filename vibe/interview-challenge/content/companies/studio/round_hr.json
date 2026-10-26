@@ -1,0 +1,173 @@
+{
+  "id": "r3",
+  "name": "HR 面",
+  "company": "studio",
+  "interviewer": {
+    "art": "A1",
+    "title": "HR"
+  },
+  "scene": "S12",
+  "hello": "你好，我们聊聊项目安排、你的选择和后续流程。",
+  "flow": [
+    {
+      "slot": "intro",
+      "dynamic": "pool",
+      "pool": "intro_hr",
+      "swap": false
+    },
+    {
+      "slot": "why",
+      "node": "gco_why",
+      "swap": true,
+      "alternates": [
+        "gco_cycle"
+      ]
+    },
+    {
+      "slot": "background",
+      "dynamic": "background",
+      "pool": "hr",
+      "swap": false
+    },
+    {
+      "slot": "offers",
+      "dynamic": "pool",
+      "pool": "offers",
+      "swap": false
+    },
+    {
+      "slot": "workstyle",
+      "dynamic": "pool",
+      "pool": "hr_misc",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {
+    "gco_why": {
+      "tag": "动机与稳定",
+      "text": "为什么选择{co.name}？怎样理解参与{co.product}相关工作的机会？",
+      "options": [
+        {
+          "id": "gco_why_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "想参与玩法落地，先弄清新人做什么、项目到哪一步。",
+          "face": "nod",
+          "line": "好，先弄清楚岗位再谈。"
+        },
+        {
+          "id": "gco_why_b",
+          "type": "bold",
+          "text": "从公开介绍的合作探索方向，讨论一个设计假设。",
+          "face": "probe",
+          "line": "行，那我追问一个条件。",
+          "followup": {
+            "text": "假设新人先维护活动配置，而不是独立设计新系统呢？",
+            "options": [
+              {
+                "id": "gco_why_h",
+                "type": "hold",
+                "delta": 9,
+                "text": "先理解配置影响与验证条件，再逐步承担完整任务。",
+                "face": "pleased",
+                "line": "对，配置也有规则和验证。"
+              },
+              {
+                "id": "gco_why_p",
+                "type": "partial",
+                "delta": -2,
+                "text": "先完成配置，等空闲时间再研究它和核心玩法的关系。",
+                "face": "calm",
+                "line": "空闲时才研究？配置本身就是玩法的一部分。"
+              },
+              {
+                "id": "gco_why_f",
+                "type": "fail",
+                "delta": -7,
+                "text": "配置缺少创造性，应先争取能展示想法的新系统。",
+                "face": "frown",
+                "line": "新人上来就要做新系统，现实吗？"
+              }
+            ],
+            "explain": "公司产品方向可以解释兴趣，不能自动推断新人拥有完整设计权。配置维护也需要理解规则、依赖与验证。先了解真实任务、支持和评审方式，才能判断岗位是否匹配；这是一段假设分析，不要求玩家声称体验过虚构产品。"
+          }
+        },
+        {
+          "id": "gco_why_c",
+          "type": "off",
+          "delta": -3,
+          "text": "喜欢这类游戏，中型工作室应该能让我决定完整玩法。",
+          "face": "calm",
+          "line": "完整玩法一般不是新人来定的吧。"
+        }
+      ],
+      "explain": "公司产品方向可以解释兴趣，不能自动推断新人拥有完整设计权。配置维护也需要理解规则、依赖与验证。先了解真实任务、支持和评审方式，才能判断岗位是否匹配；这是一段假设分析，不要求玩家声称体验过虚构产品。"
+    },
+    "gco_cycle": {
+      "tag": "动机与稳定",
+      "text": "项目可能跨多轮版本，你怎样判断自己是否适合持续参与？",
+      "options": [
+        {
+          "id": "gco_cycle_b",
+          "type": "bold",
+          "text": "把制作、验证与维护的日常一起纳入选择。",
+          "face": "probe",
+          "line": "行，我问一个具体的。",
+          "followup": {
+            "text": "如果试玩反馈推翻了你喜欢的方案，你会怎么办？",
+            "options": [
+              {
+                "id": "gco_cycle_p",
+                "type": "partial",
+                "delta": -2,
+                "text": "先按负责人的意见改，下一轮再找机会解释原方案。",
+                "face": "calm",
+                "line": "改完才解释，意见不一致也没人知道。"
+              },
+              {
+                "id": "gco_cycle_f",
+                "type": "fail",
+                "delta": -7,
+                "text": "保持原方案的完整表达，比迎合零散反馈更重要。",
+                "face": "frown",
+                "line": "反馈再零散，也不能直接不理。"
+              },
+              {
+                "id": "gco_cycle_h",
+                "type": "hold",
+                "delta": 9,
+                "text": "先看反馈和目标对不对得上，再比较改和留的代价。",
+                "face": "pleased",
+                "line": "对，改不改都要有理由。"
+              }
+            ],
+            "explain": "项目周期长不等于必须固守最初方案。选择工作和处理反馈，都应落到任务、目标、证据与协作条件。喜爱题材可以提供动力，但不能代替对制作、维护和改稿日常的了解；接受反馈也不等于无条件照做所有意见。"
+          }
+        },
+        {
+          "id": "gco_cycle_c",
+          "type": "off",
+          "delta": -3,
+          "text": "只要主打游戏类型合口味，就能适应项目里的其他工作。",
+          "face": "calm",
+          "line": "题材合口味，不等于日常你能适应。"
+        },
+        {
+          "id": "gco_cycle_a",
+          "type": "safe",
+          "delta": 3,
+          "text": "先看项目阶段、自己的职责和反馈方式，再比偏好。",
+          "face": "nod",
+          "line": "嗯，先看日常再谈偏好。"
+        }
+      ],
+      "explain": "项目周期长不等于必须固守最初方案。选择工作和处理反馈，都应落到任务、目标、证据与协作条件。喜爱题材可以提供动力，但不能代替对制作、维护和改稿日常的了解；接受反馈也不等于无条件照做所有意见。"
+    }
+  }
+}

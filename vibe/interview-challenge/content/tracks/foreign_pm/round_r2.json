@@ -1,0 +1,56 @@
+{
+  "id": "r2",
+  "name": "Hiring Manager Interview",
+  "company": "foreign",
+  "lang": "en",
+  "interviewer": {
+    "art": "A12",
+    "title": "Hiring Manager"
+  },
+  "scene": "S11",
+  "hello": "Thanks for coming back. Specific examples help me most. I may ask what you did yourself, the outcome, and what you'd change.",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "pm_collab",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "pm_growth",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "pm_priorities",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "pm_spec",
+      "swap": true
+    },
+    {
+      "slot": "q6",
+      "dynamic": "pool",
+      "pool": "pm_metric",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": false
+    }
+  ],
+  "nodes": {}
+}

@@ -1,0 +1,44 @@
+{
+  "id": "r3",
+  "name": "设计总监面",
+  "company": "bigcorp",
+  "interviewer": {
+    "art": "A6",
+    "title": "设计总监"
+  },
+  "scene": "S6",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "background",
+      "pool": "director",
+      "swap": false
+    },
+    {
+      "slot": "q2",
+      "dynamic": "pool",
+      "pool": "design_strategy",
+      "swap": true
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "design_strategy",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "design_ethics",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {},
+  "pressure": true
+}

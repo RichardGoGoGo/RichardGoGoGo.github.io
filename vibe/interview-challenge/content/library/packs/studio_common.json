@@ -1,0 +1,812 @@
+{
+  "_note": "G0游戏公司级题池，新增条目均限定sector game；不修改其他公司的旧题。",
+  "pools": [
+    {
+      "id": "gco_intro_work",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "先介绍一段相关经历，重点说清你本人做了什么。",
+        "options": [
+          {
+            "id": "gco_intro_work_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲目标、我负责什么、做到哪一步，哪些没验证。",
+            "face": "nod",
+            "line": "好，先把你自己的部分说清。"
+          },
+          {
+            "id": "gco_intro_work_b",
+            "type": "bold",
+            "text": "选一个关键取舍，讲证据与尚未验证的部分。",
+            "face": "probe",
+            "line": "行，我追问一个情况。",
+            "followup": {
+              "text": "团队作品得到好评，但你只参与其中一部分，怎么说？",
+              "options": [
+                {
+                  "id": "gco_intro_work_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "把团队结果和个人产出分开，说明自己参与的环节。",
+                  "face": "pleased",
+                  "line": "对，团队的归团队，你的归你。"
+                },
+                {
+                  "id": "gco_intro_work_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "先讲团队好评，再等被问到时详细解释个人分工。",
+                  "face": "calm",
+                  "line": "等我问才讲分工？应该你先说。"
+                },
+                {
+                  "id": "gco_intro_work_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "小团队贡献难拆分，作品评价可以直接代表个人水平。",
+                  "face": "frown",
+                  "line": "好评是团队的，不是你个人的。"
+                }
+              ],
+              "explain": "团队作品可以提供背景，个人能力仍需要实际动作和验证撑住。先划清贡献、再讲判断，比用规模或奖项代替本人工作更清楚；真实的小范围产出也值得介绍，不必将团队结果全部归己。"
+            }
+          },
+          {
+            "id": "gco_intro_work_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先介绍作品的规模和团队获奖，再补自己的分工。",
+            "face": "calm",
+            "line": "规模和奖先放一边，你做了什么？"
+          }
+        ],
+        "explain": "团队作品可以提供背景，个人能力仍需要实际动作和验证撑住。先划清贡献、再讲判断，比用规模或奖项代替本人工作更清楚；真实的小范围产出也值得介绍，不必将团队结果全部归己。"
+      }
+    },
+    {
+      "id": "gco_intro_lesson",
+      "pools": [
+        "intro_hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "请挑一次改稿经历介绍自己，说明为什么改、改了什么。",
+        "options": [
+          {
+            "id": "gco_intro_lesson_b",
+            "type": "bold",
+            "text": "挑一次假设被推翻的过程，说明取舍如何变化。",
+            "face": "probe",
+            "line": "行，我问个具体点的。",
+            "followup": {
+              "text": "假设一次修改仅让内部试玩更顺利，能说玩家留存提高了吗？",
+              "options": [
+                {
+                  "id": "gco_intro_lesson_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "先说体验提升，之后有真实玩家数据再补充幅度。",
+                  "face": "calm",
+                  "line": "还没有数据，就先说提升了？"
+                },
+                {
+                  "id": "gco_intro_lesson_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "试玩已经说明方向有效，可以先把留存改善写进总结。",
+                  "face": "frown",
+                  "line": "试玩不是留存数据。"
+                },
+                {
+                  "id": "gco_intro_lesson_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不能，只说明试玩观察，正式留存仍未验证。",
+                  "face": "pleased",
+                  "line": "对，只能说试玩里的观察。"
+                }
+              ],
+              "explain": "改稿次数不能单独说明质量。有限试玩能支持具体问题是否缓解，不能直接变成正式留存收益。把修改依据、个人动作与结果范围说清，能够让后续讨论落在证据上；未验证的业务变化应保留未知。"
+            }
+          },
+          {
+            "id": "gco_intro_lesson_c",
+            "type": "off",
+            "delta": -3,
+            "text": "重点讲迭代次数，改得多能说明投入和执行力。",
+            "face": "calm",
+            "line": "改几次不重要，为什么改才重要。"
+          },
+          {
+            "id": "gco_intro_lesson_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "讲原来的目标、改的理由，和我做的那部分。",
+            "face": "nod",
+            "line": "好，改稿的来龙去脉说清楚。"
+          }
+        ],
+        "explain": "改稿次数不能单独说明质量。有限试玩能支持具体问题是否缓解，不能直接变成正式留存收益。把修改依据、个人动作与结果范围说清，能够让后续讨论落在证据上；未验证的业务变化应保留未知。"
+      }
+    },
+    {
+      "id": "gco_offers_status",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "诚信",
+        "text": "目前还有哪些求职进度需要我们协调？",
+        "options": [
+          {
+            "id": "gco_offers_status_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "如实说明现有进度与时间，未定事项单独标明。",
+            "face": "nod",
+            "line": "好，哪些定了、哪些没定，分开说就行。",
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "gco_offers_status_a0",
+              "type": "safe",
+              "delta": 3,
+              "text": "按实际进度说明，尚未确认的结果不作承诺。",
+              "face": "nod",
+              "line": "好，没定的先不用承诺。"
+            }
+          },
+          {
+            "id": "gco_offers_status_r",
+            "type": "safe",
+            "delta": 3,
+            "text": "说明已有真实录用与期限，再讨论后续安排。",
+            "face": "nod",
+            "line": "有真实录用的话，把截止时间告诉我们。",
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "gco_offers_status_r0",
+              "type": "safe",
+              "delta": 2,
+              "text": "先了解剩余流程与回复节点，再安排自己的选择。",
+              "face": "nod",
+              "line": "流程和回复时间，我们会告诉你。"
+            }
+          },
+          {
+            "id": "gco_offers_status_b",
+            "type": "bold",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "text": "说别家已经确定录用，希望这边尽快给最终结果。",
+            "face": "probe",
+            "line": "哦？具体确认到哪一步了？",
+            "followup": {
+              "text": "你目前没有真实录用。刚才说确定，具体指什么？",
+              "options": [
+                {
+                  "id": "gco_offers_status_truth",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "刚才说重了，还没有真实录用，按实际进度说明。",
+                  "face": "frown",
+                  "line": "好，以实际进度为准。"
+                },
+                {
+                  "id": "gco_offers_status_vague",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没落定，主要想先了解你们的安排。",
+                  "face": "calm",
+                  "line": "没落定的，我们不按已录用理解。"
+                },
+                {
+                  "id": "gco_offers_status_fake",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "已经确定了，只是暂时不能提供任何可核对信息。",
+                  "face": "disappointed",
+                  "line": "没有可核对的信息，这和已知情况对不上。"
+                }
+              ],
+              "explain": "如实更正损失最少，含糊带过不能恢复准确性，继续编造触发诚信红线。面试进度、意向和真实录用需要分清，不能靠不存在的结果制造时间压力。"
+            }
+          }
+        ],
+        "explain": "项目排期和候选人的选择可以协商，依据应是已确认的进度与约束。可以不透露保密细节，但不能编造录用或日期。没有明确结果时，询问剩余流程并约定复核节点，比无条件承诺更有用。"
+      }
+    },
+    {
+      "id": "gco_offers_dates",
+      "pools": [
+        "offers"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "诚信",
+        "text": "项目希望确认到岗计划，你有哪些已确定或待确认的时间？",
+        "options": [
+          {
+            "id": "gco_offers_dates_r",
+            "type": "safe",
+            "delta": 3,
+            "text": "说明已有真实录用与期限，再讨论后续安排。",
+            "face": "nod",
+            "line": "有真实录用的话，把截止时间告诉我们。",
+            "requires": {
+              "flag": "has_real_offer"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "gco_offers_dates_r0",
+              "type": "safe",
+              "delta": 2,
+              "text": "先了解剩余流程与回复节点，再安排自己的选择。",
+              "face": "nod",
+              "line": "流程和回复时间，我们会告诉你。"
+            }
+          },
+          {
+            "id": "gco_offers_dates_b",
+            "type": "bold",
+            "requires": {
+              "not_flag": "has_real_offer"
+            },
+            "text": "说别家已经确定录用，希望这边尽快给最终结果。",
+            "face": "probe",
+            "line": "哦？具体确认到哪一步了？",
+            "followup": {
+              "text": "你目前没有真实录用。刚才说确定，具体指什么？",
+              "options": [
+                {
+                  "id": "gco_offers_dates_truth",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "刚才说重了，还没有真实录用，按实际进度说明。",
+                  "face": "frown",
+                  "line": "好，以实际进度为准。"
+                },
+                {
+                  "id": "gco_offers_dates_vague",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "具体还没落定，主要想先了解你们的安排。",
+                  "face": "calm",
+                  "line": "没落定的，我们不按已录用理解。"
+                },
+                {
+                  "id": "gco_offers_dates_fake",
+                  "type": "redline",
+                  "delta": -9,
+                  "text": "已经确定了，只是暂时不能提供任何可核对信息。",
+                  "face": "disappointed",
+                  "line": "没有可核对的信息，这和已知情况对不上。"
+                }
+              ],
+              "explain": "如实更正损失最少，含糊带过不能恢复准确性，继续编造触发诚信红线。面试进度、意向和真实录用需要分清，不能靠不存在的结果制造时间压力。"
+            }
+          },
+          {
+            "id": "gco_offers_dates_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "如实说明现有进度与时间，未定事项单独标明。",
+            "face": "nod",
+            "line": "好，哪些定了、哪些没定，分开说就行。",
+            "requires": {
+              "flag": "has_other_process"
+            },
+            "flags": [
+              "has_processes"
+            ],
+            "fallback": {
+              "id": "gco_offers_dates_a0",
+              "type": "safe",
+              "delta": 3,
+              "text": "按实际进度说明，尚未确认的结果不作承诺。",
+              "face": "nod",
+              "line": "好，没定的先不用承诺。"
+            }
+          }
+        ],
+        "explain": "项目排期和候选人的选择可以协商，依据应是已确认的进度与约束。可以不透露保密细节，但不能编造录用或日期。没有明确结果时，询问剩余流程并约定复核节点，比无条件承诺更有用。"
+      }
+    },
+    {
+      "id": "gco_scope_change",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "临近里程碑，需求新增但排期没变，你会怎么处理？",
+        "options": [
+          {
+            "id": "gco_scope_change_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "尽早列影响和可交付范围，请负责人明确取舍。",
+            "face": "nod",
+            "line": "对，先把影响摆出来。"
+          },
+          {
+            "id": "gco_scope_change_b",
+            "type": "bold",
+            "text": "把核心路径、依赖和验证成本放进同一份选择。",
+            "face": "probe",
+            "line": "放在一起，我问个具体的。",
+            "followup": {
+              "text": "核心验证压不进原日期，下一步怎么沟通？",
+              "options": [
+                {
+                  "id": "gco_scope_change_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "给出缩范围或调日期的影响，确认决定并同步相关人。",
+                  "face": "pleased",
+                  "line": "对，要有人拍板，也要让大家知道。"
+                },
+                {
+                  "id": "gco_scope_change_p",
+                  "type": "partial",
+                  "delta": -3,
+                  "text": "先加班试两天，实在不行再让负责人调整范围。",
+                  "face": "calm",
+                  "line": "试两天才说？那时候已经晚了。"
+                },
+                {
+                  "id": "gco_scope_change_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "先把验证压缩到最少，交付后再根据反馈补齐。",
+                  "face": "frown",
+                  "line": "验证压没了，出问题谁兜？"
+                }
+              ],
+              "explain": "新增范围会改变实现和验证成本。及时给出可交付选择，才能让负责人安排依赖；把风险藏到最后、先加班扛几天再汇报，或默认压缩关键验证，都可能影响后续工作。投入和加班不能替代范围、质量与时间的共同确认。"
+            }
+          },
+          {
+            "id": "gco_scope_change_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先按原日期全接下来，执行中再通过加班消化变化。",
+            "face": "calm",
+            "line": "全接下来，最后一周怎么办？"
+          }
+        ],
+        "explain": "新增范围会改变实现和验证成本。及时给出可交付选择，才能让负责人安排依赖；把风险藏到最后、先加班扛几天再汇报，或默认压缩关键验证，都可能影响后续工作。投入和加班不能替代范围、质量与时间的共同确认。"
+      }
+    },
+    {
+      "id": "gco_project_shift",
+      "pools": [
+        "hr_misc"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "正在做的方向可能暂停，团队要先做一轮小验证。你会怎样应对？",
+        "options": [
+          {
+            "id": "gco_project_shift_b",
+            "type": "bold",
+            "text": "保留已做材料，按能改变决策的关键假设安排验证。",
+            "face": "probe",
+            "line": "行，我问一个情况。",
+            "followup": {
+              "text": "验证显示原方向吸引力有限，但你已经投入不少，怎么办？",
+              "options": [
+                {
+                  "id": "gco_project_shift_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "再补一些内容，把完成度提上去后再判断方向。",
+                  "face": "calm",
+                  "line": "完成度高了，数据也不会变。"
+                },
+                {
+                  "id": "gco_project_shift_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "前期投入已经很大了，先坚持做到上线再考虑停止。",
+                  "face": "frown",
+                  "line": "投入大，不是继续做的理由。"
+                },
+                {
+                  "id": "gco_project_shift_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "按证据讨论收缩或停止，整理可复用部分。",
+                  "face": "pleased",
+                  "line": "对，能留下的先留下。"
+                }
+              ],
+              "explain": "过去投入不能自动证明继续投入值得。小验证应针对能改变决策的假设，结果不支持时可以收缩或停止，同时保留可复用材料。项目变化需要透明说明职责与下一步，不必把暂停等同个人失败或把坚持当唯一负责方式。"
+            }
+          },
+          {
+            "id": "gco_project_shift_c",
+            "type": "off",
+            "delta": -3,
+            "text": "先把原功能继续做完整，避免之前的投入白费。",
+            "face": "calm",
+            "line": "做完整就不白费了？"
+          },
+          {
+            "id": "gco_project_shift_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先确认暂停原因、验证目标和自己接下来的职责。",
+            "face": "nod",
+            "line": "好，先弄清楚现在要做什么。"
+          }
+        ],
+        "explain": "过去投入不能自动证明继续投入值得。小验证应针对能改变决策的假设，结果不支持时可以收缩或停止，同时保留可复用材料。项目变化需要透明说明职责与下一步，不必把暂停等同个人失败或把坚持当唯一负责方式。"
+      }
+    },
+    {
+      "id": "gco_reverse_tasks",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "最后，你想了解这份工作的什么？",
+        "options": [
+          {
+            "id": "gco_reverse_tasks_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "新人会参与哪个项目阶段，第一项任务由谁评审？",
+            "face": "pleased",
+            "line": "新人先接一块小任务，评审人会提前告诉你。"
+          },
+          {
+            "id": "gco_reverse_tasks_1",
+            "type": "reverse",
+            "delta": 2,
+            "text": "项目奖励按什么条件计算，能否拿到书面规则？",
+            "face": "nod",
+            "line": "规则写在书面方案里，你可以先看。"
+          },
+          {
+            "id": "gco_reverse_tasks_2",
+            "type": "reverse",
+            "delta": 1,
+            "text": "团队的开发工具和日常协作方式，新人要先学哪些？",
+            "face": "nod",
+            "line": "工具到岗后有人带你熟悉。"
+          }
+        ],
+        "explain": "反问可以了解当前任务、支持、项目调整与书面奖励条件。远期机会和工具名称能补充背景，但不自动说明个人将承担什么、怎样获得反馈。具体安排应以本岗位已确认信息为准，不按工作室规模推断稳定或成长。"
+      }
+    },
+    {
+      "id": "gco_reverse_cycle",
+      "pools": [
+        "reverse"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "关于项目周期和协作，你还有什么想确认的？",
+        "options": [
+          {
+            "id": "gco_reverse_cycle_0",
+            "type": "reverse",
+            "delta": 3,
+            "text": "内容修改怎样进入评审，分歧由谁决定并记录？",
+            "face": "pleased",
+            "line": "修改先提评审，分歧由主策划定，并记在文档里。"
+          },
+          {
+            "id": "gco_reverse_cycle_1",
+            "type": "reverse",
+            "delta": 3,
+            "text": "里程碑调整时，职责和资源会怎样重新确认？",
+            "face": "pleased",
+            "line": "调整前会开碰头会，把人和资源重新对一遍。"
+          },
+          {
+            "id": "gco_reverse_cycle_2",
+            "type": "reverse",
+            "delta": 1,
+            "text": "以后是否可能参与更多品类和项目，大概要多久？",
+            "face": "nod",
+            "line": "有机会，不过要先把手上的项目做好。"
+          }
+        ],
+        "explain": "反问可以了解当前任务、支持、项目调整与书面奖励条件。远期机会和工具名称能补充背景，但不自动说明个人将承担什么、怎样获得反馈。具体安排应以本岗位已确认信息为准，不按工作室规模推断稳定或成长。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "gco_bg_prev",
+      "pools": [
+        "hr"
+      ],
+      "priority": 61,
+      "when": {
+        "sector": "game",
+        "has_exp_type": [
+          "intern_mkt",
+          "intern_dev",
+          "intern_pm",
+          "intern_hr",
+          "user_research_intern"
+        ]
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "聊聊之前的实习：有没有哪里让你不满意，或者让你不想继续待的？",
+        "options": [
+          {
+            "id": "gco_bg_prev_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "有些地方不顺，我讲当时的约束，和我自己能改的部分。",
+            "face": "nod",
+            "line": "好，说事实，也说你做了什么。"
+          },
+          {
+            "id": "gco_bg_prev_b",
+            "type": "bold",
+            "text": "讲一次具体的分歧，我怎样问清各方想法再调整。",
+            "face": "probe",
+            "line": "行，我追问一个情况。",
+            "followup": {
+              "text": "如果那次确实是对方的安排不合理，你会怎么说？",
+              "options": [
+                {
+                  "id": "gco_bg_prev_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "只讲事实和影响，不评价人，再讲我之后怎么调整。",
+                  "face": "pleased",
+                  "line": "对，事实讲清楚就够了。"
+                },
+                {
+                  "id": "gco_bg_prev_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "话说得客气些，让听的人自己明白是谁的问题。",
+                  "face": "calm",
+                  "line": "绕一圈，还是在说他不对。"
+                },
+                {
+                  "id": "gco_bg_prev_x",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "负责人不懂业务，排期全凭拍脑袋，我早就不想听他的。",
+                  "face": "frown",
+                  "line": "这话我不太好接，换个说法吧。"
+                }
+              ],
+              "explain": "这类问题常被用来引出对前单位的评价。讲事实、约束和自己的动作，听起来是在复盘；评价人和公司，听起来是在找下一个可以抱怨的对象。游戏行业圈子不大，批评原单位的话容易传开，当时的全貌你也未必清楚。就算遇到过不合理的安排，也只讲影响和自己的应对，不点名、不下判断。"
+            }
+          },
+          {
+            "id": "gco_bg_prev_c",
+            "type": "off",
+            "delta": -3,
+            "text": "没什么不满，就是节奏慢、学不到东西，所以不想留。",
+            "face": "calm",
+            "line": "学不到东西，听着像在怪那边。"
+          },
+          {
+            "id": "gco_bg_prev_r",
+            "type": "redline",
+            "delta": -9,
+            "text": "带我的人很不负责，活全推给实习生，那边管理一团糟。",
+            "face": "disappointed",
+            "line": "说前单位的坏话，今天先到这里。"
+          }
+        ],
+        "explain": "这类问题常被用来引出对前单位的评价。讲事实、约束和自己的动作，听起来是在复盘；评价人和公司，听起来是在找下一个可以抱怨的对象。游戏行业圈子不大，批评原单位的话容易传开，当时的全貌你也未必清楚。就算遇到过不合理的安排，也只讲影响和自己的应对，不点名、不下判断。"
+      }
+    },
+    {
+      "id": "gco_bg_scope",
+      "pools": [
+        "hr"
+      ],
+      "priority": 60,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你的背景与岗位不完全重合，怎样说明能迁移的能力？",
+        "options": [
+          {
+            "id": "gco_bg_scope_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "把真实产出、使用方法与尚需学习的部分分开。",
+            "face": "nod",
+            "line": "嗯，做过的和要学的，分得清楚。"
+          },
+          {
+            "id": "gco_bg_scope_b",
+            "type": "bold",
+            "text": "用一个具体任务解释证据，而不只讲兴趣和时长。",
+            "face": "probe",
+            "line": "行，再问一个条件。",
+            "followup": {
+              "text": "如果经历只是个人练习，如何说明它的价值？",
+              "options": [
+                {
+                  "id": "gco_bg_scope_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "讲完成的规则和检查，承认没有正式运营结果。",
+                  "face": "pleased",
+                  "line": "对，练习就是练习。"
+                },
+                {
+                  "id": "gco_bg_scope_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "把目标收益写成方向，等入职后再验证其是否成立。",
+                  "face": "calm",
+                  "line": "还没做的事，先写成收益不太好吧。"
+                },
+                {
+                  "id": "gco_bg_scope_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "练习流程完整，就可以按商用经验介绍能力。",
+                  "face": "frown",
+                  "line": "练习不等于商用经验。"
+                }
+              ],
+              "explain": "兴趣可以解释动机，能力仍需要产出与验证范围。个人练习可以说明规则表达和检查过程，不能等同正式商用结果；准确说明已有基础和缺口，比按专业标签或游玩时长直接推断对口更有依据。"
+            }
+          },
+          {
+            "id": "gco_bg_scope_c",
+            "type": "off",
+            "delta": -3,
+            "text": "兴趣足够强，岗位要求的方法可以在入职后慢慢补。",
+            "face": "calm",
+            "line": "兴趣是动力，不等于已经会了。"
+          }
+        ],
+        "explain": "兴趣可以解释动机，能力仍需要产出与验证范围。个人练习可以说明规则表达和检查过程，不能等同正式商用结果；准确说明已有基础和缺口，比按专业标签或游玩时长直接推断对口更有依据。"
+      }
+    },
+    {
+      "id": "gco_bg_material",
+      "pools": [
+        "hr"
+      ],
+      "priority": 59,
+      "when": {
+        "sector": "game"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "想用之前项目的资料展示能力，你会先确认什么？",
+        "options": [
+          {
+            "id": "gco_bg_material_b",
+            "type": "bold",
+            "text": "不能公开的部分另做自制样例，明确两者身份。",
+            "face": "probe",
+            "line": "行，我再问一句。",
+            "followup": {
+              "text": "负责人未确认能否公开，作品集又快要提交了呢？",
+              "options": [
+                {
+                  "id": "gco_bg_material_p",
+                  "type": "partial",
+                  "delta": -2,
+                  "text": "先放脱敏截图，若对方提出异议再撤下。",
+                  "face": "calm",
+                  "line": "先放了再撤，已经传出去了。"
+                },
+                {
+                  "id": "gco_bg_material_f",
+                  "type": "fail",
+                  "delta": -7,
+                  "text": "只给面试官私下看，不公开发布就无需再确认。",
+                  "face": "frown",
+                  "line": "私下给我们看，也要有人同意。"
+                },
+                {
+                  "id": "gco_bg_material_h",
+                  "type": "hold",
+                  "delta": 9,
+                  "text": "不放原材料，用自制样例说明方法并标明是练习。",
+                  "face": "pleased",
+                  "line": "对，样例写明是练习就好。"
+                }
+              ],
+              "explain": "脱敏不自动取得展示权，私下交流也不等于获得授权。应确认具体范围；来不及时可以用自制练习说明方法，但不要把样例冒充真实成果。这里依据授权与信息边界判断，不要求玩家披露保密内容。"
+            }
+          },
+          {
+            "id": "gco_bg_material_c",
+            "type": "off",
+            "delta": -3,
+            "text": "隐去公司名和人物名，就可以展示原文件的其余部分。",
+            "face": "calm",
+            "line": "去掉名字，内容还是人家的。"
+          },
+          {
+            "id": "gco_bg_material_a",
+            "type": "safe",
+            "delta": 3,
+            "text": "先问清哪些能公开、谁同意过，再挑能放的材料。",
+            "face": "nod",
+            "line": "对，先问清楚能不能放。"
+          }
+        ],
+        "explain": "脱敏不自动取得展示权，私下交流也不等于获得授权。应确认具体范围；来不及时可以用自制练习说明方法，但不要把样例冒充真实成果。这里依据授权与信息边界判断，不要求玩家披露保密内容。"
+      }
+    }
+  ],
+  "_sources": [
+    {
+      "title": "劳动合同法第23、24条",
+      "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_0abfdd261c03417b949df19d869add8d.html"
+    },
+    {
+      "title": "劳动争议司法解释（二）第13条，2025年9月1日起施行",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/472691.html"
+    },
+    {
+      "title": "企业实施竞业限制合规指引",
+      "url": "https://app.www.gov.cn/govdata/gov/202509/13/536638/article.html"
+    }
+  ]
+}

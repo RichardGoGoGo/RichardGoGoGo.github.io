@@ -2,6 +2,7 @@
   "_note": "公司底座：名称、风格、档位、虚构薪资表、信件、谈薪。关卡顺序、筛选设置、通过线和档位阈值跟着岗位线走（tracks/）。HR 面或创始人面这一轮放在这里，所有岗位共用。 类型（sector）、规模（scale）、阶段（stage，可选）的说法见 catalog.json；星数是这家公司自己的难度。 product 是这家公司的主打产品（可选），题里写 {co.product|你们的产品}。",
   "id": "unicorn",
   "name": "跃迁智能",
+  "name_en": "Yueqian AI",
   "sector": "internet",
   "scale": "small",
   "stage": "startup",

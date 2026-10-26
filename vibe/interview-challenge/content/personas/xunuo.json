@@ -59,7 +59,11 @@
     "new_media": 2,
     "event": 2,
     "community": 1,
-    "design_tools": 1
+    "design_tools": 1,
+    "ds3_flow": 2,
+    "ds3_state": 1,
+    "ds3_system": 1,
+    "ds3_rationale": 1
   },
   "skill_bar": {
     "pm": [
@@ -89,6 +93,18 @@
       "ab",
       "design_tools",
       "office"
+    ],
+    "design": [
+      "research",
+      "proto",
+      "competitor",
+      "ds3_flow",
+      "ds3_state",
+      "ds3_system",
+      "ds3_system_master",
+      "ds3_rationale",
+      "exp_design",
+      "html_css"
     ]
   },
   "test_inspire": {
@@ -180,6 +196,45 @@
           "data"
         ]
       },
+      {
+        "text": "心理健康周按报名数据调场次后，签到率从 6 成提到 8 成；复盘时没有对照组，不能确定提升全部来自调场次。",
+        "roles": [
+          "pm"
+        ],
+        "companies": [
+          "foreign"
+        ]
+      },
+      {
+        "text": "投交互设计时的能力边界：有用研、原型训练和网页流程实践；会整理任务流程与信息架构，设计系统只了解基本规范，没有企业级系统治理经历。",
+        "roles": [
+          "design"
+        ]
+      },
+      {
+        "text": "作品集的3个案例分别写了目标、个人行动和有限证据。初版导航按制作顺序排列，同学试用后找案例费力，许诺接受先展示任务与结果、再展开过程的安排，改过一次导航；没有商业转化数据。",
+        "roles": [
+          "design"
+        ]
+      },
+      {
+        "text": "在线实验程序把每屏刺激和按键记录串成流程，先在浏览器本地保存记录、结束后统一提交；处理过中途退出的数据保存，但不保证所有异常都能完全恢复。",
+        "roles": [
+          "design"
+        ]
+      },
+      {
+        "text": "用研实习中的导航建议被采纳，但最终方案和实现由产品及开发推进；离职时未上线，没有留存提升数字。",
+        "roles": [
+          "design"
+        ]
+      },
+      {
+        "text": "毕业论文600份问卷、15人访谈还在整理，睡前和通勤是常见场景，只能形成待验证设计假设。",
+        "roles": [
+          "design"
+        ]
+      },
       "短板：没有产品经理实习；SQL 只会课上学的基础查询；没上线过自己写的 PRD；不太懂技术实现。"
     ],
     "company_notes": {
@@ -211,12 +266,14 @@
           "process": "实验流程",
           "solo_part": "怎么用开源实验框架把每一屏刺激和按键记录串起来",
           "be_data": "数据先存在浏览器本地，做完再一次性提交，中途退出也不丢。",
-          "data_routine": "讲实验数据导出后，怎么整理成一人一行的分析表。"
+          "data_routine": "讲实验数据导出后，怎么整理成一人一行的分析表。",
+          "ds3_summary": "我按每屏整理流程，管反馈提示和中途退出的数据。"
         },
         "frames": {
           "pm": "hardest",
           "fe": "solo_build",
-          "data": "data_source"
+          "data": "data_source",
+          "design": "ds3_frame_flow"
         },
         "highlights": [
           {
@@ -231,6 +288,9 @@
               "field": "心理学实验",
               "overclaim": "线上能几百人同时做，基本一天就收齐了，所以说一学期是保守的。",
               "overclaim_line": "一天？简历上写的是两周。"
+            },
+            "p_en": {
+              "calc_short": "Offline, 300 at 20 a week is about 15 weeks; online took two."
             }
           },
           {
@@ -257,6 +317,10 @@
             "p": {
               "n_total": "300"
             }
+          },
+          {
+            "type": "ds3_flow_recovery",
+            "p": {}
           }
         ],
         "variants": [
@@ -331,8 +395,51 @@
               },
               "explain": "奖项是最容易核实的一类信息，编一个奖等于埋雷。被问到时如实修正，代价最小；硬圆下去，基本就没有下文了。"
             }
+          },
+          {
+            "id": "ds3_x1_evidence",
+            "type": "evidence",
+            "angle": "design",
+            "lines": 2,
+            "keywords": [
+              "任务流程",
+              "状态设计",
+              "交互设计"
+            ],
+            "text": "在线实验程序：串联刺激、按键和提交流程，处理本地暂存与退出；把线下约人的流程转到线上，两周收齐300份数据。"
           }
-        ]
+        ],
+        "p_en": {
+          "label": "the online experiment",
+          "short": "my online experiment",
+          "pitch": "Online research experiment",
+          "pm_summary": "I moved a lab study online and checked the data quality."
+        },
+        "frames_en": {
+          "pm": "fgp_frame_tool"
+        },
+        "probes_en": {
+          "x1_exag": {
+            "pattern": "exag",
+            "ask": "You wrote that the tool served over a thousand users and won an award. What was the actual result?",
+            "correct": {
+              "text": "It was 300 study responses over two weeks; I overstated the claim.",
+              "line": "Thanks for correcting that. 300 responses is still real work.",
+              "face": "nod"
+            },
+            "evade": {
+              "text": "The scale depends on how users are counted across the study.",
+              "line": "Could you give me the number you actually collected?"
+            },
+            "double_down": {
+              "text": "It served thousands, and I led the award-winning project.",
+              "line": "I couldn't verify that. Let's stop here for today."
+            },
+            "explain": "实际做的是给课题组两周收齐了 300 份数据，没有上千用户，也没有获奖。被追问时直接更正数量和奖项，代价最小；说“要看怎么算用户数”只是绕开问题，继续坚持获奖则很容易被查证。"
+          }
+        },
+        "title_en": "Online research experiment",
+        "period_en": "Third year"
       },
       {
         "id": "E2",
@@ -351,13 +458,15 @@
           "kind": "用研实习",
           "modest": "第一版报告被说证据太弱，我补了 5 场访谈重写的过程",
           "fe_story": "测试里多数新用户找不到入口；做作品集时我就先找人试用，再改导航。",
-          "ops_evidence_scoped": "12 人访谈 7 人提到，8 人测试 6 人找不到；样本小，占比要看埋点。"
+          "ops_evidence_scoped": "12 人访谈 7 人提到，8 人测试 6 人找不到；样本小，占比要看埋点。",
+          "ds3_summary": "课程表入口找不到：先记任务失败和研究依据，再交给产品定改法。"
         },
         "frames": {
           "pm": "proud",
           "fe": "off_role",
           "data": "research_data",
-          "ops": "ops_user_voice"
+          "ops": "ops_user_voice",
+          "design": "ds3_frame_research"
         },
         "highlights": [
           {
@@ -367,6 +476,10 @@
               "intro": "用研实习里的一个发现",
               "evidence": "访谈里 12 个人有 7 个提到；可用性测试里 8 个新用户有 6 个找不到。",
               "followthrough": "离职时还没上线，没跟到；我会看新用户进课程表的比例。"
+            },
+            "p_en": {
+              "finding_short": "a navigation issue with the course schedule",
+              "evidence_short": "7 of 12 interviewees raised it; 6 of 8 new users failed the test."
             }
           },
           {
@@ -391,6 +504,10 @@
               "evidence": "访谈 12 人里有 7 个提到；可用性测试 8 个新用户里 6 个找不到。",
               "ops_move": "第一天给新用户推条引导，指出课程表在哪，再看进入率。"
             }
+          },
+          {
+            "type": "ds3_research_boundary",
+            "p": {}
           }
         ],
         "variants": [
@@ -452,8 +569,52 @@
               },
               "explain": "把团队的成果写成“主导”，把没见过的数据写成结果，是用研和产品简历里常见的夸大。用研发现问题本身就很有价值，照实写反而更站得住。"
             }
+          },
+          {
+            "id": "ds3_x2_evidence",
+            "type": "evidence",
+            "angle": "design",
+            "lines": 2,
+            "keywords": [
+              "用户研究",
+              "用户访谈",
+              "可用性测试",
+              "交互设计"
+            ],
+            "text": "用研实习：访谈12人、8人可用性测试发现课程表入口障碍，提出导航建议被采纳；个人负责研究证据，未跟到上线数据。"
           }
-        ]
+        ],
+        "p_en": {
+          "label": "the research internship",
+          "short": "the research internship",
+          "pitch": "User research internship",
+          "pm_summary": "I studied navigation issues and reported the evidence."
+        },
+        "frames_en": {
+          "pm": "fgp_frame_research"
+        },
+        "probes_en": {
+          "x2_exag": {
+            "pattern": "exag",
+            "ask": "You wrote that you led the redesign and raised retention by 30%. How was that measured?",
+            "correct": {
+              "text": "I found the issue; I left before launch, so no retention data.",
+              "line": "Thanks for being clear about that. Tell me about the research.",
+              "face": "nod"
+            },
+            "evade": {
+              "text": "The product team supplied that figure; I focused on the research.",
+              "line": "I'm asking about the figure on your resume."
+            },
+            "double_down": {
+              "text": "I owned the redesign and measured the 30% gain after release.",
+              "line": "An intern owning a redesign? Let's stop here for today."
+            },
+            "explain": "实际情况是：发现了课程表入口的问题，建议被采纳，但改版上线时已经离职，没有跟到数据。不能说“主导改版”或“留存提升 30%”；把产品团队的数字当成自己的结果、或者回避被问的数字，都撑不住追问。"
+          }
+        },
+        "title_en": "User research internship",
+        "period_en": "Three months"
       },
       {
         "id": "E3",
@@ -471,22 +632,31 @@
           "short": "作品集",
           "case_simple": "那次可用性测试：8 个用户、5 个任务，找出了 3 个主要问题",
           "unit": "页面",
-          "design_point": "案例页在手机和电脑上的两套布局怎么切换"
+          "design_point": "案例页在手机和电脑上的两套布局怎么切换",
+          "ds3_summary": "上线前找同学试用，发现找案例费力，就改了导航。"
         },
         "frames": {
           "pm": "case",
-          "fe": "design"
+          "fe": "design",
+          "design": "ds3_frame_portfolio"
         },
         "highlights": [
           {
             "type": "competitor_analysis",
-            "p": {}
+            "p": {},
+            "p_en": {
+              "choice_short": "Two direct competitors and one alternative that solves the same task."
+            }
           },
           {
             "type": "responsive_layout",
             "p": {
               "short": "作品集网站"
             }
+          },
+          {
+            "type": "ds3_navigation",
+            "p": {}
           }
         ],
         "variants": [
@@ -524,8 +694,31 @@
               "前端"
             ],
             "text": "用 HTML / CSS 从零搭建作品集网站，适配手机端。"
+          },
+          {
+            "id": "ds3_x3_evidence",
+            "type": "evidence",
+            "angle": "design",
+            "lines": 2,
+            "keywords": [
+              "信息架构",
+              "作品集",
+              "设计说明"
+            ],
+            "text": "作品集网站：整理3个案例的目标、过程和证据，按试用反馈调整导航；适配手机，未把同学反馈写成商业结果。"
           }
-        ]
+        ],
+        "p_en": {
+          "label": "the portfolio",
+          "short": "the portfolio",
+          "pitch": "Personal portfolio",
+          "pm_summary": "I documented three cases with their process and limits."
+        },
+        "frames_en": {
+          "pm": "fgp_frame_portfolio"
+        },
+        "title_en": "Personal portfolio",
+        "period_en": "Final year"
       },
       {
         "id": "E4",
@@ -561,7 +754,17 @@
             ],
             "text": "系统学习产品经理全流程方法论，掌握 PRD 撰写与原型设计"
           }
-        ]
+        ],
+        "frames": {},
+        "p_en": {
+          "label": "the training course",
+          "short": "my training course",
+          "pitch": "Product training course",
+          "pm_summary": "I practiced product documents and basic prototyping."
+        },
+        "title_en": "Product training course",
+        "period_en": "Six weeks",
+        "highlights": []
       },
       {
         "id": "E5",
@@ -579,13 +782,17 @@
           "pitch": "我的毕业论文：短视频使用行为研究",
           "short": "论文",
           "finding": "初步发现有 4 类触发场景，最常见的是睡前和通勤。",
-          "data_method": "讲问卷怎么编码、分组比较，再说清哪些结论还只是初步的。"
+          "data_method": "讲问卷怎么编码、分组比较，再说清哪些结论还只是初步的。",
+          "ds3_summary": "论文用问卷和访谈看清使用场景，当作设计问题的线索。"
         },
         "highlights": [
           {
             "type": "mixed_methods",
             "p": {
               "finding_short": "4 类场景"
+            },
+            "p_en": {
+              "limit_short": "The thesis is unfinished; these are preliminary findings."
             }
           },
           {
@@ -602,6 +809,10 @@
               "split_by": "年级",
               "intro": "论文里一次分组后结论反转"
             }
+          },
+          {
+            "type": "ds3_scene_limit",
+            "p": {}
           }
         ],
         "variants": [
@@ -647,11 +858,35 @@
               "数据分析"
             ],
             "text": "毕业论文：600 份问卷分组比较，发现合起来看和按年级拆开结论相反，按分层结果下结论（论文在写）。"
+          },
+          {
+            "id": "ds3_x5_evidence",
+            "type": "evidence",
+            "angle": "design",
+            "lines": 2,
+            "keywords": [
+              "用户研究",
+              "用户访谈",
+              "场景分析"
+            ],
+            "text": "短视频行为研究：600份问卷、15人访谈，整理睡前与通勤等场景；作为设计假设来源，不声称验证过提醒方案。"
           }
         ],
         "frames": {
-          "data": "thesis_data"
-        }
+          "data": "thesis_data",
+          "design": "ds3_frame_scene"
+        },
+        "p_en": {
+          "label": "the unfinished thesis",
+          "short": "my thesis",
+          "pitch": "Short-video usage thesis",
+          "pm_summary": "I surveyed 600 people and interviewed 15 on short-video use."
+        },
+        "frames_en": {
+          "pm": "fgp_frame_thesis"
+        },
+        "title_en": "Short-video usage thesis",
+        "period_en": "Final year"
       },
       {
         "id": "E6",
@@ -680,6 +915,9 @@
               "why": "选题正好戳中考试周的焦虑，标题也够直接，发的时间点也对。",
               "after": "三四千",
               "lift": "比同期非栏目文章高一倍左右"
+            },
+            "p_en": {
+              "after_short": "The peak was 20,000; later posts had about 3,000 to 4,000 views."
             }
           },
           {
@@ -773,7 +1011,38 @@
         "frames": {
           "data": "media_data",
           "ops": "ops_account"
-        }
+        },
+        "p_en": {
+          "label": "the club's official account",
+          "short": "the account",
+          "pitch": "Student association publication",
+          "pm_summary": "I reviewed article results and built a recurring series."
+        },
+        "frames_en": {
+          "pm": "fgp_frame_media"
+        },
+        "probes_en": {
+          "x6_exag": {
+            "pattern": "exag",
+            "ask": "You claimed tenfold follower growth and several posts above 100,000 views. What do the records show?",
+            "correct": {
+              "text": "Followers rose from 800 to 3,000; the best post got 20,000 views.",
+              "line": "Thanks. Those numbers are solid enough.",
+              "face": "nod"
+            },
+            "evade": {
+              "text": "I would need to check the dashboard for the exact totals.",
+              "line": "You ran it for a year and don't know the totals?"
+            },
+            "double_down": {
+              "text": "The account reached over 10,000 followers after several viral posts.",
+              "line": "The public page says otherwise. Let's stop here."
+            },
+            "explain": "实际是粉丝从约 800 涨到 3000，最高一篇约 2 万阅读。公众号文章的阅读数是公开的，面试官翻一翻就能对上，“十倍增长”“多篇 10 万+”很难圆。如实报出真实数字，再讲清是怎么涨起来的，反而是好素材。"
+          }
+        },
+        "title_en": "Student association publication",
+        "period_en": "One year"
       },
       {
         "id": "E7",
@@ -796,7 +1065,17 @@
             "keywords": [],
             "text": "校心理咨询中心助理，负责值班和预约登记"
           }
-        ]
+        ],
+        "frames": {},
+        "p_en": {
+          "label": "the assistant role",
+          "short": "that role",
+          "pitch": "Student counselling center assistant",
+          "pm_summary": "I helped with scheduling and reception."
+        },
+        "title_en": "Student counselling center assistant",
+        "period_en": "Second year",
+        "highlights": []
       },
       {
         "id": "E8",
@@ -818,7 +1097,10 @@
         "highlights": [
           {
             "type": "event_attendance",
-            "p": {}
+            "p": {},
+            "p_en": {
+              "attrib_short": "Attendance rose from 60% to 80%; there was no control group."
+            }
           },
           {
             "type": "data_led_decision",
@@ -891,7 +1173,18 @@
         "frames": {
           "data": "event_data",
           "ops": "ops_event"
-        }
+        },
+        "p_en": {
+          "label": "the campus event",
+          "short": "the event",
+          "pitch": "Mental health week",
+          "pm_summary": "I adjusted sessions using sign-up and attendance records."
+        },
+        "frames_en": {
+          "pm": "fgp_frame_event"
+        },
+        "title_en": "Mental health week",
+        "period_en": "Third year"
       }
     ],
     "default": {
@@ -944,7 +1237,35 @@
           "office",
           "excel"
         ]
+      },
+      "design": {
+        "order": [
+          "x2_duty",
+          "ds3_x3_evidence",
+          "x1_duty"
+        ],
+        "skills": [
+          "research",
+          "proto",
+          "competitor",
+          "ds3_flow",
+          "ds3_state",
+          "ds3_system"
+        ]
       }
     }
+  },
+  "p_en": {
+    "switch_reason": "Research made me want to help decide what to change.",
+    "major_pitch": "Psychology gave me practice in research and experiment design.",
+    "lev": "a user research internship",
+    "lev_brag": "practical research experience",
+    "lev_detail": "experience with interviews and usability testing"
+  },
+  "background_en": {
+    "school": "a 211 university",
+    "major": "Psychology",
+    "major_short": "Psychology",
+    "major_degree": "a Bachelor's degree in Psychology"
   }
 }

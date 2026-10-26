@@ -9,6 +9,16 @@
     "bachelor": "本科",
     "master": "硕士"
   },
+  "_note_en": "英文公司（lang: en）里 {bg.school_tier_cn}、{bg.degree_cn} 用下面两张表；{bg.major_degree} 优先用人设 background_en 里写的，没写就拼成 “Master's in 专业”。",
+  "school_tiers_en": {
+    "985": "985",
+    "211": "211",
+    "double_non": "non-985/211"
+  },
+  "degrees_en": {
+    "bachelor": "Bachelor's",
+    "master": "Master's"
+  },
   "major_groups": {
     "cs": {
       "name": "计算机类",
@@ -16,13 +26,32 @@
       "match": [
         "fe",
         "be",
-        "algo"
+        "algo",
+        "qa"
       ]
     },
     "psych": {
       "name": "心理学",
       "kind": "non_tech",
-      "match": []
+      "match": [
+        "design"
+      ]
+    },
+    "business": {
+      "name": "商科",
+      "kind": "non_tech",
+      "match": [
+        "hr",
+        "sales",
+        "brand"
+      ]
+    },
+    "humanities": {
+      "name": "文科",
+      "kind": "non_tech",
+      "match": [
+        "brand"
+      ]
     }
   },
   "questions": [

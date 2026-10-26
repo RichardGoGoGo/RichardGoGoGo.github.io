@@ -1,0 +1,50 @@
+{
+  "id": "r2",
+  "name": "Hiring Manager Interview",
+  "company": "foreign",
+  "lang": "en",
+  "interviewer": {
+    "art": "A12",
+    "title": "Engineering Manager"
+  },
+  "scene": "S11",
+  "hello": "Welcome back. I'd like specific examples, and what you did yourself.",
+  "flow": [
+    {
+      "slot": "q1",
+      "dynamic": "pool",
+      "pool": "fe_growth",
+      "swap": true
+    },
+    {
+      "slot": "q2",
+      "dynamic": "probe_or_deep_dive_next",
+      "swap": false
+    },
+    {
+      "slot": "q3",
+      "dynamic": "pool",
+      "pool": "fe_collab",
+      "swap": true
+    },
+    {
+      "slot": "q4",
+      "dynamic": "pool",
+      "pool": "fe_workstyle",
+      "swap": true
+    },
+    {
+      "slot": "q5",
+      "dynamic": "pool",
+      "pool": "fe_growth",
+      "swap": true
+    },
+    {
+      "slot": "reverse",
+      "dynamic": "pool",
+      "pool": "biz_reverse",
+      "swap": true
+    }
+  ],
+  "nodes": {}
+}

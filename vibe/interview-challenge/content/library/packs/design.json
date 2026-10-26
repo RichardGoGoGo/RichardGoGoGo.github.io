@@ -1,0 +1,2143 @@
+{
+  "_note": "D：交互与体验设计，文字快题和方案判断不依赖视觉图片。所有题池/背景/问法限定design，新增技能不修改其他岗位精通追问。",
+  "relevance": {
+    "intern_dev": {
+      "design": "half"
+    },
+    "intern_pm": {
+      "design": "half"
+    },
+    "user_research_intern": {
+      "design": "strong"
+    },
+    "research_tool": {
+      "design": "match"
+    },
+    "campus_team_project": {
+      "design": "half"
+    },
+    "personal_project": {
+      "design": "match"
+    },
+    "course_project": {
+      "design": "half"
+    },
+    "thesis": {
+      "design": "half"
+    },
+    "paper": {
+      "design": "general"
+    },
+    "competition": {
+      "design": "general"
+    },
+    "student_org": {
+      "design": "general"
+    },
+    "media_ops": {
+      "design": "general"
+    },
+    "event_planning": {
+      "design": "half"
+    },
+    "part_time": {
+      "design": "none"
+    },
+    "certificate": {
+      "design": "general"
+    },
+    "award": {
+      "design": "general"
+    },
+    "intern_hr": {
+      "design": "none"
+    },
+    "intern_mkt": {
+      "design": "general"
+    },
+    "campus_ambassador": {
+      "design": "general"
+    },
+    "game_project": {
+      "design": "half"
+    }
+  },
+  "skills": {
+    "research": {
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "用户研究",
+            "用户访谈",
+            "可用性测试"
+          ]
+        }
+      }
+    },
+    "proto": {
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "原型"
+          ]
+        }
+      }
+    },
+    "competitor": {
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "竞品分析"
+          ]
+        }
+      }
+    },
+    "exp_design": {
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "实验设计"
+          ]
+        }
+      }
+    },
+    "html_css": {
+      "roles": {
+        "design": {
+          "relevant": false,
+          "keywords": [
+            "网页结构"
+          ]
+        }
+      }
+    },
+    "ds3_flow": {
+      "labels": {
+        "1": "了解任务流程与信息架构",
+        "2": "能梳理任务流程与信息架构"
+      },
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "任务流程",
+            "信息架构"
+          ]
+        }
+      }
+    },
+    "ds3_state": {
+      "labels": {
+        "1": "了解交互状态与恢复设计",
+        "2": "能说明交互状态与恢复路径"
+      },
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "交互设计",
+            "状态设计"
+          ]
+        }
+      }
+    },
+    "ds3_system": {
+      "labels": {
+        "1": "了解设计系统与组件规范",
+        "2": "能按设计系统组织组件状态",
+        "3": "精通设计系统治理"
+      },
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "设计系统",
+            "组件规范"
+          ]
+        }
+      },
+      "master_probes": [
+        "ds3_probe_system"
+      ]
+    },
+    "ds3_rationale": {
+      "labels": {
+        "1": "能整理案例决策与交付说明",
+        "2": "能组织设计评审与交付走查"
+      },
+      "roles": {
+        "design": {
+          "relevant": true,
+          "keywords": [
+            "设计说明",
+            "交付走查"
+          ]
+        }
+      }
+    }
+  },
+  "pools": [
+    {
+      "id": "ds3_intro",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "挑一个最能说明你交互判断的案例，先讲结论和你负责的部分。",
+        "options": [
+          {
+            "id": "ds3_intro_b",
+            "type": "bold",
+            "text": "先讲一个最纠结的决策，以及它有多少证据。",
+            "face": "probe",
+            "line": "好，这个决策我多问一句。",
+            "followup": {
+              "text": "这个方案最后是几个人一起定的，你的贡献怎么说？",
+              "options": [
+                {
+                  "id": "ds3_intro_h",
+                  "type": "hold",
+                  "text": "分开说我的证据、我参与的决定、别人做完的部分。",
+                  "face": "pleased",
+                  "line": "嗯，边界划得清楚。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_intro_p",
+                  "type": "partial",
+                  "text": "只讲我负责的那块，怎么拍板的不展开。",
+                  "face": "calm",
+                  "line": "那拍板的过程呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_intro_f",
+                  "type": "redline",
+                  "text": "方案是我提交的，所以最终设计可以写成我独立主导。",
+                  "face": "disappointed",
+                  "line": "独立主导？……好，今天先到这儿。"
+                }
+              ],
+              "explain": "案例表达应把用户问题、本人行动、团队决策与结果分开。参与研究或提出建议有价值，但把团队共同完成的设计写成个人独立主导，属于作品归属上的不实表述，是诚信红线；页数和工具清单也不能替代判断依据。"
+            }
+          },
+          {
+            "id": "ds3_intro_c",
+            "type": "off",
+            "text": "先报做过多少页、用了哪些工具，再请对方挑重点。",
+            "face": "calm",
+            "line": "页数和工具，我不太关心。",
+            "delta": -3
+          },
+          {
+            "id": "ds3_intro_a",
+            "type": "safe",
+            "text": "先说用户任务和我做的部分，再讲一个关键取舍。",
+            "face": "nod",
+            "line": "嗯，这么讲就清楚了。",
+            "delta": 3
+          }
+        ],
+        "explain": "案例表达应把用户问题、本人行动、团队决策与结果分开。参与研究或提出建议有价值，但把团队共同完成的设计写成个人独立主导，属于作品归属上的不实表述，是诚信红线；页数和工具清单也不能替代判断依据。"
+      }
+    },
+    {
+      "id": "ds3_intro_alternative",
+      "pools": [
+        "biz_intro"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "项目表达",
+        "text": "介绍一件你原本的判断被证据改变的事，不必是商业项目。",
+        "options": [
+          {
+            "id": "ds3_intro_alternative_c",
+            "type": "off",
+            "text": "先讲迭代了多少次，改得越多越说明我听得进反馈。",
+            "face": "calm",
+            "line": "改了几次不是重点，为什么改？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_intro_alternative_a",
+            "type": "safe",
+            "text": "先说原来的想法、新信息和最后的决定。",
+            "face": "nod",
+            "line": "嗯，从证据讲起，顺。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_intro_alternative_b",
+            "type": "bold",
+            "text": "讲一个改动：新证据、原方案的代价、为什么放弃。",
+            "face": "probe",
+            "line": "放弃的理由，我想多听一点。",
+            "followup": {
+              "text": "如果新方案只找过几位同学试用，你可以说什么？",
+              "options": [
+                {
+                  "id": "ds3_intro_alternative_h",
+                  "type": "hold",
+                  "text": "讲试用里看到的变化，并说明样本和任务有限。",
+                  "face": "pleased",
+                  "line": "嗯，说得有分寸。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_intro_alternative_p",
+                  "type": "partial",
+                  "text": "先给出改进的结论，再补一句样本数量比较有限的说明。",
+                  "face": "calm",
+                  "line": "补的那一句，是不是有点轻了？",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_intro_alternative_f",
+                  "type": "fail",
+                  "text": "同学都赞成新方案，足以说明目标用户也都会更喜欢。",
+                  "face": "frown",
+                  "line": "几位同学，就能代表所有用户？",
+                  "delta": -7
+                }
+              ],
+              "explain": "调整方案的价值来自新证据和具体行动，不取决于改稿次数。小样本可支持定位与复查，不能直接代表整个人群的偏好。"
+            }
+          }
+        ],
+        "explain": "调整方案的价值来自新证据和具体行动，不取决于改稿次数。小样本可支持定位与复查，不能直接代表整个人群的偏好。"
+      }
+    },
+    {
+      "id": "ds3_grouping",
+      "pools": [
+        "design_principles"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "报名表里有个人信息、场次选择和费用说明，你会怎样解释信息层级？",
+        "options": [
+          {
+            "id": "ds3_grouping_a",
+            "type": "safe",
+            "text": "按填写任务分组，突出当前决策，再用真实内容试排。",
+            "face": "nod",
+            "line": "嗯，有检查的办法。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_grouping_b",
+            "type": "bold",
+            "text": "用分组和操作顺序解释层级，再交代这样排放弃了什么。",
+            "face": "probe",
+            "line": "放弃了什么？我追问一下。",
+            "followup": {
+              "text": "产品想让表单更简洁，建议把费用说明弱化，你怎么回应？",
+              "options": [
+                {
+                  "id": "ds3_grouping_h",
+                  "type": "hold",
+                  "text": "费用会影响报名的决定，要清楚可见，简洁可以从别处省。",
+                  "face": "pleased",
+                  "line": "对，费用不能藏。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_grouping_p",
+                  "type": "partial",
+                  "text": "把费用挪到提交后的确认页，先保证填写过程顺畅。",
+                  "face": "calm",
+                  "line": "到确认页才看到钱，用户会不舒服吧？",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_grouping_f",
+                  "type": "fail",
+                  "text": "只要主按钮够突出，费用说明放在页面哪里都一样。",
+                  "face": "frown",
+                  "line": "放哪里都一样？我不这么看。",
+                  "delta": -7
+                }
+              ],
+              "explain": "层级应帮助用户理解任务与约束，接近、分组和主次有具体作用。费用等影响决定的信息不能为了简洁而隐藏，视觉突出也不能替代知情。"
+            }
+          },
+          {
+            "id": "ds3_grouping_c",
+            "type": "off",
+            "text": "把模块排得同样醒目，用户要什么就自己去找。",
+            "face": "calm",
+            "line": "都一样醒目，用户从哪儿看起？",
+            "delta": -3
+          }
+        ],
+        "explain": "层级应帮助用户理解任务与约束，接近、分组和主次有具体作用。费用等影响决定的信息不能为了简洁而隐藏，视觉突出也不能替代知情。"
+      }
+    },
+    {
+      "id": "ds3_platform",
+      "pools": [
+        "design_principles"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "手机和桌面都要提供批量编辑，交互一致性应该保留什么？",
+        "options": [
+          {
+            "id": "ds3_platform_b",
+            "type": "bold",
+            "text": "先列跨端必须一致的任务语义，再说各设备怎么触达。",
+            "face": "probe",
+            "line": "触达这块，我接着问。",
+            "followup": {
+              "text": "桌面上的批量操作靠悬停才显示，到手机上怎么办？",
+              "options": [
+                {
+                  "id": "ds3_platform_h",
+                  "type": "hold",
+                  "text": "手机没有悬停，要给明确可点的入口，比如选择模式。",
+                  "face": "pleased",
+                  "line": "对，入口得看得见、点得到。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_platform_p",
+                  "type": "partial",
+                  "text": "结构照搬过来，补一条文字说明怎样长按操作。",
+                  "face": "calm",
+                  "line": "说明文字？用户多半不会看。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_platform_f",
+                  "type": "fail",
+                  "text": "一致就是手势也要一样，手机也按悬停逻辑来做。",
+                  "face": "frown",
+                  "line": "手机上哪来的悬停？",
+                  "delta": -7
+                }
+              ],
+              "explain": "一致性降低重新学习的成本，但不要求不同输入条件下使用同一手势和布局。应保留操作含义并验证各端可发现性，不用说明文字掩盖缺失入口。"
+            }
+          },
+          {
+            "id": "ds3_platform_c",
+            "type": "off",
+            "text": "把桌面所有操作并排缩小，让两端布局尽量一样。",
+            "face": "calm",
+            "line": "缩小了，手指还点得到吗？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_platform_a",
+            "type": "safe",
+            "text": "保留任务和状态含义，再按设备条件调整操作。",
+            "face": "nod",
+            "line": "嗯，保留的是含义。",
+            "delta": 3
+          }
+        ],
+        "explain": "一致性降低重新学习的成本，但不要求不同输入条件下使用同一手势和布局。应保留操作含义并验证各端可发现性，不用说明文字掩盖缺失入口。"
+      }
+    },
+    {
+      "id": "ds3_system_exception",
+      "pools": [
+        "design_system"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "有个业务页面没用系统里的表格组件，自己画了一个，说现有的满足不了。你怎么处理？",
+        "options": [
+          {
+            "id": "ds3_system_exception_c",
+            "type": "off",
+            "text": "页面已经上线，先放着，等系统有空再慢慢收编。",
+            "face": "calm",
+            "line": "放着不管，差异只会越攒越多。",
+            "delta": -3
+          },
+          {
+            "id": "ds3_system_exception_a",
+            "type": "safe",
+            "text": "先对比两者的差别，看现有表格是真的不够，还是没用对。",
+            "face": "nod",
+            "line": "嗯，先搞清楚是谁的问题。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_system_exception_b",
+            "type": "bold",
+            "text": "把差别分成共性缺口和业务专属两类，共性的回流系统。",
+            "face": "probe",
+            "line": "共性怎么回流？我追问一点。",
+            "followup": {
+              "text": "他们说这个页面只是一个月的活动，改系统来不及，也不值得，你怎么办？",
+              "options": [
+                {
+                  "id": "ds3_system_exception_h",
+                  "type": "hold",
+                  "text": "登记成限期例外，写明下线时间和责任人。",
+                  "face": "pleased",
+                  "line": "嗯，例外有记录、有期限，这样稳。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_system_exception_p",
+                  "type": "partial",
+                  "text": "先同意他们用，活动结束后再问要不要并回系统。",
+                  "face": "calm",
+                  "line": "同意可以，可这个例外谁来记着？",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_system_exception_f",
+                  "type": "fail",
+                  "text": "例外开了口子就收不住，一律不批，让他们用现有组件。",
+                  "face": "frown",
+                  "line": "一个月的活动也不行？那没人愿意来找你了。",
+                  "delta": -7
+                }
+              ],
+              "explain": "设计系统要维护的是可复用的约定，不是替业务画页面。业务页面绕开系统，可能是系统真缺了一种能力，也可能只是没被用对，要先对比差别再判断。共性缺口应回流进系统；限期的业务例外要登记，写明下线时间和责任人。一律放行，系统会慢慢失去约束力；一律拒绝，业务就不再来找设计系统了。"
+            }
+          }
+        ],
+        "explain": "设计系统要维护的是可复用的约定，不是替业务画页面。业务页面绕开系统，可能是系统真缺了一种能力，也可能只是没被用对，要先对比差别再判断。共性缺口应回流进系统；限期的业务例外要登记，写明下线时间和责任人。一律放行，系统会慢慢失去约束力；一律拒绝，业务就不再来找设计系统了。"
+      }
+    },
+    {
+      "id": "ds3_system_upgrade",
+      "pools": [
+        "design_system"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "公共组件要改变默认校验时机，十几个业务已经接入。你会怎样推进？",
+        "options": [
+          {
+            "id": "ds3_system_upgrade_a",
+            "type": "safe",
+            "text": "先列影响范围和迁移办法，再找代表业务验证。",
+            "face": "nod",
+            "line": "嗯，先摸清影响面。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_system_upgrade_b",
+            "type": "bold",
+            "text": "先让新行为以可选项上线，再分批把默认切过去。",
+            "face": "probe",
+            "line": "分批切，旧行为怎么办？",
+            "followup": {
+              "text": "有业务暂时无法升级，你如何处理它的旧行为？",
+              "options": [
+                {
+                  "id": "ds3_system_upgrade_h",
+                  "type": "hold",
+                  "text": "和该业务约定兼容期限，写明责任人和退出条件。",
+                  "face": "pleased",
+                  "line": "有期限有人负责，行。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_system_upgrade_p",
+                  "type": "partial",
+                  "text": "旧行为永久保留下去，等所有业务都有空了再统一。",
+                  "face": "calm",
+                  "line": "永久保留，就是两套规范一直并存了。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_system_upgrade_f",
+                  "type": "fail",
+                  "text": "新规范发布后旧实现自然失效，业务自己跟进就行。",
+                  "face": "frown",
+                  "line": "业务排期不一样，哪能自然失效。",
+                  "delta": -7
+                }
+              ],
+              "explain": "公共组件的默认变化可能影响已上线任务，设计、开发和业务需要共同确认迁移与兼容范围。永久保留或只更新稿件都没有解决实际接入和维护问题。"
+            }
+          },
+          {
+            "id": "ds3_system_upgrade_c",
+            "type": "off",
+            "text": "先更新设计文件，开发接到下次相关需求时再顺便改。",
+            "face": "calm",
+            "line": "文件改了，线上的呢？",
+            "delta": -3
+          }
+        ],
+        "explain": "公共组件的默认变化可能影响已上线任务，设计、开发和业务需要共同确认迁移与兼容范围。永久保留或只更新稿件都没有解决实际接入和维护问题。"
+      }
+    },
+    {
+      "id": "ds3_redesign",
+      "pools": [
+        "design_redesign"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "有人要求把“找不到预约记录”这个功能重设计，你会怎样开始？",
+        "options": [
+          {
+            "id": "ds3_redesign_b",
+            "type": "bold",
+            "text": "比较现状路径和两个小方案，再挑一个要验证的假设来做。",
+            "face": "probe",
+            "line": "验证这块，我接着问。",
+            "followup": {
+              "text": "现在没有埋点，只有几条用户反馈，接下来怎么推进？",
+              "options": [
+                {
+                  "id": "ds3_redesign_h",
+                  "type": "hold",
+                  "text": "找几个人做一遍查找任务、走查路径，记下证据和未知。",
+                  "face": "pleased",
+                  "line": "没数据就先拿观察，这个思路对。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_redesign_p",
+                  "type": "partial",
+                  "text": "先凭反馈做出一版，上线后再看增长数据验证。",
+                  "face": "calm",
+                  "line": "上线后才验证，风险有点大。",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_redesign_f",
+                  "type": "fail",
+                  "text": "没有足够数据就提不出方案，等埋点做完再开始。",
+                  "face": "frown",
+                  "line": "等埋点？那这段时间就什么都不做了？",
+                  "delta": -7
+                }
+              ],
+              "explain": "重设计应从任务与具体障碍出发。数据有限时可用任务观察、路径走查和小范围验证推进，但要说明证据边界，不能把预期增长写成已发生的结果。"
+            }
+          },
+          {
+            "id": "ds3_redesign_c",
+            "type": "off",
+            "text": "先换一套页面结构，再和原版比比哪个更新。",
+            "face": "calm",
+            "line": "更新不等于更好找。",
+            "delta": -3
+          },
+          {
+            "id": "ds3_redesign_a",
+            "type": "safe",
+            "text": "先还原用户的查找任务，确认在哪一步丢失了线索。",
+            "face": "nod",
+            "line": "嗯，从任务走起。",
+            "delta": 3
+          }
+        ],
+        "explain": "重设计应从任务与具体障碍出发。数据有限时可用任务观察、路径走查和小范围验证推进，但要说明证据边界，不能把预期增长写成已发生的结果。"
+      }
+    },
+    {
+      "id": "ds3_redesign_empty",
+      "pools": [
+        "design_redesign"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "列表没有显示预约记录，用户可能是没预约，也可能是加载失败。你会怎样设计反馈？",
+        "options": [
+          {
+            "id": "ds3_redesign_empty_c",
+            "type": "off",
+            "text": "统一显示“暂无记录”，让错误状态少打扰用户。",
+            "face": "calm",
+            "line": "加载失败也写暂无记录？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_redesign_empty_a",
+            "type": "safe",
+            "text": "区分空结果和失败，给用户各自能执行的下一步。",
+            "face": "nod",
+            "line": "嗯，两种情况分开。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_redesign_empty_b",
+            "type": "bold",
+            "text": "把触发、反馈、动作和离开条件写成状态表。",
+            "face": "probe",
+            "line": "状态表里的边界情况，我追问一个。",
+            "followup": {
+              "text": "加载失败时，页面里还留着上次的预约记录，你怎么处理？",
+              "options": [
+                {
+                  "id": "ds3_redesign_empty_h",
+                  "type": "hold",
+                  "text": "旧记录保留，标出更新时间和这次加载失败。",
+                  "face": "pleased",
+                  "line": "旧记录加上时间，用户就不会当成实时的。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_redesign_empty_p",
+                  "type": "partial",
+                  "text": "先显示旧记录保住体验，等用户刷新时再提示失败。",
+                  "face": "calm",
+                  "line": "用户刷新了才知道失败，晚了点。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_redesign_empty_f",
+                  "type": "fail",
+                  "text": "能看到记录就算加载成功，不用再另外提示。",
+                  "face": "frown",
+                  "line": "旧数据当新数据，用户会被误导的。",
+                  "delta": -7
+                }
+              ],
+              "explain": "空结果表示已得到可靠的无数据结论，失败表示暂时没有可靠结果。旧数据可以帮助恢复，但需要明确其时效与当前失败，不能误导用户或把它计为本次成功。"
+            }
+          }
+        ],
+        "explain": "空结果表示已得到可靠的无数据结论，失败表示暂时没有可靠结果。旧数据可以帮助恢复，但需要明确其时效与当前失败，不能误导用户或把它计为本次成功。"
+      }
+    },
+    {
+      "id": "ds3_value",
+      "pools": [
+        "design_value"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "导航改版后总访问量上涨，你怎样讨论这项设计的价值？",
+        "options": [
+          {
+            "id": "ds3_value_a",
+            "type": "safe",
+            "text": "先看查找任务是否改善，再核对流量和同期的其他改动。",
+            "face": "nod",
+            "line": "嗯，先看任务。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_value_b",
+            "type": "bold",
+            "text": "把价值拆成体验、业务联系和交付成本三块来讲。",
+            "face": "probe",
+            "line": "业务联系最容易说过头，我问一下。",
+            "followup": {
+              "text": "访问量涨了，老板问是不是这次导航改版的功劳，你怎么回答？",
+              "options": [
+                {
+                  "id": "ds3_value_h",
+                  "type": "hold",
+                  "text": "先看查找任务和路径有没有变，涨幅标注同期有推广。",
+                  "face": "pleased",
+                  "line": "嗯，没把别人的功劳揽过来。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_value_p",
+                  "type": "partial",
+                  "text": "先把增长算给改版，同期有推广的事写在备注里。",
+                  "face": "calm",
+                  "line": "备注里一句话，老板会看到吗？",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_value_f",
+                  "type": "fail",
+                  "text": "推广和设计都服务同一个目标，所以功劳算在哪边都行。",
+                  "face": "frown",
+                  "line": "算哪边都行？那就没法评价设计了。",
+                  "delta": -7
+                }
+              ],
+              "explain": "设计价值需要解释改动如何影响用户任务，业务结果也可能受推广、版本或人群变化影响。可以报告局部证据与关联，不能用总体增长独占因果。"
+            }
+          },
+          {
+            "id": "ds3_value_c",
+            "type": "off",
+            "text": "拿增长最大的那一天当结果，平淡的数据不放进去。",
+            "face": "calm",
+            "line": "只挑好看的那天，这数据不太老实。",
+            "delta": -3
+          }
+        ],
+        "explain": "设计价值需要解释改动如何影响用户任务，业务结果也可能受推广、版本或人群变化影响。可以报告局部证据与关联，不能用总体增长独占因果。"
+      }
+    },
+    {
+      "id": "ds3_value_efficiency",
+      "pools": [
+        "design_value"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "专业",
+        "text": "一套交互规范被大量页面采用，怎样判断它是否改善交付？",
+        "options": [
+          {
+            "id": "ds3_value_efficiency_b",
+            "type": "bold",
+            "text": "选几个代表任务，比较接入前后的过程，再核对维护负担。",
+            "face": "probe",
+            "line": "接入前后怎么比？我追问一下。",
+            "followup": {
+              "text": "采用率已经很高，但这是统一要求，你还想看什么？",
+              "options": [
+                {
+                  "id": "ds3_value_efficiency_h",
+                  "type": "hold",
+                  "text": "看接入时卡在哪、返工多不多，和以前对比。",
+                  "face": "pleased",
+                  "line": "嗯，看的是真实使用。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_value_efficiency_p",
+                  "type": "partial",
+                  "text": "采用率高说明方向对了，使用成本等规模再大一些再看。",
+                  "face": "calm",
+                  "line": "规模大了才看，返工早就攒下来了。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_value_efficiency_f",
+                  "type": "fail",
+                  "text": "所有页面都统一了，返工肯定已经减少了。",
+                  "face": "frown",
+                  "line": "统一了就一定少返工？我存疑。",
+                  "delta": -7
+                }
+              ],
+              "explain": "采用率说明使用范围，不独立说明效率或质量。统一要求下尤其需要核对实际任务、返工和维护成本，避免把数量当收益。"
+            }
+          },
+          {
+            "id": "ds3_value_efficiency_c",
+            "type": "off",
+            "text": "按规范页数和组件数量评估，产出越多价值越高。",
+            "face": "calm",
+            "line": "页数多不代表好用。",
+            "delta": -3
+          },
+          {
+            "id": "ds3_value_efficiency_a",
+            "type": "safe",
+            "text": "看真实任务里的返工、问题和使用成本。",
+            "face": "nod",
+            "line": "嗯，看真实使用。",
+            "delta": 3
+          }
+        ],
+        "explain": "采用率说明使用范围，不独立说明效率或质量。统一要求下尤其需要核对实际任务、返工和维护成本，避免把数量当收益。"
+      }
+    },
+    {
+      "id": "ds3_revision",
+      "pools": [
+        "design_collab"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "需求方只说“不好看”，让你再出几版，你会怎么回应？",
+        "options": [
+          {
+            "id": "ds3_revision_c",
+            "type": "off",
+            "text": "先多做几套风格，总有一套能碰上对方想要的。",
+            "face": "calm",
+            "line": "做一堆，也不知道对方要什么吧？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_revision_a",
+            "type": "safe",
+            "text": "先问清是哪个任务、哪个位置不满意，再对齐判断标准。",
+            "face": "nod",
+            "line": "嗯，先把“不好看”问具体。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_revision_b",
+            "type": "bold",
+            "text": "把“不好看”拆成目标、结构和表现三类，逐类确认。",
+            "face": "probe",
+            "line": "拆开确认，这个办法我追问一下。",
+            "followup": {
+              "text": "几位负责人意见互相冲突，你怎么让这轮改稿收得住？",
+              "options": [
+                {
+                  "id": "ds3_revision_h",
+                  "type": "hold",
+                  "text": "写出分歧和各自代价，请有决定权的人定本轮优先级。",
+                  "face": "pleased",
+                  "line": "对，得有人拍板才收得住。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_revision_p",
+                  "type": "partial",
+                  "text": "把各位意见整理成一页对比，发给大家先自己对一对。",
+                  "face": "calm",
+                  "line": "整理是对的，可谁来拍板呢？",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_revision_f",
+                  "type": "fail",
+                  "text": "先按职位最高的人改，其他意见评审时再解释。",
+                  "face": "frown",
+                  "line": "只听职位最高的？事实呢？",
+                  "delta": -7
+                }
+              ],
+              "explain": "含糊反馈需要转成可核对的问题，冲突意见需要判断标准与决策权限。多出稿可以探索，但不能替代目标和取舍；职位也不能代替事实与授权范围。"
+            }
+          }
+        ],
+        "explain": "含糊反馈需要转成可核对的问题，冲突意见需要判断标准与决策权限。多出稿可以探索，但不能替代目标和取舍；职位也不能代替事实与授权范围。"
+      }
+    },
+    {
+      "id": "ds3_implementation",
+      "pools": [
+        "design_collab"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "开发预览和交付稿有差异，你会先怎么查？",
+        "options": [
+          {
+            "id": "ds3_implementation_a",
+            "type": "safe",
+            "text": "先核对版本、真实内容和关键状态，再按任务影响记录差异。",
+            "face": "nod",
+            "line": "嗯，先对条件。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_implementation_b",
+            "type": "bold",
+            "text": "用同一条件复现偏差，先检查我交付的信息是否完整。",
+            "face": "probe",
+            "line": "先查自己，这点我追问一下。",
+            "followup": {
+              "text": "查下来，有几处是我交付时漏了长文案和失败态，接下来呢？",
+              "options": [
+                {
+                  "id": "ds3_implementation_h",
+                  "type": "hold",
+                  "text": "认下是我的缺口，补上规则和样例，再和开发排修复范围。",
+                  "face": "pleased",
+                  "line": "认得干脆，后面好沟通。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_implementation_p",
+                  "type": "partial",
+                  "text": "先请开发按现有稿修复，补充说明等这轮上线后再给。",
+                  "face": "calm",
+                  "line": "稿里没有的，开发怎么修？",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_implementation_f",
+                  "type": "fail",
+                  "text": "设计稿评审通过了，没画出来的状态不算本轮要求。",
+                  "face": "frown",
+                  "line": "评审过了就不管？用户遇到失败态怎么办？",
+                  "delta": -7
+                }
+              ],
+              "explain": "还原问题可能来自版本、内容、交付缺口或实现限制。先用相同条件确认任务影响，自己遗漏的规则应补齐；截图一致不等于所有关键行为都正确。"
+            }
+          },
+          {
+            "id": "ds3_implementation_c",
+            "type": "off",
+            "text": "先逐像素列出所有差异，要求开发按清单复原。",
+            "face": "calm",
+            "line": "全列出来，哪些影响任务？",
+            "delta": -3
+          }
+        ],
+        "explain": "还原问题可能来自版本、内容、交付缺口或实现限制。先用相同条件确认任务影响，自己遗漏的规则应补齐；截图一致不等于所有关键行为都正确。"
+      }
+    },
+    {
+      "id": "ds3_review_reject",
+      "pools": [
+        "design_strategy"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "总监否了你的主方案，你会怎么处理？",
+        "options": [
+          {
+            "id": "ds3_review_reject_b",
+            "type": "bold",
+            "text": "保留原假设，找出哪条新约束改了取舍。",
+            "face": "probe",
+            "line": "新约束这块，我追问一下。",
+            "followup": {
+              "text": "新方案少一点动效，但更容易按期交付，你会怎么判断？",
+              "options": [
+                {
+                  "id": "ds3_review_reject_h",
+                  "type": "hold",
+                  "text": "按核心任务和成本比较，再定可接受的让步。",
+                  "face": "pleased",
+                  "line": "让步让在哪儿，说得清楚。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_review_reject_p",
+                  "type": "partial",
+                  "text": "总监既然选了新方案，就不用再检查它保没保住原任务。",
+                  "face": "calm",
+                  "line": "选了就不查，等于没判断。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_review_reject_f",
+                  "type": "fail",
+                  "text": "为保证设计完整，坚持原方案，交付成本让开发想办法。",
+                  "face": "frown",
+                  "line": "成本让开发扛？这样谈不拢。",
+                  "delta": -7
+                }
+              ],
+              "explain": "评审新增的信息需要进入方案判断。让步应说明保留的用户任务与付出的代价，而不是凭职位服从、凭个人偏好坚持或只迎合风格。"
+            }
+          },
+          {
+            "id": "ds3_review_reject_c",
+            "type": "off",
+            "text": "先换成总监平时喜欢的风格，降低下一次被否的概率。",
+            "face": "calm",
+            "line": "迎合喜好？那方案的依据呢？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_review_reject_a",
+            "type": "safe",
+            "text": "先问清被否的依据和范围，再决定怎么调整。",
+            "face": "nod",
+            "line": "嗯，先问清哪里被否。",
+            "delta": 3
+          }
+        ],
+        "explain": "评审新增的信息需要进入方案判断。让步应说明保留的用户任务与付出的代价，而不是凭职位服从、凭个人偏好坚持或只迎合风格。"
+      }
+    },
+    {
+      "id": "ds3_direction",
+      "pools": [
+        "design_strategy"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "你未来想成为怎样的设计师？先谈能力，再谈职级。",
+        "options": [
+          {
+            "id": "ds3_direction_c",
+            "type": "off",
+            "text": "先熟练所有工具和设计趋势，职级自然会跟着提升。",
+            "face": "calm",
+            "line": "工具熟练和职级，没那么直接的关系。",
+            "delta": -3
+          },
+          {
+            "id": "ds3_direction_a",
+            "type": "safe",
+            "text": "先把任务、状态和交付做扎实，再逐步承担复杂取舍。",
+            "face": "nod",
+            "line": "嗯，能力放在前面。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_direction_b",
+            "type": "bold",
+            "text": "按阶段说清要练的能力，用任务和反馈检验。",
+            "face": "probe",
+            "line": "阶段怎么分？我接着问。",
+            "followup": {
+              "text": "入职先负责局部流程，而不是整个产品，你怎么安排学习？",
+              "options": [
+                {
+                  "id": "ds3_direction_h",
+                  "type": "hold",
+                  "text": "围绕这段流程摸清上下游，核对成功条件并持续复盘。",
+                  "face": "pleased",
+                  "line": "局部也能学到东西，思路对。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_direction_p",
+                  "type": "partial",
+                  "text": "先快速做完局部任务，主要精力留给争取大项目。",
+                  "face": "calm",
+                  "line": "手上的活儿放一边，怎么行。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_direction_f",
+                  "type": "fail",
+                  "text": "只有独立负责完整产品才有价值，局部流程少花点精力。",
+                  "face": "frown",
+                  "line": "局部流程没价值？这想法有点危险。",
+                  "delta": -7
+                }
+              ],
+              "explain": "能力成长应和当前责任、任务质量及反馈相连。局部流程也可能包含完整约束和取舍，工具熟练或项目名称大小都不能自动换成专业能力与职级。"
+            }
+          }
+        ],
+        "explain": "能力成长应和当前责任、任务质量及反馈相连。局部流程也可能包含完整约束和取舍，工具熟练或项目名称大小都不能自动换成专业能力与职级。"
+      }
+    },
+    {
+      "id": "ds3_cross_compromise",
+      "pools": [
+        "design_partner"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我是产品同事。讲一次你接受别人反馈，改变原方案的经历。",
+        "options": [
+          {
+            "id": "ds3_cross_compromise_a",
+            "type": "safe",
+            "text": "说明原想法、对方的依据，以及我改变了什么。",
+            "face": "nod",
+            "line": "嗯，三件事都交代了。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_cross_compromise_b",
+            "type": "bold",
+            "text": "讲作品集导航那次：同学指出了什么，我接受了哪一处调整。",
+            "face": "probe",
+            "line": "导航那次，我接着问一句。",
+            "followup": {
+              "text": "如果修改只基于几位同学试用，你如何说明结果？",
+              "options": [
+                {
+                  "id": "ds3_cross_compromise_h",
+                  "type": "hold",
+                  "text": "说清是同学试用后改的导航，效果没验证，也没转化数据。",
+                  "face": "pleased",
+                  "line": "嗯，说的是实情，不夸大。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_cross_compromise_p",
+                  "type": "partial",
+                  "text": "同学试用后都认可了，就写成体验明显提升。",
+                  "face": "calm",
+                  "line": "几位同学认可，就算明显提升了？",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_cross_compromise_f",
+                  "type": "fail",
+                  "text": "导航已经重做过，足以证明我的方案比旧版全面更好。",
+                  "face": "frown",
+                  "line": "全面更好？证据在哪？",
+                  "delta": -7
+                }
+              ],
+              "explain": "交叉面可以用真实的小项目展示自己改变判断。比如作品集在同学试用后调整过导航，应报告具体的改变和有限的验证，不扩大成商业结果；没有这样的事，就讲一处真实的修改，并说明哪些还没验证。"
+            },
+            "requires": {
+              "highlight": "ds3_navigation"
+            },
+            "fallback": {
+              "id": "ds3_cross_compromise_b0",
+              "type": "safe",
+              "text": "讲一处真实修改，再说明尚未验证的结果。",
+              "face": "nod",
+              "line": "嗯，改了什么、没验证什么，都说到了。",
+              "delta": 2
+            }
+          },
+          {
+            "id": "ds3_cross_compromise_c",
+            "type": "off",
+            "text": "重点讲我怎样说服大家，最后大家接受了我的判断。",
+            "face": "calm",
+            "line": "我问的是你接受反馈的经历。",
+            "delta": -3
+          }
+        ],
+        "explain": "交叉面可以用真实的小项目展示自己改变判断。比如作品集在同学试用后调整过导航，应报告具体的改变和有限的验证，不扩大成商业结果；没有这样的事，就讲一处真实的修改，并说明哪些还没验证。"
+      }
+    },
+    {
+      "id": "ds3_cross_feasibility",
+      "pools": [
+        "design_partner"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "我是开发同事。原设计的复杂浮层成本很高，你会怎样一起找替代？",
+        "options": [
+          {
+            "id": "ds3_cross_feasibility_b",
+            "type": "bold",
+            "text": "保留核心信息和返回路径，比较两种实现。",
+            "face": "probe",
+            "line": "比较的话，我追问一处。",
+            "followup": {
+              "text": "独立页面要多跳转一步，但能按期交付，你怎么判断？",
+              "options": [
+                {
+                  "id": "ds3_cross_feasibility_h",
+                  "type": "hold",
+                  "text": "看选择和上下文能否保留，验证核心任务后共同决定。",
+                  "face": "pleased",
+                  "line": "嗯，一起定，有依据。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_cross_feasibility_p",
+                  "type": "partial",
+                  "text": "先接受多一步，等以后有人投诉了再检查上下文。",
+                  "face": "calm",
+                  "line": "等用户投诉才查，代价有点大。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_cross_feasibility_f",
+                  "type": "fail",
+                  "text": "设计已经定稿，开发应该想办法消除新增的成本。",
+                  "face": "frown",
+                  "line": "定稿就让开发扛？我们这边没法接。",
+                  "delta": -7
+                }
+              ],
+              "explain": "设计与实现可以共同改变方案，但要保护用户任务和上下文。增加一步可能是合理代价，也可能导致状态丢失，应比较、验证并共同确认，而非仅追求外形一致。"
+            }
+          },
+          {
+            "id": "ds3_cross_feasibility_c",
+            "type": "off",
+            "text": "先删掉浮层里的次要内容，让页面看起来接近原稿。",
+            "face": "calm",
+            "line": "删了内容，用户的任务呢？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_cross_feasibility_a",
+            "type": "safe",
+            "text": "先确认必须保留的任务与状态，再讨论实现选项。",
+            "face": "nod",
+            "line": "嗯，先把底线说清。",
+            "delta": 3
+          }
+        ],
+        "explain": "设计与实现可以共同改变方案，但要保护用户任务和上下文。增加一步可能是合理代价，也可能导致状态丢失，应比较、验证并共同确认，而非仅追求外形一致。"
+      }
+    },
+    {
+      "id": "ds3_portfolio_rights",
+      "pools": [
+        "design_ethics"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "作品集里有团队项目和未公开内容，你会怎样准备讲解？",
+        "options": [
+          {
+            "id": "ds3_portfolio_rights_c",
+            "type": "off",
+            "text": "先放团队最完整的成品，署名问题等被问到再解释。",
+            "face": "calm",
+            "line": "署名等被问了才说？",
+            "delta": -3
+          },
+          {
+            "id": "ds3_portfolio_rights_a",
+            "type": "safe",
+            "text": "先核权限、脱敏和分工，用可公开材料说明。",
+            "face": "nod",
+            "line": "嗯，先把权限弄清楚。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_portfolio_rights_b",
+            "type": "bold",
+            "text": "按公开权限选择能展示的证据，准确标出本人参与的范围。",
+            "face": "probe",
+            "line": "参与范围这块，我追问一下。",
+            "followup": {
+              "text": "没拿到公开许可，但你想证明做过这个项目，怎么办？",
+              "options": [
+                {
+                  "id": "ds3_portfolio_rights_h",
+                  "type": "hold",
+                  "text": "用获准的脱敏说明；不能展示的，就讲方法和我的职责。",
+                  "face": "pleased",
+                  "line": "嗯，守规矩，也说清了自己的位置。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_portfolio_rights_p",
+                  "type": "partial",
+                  "text": "先遮住公司标志再展示，其他细节口头提醒保密。",
+                  "face": "calm",
+                  "line": "遮个标志就算脱敏？这可不行。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_portfolio_rights_f",
+                  "type": "redline",
+                  "text": "私下面试不会传出去，完整的客户信息可以直接给他们看。",
+                  "face": "disappointed",
+                  "line": "客户信息可不能随便给人看……今天先到这儿。"
+                }
+              ],
+              "explain": "作品集需要遵守公开权限并准确归属。遮标志不等于完成脱敏，面试场景也不自动获得授权；把没有脱敏的保密项目内容拿出来展示，或把团队商用作品写成个人独立设计，都碰到了诚信与保密的底线。没拿到许可时，可以讲方法和自己的职责边界。"
+            }
+          },
+          {
+            "id": "ds3_portfolio_rights_red",
+            "type": "redline",
+            "text": "把团队商用作品标成个人独立设计，先获得面试机会。",
+            "face": "disappointed",
+            "line": "作品归属写成这样就不真实了……今天先到这儿。"
+          }
+        ],
+        "explain": "作品集需要遵守公开权限并准确归属。遮标志不等于完成脱敏，面试场景也不自动获得授权；把没有脱敏的保密项目内容拿出来展示，或把团队商用作品写成个人独立设计，都碰到了诚信与保密的底线。没拿到许可时，可以讲方法和自己的职责边界。"
+      }
+    },
+    {
+      "id": "ds3_data_integrity",
+      "pools": [
+        "design_ethics"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "视野与取舍",
+        "text": "只有一次小范围试用，作品集的结果部分怎样写？",
+        "options": [
+          {
+            "id": "ds3_data_integrity_b",
+            "type": "bold",
+            "text": "把已经观察到的变化和待验证的假设分开呈现。",
+            "face": "probe",
+            "line": "分开呈现，我再追问一处。",
+            "followup": {
+              "text": "如果我说作品集里最好有个留存提升的数字，可你手里没有，怎么办？",
+              "options": [
+                {
+                  "id": "ds3_data_integrity_h",
+                  "type": "hold",
+                  "text": "如实说没有留存数据，用任务观察支持局部结论。",
+                  "face": "pleased",
+                  "line": "嗯，没有就是没有，这个态度对。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_data_integrity_p",
+                  "type": "partial",
+                  "text": "先估一个保守数字，面试时补一句这不是严格统计。",
+                  "face": "calm",
+                  "line": "估出来的数，一写上去就成了结果。",
+                  "delta": -3
+                },
+                {
+                  "id": "ds3_data_integrity_f",
+                  "type": "redline",
+                  "text": "按行业常见的提升幅度填个数，能体现方向就行。",
+                  "face": "disappointed",
+                  "line": "这数字不是你的……今天先到这儿。"
+                }
+              ],
+              "explain": "没有数据就不能补结果数字。保守估计、行业常见幅度、把喜欢的反馈换算成留存，都是把不存在的数据写进作品集，一旦被问到来源就站不住，属于编造数据的诚信红线。可以用任务完成、错误与理解等已有观察说明局部价值，并清楚区分测试条件与真实业务结果。"
+            }
+          },
+          {
+            "id": "ds3_data_integrity_c",
+            "type": "redline",
+            "text": "把用户对新界面的好评，换算成留存提升比例。",
+            "face": "disappointed",
+            "line": "反馈怎么换算成留存？这个数是编的……今天先到这儿。"
+          },
+          {
+            "id": "ds3_data_integrity_a",
+            "type": "safe",
+            "text": "写清有几位参与者、做了什么任务、看到了什么结果。",
+            "face": "nod",
+            "line": "嗯，写的都是实际看到的。",
+            "delta": 3
+          }
+        ],
+        "explain": "没有数据就不能补结果数字。保守估计、行业常见幅度、把喜欢的反馈换算成留存，都是把不存在的数据写进作品集，一旦被问到来源就站不住，属于编造数据的诚信红线。可以用任务完成、错误与理解等已有观察说明局部价值，并清楚区分测试条件与真实业务结果。"
+      }
+    },
+    {
+      "id": "ds3_reverse_1",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题先到这里，你有什么想了解的？",
+        "options": [
+          {
+            "id": "ds3_reverse_1_a",
+            "type": "reverse",
+            "text": "头三个月我会跟哪段流程？评审时谁来给反馈？",
+            "face": "pleased",
+            "line": "先跟一条流程，评审有固定的人带你。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_reverse_1_b",
+            "type": "reverse",
+            "text": "团队平时用什么设计工具，规范文档能提前看吗？",
+            "face": "nod",
+            "line": "工具入职时给你，规范文档到时一起过。",
+            "delta": 0
+          },
+          {
+            "id": "ds3_reverse_1_c",
+            "type": "reverse",
+            "text": "这个岗位的薪资和级别，大概是什么范围？",
+            "face": "calm",
+            "line": "这个你问 HR 会更准。",
+            "delta": -2
+          }
+        ],
+        "explain": "反问是在核对真实的工作：头几个月负责哪段流程、评审时谁给反馈。问工具和规范文档不算错，但信息量有限；薪资和级别更适合留给 HR 面。"
+      }
+    },
+    {
+      "id": "ds3_reverse_2",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题先到这里，你有什么想了解的？",
+        "options": [
+          {
+            "id": "ds3_reverse_2_a",
+            "type": "reverse",
+            "text": "业务要设计系统开例外时，谁来拍板、怎么验证？",
+            "face": "pleased",
+            "line": "先评审影响面，再由设计和业务一起定。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_reverse_2_b",
+            "type": "reverse",
+            "text": "团队今年有哪些项目，我可能会分到哪一块？",
+            "face": "nod",
+            "line": "有两个大项目，具体看你的长项再分。",
+            "delta": 1
+          },
+          {
+            "id": "ds3_reverse_2_c",
+            "type": "reverse",
+            "text": "转正以后如果我更想做产品，可以申请转岗吗？",
+            "face": "calm",
+            "line": "这才刚开始呢，先把设计这边做好吧。",
+            "delta": -2
+          }
+        ],
+        "explain": "问设计系统的例外由谁拍板、怎么验证，是在了解团队怎样处理“要不要统一”这类真实分歧。问项目安排也正当，只是信息偏泛；还没入职就问转岗，容易让人觉得你对当前岗位还没想定。"
+      }
+    },
+    {
+      "id": "ds3_reverse_3",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题先到这里，你有什么想了解的？",
+        "options": [
+          {
+            "id": "ds3_reverse_3_a",
+            "type": "reverse",
+            "text": "您看设计价值，怎么区分任务改善和业务结果？",
+            "face": "pleased",
+            "line": "好问题，我们评审时就是分开看的。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_reverse_3_b",
+            "type": "reverse",
+            "text": "团队对新人的培养，有哪些固定安排？",
+            "face": "nod",
+            "line": "有导师，每个月会有一次案例复盘。",
+            "delta": 1
+          },
+          {
+            "id": "ds3_reverse_3_c",
+            "type": "reverse",
+            "text": "您觉得我这次的表现，能打几分？",
+            "face": "calm",
+            "line": "这个我现在没法给你打分。",
+            "delta": -2
+          }
+        ],
+        "explain": "总监适合回答设计价值、团队方向这类问题。培养安排问得具体，也是正常关注；当场问“能打几分”，是想把面试评价直接要出来，容易让对话变成讨价还价。"
+      }
+    },
+    {
+      "id": "ds3_reverse_4",
+      "pools": [
+        "biz_reverse"
+      ],
+      "priority": 50,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "kind": "reverse",
+        "text": "我的问题先到这里，你有什么想了解的？",
+        "options": [
+          {
+            "id": "ds3_reverse_4_a",
+            "type": "reverse",
+            "text": "三方意见不一致时，最后的决定一般记在哪里？",
+            "face": "pleased",
+            "line": "记在评审结论里，三方都会签认。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_reverse_4_b",
+            "type": "reverse",
+            "text": "开发排期一般提前多久会通知设计？",
+            "face": "nod",
+            "line": "一般提前一周，紧急的会口头先说。",
+            "delta": 0
+          },
+          {
+            "id": "ds3_reverse_4_c",
+            "type": "reverse",
+            "text": "你们三方里，谁的话语权最大？",
+            "face": "calm",
+            "line": "话语权啊……我们更看重一起把事做完。",
+            "delta": -2
+          }
+        ],
+        "explain": "交叉面的对象是产品和开发，问分歧怎么记录、决定怎么落地，是在了解协作的真实流程。问排期的提前量是实用问题，但信息偏窄；“谁说了算”这种问法，容易把协作问成站队。"
+      }
+    }
+  ],
+  "background": [
+    {
+      "id": "ds3_bg_scope",
+      "pools": [
+        "director"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "design"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "如果入职第一个月就接手一块已经上线的流程，你觉得自己最可能在哪一环出问题？",
+        "options": [
+          {
+            "id": "ds3_bg_scope_a",
+            "type": "safe",
+            "text": "先点名最缺的一环，再讲第一个月怎么验证和补上。",
+            "face": "nod",
+            "line": "嗯，点得出薄弱环节。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_bg_scope_b",
+            "type": "bold",
+            "text": "按流程拆开讲：哪几环做过，哪几环要人带。",
+            "face": "probe",
+            "line": "要人带的那几环，我多问一句。",
+            "followup": {
+              "text": "如果带你的人也很忙，没时间带你，你怎么办？",
+              "options": [
+                {
+                  "id": "ds3_bg_scope_h",
+                  "type": "hold",
+                  "text": "先自己把线上问题和现有规范过一遍，攒好问题再约时间请教。",
+                  "face": "pleased",
+                  "line": "嗯，不干等，也不乱动。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_bg_scope_p",
+                  "type": "partial",
+                  "text": "等对方忙完再问，期间先做手上能做的小任务。",
+                  "face": "calm",
+                  "line": "等是可以，这段时间能多做点什么？",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_bg_scope_f",
+                  "type": "fail",
+                  "text": "没人带就按自己的想法先改，改完再通知大家。",
+                  "face": "frown",
+                  "line": "线上的流程，先改后通知可不行。",
+                  "delta": -7
+                }
+              ],
+              "explain": "能点名薄弱环节只是开始，没人带的时候怎么办才看得出做事的方式。先自查、攒问题，再约时间请教，既不干等也不越权；先改后通知，线上流程出了问题影响的是真实用户。"
+            }
+          },
+          {
+            "id": "ds3_bg_scope_c",
+            "type": "off",
+            "text": "我适应能力强，到哪一环都能很快顶上，没什么担心的。",
+            "face": "calm",
+            "line": "每一环都不担心？我倒有点担心。",
+            "delta": -3
+          }
+        ],
+        "explain": "这道题问的是自知：能点名一个具体的薄弱环节，并说清第一个月怎样验证和补上，比笼统的“学得快”可信。没有人带的时候，更稳妥的做法是先自查线上问题和现有规范、攒好问题再请教；先改后通知，对已经上线的流程风险更大。"
+      }
+    },
+    {
+      "id": "ds3_bg_transition",
+      "pools": [
+        "hr"
+      ],
+      "priority": 60,
+      "when": {
+        "role": "design",
+        "major_kind": "non_tech"
+      },
+      "node": {
+        "tag": "动机与稳定",
+        "text": "你的专业经历和交互设计有哪些联系，哪些能力还要补？",
+        "options": [
+          {
+            "id": "ds3_bg_transition_a",
+            "type": "safe",
+            "text": "挑一段真实经历，说明哪些方法能迁移，再讲缺什么。",
+            "face": "nod",
+            "line": "嗯，有经历撑着。",
+            "delta": 3
+          },
+          {
+            "id": "ds3_bg_transition_b",
+            "type": "bold",
+            "text": "把已验证的能力和还没练过的分成两栏，每栏各举一个例子。",
+            "face": "probe",
+            "line": "没练过的那栏，我追问一下。",
+            "followup": {
+              "text": "你说交付这块还没练过，打算怎么补，多久能补到能独立做？",
+              "options": [
+                {
+                  "id": "ds3_bg_transition_h",
+                  "type": "hold",
+                  "text": "拿小功能练完整交付，争取三个月能独立做。",
+                  "face": "pleased",
+                  "line": "嗯，有动作，也有时间点。",
+                  "delta": 9
+                },
+                {
+                  "id": "ds3_bg_transition_p",
+                  "type": "partial",
+                  "text": "已经在自学了，但还没排出具体的时间表和目标。",
+                  "face": "calm",
+                  "line": "自学是好事，可没有时间表，就不好判断。",
+                  "delta": 1
+                },
+                {
+                  "id": "ds3_bg_transition_f",
+                  "type": "fail",
+                  "text": "我的研究方法比科班更扎实，交付上的差距可以忽略。",
+                  "face": "frown",
+                  "line": "交付上的差距可以忽略？这个我不能同意。",
+                  "delta": -7
+                }
+              ],
+              "explain": "缺口的回答要有动作和时间点：拿一个小功能走完整的交付，比泛泛地说“会自学”可信。已经在补但没有时间表，只算说了一半；把差距说成可以忽略，等于对自己的短板没有判断。"
+            }
+          },
+          {
+            "id": "ds3_bg_transition_c",
+            "type": "off",
+            "text": "说说专业不同带来的新视角，方法细节以后再谈。",
+            "face": "calm",
+            "line": "新视角？那具体用在哪儿？",
+            "delta": -3
+          }
+        ],
+        "explain": "跨专业的回答先要有迁移的证据，再老实说缺口。缺口说出来还不够，要说明具体怎么补、多久补到能独立做；只写“以后再学”，听起来像把缺口留给团队。"
+      }
+    }
+  ],
+  "frames": {
+    "user_research_intern": [
+      {
+        "id": "ds3_frame_research",
+        "roles": [
+          "design"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "用研实习这段，挑一个最有价值的发现，讲讲它后来去了哪里。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.ds3_summary}",
+              "face": "nod",
+              "line": "嗯，从证据讲起。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先报访谈12场、问卷1200份这些规模，发现留到最后说。",
+              "face": "calm",
+              "line": "规模我看到了，发现是什么？"
+            }
+          ],
+          "explain": "讲用研发现，先讲发现本身和证据，再讲它怎样进入建议。建议、方案和上线是不同的环节，分清各自是谁做的，对方才知道你的位置。"
+        }
+      }
+    ],
+    "research_tool": [
+      {
+        "id": "ds3_frame_flow",
+        "roles": [
+          "design"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "在线实验程序这段，你怎样安排操作流程和反馈？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.ds3_summary}",
+              "face": "nod",
+              "line": "嗯，流程和反馈都有。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先讲搭建用的开源框架和代码结构，流程反馈放最后。",
+              "face": "calm",
+              "line": "框架我不太关心，流程是怎么设计的？"
+            }
+          ],
+          "explain": "讲交互流程，先讲被试要完成什么、每一步看到什么反馈，再讲异常怎么处理。用了开源框架的部分，要和自己做的部分分开说。"
+        }
+      }
+    ],
+    "personal_project": [
+      {
+        "id": "ds3_frame_portfolio",
+        "roles": [
+          "design"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "作品集网站这段，挑一个你根据反馈调整的决定讲讲。",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.ds3_summary}",
+              "face": "nod",
+              "line": "嗯，有依据。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先介绍网站的配色和排版风格，导航那次顺带提一句。",
+              "face": "calm",
+              "line": "风格我看得到，反馈呢？"
+            }
+          ],
+          "explain": "讲一个根据反馈做的调整，先说依据来自谁、看到了什么问题，再说改了什么。小范围试用能支持这次调整本身，不能当成整体效果的证明。"
+        }
+      }
+    ],
+    "thesis": [
+      {
+        "id": "ds3_frame_scene",
+        "roles": [
+          "design"
+        ],
+        "node": {
+          "tag": "项目表达",
+          "text": "论文里的研究发现，对你做设计有什么用？",
+          "options": [
+            {
+              "key": "a",
+              "type": "safe",
+              "delta": 3,
+              "text": "{exp.ds3_summary}",
+              "face": "nod",
+              "line": "嗯，说得谨慎。"
+            },
+            {
+              "slot": "highlight"
+            },
+            {
+              "key": "c",
+              "type": "off",
+              "delta": -3,
+              "text": "先把问卷各题的频数报一遍，设计上的用处后面再说。",
+              "face": "calm",
+              "line": "频数先放一边，对设计有什么用？"
+            }
+          ],
+          "explain": "论文里的发现对设计的用处，在于提供待验证的场景线索，而不是直接给方案下结论。先说发现了什么、样本和阶段，再说它带出了什么设计问题。"
+        }
+      }
+    ]
+  },
+  "highlights": {
+    "ds3_research_boundary": {
+      "name": "研究证据转成交互建议",
+      "roles": [
+        "design"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "讲课程表入口发现：从任务失败到导航建议。",
+        "face": "probe",
+        "line": "好，这个发现我追问一处。",
+        "followup": {
+          "text": "那个导航建议后来怎么样了？你在里面算哪一环？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "建议被采纳，方案和上线归产品和开发，数据我没跟到。",
+              "face": "pleased",
+              "line": "嗯，你的位置讲得很清楚。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "改版是我推动的，上线效果得问产品同事才有数。",
+              "face": "calm",
+              "line": "推动？方案不是产品出的吗？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "redline",
+              "text": "留存没跟到，不过这类改版通常提升两成左右，我就这么写。",
+              "face": "disappointed",
+              "line": "两成是哪来的？……好，今天先到这儿。"
+            }
+          ],
+          "explain": "许诺访谈12人中7人提到问题，8人测试有6人找不到入口。建议被采纳不等于独立完成改版，更不能用行业常见幅度去补离职后没有跟到的数据，那属于编造，是诚信红线。"
+        }
+      },
+      "explain": "许诺访谈12人中7人提到问题，8人测试有6人找不到入口。建议被采纳不等于独立完成改版，更不能用行业常见幅度去补离职后没有跟到的数据，那属于编造，是诚信红线。"
+    },
+    "ds3_flow_recovery": {
+      "name": "在线实验流程与中断恢复",
+      "roles": [
+        "design"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "讲在线实验怎样串联任务，并处理退出时的数据。",
+        "face": "probe",
+        "line": "好，退出那块我追问一下。",
+        "followup": {
+          "text": "被试做到一半关掉了页面，当时你是怎么处理的？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "关页前的记录已存本地，结束统一提交，异常不保证全恢复。",
+              "face": "pleased",
+              "line": "嗯，能做到的和做不到的都说了。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "退出的数据都处理过，只是具体机制得回去翻代码才说得细。",
+              "face": "calm",
+              "line": "自己写的程序，还要回去翻代码？",
+              "delta": -2
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "每屏都有记录，所以任何中断后数据都能完整恢复。",
+              "face": "frown",
+              "line": "任何中断都能恢复？这话说太满了。",
+              "delta": -7
+            }
+          ],
+          "explain": "在线实验的已有实现包含本地暂存、结束提交和中途退出的数据保护。设计表达应区分当前进度、提交结果和恢复边界，不能把局部机制夸成任何场景都不丢数据。"
+        }
+      },
+      "explain": "在线实验的已有实现包含本地暂存、结束提交和中途退出的数据保护。设计表达应区分当前进度、提交结果和恢复边界，不能把局部机制夸成任何场景都不丢数据。"
+    },
+    "ds3_navigation": {
+      "name": "接受反馈调整案例导航",
+      "roles": [
+        "design"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "讲作品集导航那次，我怎样根据试用反馈修改安排。",
+        "face": "probe",
+        "line": "好，导航那次我多问一句。",
+        "followup": {
+          "text": "那次改动之后，你怎么评价它的效果？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "依据是同学找案例费力，效果没验证，也没转化数据。",
+              "face": "pleased",
+              "line": "嗯，依据和局限都说了。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "同学都说改得好，整站体验提升就是这个案例的主要成果。",
+              "face": "calm",
+              "line": "几位同学说好，就算整站提升了？",
+              "delta": -3
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "改完导航，3个案例对所有访客都更有说服力了。",
+              "face": "frown",
+              "line": "所有访客？你测了多少人？",
+              "delta": -7
+            }
+          ],
+          "explain": "许诺的网站有3个案例，找同学试用后改过一次导航。可以说明具体反馈与行动，但不能把一次同学试用推广为商业转化或所有用户都受益。"
+        }
+      },
+      "explain": "许诺的网站有3个案例，找同学试用后改过一次导航。可以说明具体反馈与行动，但不能把一次同学试用推广为商业转化或所有用户都受益。"
+    },
+    "ds3_scene_limit": {
+      "name": "研究场景形成设计假设",
+      "roles": [
+        "design"
+      ],
+      "pitch": {
+        "type": "bold",
+        "text": "讲短视频论文的使用场景，怎样形成待验证的设计问题。",
+        "face": "probe",
+        "line": "好，这个场景我追问一处。",
+        "followup": {
+          "text": "睡前和通勤这两个场景最常见，你会据此设计什么？",
+          "options": [
+            {
+              "key": "b1",
+              "type": "hold",
+              "text": "先分清两类场景里的任务，小范围试过再定；论文结论还是初步的。",
+              "face": "pleased",
+              "line": "嗯，没急着下结论。",
+              "delta": 9
+            },
+            {
+              "key": "b2",
+              "type": "partial",
+              "text": "先做成默认提醒，同时让用户能改时间，再看哪些人改了设置。",
+              "face": "calm",
+              "line": "能改是对的，不过默认值凭什么是这个？",
+              "delta": 1
+            },
+            {
+              "key": "b3",
+              "type": "fail",
+              "text": "600份问卷够多了，最常见的时间直接定成默认提醒。",
+              "face": "frown",
+              "line": "600份，就能替所有人定时间？",
+              "delta": -7
+            }
+          ],
+          "explain": "许诺论文600份问卷、15人访谈提供了初步场景线索，不等于验证了提醒方案。研究发现进入设计还需要任务、人群与效果检查，不能从频数直接推默认策略。"
+        }
+      },
+      "explain": "许诺论文600份问卷、15人访谈提供了初步场景线索，不等于验证了提醒方案。研究发现进入设计还需要任务、人群与效果检查，不能从频数直接推默认策略。"
+    }
+  },
+  "skill_probes": {
+    "ds3_probe_system": {
+      "tag": "专业",
+      "text": "你写精通设计系统。业务提出一个新状态时，怎样判断它应进入公共组件还是留在业务层？",
+      "options": [
+        {
+          "id": "ds3_ps_a",
+          "type": "safe",
+          "text": "先比真实场景的共性与差异，再明确组件契约。",
+          "face": "nod",
+          "line": "嗯，先从场景看起。",
+          "delta": 3
+        },
+        {
+          "id": "ds3_ps_b",
+          "type": "bold",
+          "text": "拿两个业务验证语义和状态，不堆配置。",
+          "face": "probe",
+          "line": "检验语义这点，我追问一下。",
+          "followup": {
+            "text": "两个业务各有一个叫“处理中”的状态，含义却不一样，你怎么处理？",
+            "options": [
+              {
+                "id": "ds3_ps_h",
+                "type": "hold",
+                "text": "先问清两边的业务含义，含义不同就拆开命名。",
+                "face": "pleased",
+                "line": "嗯，先问事实，再定名字。",
+                "delta": 9
+              },
+              {
+                "id": "ds3_ps_p",
+                "type": "partial",
+                "text": "先统一视觉，语义差异在交付文档里单独备注一下。",
+                "face": "calm",
+                "line": "只在文档里备注，用的人未必会看。",
+                "delta": -3
+              },
+              {
+                "id": "ds3_ps_f",
+                "type": "fail",
+                "text": "名称相同就应该完全统一，否则设计系统失去意义。",
+                "face": "frown",
+                "line": "名字一样含义不同，也要统一？",
+                "delta": -5
+              }
+            ],
+            "explain": "公共状态要有共同语义，不能靠统一外观消除业务事实差异。应以真实使用场景验证边界，避免只有配置数量而没有明确契约。"
+          }
+        },
+        {
+          "id": "ds3_ps_truth",
+          "type": "fail",
+          "text": "精通写满了，我只练习过规范与状态整理，没做过治理。",
+          "face": "frown",
+          "line": "那为什么要写精通？",
+          "delta": -1
+        }
+      ],
+      "explain": "精通表述会引出边界与演进问题。如实修正比错误解释损失更少；小型规范练习能说明部分能力，不能包装成企业级治理经验。"
+    }
+  }
+}
