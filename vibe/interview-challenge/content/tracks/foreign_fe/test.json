@@ -222,46 +222,46 @@
     "fgf_t8": {
       "level": "中",
       "points": 15,
-      "category": "Verbal reasoning",
-      "text": "A handoff says: \"UI tests passed with mock data. The production API has not been verified.\" What can you conclude?",
+      "category": "Numerical reasoning",
+      "text": "Five requests took 120, 130, 140, 150 and 960 ms. Which statement is accurate?",
       "options": [
         {
-          "text": "The complete user journey is already verified."
+          "text": "The mean is 140 ms, since most requests finished close to that time."
         },
         {
-          "text": "Only the mock-backed UI was tested so far.",
+          "text": "The median is 300 ms, since the slow request has to be counted."
+        },
+        {
+          "text": "The median is 135 ms, the average of the four fast requests."
+        },
+        {
+          "text": "The median is 140 ms; a slow request pulls the mean up to 300 ms.",
           "correct": true
-        },
-        {
-          "text": "The production API definitely fails."
-        },
-        {
-          "text": "The API requires no further testing."
         }
       ],
-      "explain": "可确认的是模拟数据界面测试通过，真实接口未验证。未验证既不代表失败，也不代表整条链路已经通过。"
+      "explain": "五个值排序后取中间的第3个，中位数是140 ms；平均数是(120+130+140+150+960)/5=1500/5=300 ms。一个960 ms的慢请求把平均数拉到远高于其余请求，所以中位数更接近典型请求的体验。平均数仍有用，它反映总耗时；看延迟分布时通常还要配合高分位数一起看。"
     },
     "fgf_t9": {
       "level": "难",
       "points": 25,
       "category": "Frontend",
-      "text": "A monitoring SDK sends no events after a release, but entry traffic remains normal. What should you do first?",
+      "text": "A page sends a cross-origin fetch with a JSON body and an Authorization header. DevTools shows a failed OPTIONS request and no POST. What is the most likely cause?",
       "options": [
         {
-          "text": "Declare the release stable because errors disappeared."
-        },
-        {
-          "text": "Check telemetry coverage and the actual user journey.",
+          "text": "The server's answer to the preflight check didn't allow the request.",
           "correct": true
         },
         {
-          "text": "Increase rollout until the event counts match."
+          "text": "The server rejected the JSON, so the browser retried with OPTIONS."
         },
         {
-          "text": "Use entry traffic as a stand-in for successes."
+          "text": "The POST response lacked CORS headers, so the browser discarded it."
+        },
+        {
+          "text": "Browsers can't send JSON across origins, so the API needs form data."
         }
       ],
-      "explain": "没有事件，可能是监控本身失效，也可能是页面在更早的步骤就失败了，所以先核对采集覆盖和真实的关键路径。不能用入口访问量去代替成功事件，也不能把“没有报错”当成发布稳定。"
+      "explain": "跨域请求带application/json或Authorization这类非简单请求头，浏览器会先发一个OPTIONS预检请求，问服务器是否允许这个来源、方法和请求头。预检没通过，浏览器就不会发出真正的POST，所以DevTools里只有失败的OPTIONS。服务器需要对OPTIONS返回2xx，并带上Access-Control-Allow-Origin、Allow-Methods、Allow-Headers。顺序是先预检、后正式请求，不是被拒后重试；POST根本没发出，也就谈不上它的响应缺头；浏览器可以跨域发JSON，只要服务端允许。"
     }
   }
 }

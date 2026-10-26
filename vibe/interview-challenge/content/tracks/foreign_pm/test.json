@@ -121,27 +121,27 @@
       "level": "中",
       "points": 15,
       "category": "Product metrics",
-      "text": "Which metric most directly describes whether users finish a reporting task?",
+      "text": "Weekly active users rose 40%, but week-1 retention fell. Is that possible?",
       "options": [
         {
           "id": "fgp_t3_0",
-          "text": "Average time users spend on the reporting page"
+          "text": "Yes. New sign-ups lift the total while each group returns less.",
+          "correct": true
         },
         {
           "id": "fgp_t3_1",
-          "text": "Number of visits to the reporting page each week"
+          "text": "No. Retention is a share of all users, so it follows the total."
         },
         {
           "id": "fgp_t3_2",
-          "text": "Total clicks on every control across all pages"
+          "text": "Yes, if older users are leaving, which is what lowers retention."
         },
         {
           "id": "fgp_t3_3",
-          "text": "Completed reports out of all eligible attempts",
-          "correct": true
+          "text": "No. Retention counts cancellations, so it can't fall during growth."
         }
       ],
-      "explain": "任务完成指标应对应符合条件的尝试与成功结果。停留、访问与点击可辅助诊断，不能单独说明用户完成了报告。"
+      "explain": "留存按同一批新注册用户来算：分母是这批用户的人数，分子是其中第一周回来的人数。它和平台的总活跃人数是两个口径，方向可以相反。例如上周注册1000人、回访300人（30%），本周注册3000人、回访600人（20%）：每批的留存率降了，回访的人数却翻了一倍，周活仍可上升。老用户流失影响的是老用户自己的留存，不会改变新一批用户第一周的回访比例；留存也不等于取消订阅。"
     },
     "fgp_t4": {
       "level": "中",
@@ -173,53 +173,53 @@
       "level": "难",
       "points": 25,
       "category": "Experiment judgment",
-      "text": "Users who adopt a feature retain more often, but they were more active before launch. Which conclusion is justified?",
+      "text": "Overall trial conversion fell from 26% to 13% between two quarters, yet it rose in both the enterprise and small-business segments. What is the most likely explanation?",
       "options": [
         {
           "id": "fgp_t5_0",
-          "text": "The feature caused the whole retention difference."
+          "text": "That can't happen, so a segment figure was probably miscalculated."
         },
         {
           "id": "fgp_t5_1",
-          "text": "Adoption and retention go together; cause remains open.",
-          "correct": true
+          "text": "The overall rate is the reliable figure; segment gains are noise."
         },
         {
           "id": "fgp_t5_2",
-          "text": "The feature has no effect, since earlier activity differs."
+          "text": "Some customers were counted in both segments, inflating both rates."
         },
         {
           "id": "fgp_t5_3",
-          "text": "Higher retention means the feature should be mandatory."
+          "text": "The mix of trials shifted toward the segment that converts less.",
+          "correct": true
         }
       ],
-      "explain": "先前活跃程度不同提示自选择或混杂。观察到相关不能直接证明有或没有因果效果，需定义比较并补适当验证。"
+      "explain": "这是辛普森悖论：总体比例是各分群比例按人数占比加权的结果，占比变了，总体就可能和每个分群的方向相反。推导：第一季度企业客户240/600=40%，小企业20/400=5%，合计260/1000=26%；第二季度企业客户84/200=42%，小企业48/800=6%，合计132/1000=13.2%。两个分群都上升，但转化率低的小企业占比从40%升到80%，把总体拉了下来。分群数字没有算错，也不能只信总体；重复计数要有迹象才能怀疑，题里没有。"
     },
     "fgp_t6": {
       "level": "难",
       "points": 25,
       "category": "Requirements judgment",
-      "text": "An export includes confidential fields. The data owner hasn't defined access rules. What is the best next step?",
+      "text": "A spec says \"file uploads must be fast.\" Which rewrite works best as an acceptance criterion?",
       "options": [
         {
           "id": "fgp_t6_0",
-          "text": "Give managers access now and audit all exports afterward"
+          "text": "Uploads of typical files complete within 12 seconds for most users."
         },
         {
           "id": "fgp_t6_1",
-          "text": "Copy the screen permissions over without further review"
-        },
-        {
-          "id": "fgp_t6_2",
-          "text": "Confirm scope and access using synthetic examples first",
+          "text": "A 10 MB file uploads within 12 seconds on a 10 Mbps connection.",
           "correct": true
         },
         {
+          "id": "fgp_t6_2",
+          "text": "At least 4 in 5 users rate upload speed as good after launch."
+        },
+        {
           "id": "fgp_t6_3",
-          "text": "Release to one customer and seek approval after feedback"
+          "text": "Uploads are noticeably faster than in the previous version."
         }
       ],
-      "explain": "导出里有保密字段、数据负责人又没有定访问规则时，应先确认范围和授权。可以用合成示例推进讨论，但事后审计、小范围试用或照搬页面权限，都不能代替这项确认。"
+      "explain": "验收标准要让一个没参与开发的人照着步骤就能判定通过与否，所以要写清条件（文件大小、网络）、指标和阈值。第一项有数字，但“典型文件”“大多数用户”都没有定义，测的人没法复现；第三项是上线后的满意度，发布前验不了；第四项没有基线和阈值，“明显”无法判定。正确项给出文件大小和网速，才能在测试环境里重复并得出通过或不通过。"
     },
     "fgp_a1": {
       "level": "易",
@@ -277,27 +277,27 @@
       "level": "难",
       "points": 25,
       "category": "Experiment judgment",
-      "text": "A planned test looks positive on day one. There is no safety issue, and the planned observation is incomplete. What should you do?",
+      "text": "An A/B test was planned as a 50/50 split. After a week, control has 10,000 users and treatment has 9,000, and treatment converts better. What should you do first?",
       "options": [
         {
           "id": "fgp_a3_0",
-          "text": "End the test while the observed difference is favorable"
+          "text": "Report the lift, since conversion is a per-user rate."
         },
         {
           "id": "fgp_a3_1",
-          "text": "Change the main metric to the largest improvement"
+          "text": "Remove 1,000 control users at random to even out the groups."
         },
         {
           "id": "fgp_a3_2",
-          "text": "Follow the analysis plan before making the effect claim",
+          "text": "Find out why the split is off before trusting the result.",
           "correct": true
         },
         {
           "id": "fgp_a3_3",
-          "text": "Keep only the users who used the new feature"
+          "text": "Wait for more traffic, since larger samples even out the split."
         }
       ],
-      "explain": "应按分析计划评估，不能因第一天好看就挑时点结束或更换指标。按功能使用筛人还会改变比较人群，结果不再对应原问题。"
+      "explain": "计划是各占一半，实际1万对9千，是样本比例失衡（SRM）。随机分流下，19000人里两组人数之差的标准差约138人（4×19000×0.25再开方），1000的差距约是它的7倍，不能当作偶然。失衡常说明分流、重定向或曝光日志出了问题，丢掉的人往往不是随机的，结果可能已有偏差，所以先查原因再谈提升。随机删人补不回缺失的那部分人；多等流量，绝对差距也不会因为随机而消失。"
     }
   }
 }

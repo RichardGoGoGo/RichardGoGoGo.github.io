@@ -17,7 +17,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* 隐私模式等情况下不存 */ } },
   del(k) { try { localStorage.removeItem(k); } catch { /* 同上 */ } },
 };
-const KEY = { settings: "ic_settings", save: "ic_save", dex: "ic_dex", first: "ic_first", unlock: "ic_unlock", progress: "ic_progress", offers: "ic_offers", tutorial: "ic_tutorial" };
+const KEY = { settings: "ic_settings", save: "ic_save", dex: "ic_dex", first: "ic_first", unlock: "ic_unlock", progress: "ic_progress", offers: "ic_offers", tutorial: "ic_tutorial", achs: "ic_achs" };
 
 // ---------------------------------------------------------------- 投递进度：以游戏里的真实进度为准
 // 每个人设在每家公司的状态记在这里：进行中（停在哪一关）、拿到 offer（最好的档位）、没过（挂在哪一关）。同一家公司重来不算“别家”。
@@ -535,7 +535,7 @@ function titleScreen() {
     <label class="row card"><input type="checkbox" data-act="relaxed" ${relaxed() ? "checked" : ""}>
       <span>从容模式：答题不计时，照常计分，分享卡上会注明</span></label>
     <div class="spacer"></div>
-    <p class="fine">原型 · ${openCompanies().length} 家公司、${S.catalog.personas.length} 个人设都能选（${openCompanies().map((co) => `${co.name}招${tracksOf(co.id).map((t) => S.catalog.roles[t.role].name).join("、")}`).join("，")}）。人设投不对口的岗位也能玩，只是更难。像素版的图还在陆续到位，缺的角色先用方块脸；数字都是游戏设定，不代表市场行情。</p>
+    <p class="fine">原型 · ${openCompanies().length} 家公司、${S.catalog.personas.length} 个人设都能选（${openCompanies().map((co) => `${co.name}招${tracksOf(co.id).map((t) => S.catalog.roles[t.role].name).join("、")}`).join("，")}）。人设投不对口的岗位也能玩，只是更难。数字都是游戏设定，不代表市场行情。</p>
   </div>`);
   on("[data-act=start]", "click", companyScreen);
   on("[data-act=continue]", "click", continueFromSave);
@@ -590,7 +590,6 @@ const tracksOf = (companyId) => S.catalog.tracks.filter((t) => t.company === com
 const openCompanies = () => S.catalog.companies.map((id) => S.companies[id]).filter((co) => tracksOf(co.id).length);
 
 const COMPANY_MAP_POS = { hardtech: [73,274], bigcorp: [195,274], foreign: [306,274], midcorp: [73,445], unicorn: [180,445], soe: [291,445], studio: [57.58,133.01] };
-const COMPANY_LOGO = { soe: "LOGO_hengchuan", hardtech: "LOGO_panyue", foreign: "LOGO_meridane", studio: "LOGO_qingwu" };
 function companyMapHtml() {
   if (!hasArt("S0_city_map")) return "";
   return `<div class="company-map"><img src="art/S0_city_map.png" alt="七家公司：磐岳、巨塔、梅瑞丹、方格、跃迁、恒川与青梧">${Object.entries(COMPANY_MAP_POS).map(([id,[x,y]]) => {
@@ -616,7 +615,7 @@ function companyScreen() {
     <h2>选公司</h2>
     <p class="muted">${map ? "" : "S0 公司选择地图（占位）。"}公司按类型和规模分，星星越多越难，面法也各不一样。</p>
     ${companies.filter((co) => tracksOf(co.id).length).map((co) => `<button class="card block" data-company="${co.id}">
-      <span class="row">${COMPANY_LOGO[co.id] && hasArt(COMPANY_LOGO[co.id]) ? `<img src="art/${COMPANY_LOGO[co.id]}.png" width="32" height="32" alt="">` : ""}<b>${esc(co.name)}</b><span class="tag">${esc(co.type_label)}</span><span class="spacer"></span>${"★".repeat(co.stars)}</span>
+      <span class="row">${co.logo && hasArt(co.logo) ? `<img src="art/${co.logo}.png" width="32" height="32" alt="">` : ""}<b>${esc(co.name)}</b><span class="tag">${esc(co.type_label)}</span><span class="spacer"></span>${"★".repeat(co.stars)}</span>
       <span class="fine">招：${tracksOf(co.id).map((t) => S.catalog.roles[t.role].full).join("、")}</span>
     </button>`).join("")}
     ${locked.map((l) => `<div class="card locked"><span class="row"><b>${l.name}</b>${l.type ? `<span class="tag">${l.type}</span>` : ""}<span class="spacer"></span>${"★".repeat(l.stars)}</span><span class="lock">${lockIcon()} ${l.note}</span></div>`).join("")}
@@ -627,9 +626,11 @@ function companyScreen() {
   on("[data-act=back]", "click", titleScreen);
 }
 
-function personaScreen(companyId, appearance = "f") {
+// 一人一个小方块，一屏放下；点方块先选中，下面一条写简介，再点“选某某”进选岗位
+function personaScreen(companyId, appearance = "f", picked = S.catalog.personas[0]) {
   const draw = () => {
     const list = S.catalog.personas.map((id) => S.personas[id]);
+    const p = S.personas[picked];
     render(`<div class="screen">
       <h2>选人设</h2>
       <p class="muted">所有玩家拿到的人设和经历都一样，比的是怎么写、怎么答。</p>
@@ -639,13 +640,17 @@ function personaScreen(companyId, appearance = "f") {
         <button class="chip ${appearance === "m" ? "on" : ""}" data-app="m">男</button>
         <span class="fine">外观只影响形象，不影响判定</span>
       </div>
-      ${list.map((p) => `<div class="card persona-card">
-        <div class="row">${sprite(`${p.art}${appearance}`, "calm")}<div><h3>${esc(p.name)} · ${esc(p.label)}</h3><p class="fine">${esc(cardText(p.card.lines[0]))}</p></div></div>
-        <div class="row" style="margin-top:8px"><button class="small" data-card="${p.id}">看人设卡</button><span class="spacer"></span><button class="primary" data-pick="${p.id}">选${esc(p.name)}</button></div>
-      </div>`).join("")}
+      <div class="persona-grid">${list.map((x) => `<button class="persona-tile${x.id === picked ? " on" : ""}" data-tile="${x.id}" aria-pressed="${x.id === picked}">
+        ${sprite(`${x.art}${appearance}`, "calm")}<span class="nm">${esc(x.name)}</span><span class="fine">${esc(x.label)}</span></button>`).join("")}</div>
+      <div class="card persona-pick">
+        <h3>${esc(p.name)} · ${esc(p.label)}</h3>
+        <p class="fine">${esc(cardText(p.card.lines[0]))}</p>
+        <div class="row"><button class="small" data-card="${p.id}">看人设卡</button><span class="spacer"></span><button class="primary" data-pick="${p.id}">选${esc(p.name)}</button></div>
+      </div>
       <button class="ghost block" data-act="back">返回</button>
     </div>`);
     on("[data-app]", "click", (e) => { appearance = e.currentTarget.dataset.app; draw(); });
+    on("[data-tile]", "click", (e) => { picked = e.currentTarget.dataset.tile; draw(); });
     on("[data-card]", "click", (e) => { const p = S.personas[e.currentTarget.dataset.card]; showPersonaCard(`${p.art}${appearance}`, p, companyId, null); });
     on("[data-pick]", "click", (e) => roleScreen(companyId, e.currentTarget.dataset.pick, appearance));
     on("[data-act=back]", "click", companyScreen);
@@ -682,7 +687,7 @@ function roleScreen(companyId, personaId, appearance) {
     newRun(appearance);
     resumeEntry();
   });
-  on("[data-act=back]", "click", () => personaScreen(companyId, appearance));
+  on("[data-act=back]", "click", () => personaScreen(companyId, appearance, personaId));
 }
 
 // start：开局时的投递进度记号（续玩时用存档里的，不重新算）
@@ -847,6 +852,7 @@ function resumeReveal(resume, skipped, timedOut) {
   const rr = resumeResult(c, resume.order, resume.skills);
   const review = resumeReview(c, resume.order, resume.skills, rr);
   const max = Math.max(screen.pass_line * 1.8, rr.score + 0.3);
+  run.awarded = new Set();
   const machine = rr.hits === null ? "" : `<h3>机器扫描</h3>
     <p class="fine">命中 ${rr.hits.length} 个岗位关键词，最低要求 ${screen.machine_min} 个。</p>
     <div class="skills scan" style="padding:0">${screen.machine_keywords.map((k) => `<span class="chip ${rr.hits.includes(k) ? "on" : ""}">${esc(k)}</span>`).join("")}</div>`;
@@ -864,9 +870,10 @@ function resumeReveal(resume, skipped, timedOut) {
     <button class="primary block" data-act="next">${rr.passed ? "等通知" : "看看为什么"}</button>
   </div>`);
   requestAnimationFrame(() => { const f = app.querySelector(".scorebar .fill"); if (f) f.style.width = `${Math.min(100, (rr.score / max) * 100)}%`; });
+  if (rr.passed) award(["resume_pass", ...(skipped ? [] : ["handmade"]), ...(!skipped && rr.score >= screen.pass_line + 0.5 ? ["resume"] : [])]);
   on("[data-act=next]", "click", async () => {
     if (!rr.passed) {
-      eliminate({ stage: "resume", stageIdx: 0, stageName: "简历关", title: `${c.company.name} · 简历关没过筛选`, explain: review.notes.join(" "), tags: ["resume"], dexKey: `${c.combo.id}:resume:${review.notes[0]}` });
+      eliminate({ stage: "resume", stageIdx: 0, stageName: "简历关", title: `${c.company.name} · 简历关没过筛选`, explain: review.notes.join(" "), tags: ["resume"], dexKey: `${c.combo.id}:resume:${review.notes[0]}`, skipped });
       return;
     }
     Object.assign(run, { resume, skipped, resumeScore: rr.score, bonus: resumeBonus(c, rr.margin), margins: {}, log: [], holds: 0, sspQualified: false, zone: null, extra: {} });
@@ -967,6 +974,7 @@ function playTest(stageIdx) {
           return;
         }
         run.extra.testScore = tr.score;
+        award(tr.score === 100 ? ["test_full"] : tr.score >= 80 ? ["test_high"] : []);
         run.bonus += tr.bonus;
         run.carry += tr.bonus;
         tr.flags.forEach((f) => run.interview.flags.add(f));
@@ -1166,6 +1174,7 @@ function playGroup(stageIdx) {
     }
     gr.flags.forEach((f) => run.interview.flags.add(f));
     run.extra.groupRank = gr.rank;
+    award([gr.rank === 1 ? "group_top" : "group_pass"]);
     resolve({ ok: true });
   });
 }
@@ -1257,7 +1266,10 @@ async function playRound(stageIdx, rid) {
         level += 1;
         continue;
       }
-      if (o.type === "hold") run.holds += 1;
+      if (o.type === "hold") {
+        run.holds += 1;
+        award([run.holds >= 5 ? "hold5" : run.holds >= 3 ? "hold3" : "hold1"]);
+      }
       score += o.delta;
       entry.delta += o.delta;
       break;
@@ -1393,7 +1405,9 @@ function eliminationScreen(e, fresh) {
   const bombs = e.stage === "resume" ? [] : unprobedBombs();
   const { html: review, rest } = e.stage === "resume" ? { html: "", rest: 0 } : reviewBlock(fatal ? run.log.slice(0, -1) : run.log, bombs);
   const highlight = run.holds ? `接住了 ${run.holds} 次追问` : "下一次再冲";
-  const achs = runAchievements("out", { stage: e.stage, redline: !!e.quote });
+  const earnedAll = earnedAchievements("out", { stage: e.stage, redline: !!e.quote, skipped: e.skipped });
+  const achs = earnedAll.slice(0, 3);
+  award(earnedAll.map((a) => a.id));
   const card = shareCardHtml({ c, headline: spaced(`${c.company.name} · 止步${e.stageName}`), record: spaced(`第 ${run.attempt} 次挑战`), highlight, big: true, achs });
   // 有了 3 点复盘，上面的复盘只留第一段（原因），逐题的解析看下面
   const explain = review ? e.explain.split("\n\n")[0] : e.explain;
@@ -1562,7 +1576,10 @@ function negValue(o) {
 // ---------------------------------------------------------------- 结算复盘的解锁（原型只模拟交互，不接真实支付、分享和跳转）
 // 没解锁时，完整复盘只显示失分最多的 3 条，其余要付费或分享解锁；解锁后送一次 AI 模拟面试（正式产品入口）。
 // 失分：面试题是这一题最好的选项能拿的分减去实际得分（含时间扣分）；群面、谈薪、笔试各自折算到差不多的量级。
-const unlockState = () => store.get(KEY.unlock, null);
+// 测试版不开放解锁：分享、付费两个按钮只提示“测试版不支持解锁”，分享只是分享；本机以前存下的解锁状态也不认。
+// 正式版接上真实支付和分享成功的确认以后，改成 true。
+const UNLOCK_OPEN = false;
+const unlockState = () => (UNLOCK_OPEN ? store.get(KEY.unlock, null) : null);
 function unlockReview(method) { store.set(KEY.unlock, { method, at: new Date().toISOString(), voucher: 1, used: false }); }
 function lostPoints(l) { return l.best !== undefined ? l.best - l.delta : (l.regret || 0); }
 // 扣分：面试题就是揭晓页上这一题的得分（含时间扣分）低于 0 的部分；笔试、群面、谈薪没有逐题得分，用各自折算过的失误量
@@ -1632,14 +1649,15 @@ const ACHIEVEMENTS = [
 ];
 // 门槛低的几个（接住追问、没踩红线、简历过关、亲手拼简历、初次登场）是给淘汰的局兜底的，保证大多数局都能凑满三个
 
-// kind：offer（拿到了）或 out（被淘汰）。ctx：结算时才有的信息（档位、谈薪结果、谈薪对象），淘汰时传淘汰的关卡
-function runAchievements(kind, ctx = {}) {
+// kind：offer（拿到了）或 out（被淘汰）。ctx：结算时才有的信息（档位、谈薪结果、谈薪对象），淘汰时传淘汰的关卡。
+// 返回这一局拿到的全部成就，越难得越靠前；分享卡只放前三个（runAchievements）
+function earnedAchievements(kind, ctx = {}) {
   const c = S.c;
   const run = S.run;
   const asked = run.log.filter((l) => l.chain && l.best !== undefined);
   const earned = new Set(["debut"]);
-  // 简历关没过时 run 里还是上一次的记录，不能用。默认简历一定能过，所以挂在简历关的一定是自己拼的
-  if (ctx.stage === "resume") return ACHIEVEMENTS.filter((a) => ["handmade", "debut"].includes(a.id));
+  // 简历关没过时 run 里还是上一次的记录，不能用；用的是不是默认简历由淘汰信息带过来（不对口的组合默认简历也可能过不了）
+  if (ctx.stage === "resume") return ACHIEVEMENTS.filter((a) => (ctx.skipped ? ["debut"] : ["handmade", "debut"]).includes(a.id));
   earned.add("resume_pass");
   if (!run.skipped) earned.add("handmade");
   if (!ctx.redline) earned.add("no_redline");
@@ -1662,7 +1680,49 @@ function runAchievements(kind, ctx = {}) {
   const reverses = asked.filter((l) => l.kind === "reverse");
   if (reverses.length >= 2 && reverses.every((l) => l.delta >= l.best)) earned.add("reverse");
   if (!run.skipped && run.resumeScore !== undefined && run.resumeScore >= c.company.resume_screen.pass_line + 0.5) earned.add("resume");
-  return ACHIEVEMENTS.filter((a) => earned.has(a.id)).sort((a, b) => b.p - a.p).slice(0, 3);
+  return ACHIEVEMENTS.filter((a) => earned.has(a.id)).sort((a, b) => b.p - a.p);
+}
+function runAchievements(kind, ctx = {}) { return earnedAchievements(kind, ctx).slice(0, 3); }
+
+// ---------------------------------------------------------------- 成就弹窗：达成的那一刻在右下角弹一下
+// 几乎每局都有的几个只在第一次拿到时弹，免得每局刷屏
+const QUIET_ACH = new Set(["debut", "resume_pass", "handmade", "no_redline"]);
+let toastBox = null;
+function achToast(a, first, order = 0) {
+  if (!toastBox) {
+    toastBox = document.createElement("div");
+    toastBox.id = "toasts";
+    toastBox.setAttribute("role", "status");
+    toastBox.setAttribute("aria-live", "polite");
+    toastBox.innerHTML = '<div class="stack"></div>';
+    document.body.appendChild(toastBox);
+  }
+  const ico = hasArt(`UI_ach_${a.id}`) ? `<img src="art/UI_ach_${a.id}.png" alt="">` : `<i>${esc(a.icon)}</i>`;
+  const el = document.createElement("div");
+  el.className = `ach-toast ${a.tier}`;
+  el.innerHTML = `<span class="ach-ico">${ico}</span><span class="t"><span class="fine">${first ? "新成就" : "获得成就"}</span><b>${esc(a.name)}</b><span class="fine">${esc(a.desc)}</span></span>`;
+  // 同时拿到几个时错开半秒依次弹出，每个停 3 秒
+  setTimeout(() => {
+    toastBox.firstElementChild.appendChild(el);
+    setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 3000);
+  }, order * 500);
+}
+// 这一局刚达成的成就：每个只弹一次。结算、淘汰时把还没弹过的补上
+function award(ids) {
+  const run = S.run;
+  if (!run || !ids.length) return;
+  run.awarded ||= new Set();
+  const ever = new Set(store.get(KEY.achs, []) || []);
+  let order = 0;
+  for (const a of ACHIEVEMENTS.filter((x) => ids.includes(x.id)).sort((x, y) => y.p - x.p)) {
+    if (run.awarded.has(a.id)) continue;
+    run.awarded.add(a.id);
+    const first = !ever.has(a.id);
+    ever.add(a.id);
+    if (QUIET_ACH.has(a.id) && !first) continue;
+    achToast(a, first, order++);
+  }
+  store.set(KEY.achs, [...ever]);
 }
 
 function achievementsHtml(list, big = false) {
@@ -1702,7 +1762,7 @@ function reviewBlock(log, bombs) {
       : `<div class="card locked-review">
           <b>还有 ${rest.length} 条复盘${bombs.length ? `、${bombs.length} 个没被追问到的简历雷` : ""}</b>
           <div class="locked-rows" aria-hidden="true"><i></i><i></i><i></i></div>
-          <p class="fine">付费或者分享给好友，就能解锁全部，再送你一次 AI 模拟面试。</p>
+          <p class="fine">${UNLOCK_OPEN ? "付费或者分享给好友，就能解锁全部，再送你一次 AI 模拟面试。" : "正式版里付费或者分享给好友就能解锁全部，再送一次 AI 模拟面试；测试版暂不支持解锁。"}</p>
           <div class="row"><button class="block" data-act="unlock-share">分享解锁</button><button class="primary block" data-act="unlock-pay">付费解锁</button></div>
         </div>`}`;
   return { html, rest: rest.length };
@@ -1711,9 +1771,10 @@ function reviewBlock(log, bombs) {
 // 复盘区块和分享入口的按钮。back：解锁或分享完回到哪个界面（重新画一遍当前页）。
 function bindReview(card, restCount, bombCount, back) {
   const afterUnlock = () => giftOverlay(() => aiEntry(back), back);
-  on("[data-act=unlock-share]", "click", () => sharePage(card, afterUnlock, back));
-  on("[data-act=share-page]", "click", () => sharePage(card, unlockState() ? back : afterUnlock, back));
-  on("[data-act=unlock-pay]", "click", () => payOverlay(restCount, bombCount, afterUnlock));
+  const closed = () => notice("测试版不支持解锁", "完整复盘的解锁在测试版里还没开放，付费、分享都解锁不了。", "知道了");
+  on("[data-act=unlock-share]", "click", () => (UNLOCK_OPEN ? sharePage(card, afterUnlock, back) : closed()));
+  on("[data-act=share-page]", "click", () => sharePage(card, UNLOCK_OPEN && !unlockState() ? afterUnlock : back, back));
+  on("[data-act=unlock-pay]", "click", () => (UNLOCK_OPEN ? payOverlay(restCount, bombCount, afterUnlock) : closed()));
   on("[data-act=ai]", "click", () => aiEntry(back));
 }
 
@@ -1735,7 +1796,7 @@ function notice(title, text, button = "知道了") {
 function sharePage(card, onShared, onBack) {
   render(`<div class="screen">
     <h2>分享战绩</h2>
-    <p class="fine">分享给好友，就能解锁完整复盘，再送你一次 AI 模拟面试。</p>
+    <p class="fine">${UNLOCK_OPEN ? "分享给好友，就能解锁完整复盘，再送你一次 AI 模拟面试。" : "把这一局的战绩分享给好友。"}</p>
     ${card}
     <p class="fine center">好友扫码，直接挑战同一家公司。（示意二维码，正式版由程序生成）</p>
     <button class="primary block" data-act="share">分享给好友（模拟）</button>
@@ -1745,8 +1806,8 @@ function sharePage(card, onShared, onBack) {
   on("[data-act=save]", "click", () => notice("保存图片", "正式版会把这张卡生成图片，保存到相册。原型里不生成。"));
   on("[data-act=back]", "click", onBack);
   on("[data-act=share]", "click", async () => {
-    // 已经解锁过的再分享，只是分享，不再送一次
-    const first = !unlockState();
+    // 已经解锁过的再分享，只是分享，不再送一次；测试版分享不解锁
+    const first = UNLOCK_OPEN && !unlockState();
     await notice("已分享（模拟）", first ? "正式版这里会调起微信分享，确认分享成功后才解锁。原型里直接当作分享成功。" : "正式版这里会调起微信分享。", "好");
     if (first) unlockReview("share");
     onShared();
@@ -1787,7 +1848,7 @@ function aiEntry(back) {
     <h2>AI 模拟面试</h2>
     <p>同一个岗位、同样的面试官，这次没有选项，你得自己说出来。</p>
     <div class="card"><b>${free ? "免费一次 · 可用" : u ? "免费的那一次已经用过" : "还没有免费次数"}</b>
-      <p class="fine">${free ? `来自${u.method === "pay" ? "付费" : "分享"}解锁完整复盘时的赠送。` : u ? "可以单独购买（价格待定）。" : "解锁完整复盘时会送一次。"}</p></div>
+      <p class="fine">${free ? `来自${u.method === "pay" ? "付费" : "分享"}解锁完整复盘时的赠送。` : u ? "可以单独购买（价格待定）。" : UNLOCK_OPEN ? "解锁完整复盘时会送一次。" : "正式版里解锁完整复盘时会送一次；测试版暂不支持解锁。"}</p></div>
     <p class="fine">这里是正式产品的入口，原型不跳转。</p>
     <button class="primary block" data-act="start">${free ? "用免费的那一次开始" : "去 AI 模拟面试"}</button>
     <button class="ghost block" data-act="back">返回</button>
@@ -1827,7 +1888,9 @@ function resultScreen(base, fin, neg) {
   const record = spaced(run.firstFail ? `首次止步${run.firstFail}，第 ${run.attempt} 次拿下 ${tierName}` : `首次挑战就拿下 ${tierName}`);
   const highlight = run.holds ? `接住了 ${run.holds} 次追问` : "全程稳扎稳打";
   const bombs = unprobedBombs();
-  const achs = runAchievements("offer", { tier, fin, neg });
+  const earnedAll = earnedAchievements("offer", { tier, fin, neg });
+  const achs = earnedAll.slice(0, 3);
+  award(earnedAll.map((a) => a.id));
   const card = (big) => shareCardHtml({ c, headline: `${c.company.name} · ${tierName}`, record, highlight, big, achs });
   const { html: review, rest } = reviewBlock(run.log, bombs);
   const unlocked = unlockState();
@@ -1925,10 +1988,11 @@ function artCheckScreen(face = "calm") {
     <h2>拼合检查</h2>
     <p class="fine">每个面试场景 × 面试官按原型的真实样式摆放。看立绘和桌子的接缝：不能从桌面里长出来，也不能悬空。</p>
     <div class="row" style="flex-wrap:wrap;gap:4px">${INTERVIEWER_FACES.map((f) => `<button class="chip${f === face ? " on" : ""}" data-face="${f}">${FACE_LABEL[f]}</button>`).join("")}</div>
-    <div class="row" style="flex-wrap:wrap;gap:4px"><button data-play="invite">播放：等通知（邀约）</button><button data-play="reject">播放：等通知（感谢信）</button><button data-play="pool">播放：泡池子</button></div>
+    <div class="row" style="flex-wrap:wrap;gap:4px"><button data-play="invite">播放：等通知（邀约）</button><button data-play="reject">播放：等通知（感谢信）</button><button data-play="pool">播放：泡池子</button><button data-toast>播放：成就弹窗</button></div>
     ${tiles.join("")}
   </div>`);
   on("[data-face]", "click", (e) => artCheckScreen(e.currentTarget.dataset.face));
+  on("[data-toast]", "click", () => ["hold1", "test_high", "ssp"].forEach((id, i) => achToast(ACHIEVEMENTS.find((a) => a.id === id), i === 2, i)));
   // 按真实界面播一遍动画，放完回到这一页（泡池子后面接的信件要点“继续”）
   on("[data-play]", "click", async (e) => {
     const kind = e.currentTarget.dataset.play;
