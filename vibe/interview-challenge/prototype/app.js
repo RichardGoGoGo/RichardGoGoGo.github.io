@@ -608,12 +608,11 @@ function companyScreen() {
     ...Object.entries(S.catalog.sectors || {}).filter(([k]) => !S.catalog.companies.some((id) => S.companies[id].sector === k))
       .map(([, v]) => ({ name: v.name, type: "", stars: 0, note: "后续解锁" })),
   ];
-  const map = sceneVars("S0");
+  // 试玩版不放公司地图（带招牌的楼），只用下面的公司卡片选
   const companies = S.catalog.companies.map((id) => S.companies[id]);
   render(`<div class="screen">
-    ${map ? companyMapHtml() : ""}
     <h2>选公司</h2>
-    <p class="muted">${map ? "" : "S0 公司选择地图（占位）。"}公司按类型和规模分，星星越多越难，面法也各不一样。</p>
+    <p class="muted">公司按类型和规模分，星星越多越难，面法也各不一样。</p>
     ${companies.filter((co) => tracksOf(co.id).length).map((co) => `<button class="card block" data-company="${co.id}">
       <span class="row">${co.logo && hasArt(co.logo) ? `<img src="art/${co.logo}.png" width="32" height="32" alt="">` : ""}<b>${esc(co.name)}</b><span class="tag">${esc(co.type_label)}</span><span class="spacer"></span>${"★".repeat(co.stars)}</span>
       <span class="fine">招：${tracksOf(co.id).map((t) => S.catalog.roles[t.role].full).join("、")}</span>
