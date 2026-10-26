@@ -41,7 +41,7 @@ export async function loadLibrary(readJson) {
   return lib;
 }
 
-// 暂存区里给这个人设补的东西合进档案：p、skills、经历的 p / frames / relevance 覆盖同名的，经历的 highlights、variants 追加，card_lines 插在人设卡“短板”那行之前（行可以带 roles、companies，只在那些岗位、公司显示）
+// 暂存区里给这个人设补的东西合进档案：p、skills、经历的 p / frames / relevance 覆盖同名的，经历的 highlights、variants 追加，card_lines 插在人设卡“短板”（或“待补能力”）那行之前（行可以带 roles、companies，只在那些岗位、公司显示）
 export function applyStaging(P0, staged) {
   const mine = staged.map((s) => s[P0.id]).filter(Boolean);
   if (!mine.length) return P0;
@@ -78,7 +78,7 @@ export function applyStaging(P0, staged) {
     }
     if (s.card_lines && s.card_lines.length) {
       const lines = P.card.lines;
-      const at = lines.findIndex((l) => (typeof l === "string" ? l : l.text).startsWith("短板"));
+      const at = lines.findIndex((l) => /^(短板|待补能力)/.test(typeof l === "string" ? l : l.text));
       lines.splice(at < 0 ? lines.length : at, 0, ...s.card_lines);
     }
     Object.assign(P.card.company_notes ||= {}, s.company_notes || {});
