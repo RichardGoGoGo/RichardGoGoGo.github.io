@@ -17,6 +17,7 @@ weight: 4
 deep: /deep/2026-10-22-canva-craft-first-image-model/
 pinned: true
 pin_until: 2026-10-30
+editor_pick: true
 ---
 
 Canva 于 10 月 22 日发布图像生成模型 Craft，官方称这是内部实验室 Canva Research 从零构建和训练的首个基础模型。Craft 分两阶段：规划模型先写出构图方案，包括元素、空间关系、比例、视觉层级和画面中的文字，渲染模型再按方案出图，最高 2K 分辨率、30 多种长宽比，画面文字支持 55 种语言。训练数据侧重 Canva 内容库中数百万份人工制作的模板，如海报、社交媒体图、演示文稿和信息图；生成结果可用 Magic Layers 转成可编辑图层。Craft 即日起向全球所有 Canva 用户开放，入口在 Dream Lab，同时开放公共 API；Canva MCP 接入以及低成本版本 Craft-fast、Craft-ultrafast 尚未上线。Canva 称 Craft 发布时在 DesignArena 图像榜排第四，榜单显示前三均为 OpenAI 模型；据 TechCrunch 报道，Canva 此前使用过多种外部图像模型，被收购的 Leonardo.ai 的研究人员也参与了开发。

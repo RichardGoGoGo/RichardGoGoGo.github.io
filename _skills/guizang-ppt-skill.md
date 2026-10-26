@@ -6,9 +6,9 @@ src: "https://github.com/op7418/guizang-ppt-skill"
 risk: medium
 theme: [design-teaching, creative-web]
 repo: "op7418/guizang-ppt-skill"
-stars: 28496
+stars: 28695
 pushed: 2026-08-07
-stats_at: 2026-10-23
+stats_at: 2026-10-26
 tags: [幻灯片, 演示, 设计视觉, Skill]
 summary: "生成单文件 HTML 横向翻页的网页 PPT：「电子杂志 × 电子墨水」与「瑞士国际主义」两种风格，带 WebGL 背景、演讲者视图、观众屏同步和讲稿备注；先用 7 个问题澄清需求，再按叙事弧排页，交付前用脚本校验版式。AGPL-3.0。"
 ---

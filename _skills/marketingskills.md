@@ -6,9 +6,9 @@ src: "https://github.com/coreyhaines31/marketingskills"
 risk: low
 theme: [digital-team]
 repo: "coreyhaines31/marketingskills"
-stars: 56130
+stars: 56627
 pushed: 2026-10-22
-stats_at: 2026-10-23
+stats_at: 2026-10-26
 tags: [内容发布, 营销, 文案, Skill]
 summary: "Corey Haines 的 46 个营销 skill，覆盖社媒、文案、SEO 与 AI 搜索优化、邮件、广告、转化优化和定价，附 64 个营销工具 API 的零依赖命令行工具；每个 skill 先读共享的产品营销档案，只追问缺失的信息。内容面向英文 SaaS 场景。"
 ---

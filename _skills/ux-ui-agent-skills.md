@@ -6,9 +6,9 @@ src: "https://github.com/plugin87/ux-ui-agent-skills"
 risk: medium
 theme: [creative-web, design-teaching]
 repo: "plugin87/ux-ui-agent-skills"
-stars: 2855
-pushed: 2026-10-20
-stats_at: 2026-10-23
+stars: 3020
+pushed: 2026-10-26
+stats_at: 2026-10-26
 tags: [UI 设计, 设计系统, 无障碍, Skill]
 summary: "面向 Claude Code / Codex 的 UI/UX 设计系统套件：三层设计 token、52 个组件规范、WCAG 2.2 AA 到 AAA 的无障碍要求，以及 52 个用浏览器实测（不靠模型自述）的质量门；附「去 AI 味」检查脚本和 138 个以品牌命名的设计风格库。"
 ---

@@ -6,9 +6,9 @@ src: "https://github.com/Agents365-ai/drawio-skill"
 risk: low
 theme: [design-teaching]
 repo: "Agents365-ai/drawio-skill"
-stars: 10314
+stars: 10369
 pushed: 2026-10-11
-stats_at: 2026-10-23
+stats_at: 2026-10-26
 stars_7d: 201
 tags: [设计视觉, 技术图表, drawio, Skill]
 summary: "自然语言 → draw.io 技术图表（架构图/UML/ERD/C4/ML 模型/流程图），6 种预设，自带视觉自检，导出 PNG/SVG/PDF/JPG。"

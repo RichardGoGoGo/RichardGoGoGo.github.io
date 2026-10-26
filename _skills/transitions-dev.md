@@ -6,9 +6,9 @@ src: "https://github.com/Jakubantalik/transitions.dev"
 risk: medium
 theme: [creative-web, design-teaching]
 repo: "Jakubantalik/transitions.dev"
-stars: 5535
-pushed: 2026-10-23
-stats_at: 2026-10-23
+stars: 5780
+pushed: 2026-10-25
+stats_at: 2026-10-26
 tags: [动效, 交互设计, CSS, Skill]
 summary: "35 个 CSS / React 界面过渡动效配方和一套动效 token 规范，免费 skill 按「可见的界面元素 + 动作」选动效并统一时长、位移、缩放、模糊、缓动；同仓另有付费的 Motion Agent，修复时会把源文件发到作者的云端服务。配方免费可商用但禁止再分发。"
 ---
