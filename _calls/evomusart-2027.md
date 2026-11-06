@@ -7,7 +7,7 @@ src: "https://www.evostar.org/2027/evomusart/"
 deadline: 2027-03-21
 tags: [学术会议, 计算创意, AI音乐, AI艺术, 生成设计, LNCS]
 topics: ["研究论文"]
-summary: "EvoMusArt 2027 是 EvoStar 旗下的第16届 AI 音乐、声音、艺术与设计国际会议，2027年3月31日至4月2日在德国美因茨举行，论文收录 Springer LNCS；正式论文截稿2026年11月1日，Late-Breaking Abstracts 截止2027年3月21日。"
+summary: "EvoMusArt 2027 是 EvoStar 旗下的第16届 AI 音乐、声音、艺术与设计国际会议，2027年3月31日至4月2日在德国美因茨举行，论文收录 Springer LNCS；正式论文截稿已延至2026年11月16日，Late-Breaking Abstracts 截止2027年3月21日。"
 ---
 
 **类型**：学术会议
@@ -19,7 +19,7 @@ summary: "EvoMusArt 2027 是 EvoStar 旗下的第16届 AI 音乐、声音、艺�
 **适合方向**：生成艺术与生成设计、AI 音乐与声音、计算创意、创意系统评估与人机协同创作等方向的研究者与研究生。
 
 **截止与要求**：
-- 正式论文投稿截止：2026-11-01
+- 正式论文投稿截止：2026-11-16（由原 2026-11-01 延期）
 - 录用通知：2027-01-10
 - 终稿（camera-ready）截止：2027-01-24
 - 作者强制注册截止：2027-02-03
